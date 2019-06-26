@@ -19,7 +19,7 @@ In Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are
 
 Consider the following items related to binding extensions:
 
-- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio 2019](#local-csharp).
+- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio](#local-csharp).
 
 - HTTP and timer triggers are supported by default and don't require an extension.
 
@@ -28,16 +28,44 @@ The following table indicates when and how you register bindings.
 | Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|Automatic|Automatic|
-|Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
+|Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#extension-bundles)|
 |C# class library using Visual Studio 2019|[Use NuGet tools](#c-class-library-with-visual-studio-2019)|[Use NuGet tools](#c-class-library-with-visual-studio-2019)|
 |C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-## Local development with Azure Functions Core Tools and extension bundles
+## <a name="extension-bundles"></a>Extension bundles for local development
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+Extension bundles is a local development technology for the version 2.x runtime that lets you add a compatible set of Functions binding extensions to your function app project. These extension packages are then included in the deployment package when you deploy to Azure. Bundles makes all bindings published by Microsoft available through a setting in the *host.json* file. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2).
+
+Use extension bundles for all local development using Azure Functions Core Tools or Visual Studio Code.
+
+If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you install any binding extensions. Bundles removes this requirement for local development. 
+
+To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
+```
+
+The following properties are available in `extensionBundle`:
+
+| Property | Description |
+| -------- | ----------- |
+| **`id`** | The namespace for Microsoft Azure Functions extension bundles. |
+| **`version`** | The version of the bundle to install. The Functions runtime always picks the maximum permissible version defined by the version range or interval. The version value above allows all bundle versions from 1.0.0 up to but not including 2.0.0. For more information, see the [interval notation for specifying version ranges](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). |
+
+Bundle versions increment as packages in the bundle change. Major version changes occur when packages in the bundle increment by a major version, which usually coincides with a change in the major version of the Functions runtime.  
+
+The current set of extensions installed by the default bundle are enumerated in this [extensions.json file](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
 
 <a name="local-csharp"></a>
-## C# class library with Visual Studio 2019
+
+## C\# class library with Visual Studio 2019
 
 In **Visual Studio 2019**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
@@ -51,7 +79,10 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 
 ## C# class library with Visual Studio Code
 
-In **Visual Studio Code**, you can install packages from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI, as shown in the following example:
+> [!NOTE]
+> We recommend using [extension bundles](#extension-bundles) to have Functions automatically install a compatible set of binding extension packages.
+
+In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI, as shown in the following example:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARGET_VERSION>
