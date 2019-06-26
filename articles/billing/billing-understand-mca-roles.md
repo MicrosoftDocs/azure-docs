@@ -1,18 +1,14 @@
 ---
 title: Understand billing administrative roles for Microsoft Customer Agreements - Azure
 description: Learn about billing roles for billing accounts in Azure for Microsoft Customer Agreements.
-services: 'billing'
-documentationcenter: ''
 author: amberbhargava
 manager: amberbhargava
-editor: ''
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
 ---
 # Understand Microsoft Customer Agreement administrative roles in Azure
@@ -180,7 +176,7 @@ The following table shows what role you need to complete tasks in the context of
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management + Billing**.
+2. Search for **Cost Management + Billing**.
 
    ![Screenshot that shows Azure portal search](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

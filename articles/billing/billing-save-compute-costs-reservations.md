@@ -1,11 +1,11 @@
 ---
-title: What are Azure Reservations? | Microsoft Docs
+title: What are Azure Reservations?
 description: Learn about Azure Reservations and pricing to save on your virtual machines, SQL databases, Azure Cosmos DB and other resource costs.
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
 ---
 
@@ -13,7 +13,7 @@ ms.author: banders
 
 Azure Reservations help you save money by pre-paying for one-year or three-years of virtual machines, SQL Database compute capacity, Azure Cosmos DB throughput, or other Azure resources. Pre-paying allows you to get a discount on the resources you use. Reservations can significantly reduce your virtual machine, SQL database compute, Azure Cosmos DB, or other resource costs up to 72% on pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources.
 
-You can buy a reservation in the [Azure portal](https://aka.ms/reservations).
+You can buy a reservation in the [Azure portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
 ## Why buy a reservation?
 
@@ -23,9 +23,9 @@ If you have virtual machines, Azure Cosmos DB, or SQL databases that run for lon
 
 Service plans:
 
-- Reserved Virtual Machine Instance: A reservation only covers the virtual machine compute costs. It doesn't cover additional software, networking, or storage charges.
-- Azure Cosmos DB reserved capacity: A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
-- SQL Database reserved vCore: Only the compute costs are included with a reservation. The license is billed separately.
+- **Reserved Virtual Machine Instance** - A reservation only covers the virtual machine compute costs. It doesn't cover additional software, networking, or storage charges.
+- **Azure Cosmos DB reserved capacity** - A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
+- **SQL Database reserved vCore** - Only the compute costs are included with a reservation. The license is billed separately.
 
 For Windows virtual machines and SQL Database, you can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -33,9 +33,9 @@ For Windows virtual machines and SQL Database, you can cover the licensing costs
 
 To buy a plan, you must have a subscription owner role in an Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go subscription (MS-AZR-003P or MS-AZR-0023P). Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations) to purchase Azure Reservations.
 
-EA customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in EA Portal. EA admins must be a subscription owner for at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations for different cost centers. After the purchase, centralized teams can add cost center owners to the reservations. Owners can then scope the reservation to their subscriptions. The central team doesn't need to have subscription owner access where the reservation is purchased.
+EA customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in the EA Portal. EA admins must be a subscription owner for at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations for different cost centers. After the purchase, centralized teams can add cost center owners to the reservations. Owners can then scope the reservation to their subscriptions. The central team doesn't need to have subscription owner access where the reservation is purchased.
 
-A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types.
+A reservation discount only applies to resources associated with subscriptions purchased through Enterprise, CSP, and individual plans with pay-as-you-go rates.
 
 ## Reservation scope
 
@@ -43,8 +43,7 @@ A reservation scope determines the resources to which the reservation discount a
 
 **Shared scope** - The reservation discount is applied to the matching resources in eligible subscriptions within the billing context.
 
-- For Enterprise Agreement customers, the billing context is the enrollment.
- For Pay-as-you-go customers, the billing scope is all eligible subscriptions created by the account administrator.
+- For Enterprise Agreement customers, the billing context is the enrollment. For customers that have individual plans with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 
 **Single subscription** - The reservation discount is applied to the matching resources in the selected subscription.
 
@@ -55,14 +54,14 @@ You can [update the scope after you purchase a reservation](billing-manage-reser
 Reservation discounts apply to the following eligible subscriptions and offer types.
 
 - Enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P)
-- Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P)
+- Individual plans with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P)
 - CSP subscriptions
 
 Resources that run in a subscription with other offer types don't receive the reservation discount.
 
 ## How is a reservation billed?
 
-The reservation is charged to the payment method tied to the subscription. If you have an Enterprise subscription, the reservation cost is deducted from your monetary commitment balance. If your monetary commitment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a Pay-As-You-Go subscription, the credit card you have on your account is billed immediately. If you're billed by invoice, you see the charges on your next invoice.
+The reservation is charged to the payment method tied to the subscription. If you have an Enterprise subscription, the reservation cost is deducted from your monetary commitment balance. If your monetary commitment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have on your account is billed immediately. If you're billed by invoice, you see the charges on your next invoice.
 
 ## How reservation discount is applied
 
@@ -76,7 +75,7 @@ For example, you might later create a resource and have a matching reservation t
 
 If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
 
-A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types. Resources that run in a subscription with other offer types don't receive the reservation discount.
+A reservation discount only applies to resources associated with Enterprise, CSP, or subscriptions with pay-as-you go rates. Resources that run in a subscription with other offer types don't receive the reservation discount.
 
 ## When the reservation term expires
 
@@ -100,7 +99,7 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 - Learn more about Azure Reservations with the following articles:
     - [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
-    - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
+    - [Understand reservation usage for your subscription with pay-as-you-go rates](billing-understand-reserved-instance-usage.md)
     - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
     - [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
     - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

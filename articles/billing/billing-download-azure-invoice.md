@@ -46,7 +46,7 @@ For more information about your invoice, see [Understand your bill for Microsoft
 
 Invoices are generated for each [billing profile](billing-mca-overview.md#billing-profiles) in the Microsoft Customer Agreement. You must be a billing profile Owner, Contributor, Reader, or Invoice manager to download invoices from the Azure portal.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. Select **Invoices**.
@@ -65,32 +65,32 @@ You can opt in and configure additional recipients to receive your Azure invoice
 
 ### Get your subscription's invoices in email
 
-1. Select your subscription on the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt-in for each subscription you own. Click **Invoices** then **Email my invoice**.
+1. Select your subscription on the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt in for each subscription you own. Click **Invoices** then **Email my invoice**.
 
-    ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
+    ![Screenshot that shows the opt in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
 
 2. Click **Opt in** and accept the terms.
 
-    ![Screenshot that shows the opt-in flow step 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+    ![Screenshot that shows the opt in flow step 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
 
 3. When you've accepted the agreement, you can configure additional recipients. When a recipient is removed, the email address is no longer stored. If you change your mind, you need to re-add them.
 
-    ![Screenshot that shows the opt-in flow step 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Screenshot that shows the opt in flow step 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
 
 If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.windowsazure.com/profile).
 
-### Opt-out of getting your subscription's invoices in email
+### Opt out of getting your subscription's invoices in email
 
-To opt-out of getting your invoice by email, follow the preceding steps and click **Opt out of emailed invoices**. This option removes any email addresses set to receive invoices in email. You can reconfigure recipients if you opt back in.
+To opt out of getting your invoice by email, follow the preceding steps and click **Opt out of emailed invoices**. This option removes any email addresses set to receive invoices in email. You can reconfigure recipients if you opt back in.
 
- ![Screenshot that shows the opt-out flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
+ ![Screenshot that shows the opt out flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ### Get your Microsoft Customer Agreement invoices in email
 
-If you have a Microsoft Customer Agreement, you can opt-in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference.
+If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **Cost Management + Billing**.
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. Under **Settings**, select **Properties**.
 1. Under **Email Invoice**, select **Update email invoice preference**.
@@ -100,9 +100,9 @@ If you have a Microsoft Customer Agreement, you can opt-in to get your invoice i
 1. Select **Opt in**.
 1. Click **Update**.
 
-### Opt-out of getting your Microsoft Customer Agreement invoices in email
+### Opt out of getting your Microsoft Customer Agreement invoices in email
 
-To opt-out of getting your invoice by email, follow the preceding steps and click **Opt out**. All Owners, Contributors, Readers, and Invoice managers are opted out of getting the invoice by email, too. If you're a Reader, you can't change the email invoice preference.
+To opt out of getting your invoice by email, follow the preceding steps and click **Opt out**. All Owners, Contributors, Readers, and Invoice managers are opted out of getting the invoice by email, too. If you're a Reader, you can't change the email invoice preference.
 
 ### <a name="noinvoice"></a> Why don't I see an invoice for the last billing period?
 

@@ -20,7 +20,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ## View transactions for an invoice in the Azure portal
 
-1. Sign-in to the [Azure portal](https://www.azure.com).
+1. Sign in to the [Azure portal](https://www.azure.com).
 
 2. Search for **Cost Management +Billing**.
 
@@ -43,7 +43,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
     |Invoice section     | The transaction shows up on this section of billing profile's invoice |
     |Billing profile     | The transaction shows up on this billing profile's invoice |
 
-5. Search on invoice ID to filter the transactions for the invoice.
+5. Search for invoice ID to filter the transactions for the invoice.
 
 ### View transactions by invoice sections
 
@@ -65,9 +65,9 @@ In the billing account for a Microsoft Customer Agreement, charges are estimated
 
 ### View summary of pending charges
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management +Billing**.
+2. Search for **Cost Management +Billing**.
 
    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
@@ -85,9 +85,9 @@ The month-to-date charges are the pending charges for the current month and are 
 
 When you identify pending charges, you can understand the charges by analyzing the individual transactions that contributed to the charges. At this point, pending usage charges aren't displayed on the All transaction page. You can view the pending usage charges on the Azure subscriptions page. For more information, see [view pending usage charges](#view-pending-usage-charges)
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management +Billing**.
+2. Search for **Cost Management +Billing**.
 
    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
@@ -101,7 +101,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 ### View pending usage charges
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for *Cost Management +Billing*.
 

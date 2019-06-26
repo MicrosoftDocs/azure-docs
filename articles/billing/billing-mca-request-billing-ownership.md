@@ -1,19 +1,16 @@
 ---
-title: Get billing ownership of Azure subscriptions | Microsoft Docs
+title: Get billing ownership of Azure subscriptions
 description: Learn how to request billing ownership of Azure subscriptions from other users.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
 
 ---
@@ -25,13 +22,13 @@ You can send a request to take ownership of Azure subscriptions from existing ow
 
 To request the billing ownership, you must be an **invoice section owner** or **invoice section contributor**. To learn more, see [invoice section roles tasks](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-for-access).
 
-## Request billing ownership in the Azure portal
+## Request billing ownership
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management + Billing**.
+2. Search for **Cost Management + Billing**.
 
    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
@@ -56,11 +53,11 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
     ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request.png)
 
-## Check the status of your transfer request in the Azure portal
+## Check the transfer request status
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management + Billing**.
+2. Search for **Cost Management + Billing**.
 
    ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
@@ -152,7 +149,7 @@ You can cancel the transfer request until the request is approved or declined. T
 
 SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you perform management operations like deleting and viewing the details of the product. User must be a resource owner on the SaaS product to transfer resource ownership.
 
-## Check access to a Microsoft Customer Agreement
+## Check for access
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Need help? Contact support

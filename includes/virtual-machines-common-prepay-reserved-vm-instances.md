@@ -3,7 +3,7 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 07/01/2019
 ---
 
 # Prepay for Virtual Machines with Azure Reserved VM Instances (RI)
@@ -12,7 +12,7 @@ Prepay for virtual machines and save money with Azure Reserved Virtual Machine (
 
 You can buy a Reserved VM Instance in the [Azure portal](https://portal.azure.com). To buy an instance:
 
-- You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
+- You must be in an Owner role for at least one Enterprise subscription or a subscription with a pay-as-you-go rate.
 - For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can buy reservations.
 
@@ -63,13 +63,13 @@ Reserved VM Instances are available for most VM sizes with some exceptions. Rese
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** to purchase a new reservation.
-4. Fill in the required fields. Running VM instances that match the attributes you select qualify to get the reservation discount. The actual number of your VM instances that get the discount depend on the scope and quantity selected.
+4. Enter required fields. Running VM instances that match the attributes you select qualify to get the reservation discount. The actual number of your VM instances that get the discount depend on the scope and quantity selected.
 
     | Field      | Description|
     |------------|--------------|
     |Name        |The name of this reservation.|
-    |Subscription|The subscription used to pay for the reservation. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.|    
-    |Scope       |The reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>Single subscription - The reservation discount is applied to VMs in this subscription. </li><li>Shared - The reservation discount is applied to VMs running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</li></ul>|
+    |Subscription|The subscription used to pay for the reservation. The payment method on the subscription is charged the upfront costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription.|    
+    |Scope       |The reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: <ul><li>Single subscription - The reservation discount is applied to VMs in this subscription. </li><li>Shared - The reservation discount is applied to VMs running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For customers with subscriptions that have pay-as-you-go rates, the shared scope is all subscriptions with pay-as-you-go rates created by the account administrator.</li></ul>|
     |Region    |The Azure region that’s covered by the reservation.|    
     |VM Size     |The size of the VM instances.|
     |Optimize for     |VM instance size flexibility applies the reservation discount to other VMs in the same [VM size group](https://aka.ms/RIVMGroups). Capacity priority prioritizes data center capacity for your deployments. This offers additional confidence in your ability to launch the VM instances when you need them. Capacity priority is only available when the reservation scope is single subscription. |
@@ -116,7 +116,7 @@ If you have questions or need help, [create a support request](https://portal.az
     - [What are Azure Reservations?](../articles/billing/billing-save-compute-costs-reservations.md)
     - [Manage Reservations in Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
     - [Understand how the reservation discount is applied](../articles/billing/billing-understand-vm-reservation-charges.md)
-    - [Understand reservation usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md)
+    - [Understand reservation usage for a subscription with pay-as-you-go rates](../articles/billing/billing-understand-reserved-instance-usage.md)
     - [Understand reservation usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
     - [Windows software costs not included with reservations](../articles/billing/billing-reserved-instance-windows-software-costs.md)
     - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)

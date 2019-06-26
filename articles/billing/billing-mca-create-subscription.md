@@ -1,19 +1,16 @@
 ---
-title: Create an additional Azure subscription for your billing account| Microsoft Docs
+title: Create an additional Azure subscription for your billing account
 description: Learn how to add a new Azure subscription in the Azure portal.
-services: 'billing'
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
 
 ---
@@ -21,11 +18,11 @@ ms.author: banders
 
 Create additional subscriptions for your billing account to set up separate environments for development and testing, security or to isolate data for compliance reasons.
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement). If you want to create subscriptions for other billing accounts, see [Create an additional subscription in the Azure portal](billing-create-subscription.md).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access). If you want to create subscriptions for other billing accounts, see [Create an additional subscription in the Azure portal](billing-create-subscription.md).
 
-To create a subscription, you must be an **invoice section owner**, **invoice section contributor**, or **Azure subscription creator**. For more information, see [Subscription billing roles and tasks](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). To provide others permission to create Azure subscriptions for your billing account, see [Give others permission to create Azure subscriptions](#give-others-permission-to-create-azure-subscriptions).
+To create a subscription, you must be an **invoice section owner**, **invoice section contributor**, or **Azure subscription creator**. For more information, see [Subscription billing roles and tasks](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). To provide others permission to create Azure subscriptions for your billing account, see [Give others permission to create Azure subscriptions](#give-others-permission).
 
-## Create a subscription in the Azure portal
+## Create a subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -49,13 +46,13 @@ To create a subscription, you must be an **invoice section owner**, **invoice se
 
 9. Select **Create**.
 
-## Give others permission to create Azure subscriptions
+## Give others permission
 
 Add users as Azure subscription creators on an invoice section to give them permission to create Azure subscriptions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management + Billing**.
+2. Search for **Cost Management + Billing**.
 
    ![Screenshot that shows search in portal for subscriptions](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
@@ -73,7 +70,7 @@ Add users as Azure subscription creators on an invoice section to give them perm
 
 8. Select **Save**.
 
-## Check access to a Microsoft Customer Agreement
+## Check access
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Need help? Contact support
