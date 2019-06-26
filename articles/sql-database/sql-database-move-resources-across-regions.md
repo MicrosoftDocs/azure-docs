@@ -36,6 +36,9 @@ This article provides a general workflow for moving resources to a different reg
   > [!NOTE]
   > This article applies to migrations within the Azure public cloud, or within the same sovereign cloud. 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Move single database
 
 ### Verify prerequisites 
