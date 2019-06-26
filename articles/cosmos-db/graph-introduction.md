@@ -5,7 +5,7 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 06/17/2019
+ms.date: 06/25/2019
 ms.author: lbosq
 ---
 # Introduction to Azure Cosmos DB: Gremlin API
