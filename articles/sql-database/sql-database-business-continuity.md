@@ -33,7 +33,7 @@ From a database perspective, there are four major potential disruption scenarios
 - Datacenter outage, possibly caused by a natural disaster. This scenario requires some level of geo-redundancy with application failover to an alternate datacenter.
 - Upgrade or maintenance errors, unanticipated issues that occur during planned infrastructure maintenance or upgrades may require rapid rollback to a prior database state.
 
-To mitigate the local hardware and software failures, SQL Database incudes a [high availability architecture](sql-database-high-availability.md), which guarantees automatic recovery from these failures with up to 99.995% availability SLA.  
+To mitigate the local hardware and software failures, SQL Database includes a [high availability architecture](sql-database-high-availability.md), which guarantees automatic recovery from these failures with up to 99.995% availability SLA.  
 
 To protect your business from data loss, SQL Database automatically creates full database backups weekly, differential database backups every 12 hours, and transaction log backups every 5 - 10 minutes . The backups are stored in RA-GRS storage for at least 7 days for all service tiers. All service tiers except Basic support configurable backup retention period for point-in-time restore, up to 35 days. 
 
@@ -48,7 +48,7 @@ SQL Database also provides several business continuity features, that you can us
 
 ## Recover a database within the same Azure region
 
-You can use automatic database backups to restore a database to a point in time in the past. This way you can recover from data corruptions caused by human errors. The poin-in-time restore allows you to create a new database in the same server that reprsenets the state of data prior to the corrupting event. For most databases the restore operations takes less than 12 hours. It may take longer to recover a very large or very active database. For more information about recovery time, see [database recovery time](sql-database-recovery-using-backups.md#recovery-time). 
+You can use automatic database backups to restore a database to a point in time in the past. This way you can recover from data corruptions caused by human errors. The poin-in-time restore allows you to create a new database in the same server that represents the state of data prior to the corrupting event. For most databases the restore operations takes less than 12 hours. It may take longer to recover a very large or very active database. For more information about recovery time, see [database recovery time](sql-database-recovery-using-backups.md#recovery-time). 
 
 If the maximum supported backup retention period for point-in-time restore (PITR) is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 
