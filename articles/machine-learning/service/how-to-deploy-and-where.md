@@ -292,6 +292,8 @@ The following entities are valid in this file:
 * __baseImageRegistry__ (optional): Image registry that contains the base image.
 * __cudaVersion__ (optional): Version of CUDA to install for images that need GPU support. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Supported versions are 9.0, 9.1, and 10.0. If 'enable_gpu' is set, defaults to '9.1'.
 
+These map to the parameters for the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class.
+
 Thee following command demonstrates how to deploy a model using the CLI:
 
 ```azurecli-interactive
