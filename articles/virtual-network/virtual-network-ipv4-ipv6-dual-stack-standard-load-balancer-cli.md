@@ -1,5 +1,5 @@
 ---
-title: Deploy an IPv6 dual stack application in Azure virtual network - CLI
+title: Deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network - CLI
 titlesuffix: Azure Virtual Network
 description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure CLI.
 services: virtual-network
@@ -15,7 +15,7 @@ ms.date: 04/22/2019
 ms.author: kumud
 ---
 
-# Deploy an IPv6 dual stack application in Azure virtual network - CLI (Preview)
+# Deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network - CLI (Preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 

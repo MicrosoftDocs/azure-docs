@@ -1,5 +1,5 @@
 ---
-title: Deploy an IPv6 dual stack application in Azure virtual network - PowerShell
+title: Deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network - PowerShell
 titlesuffix: Azure Virtual Network
 description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure Powershell.
 services: virtual-network
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.author: kumud
 ---
 
-# Deploy an IPv6 dual stack application in Azure - PowerShell (Preview)
+# Deploy an IPv6 dual stack application with Standard Load Balancer in Azure - PowerShell (Preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network and subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs.
 
