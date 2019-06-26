@@ -63,7 +63,7 @@ Once conncected, you will land on an overview page, where you have a list of all
 ## Interact with a device
 Double-click a device from the overview page brings you to the next level of details. which includes 2 sections: Device and Digital Twin.
 
-### Device information
+### Device 
 This section includes ``Device Identity``, ``Telemetry`` and ``Device Twin``.
 1. After creating a device, you can view and update the device identity information under ``Device identity`` tab.
 2. If a device is connected and actively sending data, you can see them under the ``Telemetry`` tab.
