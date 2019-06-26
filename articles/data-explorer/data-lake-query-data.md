@@ -83,7 +83,7 @@ The *TaxiRides* sample data set contains New York City taxi data from [NYC Taxi 
 ### Create external table *TaxiRides* 
 
 > [!NOTE]
-> This section depicts the creation of the *TaxiRides* external table in the *help* cluster to show the query used to create an external table. Since this table has already been created you can skip this section and perform [query *TaxiRides* external table data](#query-taxirides-external-table-data). 
+> This section depicts the query used to create the *TaxiRides* external table in the *help* cluster. Since this table has already been created you can skip this section and perform [query *TaxiRides* external table data](#query-taxirides-external-table-data). 
 
 1. The following query was used to create the external table *TaxiRides* in the help cluster. 
 
@@ -167,9 +167,9 @@ external_table("TaxiRides")
 | render columnchart
 ```
 
-![render non-partitioned query](media/data-lake-query-data/taxirides-no-partition.png)
-
 This query shows the busiest day of the week. Since the data isn't partitioned, this query may take a long time to return results (up to several minutes).
+
+![render non-partitioned query](media/data-lake-query-data/taxirides-no-partition.png)
 
 #### Query TaxiRides external table with partitioning that optimizes query time and performance
 
@@ -182,9 +182,10 @@ external_table("TaxiRides")
 | render piechart
 ```
 
-![render partitioned query](media/data-lake-query-data/taxirides-with-partition.png)
+This query filters on a partitioned column (pickup_datetime) and returns results in a few seconds.
 
-This query filters on a partitioned column (pickup_datetime) and returns results in a few seconds.  
+![render partitioned query](media/data-lake-query-data/taxirides-with-partition.png)
+  
 You can write additional queries to run on the external table *TaxiRides* and learn more about the data. 
 
 ## Next steps
