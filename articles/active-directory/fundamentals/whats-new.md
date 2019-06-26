@@ -95,18 +95,6 @@ For more information, see [Check the status of user provisioning](https://docs.m
 
 ---
 
-### Skip the Service Plan dependency check during group license assignment
-
-**Type:** Changed feature  
-**Service category:** Other  
-**Product capability:** Directory
-
- Previously, Azure AD automatically checked for Service Plan dependencies, causing the license assignment to fail if the dependencies weren't met. We've updated the group license assignment process so you can now skip the automatic Service Plan dependency check by choosing to directly manage the users in a group or by using another group.
-
-For more information about group-based licensing in Azure AD, see [What is group-based licensing in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal).
-
----
-
 ### Company branding now appears on sign out and error screens
 
 **Type:** Changed feature  
