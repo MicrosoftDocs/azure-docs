@@ -57,12 +57,12 @@ The following examples show the FIO random reads and writes.
 
 ### Output: 68k read IOPS displayed
 
-`Starting 4 processes`
-`Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]` 
+    Starting 4 processes
+    Jobs: 4 (f=4): [r(4)][84.4%][r=537MiB/s,w=0KiB/s][r=68.8k,w=0 IOPS][eta 00m:05s]` 
 
 ### FIO: 8k block size 100% random writes
 
-    fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting
+`fio --name=8krandomwrites --rw=randwrite --direct=1 --ioengine=libaio --bs=8k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
 ### Output: 73k write IOPS displayed
 
@@ -75,7 +75,7 @@ The examples in this section show the FIO sequential reads and writes.
 
 ### FIO: 64k block size 100% sequential reads
 
-    fio --name=64kseqreads --rw=read --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting
+`fio --name=64kseqreads --rw=read --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
 ### Output: 11.8 Gbit/s throughput displayed
 
@@ -84,7 +84,7 @@ The examples in this section show the FIO sequential reads and writes.
 
 ### FIO: 64k block size 100% sequential writes
 
-    fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting
+`fio --name=64kseqwrites --rw=write --direct=1 --ioengine=libaio --bs=64k --numjobs=4 --iodepth=128  --size=4G --runtime=600 --group_reporting`
 
 ### Output: 12.2 Gbit/s throughput displayed
 
