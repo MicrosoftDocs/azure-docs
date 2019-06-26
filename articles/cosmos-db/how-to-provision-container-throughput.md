@@ -85,8 +85,6 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
     lastName text) WITH cosmosdb_provisioned_throughput=1000);
 ```
 
-[!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
-
 ## Next steps
 
 See the following articles to learn about throughput provisioning in Azure Cosmos DB:
