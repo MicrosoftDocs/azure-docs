@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
+ms.date: 06/26/2019
 ---
 # Resource limits for elastic pools using the vCore-based purchasing model limits
 
@@ -30,6 +30,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same compute size. For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
 
 ## General Purpose service tier: Storage sizes and compute sizes
+
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
 
 ### General Purpose service tier: Generation 4 compute platform (part 1)
 
@@ -143,6 +146,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
 ## Business Critical service tier: Storage sizes and compute sizes
+
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
 
 ### Business Critical service tier: Generation 4 compute platform (part 1)
 

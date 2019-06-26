@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* A subscription key for Immersive Reader. Get one by following [these instructions](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).
+* A subscription key for Immersive Reader. Get one by following [these instructions](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 * [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -53,7 +53,7 @@ yarn add dotenv
 
 ## Acquire an access token
 
-Next, write a backend API to retrieve an access token using your subscription key. You need your subscription key and endpoint for this next step. You can find that information at https://azure.microsoft.com/try/cognitive-services/my-apis/.
+Next, write a backend API to retrieve an access token using your subscription key. You need your subscription key and endpoint for this next step. You can find your subscription key in the Keys page of your Immersive Reader resource in the Azure portal. You can find your endpoint in the Overview page.
 
 Once you have your subscription key and endpoint, create a new file called _.env_, and paste the following code into it, replacing `{YOUR_SUBSCRIPTION_KEY}` and `{YOUR_ENDPOINT}` with your subscription key and endpoint, respectively.
 
@@ -85,7 +85,7 @@ router.get('/token', function(req, res, next) {
         'Ocp-Apim-Subscription-Key': process.env.SUBSCRIPTION_KEY,
         'content-type': 'application/x-www-form-urlencoded'
     },
-    url: process.env.ENDPOINT + '/issueToken'
+    url: process.env.ENDPOINT
   },
   function(err, resp, token) {
     return res.send(token);
@@ -100,7 +100,7 @@ This API endpoint should be secured behind some form of authentication (for exam
 1. Open _views\layout.pug_, and add the following code under the `head` tag, before the `body` tag. These `script` tags load the [Immersive Reader SDK](https://github.com/Microsoft/immersive-reader-sdk) and jQuery.
 
     ```pug
-    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js')
+    script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     ```
 
@@ -127,7 +127,7 @@ This API endpoint should be secured behind some form of authentication (for exam
             };
 
             // Third, launch the Immersive Reader
-            ImmersiveReader.launchAsync(token, null, content);
+            ImmersiveReader.launchAsync(token, content);
           }});
         }
     ```
@@ -171,7 +171,7 @@ By default, the language of the Immersive Reader interface matches the browser's
     const options = {
         uiLang: 'fr',
     }
-    ImmersiveReader.launchAsync(token, null, content, options);
+    ImmersiveReader.launchAsync(token, content, options);
     ```
 
 2. Navigate to _http://localhost:3000_. When you launch the Immersive Reader, the interface will be shown in French.
@@ -183,7 +183,7 @@ You can include math content in the Immersive Reader by using [MathML](https://d
 1. Modify _views\index.pug_ to include the following code above the call to `ImmersiveReader.launchAsync`:
 
     ```javascript
-    const mathML = '<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"> \
+    const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
       <munderover> \
         <mo>∫</mo> \
         <mn>0</mn> \

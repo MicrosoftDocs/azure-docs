@@ -3,13 +3,13 @@ title: "Quickstart: Look up words with bilingual dictionary, C# - Translator Tex
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to get alternate translations for a term, and also usage examples of those alternate translations, using .NET Core and the Translator Text API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
+ms.author: swmachan
 ---
 
 # Quickstart: Look up words with bilingual dictionary using C#
@@ -71,6 +71,8 @@ static void AltTranslation()
 
 Add these lines to the `AltTranslation` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These parameters are used to set the translation input and output. In this sample, these are English (`en`) and Spanish (`es`).
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
 string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
@@ -83,6 +85,8 @@ Next, we need to create and serialize the JSON object that includes the text you
 System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
+
+
 
 ## Instantiate the client and make a request
 

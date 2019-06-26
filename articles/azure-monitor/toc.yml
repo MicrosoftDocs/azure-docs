@@ -447,6 +447,18 @@
           href: app/proactive-arm-config.md
         - name: E-mail notification
           href: app/proactive-email-notification.md
+      - name: Availability
+        items:
+          - name: URL tests
+            href: app/monitor-web-app-availability.md
+          - name: Multi-step tests
+            href: app/availability-multistep.md
+          - name: Availability alerts
+            href: app/availability-alerts.md
+          - name: Troubleshooting
+            href: app/troubleshoot-availability.md
+      - name: Performance testing
+        href: app/performance-testing.md
       - name: Create a resource
         href: app/create-new-resource.md 
       - name: Application data to Log Analytics
@@ -567,6 +579,8 @@
             href: insights/container-insights-enable-existing-clusters.md
         - name: Analyze 
           href: insights/container-insights-analyze.md
+        - name: Configure agent collection settings
+          href: insights/container-insights-agent-config.md
         - name: Disable monitoring
           href: insights/container-insights-optout.md
         - name: View live logs
@@ -808,8 +822,6 @@
       items:
       - name: Application alert rules
         items:
-        - name: Availability
-          href: app/monitor-web-app-availability.md
         - name: Metric alerts
           href: app/alerts.md
       - name: Platform metric alert rules
