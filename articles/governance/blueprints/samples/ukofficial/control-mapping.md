@@ -1,24 +1,25 @@
 ---
-title: Sample - UK OFFICIAL blueprint - Control mapping
-description: Control mapping of the UK OFFICIAL blueprint sample.
+title: Sample - UK OFFICIAL and UK NHS blueprints - Control mapping
+description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/20/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# Control mapping of the UK OFFICIAL blueprint sample
+# Control mapping of the UK OFFICIAL and UK NHS blueprint samples
 
-The following article details how the UK OFFICIAL blueprint sample maps to the UK OFFICIAL controls.
-For more information about the controls, see [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
+The following article details how the UK OFFICIAL and UK NHS blueprint samples map to the UK
+OFFICIAL and UK NHS controls. For more information about the controls, see [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
 
-The following mappings are to the **UK OFFICIAL** controls. Use the navigation on the right to jump
-directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
-initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
-**Definitions** page. Then, find and select the **[Preview] Audit UK OFFICIAL controls and deploy
-specific VM Extensions to support audit requirements** built-in policy initiative.
+The following mappings are to the **UK OFFICIAL** and **UK NHS** controls. Use the navigation on the
+right to jump directly to a specific control mapping. Many of the mapped controls are implemented
+with an [Azure Policy](../../../policy/overview.md) initiative. To review the complete initiative,
+open **Policy** in the Azure portal and select the **Definitions** page. Then, find and select the **[Preview]
+Audit UK OFFICIAL and UK NHS controls and deploy specific VM Extensions to support audit
+requirements** built-in policy initiative.
 
 ## 1 Data in transit protection
 
@@ -217,12 +218,12 @@ machines aren't sending logs to a specified log analytics workspace.
 
 ## Next steps
 
-Now that you've reviewed the control mapping of the UK OFFICIAL blueprint, visit the following
-articles to learn about the overview and how to deploy this sample:
+Now that you've reviewed the control mapping of the UK OFFICIAL and UK NHS blueprints, visit the
+following articles to learn about the overview and how to deploy this sample:
 
 > [!div class="nextstepaction"]
-> [UK OFFICIAL blueprint - Overview](./index.md)
-> [UK OFFICIAL blueprint - Deploy steps](./deploy.md)
+> [UK OFFICIAL and UK NHS blueprints - Overview](./index.md)
+> [UK OFFICIAL and UK NHS blueprints - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 

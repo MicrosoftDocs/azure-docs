@@ -1,17 +1,17 @@
 ---
-title: Sample - UK OFFICIAL blueprint - Deploy steps
-description: Deploy steps of the UK OFFICIAL blueprint sample.
+title: Sample - UK OFFICIAL and UK NHS blueprint - Deploy steps
+description: Deploy steps of the UK OFFICIAL and UK NHS blueprint samples.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/20/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# Deploy the UK OFFICIAL blueprint sample
+# Deploy the UK OFFICIAL and UK NHS blueprint samples
 
-To deploy the UK OFFICIAL blueprint sample, the following steps must be taken:
+To deploy the UK OFFICIAL and UK NHS blueprint samples, the following steps must be taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
@@ -32,12 +32,12 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **UK OFFICIAL** blueprint sample under _Other Samples_ and select **Use this
-   sample**.
+1. Find the **UK OFFICIAL** or **UK NHS** blueprint sample under _Other Samples_ and select **Use
+   this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
 
-   - **Blueprint name**: Provide a name for your copy of the UK OFFICIAL blueprint sample.
+   - **Blueprint name**: Provide a name for your copy of the blueprint sample.
    - **Definition location**: Use the ellipsis and select the management group to save your copy of
      the sample to.
 
@@ -53,7 +53,7 @@ sample as a starter.
 Your copy of the blueprint sample has now been created in your environment. It's created in
 **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the
 blueprint sample can be customized to your environment and needs, but that modification may move
-it away from the UK OFFICIAL standard.
+it away from the standard.
 
 1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
    page, select **Blueprints**.
@@ -64,7 +64,7 @@ it away from the UK OFFICIAL standard.
 1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a
    **Version** for your copy of the blueprint sample. This property is useful for if you make a
    modification later. Provide **Change notes** such as "First version published from the UK
-   OFFICIAL blueprint sample." Then select **Publish** at the bottom of the page.
+   OFFICIAL or UK NHS blueprint sample." Then select **Publish** at the bottom of the page.
 
 ## Assign the sample copy
 
@@ -125,18 +125,18 @@ The following table provides a list of the blueprint artifact parameters:
 
 Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Blueprint initiative for UK OFFICIAL|Policy assignment |Resource types to audit diagnostic logs (Policy: Blueprint initiative for UK OFFICIAL) |List of resource types to audit if diagnostic log setting is note enabled.  For acceptable values, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
+|Blueprint initiative for UK OFFICIAL or UK NHS|Policy assignment |Resource types to audit diagnostic logs (Policy: Blueprint initiative for UK OFFICIAL or UK NHS) |List of resource types to audit if diagnostic log setting is note enabled.  For acceptable values, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
 |[Preview]: Deploy Log Analytics Agent for Linux VMs |Policy assignment |Optional: List of VM images that have supported Linux OS to add to scope (Policy: [Preview]: Deploy Log Analytics Agent for Linux VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 |[Preview]: Deploy Log Analytics Agent for Windows VMs |Policy assignment |Optional: List of VM images that have supported Windows OS to add to scope (Policy: [Preview]: Deploy Log Analytics Agent for Windows VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the UK OFFICIAL blueprint sample, visit the following
-articles to learn about the overview and control mapping:
+Now that you've reviewed the steps to deploy the UK OFFICIAL and UK NHS blueprint samples, visit the
+following articles to learn about the overview and control mapping:
 
 > [!div class="nextstepaction"]
-> [UK OFFICIAL blueprint - Overview](./index.md)
-> [UK OFFICIAL blueprint - Control mapping](./control-mapping.md)
+> [UK OFFICIAL and UK NHS blueprints - Overview](./index.md)
+> [UK OFFICIAL and UK NHS blueprints - Control mapping](./control-mapping.md)
 
 Addition articles about blueprints and how to use them:
 
