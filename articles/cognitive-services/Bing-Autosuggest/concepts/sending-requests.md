@@ -15,7 +15,10 @@ ms.author: scottwhi
 
 # Sending requests to the Bing Autosuggest API.
 
-If your application sends queries to any of the Bing Search APIs, you can use the Bing Autosuggest API to improve your users' search experience. The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. As characters are entered into a search box in your application, you can display suggestions in a drop-down list. Use this article to learn more about sending requests to this API.
+If your application sends queries to any of the Bing Search APIs, you can use the Bing Autosuggest API to improve your users' search experience. The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. As characters are entered into a search box in your application, you can display suggestions in a drop-down list. Use this article to learn more about sending requests to this API. 
+
+>[!NOTE]
+> Because URL formats and parameters are subject to change without notice, all URLs are presented as-is. You should not take dependencies on the URL format or parameters except where noted.
 
 ## Bing Autosuggest API Endpoint
 

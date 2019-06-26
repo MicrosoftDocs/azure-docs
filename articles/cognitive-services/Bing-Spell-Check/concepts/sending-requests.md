@@ -16,7 +16,10 @@ ms.author: aahi
 # Sending requests to the Bing Spell Check API
 
 To check a text string for spelling and grammar errors, you'd send a GET request to the following endpoint:  
-  
+
+> [!NOTE]
+> Because URL formats and parameters are subject to change without notice, all URLs are presented as-is. You should not take dependencies on the URL format or parameters except where noted.
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
 ```  

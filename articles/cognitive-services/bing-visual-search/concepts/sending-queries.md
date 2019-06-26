@@ -15,7 +15,10 @@ ms.author: aahi
 
 # Sending search queries to the Bing Visual Search API
 
-This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object.
+This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object. 
+
+>[!NOTE]
+> Because URL formats and parameters are subject to change without notice, all URLs are presented as-is. You should not take dependencies on the URL format or parameters except where noted.
 
 You can get insights about an image in three ways:
 

@@ -14,7 +14,10 @@ ms.author: aahill
 
 # Sending search requests to the Bing Video Search API
 
-This article describes the parameters and attributes of requests sent to the Bing Video Search API, as well as the JSON response object it returns.
+This article describes the parameters and attributes of requests sent to the Bing Video Search API, as well as the JSON response object it returns. 
+
+>[!NOTE]
+> Because URL formats and parameters are subject to change without notice, all URLs are presented as-is. You should not take dependencies on the URL format or parameters except where noted.
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
