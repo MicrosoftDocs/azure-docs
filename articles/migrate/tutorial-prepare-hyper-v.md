@@ -101,7 +101,7 @@ The tenant/global admin can assign the Application Developer role to an account.
 
 ## Prepare for Hyper-V assessment
 
-To prepare for Hyper-V assessment, you need to verify Hyper-V host and VM settings, and verify settings for appliance deployment.
+To prepare for Hyper-V assessment, verify Hyper-V host and VM settings, and verify settings for appliance deployment.
 
 ### Verify Hyper-V host settings
 
