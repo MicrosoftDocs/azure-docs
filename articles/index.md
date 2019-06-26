@@ -1117,6 +1117,12 @@ featureFlags:
                                                 <p>Azure Spatial Anchors</p>
                                             </a>
                                         </li>
+                                         <li>
+                                            <a href="/azure/Kinect-dk/">
+                                                <img src="media/index/kinect-viewer.svg" alt="" />
+                                                <p>Azure Kinect DK</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </li>
@@ -4627,6 +4633,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Spatial Anchors</h3>
                                                     <p>Create multi-user, spatially aware mixed reality experiences</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                               <li>
+                                <a href="/azure/Kinect-dk/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/kinect-viewer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Kinect DK</h3>
+                                                    <p>Build your way with a versatile sensing device</p>
                                                 </div>
                                             </div>
                                         </div>
