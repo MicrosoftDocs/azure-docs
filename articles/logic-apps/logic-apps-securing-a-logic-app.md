@@ -296,9 +296,9 @@ Here are some considerations for when you use obfuscation:
 
     ![Secured outputs as inputs](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
-  * The Compose, Parse JSON, and Response actions have the option to manually secure only inputs, which also automatically secures these actions' outputs. If these actions explicitly use the secured outputs from previous actions as inputs, Logic Apps automatically secures these inputs, which then automatically secures the outputs.
+  * The Compose, Parse JSON, and Response actions provide the option to manually secure only their inputs, which automatically secures their outputs. If these actions explicitly use the secured outputs from previous actions as inputs, Logic Apps automatically secures these inputs, which then automatically secures the outputs.
 
-    If later actions explicitly use secured outputs from the Compose, Parse JSON, or Response actions as inputs, Logic Apps automatically hides these inputs but doesn't enable secured inputs, nor does Logic Apps hide the outputs from these later actions.
+    If later actions explicitly use secured outputs from the Compose, Parse JSON, or Response actions as inputs, Logic Apps automatically hides these inputs, but doesn't enable secured inputs, nor does Logic Apps hide the outputs from these later actions.
 
     ![Secured outputs as inputs for specific actions, part 1](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
 
