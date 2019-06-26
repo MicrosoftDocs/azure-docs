@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/30/2018
+ms.date: 06/21/2019
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -47,7 +47,7 @@ To debug your app using SQL Database as the back end, make sure that you've [all
 
 ## Grant Azure account access to database
 
-First enable Azure Active Directory sign-in by assigning your signed-in Azure account as the Active Directory admin of the database server, using the [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest) command in the Cloud Shell. In the following command, replace *\<server-name>*.
+First enable Azure AD authentication to SQL Database by assigning your signed-in Azure account as the Active Directory admin of the server, using the [`az ad signed-in-user show`](/cli/azure/ad/signed-in-user?view=azure-cli-latest#az-ad-signed-in-user-show) and [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<server-name>*.
 
 ```azurecli-interactive
 signedinuser=$(az ad signed-in-user show --query objectId --output tsv)
@@ -81,14 +81,14 @@ In *Web.config*, working from the top of the file and make the following changes
 - Add the following `<SqlAuthenticationProviders>` code directly under the opening `<configuration>` tag.
 
     ```xml
-      <SqlAuthenticationProviders>
-        <providers>
-          <add name="Active Directory Interactive" type="Microsoft.Azure.Services.AppAuthentication.SqlAppAuthenticationProvider, Microsoft.Azure.Services.AppAuthentication" />
-        </providers>
-      </SqlAuthenticationProviders>
+    <SqlAuthenticationProviders>
+      <providers>
+        <add name="Active Directory Interactive" type="Microsoft.Azure.Services.AppAuthentication.SqlAppAuthenticationProvider, Microsoft.Azure.Services.AppAuthentication" />
+      </providers>
+    </SqlAuthenticationProviders>
     ```
     
-- The next element is `<configSections>` add the following section in it:
+- The next element in *Web.config* is `<configSections>`. Add the following section in it:
 
     ```xml
     <section name="SqlAuthenticationProviders" type="System.Data.SqlClient.SqlAuthenticationProviderConfigurationSection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
