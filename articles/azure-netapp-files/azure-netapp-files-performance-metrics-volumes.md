@@ -93,7 +93,7 @@ The examples in this section show the FIO sequential reads and writes.
 
 ## Volume metrics
 
-Azure NetApp Files performance data is available through Azure Monitor counters. The counters are available via the Azure Portal and REST API GET requests. 
+Azure NetApp Files performance data is available through Azure Monitor counters. The counters are available via the Azure portal and REST API GET requests. 
 
 You can view historical data for the following information:
 * Average read latency 
@@ -105,11 +105,11 @@ You can view historical data for the following information:
 
 ### Using Azure Monitor 
 
-You can access Azure NetApp Files counters on a per volume basis from the Metrics page, as shown below:
+You can access Azure NetApp Files counters on a per-volume basis from the Metrics page, as shown below:
 
 ![Azure Monitor metrics](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-metrics.png)
 
-You can also create a dashboard in Azure Monitor for Azure NetApp Files from the Metrics page, filter for NetApp, and specify the volume counters of interest: 
+You can also create a dashboard in Azure Monitor for Azure NetApp Files by going to the Metrics page, filtering for NetApp, and specifying the volume counters of interest: 
 
 ![Azure Monitor dashboard](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-dashboard.png)
 
