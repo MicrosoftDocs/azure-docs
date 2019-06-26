@@ -113,7 +113,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[GENOA Group LLC](https://genoagroup.com)|
 |[Gimmal](https://www.gimmal.com/)|
-|[Global Justice Solutions, LLC](http://www.globaljusticesolutions.us/)|
+|[Global Justice Solutions, LLC](https://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
 |[GovPlace](https://www.govplace.com/)|
