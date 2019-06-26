@@ -21,23 +21,7 @@ Use this article to sign up for Azure Cognitive Services and create an account t
 * A valid Azure subscription. [Create an account](https://azure.microsoft.com/free/) for free.
 * The [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## Azure Cognitive Service subscription types
-
-> [!NOTE]
-> Subscription owners can disable the creation of Cognitive Services accounts for resource groups and subscriptions by applying [Azure policy](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), assigning a “Not allowed resource types” policy definition, and specifying **Microsoft.CognitiveServices/accounts** as the target resource type.
-
-You can access Azure Cognitive Services through two different subscriptions: Multi-service or single-service. These subscriptions let you connect to either a single service or multiple services at once.
-
-### Multi-service subscription
-
->[!WARNING]
-> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
-
-A multi-service subscription for Azure Cognitive Services lets you use a single Azure resource and key for most of the Azure Cognitive Services, and consolidates billing for the services you use. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for additional information.
-
-### Single-service subscription
-
-A subscription to a single service, such as Computer Vision or LUIS. A single-service subscription is restricted to that resource.
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## Install the Azure CLI and log in 
 
@@ -170,37 +154,7 @@ Use the [az cognitiveservices account keys list](https://docs.microsoft.com/cli/
     --resource-group cognitive-services-resource-group
 ```
 
-## Configure an environment variable for authentication
-
-Applications need to authenticate access to the Cognitive Services they use. To authenticate, we recommend creating an environment variable to store the keys to your services.
-
-After you have your key using the above steps, write it to a new environment variable on the machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `your-key` with the key for your resource, and a unique name:
-
-* Windows
-
-    ```console
-    setx COGNITIVE_SERVICE_KEY "your-key"
-    ```
-
-    After you add the environment variable, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you are using Visual Studio as your editor, restart Visual Studio before running the example.
-
-* Linux
-
-    ```bash
-    export COGNITIVE_SERVICE_KEY=your-key
-    ```
-
-    After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-* macOS
-
-    Edit your .bash_profile, and add the environment variable:
-
-    ```bash
-    export COGNITIVE_SERVICE_KEY=your-key
-    ```
-
-    After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+[!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
 ## Clean up resources
 
