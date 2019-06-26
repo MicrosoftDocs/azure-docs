@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
+4. On the **Basic SAML Configuration** section, perform the following step:
 
     In the **Reply URL** text box, type a URL using the following pattern:
     `https://app.acquire.io/ad/<acquire_account_uid>`
