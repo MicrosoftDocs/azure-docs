@@ -72,7 +72,7 @@ Subtasks include:
 
 * For cloud storage, you must specify the cloud service and access credentials, among other parameters. For details, read [Cloud service and protocol](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) in the Cluster Configuration Guide.
 
-  ![Cloud core filer information in the New Core Filer wizard](media/fxt-cluster-config/new-core-filer-cloud3.png) <!-- xxx get an Azure version of this screenshot xxx -->
+  ![Cloud core filer information in the New Core Filer wizard](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
   If you already have added cloud access credentials for this cluster, they appear in the list. Update and add credentials in the **Cluster** > **Cloud Credentials** settings page. 
 

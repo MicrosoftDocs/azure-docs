@@ -276,7 +276,7 @@ Use the Control Panel web interface to set up your new cluster. Follow the link 
 
 Sign in to the web interface with the username `admin` and the password that you set when creating the cluster.
 
-![web browser showing control panel login fields](media/fxt-cluster-config/admin-login.png)
+![web browser showing control panel login fields](media/fxt-cluster-create/admin-login.png)
 
 The Control Panel opens and shows the **Dashboard** page. As the cluster creation finishes, any warning messages should clear from the display.
 
@@ -284,7 +284,7 @@ Click the **Settings** tab to configure the cluster.
 
 On the **Settings** tab, the left sidebar shows a menu of configuration pages. The pages are organized by category. Click the + or - control at the top of the category name to expand or hide the individual pages.
 
-![Settings tab of control panel (in browser) with the Cluster > General Setup page loaded](media/fxt-cluster-config/settings-tab-populated.png)
+![Settings tab of control panel (in browser) with the Cluster > General Setup page loaded](media/fxt-cluster-create/settings-tab-populated.png)
 
 ## Cluster setup steps
 
@@ -365,7 +365,7 @@ Follow these steps to set up support uploads.
 
 1. Navigate to the **Cluster** > **Support** settings page. Accept the privacy policy. 
 
-   ![Screenshot showing Control Panel and pop-up window with Confirm button to accept the privacy policy](media/fxt-cluster-config/fxt-privacy-policy.png)
+   ![Screenshot showing Control Panel and pop-up window with Confirm button to accept the privacy policy](media/fxt-cluster-create/fxt-privacy-policy.png)
 
 1. Click the triangle to the left of **Customer Info** to expand the section.
 1. Click the **Revalidate upload information** button.
@@ -373,13 +373,13 @@ Follow these steps to set up support uploads.
 1. Check the boxes for **Statistics Monitoring**, **General Information Upload**, and **Crash Information Upload**.
 1. Click **Submit**.  
 
-   ![Screenshot containing completed customer info section of support settings page](media/fxt-cluster-config/fxt-support-info.png)
+   ![Screenshot containing completed customer info section of support settings page](media/fxt-cluster-create/fxt-support-info.png)
 
 1. Click the triangle to the left of **Secure Proactive Support (SPS)** to expand the section.
 1. Check the box for **Enable SPS Link**.
 1. Click **Submit**.
 
-   ![Screenshot containing completed Secure Proactive Support section on support settings page](media/fxt-cluster-config/fxt-support-sps.png)
+   ![Screenshot containing completed Secure Proactive Support section on support settings page](media/fxt-cluster-create/fxt-support-sps.png)
 
 ## Next steps
 

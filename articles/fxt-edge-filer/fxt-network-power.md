@@ -115,7 +115,7 @@ Follow these instructions to route the cables through the CMA:
    > [!CAUTION]
    > To avoid potential damage from protruding cables, secure any slack in the status indicator cable after routing this cable through the CMA. 
 
-![Illustration of CMA with cables installed](media/cma-cabling-scan-400.png)
+![Illustration of CMA with cables installed](media/fxt-install/cma-cabling-400.png)
 
 > [!NOTE]
 >  If you did not install the CMA, use the two hook and loop straps provided in the rail kit to route the cables at the back of your system.
@@ -124,7 +124,7 @@ Follow these instructions to route the cables through the CMA:
 >  2. Bundle the cables gently, pulling them clear of the system connectors to the left and right sides.
 >  3. Thread the hook and loop straps through the tooled slots on the outer CMA brackets on each side of the system to secure the cable bundles.
 > 
->     ![Cables routed without a CMA](media/fxt-route-cables-no-cma-400.png)
+>     ![Cables routed without a CMA](media/fxt-install/fxt-route-cables-no-cma-400.png)
 
 ## About IP address requirements
 
