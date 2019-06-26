@@ -4,6 +4,13 @@ The Azure IoT explorer provides an easy way to interact with a Plug and Play dev
 
 This article lists the steps of how to install and config Azure IoT explorer, and how you can interact and test your devices with this tool.
 
+## Prerequisites
+### Azure IoT Hub
+You'll need to create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-node#create-an-iot-hub) to create one. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+### Create a device identity in Azure IoT Hub
+1. Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+
 ## Install Azure IoT explorer
 ### Windows/Linx
 1. Go to [Link](), install the latest version by double click ``Azure.IoT.Explorer.Setup.**.exe`` (``**`` refers to the latest version number, e.g. 0.8.2)
@@ -12,9 +19,11 @@ This article lists the steps of how to install and config Azure IoT explorer, an
 1. Go to [Link](), install the latest version using ``Azure.IoT.Explorer.Setup.**.dmg`` (``**`` refers to the latest version number, e.g. 0.8.2)
 
 ## Use Azure IoT explorer
+In this article we are going to use Azure IoT explorer to interact with a simulated device. Follow the instructions [here]() to run the device. 
+
 ### Connect
 #### First time connect
-1. Fill in the Azure IoT Hub connection string, and click ``Connect``. 
+1. Open Azure IoT explorer. Fill in the Azure IoT Hub connection string, and click ``Connect``. 
 > [!NOTE]
 > By default, the tool will look for your model definition from the Public Model Repository. If you want to configure the model definition resources, please go to settings once you connect.
 2. To switch to another IoT Hub or config model definition sources, please go to the settings.
