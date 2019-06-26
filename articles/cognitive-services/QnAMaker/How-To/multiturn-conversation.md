@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article 
-ms.date: 06/24/2019
+ms.date: 06/26/2019
 ms.author: diberry
 #
 ---
