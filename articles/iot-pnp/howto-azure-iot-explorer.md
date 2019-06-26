@@ -11,6 +11,23 @@ You'll need to create a device identity in an Azure IoT Hub. If you don't have o
 ### Create a device identity in Azure IoT Hub
 1. Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
+```azurecli-interactive
+    az extension add --name azure-cli-iot-ext
+```
+
+2. Run the following command to create a device identity in IoT Hub. ``YourIoTHubName`` and ``Mydevice`` in the command are placeholders and you need to replace them with your actual name and ID.
+
+```azurecli-interactive
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+```
+
+3. Run the following command to retrieve your device connection string. ``YourIoTHubName`` and ``Mydevice`` in the command are placeholders and you need to replace them with your actual name and ID.
+
+```azurecli-interactive
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+```
+4. Make a note of your device connection string. It will look like `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`. We will need this connection string in the later steps.
+
 ## Install Azure IoT explorer
 ### Windows/Linx
 1. Go to [Link](), install the latest version by double click ``Azure.IoT.Explorer.Setup.**.exe`` (``**`` refers to the latest version number, e.g. 0.8.2)
