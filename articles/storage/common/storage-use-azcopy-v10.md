@@ -116,13 +116,20 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 This is a great option if you plan to use AzCopy inside of a script that runs without user interaction. 
 
-Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with your credentials.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to persist that sensitive information.
+Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
 
-You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration. To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration. 
+
+To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+To learn more about service principals in general, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
 ##### Using a client secret
 
-Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration. This value is available only to the current session. 
+Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration. 
+
+> [!NOTE]
+> Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
 
 This example shows how you could do this in PowerShell.
 
@@ -146,6 +153,9 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to login.
  
 First, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate password. This value is available only to the current session. 
+
+> [!NOTE]
+> Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
 
 This example shows how you could do this in PowerShell.
 
@@ -192,7 +202,7 @@ To find example commands, see any of these articles.
 
 ## Use AzCopy in a script
 
-If you plan to use a service principal for authorization, make sure that you first interactively sign into your account by using a client secret, or the password of a certificate that is associated with your service principal's app registration. Then, your script can sign in without having to provide these credentials. For examples, see the [Authenticate your service principal](#service-principal) section of this article. 
+Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information. For examples, see the [Authenticate your service principal](#service-principal) section of this article.
 
 Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon. 
 
