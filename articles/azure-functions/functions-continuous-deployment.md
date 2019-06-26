@@ -19,7 +19,7 @@ ms.author: glenga
 
 You can use Azure Functions to deploy your code continuously by using [source control integration](functions-deployment-technologies.md#source-control). Source control integration enables a workflow in which a code update triggers deployment to Azure. If you're new to Azure Functions, get started by reviewing the [Azure Functions overview](functions-overview.md).
 
-Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you also can maintain a single source of truth for your function code. You can configure continuous deployment in Azure Functions from the following source code locations:
+Continuous deployment is a good option for projects where you integrate multiple and frequent contributions. When you use continuous deployment, you maintain a single source of truth for your code, which allows teams to easily collaborate. You can configure continuous deployment in Azure Functions from the following source code locations:
 
 * [Azure Repos](https://azure.microsoft.com/services/devops/repos/)
 * [GitHub](https://github.com)
