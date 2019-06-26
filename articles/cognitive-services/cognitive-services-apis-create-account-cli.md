@@ -5,10 +5,9 @@ description: How to create an Azure Cognitive Services APIs account using the Az
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 06/26/2019
 ms.author: aahi
 ---
 
