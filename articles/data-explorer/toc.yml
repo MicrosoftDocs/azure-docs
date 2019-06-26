@@ -66,6 +66,8 @@
     items:
     - name: Write queries
       href: write-queries.md
+    - name: Query data in Azure Data Lake
+      href: data-lake-query-data.md  
     - name: Python
       href: python-query-data.md
     - name: Time Series Analysis and Machine Learning

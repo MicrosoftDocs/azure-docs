@@ -39,15 +39,16 @@ You must add an additional node pool after you create your cluster that can run 
 > * [Azure Support FAQ][aks-faq]
 
 ### Install aks-preview CLI extension
-	
-The CLI commands to create and manage multiple node pools are available in the *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
+
+To use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> If you've previously installed the *aks-preview* extension, install any available updates using the `az extension update --name aks-preview` command.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register Windows preview feature
 
@@ -220,10 +221,10 @@ spec:
         resources:
           limits:
             cpu: 1
-            memory: 800m
+            memory: 800M
           requests:
             cpu: .1
-            memory: 300m
+            memory: 300M
         ports:
           - containerPort: 80
   selector:
@@ -336,3 +337,5 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [use-advanced-networking]: configure-advanced-networking.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
