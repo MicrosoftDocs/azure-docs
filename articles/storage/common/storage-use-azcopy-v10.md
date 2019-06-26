@@ -159,7 +159,7 @@ Next, type the following command, and then press the ENTER key.
 azcopy login --service-principal --certificate-path <path-to-certificate-file>
 ```
 
-Replace the `<path-to-certificate-file>` placeholder with the relative or fully-qualified path to the certificate file. AzCopy doesn't saves the path to this certificate but not a copy of the certificate, so make sure to keep that certificate in place.
+Replace the `<path-to-certificate-file>` placeholder with the relative or fully-qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place.
 
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
