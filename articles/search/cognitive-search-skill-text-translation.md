@@ -15,7 +15,7 @@ ms.custom: seodec2018
 ---
 #	Text Translation cognitive skill (Preview)
 
-The **Text Translation** skill evaluates text, and for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-reference) avilable in Cognitive Services.  While currently available in the latest Azure Search generally available API version, it is considered to be in preview and should be treated as such until announced as generally available.
+The **Text Translation** skill evaluates text, and for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-reference) available in Cognitive Services.  While currently available in the latest Azure Search generally available API version, it is considered to be in preview and should be treated as such until announced as generally available.
 
 This capability is useful if you expect that your documents may not all be in one language, in which case you can normalize the text to all be the same language before indexing for search by translating it.  It is also useful for localization use cases, where you may want to have copies of the same text available in multiple languages.
 
@@ -49,7 +49,7 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | text | The text to be translated.|
 | toLanguageCode	| A string indicating the language to translate the records into. If this input is not specified, the default to language code will be used to translate the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)|
-| fromLanguageCode	| A string indicating the language of the records. If this parameter is not specified, the default from language code (or automatic language detection if the default from language code is not provided) will be used to translate the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)|
+| fromLanguageCode	| A string indicating the current language of the records. If this parameter is not specified, the default from language code (or automatic language detection if the default from language code is not provided) will be used to translate the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)|
 
 ## Skill outputs
 
