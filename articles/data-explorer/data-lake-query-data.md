@@ -6,19 +6,19 @@ ms.author: orspodek
 ms.reviewer: rkarlin 
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/23/2019
+ms.date: 06/25/2019
 ---
 
 # Query data in Azure Data Lake using Azure Data Explorer (Preview)
 
-Azure Data Lake is a highly scalable and cost-effective data lake solution for big data analytics. It combines the power of a high-performance file system with massive scale and economy to help you speed your time to insight. Data Lake Storage Gen2 extends Azure Blob Storage capabilities and is optimized for analytics workloads.
+Azure Data Lake Storage is a highly scalable and cost-effective data lake solution for big data analytics. It combines the power of a high-performance file system with massive scale and economy to help you speed your time to insight. Data Lake Storage Gen2 extends Azure Blob Storage capabilities and is optimized for analytics workloads.
  
-Azure Data Explorer integrates with Azure Data Lake Storage Gen2, providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
+Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Storage Gen2, providing fast, cached, and indexed access to data in the lake. You can analyze and query data in the lake without prior ingestion into Azure Data Explorer. You can also query across ingested and uningested native lake data simultaneously.  
 
 > [!TIP]
 > The best query performance necessitates data ingestion into Azure Data Explorer. The capability to query data in Azure Data Lake Storage Gen2 without prior ingestion should only be used for historical data or data that is rarely queried.
  
-## Guidelines for best query performance in the lake 
+## Optimize query performance in the lake 
 
 * Partition data for improved performance and optimized query time.
 * Compress data for improved performance (gzip for best compression, lz4 for best performance).
@@ -76,17 +76,13 @@ let T = Products; //T is an internal table
 T1 | join T on ProductId | take 10
 ```
 
-## Create and query *TaxiRides* external table
+## Query *TaxiRides* external table in the help cluster
 
-### Prerequisites
-
-* [A test cluster and database](create-cluster-database-portal.md)
-* Sign in to [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples).
-* The external table *TaxiRides* available in the *help* cluster is produced in [Create external table *TaxiRides*](#create-external-table-taxirides). The *TaxiRides* sample data set contains New York City taxi data from [NYC Taxi and Limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+The *TaxiRides* sample data set contains New York City taxi data from [NYC Taxi and Limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page).
 
 ### Create external table *TaxiRides* 
 
-1. The following query creates the external table *TaxiRides*. 
+1. The following query was used to create the external table *TaxiRides* in the help cluster. 
 
     ```kusto
     .create external table TaxiRides
@@ -150,17 +146,20 @@ T1 | join T on ProductId | take 10
     h@'https://externalkustosamples.blob.core.windows.net/taxiridesbyday?st=2019-06-18T14%3A59%3A00Z&se=2029-06-19T14%3A59%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=yEaO%2BrzFHzAq7lvd4d9PeQ%2BTi3AWnho8Rn8hGU0X30M%3D'
     )
     ```
-1. The following table is created in the *help* cluster:
+1. The resulting table was created in the *help* cluster:
 
     ![TaxiRides external table](media/data-lake-query-data/taxirides-external-table.png)
 
-    If *TaxiRides* external table exists in *help* cluster, you don't need to recreate the table to perform [Query *TaxiRides* external table data](#query-taxirides-external-table-data).
+> [!NOTE]
+> The *TaxiRides* external table exists in the *help* cluster. Therefore, you don't need to recreate the table to perform [query *TaxiRides* external table data](#query-taxirides-external-table-data). 
 
 ### Query *TaxiRides* external table data 
 
+Sign in to [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples) to query the *TaxiRides* external table. 
+
 #### Example: Query *TaxiRides* external table without partitioning
 
-Run the query below on the external table *TaxiRides* to depict rides for each day of the week, across the entire data set. This query shows the busiest day of the week. Since the data isn't partitioned, this query may take a long time to return results (up to several minutes). 
+[Run this query](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAAx3LSwqAMAwFwL3gHYKreh1xL7F9YrCtElP84OEV9zM4DZo5DsZjhGt6PqWTgL1p6+qhvaTEKjeI/FqyuZbGiwJf63QAi9vEL2UbAhtMEv6jyAH6+VhS9jOr1dULfUgAm2cAAAA=) on the external table *TaxiRides* to depict rides for each day of the week, across the entire data set. 
 
 ```kusto
 external_table("TaxiRides")
@@ -170,9 +169,11 @@ external_table("TaxiRides")
 
 ![render non-partitioned query](media/data-lake-query-data/taxirides-no-partition.png)
 
+This query shows the busiest day of the week. Since the data isn't partitioned, this query may take a long time to return results (up to several minutes).
+
 #### Example: Query TaxiRides external table with partitioning that optimizes query time and performance
 
-Run the query below on the external table *TaxiRides* showing taxi cab types (yellow or green) used in January of 2017. This query filters on a partitioned column (pickup_datetime) and returns results in a few seconds.  
+[Run the query below](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) on the external table *TaxiRides* showing taxi cab types (yellow or green) used in January of 2017. 
 
 ```kusto
 external_table("TaxiRides")
@@ -183,6 +184,7 @@ external_table("TaxiRides")
 
 ![render partitioned query](media/data-lake-query-data/taxirides-with-partition.png)
 
+This query filters on a partitioned column (pickup_datetime) and returns results in a few seconds.  
 You can write additional queries to run on the external table *TaxiRides* and learn more about the data. 
 
 ## Next steps
