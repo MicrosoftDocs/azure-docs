@@ -50,6 +50,12 @@
   items:
   - name: Migration examples-Contoso series
     href: contoso-migration-overview.md
+  - name: How to create an Azure Migrate project
+    href: how-to-create-project.md
+  - name: How to create assessments
+    href: how-to-assess.md
+  - name: How to migrate to Azure
+    href: how-to-migrate.md
   - name: Scale assessment and migration
     items:
     - name: Assess large numbers of VMware VMs
