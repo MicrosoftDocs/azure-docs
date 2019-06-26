@@ -89,7 +89,7 @@ To send a command to a device, go to ``Commands`` page.
 3. Preview the payload that will be sent to the device once submit the changes.
 4. Submit. 
 #### Telemetry
- To view the telemetry page, go to ``Telemetry`` page.
+ To view the telemetry for the chosen interface, go to ``Telemetry`` page under this interface.
 ![Img](img/.png)
 
 ## Clean up resources 
