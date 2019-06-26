@@ -3,13 +3,13 @@ title: "Quickstart: Detect text language, Java - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to detect the language of provided text using Java and the Translator Text REST API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to detect text language using Java
@@ -129,6 +129,8 @@ public String Post() throws IOException {
     return response.body().string();
 }
 ```
+
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## Create a function to parse the response
 
