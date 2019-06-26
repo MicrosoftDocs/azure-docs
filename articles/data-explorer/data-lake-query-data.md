@@ -171,7 +171,7 @@ This query shows the busiest day of the week. Since the data isn't partitioned, 
 
 ![render non-partitioned query](media/data-lake-query-data/taxirides-no-partition.png)
 
-#### Query TaxiRides external table with partitioning that optimizes query time and performance
+#### Query TaxiRides external table with partitioning 
 
 [Run this query](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) on the external table *TaxiRides* showing taxi cab types (yellow or green) used in January of 2017. 
 
@@ -182,7 +182,7 @@ external_table("TaxiRides")
 | render piechart
 ```
 
-This query filters on a partitioned column (pickup_datetime) and returns results in a few seconds.
+This query uses partitioning, which optimizes query time and performance. The query filters on a partitioned column (pickup_datetime) and returns results in a few seconds.
 
 ![render partitioned query](media/data-lake-query-data/taxirides-with-partition.png)
   
