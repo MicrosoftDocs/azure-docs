@@ -32,7 +32,7 @@
   - name: Custom Providers
     href: custom-providers-overview.md
   - name: View definition artifact
-    href: view-definition-overview.md
+    href: concepts-view-definition.md
 - name: How-to guides
   items:
   - name: Publishers

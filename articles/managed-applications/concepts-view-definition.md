@@ -1,6 +1,6 @@
 ---
-title: Overview of View Definition in Azure Managed Applications | Microsoft Docs
-description: Describes the concept of creating View Definition for Azure Managed Applications. 
+title: Overview of view definition in Azure Managed Applications | Microsoft Docs
+description: Describes the concept of creating view definition for Azure Managed Applications. 
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -21,7 +21,7 @@ The view definition artifact must be named **viewDefinition.json** and placed at
 
 ## View definition schema
 
-The **viewDefinition.json** file has only one top level `views` property, which is an array of views. Each view is shown in the managed application user interface as a separate menu item in the table of contents. Each view has a `kind` property that sets the type of the view. It must be set to one of the following values: [Overview](#overview), [Metrics](#metrics), [CustomResources](#custom-resources). For more information, see current [JSON schema for viewDefinition.json](TODO:).
+The **viewDefinition.json** file has only one top level `views` property, which is an array of views. Each view is shown in the managed application user interface as a separate menu item in the table of contents. Each view has a `kind` property that sets the type of the view. It must be set to one of the following values: [Overview](#overview), [Metrics](#metrics), [CustomResources](#custom-resources). For more information, see current [JSON schema for viewDefinition.json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).
 
 Sample JSON for view definition:
 
@@ -244,7 +244,7 @@ Commands is an array of additional toolbar buttons that are displayed on page. E
 |---------|---------|---------|
 |displayName|Yes|The displayed name of the command button.|
 |path|Yes|The custom provider action name. The action must be defined in **mainTemplate.json**.|
-|icon|No|The icon of the command button. List of supported icons is defined in [JSON Schema](TODO:).|
+|icon|No|The icon of the command button. List of supported icons is defined in [JSON Schema](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|No|Create UI Definition schema for command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).|
 
 ## Next steps
