@@ -38,7 +38,8 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 
 For viewing a specific record, we can use the following Azure Data Explorer query
 
-```let TableWithBlobId =
+```
+let TableWithBlobId =
 (AzureNetworkAnalytics_CL
    | where SubType_s == "Topology" and ResourceType == "NetworkSecurityGroup" and DiscoveryRegion_s == Region_s and IsFlowEnabled_b
    | extend binTime = bin(TimeProcessed_t, 6h),
@@ -64,7 +65,7 @@ For viewing a specific record, we can use the following Azure Data Explorer quer
 TableWithBlobId
 ```
 
-The above query constructs a URL to access the blob directl. The URL with place-holders is shown below:
+The above query constructs a URL to access the blob directly. The URL with place-holders is shown below:
 
 ```
 let flowlogBlob = "https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
