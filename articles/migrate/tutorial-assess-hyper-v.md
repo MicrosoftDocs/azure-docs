@@ -348,11 +348,11 @@ In this tutorial, you:
  
 > [!div class="checklist"] 
 > * Set up an Azure Migrate appliance
-> * Ran and reviewed and assessment
+> * Created and reviewed an assessment
 
 Continue to the next tutorial to migrate Hyper-V VMs to Azure
 
 > [!div class="nextstepaction"] 
-> [Assess Hyper-V VMs](./tutorial-prepare-hyper-v.md) 
+> [Migrate Hyper-V VMs](./tutorial-migrate-hyper-v.md) 
 
 
