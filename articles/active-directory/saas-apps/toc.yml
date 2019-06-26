@@ -191,6 +191,8 @@
         href: bridge-tutorial.md
       - name: Bridgeline Unbound
         href: bridgelineunbound-tutorial.md
+      - name: Bright Pattern Omnichannel Contact Center
+        href: bright-pattern-omnichannel-contact-center-tutorial.md  
       - name: Brightidea
         href: brightidea-tutorial.md
       - name: Brightspace by Desire2Learn
@@ -759,6 +761,8 @@
         href: mindtickle-tutorial.md
       - name: mindWireless
         href: mindwireless-tutorial.md
+      - name: Miro
+        href: miro-tutorial.md
       - name: Mitel Connect
         href: mitel-connect-tutorial.md
       - name: Mixpanel
@@ -875,8 +879,6 @@
         href: paloaltonetworks-captiveportal-tutorial.md
       - name: Palo Alto Networks - GlobalProtect
         href: paloaltoglobalprotect-tutorial.md
-      - name: PandaDoc
-        href: pandadoc-tutorial.md
       - name: Panopto
         href: panopto-tutorial.md
       - name: Panorama9
@@ -897,8 +899,6 @@
         href: peoplecart-tutorial.md
       - name: Perception United States (Non-UltiPro)
         href: perceptionunitedstates-tutorial.md
-      - name: Perceptyx
-        href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
       - name: PerformanceCentre
@@ -969,8 +969,6 @@
         href: rally-software-tutorial.md
       - name: Real Links
         href: real-links-tutorial.md
-      - name: RealtimeBoard
-        href: realtimeboard-tutorial.md
       - name: Recognize
         href: recognize-tutorial.md
       - name: RedBrick Health
@@ -1025,6 +1023,8 @@
         href: samlssoconfluence-tutorial.md
       - name: SAML SSO for Jira by resolution GmbH
         href: samlssojira-tutorial.md
+      - name: SAML Toolkit
+        href: saml-toolkit-tutorial.md
       - name: Sansan
         href: sansan-tutorial.md
       - name: SAP Business ByDesign
@@ -1255,6 +1255,8 @@
         href: uberflip-tutorial.md
       - name: UltiPro
         href: ultipro-tutorial.md
+      - name: Ungerboeck Software
+        href: ungerboeck-software-tutorial.md
       - name: UNIFI
         href: unifi-tutorial.md
       - name: Useall
@@ -1281,6 +1283,8 @@
         href: vodeclic-tutorial.md
       - name: Voyance
         href: voyance-tutorial.md
+      - name: Vtiger CRM (SAML)
+        href: vtiger-crm-saml-tutorial.md
       - name: vxMaintain
         href: vxmaintain-tutorial.md
     - name: W - Z
@@ -1442,6 +1446,8 @@
         href: samanage-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
+      - name: Smartsheet
+        href: smartsheet-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Tableau Online
@@ -1468,3 +1474,4 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
+

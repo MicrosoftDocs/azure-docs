@@ -56,6 +56,9 @@ The Azure Data Lake Storage Gen2 connector supports the following authentication
 - [Service principal authentication](#service-principal-authentication)
 - [Managed identities for Azure resources authentication](#managed-identity)
 
+>[!NOTE]
+>When using PolyBase to load data into SQL Data Warehouse, if your source Data Lake Storage Gen2 is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
+
 ### Account key authentication
 
 To use storage account key authentication, the following properties are supported:
@@ -99,10 +102,10 @@ To use service principal authentication, follow these steps.
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission.
+2. Grant the service principal proper permission. Learn more on how permission works in Data Lake Storage Gen2 from [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **As source**: In Azure Storage Explorer, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders. Or, you can grant **Read** permission to copy a single file. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
-    - **As sink**: In Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
+    - **As source**: In Storage Explorer, grant at least **Execute** permission starting from the source file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
+    - **As sink**: In Storage Explorer, grant at least **Execute** permission starting from the sink file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
 
 >[!NOTE]
 >To list folders starting from the account level or to test connection, you need to set the permission of the service principal being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
@@ -153,10 +156,10 @@ To use managed identities for Azure resource authentication, follow these steps.
 
 1. [Retrieve the Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **service identity application ID** generated along with your factory.
 
-2. Grant the managed identity proper permission.
+2. Grant the managed identity proper permission. Learn more on how permission works in Data Lake Storage Gen2 from [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **As source**: In Storage Explorer, grant at least **Read + Execute** permission to list and copy the files in folders and subfolders. Or, you can grant **Read** permission to copy a single file. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
-    - **As sink**: In Storage Explorer, grant at least **Write + Execute** permission to create child items in the folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
+    - **As source**: In Storage Explorer, grant at least **Execute** permission starting from the source file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
+    - **As sink**: In Storage Explorer, grant at least **Execute** permission starting from the sink file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
 
 >[!NOTE]
 >To list folders starting from the account level or to test connection, you need to set the permission of the managed identity being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
@@ -165,7 +168,7 @@ To use managed identities for Azure resource authentication, follow these steps.
 >If you have concerns about granting permission at the account level, you can skip test connection and input path manually during authoring. Copy activity still works as long as the managed identity is granted with proper permission at the files to be copied.
 
 >[!IMPORTANT]
->If you use PolyBase to load data from Data Lake Storage Gen2 into SQL Data Warehouse, when you use Data Lake Storage Gen2 managed identity authentication, make sure you also follow steps 1 and 2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Follow the instructions to register your SQL Database server with Azure Active Directory (Azure AD). You also assign the Storage Blob Data Contributor role with role-based access control to your SQL Database server. The rest is handled by Data Factory. If your Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint to use PolyBase to load data from it, you must use managed identity authentication.
+>If you use PolyBase to load data from Data Lake Storage Gen2 into SQL Data Warehouse, when using  managed identity authentication for Data Lake Storage Gen2, make sure you also follow steps 1 and 2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your SQL Database server with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your SQL Database server; the rest are handled by Data Factory. If your Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
 
 These properties are supported for the linked service:
 

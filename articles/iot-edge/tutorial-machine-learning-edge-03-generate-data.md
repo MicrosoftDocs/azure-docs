@@ -148,7 +148,7 @@ The data we just sent to your IoT hub was routed to the storage container that w
 
 1. Click into one of those folders to find data files labeled **00** and **01** corresponding to the partition.
 
-1. The files are written in [Avro](http://avro.apache.org/) format but double-clicking on one of these files will open another browser tab and partially render the data. If instead you are prompted to open the file in a program, you can choose VS Code and it will render correctly.
+1. The files are written in [Avro](https://avro.apache.org/) format but double-clicking on one of these files will open another browser tab and partially render the data. If instead you are prompted to open the file in a program, you can choose VS Code and it will render correctly.
 
 1. There is no need to try to read or interpret the data right now; we will do it in next article.
 

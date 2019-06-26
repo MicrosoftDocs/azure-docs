@@ -4,6 +4,11 @@
   items:
   - name: What is Apache Storm in HDInsight?
     href: apache-storm-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create Apache Storm topology in HDInsight
+    href: ./apache-storm-quickstart.md
 - name: Get started
   items:
   - name: Create an Apache Storm cluster
@@ -44,8 +49,6 @@
       href: apache-storm-develop-csharp-event-hub-topology.md
     - name: Azure Storage/Data Lake Storage (Java)
       href: apache-storm-write-data-lake-store.md
-    - name: Event Hub, Apache HBase (Java)
-      href: apache-storm-sensor-data-analysis.md
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap

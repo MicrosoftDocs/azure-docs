@@ -70,7 +70,7 @@ In addition, you'll need the following prerequisites:
 
 - [Azure CLI](/cli/azure/get-started-with-azure-cli) 
 - [Java 8](https://www.azul.com/downloads/azure-only/zulu/) 
-- [Maven 3](http://maven.apache.org/) 
+- [Maven 3](https://maven.apache.org/) 
 - [Git](https://github.com/)
 
 ## Get started
@@ -342,7 +342,7 @@ mvn clean compile exec:java -Dexec.cleanupDaemonThreads=false
 [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ helloworld-jms ---
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 Feb 10, 2019 9:28:31 AM org.jboss.as.quickstarts.jms.HelloWorldJMSClient main
 INFO: Attempting to acquire connection factory "SBCF"
 Feb 10, 2019 9:28:31 AM org.jboss.as.quickstarts.jms.HelloWorldJMSClient main
@@ -802,7 +802,7 @@ You can test the Bash script for configuring data source by running them on App 
             \/      \/                  \/ 
     A P P   S E R V I C E   O N   L I N U X
     
-    Documentation: http://aka.ms/webapp-linux
+    Documentation: https://aka.ms/webapp-linux
     
     54cfe2dfa970:/home# ls -al
     total 12
@@ -837,7 +837,7 @@ You can test the Bash script for configuring data source by running them on App 
     cp /home/site/deployments/tools/jndi.properties /opt/jboss/wildfly/standalone/configuration/^M
     /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/home/site/deployments/tools/commands.cli^M
     ```
-    Remove those '^M' end of line characters and save the file. There are alternate ways to remove the end of line characters. See ([this article](http://marcelog.github.io/articles/mac_newline_to_unix_eol.html)).
+    Remove those '^M' end of line characters and save the file. There are alternate ways to remove the end of line characters. See ([this article](https://marcelog.github.io/articles/mac_newline_to_unix_eol.html)).
 
 ##### Test the startup.sh script
 

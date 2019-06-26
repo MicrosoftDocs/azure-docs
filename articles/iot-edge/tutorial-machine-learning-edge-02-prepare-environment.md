@@ -56,7 +56,7 @@ The DevVM directory contains the files needed to create an Azure virtual machine
 1. Open Powershell as an administrator and navigate to the directory where you downloaded the code. We will refer to the root directory for your source as `<srcdir>`.
 
     ```powershell
-    cd \<srcdir\>\IoTEdgeAndMlSample\DevVM
+    cd <srcdir>\IoTEdgeAndMlSample\DevVM
     ```
 
 2. Run the following command to allow execution of scripts. Choose **Yes to All** when prompted.
@@ -137,7 +137,7 @@ Now that you have connected to the development machine, add some useful extensio
 3. Run the script.
 
     ```powershell
-    .\\Enable-CodeExtensions.ps1
+    .\Enable-CodeExtensions.ps1
     ```
 
 4. The script will run for a few minutes installing VS code extensions:
@@ -186,7 +186,7 @@ The script takes about two minutes to run. Once complete, the script outputs the
 
 As part of creating the IoT hub, the script that we ran in the previous section also created a custom endpoint and a route. IoT Hub routes consist of a query expression and an endpoint. If a message matches the expression, the data is sent along the route to the associated endpoint. Endpoints can be Event Hubs, Service Bus Queues, and Topics. In this case, the endpoint is a Blob container in a storage account. Let’s use the Azure portal to review the route created by our script.
 
-1. Open the [Azure portal](http://portal.azure.com).
+1. Open the [Azure portal](https://portal.azure.com).
 
 1. Choose all services from the left navigator, type IoT in the search box, and select **IoT Hub**.
 
