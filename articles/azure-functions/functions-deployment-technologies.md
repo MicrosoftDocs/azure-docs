@@ -54,6 +54,8 @@ When you change any of your triggers, the Functions infrastructure must be aware
 
 This section describes the different deployment technologies available in Azure Functions.
 
+These following deployment methods are supported by Azure Functions.
+
 ### External package URL
 
 You can use an external package URL to reference a remote package (.zip) file that contains your function app. The file is downloaded from the provided URL, and the app runs in [Run From Package](run-functions-from-deployment-package.md) mode.
@@ -89,11 +91,11 @@ You can deploy a Linux container image that contains your function app.
 
 ### Web Deploy (MSDeploy)
 
-Web Deploy packages and deploys your Windows applications to any IIS server, including your Azure function apps that are running on Windows.
+Web Deploy packages and deploys your Windows applications to any IIS server, including your function apps running on Windows in Azure.
 
->__How to use it:__ Use [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md). Don't select the **Run from package file (recommended)** check box.
+>__How to use it:__ Use [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md). Clear the **Run from package file (recommended)** check box.
 >
->Alternatively, call `MSDeploy.exe` directly after you download [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
+>You can also download [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy) and call `MSDeploy.exe` directly.
 
 >__When to use it:__ Web Deploy is supported and has no issues, but the preferred mechanism is [zip deploy with Run From Package enabled](#zip-deploy). To learn more, see the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
 
