@@ -15,23 +15,22 @@ ms.custom: seodec2018
 ---
 #	Text Translation cognitive skill (Preview)
 
-The **Text Translation** skill evaluates text, and for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-reference) available in Cognitive Services.  While currently available in the latest Azure Search generally available API version, it is considered to be in preview and should be treated as such until announced as generally available.
+The **Text Translation** skill evaluates text, and for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) available in Cognitive Services.  While currently available in the latest Azure Search generally available API version, it is considered to be in preview and should be treated as such until announced as generally available.
 
 This capability is useful if you expect that your documents may not all be in one language, in which case you can normalize the text to all be the same language before indexing for search by translating it.  It is also useful for localization use cases, where you may want to have copies of the same text available in multiple languages.
+
+The [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) is a non-regional Cognitive Service, meaning that your data is not guaranteed to stay in the same region as your Azure Search or attached Cognitive Services resource.
 
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
 > Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
-> [!NOTE]
-> The [Translator Text API v3.0](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-reference) is a non-regional Cognitive Service, meaning that your data is not guaranteed to stay in the same region as your Azure Search or attached Cognitive Services resource.
-
 ## @odata.type  
 Microsoft.Skills.Text.TranslationSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by `String.Length`. If you need to break up your data before sending it to the text translation skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the text translation skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
 
@@ -39,21 +38,21 @@ Parameters are case-sensitive.
 
 | Inputs	            | Description |
 |---------------------|-------------|
-| defaultToLanguageCode | (Required) The language code to translate documents into for documents that don't specify the to language explicitly. <br/> See [Full list of supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support). |
-| defaultFromLanguageCode | (Optional) The language code to translate documents from for documents that don't specify the from language explicitly.  If the default from language code is not specified, the automatic language detection provided by the Translator Text API will be used to determine the from language. <br/> See [Full list of supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support). |
-| suggestedFrom | (Optional) The language code to translate documents from for documents when the fromLanguageCode input and defaultFromLanguageCode parameter are not provided and the automatic language detection is unsuccessful.  If the suggested from language is not specified,  English (en) will be used as the suggested from language. <br/> See [Full list of supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support). |
+| defaultToLanguageCode | (Required) The language code to translate documents into for documents that don't specify the to language explicitly. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
+| defaultFromLanguageCode | (Optional) The language code to translate documents from for documents that don't specify the from language explicitly.  If the default from language code is not specified, the automatic language detection provided by the Translator Text API will be used to determine the from language. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
+| suggestedFrom | (Optional) The language code to translate documents from for documents when the fromLanguageCode input and defaultFromLanguageCode parameter are not provided and the automatic language detection is unsuccessful.  If the suggested from language is not specified,  English (en) will be used as the suggested from language. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
 
 ## Skill inputs
 
-| Inputs	 | Description |
+| Input name	 | Description |
 |--------------------|-------------|
 | text | The text to be translated.|
-| toLanguageCode	| A string indicating the language to translate the records into. If this input is not specified, the default to language code will be used to translate the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)|
-| fromLanguageCode	| A string indicating the current language of the records. If this parameter is not specified, the default from language code (or automatic language detection if the default from language code is not provided) will be used to translate the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)|
+| toLanguageCode	| A string indicating the language to translate the records into. If this input is not specified, the default to language code will be used to translate the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
+| fromLanguageCode	| A string indicating the current language of the records. If this parameter is not specified, the default from language code (or automatic language detection if the default from language code is not provided) will be used to translate the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
 
 ## Skill outputs
 
-| Inputs	 | Description |
+| Output name	 | Description |
 |--------------------|-------------|
 | translatedText | The string result of the text translation from the translatedFromLanguageCode to the translatedToLanguageCode.|
 | translatedToLanguageCode	| A string indicating the language code the text was translated to. Useful if you are translating to multiple languages and want to be able to keep track of which text is which language.|
@@ -66,6 +65,7 @@ Parameters are case-sensitive.
     "@odata.type": "#Microsoft.Skills.Text.TranslationSkill",
     "defaultToLanguageCode": "fr",
     "suggestedFrom": "en",
+    "context": "/document",
     "inputs": [
       {
         "name": "text",
