@@ -286,7 +286,7 @@ If you configured a location measurement, you can visualize the location with a 
 
 1. On the device dashboard, select **Map** from the library.
 
-1. Give the map a title. The following example has the title **Device Current Location**. Then choose the location measurement that you previously configured on the **Measurements** tab. In the following example, the **Asset Location** measurement is selected.
+1. Give the map a title. The following example has the title **Device Current Location**. Then choose the location measurement that you previously configured on the **Measurements** tab. In the following example, the **Asset Location** measurement is selected:
 
    !["Configure Map" form with details for title and properties](./media/howto-set-up-template/locationcloudproperty5map.png)
 
