@@ -87,7 +87,7 @@ To send a command to a device, go to ``Commands`` page.
 1. From the list of commands, find the command you want to triger and click to expand. 
 2. Input the required value for this command.
 3. Preview the payload that will be sent to the device once submit the changes.
-4. Submit. Once you submit, you can track the update status - synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
+4. Submit. 
 #### Telemetry
  To view the telemetry page, go to ``Telemetry`` page.
 ![Img](img/.png)
