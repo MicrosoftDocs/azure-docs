@@ -110,7 +110,11 @@ In user subscription mode, an Azure key vault is required that belongs to the sa
 
 1. In the **Create Key Vault** page, enter a name for the key vault, and create a resource group in the region you want for your Batch account. Leave the remaining settings at default values, then select **Create**.
 
-When creating the Batch account in user subscription mode, use the resource group for the key vault, specify **User subscription** as the pool allocation mode, and select the key vault.
+When creating the Batch account in user subscription mode, use the resource group for the key vault. Specify **User subscription** as the pool allocation mode, select the key vault, and check the box to grant Azure Batch access to the key vault. 
+
+If you prefer to grant access to the key vault manually, go to the **Access policies** section of the key vault and select **Microsoft Azure Batch**. Configure the **Secret permissions** using the drop down menu. Azure Batch must be given a minimum of **Get**, **List**, **Set**, and **Delete** permissions.
+
+![Secret permissions for Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 
 ### Configure subscription quotas
 
