@@ -157,7 +157,7 @@ The *TaxiRides* sample data set contains New York City taxi data from [NYC Taxi 
 
 Sign in to [https://dataexplorer.azure.com/clusters/help/databases/Samples](https://dataexplorer.azure.com/clusters/help/databases/Samples) to query the *TaxiRides* external table. 
 
-#### Example: Query *TaxiRides* external table without partitioning
+#### Query *TaxiRides* external table without partitioning
 
 [Run this query](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAAx3LSwqAMAwFwL3gHYKreh1xL7F9YrCtElP84OEV9zM4DZo5DsZjhGt6PqWTgL1p6+qhvaTEKjeI/FqyuZbGiwJf63QAi9vEL2UbAhtMEv6jyAH6+VhS9jOr1dULfUgAm2cAAAA=) on the external table *TaxiRides* to depict rides for each day of the week, across the entire data set. 
 
@@ -171,9 +171,9 @@ external_table("TaxiRides")
 
 This query shows the busiest day of the week. Since the data isn't partitioned, this query may take a long time to return results (up to several minutes).
 
-#### Example: Query TaxiRides external table with partitioning that optimizes query time and performance
+#### Query TaxiRides external table with partitioning that optimizes query time and performance
 
-[Run the query below](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) on the external table *TaxiRides* showing taxi cab types (yellow or green) used in January of 2017. 
+[Run this query](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA13NQQqDMBQE0L3gHT6ukkVF3fQepXv5SQYMNWmIP6ilh68WuinM6jHMYBPkyPMobGao5s6bv3mHpdF19aZ1QgYlbx8ljY4F4gPIQFYgkvqJGrr+eun6I5ralv58OP27t5QQOPsXiOyzRFGazE6WzSh7wtnIiA75uISdOEtdfQDLWmP+ogAAAA==) on the external table *TaxiRides* showing taxi cab types (yellow or green) used in January of 2017. 
 
 ```kusto
 external_table("TaxiRides")
