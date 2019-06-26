@@ -73,10 +73,10 @@ Completing this tutorial is a prerequisite for doing all other Notification Hubs
 2. Enter the **server key** for the FCM project that you saved earlier. 
 3. On the toolbar, select **Save**. 
 
-    ![Azure Notification Hubs - Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
-4. You see a message in alerts that the notification hubs have been successfully updated. The **Save** button is disabled. 
+    ![Azure Notification Hub - Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
+4. The Azure portal displays a message in alerts that the Notification Hub has been successfully updated. The **Save** button is disabled. 
 
-Your notification hub is now configured to work with Firebase Cloud Messaging. You also have the connection strings to register your app to receive and to send push notifications.
+Your hub is now configured to work with Firebase Cloud Messaging. You also have the connection strings needed to send notifications to a device and register an app to receive notifications.
 
 ## <a id="connecting-app"></a>Connect your app to the notification hub
 
@@ -119,9 +119,9 @@ Your notification hub is now configured to work with Firebase Cloud Messaging. Y
     ```
 3. Select **Sync Now** on the toolbar.
 
-### Update the AndroidManifest.xml
+### Update the AndroidManifest.xml file
 
-1. After you receive your FCM registration token, you use it to [register with the Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). You support this registration in the background by using an `IntentService` named `RegistrationIntentService`. This service also refreshes your FCM registration token.
+1. After you receive your FCM registration token, you use it to [register with Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). You support this registration in the background by using an `IntentService` named `RegistrationIntentService`. This service also refreshes your FCM registration token.
 
     Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag.
 
@@ -173,7 +173,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging. Y
         ```
 
      > [!IMPORTANT]
-     > Enter the **name** and the **DefaultListenSharedAccessSignature** of your notification hub before proceeding further. 
+     > Enter the **name** and the **DefaultListenSharedAccessSignature** of your hub before proceeding further. 
 
 3. Add another new class to your project named `RegistrationIntentService`. This class implements the `IntentService` interface. It also handles [refreshing the FCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) and [registering with the notification hub](notification-hubs-push-notification-registration-management.md).
 
@@ -325,7 +325,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging. Y
     }
     ```
 
-7. In the `MainActivity` class, add the following code that checks for Google Play Services before calling your `IntentService` to get your FCM registration token and register with your notification hub:
+7. In the `MainActivity` class, add the following code that checks for Google Play Services before calling the `IntentService` to get your FCM registration token and register with your hub:
 
     ```java
     public void registerWithNotificationHubs()
@@ -490,7 +490,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging. Y
 15. Run the app on your device and verify that it registers successfully with the notification hub.
 
     > [!NOTE]
-    > Registration might fail during the initial launch until the `onTokenRefresh()` method of instance ID service is called. The refresh should initiate a successful registration with the notification hub.
+    > Registration might fail during the initial launch until the `onTokenRefresh()` method of the instance ID service is called. The refresh should initiate a successful registration with the notification hub.
 
     ![Device registration successful](./media/notification-hubs-android-push-notification-google-fcm-get-started/device-registration.png)
 
