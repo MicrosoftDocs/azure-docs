@@ -89,7 +89,7 @@ This image demonstrates the camera's field-of-view as seen from the front at a d
 ![Camera FOV Front](./media/resources/hardware-specs-media/fov-front.png)
 
 > [!NOTE]
-> When depth is in NFOV mode, the RGB camera has better pixel overlap in 4:3 than 19:9 resolutions.
+> When depth is in NFOV mode, the RGB camera has better pixel overlap in 4:3 than 16:9 resolutions.
 
 ## Motion sensor (IMU)
 
