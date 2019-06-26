@@ -17,8 +17,6 @@ ms.date: 06/26/2019
 
 This article provides an overview of the resource limits for Azure SQL Database managed instance, and provides information about how to request an increase to these limits.
 
-> [!IMPORTANT]
-> New Gen4 databases are no longer supported in the AustraliaEast region.
 > [!NOTE]
 > For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md).
 

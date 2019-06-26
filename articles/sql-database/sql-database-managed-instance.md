@@ -76,9 +76,6 @@ In vCore model, you can choose between generations of hardware.
 
 Find more information about the difference between hardware generations in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
-> [!IMPORTANT]
-> New Gen4 databases are no longer supported in the AustraliaEast region.
-
 ## Managed instance service tiers
 
 Managed instance is available in two service tiers:
