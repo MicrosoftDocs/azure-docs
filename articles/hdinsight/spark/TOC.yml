@@ -29,11 +29,7 @@
     - name: Create a machine learning app
       href: apache-spark-ipython-notebook-machine-learning.md
     - name: Create an Apache Spark app in IntelliJ
-      href: apache-spark-create-standalone-application.md
-    - name: Use VSCode to run Apache Spark queries
-      href: ../hdinsight-for-vscode.md
-    - name: Monitor cluster availability with Ambari and Azure Monitor logs
-      href: ../hdinsight-cluster-availability.md    
+      href: apache-spark-create-standalone-application.md   
 - name: Samples
   items:
   - name: .NET samples
@@ -52,6 +48,8 @@
     href: ../hdinsight-component-versioning.md
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
+  - name: Monitor cluster availability with Ambari and Azure Monitor logs
+    href: ../hdinsight-cluster-availability.md 
 - name: How to
   items:
   - name: Use cluster storage
