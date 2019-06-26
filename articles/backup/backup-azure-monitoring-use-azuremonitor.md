@@ -229,28 +229,28 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 
 ## Using the RS vault's activity logs
 
-You can also use activity logs to get notification for events such as backup success.
-
 > [!CAUTION]
 > The following steps apply only to *Azure VM backups.* You can't use these steps for solutions such as the Azure Backup agent, SQL backups within Azure, or Azure Files.
 
-### Sign in to the Azure portal
+You can also use activity logs to get notification for events such as backup success. To begin, follow these steps:
 
-Sign in into the Azure portal and continue to the relevant RS vault. In the vault's properties, open the **Activity log** section.
+1. Sign in into the Azure portal.
+1. Open the relevant RS vault. 
+1. In the vault's properties, open the **Activity log** section.
 
-### Identify the appropriate log and create an alert
+To identify the appropriate log and create an alert:
 
-To verify that you're receiving activity logs for successful backups, apply the filters shown in the following image. Change the **Timespan** value as necessary to view records.
+1. Verify that you're receiving activity logs for successful backups by applying the filters shown in the following image. Change the **Timespan** value as necessary to view records.
 
-![Filtering to find activity logs for Azure VM backups](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
+   ![Filtering to find activity logs for Azure VM backups](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-Select the operation name to see the operation and relevant details.
+1. Select the operation name to see the relevant details.
+1. Select **New alert rule** to open the **Create rule** page. 
+1. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-Select **New alert rule** to open the **Create rule** page. Here you can create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+   ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
-
-Here the resource is the RS vault itself. You must repeat the same action for all of the vaults in which you want to be notified through activity logs. The condition won't have a threshold, period, or frequency because this alert is based on events. As soon as the relevant activity log is generated, the alert is raised.
+Here the resource is the RS vault itself. You must repeat the same steps for all of the vaults in which you want to be notified through activity logs. The condition won't have a threshold, period, or frequency because this alert is based on events. As soon as the relevant activity log is generated, the alert is raised.
 
 ## Using Log Analytics to monitor at scale
 
@@ -260,7 +260,7 @@ Although you can get notifications through activity logs, we highly recommend us
 
 - **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications must be set up for every RS vault.
 - **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
-- **Problems with the activity log channel**: In RS vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Sovereign Cloud. If Azure Sovereign Cloud users create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects RS activity logs into a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), these logs don't appear.
+- **Problems with the activity log channel**: In RS vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Government, Azure Germany, and Azure China 21Vianet. If users of these cloud services create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects RS activity logs into a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), these logs don't appear.
 
 Use a Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup.
 
