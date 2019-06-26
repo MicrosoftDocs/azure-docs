@@ -22,15 +22,15 @@ specific VM Extensions to support audit requirements** built-in policy initiativ
 
 ## 1 Data in transit protection
 
-The blueprint helps you ensure information transfer with Azure services is secure by assigning two [Azure Policy](../../../policy/overview.md)
-definitions to audit insecure connections to storage accounts and Redis Cache.
+The blueprint helps you ensure information transfer with Azure services is secure by assigning [Azure Policy](../../../policy/overview.md)
+definitions that audit insecure connections to storage accounts and Redis Cache.
 
 - Only secure connections to your Redis Cache should be enabled
 - Secure transfer to storage accounts should be enabled
 
 ## 2.3 Data at rest protection
 
-This blueprint helps you enforce your policy on the use of cryptograph controls by assigning 11 [Azure Policy](../../../policy/overview.md)
+This blueprint helps you enforce your policy on the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md)
 definitions that enforce specific cryptograph controls and audit use of weak cryptographic settings.
 Understanding where your Azure resources may have non-optimal cryptographic configurations can help
 you take corrective actions to ensure resources are configured in accordance with your information
@@ -54,7 +54,7 @@ machine password encryption; and audit unencrypted Service Fabric communication.
 
 ## 5.2 Vulnerability Management
 
-This blueprint helps you manage information system vulnerabilities by assigning five [Azure Policy](../../../policy/overview.md)
+This blueprint helps you manage information system vulnerabilities by assigning [Azure Policy](../../../policy/overview.md)
 definitions that monitor missing endpoint protection, missing system updates, operating system
 vulnerabilities, SQL vulnerabilities, and virtual machine vulnerabilities. These insights provide
 real-time information about the security state of your deployed resources and can help you
@@ -68,9 +68,8 @@ prioritize remediation actions.
 
 ## 5.3 Protective Monitoring
 
-This blueprint helps you protect information system assets by assigning an [Azure Policy](../../../policy/overview.md)
-definition that monitors unrestricted storage accounts. This blueprint also assigns an Azure Policy
-definition that monitors whitelist activity.
+This blueprint helps you protect information system assets by assigning [Azure Policy](../../../policy/overview.md)
+definitions that provide protective monitoring on unrestricted acces, whitelist activity and threats.
 
 - Audit unrestricted network access to storage accounts
 - Adaptive Application Controls should be enabled on virtual machines
@@ -81,8 +80,8 @@ definition that monitors whitelist activity.
 
 Azure implements role-based access control (RBAC) to helps you manage who has access to resources in
 Azure. Using the Azure portal, you can review who has access to Azure resources and their
-permissions. This blueprint helps you restrict and control privileged access rights by assigning
-six [Azure Policy](../../../policy/overview.md) definitions to audit external accounts with owner
+permissions. This blueprint helps you restrict and control access rights by assigning
+[Azure Policy](../../../policy/overview.md) definitions to audit external accounts with owner
 and/or read/write permissions and accounts with owner, read and/or write permissions that do not have
 multi-factor authentication enabled.
 
@@ -93,7 +92,7 @@ multi-factor authentication enabled.
 - External accounts with write permissions should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription
 
-This blueprint assigns two Azure Policy definitions to audit use of Azure Active Directory
+This blueprint assigns Azure Policy definitions to audit use of Azure Active Directory
 authentication for SQL servers and Service Fabric. Using Azure Active Directory authentication
 enables simplified permission management and centralized identity management of database users and
 other Microsoft services.
@@ -101,7 +100,7 @@ other Microsoft services.
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Service Fabric clusters should only use Azure Active Directory for client authentication
 
-This blueprint also assigns five Azure Policy definitions to audit accounts that should be
+This blueprint also assigns Azure Policy definitions to audit accounts that should be
 prioritized for review, including depreciated accounts and external accounts. When needed, accounts can be blocked from signing in (or removed), which immediately removes access rights to Azure resources. This blueprint assigns two Azure Policy definitions to
 audit depreciated account that should be considered for removal.
 
@@ -116,7 +115,7 @@ to ensure authenticators aren't compromised.
 
 - [Preview]: Audit Linux VM /etc/passwd file permissions are set to 0644
 
-This blueprint helps you enforce strong passwords by assigning 10 Azure Policy definitions that
+This blueprint helps you enforce strong passwords by assigning Azure Policy definitions that
 audit Windows VMs that don't enforce minimum strength and other password requirements. Awareness of
 VMs in violation of the password strength policy helps you take corrective actions to ensure
 passwords for all VM user accounts are compliant with policy.
@@ -132,7 +131,7 @@ passwords for all VM user accounts are compliant with policy.
 - [Preview]: Audit Windows VMs that do not restrict the minimum password length to 14 characters
 - [Preview]: Audit Windows VMs that allow re-use of the previous 24 passwords
 
-This blueprint also helps you control access to Azure resources by assigning seven Azure Policy
+This blueprint also helps you control access to Azure resources by assigning Azure Policy
 definitions. These policies audit use of resource types and configurations that may allow more
 permissive access to resources. Understanding resources that are in violation of these policies can
 help you take corrective actions to ensure access Azure resources is restricted to authorized users.
@@ -178,7 +177,7 @@ data.
 - External accounts with owner permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
 
-This blueprint assigns two Azure Policy definitions to audit use of Azure Active Directory
+This blueprint assigns Azure Policy definitions to audit use of Azure Active Directory
 authentication for SQL servers and Service Fabric. Using Azure Active Directory authentication
 enables simplified permission management and centralized identity management of database users and
 other Microsoft services.
@@ -186,7 +185,7 @@ other Microsoft services.
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Service Fabric clusters should only use Azure Active Directory for client authentication
 
-This blueprint also assigns four Azure Policy definitions to audit accounts that should be
+This blueprint also assigns Azure Policy definitions to audit accounts that should be
 prioritized for review, including depreciated accounts and external accounts with elevated
 permissions. When needed, accounts can be blocked from signing in (or removed), which immediately
 removes access rights to Azure resources. This blueprint assigns two Azure Policy definitions to
@@ -205,7 +204,7 @@ to ensure authenticators aren't compromised.
 
 ## 13 Audit Information for Users
 
-This blueprint helps you ensure system events are logged by assigning 6 [Azure Policy](../../../policy/overview.md)
+This blueprint helps you ensure system events are logged by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit log settings on Azure resources. An assigned policy also audits if virtual
 machines aren't sending logs to a specified log analytics workspace.
 
