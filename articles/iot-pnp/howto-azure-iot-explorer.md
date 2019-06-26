@@ -50,9 +50,7 @@ For a plug and play device, its model definition can be stored at public reposit
 
 ### Overview page
 #### Device overview
-1. Once conncected, you will land on an overview page, where you have a list of all your device identities that exist in your Azure IoT Hub. 
-2. Click on the device once to expand and see some details.
-3. To interact with one device, double click to go to the detailed pages.
+Once conncected, you will land on an overview page, where you have a list of all your device identities that exist in your Azure IoT Hub. You can click on the device once to expand and see some details.
 #### Device management
 1. Create a device. You can click the ``Add`` button to create a new device identity in your Azure IoT Hub. Provide a descriptive Device ID; Use the default settings to auto-generate authentication keys and enable the connection to your hub.
 2. Delete a device. You can choose a device then click ``Delete`` to delete an existing device identity in your Azure IoT Hub. Please carefully review the device details before you complete this action.
