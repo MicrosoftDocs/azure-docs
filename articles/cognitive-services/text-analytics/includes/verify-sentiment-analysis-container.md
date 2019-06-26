@@ -1,3 +1,16 @@
+---
+title: Container support
+titleSuffix: Azure Cognitive Services
+description: Learn how to verify the sentiment analysis container instance.
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: conceptual 
+ms.date: 06/26/2019
+ms.author: dapine
+---
+
 ## Verify the Sentiment Analysis container instance
 
 1. Select the **Overview** tab and copy the IP address.
