@@ -1,6 +1,6 @@
 ---
-title: Problems configuring password single sign-on for a non-gallery application | Microsoft Docs
-description: Common problems that occur when you configure password SSO for custom apps that aren't in the Azure AD application gallery.
+title: Problems configuring password SSO for a non-gallery application | Microsoft Docs
+description: Common problems that occur when you configure password single sign-on (SSO) for custom apps that aren't in the Azure AD application gallery.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -21,15 +21,15 @@ ms.collection: M365-identity-device-management
 
 # Problems configuring password single sign-on for a non-gallery application
 
-This article helps you understand common problems that can occur when you configure *password single sign-on* (SSO) for a non-gallery app.
+This article describes common problems that can occur when you configure *password single sign-on* (SSO) for a non-gallery app.
 
 ## Capture sign-in fields for an app
 
-Sign-in field capture is only supported for HTML-enabled sign-in pages. It's not supported for non-standard sign-in pages, like those that use Flash or other non-HTML-enabled technologies.
+Sign-in field capture is only supported for HTML-enabled sign-in pages. It's not supported for non-standard sign-in pages, like those that use Adobe Flash or other non-HTML-enabled technologies.
 
 There are two ways to capture sign-in fields for your custom apps:
 
-- **Automatic sign-in field capture** works well with most HTML-enabled sign-in pages, *if they use well-known DIV IDs* for the user name and password fields. The HTML on the page is scraped to find DIV IDs that match certain criteria. That metadata is saved for the app to replay passwords to it later.
+- **Automatic sign-in field capture** works well with most HTML-enabled sign-in pages, *if they use well-known DIV IDs* for the user name and password fields. The HTML on the page is scraped to find DIV IDs that match certain criteria. That metadata is saved so that it can be replayed to the app later.
 
 - **Manual sign-in field capture** is used if the app vendor *doesn't label the sign-in input fields*. Manual capture is also used if the vendor *renders multiple fields that can't be auto-detected*. Azure AD can store data for as many fields as there are on the sign-in page, if you tell it where those fields are on the page.
 
@@ -72,7 +72,7 @@ To install the extension, see the [Install the Access Panel Browser extension](#
 
 To configure password-based SSO for an app by using **manual sign-in field capture**, follow these steps:
 
-1. Open the [**Azure portal**](https://portal.azure.com/). Sign in as a global administrator or co-admin.
+1. Open the [Azure portal](https://portal.azure.com/). Sign in as a global administrator or co-admin.
 
 2. In the navigation pane on the left side, select **All services** to open the Azure AD extension.
 
@@ -92,8 +92,6 @@ To configure password-based SSO for an app by using **manual sign-in field captu
 8. Select **Password-based Sign-on** mode.
 
 9. Enter the **Sign-on URL**, which is the page where users enter their user name and password to sign in. *Make sure that the sign-in fields are visible on the page for the URL that you provide*.
-
-   The page is automatically scraped for the user name and password input boxes. You can then use Azure AD to securely transmit passwords to that app by using the Access Panel browser extension. If this method fails, you can change the sign-in mode to use *manual sign-in field capture* by continuing to step 11.
 
 10. Select **Configure &lt;appname&gt; Password Single Sign-on Settings**.
 
@@ -115,7 +113,7 @@ You get this error message when automatic detection of sign-in fields fails. To 
 
 Rarely, updating the SSO configuration fails. To resolve this problem, try saving the configuration again.
 
-If it consistently fails, open a support case. Include the information that's described in the [View portal notification details](#view-portal-notification-details) and [Send notification details to a support engineer to get help](#send-notification-details-to-a-support-engineer-to-get-help) sections of this article.
+If you keep getting the error, open a support case. Include the information that's described in the [View portal notification details](#view-portal-notification-details) and [Send notification details to a support engineer to get help](#send-notification-details-to-a-support-engineer-to-get-help) sections of this article.
 
 ### I can't manually detect sign-in fields for my app
 
@@ -139,11 +137,11 @@ If you experience any of these problems, do the following things:
 
 - Try the manual capture process again. Make sure that the red markers are over the correct fields.
 
-- If the manual capture process seems to stop responding or the sign-in page doesn’t do anything (case 3 above), try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Then, open the **console**. Type **window.location="*the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
+- If the manual capture process seems to stop responding or the sign-in page doesn’t respond, try the manual capture process again. But this time, after completing the process, press the F12 key to open your browser’s developer console. Select the **console** tab. Type **window.location="*the sign-in URL that you specified when configuring the app&gt;*"**, and then press Enter. This forces a page redirect that ends the capture process and stores the fields that were captured.
 
 ### Contact support
 
-If you still have problems, open a case with Microsoft Support. Describe what you tried, and include the details that are described in the [View portal notification details](#view-portal-notification-details) and [Send notification details to a support engineer to get help](#send-notification-details-to-a-support-engineer-to-get-help) sections of this article (if applicable).
+If you still have problems, open a case with Microsoft Support. Describe what you tried. Include the details that are described in the [View portal notification details](#view-portal-notification-details) and [Send notification details to a support engineer to get help](#send-notification-details-to-a-support-engineer-to-get-help) sections of this article (if applicable).
 
 ## Install the Access Panel browser extension
 
@@ -178,7 +176,7 @@ To see the details of any portal notification, follow these steps:
 2. Select any notification that shows an *Error* state. (They have a red "!".)
 
    > !NOTE]
-   > You can't select notifications that are in the **Successful** or **In Progress** state.
+   > You can't select notifications that are in the *Successful* or *In Progress* state.
 
 3. The **Notification Details** pane opens. Read the information to learn about the problem.
 
@@ -186,7 +184,7 @@ To see the details of any portal notification, follow these steps:
 
 ## Send notification details to a support engineer to get help
 
-It's important that you share *all* the details that are listed in this section with support so that they can help you quickly. To record it, you can also take a screenshot or select **Copy error**.
+It's important that you share *all* the details that are listed in this section with support so that they can help you quickly. To record it, you can take a screenshot or select **Copy error**.
 
 The following information explains what each notification item means and provides examples.
 
