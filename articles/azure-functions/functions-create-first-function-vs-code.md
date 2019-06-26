@@ -10,7 +10,7 @@ keywords: azure functions, functions, event processing, compute, serverless arch
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
 ---
@@ -39,9 +39,10 @@ To complete this quickstart:
 
     | Language | Requirement |
     | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    <sup>*</sup>TLS-covered, even-numbered major versions starting with Node 8.0.
+    
+    <sup>*</sup>Active LTS and Maintenence LTS versions (8.11.1 and 10.14.1 recommended).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
