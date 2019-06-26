@@ -132,7 +132,7 @@ A successful response looks like the following example:
 }
 ```
 > [!NOTE]
-<When creating users via Graph API, the application needs to have "openid", "offline_access", and "profile" permissions from Microsoft Graph.>
+> When creating users via Graph API, the application needs to have "openid", "offline_access", and "profile" permissions from Microsoft Graph.
 
 ## Implement with your preferred native SDK or use App-Auth
 
