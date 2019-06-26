@@ -55,7 +55,7 @@ For details on how these metrics are computed, see the [data drift concept](conc
     print(model_name, image_name, service_name, model)
     ```
 
-- Set up the [model data collector](how-to-enable-data-collection.md) to collect data from the AKS deployment of the model and confirm data is being collected in the `modeldata` blob container.
+- [Enable model data collection](how-to-enable-data-collection.md) to collect data from the AKS deployment of the model and confirm data is being collected in the `modeldata` blob container.
 
 ## Import dependencies 
 Import dependencies used in this guide:
