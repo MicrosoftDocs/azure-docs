@@ -51,7 +51,7 @@ As with the developer virtual machine before, using Azure notebooks ensures a co
 
 Azure Notebook accounts are independent from Azure subscriptions. To use Azure Notebooks, you need to create an account.
 
-1. Navigate to [Azure notebooks](http://notebooks.azure.com).
+1. Navigate to [Azure notebooks](https://notebooks.azure.com).
 
 2. Click **Sign In** in the upper, right-hand corner of the page.
 
