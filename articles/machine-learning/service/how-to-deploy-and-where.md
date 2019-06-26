@@ -269,7 +269,7 @@ For information on using a custom Docker image with inference configuration, see
 
 ### CLI example of InferenceConfig
 
-The following is an example inference configuration for use with the machine learning CLI:
+The following JSON document is an example inference configuration for use with the machine learning CLI:
 
 ```JSON
 {
@@ -280,17 +280,17 @@ The following is an example inference configuration for use with the machine lea
 }
 ```
 
-The following is a list of valid entries in this file:
+The following entities are valid in this file:
 
 * __entry_script__: Path to local file that contains the code to run for the image.
 * __runtime__: Which runtime to use for the image. Current supported runtimes are 'spark-py' and 'python'.
 * __conda\_file__ (optional): Path to local file containing a conda environment definition to use for the image.
 * __extra\_docker\_file\_steps__ (optional): Path to local file containing additional Docker steps to run when setting up image.
-* __source\_directory__ (optional): Paths to folders that contains all files to create the image.
+* __source\_directory__ (optional): Path to folders that contains all files to create the image.
 * __enable\_gpu__ (optional): Whether or not to enable GPU support in the image. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Defaults to False.
-* __base\_image__ (optional): A custom image to be used as base image. If no base image is given then the base image will be used based off of given runtime parameter.
+* __base\_image__ (optional): A custom image to be used as base image. If no base image is given, then the base image will be used based off of given runtime parameter.
 * __base\_image\_registry__ (optional): Image registry that contains the base image.
-* __cuda\_version__ (optional): Version of CUDA to install for images that need GPU support. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Supported versions are 9.0, 9.1, and 10.0. If 'enable_gpu' is set, this defaults to '9.1'.
+* __cuda\_version__ (optional): Version of CUDA to install for images that need GPU support. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Supported versions are 9.0, 9.1, and 10.0. If 'enable_gpu' is set, defaults to '9.1'.
 
 Thee following command demonstrates how to deploy a model using the CLI:
 
