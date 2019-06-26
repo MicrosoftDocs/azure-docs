@@ -12,36 +12,17 @@ ms.author: lbosq
 
 [Azure Cosmos DB](introduction.md) is the globally distributed, multi-model database service from Microsoft for mission-critical applications. It is a multi-model database and supports document, key-value, graph, and columnar data models. The Azure Cosmos DB Gremlin API is used to store and operate with graph data on a fully managed database environment at any scale.  
 
+![Azure Cosmos DB graph architecture](./media/graph-introduction/cosmosdb-graph-architecture.png)
+
 This article provides an overview of the Azure Cosmos DB Gremlin API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure easily. Azure Cosmos DB's Gremlin API is based on the [Apache TinkerPop](https://tinkerpop.apache.org) graph database standard, and uses the Gremlin query language. 
 
 This article provides an overview of the Azure Cosmos DB Gremlin API and explains how you can use it to store massive graphs with billions of vertices and edges. You can query the graphs with millisecond latency and evolve the graph structure and schema easily. To query Azure Cosmos DB, you can use the  graph traversal language, or [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
-
-## Introduction to graph databases
-Data as it appears in the real world is naturally connected. Traditional data modeling focuses on defining entities separately and computing their relationships at runtime. While this model has its advantages, highly connected data can be challenging to manage under its constraints.  
-
-A graph database approach relies on persisting relationships in the storage layer instead, which leads to highly efficient graph retrieval operations. Azure Cosmos DB's Gremlin API supports the [property graph model](https://tinkerpop.apache.org/docs/current/reference/#intro). 
-
-A property [graph](http://mathworld.wolfram.com/Graph.html) is a structure that's composed of [vertices](http://mathworld.wolfram.com/GraphVertex.html) and [edges](http://mathworld.wolfram.com/GraphEdge.html). Both objects can have an arbitrary number of key-value pairs as properties. 
-
-* **Vertices** - Vertices denote discrete entities, such as a person, a place, or an event.
-
-* **Edges** - Edges denote relationships between vertices. For example, a person might know another person, be involved in an event, and recently been at a location. 
-
-* **Properties** -  Properties express information about the vertices and edges. There can be any number of properties in either vertices or edges, and they can be used to describe and filter the objects in a query. Example properties include a vertex that has name and age, or an edge, which can have a time stamp and/or a weight.  
-
-For example, the following sample graph shows relationships among people, mobile devices, interests, and operating systems:
-
-![Sample database showing persons, devices, and interests](./media/graph-introduction/sample-graph.png)
-
-Graph databases are often included within the NoSQL, or non-relational, database category since there is no dependency on a schema or constrained data model. This lack of schema allows for modelling and storing connected structures naturally and efficiently. 
 
 Azure Cosmos DB's Gremlin API combines the power of graph database algorithms with highly scalable, managed infrastructure to provide a unique, flexible solution to most common data problems associated with lack of flexibility and relational approaches. 
 
 ## Features of Azure Cosmos DB graph database
  
 Azure Cosmos DB is a fully managed graph database that offers global distribution, elastic scaling of storage and throughput, automatic indexing and query, tunable consistency levels, and support for the TinkerPop standard. 
-
-![Azure Cosmos DB graph architecture](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
 The following are the differentiated features that Azure Cosmos DB Gremlin API offers:
 
@@ -96,7 +77,24 @@ Here are some scenarios where graph support of Azure Cosmos DB can be used:
 
   With the network and connections between IoT devices modeled as a graph, you can build a better understanding of the state of your devices and assets. You also can learn how changes in one part of the network can potentially affect another part.
 
-## Gremlin by example
+## Introduction to graph databases
+Data as it appears in the real world is naturally connected. Traditional data modeling focuses on defining entities separately and computing their relationships at runtime. While this model has its advantages, highly connected data can be challenging to manage under its constraints.  
+
+A graph database approach relies on persisting relationships in the storage layer instead, which leads to highly efficient graph retrieval operations. Azure Cosmos DB's Gremlin API supports the [property graph model](https://tinkerpop.apache.org/docs/current/reference/#intro).
+
+### Property graph objects
+
+A property [graph](http://mathworld.wolfram.com/Graph.html) is a structure that's composed of [vertices](http://mathworld.wolfram.com/GraphVertex.html) and [edges](http://mathworld.wolfram.com/GraphEdge.html). Both objects can have an arbitrary number of key-value pairs as properties. 
+
+* **Vertices** - Vertices denote discrete entities, such as a person, a place, or an event.
+
+* **Edges** - Edges denote relationships between vertices. For example, a person might know another person, be involved in an event, and recently been at a location. 
+
+* **Properties** -  Properties express information about the vertices and edges. There can be any number of properties in either vertices or edges, and they can be used to describe and filter the objects in a query. Example properties include a vertex that has name and age, or an edge, which can have a time stamp and/or a weight. 
+
+Graph databases are often included within the NoSQL, or non-relational, database category since there is no dependency on a schema or constrained data model. This lack of schema allows for modelling and storing connected structures naturally and efficiently. 
+
+### Gremlin by example
 Let's use a sample graph to understand how queries can be expressed in Gremlin. The following figure shows a business application that manages data about users, interests, and devices in the form of a graph.  
 
 ![Sample database showing persons, devices, and interests](./media/gremlin-support/sample-graph.png) 
