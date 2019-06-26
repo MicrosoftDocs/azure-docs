@@ -59,7 +59,7 @@ Azure DNS provides the following capabilities:
 ## Known issues
 Following are know bugs/issues in the preview release
 * If you delete a virtual network linked to a private DNS zone, it doesn't delete the links to the private DNS zone. The link fails if you recreate the virtual network with same name and resource group and try to link it again to any private DNS zone. To work around this issue, create the virtual network in a different resource group or with a different name in the same resource group.
-* Moving a virtual network across resource groups or subscriptions does not update the links to the private DNS zone. The name resolution from the moved virtual network will continue to work however you'll see old ARM IDs of the virtual network when viewing the virtual network links of the private DNS zone.
+* If you move a virtual network to another resource group or subscription, it does not update the links to the private DNS zone. The name resolution for the moved virtual network continues to work, however you'll see old ARM IDs of the virtual network when you view the virtual network links of the private DNS zone.
 * Currently, linked virtual networks hosted in UAE North, UAE Central, South Africa West, South Africa North, Canada East, France South may fail and you may see intermittent DNS resolution issues. 
 
 
