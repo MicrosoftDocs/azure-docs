@@ -47,10 +47,12 @@ Before continuing, it's important to learn some key concepts that will be critic
 When you change any of your triggers, the Functions infrastructure needs to be aware of these changes. This synchronization happens automatically for many deployment technologies. However, in some cases you must manually synchronize your triggers. When you deploy your updates using an external package URL, local Git, cloud sync, or FTP, you must be sure to manually synchronize your triggers. You can synchronize triggers in one of three ways:
 
 * Restart your function app in the Azure portal
-* Send an HTTP POST request to `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook.md#authorization-keys).
+* Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook.md#authorization-keys).
 * Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app.
 
 ## Deployment technology details  
+
+These following deployment methods are supported by Azure Functions.
 
 ### External package URL
 
@@ -86,11 +88,11 @@ Deploy a Linux container image that contains your function app.
 
 ### Web deploy (MSDeploy)
 
-Packages and deploys your Windows applications to any IIS server, including your Azure function apps running on Windows.
+Packages and deploys your Windows applications to any IIS server, including your function apps running on Windows in Azure.
 
->__How to use it:__ Use the [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md), and don't tick the `Run from package file (recommended)` check box.
+>__How to use it:__ Use the [Visual Studio tools for Azure Functions](functions-create-your-first-function-visual-studio.md), and uncheck the `Run from package file (recommended)` box.
 >
->Alternatively, call `MSDeploy.exe` directly after downloading [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
+> You can also download [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy) and call `MSDeploy.exe` directly.
 
 >__When to use it:__ This deployment technology is supported and has no issues, but the preferred mechanism is now [Zip Deploy with Run From Package enabled](#zip-deploy). To learn more, visit the [Visual Studio development guide](functions-develop-vs.md#publish-to-azure).
 
