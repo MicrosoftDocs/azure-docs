@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: jonbeck7
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 05/02/2019
- ms.author: azcspmt;jonbeck;cynthn
- ms.custom: include file
+title: include file
+description: include file
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/02/2019
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
 ---
 
 Ephemeral OS disks are created on the local Virtual Machine (VM) storage and not persisted to the remote Azure Storage. Ephemeral OS disks work well for stateless workloads, where applications are tolerant of individual VM failures, but are more concerned about the time it takes for large-scale deployments or time to reimage the individual VM instances. It is also suitable for applications, deployed using the classic deployment model, to move to the Resource Manager deployment model. With Ephemeral OS disk, you would observe lower read/write latency to the OS disk and faster VM reimage. In addition, Ephemeral OS disk is free, you incur no storage cost for OS disk. 
