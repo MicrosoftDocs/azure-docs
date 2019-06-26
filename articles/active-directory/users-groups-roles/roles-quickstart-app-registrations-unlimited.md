@@ -1,6 +1,6 @@
 ---
 title: Create a custom role definition in Azure AD role-based access control - Azure Active Directory | Microsoft Docs
-description: You can now create custom Azure AD administrator roles in the Azure AD admin center.
+description: You can assign a custom Azure AD administrator role to create any number of app registrations in the Azure AD admin center.
 services: active-directory
 author: curtand
 manager: mtillman
