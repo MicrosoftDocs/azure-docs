@@ -10,9 +10,6 @@ manager: carmonm
 ---
 # View and manage service providers
 
-> [!IMPORTANT]
-> Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
-
 In this article, you'll learn how, as a service provider using [Azure Delegated Resource Management](../concepts/azure-delegated-resource-management.md), your customers can view info about the resources they have delegated by going to **Service providers** in the [Azure portal](https://portal.azure.com). While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
 To access the **Service providers** page in the Azure portal, the customer can select **All services**, then search for **Service providers** and select it. They can also find it by entering “Service providers” in the search box near the top of the Azure portal.

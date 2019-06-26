@@ -11,9 +11,6 @@ manager: carmonm
 
 # Cross-tenant management experience
 
-> [!IMPORTANT]
-> Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
-
 This article describes the scenarios that you, as a service provider, can use with [Azure Delegated Resource Management](../concepts/azure-delegated-resource-management.md) to manage Azure resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
