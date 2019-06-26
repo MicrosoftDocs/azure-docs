@@ -22,7 +22,7 @@ However, taking Murphy's popular adage--*if anything can go wrong, it will*--int
 
 ## Need for redundant connectivity solution
 
-There are possibilities and instances where an entire regional service (be it that of Microsoft, network service providers, customer, or other cloud service providers) get degraded. The root cause for such regional wide service impact include natural calamity. Therefore, for business continuity and mission critical applications it is important to plan for disaster recovery.   
+There are possibilities and instances where an entire regional service (be it that of Microsoft, network service providers, customer, or other cloud service providers) gets degraded. The root cause for such regional wide service impact include natural calamity. Therefore, for business continuity and mission critical applications it is important to plan for disaster recovery.   
 
 Irrespective of whether you run your mission critical applications in an Azure region or on-premises or anywhere else, you can use another Azure region as your failover site. The following articles addresses disaster recovery from applications and frontend access perspectives:
 
