@@ -75,7 +75,7 @@ This section shows you a digital twin instance of the device. For a plug and pla
 1. Click on an interface from the left navigation bar to expand its primitives.
 2. Go to ``Properties`` page to view the read-only properties.
 3. To update a writable property, go to ``Writable properties``page.
-* Look for the property you'd like to update.
+* Click the property you'd like to update.
 * Fill the desired value for that property.
 * Preview the payload that will be sent to the device once submit the changes.
 * Submit. Once you submit, you can track the update status - synching, success or error. Once the synching is complete, you will see the new value of your property under ``Reported Property`` column. If you need to navigate to other pages before the synching completes, you will get a notification once the update is done. You can also go to the notification center for the notification history.
