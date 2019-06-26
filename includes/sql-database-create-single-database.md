@@ -12,7 +12,7 @@ In this step, you will create your resource group and an Azure SQL Database sing
 > [!IMPORTANT]
 > Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this article. Database-level firewall rules will replicate automatically to the secondary server.
 >
-> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-server-level-firewall-rule.md).  
+> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](../articles/sql-database-server-level-firewall-rule.md).  
 
 # [Azure portal](#tab/azure-portal)
 Create your resource group and single database using the Azure portal. 

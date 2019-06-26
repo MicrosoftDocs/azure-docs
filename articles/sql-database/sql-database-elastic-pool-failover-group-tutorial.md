@@ -19,7 +19,7 @@ Configure a failover group for an Azure SQL Database elastic pool and test failo
 
 > [!div class="checklist"]
 > - Create an Azure SQL Database single database.
-  - Add the single database into an elastic pool. 
+> - Add the single database into an elastic pool. 
 > - Create a [failover group](sql-database-auto-failover-group.md) for an elastic pool between two logical SQL servers.
 > - Test failover.
 
@@ -99,14 +99,12 @@ In this step, you will create a [failover group](sql-database-auto-failover-grou
 ## 4 - Test failover 
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
-Test failover using the Azure portal. 
-
 1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2. 
   
    ![Select the failover group from the portal](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
 
-1. Select **Failover** from the task pane to failover your failover group containing your sample single database. 
+1. Select **Failover** from the task pane to failover your failover group containing your elastic pool. 
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected. 
 
    ![Failover your failover group containing your SQL database](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
@@ -123,8 +121,9 @@ Clean up resources by deleting the resource group.
 In this tutorial, you added an Azure SQL Database single database to a failover group, and tested failover. You learned how to:
 
 > [!div class="checklist"]
-> - Create an Azure SQL Database single database. 
-> - Create a [failover group](sql-database-auto-failover-group.md) for a single database for a single database between two logical SQL servers.
+> - Create an Azure SQL Database single database.
+> - Add the single database into an elastic pool. 
+> - Create a [failover group](sql-database-auto-failover-group.md) for an elastic pool between two logical SQL servers.
 > - Test failover.
 
 Advance to the next tutorial on how to migrate using DMS.
