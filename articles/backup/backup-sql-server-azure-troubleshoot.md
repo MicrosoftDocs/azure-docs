@@ -34,7 +34,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model does not allow log backup.</li><li>Differential and log backups are not allowed for a master database.</li></ul>For more detail, see the [SQL Recovery models](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you have configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
-| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about back up and restore limitations](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs.](manage-monitor-sql-database-backup.md) After the conflicting operation fails, restart the operation.|
+| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about backup and restore limitations](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs.](manage-monitor-sql-database-backup.md) After the conflicting operation fails, restart the operation.|
 
 ### UserErrorSQLPODoesNotExist
 
@@ -101,109 +101,109 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| SQL server VM is either shutdown and not accessible to Azure Backup service. | The VM is shut down. | Ensure that the SQL server is running. |
+| SQL server VM is either shutdown and not accessible to Azure Backup service. | The VM is shut down. | Ensure that the SQL Server instance is running. |
 
 ### GuestAgentStatusUnavailableUserError
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | Guest agent is not enabled or is unhealthy | [Install the VM guest agent](../virtual-machines/extensions/agent-windows.md) manually. |
+| Azure Backup service uses Azure VM guest agent for doing backup but guest agent is not available on the target server. | The guest agent is not enabled or is unhealthy. | [Install the VM guest agent](../virtual-machines/extensions/agent-windows.md) manually. |
 
 ### AutoProtectionCancelledOrNotValid
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Auto-protection Intent was either removed or is no more valid. | When you enable auto-protection on a SQL instance, **Configure Backup** jobs run for all the databases in that instance. If you disable auto-protection while the jobs are running, then the **In-Progress** jobs are canceled with this error code. | Enable auto-protection once again to protect all the remaining databases. |
+| Auto-protection Intent was either removed or is no more valid. | When you enable auto-protection on a SQL Server instance, **Configure Backup** jobs run for all the databases in that instance. If you disable auto-protection while the jobs are running, then the **In-Progress** jobs are canceled with this error code. | Enable auto-protection once again to help protect all the remaining databases. |
 
 ## Re-registration failures
 
-Check for one or more of the [symptoms](#symptoms) before triggering the re-register operation.
-
-### Symptoms
+Check for one or more of the following symptoms before you trigger the re-register operation:
 
 * All operations such as backup, restore, and configure backup are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
-* The **Backup Status** for the Backup item is showing **Not reachable**. Although you must rule out all the other reasons that may also result in the same status:
+* The **Backup Status** area for the backup item is showing **Not reachable**. Rule out all the other causes that might result in the same status:
 
-  * Lack of permission to perform backup related operations on the VM  
-  * VM has been shut down because of which backups can’t take place
+  * Lack of permission to perform backup-related operations on the VM  
+  * Shutdown of the VM, so backups can’t take place
   * Network issues  
 
-    ![Re-Register VM](./media/backup-azure-sql-database/re-register-vm.png)
+  !["Not reachable" status in re-registering a VM](./media/backup-azure-sql-database/re-register-vm.png)
 
-* In case of always on availability group, the backups started failing after you changed the backup preference or when there was a failover
+* In the case of an Always On availability group, the backups started failing after you changed the backup preference or after a failover.
 
-### Causes
-These symptoms may arise due to one or more of the following reasons:
+These symptoms may arise for one or more of the following reasons:
 
-  * Extension was deleted or uninstalled from portal 
-  * Extension was uninstalled from the **Control Panel** of the VM under **Uninstall or Change a Program** UI
-  * VM was restored back in time using in-place disk(s) restore
-  * VM was shut down for an extended period because of which the extension configuration on it expired
-  * VM was deleted and another VM was created with the same name and in the same resource group as the deleted VM
-  * One of the AG nodes didn't receive the complete backup configuration, this may happen either at the time of availability group registration to the vault or when a new node gets added  <br>
+  * An extension was deleted or uninstalled from the portal. 
+  * An extension was uninstalled from **Control Panel** on the VM under **Uninstall or Change a Program**.
+  * The VM was restored back in time by using in-place disk restore.
+  * The VM was shut down for an extended period, so the extension configuration on it expired.
+  * The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
+  * One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.  <br>
    
-In the above scenarios, it is recommended to trigger re-register operation on the VM. This option is only available through PowerShell and will soon be available in the Azure portal as well.
+In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. For now, this option is available only through PowerShell.
 
 ## Size limit for files
 
-The total string size of files not only depends on the number of files but also on their names and paths. For each of the database files, get the logical file name and physical path.
-You can use the SQL query given below:
+The total string size of files depends not only on the number of files but also on their names and paths. For each database file, get the logical file name and physical path. You can use this SQL query:
 
-  ```
-  SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
-                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
-                 WHERE db.name = N'<Database Name>'"
- ```
+```
+SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
+               INNER JOIN sys.databases db ON db.database_id = mf.database_id
+               WHERE db.name = N'<Database Name>'"
+```
 
-Now arrange them in the format given below:
+Now arrange them in the following format:
 
-  ```[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
-  ```
+```
+[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
+```
 
-Example:
+Here's an example:
 
-  ```[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
-  ```
+```
+[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
+```
 
-If the string size of the content given above exceeds 20,000 bytes, then the database files are stored differently, and during recovery you will not be able to set the target file path for restore. The files will be restored to the Default SQL path provided by SQL Server.
+If the string size of the content exceeds 20,000 bytes, the database files are stored differently. During recovery, you won't be able to set the target file path for restore. The files will be restored to the default SQL path provided by SQL Server.
 
 ### Override the default target restore file path
 
-You can override the target restore file path during the restore operation by placing a JSON file which contains the mapping of the database file to target restore path. For this create a file `database_name.json` and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
+You can override the target restore file path during the restore operation by placing a JSON file that contains the mapping of the database file to target restore path. For this, create a file `database_name.json` and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
-The content of the file should be of the format given below:
-  ```[
+The content of the file should be in this format:
+```
+[
+  {
+    "Path": "<Restore_Path>",
+    "LogicalName": "<LogicalName>",
+    "IsDir": "false"
+  },
+  {
+    "Path": "<Restore_Path>",
+    "LogicalName": "LogicalName",
+    "IsDir": "false"
+  },  
+]
+```
+
+Example:
+
+  ```
+  [
     {
-      "Path": "<Restore_Path>",
-      "LogicalName": "<LogicalName>",
-      "IsDir": "false"
+     "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
+     "LogicalName": "testdb7",
+     "IsDir": "false"
     },
     {
-      "Path": "<Restore_Path>",
-      "LogicalName": "LogicalName",
+      "Path": "F:\\Log\\testdb2_log_1546408741449456.ldf",
+      "LogicalName": "testdb7_log",
       "IsDir": "false"
     },  
   ]
   ```
 
-Example:
-
-  ```[
-      {
-        "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
-        "LogicalName": "testdb7",
-       "IsDir": "false"
-      },
-      {
-        "Path": "F:\\Log\\testdb2_log_1546408741449456.ldf",
-        "LogicalName": "testdb7_log",
-        "IsDir": "false"
-      },  
-    ]
-  ```
-
  
-In the above content you can get the Logical name of the database file using the SQL query given below:
+In the preceding content, you can get the logical name of the database file by using the following SQL query:
 
 ```
 SELECT mf.name AS LogicalName FROM sys.master_files mf
@@ -216,4 +216,4 @@ This file should be placed before you trigger the restore operation.
 
 ## Next steps
 
-For more information about Azure Backup for SQL Server VMs (public preview), see [Azure Backup for SQL VMs (Public Preview)](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+For more information about Azure Backup for SQL Server VMs (public preview), see [Azure Backup for SQL VMs](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
