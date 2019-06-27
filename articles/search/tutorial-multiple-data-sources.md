@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 Azure Search can import, analyze, and index data from multiple data sources into a single combined search index. This supports situations where structured data is aggregated with less-structured or even plain text data from other sources, like text, HTML, or JSON documents.
 
-This tutorial describes how to index hotel data from a Cosmos DB data source and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing complex data types.
+This tutorial describes how to index hotel data from an Azure Cosmos DB data source and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing complex data types.
 
 This tutorial uses C#, the .NET SDK for Azure Search, and the Azure portal to do the following tasks:
 
@@ -30,17 +30,17 @@ This tutorial uses C#, the .NET SDK for Azure Search, and the Azure portal to do
 
 The following services, tools, and data are used in this quickstart. 
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
+- [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
-[Create an Azure Cosmos DB account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample hotel data.
+- [Create an Azure Cosmos DB account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample hotel data.
 
-[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample JSON blob data.
+- [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample JSON blob data.
 
-[Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
+- [Install Visual Studio](https://visualstudio.microsoft.com/) to use as the IDE.
 
 ### Install the project from GitHub
 
-1. Locate the sample repository on GitHub: azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+1. Locate the sample repository on GitHub: [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Select **Clone or download** and make your private local copy of the repository.
 1. Open Visual Studio and install the Microsoft Azure Search NuGet package, if not already installed. In the **Tools** menu, select **NuGet Package Manager** and then **Manage NuGet Packages for Solution...**. Select the **Browse** tab then type "Azure Search" into the search box. Install **Microsoft.Azure.Search** when it appears in the list (version 9.0.1, or later). You will have to click through additional dialogs to complete the installation.
 
@@ -60,7 +60,7 @@ To interact with your Azure Search service, you need the service URL and an acce
 
 All requests require an api-key on every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## Prepare sample Cosmos DB data
+## Prepare sample Azure Cosmos DB data
 
 This sample uses two small sets of data that describe seven fictional hotels. One set describes the hotels themselves, and will be loaded into an Azure Cosmos DB database. The other set contains hotel room details, and is provided as seven separate JSON files to be uploaded into Azure Blob Storage.
 
@@ -68,11 +68,11 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. From the menu bar, click Add Container. Specify "Create new database" and use the name **hotel-rooms-db**. Enter **hotel-rooms** for the collection name, and **/HotelId** for the Partition key. Click **OK** to create the database and container.
 
-   ![Add Cosmos DB container](media/tutorial-multiple-data-sources/cosmos-add-container.png "Add a Cosmos DB container")
+   ![Add Azure Cosmos DB container](media/tutorial-multiple-data-sources/cosmos-add-container.png "Add an Azure Cosmos DB container")
 
 1. Go to the Cosmos DB Data Explorer and select the **items** element under the **hotels** container within the **hotel-rooms-db** database. Then click **Upload Item** on the command bar.
 
-   ![Upload to Cosmos DB collection](media/tutorial-multiple-data-sources/cosmos-upload.png "Upload to Cosmos DB collection")
+   ![Upload to Azure Cosmos DB collection](media/tutorial-multiple-data-sources/cosmos-upload.png "Upload to Cosmos DB collection")
 
 1. In the upload panel, click the folder button and then navigate to the file **cosmosdb/HotelsDataSubset_CosmosDb.json** in the project folder. Click **OK** to start the upload.
 
@@ -119,7 +119,7 @@ Connection information for the search service and the data sources is specified 
 
 The first two entries use the URL and admin keys for your Azure Search service. Given an endpoint of `https://mydemo.search.windows.net`, for example, the service name to provide is `mydemo`.
 
-The next entries specify account names and connection string information for the Azure Blob Storage and Cosmos DB data sources.
+The next entries specify account names and connection string information for the Azure Blob Storage and Azure Cosmos DB data sources.
 
 ### Identify the document key
 
@@ -140,7 +140,7 @@ Once the data and configuration settings are in place, the sample program in **A
 
 This simple C#/.NET console app performs the following tasks:
 * Creates a new Azure Search index based on the data structure of the C# Hotel class (which also references the Address and Room classes).
-* Creates a Cosmos DB data source and an indexer that maps Cosmos DB data to index fields.
+* Creates an Azure Cosmos DB data source and an indexer that maps Azure Cosmos DB data to index fields.
 * Runs the CosmosDB indexer to load Hotel data.
 * Creates an Azure Blob Storage data source and an indexer that maps JSOn Blob data to index fields.
 * Runs the Azure blob storage indexer to load Rooms data.
@@ -184,11 +184,11 @@ private static async Task CreateIndex(string indexName, SearchServiceClient sear
 }
 ```
 
-### Create Cosmos DB data source and indexer
+### Create Azure Cosmos DB data source and indexer
 
-Next the main program includes logic to create the Cosmos DB data source for the hotels data.
+Next the main program includes logic to create the Azure Cosmos DB data source for the hotels data.
 
-First it concatenates the Cosmos DB database name to the connection string. Then it defines the data source object, including settings specific to Azure Cosmos DB sources, such as the [useChangeDetection] property.
+First it concatenates the Azure Cosmos DB database name to the connection string. Then it defines the data source object, including settings specific to Azure Cosmos DB sources, such as the [useChangeDetection] property.
 
   ```csharp
 private static async Task CreateAndRunCosmosDbIndexer(string indexName, SearchServiceClient searchService)
@@ -205,12 +205,12 @@ private static async Task CreateAndRunCosmosDbIndexer(string indexName, SearchSe
         collectionName: "hotels",
         useChangeDetection: true);
 
-    // The Cosmos DB data source does not need to be deleted if it already exists,
+    // The Azure Cosmos DB data source does not need to be deleted if it already exists,
     // but the connection string might need to be updated if it has changed.
     await searchService.DataSources.CreateOrUpdateAsync(cosmosDbDataSource);
   ```
 
-After the data source is created, the program sets up a Cosmos DB indexer named **hotel-rooms-cosmos-indexer**.
+After the data source is created, the program sets up an Azure Cosmos DB indexer named **hotel-rooms-cosmos-indexer**.
 
 ```csharp
     Indexer cosmosDbIndexer = new Indexer(
@@ -234,7 +234,7 @@ The program will delete any existing indexers with the same name before creating
 
 This example defines a schedule for the indexer, so that it will run once per day. You can remove the schedule property from this call if you don't want the indexer to automatically run again in the future.
 
-### Index Cosmos DB data
+### Index Azure Cosmos DB data
 
 Once the data source and the indexer have been created, the code that runs the indexer is brief:
 
@@ -251,7 +251,7 @@ Once the data source and the indexer have been created, the code that runs the i
 
 This example includes a simple try-catch block to report any errors that might occur during execution.
 
-After the Cosmos DB indexer has run, the search index will contain a full set of sample hotel documents. However the rooms field for each hotel will be an empty array, since the Cosmos DB data source contained no room details. Next, the program will pull from Blob storage to load and merge the room data.
+After the Azure Cosmos DB indexer has run, the search index will contain a full set of sample hotel documents. However the rooms field for each hotel will be an empty array, since the Azure Cosmos DB data source contained no room details. Next, the program will pull from Blob storage to load and merge the room data.
 
 ### Create Blob storage data source and indexer
 
@@ -321,7 +321,7 @@ Once the Blob storage data source and indexer have been created, the code that r
     }
 ```
 
-Because the index has already been populated with hotel data from the Cosmos DB database, 
+Because the index has already been populated with hotel data from the Azure Cosmos DB database, 
 the blob indexer updates the existing documents in the index and adds the room details.
 
 > [!NOTE]
