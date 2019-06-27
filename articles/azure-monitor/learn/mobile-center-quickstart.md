@@ -101,11 +101,11 @@ To give you more data when you first connect, the most recent 48 hours of custom
 
 Application Insights can query, segment, filter, and analyze the custom event telemetry from your apps, beyond the analytics tools App Center provides.
 
-1. **Query your custom event telemetry.** From the Application Insights **Overview** page, choose **Analytics**.
+1. **Query your custom event telemetry.** From the Application Insights **Overview** page, choose **Logs (Analytics)**.
 
-   The Application Insights Analytics portal associated with your Application Insights resource will open. The Analytics portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
+   The Application Insights Logs (Analytics) portal associated with your Application Insights resource will open. The Logs (Analytics) portal lets you directly query your data using the Log Analytics query language, so you can ask arbitrarily complex questions about your app and its users.
    
-   Open a new tab in the Analytics portal, then paste in the following query. It returns a count of how many distinct users have sent each custom event from your app in the last 24 hours, sorted by these distinct counts.
+   Open a new tab in the Logs (Analytics) portal, then paste in the following query. It returns a count of how many distinct users have sent each custom event from your app in the last 24 hours, sorted by these distinct counts.
 
    ```AIQL
    customEvents
@@ -114,7 +114,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
    | order by dcount_user_Id desc 
    ```
 
-   ![Analytics portal](./media/mobile-center-quickstart/analytics-portal-001.png)
+   ![Logs (Analytics) portal](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Select the query by clicking anywhere on the query in the text editor.
    2. Then click **Go** to run the query. 
