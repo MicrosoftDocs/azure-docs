@@ -18,7 +18,7 @@ This article describes how to replicate Azure Disk Encryption-enabled VMs from o
 >[!NOTE]
 >Azure Site Recovery currently supports only Azure VMs that run a Windows OS and that are [enabled for encryption with Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
-## Required user permissions
+## <a id="required-user-permissions"></a> Required user permissions
 Site Recovery requires the user to have permissions to create the key vault in the target region and copy keys to the region.
 
 To enable replication of Disk Encryption-enabled VMs from the Azure portal, the user needs the following permissions:
@@ -151,15 +151,9 @@ Azure Site Recovery requires at least read permission on the Source region Key v
 *For example*: You try to replicate a VM that has key vault *ContososourceKeyvault* on a source region.
 You have all the permissions on the source region key vault. But during protection, you select the already-created key vault ContosotargetKeyvault, which doesn't have permissions. An error occurs.
 
-Permission required on target Key vault 
+Permission required on [target Key vault](#required-user-permissions)
 
-**How to fix:** Go to **Home** > **Keyvaults** > **ContososourceKeyvault** > **Access policies** and add the appropriate permissions.
-
-**Cause 2:** You might have selected from the target region an already-created key vault that doesn't have decrypt-encrypt permissions instead of letting Site Recovery create one. Make sure that you have decrypt-encrypt permissions if you're also encrypting the key on the source region.</br>
-
-*For example*: You try to replicate a VM that has a key vault *ContososourceKeyvault* on the source region. You have all the necessary permission on the source region key vault. But during protection, you select the already-created key vault ContosotargetKeyvault, which doesn't have permissions to decrypt and encrypt. An error occurs.</br>
-
-**How to fix:** Go to **Home** > **Keyvaults** > **ContososourceKeyvault** > **Access policies**. Add permissions under **Key permissions** > **Cryptographic Operations**.
+**How to fix:** Go to **Home** > **Keyvaults** > **ContosotargetKeyvault** > **Access policies** and add the appropriate permissions.
 
 ## Next steps
 
