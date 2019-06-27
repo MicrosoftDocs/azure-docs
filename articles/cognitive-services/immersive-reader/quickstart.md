@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads)
-* A subscription key for Immersive Reader. Get one by following [these instructions](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).
+* A subscription key for Immersive Reader. Get one by following [these instructions](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
 ## Create a web app project
 
@@ -36,7 +36,7 @@ Create a new project in Visual Studio, using the ASP.NET Core Web Application te
 
 ## Acquire an access token
 
-You need your subscription key and endpoint for this next step. You can find that information at https://azure.microsoft.com/try/cognitive-services/my-apis/.
+You need your subscription key and endpoint for this next step. You can find your subscription key in the Keys page of your Immersive Reader resource in the Azure portal. You can find your endpoint in the Overview page.
 
 Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. Replace the contents of that file with the following, supplying your subscription key and endpoint where appropriate.
 
@@ -85,7 +85,7 @@ public class HomeController : Controller
         using (var client = new System.Net.Http.HttpClient())
         {
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-            using (var response = await client.PostAsync($"{Endpoint}/issueToken", null))
+            using (var response = await client.PostAsync(Endpoint, null))
             {
                 return await response.Content.ReadAsStringAsync();
             }
@@ -107,7 +107,7 @@ Now, we'll add some sample content to this web app. Open _Views\Home\Index.cshtm
 <div class='immersive-reader-button' data-button-style='iconAndText' onclick='launchImmersiveReader()'></div>
 
 @section scripts {
-<script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js'></script>
+<script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.1.js'></script>
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <script type='text/javascript'>
     function getImmersiveReaderTokenAsync() {
@@ -132,7 +132,7 @@ Now, we'll add some sample content to this web app. Open _Views\Home\Index.cshtm
         };
 
         const token = await getImmersiveReaderTokenAsync();
-        ImmersiveReader.launchAsync(token, null, content, { uiZIndex: 1000000 });
+        ImmersiveReader.launchAsync(token, content, { uiZIndex: 1000000 });
     }
 </script>
 }

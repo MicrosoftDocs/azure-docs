@@ -316,7 +316,7 @@ Once the Managed Application package is created, the Managed Application can be 
 The token of the Managed Application can now be accessed through the `listTokens` api from the publisher tenant. An example request might look like:
 
 ``` HTTP
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}?api-version=2018-09-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
 ```
 
 A sample response might look like:

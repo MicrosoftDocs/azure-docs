@@ -51,7 +51,7 @@ The following release notes are for version 7.0.0.0 of the Azure File Sync agent
 - Improved cloud tiering recall cmdlet reliability 
 	- The cloud tiering recall cmdlet (Invoke-StorageSyncFileRecall) now supports per file retry count and retry delay, similar to robocopy.
 - Support for TLS 1.2 only (TLS 1.0 and 1.1 is disabled)
-	- Azure File Sync now supports using TLS 1.2 only on servers which have TLS 1.0 and 1.1 disabled. 
+	- Azure File Sync now supports using TLS 1.2 only on servers which have TLS 1.0 and 1.1 disabled. Prior to this improvement, server registration would fail if TLS 1.0 and 1.1 was disabled on the server.
 - Miscellaneous performance and reliability improvements for sync and cloud tiering
 	- There are several reliability and performance improvements in this release. Some of them are targeted to make cloud tiering more efficient and Azure File Sync as a whole work better in those situations when you have a bandwidth throttling schedule set.
 

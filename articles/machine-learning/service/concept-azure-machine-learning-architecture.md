@@ -94,7 +94,10 @@ Models are identified by name and version. Each time you register a model with t
 
 When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
 
-You can't delete models that are being used by an active deployment.
+> [!TIP]
+> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+You can't delete a registered model that is being used by an active deployment.
 
 For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 

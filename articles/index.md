@@ -367,6 +367,22 @@ featureFlags:
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
+                                    <h3>Blockchain</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/blockchain/service/">
+                                                <img src="media/index/blockchain-service.svg" alt="" />
+                                                <p>Azure Blockchain Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/blockchain/workbench/">
+                                                <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                <p>Azure Blockchain Workbench</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                <div class="group">
                                     <h3>Compute</h3>
                                     <ul>
                                         <li>
@@ -796,33 +812,9 @@ featureFlags:
                                     <h3>AI + Machine Learning</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/azure-databricks/">
-                                                <img src="media/index/logo_databricks.svg" alt="" />
-                                                <p>Azure Databricks</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
-                                                <img src="media/index/bot-service.svg" alt="" />
-                                                <p>Azure Bot Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/genomics/">
-                                                <img src="media/index/genomics.svg" alt="" />
-                                                <p>Microsoft Genomics</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/machine-learning/service">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/machine-learning/studio">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning Studio</p>
+                                                <img src="media/index/machine-learning-service.svg" alt="" />
+                                                <p>Machine Learning service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -832,14 +824,27 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/notebooks">
-                                                <img src="media/index/notebooks.svg" alt="" />
-                                                <p>Azure Notebooks</p>
+                                            <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
+                                                <img src="media/index/bot-service.svg" alt="" />
+                                                <p>Azure Bot Service</p>
                                             </a>
-                                        </li>                                        <li>
+                                        </li>
+                                        <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
                                                 <p>Azure Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/open-datasets">
+                                                <img src="media/index/open-data.svg" alt="" />
+                                                <p>Open Datasets</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/machine-learning/studio">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Machine Learning Studio</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1052,12 +1057,6 @@ featureFlags:
                                                 <p>Bing Image Search API</p>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/azure/open-datasets">
-                                                <img src="media/index/open-data.svg" alt="" />
-                                                <p>Open Datasets</p>
-                                            </a>
-                                        </li>
                                     </ul>
                                     <h3>Migration</h3>
                                     <ul>
@@ -1098,6 +1097,12 @@ featureFlags:
                                             <a href="/azure/spatial-anchors/">
                                                 <img src="media/index/spatial_anchors.png" alt="" />
                                                 <p>Azure Spatial Anchors</p>
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a href="/azure/Kinect-dk/">
+                                                <img src="media/index/kinect-viewer.svg" alt="" />
+                                                <p>Azure Kinect DK</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1294,12 +1299,6 @@ featureFlags:
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Data Lake Storage Gen1</p>
                                             </a>
-                                        </li>
-                                        <li>
-                                        <a href="/azure/open-datasets">
-                                            <img src="media/index/open-data.svg" alt="" />
-                                            <p>Open Datasets</p>
-                                        </a>
                                         </li>
                                     </ul>
                                     <h3>DevOps</h3>
@@ -1875,6 +1874,49 @@ featureFlags:
                                         </li>
                                     </ul>
                                 </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#blockchain">Blockchain</a>
+                        <ul id="blockchain" class="cardsA">
+                            <li>
+                                <a href="/azure/blockchain/service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blockchain-service.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Blockchain Service</h3>
+                                                    <p>Build, govern, and expand consortium blockchain networks</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/blockchain/workbench/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Blockchain Workbench</h3>
+                                                    <p>Connect your blockchain to the cloud without the heavy lifting</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -3787,18 +3829,37 @@ featureFlags:
                                 <h2>Artificial Intelligence + Machine Learning</h2>
                             </li>
                             <li>
-                                <a href="/azure/azure-databricks/">
+                                <a href="/azure/cognitive-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Databricks</h3>
-                                                    <p>Create an Azure Databricks workspace with Spark clusters</p>
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Infuse apps, websites, and bots with intelligence to see, hear, speak, and understand</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/machine-learning/service">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/machine-learning-service.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Machine Learning Service</h3>
+                                                    <p>Build, deploy, and manage machine learning and AI models</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3825,101 +3886,6 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/genomics/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/genomics.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Microsoft Genomics</h3>
-                                                    <p>Power genome sequencing and research insights</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/machine-learning/service">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MachineLearning.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Machine Learning Services</h3>
-                                                    <p>Build, deploy, and manage machine learning and AI models</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/machine-learning/studio">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MachineLearning.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Machine Learning Studio</h3>
-                                                    <p>Easily build, deploy, and manage predictive analytics solutions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Cognitive Services</h3>
-                                                    <p>Infuse apps, websites, and bots with intelligence to see, hear, speak, and understand</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/notebooks/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/notebooks.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Notebooks</h3>
-                                                    <p>Host and run Jupyter notebooks in a pre-configured cloud environment</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/search/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3932,6 +3898,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Search</h3>
                                                     <p>Fully-managed search-as-a-service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-databricks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Create an Azure Databricks workspace with Spark clusters</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4573,6 +4558,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Spatial Anchors</h3>
                                                     <p>Create multi-user, spatially aware mixed reality experiences</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                               <li>
+                                <a href="/azure/Kinect-dk/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/kinect-viewer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Kinect DK</h3>
+                                                    <p>Build your way with a versatile sensing device</p>
                                                 </div>
                                             </div>
                                         </div>

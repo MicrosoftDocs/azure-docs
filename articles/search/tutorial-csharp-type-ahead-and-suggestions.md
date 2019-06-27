@@ -1,5 +1,5 @@
 ---
-title: C# Tutorial on autocompletion and suggestions - Azure Search
+title: C# tutorial on autocompletion and suggestions - Azure Search
 description:  This tutorial builds on the "Search results pagination - Azure Search" project, to add autocompletion and suggestions. The goal is a richer user experience. Learn how to combine a drop-down list of suggestions with inline autocompletion.
 services: search
 ms.service: search
@@ -9,7 +9,7 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Add autocompletion and suggestions - Azure Search
+# C# tutorial: Add autocompletion and suggestions - Azure Search
 
 Learn how to implement autocompletion (type-ahead and suggestions) when a user starts typing into your search box. In this tutorial, we will show type-ahead results and suggestion results separately, then show a method of combining them to create a richer user experience. A user may only have to type two or three keys to locate all the results that are available. This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 
@@ -32,15 +32,15 @@ Let's start with the simplest case of offering up alternatives to the user: a dr
 
 1. In the index.cshtml file, change the **TextBoxFor** statement to the following.
 
-```cs
+    ```cs
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
-```
+    ```
 
-The key here is that we have set the ID of the search box to **azureautosuggest**.
+    The key here is that we have set the ID of the search box to **azureautosuggest**.
 
 2. Following this statement, after the closing **&lt;/div&gt;**, enter this script.
 
-```cs
+    ```javascript
     <script>
         $("#azureautosuggest").autocomplete({
             source: "/Home/Suggest?highlights=false&fuzzy=false",
@@ -51,9 +51,9 @@ The key here is that we have set the ID of the search box to **azureautosuggest*
             }
         });
     </script>
-```
+    ```
 
-We have connected this script to the search box via the same ID. Also, a minimum of two characters is needed to trigger the search, and we call the **Suggest** action in the home controller with two query parameters: **highlights** and **fuzzy**, both set to false in this instance.
+    We have connected this script to the search box via the same ID. Also, a minimum of two characters is needed to trigger the search, and we call the **Suggest** action in the home controller with two query parameters: **highlights** and **fuzzy**, both set to false in this instance.
 
 ### Add references to jquery scripts to the view
 
@@ -61,35 +61,36 @@ The autocomplete function called in the script above is not something we have to
 
 1. To access the jquery library, change the &lt;head&gt; section of the view file to the following code.
 
-```cs
-<head>
-    <meta charset="utf-8">
-    <title>Autocomplete demo</title>
-    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-          rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <link rel="stylesheet" href="~/css/hotels.css" />
-</head>
-```
+    ```cs
+    <head>
+        <meta charset="utf-8">
+        <title>Autocomplete demo</title>
+        <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+              rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+        <link rel="stylesheet" href="~/css/hotels.css" />
+    </head>
+    ```
 
 2. We also need to remove, or comment out, a line referencing jquery in the _Layout.cshtml file (in the **Views/Shared** folder). Locate the following lines, and comment out the first script line as shown. This change avoids clashing references to jquery.
 
-```cs
+    ```html
     <environment include="Development">
         <!-- <script src="~/lib/jquery/dist/jquery.js"></script> -->
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
-```
+    ```
 
-Now we can use the predefined autocomplete jquery functions.
+    Now we can use the predefined autocomplete jquery functions.
 
 ### Add the Suggest action to the controller
 
 1. In the home controller, add the **Suggest** action (say, after the **Page** action).
 
-```cs
+    ```cs
         public async Task<ActionResult> Suggest(bool highlights, bool fuzzy, string term)
         {
             InitSearch();
@@ -117,30 +118,30 @@ Now we can use the predefined autocomplete jquery functions.
             // Return the list of suggestions.
             return new JsonResult(suggestions);
         }
-```
+    ```
 
-The **Top** parameter specifies how many results to return (if unspecified, the default is 5). A _suggester_ is specified on the Azure index, which is done when the data is set up, and not by a client app such as this tutorial. In this case, the suggester is called "sg", and it searches the **HotelName** field - nothing else. 
+    The **Top** parameter specifies how many results to return (if unspecified, the default is 5). A _suggester_ is specified on the Azure index, which is done when the data is set up, and not by a client app such as this tutorial. In this case, the suggester is called "sg", and it searches the **HotelName** field - nothing else. 
 
-Fuzzy matching allows "near misses" to be included in the output. If the **highlights** parameter is set to true, then bold HTML tags are added to the output. We will set these two parameters to true in the next section.
+    Fuzzy matching allows "near misses" to be included in the output. If the **highlights** parameter is set to true, then bold HTML tags are added to the output. We will set these two parameters to true in the next section.
 
 2. You may get some syntax errors. If so, add the following two **using** statements to the top of the file.
 
-```cs
-using System.Collections.Generic;
-using System.Linq;
-```
+    ```cs
+    using System.Collections.Generic;
+    using System.Linq;
+    ```
 
 3. Run the app. Do you get a range of options when you enter "po", for example? Now try "pa".
 
     ![Typing "po" reveals two suggestions](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
 
-Notice that the letters you enter _must_ start a word, and not simply be included within the word.
+    Notice that the letters you enter _must_ start a word, and not simply be included within the word.
 
 4. In the view script, set **&fuzzy** to true, and run the app again. Now enter "po". Notice that the search assumes you got one letter wrong!
  
     ![Typing "pa" with fuzzy set to true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in detail.
+    If you are interested, the [Lucene query syntax in Azure Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) describes the logic used in fuzzy searches in detail.
 
 ## Add highlighting to the suggestions
 
@@ -148,7 +149,7 @@ We can improve the appearance of the suggestions to the user a bit, by setting t
 
 1. In the view (index.cshtml), add the following script after the **azureautosuggest** script you entered above.
 
-```cs
+    ```javascript
     <script>
         var updateTextbox = function (event, ui) {
             var result = ui.item.value.replace(/<\/?[^>]+(>|$)/g, "");
@@ -173,13 +174,13 @@ We can improve the appearance of the suggestions to the user a bit, by setting t
                 .appendTo(ul);
         };
     </script>
-```
+    ```
 
 2. Now change the ID of the text box so it reads as follows.
 
-```cs
-@Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azuresuggesthighlights" }) <input value="" class="searchBoxSubmit" type="submit">
-```
+    ```cs
+    @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azuresuggesthighlights" }) <input value="" class="searchBoxSubmit" type="submit">
+    ```
 
 3. Run the app again, and you should see your entered text bolded in the suggestions. Say, try typing "pa".
  
@@ -187,7 +188,7 @@ We can improve the appearance of the suggestions to the user a bit, by setting t
 
 4. The logic used in the highlighting script above is not foolproof. If you enter a term that appears twice in the same name, the bolded results are not quite what you would want. Try typing "mo".
 
-One of the questions a developer needs to answer is, when is a script working "well enough", and when should its quirks be addressed. We will not be taking highlighting any further in this tutorial, but finding a precise algorithm is something to consider if taking highlighting further.
+    One of the questions a developer needs to answer is, when is a script working "well enough", and when should its quirks be addressed. We will not be taking highlighting any further in this tutorial, but finding a precise algorithm is something to consider if taking highlighting further.
 
 ## Add autocompletion
 
@@ -195,7 +196,7 @@ Another variation, that is slightly different from suggestions, is autocompletio
 
 1. Enter the following script into the view, following your previous scripts.
 
-```cs
+    ```javascript
     <script>
         $("#azureautocompletebasic").autocomplete({
             source: "/Home/Autocomplete",
@@ -206,17 +207,17 @@ Another variation, that is slightly different from suggestions, is autocompletio
             }
         });
     </script>
-```
+    ```
 
 2. Now change the ID of the text box, so it reads as follows.
 
-```cs
-@Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautocompletebasic" }) <input value="" class="searchBoxSubmit" type="submit">
-```
+    ```cs
+    @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautocompletebasic" }) <input value="" class="searchBoxSubmit" type="submit">
+    ```
 
 3. In the home controller we need to enter the **Autocomplete** action, say, below the **Suggest** action.
 
-```cs
+    ```cs
         public async Task<ActionResult> AutoComplete(string term)
         {
             InitSearch();
@@ -235,17 +236,17 @@ Another variation, that is slightly different from suggestions, is autocompletio
             // Return the list.
             return new JsonResult(autocomplete);
         }
-```
+    ```
 
-Notice that we are using the same *suggester* function, called "sg", in the autocomplete search as we did for suggestions (so we are only trying to autocomplete the hotel names).
+    Notice that we are using the same *suggester* function, called "sg", in the autocomplete search as we did for suggestions (so we are only trying to autocomplete the hotel names).
 
-There are a range of **AutocompleteMode** settings, and we are using **OneTermWithContext**. Refer to [Azure Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) for a description of the range of options here.
+    There are a range of **AutocompleteMode** settings, and we are using **OneTermWithContext**. Refer to [Azure Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) for a description of the range of options here.
 
 4. Run the app. Notice how the range of options displayed in the drop-down list are single words. Try typing words starting with "re". Notice how the number of options reduces as more letters are typed.
 
     ![Typing with basic autocompletion](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
 
-As it stands, the suggestions script you ran earlier is probably more helpful than this autocompletion script. To make autocompletion more user-friendly, it is best added to the suggestion search.
+    As it stands, the suggestions script you ran earlier is probably more helpful than this autocompletion script. To make autocompletion more user-friendly, it is best added to the suggestion search.
 
 ## Combine autocompletion and suggestions
 
@@ -255,7 +256,7 @@ There are libraries that offer this functionality - often called "inline autocom
 
 1. We need to add an action to the controller that returns just one autocompletion result, along with a specified number of suggestions. We will call this action **AutocompleteAndSuggest**. In the home controller, add the following action, following your other new actions.
 
-```cs
+    ```cs
         public async Task<ActionResult> AutocompleteAndSuggest(string term)
         {
             InitSearch();
@@ -300,26 +301,26 @@ There are libraries that offer this functionality - often called "inline autocom
             // Return the list.
             return new JsonResult(results);
         }
-```
+    ```
 
-One autocompletion option is returned at the top of the **results** list, followed by all the suggestions.
+    One autocompletion option is returned at the top of the **results** list, followed by all the suggestions.
 
 2. In the view, first we implement a trick so that a light gray autocompletion word is rendered right under bolder text being entered by the user. HTML includes relative positioning for this purpose. Change the **TextBoxFor** statement (and its surrounding &lt;div&gt; statements) to the following, noting that a second search box identified as **underneath** is right under our normal search box, by pulling this search box 39 pixels off of its default location!
 
-```cs
+    ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
     </div>
 
     <div id="searchinput" class="searchBoxForm" style="position: relative; left: 0; top: -39px">
         @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautocomplete" }) <input value="" class="searchBoxSubmit" type="submit">
     </div>
-```
+    ```
 
-Note we are changing the ID again, to **azureautocomplete** in this case.
+    Note we are changing the ID again, to **azureautocomplete** in this case.
 
 3. Also in the view, enter the following script, after all the scripts you have entered so far. There is quite a lot to it.
 
-```cs
+    ```javascript
     <script>
         $('#azureautocomplete').autocomplete({
             delay: 500,
@@ -424,17 +425,17 @@ Note we are changing the ID again, to **azureautocomplete** in this case.
                 }, intervalDuration);
         });
     </script>
-```
+    ```
 
-Notice the clever use of the **interval** function to both clear the underlying text when it no longer matches what the user is typing, and also to set the same case (upper or lower) as the user is typing (as "pa" matches "PA", "pA", "Pa" when searching), so that the overlaid text is neat.
+    Notice the clever use of the **interval** function to both clear the underlying text when it no longer matches what the user is typing, and also to set the same case (upper or lower) as the user is typing (as "pa" matches "PA", "pA", "Pa" when searching), so that the overlaid text is neat.
 
-Read through the comments in the script to get a fuller understanding.
+    Read through the comments in the script to get a fuller understanding.
 
 4. Finally, we need to make a minor adjustment to two HTML class to make them transparent. Add the following line to the **searchBoxForm** and **searchBox** classes, in the hotels.css file.
 
-```cs
+    ```html
         background: rgba(0,0,0,0);
-```
+    ```
 
 5. Now run the app. Enter "pa" into the search box. Do you get "palace" as the autocomplete suggestion, along with two hotels that contain "pa"?
 
@@ -442,7 +443,7 @@ Read through the comments in the script to get a fuller understanding.
 
 6. Try tabbing to accept the autocomplete suggestion, and try selecting suggestions using the arrow keys and tab key, and try again using the mouse and a single click. Verify that the script handles all these situations neatly.
 
-You may decide that it is simpler to load in a library that offers this feature for you, but now you know at least one way to get inline autocompletion to work!
+    You may decide that it is simpler to load in a library that offers this feature for you, but now you know at least one way to get inline autocompletion to work!
 
 ## Takeaways
 
@@ -455,6 +456,9 @@ Consider the following takeaways from this project:
 
 ## Next steps
 
-You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Search APIs.
+One of the issues with autocompletion and suggestions is that they involve repeated calls to the server (one on every key stroke after the minimum number of characters typed is reached). If these repeated calls results in slower than expected responses, then the user experience diminishes. Using facets provides an interesting alternative to avoid these repeated calls, which we will look at next.
 
-For further reference and tutorials, consider browsing [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure), or the other tutorials in the [Azure Search Documentation](https://docs.microsoft.com/azure/search/).
+> [!div class="nextstepaction"]
+> [C# Tutorial: Use facets for navigation and network efficiency - Azure Search](tutorial-csharp-facets.md)
+
+

@@ -3,13 +3,13 @@ title: "Quickstart: Get sentence lengths, Go - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Go.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: erhopf
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to determine sentence length using Go
@@ -132,6 +132,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## Handle and print the response
 

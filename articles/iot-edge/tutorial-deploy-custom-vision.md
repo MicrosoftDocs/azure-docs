@@ -6,7 +6,7 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -15,13 +15,14 @@ ms.custom: "mvc, seodec18"
 
 # Tutorial: Perform image classification at the edge with Custom Vision Service
 
-Azure IoT Edge can make your IoT solution more efficient by moving workloads out of the cloud and to the edge. This capability lends itself well to services that process a lot of data, like computer vision models. The [Custom Vision Service](../cognitive-services/custom-vision-service/home.md) lets you build custom image classifiers and deploy them to devices as containers. Together, these two services enable you to find insights from images or video streams without having to transfer all of the data off site first. Custom Vision provides a classifier that compares an image against a trained model to generate insights. 
+Azure IoT Edge can make your IoT solution more efficient by moving workloads out of the cloud and to the edge. This capability lends itself well to services that process a lot of data, like computer vision models. The [Custom Vision Service](../cognitive-services/custom-vision-service/home.md) lets you build custom image classifiers and deploy them to devices as containers. Together, these two services enable you to find insights from images or video streams without having to transfer all of the data off site first. Custom Vision provides a classifier that compares an image against a trained model to generate insights.
 
-For example, Custom Vision on an IoT Edge device could determine whether a highway is experiencing higher or lower traffic than normal, or whether a parking garage has available parking spots in a row. These insights can be shared with another service to take action. 
+For example, Custom Vision on an IoT Edge device could determine whether a highway is experiencing higher or lower traffic than normal, or whether a parking garage has available parking spots in a row. These insights can be shared with another service to take action.
 
-In this tutorial, you learn how to: 
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Build an image classifier with Custom Vision.
 > * Develop an IoT Edge module that queries the Custom Vision web server on your device.
 > * Send the results of the image classifier to IoT Hub.
@@ -69,10 +70,11 @@ Once your image classifier is built and trained, you can export it as a Docker c
    | ----- | ----- |
    | Name | Provide a name for your project, like **EdgeTreeClassifier**. |
    | Description | Optional project description. |
-   | Resource Group | Accept the default **Limited trial**. |
+   | Resource Group | Select one of your Azure Resource Groups that includes a Custom Vision Service Resource or **create new** if you haven't yet added one. |
    | Project Types | **Classification** |
-   | Classification Types | **Multiclass (single tag per image)** | 
+   | Classification Types | **Multiclass (single tag per image)** |
    | Domains | **General (compact)** |
+   | Export Capabilities | **Basic platforms (Tensorflow, CoreML, ONNX, ...)** |
 
 5. Select **Create project**.
 
