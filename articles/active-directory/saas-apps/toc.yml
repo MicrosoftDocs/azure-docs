@@ -257,6 +257,8 @@
         href: clearcompany-tutorial.md
       - name: Clever
         href: clever-tutorial.md
+      - name: Clever Nelly
+        href: clever-nelly-tutorial.md
       - name: ClickTime
         href: clicktime-tutorial.md
       - name: ClickUp Productivity Platform
@@ -879,6 +881,8 @@
         href: paloaltonetworks-captiveportal-tutorial.md
       - name: Palo Alto Networks - GlobalProtect
         href: paloaltoglobalprotect-tutorial.md
+      - name: PandaDoc
+        href: pandadoc-tutorial.md
       - name: Panopto
         href: panopto-tutorial.md
       - name: Panorama9
@@ -899,6 +903,8 @@
         href: peoplecart-tutorial.md
       - name: Perception United States (Non-UltiPro)
         href: perceptionunitedstates-tutorial.md
+      - name: Perceptyx
+        href: perceptyx-tutorial.md
       - name: Percolate
         href: percolate-tutorial.md
       - name: PerformanceCentre
@@ -1446,8 +1452,6 @@
         href: samanage-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
-      - name: Smartsheet
-        href: smartsheet-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Tableau Online
