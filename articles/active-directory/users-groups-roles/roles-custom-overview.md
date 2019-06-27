@@ -37,9 +37,9 @@ Azure AD role-based access control is a public preview feature of Azure Active D
 
 ## What is Azure AD role-based access control?
 
-Azure AD role-based access control allows you to assign roles that are customized to allow permitted actions on only a single type of Azure AD resource. Azure AD role-based access operates on concepts similar to Azure's resource access role-based access ([Azure RBAC](../../role-based-access-control/overview.md), but Azure AD role-based access control is based on Microsoft Graph and Azure RBAC is based on Azure Resource Manager. Both systems base their functions on role assignments.
+Azure AD role-based access control allows you to assign roles that are customized to allow permitted actions on only a single type of Azure AD resource. Azure AD role-based access operates on concepts similar to Azure role-based access control ([Azure RBAC](../../role-based-access-control/overview.md) for Azure resource access, but Azure AD role-based access control is based on Microsoft Graph and Azure RBAC is based on Azure Resource Manager. However, both systems base their functions on role assignments.
 
-### Role assignment
+### Role assignments
 
 The way you control access using Azure AD role-based access control is to create **role assignments**, which are used to enforce permissions. A role assignment consists of three elements:
 
@@ -47,7 +47,7 @@ The way you control access using Azure AD role-based access control is to create
 - Role definition
 - Scope
 
-Access is granted by creating a role assignment, and access is revoked by removing a role assignment. You can [create role assignments](roles-create-assignments.md) using the Azure portal, Azure AD PowerShell, and Graph API.
+Access is granted by creating a role assignment, and access is revoked by removing a role assignment. You can [create role assignments](roles-create-assignments.md) using the Azure portal, Azure AD PowerShell, and Graph API. You can separately [view the assignments for a custom role](roles-view-assignments.md#view-the-assignments-of-a-role-with-single-application-scope-using-the-azure-ad-portal-(preview)).
 
 The following diagram shows an example of a role assignment. In this example, Chris Green has been assigned the [Application administrator](directory-assign-admin-roles.md#application-administrator) role in the scope of the SalesForce application. Chris doesn't have access to manage any other application, unless they are part of a different role assignment.
 
