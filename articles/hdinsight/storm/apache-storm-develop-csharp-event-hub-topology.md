@@ -98,7 +98,7 @@ topologyBuilder.SetJavaBolt(
 
 ## Download the completed project
 
-You can download a complete version of the project created in this tutorial from [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). However, you still need to provide configuration settings by following the steps in this tutorial.
+You can download a complete version of the project created in this article from [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). However, you still need to provide configuration settings by following the steps in this article.
 
 ### Prerequisites
 

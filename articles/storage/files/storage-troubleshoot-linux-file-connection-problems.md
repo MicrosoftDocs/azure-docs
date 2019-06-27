@@ -97,7 +97,7 @@ Reduce the number of concurrent open handles by closing some handles, and then r
     - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for any transfer between two file shares.
     - Using cp with parallel could improve copy speed, the number of threads depends on your use case and workload. This example uses six: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - Open source third party tools such as:
-        - [GNU Parallel](http://www.gnu.org/software/parallel/).
+        - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) - Sorts files and packs them into partitions.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - Uses Fpart and a copy tool to spawn multiple instances to migrate data from src_dir to dst_url.
         - [Multi](https://github.com/pkolano/mutil) - Multi-threaded cp and md5sum based on GNU coreutils.
