@@ -12,7 +12,7 @@ ms.date: 06/26/2019
 ms.author: dapine
 ---
 
-# Deploy the Speech container to a Kubernetes cluster On-Premises
+# Deploy the Speech container to a Kubernetes cluster on-premises
 
 Learn how to deploy a speech container with the text-to-speech and speech-to-text images to an on-premises Kubernetes cluster. This procedure demonstrates how to deploy a helm chart to a Kubernetes cluster, configure the various images within the container and test that the services are available in an automated fashion.
 
@@ -96,28 +96,27 @@ The *helm chart* contains the configuration of which docker images to pull from 
 
 The provided *helm charts* pull the docker images of the Speech Service, both text-to-speech and the speech-to-text services from **containerpreview.azurecr.io** container registry. 
 
-> [!NOTE]
-> 
+[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-```console
-docker login containerpreview.azurecr.io
-```
-
-https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+In order to allow the Kubernetes cluster `docker pull` access of the configured image on `containerpreview.azurecr.io`, you will need to transfer the docker credentials into the cluster. Execute the [`kubectl create`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) command below to create a generic secret based on the current docker configuration.
 
 ```console
 kubectl create secret generic containerpreview --from-file=.dockerconfigjson=~/.docker/config.json --type=kubernetes.io/dockerconfigjson
 ```
 
+The following output is printed to the console when the secret has been successfully created.
+
 ```console
 secret "containerpreview" created
 ```
 
-https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+Next, verify that the secret has been created by executing the [`kubectl get`] with the `secrets` flag.
 
 ```console
 kuberctl get secrets
 ```
+
+...
 
 ```console
 NAME                  TYPE                                  DATA      AGE
