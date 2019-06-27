@@ -1504,6 +1504,8 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
+                                </div>
+                                <div class="group">
                                     <h3>Mobile</h3>
                                     <ul>
                                         <li>
@@ -1630,8 +1632,6 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                                <div class="group">
                                     <h3>Security</h3>
                                     <ul>
                                         <li>
