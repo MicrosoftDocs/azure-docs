@@ -38,6 +38,10 @@ R package management and installation work different between SQL Database and SQ
 - Packages cannot perform outbound network calls. This limitation is similar to the [default firewall rules for Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) in SQL Server, but can't be changed in SQL Database.
 - There is no support for packages that depend on external runtimes (like Java) or need access to OS APIs for installation or usage.
 
+## RODBC
+
+If you're using RODBC in Azure SQL Database, then you can't write to a temporary table, whether it's created inside or outside of the sp_execute_external_script session. The workaround is to use RxODBC and rxDataStep (with overwrite=FALSE and append="rows").
+
 ## Resource governance
 
 It is not possible to limit R resources through [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) and external resource pools.
