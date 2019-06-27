@@ -4,13 +4,22 @@ description: Use Azure portal and Azure Resource Manage to deploy your resources
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 06/27/2019
 ms.author: tomfitz
 ---
 
 # Deploy resources with Resource Manager templates and Azure portal
 
 Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources by using the Azure portal](manage-resources-portal.md).
+
+Deploying Azure resources by using the Azure portal usually involves two steps:
+
+- Create a resource group.
+- Deploy resources to the resource group.
+
+In addition, you can also deploy an Azure Resource Manager template to create Azure resources.
+
+This article shows both methods.
 
 ## Create a resource group
 
@@ -24,7 +33,7 @@ Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resour
 
 1. Select or enter the following property values:
 
-    - **Subscription**: Select a Azure subscription.
+    - **Subscription**: Select an Azure subscription.
     - **Resource group**: Give the resource group a name.
     - **Region**: Specify an Azure location. This is where the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
@@ -42,7 +51,7 @@ After you create a resource group, you can deploy resources to the group from th
 
    ![New resource](./media/resource-group-template-deploy-portal/new-resources.png)
 
-1. Find the type of resource you would like to deploy. The resources are organized in catagories. If you don't see the particular solution you would like to deploy, you can search the Marketplace for it. The following screenshot shows that Ubuntu Server is selected.
+1. Find the type of resource you would like to deploy. The resources are organized in categories. If you don't see the particular solution you would like to deploy, you can search the Marketplace for it. The following screenshot shows that Ubuntu Server is selected.
 
    ![Select resource type](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
@@ -75,7 +84,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 1. You see several options for creating a template:
 
     - **Build your own template in editor**: create a template using the portal template editor.  The editor is capable to add a resource template schema.
-    - **Common templates**: There are four common template for creating a Linux virtual machine, Windows virtual machine, a web application, and an Azure SQL database.
+    - **Common templates**: There are four common templatess for creating a Linux virtual machine, Windows virtual machine, a web application, and an Azure SQL database.
     - **Load a GitHub quickstart template**: use an existing [quickstart templates](https://azure.microsoft.com/en-us/resources/templates/).
 
    ![View options](./media/resource-group-template-deploy-portal/see-options.png)
@@ -116,4 +125,4 @@ If you want to execute a deployment but not use any of the templates in the Mark
 - To view audit logs, see [Audit operations with Resource Manager](./resource-group-audit.md).
 - To troubleshoot deployment errors, see [View deployment operations](./resource-manager-deployment-operations.md).
 - To export a template from a deployment or resource group, see [Export Azure Resource Manager templates](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- To safely rollout your service across multiple regions, see [Azure Deployment Manager](./deployment-manager-overview.md).
+- To safely roll out your service across multiple regions, see [Azure Deployment Manager](./deployment-manager-overview.md).
