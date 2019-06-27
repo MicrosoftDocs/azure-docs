@@ -150,7 +150,7 @@ This step is only needed if you want to capture full SQL queries on .NET Framewo
     </Startup>
     ```
     
-2. Download [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) and [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), put them into `AppInsightsAgent` folder on each role project. Make sure to copy them to output directory through Visual Studio file properties or build scripts.
+2. Download [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) and [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), put them into the `AppInsightsAgent` folder on each role project. Make sure to copy them to the output directory through Visual Studio file properties or build scripts.
 
 3. On all Worker Roles, add environment variables 
 
