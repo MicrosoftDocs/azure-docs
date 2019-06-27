@@ -1,0 +1,27 @@
+- name: Overview
+  items:
+  - name: What is Azure Data Share Preview?
+    href: overview.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Share data
+      href: share-your-data.md
+    - name: Accept and receive data
+      href: subscribe-to-data-share.md
+- name: Concepts
+  items:
+  - name: Azure Data Share Terminology 
+    href: terminology.md
+- name: Resources
+  items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/tag/data-share
+  - name: Microsoft Tech Community
+    href: https://techcommunity.microsoft.com/
+  - name: Product feedback
+    href: https://feedback.azure.com/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=data-share
