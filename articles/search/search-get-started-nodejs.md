@@ -1,22 +1,78 @@
 ---
 title: 'Node.js Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
 description: Explains how to create an index, load data, and run queries using Node.js and the Azure Search REST APIs.
-author: jj09
-manager: jlembicz
+ms.date: 06/25/2019
+author: heidisteen
+manager: cgronlun
+ms.author: heidist
 services: search
 ms.service: search
+ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/26/2017
-ms.author: jjed
-ms.custom: seodec2018
+
 ---
 # Quickstart: Create an Azure Search index in Node.js
 > [!div class="op_single_selector"]
+> * [Node.js](search-get-started-nodejs.md)
+> * [Postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
-> * [.NET](search-howto-dotnet-sdk.md)
-> 
-> 
+> * [PowerShell](search-howto-dotnet-sdk.md)
+>*
 
+Learn how to build a console Node.js search application that uses Azure Search for its search experience. This quickstart uses the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) to construct the objects and operations used in this exercise.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+The following services and tools are used in this quickstart. 
+
++ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+
++ [Node.js](https://nodejs.org/en/)
+
+### Finished project
+
+This quickstart provides instructions for creating an app, but you could also get the completed application from GitHub. To download a copy, go to the[azure-aearch-nodejs-samples repo](https://github.com/Azure-Samples/azure-search-nodejs-samples).
+
+
+## Get a key and URL
+
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+
+2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+
+![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+
+All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+
+## Set up your environment
+
+If you are using Visual Studio, you can create a new project using the Blank Node.js console template.
+
+![Create a Javascript Node.js console application](media/search-get-started-nodejs/create-vs-project.png "Create a Javascript Node.js console application")
+
+
+## 1 - Create an index
+
+Unless you are using the portal, an index must exist on the service before you can load data. This step defines the index and pushes it to the service. The [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) is used for this step.
+
+Required elements of an index include a name and a *fields collection*. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
+
+This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We reduced it in this quickstart for brevity.
+
+1. In app.js, paste in the following code. 
+
+
+```javascript
+
+```
+
+## OLD
 Learn how to build a custom Node.js search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
 We used [Node.js](https://Nodejs.org) and NPM, [Sublime Text 3](https://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
@@ -104,3 +160,14 @@ New to Azure Search? We recommend trying other tutorials to develop an understan
 [3]: ./media/search-get-started-Nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-Nodejs/AzSearch-Nodejs-configjs.png
 [9]: ./media/search-get-started-Nodejs/rogerwilliamsschool.png
+
+
+## Clean up resources
+
+If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal.
+
+1. In [Azure portal](https://portal.azure.com), on the search service **Overview** page, locate the name of the resource group.
+
+2. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.
+
+3. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
