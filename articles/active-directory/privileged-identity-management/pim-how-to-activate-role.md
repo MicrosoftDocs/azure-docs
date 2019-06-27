@@ -36,25 +36,25 @@ When you need to take on an Azure AD role, you can request activation by using t
 
 1. Click **My roles** to see a list of your eligible Azure AD roles.
 
-    ![Azure AD roles - My roles](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Azure AD roles - My roles to show eligible or active roles list](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Find a role that you want to activate.
 
-    ![Azure AD roles - My roles list](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Azure AD roles - My eligible roles list showing Activate link](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. Click **Activate** to open the Role activation details pane.
 
 1. If your role requires multi-factor authentication (MFA), click **Verify your identity before proceeding**. You only have to authenticate once per session.
 
-    ![Verify with MFA before role activation](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
+    ![Verify my identity pane with MFA before role activation](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
 1. Click **Verify my identity** and follow the instructions to provide additional security verification.
 
-    ![Additional security verification](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![Additional security verification page asking how to contact you](./media/pim-how-to-activate-role/additional-security-verification.png)
 
 1. Click **Activate** to open the Activation pane.
 
-    ![Activation pane](./media/pim-how-to-activate-role/directory-roles-activate.png)
+    ![Activation pane to specify start time, duration, ticket, and reason](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
 1. If necessary, specify a custom activation start time.
 
@@ -62,19 +62,19 @@ When you need to take on an Azure AD role, you can request activation by using t
 
 1. In the **Activation reason** box, enter the reason for the activation request. Some roles require you to supply a trouble ticket number.
 
-    ![Completed Activation pane](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
+    ![Completed Activation pane with a custom start time, duration, ticket, and reason](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
 1. Click **Activate**.
 
     If the role does not require approval, an **Activation status** pane appears that displays the status of the activation.
 
-    ![Activation status](./media/pim-how-to-activate-role/activation-status.png)
+    ![Activation status page showing the three stages of activation](./media/pim-how-to-activate-role/activation-status.png)
 
     Once all the stages are complete, click the **Sign out** link to sign out of the Azure portal. When you sign back in to the portal, you can now use the role.
 
     If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
-    ![Request pending notification](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+    ![Activation request is pending approval notification](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
 
 ## View the status of your requests
 
@@ -86,7 +86,7 @@ You can view the status of your pending requests to activate.
 
 1. Click **My requests** to see a list of your requests.
 
-    ![Azure AD roles - My requests](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Azure AD roles - My requests list](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## Deactivate a role
 
@@ -118,7 +118,7 @@ If you do not require activation of a role that requires approval, you can cance
 
     When you click Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
-   ![Cancel pending request](./media/pim-how-to-activate-role/directory-role-cancel.png)
+   ![My requests list with the Cancel button highlighted](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
 ## Troubleshoot
 
