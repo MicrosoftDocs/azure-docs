@@ -33,6 +33,16 @@ Parameters can be utilized in any data flow expression. Parameters begin with $ 
 
 ![Data flow parameter expression](media/data-flow/parameter-expression.png "Data flow parameter expression")
 
+## Use parameters in your data flow
+
+* You can use parameter values inside of your transformation expressions. You will find the parameter list under the Parameters tab in the Expression Builder.
+
+![Use Data Flow parameters](media/data-flow/params9.png "Use Data Flow parameters")
+
+* Parameters are also used to configure dynamic values for your Source and Sink transformation settings. When you click inside of configurable fields, you will see the "Add dynamic contect" link appear. Clicking there will take you to an Expression Builder where you can use parameters to use dynamic values.
+
+![Data flow dynamic content](media/data-flow/params6.png "Data flow dynamic content")
+
 ## Set Mapping Data Flow parameters from pipeline
 
 Once you've created your data flow with parameters, you can execute it from a pipeline with the Execute Data Flow Activity. After you add the activity to your pipeline canvas, you will be presented with the available data flow parameters in the activity's 'Parameters' tab.
