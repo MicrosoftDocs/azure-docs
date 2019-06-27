@@ -17,13 +17,15 @@ ms.author: pafarley
 
 When you use the Form Recognizer custom model, you provide your own training data so the model can train to your industry-specific forms. You can train a model with five filled-in forms or an empty form (include the word "empty" in the file name) plus two filled-in forms. Even if you have enough filled-in forms to train with, adding an empty form to your training data set can improve the accuracy of the model.
 
+## Training data best practices
+
 It's important to use a data set that's optimized for training. Use the following tips to ensure you get the best results from the [Train Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/TrainCustomModel) operation:
 
-1. If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
-1. Use one empty form and two filled-in forms if you have them available.
-1. For filled-in forms, use examples that have all of their fields filled in.
-1. Use forms with different values in each field.
-1. If your form images are of lower quality, use a larger data set (10-15 images, for example).
+* If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
+* Use one empty form and two filled-in forms if you have them available.
+* For filled-in forms, use examples that have all of their fields filled in.
+* Use forms with different values in each field.
+* If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
 ## General input requirements
 
