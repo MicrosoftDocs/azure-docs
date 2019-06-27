@@ -1,5 +1,5 @@
 ---
-title: How to enable the Azure Hybrid Benefit to switch licensing model for a SQL Server VM in Azure | Microsoft Docs
+title: How to switch licensing model for a SQL Server VM in Azure
 description: Learn how to switch licensing for a SQL virtual machine in Azure from 'pay-as-you-go' to 'bring-your-own-license' using the Azure Hybrid Benefit. 
 services: virtual-machines-windows
 documentationcenter: na
@@ -17,12 +17,12 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# How to enable the Azure Hybrid Benefit to switch licensing model for a SQL Server VM in Azure
+# How to switch licensing model for a SQL Server virtual machine in Azure
 This article describes how to change the licensing model for a SQL Server virtual machine in Azure using the new SQL VM resource provider - **Microsoft.SqlVirtualMachine**. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-as-you-go, and bring your own license (BYOL). And now, using either the Azure portal, Azure CLI, or PowerShell you can modify which licensing model your SQL Server VM uses. 
 
 The **pay-as-you-go** (PAYG) model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 
-The **bring-your-own-license** (BYOL) model is also known as the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/), and it allows you to use your own SQL Server license with a VM running SQL Server. This option is typically more cost-effective but for more information about prices, see [SQL Server VM pricing guide](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
+The **bring-your-own-license** (BYOL) model is also known as the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/), and it allows you to use your own SQL Server license with a VM running SQL Server. In many cases, this option is more cost-effective, but you should review your specific requirements and costs. For more information, see [SQL Server VM pricing guide](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 Switching between the two license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
 

@@ -27,7 +27,7 @@ To utilize the SQL VM resource provider, you must also register the SQL VM resou
 
 ## Remarks
 
- - Registering a SQL Server VM with the SQL VM resource provider requires the SQL IaaS extension. If the SQL IaaS extension has not already been installed, it will be installed when you register your VM with the resource provider. You can specify the type of installation mode you want for the SQL IaaS extension. 'Full' mode requires a restart of SQL Server, while ['lightweight' and 'noagent'](#sql-iaas-noagent-and-lightweight-agent-options) do not. For more information about SQL IaaS agent modes, see [SQL IaaS agent modes](virtual-machines-windows-sql-server-agent-extension.md#modes). 
+ - Registering a SQL Server VM that does not have the SQL IaaS extension will install the extension during the registration process.  You can specify the type of installation mode you want for the SQL IaaS extension. 'Full' mode is default, and will restart SQL Server, while ['lightweight'](#sql-iaas-noagent-and-lightweight-agent-options) will not. For more information about SQL IaaS agent modes, see [SQL IaaS agent modes](virtual-machines-windows-sql-server-agent-extension.md#modes). 
  - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail.
  - The SQL VM resource provider only supports SQL Server VMs deployed using the 'Resource Manager', and to the public cloud. 
 
@@ -35,7 +35,7 @@ To utilize the SQL VM resource provider, you must also register the SQL VM resou
 
 The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) with the [SQL IaaS extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) installed. If the SQL IaaS extension has not been installed, it will be installed during registration. 
+- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
 
 
 ## Register SQL VM resource provider with subscription 
@@ -100,9 +100,9 @@ The ability to register with the SQL VM resource provider is not available with 
 
 ---
 
-## SQL IaaS 'noagent' and 'lightweight' agent options
+## SQL IaaS 'lightweight' agent options
 
-Registering your SQL Server VM with the SQL VM resource provider automatically installs the SQL IaaS agent on VMs that do not already have the agent installed. By default, the installation type for the agent is 'Full', which restarts the SQL Server service. You can install a **Lightweight** version of the SQL IaaS agent, which does not restart SQL Server, or you can register with the **NoAgent** option, which does not install the extension but allows you to register with the SQL VM resource provider. 
+Registering your SQL Server VM with the SQL VM resource provider automatically installs the SQL IaaS agent on VMs that do not already have the agent installed. By default, the installation type for the agent is 'Full', which restarts the SQL Server service. You can install a **Lightweight** version of the SQL IaaS agent, which does not restart SQL Server. 
 
 Once the SQL Server VM has been registered with the SQL VM resource provider, you can change the SQL IaaS mode in the portal. 
 
@@ -116,9 +116,7 @@ You can verify the current mode of your SQL Server VM with PowerShell:
       $sqlvm.Properties 
   ```
 
-
-### Lightweight mode
-To avoid restarting SQL Server during SQL VM resource provider registration, specify the lightweight agent installation mode using PowerShell. This can be done by specifying `sqlManagement=LightWeight` in the registration command. The lightweight option does not restart the SQL Server service but only allows modification of the SQL Server edition and license type. 
+To avoid restarting SQL Server during SQL VM resource provider registration, specify the lightweight agent installation mode using PowerShell. This can be done by specifying `sqlManagement=LightWeight` in the registration command. The lightweight option does not restart the SQL Server service but results in limited functionality that only allows modification of the SQL Server edition and license type. 
 
   ```powershell-interactive
      // Get the existing  Compute VM
@@ -131,8 +129,11 @@ To avoid restarting SQL Server during SQL VM resource provider registration, spe
   
   ```
 
-### NoAgent mode
-For SQL Server VMs that do not have the **Windows Guest Agent** service, such as Windows Server 2008 images, register with the SQL VM resource provider with the **NoAgent** option using PowerShell. This can be done by specifying `sqlManagement=NoAgent` in the registration command. The 'noagent' option offers limited functionality but does not restart the SQL Server service.  
+## Register Windows Server 2008 images
+
+Windows Server 2008 images can be registered with the SQL VM resource provider by utilizing the **noagent** mode of the SQL IaaS extension. This option provides limited functionality but will allow the SQL Server VM to be managed in the Azure portal. 
+
+To register your Windows Server 2008 image, user PowerShell:  
 
   ```powershell-interactive
      // Get the existing  Compute VM
@@ -144,7 +145,6 @@ For SQL Server VMs that do not have the **Windows Guest Agent** service, such as
         -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='NoAgent'} -Force 
   
   ```
-
 
 
 ## Next steps
