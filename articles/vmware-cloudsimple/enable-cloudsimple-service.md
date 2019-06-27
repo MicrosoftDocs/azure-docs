@@ -1,4 +1,4 @@
---- 
+---
 title: Enable Azure VMware Solution by CloudSimple service
 description: Describes how to enable the CloudSimple service on an Azure subscription and then register the CLoudSimple resource provider
 author: sharaths-cs

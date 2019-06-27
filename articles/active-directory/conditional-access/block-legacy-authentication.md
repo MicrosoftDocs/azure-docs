@@ -1,22 +1,16 @@
 ---
 title: How to block legacy authentication to Azure Active Directory (Azure AD) with Conditional Access| Microsoft Docs
 description: Learn how to improve your security posture by blocking legacy authentication using Azure AD Conditional Access.
+
 services: active-directory
-keywords: Conditional Access to apps, Conditional Access with Azure AD, secure access to company resources, Conditional Access policies
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: conceptual
+ms.date: 06/17/2019
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-
-ms.subservice: conditional-access
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 03/25/2019
-ms.author: joflore
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -25,10 +19,7 @@ ms.collection: M365-identity-device-management
 
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. However, legacy protocols don’t support multi-factor authentication (MFA). MFA is in many environments a common requirement to address identity theft. 
 
-
 If your environment is ready to block legacy authentication to improve your tenant's protection, you can accomplish this goal with Conditional Access. This article explains how you can configure Conditional Access policies that block legacy authentication for your tenant.
-
-
 
 ## Prerequisites
 
@@ -36,8 +27,6 @@ This article assumes that you are familiar with:
 
 - The [basic concepts](overview.md) of Azure AD Conditional Access 
 - The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
-
-
 
 ## Scenario description
 
@@ -53,12 +42,21 @@ How can you prevent apps using legacy authentication from accessing your tenant'
 
 Conditional Access policies are enforced after the first-factor authentication has been completed. Therefore, Conditional Access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (e.g. the sign-in risk level, location of the request, and so on) to determine access.
 
-
-
-
 ## Implementation
 
 This section explains how to configure a Conditional Access policy to block legacy authentication. 
+
+### Identify legacy authentication use
+
+Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you’re using legacy authentication.
+
+1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
+1. Add the Client App column if it is not shown by clicking on **Columns** > **Client App**.
+1. Filter by **Client App** > **Other Clients** and click **Apply**.
+
+Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
+
+These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that do not appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy for these users only.
 
 ### Block legacy authentication 
 

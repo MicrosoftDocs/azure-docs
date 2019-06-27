@@ -8,7 +8,7 @@ ms.author: sttramer
 
 ## Open Azure Cloud Shell
 
-Azure Cloud Shell is an interactive shell environment hosted in Azure and used through your browse. Azure Cloud Shell allows you to
+Azure Cloud Shell is an interactive shell environment hosted in Azure and used through your browser. Azure Cloud Shell allows you to
 use either `bash` or `PowerShell` shells to run a variety of tools to work with Azure services. Azure Cloud Shell comes pre-installed with the commands
 to allow you to run the content of this article without having to install anything on your local environment.
 

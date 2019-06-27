@@ -1,4 +1,4 @@
---- 
+---
 title: Security for CloudSimple services
 description: Describes the shared responsibility models for security of CloudSimple services
 author: sharaths-cs 

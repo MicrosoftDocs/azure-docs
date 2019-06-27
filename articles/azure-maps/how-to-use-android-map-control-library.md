@@ -196,7 +196,7 @@ Android Studio will take a few seconds to build the application. After the build
 
 ## Next steps
 
-To add stuff to your map, see:
+Learn how to add overlay data on the map:
 
 > [!div class="nextstepaction"]
 > [Add a symbol layer to an Android map](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
@@ -206,5 +206,3 @@ To add stuff to your map, see:
 
 > [!div class="nextstepaction"]
 > [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
-
-

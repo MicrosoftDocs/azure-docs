@@ -43,6 +43,9 @@ You can select an LA workspace from another subscription as the target. *By sele
 
 Once the data is inside LA workspace, [deploy a GitHub template](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) onto LA to visualize the data. Make sure you give the same resource group, workspace name, and workspace location to properly identify the workspace and then install this template on it.
 
+> [!NOTE]
+> Users who do not have alerts or backup/restore jobs in their LA workspace might see an error with code "BadArgumentError" on the portal. Users can ignore this error and continue using the solution. Once data of the relevant type starts flowing into the workspace, the visualizations will reflect the same and users will not see this error anymore.
+
 ### View Azure Backup data using Log Analytics (LA)
 
 Once the template is deployed, the solution for monitoring Azure Backup will show up in the workspace summary region. You can traverse via

@@ -37,7 +37,7 @@ The features below are currently unsupported for Azure NetApp Files:
 
 The following network restrictions apply to Azure NetApp Files:
 
-* The number of VMs in a VNet with Azure NetApp Files (or across peered VNets) cannot exceed 1000.
+* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000.
 * In each Azure Virtual Network (VNet), only one subnet can be delegated to Azure NetApp Files.
 
 
@@ -76,7 +76,7 @@ If the VNet is peered with another VNet, you cannot expand the VNet address spac
 
 ### UDRs and NSGs
 
-Network security groups (NSGs) with a next hop cannot be used as delegated subnets for Azure NetApp Files. Similarly, user-defined routes (UDRs) are also not supported. 
+User-defined routes (UDRs) and Network security groups (NSGs) are not supported on delegated subnets for Azure NetApp Files.
 
 As a workaround, you can apply NSGs to other subnets that either permit or deny the traffic to and from the Azure NetApp Files delegated subnet.  
 
@@ -98,13 +98,13 @@ Consider VNet 2 and VNet 3 in the diagram above. If VM 1 needs to connect to VM 
 
 Additionally, consider a scenario where VNet 1 is peered with VNet 2, and VNet 2 is peered with VNet 3 in the same region. The resources from VNet 1 can connect to resources in VNet 2 but it cannot connect to resources in VNet 3, unless VNet 1 and VNet 3 are peered. 
 
-In the diagram above, although VM 3 can connect to Volume 1, VM 4 cannot connect to Volume 2.  The reason is that the spoke VNets are not peered, and _transit routing is not supported over VNet peering_.
+In the diagram above, although VM 3 can connect to Volume 1, VM 4 cannot connect to Volume 2.  The reason for this is that the spoke VNets are not peered, and _transit routing is not supported over VNet peering_.
 
 ## Hybrid environments
 
 The following diagram illustrates a hybrid environment: 
 
-![Hybrid networking environment](../media/azure-netapp-files/azure-netapp-files-networ-hybrid-environment.png)
+![Hybrid networking environment](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
 In the hybrid scenario, applications from on-premises data centers need access to the resources in Azure.  This is the case whether you want to extend your data center to Azure, or you want to use Azure native services or for disaster recovery. See [VPN Gateway planning options](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) about how to connect multiple resources on-premises to resources in Azure through a site-to-site VPN or an ExpressRoute.
 
@@ -112,10 +112,10 @@ In a hybrid hub-spoke topology, the hub VNet in Azure acts as a central point of
 
 Depending on the configuration. You can connect resources from on-premises to resources in the hub and the spokes.
 
-In the topology illustrated above, the on-premises network is connected to a hub VNet in Azure, and there are 2 spoke VNets peered with the hub VNet.  In this scenario, the connectivity options supported for Azure NetApp Files volumes are as follows:
+In the topology illustrated above, the on-premises network is connected to a hub VNet in Azure, and there are 2 spoke VNets in the same region peered with the hub VNet.  In this scenario, the connectivity options supported for Azure NetApp Files volumes are as follows:
 
-* On-premises resources VM 1 and VM 2 can connect to Volume 1 in the hub over a site-to-site VPN or an ExpressRoute. 
-* On-premises resources VM 1 and VM 2 can connect to Volume 2 or Volume 3.
+* On-premises resources VM 1 and VM 2 can connect to Volume 1 in the hub over a site-to-site VPN or Express Route. 
+* On-premises resources VM 1 and VM 2 can connect to Volume 2 or Volume 3 over a site-to-site VPN and regional Vnet peering.
 * VM 3 in the hub VNet can connect to volume 2 in spoke VNet 1 and Volume 3 in spoke VNet 2.
 * VM 4 from spoke VNet 1 and VM 5 from spoke VNet 2 can connect to Volume 1 in the hub VNet.
 

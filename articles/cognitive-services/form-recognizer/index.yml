@@ -18,6 +18,15 @@ metadata:
 ms.custom: seodec18
 abstract:
   description: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/form-recognizer-landing-page-video.png
+      width: 250
+    title: AI-powered process automation with Form Recognizer (2:15)
+    href: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+    width: 250
 sections:
 - items:
     - type: list
