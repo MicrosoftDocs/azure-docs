@@ -33,16 +33,39 @@ To utilize the SQL VM resource provider, you must also register the SQL VM resou
 
 ## Prerequisites
 
-The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
+To register your SQL Server VM with the resource provider, you will need the following: 
+
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
+- [Azure CLI](/cli/azure/install-azure-cli) or [PowerShell](/powershell/azure/new-azureps-module-az). 
 
+## Verify registration status
+You can verify if your SQL Server has already been registered with the SQL VM resource provider using Azure CLI or PowerShell. 
+
+### Azure CLI
+
+Verify current SQL Server VM registration status with the following Azure CLI cmdlet:
+
+  ```azurecli-interactive
+  az sql vm show -n <vm_name> -g <resource_group>
+  ```
+
+Seeing `Microsoft.SqlVirtualMachine` in the **ID** value of the output indicates your SQL Server VM has been registered with the resource provider. 
+
+### PowerShell 
+
+Verify current SQL Server VM registration status with the following PowerShell cmdlet:
+
+  ```powershell-interactive
+  Get-AzResource -ResourceName <vm_name> -ResourceGroupName <resource_group> -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
+  ```
+An error indicates that the SQL Server VM has not been registered with the resource provider. 
 
 ## Register SQL VM resource provider with subscription 
 
 To register your SQL Server VM with the SQL VM resource provider, you must register the resource provider to your subscription. You can do so with the Azure portal, or Azure CLI. 
 
-# [Azure portal](#tab/azure-portal)
+### Azure portal
 
 The following steps will register the SQL VM resource provider to your Azure subscription using the Azure portal. 
 
@@ -54,7 +77,8 @@ The following steps will register the SQL VM resource provider to your Azure sub
 
    ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
-# [AZ CLI](#tab/bash)
+
+### Azure CLI
 The following code snippet will register the SQL VM resource provider to your Azure subscription. 
 
 ```azurecli-interactive
@@ -62,21 +86,21 @@ The following code snippet will register the SQL VM resource provider to your Az
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# [PowerShell](#tab/powershell)
+## PowerShell 
 
-The following code snippet will register the SQL VM resource provider to your Azure subscription.
+The following PowerShell code snippet will register the SQL VM resource provider to your Azure subscription.
 
 ```powershell-interactive
 # Register the new SQL VM resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 
----
+
 
 ## Register SQL Server VM with SQL VM resource provider
 Once the SQL VM resource provider has been registered to your subscription, you can then register your SQL Server VM with the resource provider using Azure CLI, and PowerShell. 
 
-# [AZ CLI](#tab/bash)
+### Azure CLI
 
 Register SQL Server VM using Azure CLI with the below code snippet: 
 
@@ -85,7 +109,8 @@ Register SQL Server VM using Azure CLI with the below code snippet:
 az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation> --license-type AHUB
 ```
 
-# [PowerShell](#tab/powershell)
+### PowerShell 
+
 Register SQL Server VM using PowerShell with the following code snippet:
 
 ```powershell-interactive
@@ -95,20 +120,16 @@ $vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
 New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
-# [Azure portal](#tab/azure-portal)
-The ability to register with the SQL VM resource provider is not available with the Azure portal. 
 
----
+## SQL IaaS 'lightweight' agent option
 
-## SQL IaaS 'lightweight' agent options
-
-Registering your SQL Server VM with the SQL VM resource provider automatically installs the SQL IaaS agent on VMs that do not already have the agent installed. By default, the installation type for the agent is 'Full', which restarts the SQL Server service. You can install a **Lightweight** version of the SQL IaaS agent, which does not restart SQL Server. 
+Registering your SQL Server VM with the SQL VM resource provider automatically installs the SQL IaaS agent on VMs that do not already have the agent installed. By default, the installation type for the agent is 'Full', which restarts the SQL Server service. You can install a **lightweight** version of the SQL IaaS agent, which does not restart SQL Server. 
 
 Once the SQL Server VM has been registered with the SQL VM resource provider, you can change the SQL IaaS mode in the portal. 
 
 For more information about SQL IaaS agent modes, see [SQL IaaS agent odes](virtual-machines-windows-sql-server-agent-extension.md#modes). 
 
-You can verify the current mode of your SQL Server VM with PowerShell:
+You can verify the current mode of your SQL Server VM with the Azure portal or PowerShell:
 
   ```powershell-interactive
       //Get the SqlVirtualMachine
