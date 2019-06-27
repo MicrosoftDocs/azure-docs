@@ -222,6 +222,9 @@
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Custom Docker image
       href: how-to-deploy-custom-docker-image.md
+    - name: Deploy existing models
+      displayName: publish existing model
+      href: how-to-deploy-existing-model.md
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services

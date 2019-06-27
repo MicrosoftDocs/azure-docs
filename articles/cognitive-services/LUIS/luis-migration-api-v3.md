@@ -14,7 +14,7 @@ ms.author: diberry
 ---
 
 
-# Preview: Migrate to API version 3.x  for LUIS apps
+# Preview: Migrate to API version 3.x for LUIS apps
 
 The query prediction endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 
@@ -39,6 +39,27 @@ The following LUIS features are **not supported** in the V3 API:
 * Bing Spell Check V7
 
 [Reference documentation](https://aka.ms/luis-api-v3) is available for V3.
+
+## Endpoint URL changes by slot name
+
+The format of the V3 endpoint HTTP call has changed.
+
+|METHOD|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|||
+
+## Endpoint URL changes by version ID
+
+If you want to query by version, you first need to [publish via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) with the `"directVersionPublish":true`. Query the endpoint referencing the version ID instead of the slot name.
+
+
+|METHOD|URL|
+|--|--|
+|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|||
 
 ## Prebuilt entities with new JSON
 
