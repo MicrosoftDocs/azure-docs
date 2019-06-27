@@ -96,6 +96,7 @@
     - name: Azure CLI
       href: tutorial-manage-web-traffic-cli.md       
     - name: Template
+      displayName: ARM, Resource Manager, template
       href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
