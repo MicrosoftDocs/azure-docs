@@ -26,6 +26,8 @@ Automatic device management works by updating a set of device twins with desired
 
 * The **metrics** define the summary counts of various configuration states such as **Success**, **In Progress**, and **Error**. Custom metrics are specified as queries on device twin reported properties.  System metrics are the default metrics that measure twin update status, such as the number of device twins that are targeted and the number of twins that have been successfully updated.
 
+Automatic device configurations run for the first time shortly after the configuration is created and then at five minute intervals. Metrics queries run each time the automatic device configuration runs.
+
 ## Implement device twins to configure devices
 
 Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  Refer to [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) for guidance on using device twins.
@@ -77,7 +79,7 @@ You can add additional settings by selecting **Add Device Twin Setting**.
 
 ### Specify Metrics (optional)
 
-Metrics provide summary counts of the various states that a device may report back after applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes. Metric queries run for the first time shortly after the configuration is created and then at 5 minute intervals.
+Metrics provide summary counts of the various states that a device may report back after applying configuration content. For example, you may create a metric for pending settings changes, a metric for errors, and a metric for successful settings changes.
 
 1. Enter a name for **Metric Name**.
 

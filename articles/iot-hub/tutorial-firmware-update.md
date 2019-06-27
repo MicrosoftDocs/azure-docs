@@ -183,7 +183,7 @@ The following screenshot shows the output from the back-end application and high
 
 ![Back-end application](./media/tutorial-firmware-update/BackEnd2.png)
 
-Because metric queries specified in the device configuration run at 5 minute intervals and also due to latency in the IoT Hub device identity registry, you may not see every status update sent to the back-end application. You can also view the metrics in the portal in the **Automatic device management -> IoT device configuration** section of your IoT hub:
+Because automatic device configurations run at creation time and then every fine minutes, you may not see every status update sent to the back-end application. You can also view the metrics in the portal in the **Automatic device management -> IoT device configuration** section of your IoT hub:
 
 ![View configuration in portal](./media/tutorial-firmware-update/portalview.png)
 
