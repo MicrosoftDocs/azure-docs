@@ -1,6 +1,6 @@
 ---
 title: C# tutorial on ordering results - Azure Search
-description: This tutorial builds on the "Search results pagination - Azure Search" project, to add the ordering of search results. Learn how to order results on a primary property, and for results that have the same primary property, how to order results on a secondary property.
+description: This tutorial builds on the "Search results pagination - Azure Search" project, to add the ordering of search results. Learn how to order results on a primary property, and for results that have the same primary property, how to order results on a secondary property. Finally, learn how to order results based on a scoring profile.
 services: search
 ms.service: search
 ms.topic: tutorial
@@ -11,7 +11,7 @@ ms.date: 06/21/2019
 
 # C# tutorial: Order the results - Azure Search
 
-Up until this point in our series of tutorials, results are returned and displayed in the order that the data is located. This order is arbitrary, and rarely the best user experience. In this tutorial, we will go into how to order results based on a primary property, and then for results that have the same primary property, how to order that selection on a secondary property. We will also go a bit deeper into the display of _complex types_.
+Up until this point in our series of tutorials, results are returned and displayed in a default order. This can be the order in which the data is located, or possibly a default _scoring profile_ has been defined, which will be used when no ordering parameters are specified. In this tutorial, we will go into how to order results based on a primary property, and then for results that have the same primary property, how to order that selection on a secondary property. As an alternative to ordering based on numerical values, the final example shows how to order based on a custom scoring profile. We will also go a bit deeper into the display of _complex types_.
 
 In order to compare returned results easily, this project builds onto the infinite scrolling project created in the [C# Tutorial: Search results pagination - Azure Search](tutorial-csharp-paging.md) tutorial.
 
@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Order results based on one property
 > * Order results based on multiple properties
 > * Filter results based on a distance from a geographical point
-> * Order results using scoring profiles
+> * Order results based on a scoring profile
 
 ## Prerequisites
 
@@ -458,17 +458,17 @@ To display results based on geographical distance, several steps are required.
 * [Azure Maps Documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
 * [Find an address using the Azure Maps search service](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-search-for-address)
 
-## Order results using scoring profiles
+## Order results based on a scoring profile
 
-The examples given in the tutorial so far show how to order on numerical values (rating, renovation date, geographical distance), providing an _exact_ process of ordering. However, some searches and some data do not lend themselves to such an easy comparison between two data elements. Azure Search includes the concept of _scoring_. _Scoring profiles_ can be specified for a set of data that can be used to provide more complex and qualitative comparisons, that should be most valuable when, say, comparing text based data to decide which should be displayed first.
+The examples given in the tutorial so far show how to order on numerical values (rating, renovation date, geographical distance), providing an _exact_ process of ordering. However, some searches and some data do not lend themselves to such an easy comparison between two data elements. Azure Search includes the concept of _scoring_. _Scoring profiles_ can be specified for a set of data that can be used to provide more complex and qualitative comparisons, that should be most valuable when, say, comparing text-based data to decide which should be displayed first.
 
 Scoring profiles are not defined by users, but typically by administrators of a data set. Several scoring profiles have been set up on the hotels data. Let's look at how a scoring profile is defined, then try writing code to search on them.
 
 ### How scoring profiles are defined
 
-Let's look at three examples of scoring profiles, and consider how each _should_ affect the results order. As an app developer, you do not write these profiles, they are written by the data administrator, however, it is helpful to look at their syntax.
+Let's look at three examples of scoring profiles, and consider how each _should_ affect the results order. As an app developer, you do not write these profiles, they are written by the data administrator, however, it is helpful to look at the syntax.
 
-1. This is the default scoring profile, used when you do not specify any **OrderBy** or **ScoringProfile** parameter. This profile boosts the _score_ for a hotel if the search text is present in the hotel name, description, or list of tags (amenities). Notice how the weights of the scoring favor certain fields. If the search text appears in another field, not listed below, it will have a weight of 1.
+1. This is the default scoring profile for the hotels data set, used when you do not specify any **OrderBy** or **ScoringProfile** parameter. This profile boosts the _score_ for a hotel if the search text is present in the hotel name, description, or list of tags (amenities). Notice how the weights of the scoring favor certain fields. If the search text appears in another field, not listed below, it will have a weight of 1. Obviously, the higher the score, the earlier a result appears in the view.
 
      ```cs
     {
@@ -566,10 +566,9 @@ Let's look at three examples of scoring profiles, and consider how each _should_
                     <div class="searchBoxForm">
                         <b>&nbsp;Order:&nbsp;</b>
                         @Html.RadioButtonFor(m => m.scoring, "Default") Default&nbsp;&nbsp;
-                        @Html.RadioButtonFor(m => m.scoring, "Rating") Rating&nbsp;&nbsp;
-                        @Html.RadioButtonFor(m => m.scoring, "RatingRenovation") Rating/renovation&nbsp;&nbsp;
-                        @Html.RadioButtonFor(m => m.scoring, "boostAmenities") Boost amenities&nbsp;&nbsp;
-                        @Html.RadioButtonFor(m => m.scoring, "renovatedAndHighlyRated") Renovated/highly rated&nbsp;&nbsp;
+                        @Html.RadioButtonFor(m => m.scoring, "RatingRenovation") By numerical Rating&nbsp;&nbsp;
+                        @Html.RadioButtonFor(m => m.scoring, "boostAmenities") By Amenities&nbsp;&nbsp;
+                        @Html.RadioButtonFor(m => m.scoring, "renovatedAndHighlyRated") By Renovated date/Rating profile&nbsp;&nbsp;
                     </div>
                 </td>
             </tr>
@@ -792,7 +791,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
             try
             {
                 InitSearch();
-               
+
                 int page;
 
                 if (model.paging != null && model.paging == "next")
@@ -832,10 +831,6 @@ Let's look at three examples of scoring profiles, and consider how each _should_
                 // Set the ordering based on the user's radio button selection.
                 switch (model.scoring)
                 {
-                    case "Rating":
-                        orderby.Add("Rating desc");
-                        break;
-
                     case "RatingRenovation":
                         orderby.Add("Rating desc");
                         orderby.Add("LastRenovationDate desc");
@@ -945,15 +940,15 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
 1. Run the app. You should see a full set of amenities in the view.
 
-2. For ordering, selecting "Rating" or "Rating/renovation" will give you the numerical ordering you have already implemented in this tutorial.
+2. For ordering, selecting "By numerical Rating" will give you the numerical ordering you have already implemented in this tutorial, with renovation date deciding among hotels of equal rating.
 
 ![Ordering "beach" based on rating](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
 
-3. Now try the "Boost amenities" profile. Make various selections of amenities, and verify that hotels with those amenities are promoted up the results list.
+3. Now try the "By amenities" profile. Make various selections of amenities, and verify that hotels with those amenities are promoted up the results list.
 
 ![Ordering "beach" based on profile](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
 
-4. Try the "Renovated/highly rated" profile to see if you get what you expect.
+4. Try the "By Renovated date/Rating profile" to see if you get what you expect. Only recently renovated hotels should get a _freshness_ boost.
 
 ### Resources
 
