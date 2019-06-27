@@ -122,7 +122,7 @@ $SqlVm | Set-AzResource -Force
 ## Known errors
 
 ### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.
-This error occurs when attempting to change the licensing model on a SQL Server VM that has not been registered with the SQL VM resource provider. You'll need to register the resource provider to your [subscription](#register-sql-vm-resource-provider-with-subscription), and then register your SQL Server VM with the SQL [resource provider](virtual-machines-windows-sql-register-with-rp.md). 
+This error occurs when attempting to change the licensing model on a SQL Server VM that has not been registered with the SQL VM resource provider. You'll need to register the resource provider to your [subscription](virtual-machines-windows-sql-register-with-rp.md#register-sql-vm-resource-provider-with-subscription), and then register your SQL Server VM with the SQL [resource provider](virtual-machines-windows-sql-register-with-rp.md). 
 
 ### Cannot validate argument on parameter 'Sku'
 You may encounter this error when attempting to change your SQL Server VM licensing model when using Azure PowerShell > 4.0:

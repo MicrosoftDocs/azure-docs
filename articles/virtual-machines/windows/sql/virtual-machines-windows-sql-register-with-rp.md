@@ -27,7 +27,7 @@ To utilize the SQL VM resource provider, you must also register the SQL VM resou
 
 ## Remarks
 
- - Registering a SQL Server VM that does not have the SQL IaaS extension will install the extension during the registration process.  You can specify the type of installation mode you want for the SQL IaaS extension. 'Full' mode is default, and will restart SQL Server, while ['lightweight'](#sql-iaas-noagent-and-lightweight-agent-options) will not. For more information about SQL IaaS agent modes, see [SQL IaaS agent modes](virtual-machines-windows-sql-server-agent-extension.md#modes). 
+ - Registering a SQL Server VM that does not have the SQL IaaS extension will install the extension during the registration process.  You can specify the type of installation mode you want for the SQL IaaS extension. 'Full' mode is default, and will restart SQL Server, while ['lightweight'](#sql-iaas-lightweight-agent-option) will not. For more information about SQL IaaS agent modes, see [SQL IaaS agent modes](virtual-machines-windows-sql-server-agent-extension.md#modes). 
  - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail.
  - The SQL VM resource provider only supports SQL Server VMs deployed using the 'Resource Manager', and to the public cloud. 
 

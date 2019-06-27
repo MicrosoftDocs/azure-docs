@@ -27,7 +27,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 | --- | --- |
 | **New SQL IaaS installation modes** | It's now possible to install the SQL IaaS extension in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#modes) to avoid restarting SQL Server service.  |
 | **SQL Server edition modification** | You can now change the [edition metadata](virtual-machines-windows-sql-change-edition.md) for your SQL Server VM. |
-| **SQL VM RP changes** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#sql-iaas-noagent-and-lightweight-agent-options) - even Windows 2008 images - using the new SQL IaaS modes. |
+| **SQL VM RP changes** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#sql-iaas-lightweight-agent-option) - even Windows 2008 images - using the new SQL IaaS modes. |
 | **BYOL images using AHUB** | BYOL images deployed from the marketplace can now switch their [license type to 'PAYG'](virtual-machines-windows-sql-ahb.md#remarks), though they'll need to register as 'AHUB' initially. | 
 | &nbsp; | &nbsp; |
 
