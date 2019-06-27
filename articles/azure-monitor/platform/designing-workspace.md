@@ -63,9 +63,9 @@ The data that a user has access to are determined by a combination of factors th
 
 | Factor | Description |
 |:---|:---|
-| [Access mode](manage-access.md#access-modes) | Method that the user uses to accesses the workspace.  Defines the scope of the data available and the access control mode that's applied. |
-| [Access control mode](manage-access.md#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
-| [Permissions](manage.access.md#manage-accounts-and-users) | Permissions applied to individual or groups of users for the workspace or resource. Defines what data the user will have access to. |
+| [Access mode](#access-mode) | Method that the user uses to accesses the workspace.  Defines the scope of the data available and the access control mode that's applied. |
+| [Access control mode](#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
+| [Permissions](manage-access.md#manage-accounts-and-users) | Permissions applied to individual or groups of users for the workspace or resource. Defines what data the user will have access to. |
 | [Table level RBAC](manage-access.md#table-level-rbac) | Optional granular permissions that applies to all users regardless of their access mode or access control mode. Defines which data types a user can access. |
 
 ## Access mode
