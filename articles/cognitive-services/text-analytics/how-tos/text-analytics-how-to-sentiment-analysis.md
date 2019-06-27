@@ -139,12 +139,12 @@ The [next version of Sentiment Analysis (needs updated link)](https://westcentra
 |---------|---------|
 |Improved accuracy     | Significant improvement in detecting positive, neutral, negative, and mixed sentiment in text documents over previous versions.           |
 |Document and Sentence-level Sentiment Score     | Detect the sentiment of both a document and its individual sentences. If the document includes multiple sentences, each sentence is also assigned a sentiment score.         |
-|Sentiment category and score     | The API now returns a sentiment category (for example, `neutral`) in addition to a sentiment score.        |
-| Improved output | |
+|Sentiment category and score     | The API now returns sentiment categories (`positive`, `negative`, `neutral` and `mixed`) for text, in addition to a sentiment score.        |
+| Improved output | Sentiment analysis now returns information for both an entire text document, and its individual sentences. |
 
 ### Sentiment analysis V3 example request
 
-The following JSON is an example of a request made to the new version of sentiment analysis. Note that the format is the same as the previous version:
+The following JSON is an example of a request made to the new version of sentiment analysis. Note that the request formatting is the same as the previous version:
 
 ```json
 {
