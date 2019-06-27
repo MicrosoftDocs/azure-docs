@@ -21,7 +21,7 @@ ms.author: monhaber
 
 This topic presents the alerts available for your Azure services:
 * [Azure App Service](#app-services)
-* [Containers](#azure-containers)
+* [Containers](#azure-containers) 
 
 ### Azure App Service <a name="app-services">
 
