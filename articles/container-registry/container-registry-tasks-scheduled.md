@@ -21,12 +21,14 @@ Scenarios to run scheduled tasks include:
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you'd like to use it locally, version 2.0.68 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 
-## Things to know
+## About scheduling tasks
 
 * **Timer trigger** - To schedule a task, add a *timer trigger* with a *cron expression*. The cron expression for a timer trigger is a string with five fields specifying the minute, hour, day, month, and day of week to trigger the task. For example, the expression `"0 12 * * Mon-Fri"` triggers a task at noon UTC on each weekday. See [details](#cron-expressions) later in this article.
-* **Multiple timer triggers** - Adding multiple timer triggers to a task is allowed, as long as the schedules differ. Specify multiple triggers when you create the task, or add them later. If timer schedules overlap at a particular time, ACR Tasks runs the task at the expected time in one of the schedules, and then triggers the task for the other one minute later. Optionally name the timer triggers to help you manage them, or ACR Tasks will provide default trigger names.
+* **Multiple timer triggers** - Adding multiple timer triggers to a task is allowed, as long as the schedules differ. 
+    * Specify multiple triggers when you create the task, or add them later.
+    * Optionally name the timer triggers to help you manage them, or ACR Tasks will provide default trigger names.
+    * If timer schedules overlap at a particular time, ACR Tasks runs the task at the scheduled time for one of the timers, and then triggers the task one minute later for the other. 
 * **Other task triggers** - Add timer triggers to a task in addition to enabling triggers based on source code or base image updates. You can also manually trigger a scheduled task.
-
 
 ## Create a task with a schedule
 
@@ -133,6 +135,32 @@ az acr task timer remove \
 ```
 
 ## Cron expressions
+
+ACR Tass uses the [NCronTab](https://github.com/atifaziz/NCrontab) library to interpret CRON expressions. A CRON expression includes six fields:
+
+`{minute} {hour} {day} {month} {day-of-week}`
+
+Each field can have one of the following types of values:
+
+|Type  |Example  |When triggered  |
+|---------|---------|---------|
+|A specific value |<nobr>"5 * * * *"</nobr>|at hh:05 where hh is every hour (once an hour)|
+|All values (`*`)|<nobr>"* 5 * * *"</nobr>|at 5:mm every day, where mm is every minute of the hour (60 times a day)|
+|A range (`-` operator)|<nobr>"5-7 * * * *"</nobr>|at hh:05,hh:06, and hh:07 where hh is every hour (3 times per hour)|  
+|A set of values (`,` operator)|<nobr>"5,8,10 * * * *"</nobr>|at hh:05,hh:08, and hh:10 where hh is every hour (3 times per hour)|
+|An interval value (`/` operator)|<nobr>"*/5 * * * *"</nobr>|at hh:05, hh:10, hh:15, and so on through hh:55 where hh is every hour (12 times per hour)|
+
+### CRON examples
+
+|Example|When triggered  |
+|---------|---------|
+|`"*/5 * * * *"`|once every five minutes|
+|`"0 * * * *"`|once at the top of every hour|
+|`"0 */2 * * *"`|once every two hours|
+|`"0 9-17 * * *"`|once every hour from 9 AM to 5 PM|
+|`"30 9 * * *"`|at 9:30 AM every day|
+|`"30 9 * * 1-5"`|at 9:30 AM every weekday|
+|`"30 9 * Jan Mon"`|at 9:30 AM every Monday in January|
 
 *  For example, .... Timers don't depend on the time that a task is created or a timer is added.
 
