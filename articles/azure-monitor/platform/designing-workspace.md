@@ -16,6 +16,7 @@ ms.author: magoedte
 ---
 
 # Designing your Azure Monitor Logs deployment
+
 Azure Monitor stores log data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, analyzed, and presented in Azure Monitor. While you can deploy one or more workspaces in your Azure subscription, there are several considerations you should understand in order to ensure that your initial deployment is following our guidelines to provide you with a cost effective, manageable, and scalable deployment meeting your organizations needs.
 
 Data in a workspace is organized into tables, each of which stores different kinds of data and has its own unique set of properties based on the resource generating the data. Most data sources will write to their own tables in a Log Analytics workspace.
@@ -104,6 +105,7 @@ The following table summarizes the access modes:
 | How can user access logs? | Start **Logs** from **Azure Monitor** menu or **Log Analytics workspaces**. | Start **Logs** from the menu for the Azure resource. |
 
 ## Access control mode
+
 The *Access control mode* is a setting on each workspaces that defines how permissions are determined for that workspace.
 
 **Require workspace permissions**: This control mode does not allow granular RBAC. For a user to access the workspace, they must be granted permissions to the workspace or to specific tables.
