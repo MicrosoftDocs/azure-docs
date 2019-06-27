@@ -66,7 +66,7 @@ In this example, you create a logic app with an endpoint in Azure so that you ca
 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app, which opens the Logic App Designer.
 
-1. In the search box, enter "http request" as your filter. From the triggers list, select **When a HTTP request is received**.
+1. In the search box, enter "http request" as your filter. From the **Triggers** list, select **When a HTTP request is received**.
 
    ![Add HTTP Request trigger](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -86,7 +86,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    ![Select "New step"](./media/logic-apps-using-sap-connector/add-action.png)
 
-1. In the search box, enter "sap" as your filter. From the actions list, select **Send message to SAP**.
+1. In the search box, enter "sap" as your filter. From the **Actions** list, select **Send message to SAP**.
   
    ![Select SAP send action](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -152,7 +152,7 @@ Now add a response action to your logic app's workflow and include the output fr
 
 1. In the Logic App Designer, under the SAP action, select **New step**.
 
-1. In the search box, enter "response" as your filter. From the actions list, select **Response**.
+1. In the search box, enter "response" as your filter. From the **Actions** list, select **Response**.
 
 1. Click inside the **Body** box so that the dynamic content list appears. From that list, under **Send message to SAP**, select the **Body** field.
 
@@ -200,7 +200,7 @@ This example uses a logic app that triggers when the app receives a message from
 
 1. In the Azure portal, create a blank logic app, which opens the Logic App Designer.
 
-1. In the search box, enter "sap" as your filter. From the triggers list, select **When a message is received from SAP**.
+1. In the search box, enter "sap" as your filter. From the **Triggers** list, select **When a message is received from SAP**.
 
    ![Add SAP trigger](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -269,7 +269,7 @@ This example uses a logic app that you can trigger with an HTTP request. The SAP
 
 1. In the Azure portal, create a blank logic app, which opens the Logic App Designer.
 
-1. In the search box, enter "http request" as your filter. From the triggers list, select **When a HTTP request is received**.
+1. In the search box, enter "http request" as your filter. From the **Triggers** list, select **When a HTTP request is received**.
 
    ![Add HTTP Request trigger](./media/logic-apps-using-sap-connector/add-trigger.png)
 
