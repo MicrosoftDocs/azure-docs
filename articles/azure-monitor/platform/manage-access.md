@@ -73,7 +73,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ## Manage accounts and users
 
-The permissions applied to the workspace for a particular user are defined by their access mode and the [access control mode](designing-workspaces#access-control-mode) of the workspace. **Workspace permissions** are applied when a user accesses any workspace using **workspace-context** in [workspace-context mode](designing-workspaces.md#access-modes). **Resource permissions** are applied when a user accesses a workspace with **Use resource or workspace permissions** [access control mode](designing-workspaces.md#access-control-mode) using [resource-context mode](designing-workspaces.md#access-modes).
+The permissions applied to the workspace for a particular user are defined by their access mode and the [access control mode](designing-workspaces#access-control-mode) of the workspace. **Workspace permissions** are applied when a user accesses any workspace using **workspace-context** in [workspace-context mode](designing-workspaces.md#access-mode). **Resource permissions** are applied when a user accesses a workspace with **Use resource or workspace permissions** [access control mode](designing-workspaces.md#access-control-mode) using [resource-context mode](designing-workspaces.md#access-mode).
 
 ### Workspace permissions
 
@@ -169,13 +169,9 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
 ## Table level RBAC
 
-<<<<<<< HEAD
 **Table level RBAC** allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users.
 
-You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant or deny access to specific [tables](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) in the workspace. These roles are applied to workspaces with either workspace-centric or resource-centric [access control modes](designing-workspace.md#access-control-mode) regardless of the user's [access mode](designing-workspace.md#access-modes).
-=======
-You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant or deny access to specific [tables](../log-query/logs-structure.md) in the workspace. These roles are applied to workspaces with either workspace-centric or resource-centric [access control modes](#access-control-mode) regardless of the user's [access mode](#access-modes).
->>>>>>> ceb030caf97537e47908b26d9b4bcec77ddddbc3
+You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant or deny access to specific [tables](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) in the workspace. These roles are applied to workspaces with either workspace-centric or resource-centric [access control modes](designing-workspace.md#access-control-mode) regardless of the user's [access mode](designing-workspace.md#access-mode).
 
 Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to table access control.
 
