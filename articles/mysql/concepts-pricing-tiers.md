@@ -62,7 +62,7 @@ We are increasing the storage limits in our General Purpose and Memory Optimized
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
 > [!IMPORTANT]
-> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, West US 2, North Europe, West Europe, Southeast Asia, Japan East, Korea Central, Australia East.
+> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, North Europe, West Europe, Southeast Asia, Japan East, Korea Central, Australia East.
 >
 > The large storage preview currently does not support:
 >

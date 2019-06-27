@@ -20,6 +20,19 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-06-24
+
+### Azure Machine Learning Data Prep SDK v1.1.6
+
++ **New features**
+  + Added summary functions for top values (`SummaryFunction.TOPVALUES`) and bottom values (`SummaryFunction.BOTTOMVALUES`).
+
++ **Bug fixes and improvements**
+  + Significantly improved the performance of `read_pandas_dataframe`.
+  + Fixed a bug that would cause `get_profile()` on a Dataflow pointing to binary files to fail.
+  + Exposed `set_diagnostics_collection()` to allow for programmatic enabling/disabling of the telemetry collection.
+  + Changed the behavior of `get_profile()`. NaN values are now ignored for Min, Mean, Std, and Sum, which aligns with the behavior of Pandas.
+
 ## 2019-06-10
 
 ### Azure Machine Learning SDK for Python v1.0.43
@@ -33,7 +46,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + STL featurizer for forecasting
     + KMeans clustering is enabled for feature sweeping
   + AmlCompute Quota approvals just became faster! We have now automated the process to approve your quota requests within a threshold. For more information on how quotas work, learn [how to manage quotas](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
- 
 
 + **Preview features**
     + Integration with [MLflow](https://mlflow.org) 1.0.0 tracking through azureml-mlflow package ([example notebooks](https://aka.ms/azureml-mlflow-examples)).
