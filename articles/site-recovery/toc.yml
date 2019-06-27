@@ -187,6 +187,8 @@
         href: delete-vault.md
   - name: VMware to Azure disaster recovery
     items:
+    - name: Set up disaster recovery at scale
+      href: vmware-physical-large-deployment.md
     - name: Set up networking
       items:
       - name: Manage network interfaces for on-premises to Azure replication
@@ -210,7 +212,7 @@
         - name: Analyze the cost estimation report
           href: site-recovery-vmware-deployment-planner-cost-estimation.md
       - name: Scale out process servers for VMware replication
-        href: vmware-azure-set-up-process-server-scale.md
+        href: vmware-azure-set-up-process-server-scale.md 
     - name: Set up disaster recovery
       items:
       - name: Set up the source environment
@@ -269,6 +271,8 @@
         href: delete-vault.md
   - name: Physical to Azure disaster recovery
     items:
+    - name: Set up disaster recovery at scale
+      href: vmware-physical-large-deployment.md
     - name: Set up networking
       items:
       - name: Manage network interfaces for on-premises to Azure replication

@@ -2,7 +2,7 @@
 title: 'Azure Time Series Insights Preview use cases | Microsoft Docs'
 description: Understand Azure Time Series Insights Preview use cases.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -23,11 +23,11 @@ Specifically, this article answers the following questions:
 * What are the benefits of using Time Series Insights for [operational analysis and process efficiency](#operational-analysis-and-driving-process-efficiency)?
 * What are the benefits of using Time Series Insights for [advanced analytics](#advanced-analytics)?
 
-An overview of these use scenarios is described below.
+An overview of these use scenarios is described in the following sections.
 
 ## Introduction
 
-Azure Time Series Insights is an end-to-end platform-as-a-service offering. It's used to collect, process, store, analyze, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
+Azure Time Series Insights is an end-to-end platform-as-a-service offering. It's used to collect, process, store, analyze, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized service offering that meets the broad needs of industrial IoT deployments.
 
 ## Data exploration and visual anomaly detection
 
@@ -47,9 +47,9 @@ There are three primary ways to interact with data stored in Time Series Insight
 
 - The second way to start is to use the JavaScript SDK to quickly embed powerful charts and graphs in your  web application. With just a few lines of code, you can author powerful queries. Use them to populate line charts, pie charts, bar charts, heatmaps, data grids, and more. All of these elements exist out-of-the-box by using the SDK. The SDK also abstracts Time Series Insights query APIs. You can use them to author SQL-like predicates to query the data you want to show on a dashboard. For hybrid presentation-layer solutions, Time Series Insights offers parameterized URLs. They provide seamless connection points with the Time Series Insights Preview explorer for deep dives into data.
 
-    * Read the [Time Series Insights JS client library](/tutorial-explore-js-client-lib.md) and the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation to learn more about the JavaScript SDK.
+    * Read the [Time Series Insights JS client library](tutorial-explore-js-client-lib.md) and the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation to learn more about the JavaScript SDK.
 
-    * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the explorer Preview](time-series-insights-update-explorer.md).
+    * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the Azure Time Series Insights Preview explorer](time-series-insights-update-explorer.md).
 
 - The third way to start is to use the powerful APIs to query data stored in Time Series Insights. Time Series Insights has temporal operators such as `from`, `to`, `first`, and `last`. It has aggregations and transformations such as `average`, `min`, `max`, `split by`, `order by`, and `DateHistogram`. It also has filtering operators such as `has`, `in`, `and`, `or`, `greater than`, and `REGEX`. All these operators enable downstream applications to quickly find interesting trends and patterns in your data. Use them to populate home-grown visualizations to spot anomalies.
 
@@ -92,7 +92,5 @@ Time Series Insights bridges the gap between IoT data and advanced analytics in 
 ## Next steps
 
 - Learn more about the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
-
-- To plan out your environment, read [Time Series Insights Preview planning](./time-series-insights-update-plan.md).
-
+- Read [Time Series Insights Preview planning](./time-series-insights-update-plan.md) to plan out your environment.
 - Read the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation.

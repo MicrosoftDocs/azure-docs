@@ -57,7 +57,7 @@ New listings in the Marketplace are eligible for a diverse set of free benefits 
 
 *   Co-selling: Begin or accelerate your journey to selling with Microsoft through the Marketplace. Access programs and support to drive joint sales with Microsoft teams.
 
-After you [submit your solution](https://azuremarketplace.microsoft.com/sell/signup) to the Marketplace, our onboarding team contacts you to support your publishing experience.
+After you [submit your solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) to the Marketplace, our onboarding team contacts you to support your publishing experience.  See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
 
 For more information about Microsoft Go-To-Market benefits and ways to grow your business in the Marketplace, see [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 

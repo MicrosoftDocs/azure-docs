@@ -4,40 +4,43 @@
   items:
   - name: About Media Services
     href: media-services-overview.md
-- name: Quickstarts
+- name: Tutorials
   expanded: true
   items:
-  - name: Stream video files - .NET
-    href: stream-files-dotnet-quickstart.md
-  - name: Stream video files - CLI
-    href: stream-files-cli-quickstart.md
-  - name: Stream video files - Node.js
-    href: stream-files-nodejs-quickstart.md
-- name: Tutorials
-  items:
-  - name: Encode remote file and stream video – REST
-    displayName: encoding, job, transform
-    href: stream-files-tutorial-with-rest.md
-  - name: Encode uploaded file and stream video - .NET
+  - name: Encode remote file and stream video
+    items:
+    - name: With REST
+      displayName: encoding, job, transform
+      href: stream-files-tutorial-with-rest.md
+    - name: With CLI
+      href: stream-files-cli-quickstart.md 
+    - name: With .NET
+      href: stream-files-dotnet-quickstart.md
+    - name: With Node.js
+      href: stream-files-nodejs-quickstart.md
+  - name: Encode uploaded file and stream video   
     displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
-  - name: Stream live - .NET
+  - name: Stream live 
     href: stream-live-tutorial-with-api.md
-  - name: Analyze your video - .NET
+    displayName: Live Events, Live Outputs, ingest 
+  - name: Analyze your video 
     displayName: job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset
     href: analyze-videos-tutorial-with-api.md
-  - name: Encrypt dynamically with AES-128 - .NET
+  - name: Encrypt dynamically with AES-128 
     href: protect-with-aes128.md       
-  - name: Encrypt dynamically with DRM - .NET
-    displayName: PlayReady, Widevine
+  - name: Encrypt dynamically with DRM 
+    displayName: PlayReady, Widevine, FairPlay
     href: protect-with-drm.md    
 - name: Concepts
-  href: concepts-overview.md
   items:
+  - name: Overview
+    href: concepts-overview.md
   - name: Cloud upload and storage
     items:    
     - name: Storage
-      href: storage-account-concept.md    
+      href: storage-account-concept.md  
+      displayName: Storage side encryption
     - name: Assets
       href: assets-concept.md    
   - name: Encoding
@@ -47,7 +50,8 @@
       displayName: encoding, presets, jobs, adaptive, bitrate
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
-    - name: Media Encoder Standard formats
+      displayName: preset, schema 
+    - name: Standard Encoder formats
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
@@ -65,50 +69,51 @@
       href: transforms-jobs-concept.md 
     - name: Job error codes
       href: job-error-codes.md     
-  - name: Packaging, delivery, protection
+  - name: Packaging and delivery
     items:
-    - name: Packaging
-      items:
-      - name: Dynamic packaging
-        displayName: origin, packager      
-        href: dynamic-packaging-overview.md
-      - name: Dynamic manifests
-        href: filters-dynamic-manifest-overview.md 
-      - name: Filters
-        href: filters-concept.md   
-    - name: Content protection
-      items:
-      - name: Streaming protocols and encryption types
-        displayName: Dynamic encryption      
-        href: content-protection-overview.md  
-      - name: Multi-DRM system with access control
-        href: design-multi-drm-system-with-access-control.md  
-      - name: DRM licenses
-        items:
-        - name: PlayReady license template
-          href: playready-license-template-overview.md
-        - name: Widevine license template
-          href: widevine-license-template-overview.md
-        - name: FairPlay license requirements
-          href: fairplay-license-overview.md      
-    - name: Streaming Endpoints/Origin
+    - name: Dynamic packaging
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest      
+      href: dynamic-packaging-overview.md
+    - name: Dynamic manifests
+      href: filters-dynamic-manifest-overview.md 
+    - name: Filters
+      href: filters-concept.md   
+    - name: Streaming Endpoints 
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
-    - name: Streaming Locators
+    - name: Streaming Locators 
       displayName: URLs
       href: streaming-locators-concept.md
-    - name: Streaming Policies
+    - name: Streaming Policies 
       href: streaming-policy-concept.md  
-    - name: Content Key Policies
-      href: content-key-policy-concept.md      
     - name: Streaming Endpoint error codes  
-      href: streaming-endpoint-error-codes.md       
+      href: streaming-endpoint-error-codes.md    
+  - name: Dynamic encryption and key delivery
+    items:
+    - name: Streaming protocols and encryption types
+      displayName: dynamic, encryption, content protection, PlayReady, Widevine, FairPlay     
+      href: content-protection-overview.md  
+    - name: Multi-DRM system with access control
+      href: design-multi-drm-system-with-access-control.md  
+    - name: DRM licenses
+      items:
+      - name: PlayReady license template
+        href: playready-license-template-overview.md
+      - name: Widevine license template
+        href: widevine-license-template-overview.md
+      - name: FairPlay license requirements
+        href: fairplay-license-overview.md  
+    - name: Streaming Policies 
+      href: streaming-policy-concept.md          
+    - name: Content Key Policies 
+      href: content-key-policy-concept.md              
   - name: Live streaming 
     items:
     - name: Overview
       href: live-streaming-overview.md
-    - name: Live Events and Live Outputs
+    - name: Live Events and Live Outputs 
       href: live-events-outputs-concept.md    
+      displayName: vanity, ingest 
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Using a cloud DVR
@@ -135,9 +140,10 @@
     - name: Azure Media Player
       href: use-azure-media-player.md
   - name: Developing with v3 APIs
-    href: media-services-apis-overview.md
-    displayName: accessing APIs, naming conventions, long-running operations
     items:
+    - name: Overview
+      href: media-services-apis-overview.md
+      displayName: accessing, naming, long-running
     - name: Page, filter, order entities
       href: entities-overview.md 
     - name: RBAC
@@ -156,6 +162,7 @@
     items:
     - name: Create an account - CLI
       href: create-account-cli-how-to.md  
+      displayName: storage
     - name: Reset the account credentials - CLI
       href: cli-reset-account-credentials.md      
     - name: Access APIs - CLI
@@ -169,7 +176,6 @@
       - name: Connect with Postman
         href: media-rest-apis-with-postman.md       
     - name: Develop with SDKs
-      href: developers-guide.md
       items:
       - name: Connect with Java
         href: configure-connect-java-howto.md
@@ -196,7 +202,7 @@
     items:
     - name: Create transforms - CLI
       href: cli-create-transform.md
-    - name: Crate jobs - CLI
+    - name: Create jobs - CLI
       href: cli-create-jobs.md
   - name: Encode content
     items:
@@ -209,11 +215,22 @@
     - name: Encode with a custom Transform
       items:
       - name: With .NET
+        displayName: encode, encoding, custom, transform  
         href: customize-encoder-presets-how-to.md
       - name: With CLI
+        displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
       - name: With REST
-        href: custom-preset-rest-howto.md      
+        displayName: encode, encoding, custom, transform
+        href: custom-preset-rest-howto.md    
+    - name: Subclip a video
+      items:
+      - name: With .NET
+        href: subclip-video-dotnet-howto.md
+        displayName: subclipping, clip, edit, trim, clipping
+      - name: With REST
+        href: subclip-video-rest-howto.md
+        displayName: subclipping, clip, edit, trim, clipping        
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
@@ -234,10 +251,13 @@
     items:
     - name: With .NET
       href: filters-dynamic-manifest-dotnet-howto.md
+      displayName: filters
     - name: With REST
       href: filters-dynamic-manifest-rest-howto.md
+      displayName: filters
     - name: With CLI
       href: filters-dynamic-manifest-cli-howto.md  
+      displayName: filters
   - name: Deliver content
     items:
     - name: Publish an asset - CLI
@@ -246,6 +266,7 @@
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
+    displayName: schema
   - name: REST
     href: https://aka.ms/ams-v3-rest-ref 
   - name: Azure CLI
@@ -295,6 +316,8 @@
       href: https://aka.ms/ams-v3-python-sdk
     - name: Node.js
       href: https://aka.ms/ams-v3-nodejs-sdk   
+    - name: Go
+      href: https://aka.ms/ams-v3-go-sdk      
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Azure Media Services Explorer

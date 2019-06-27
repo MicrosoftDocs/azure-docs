@@ -40,7 +40,7 @@ You can use the remote monitoring dashboard to view the telemetry from your conn
 
 ### Connected Factory
 
-Use the [Connected Factory solution accelerator](iot-accelerators-connected-factory-sample-walkthrough.md) to collect telemetry from industrial assets with an [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) interface and to control them. Industrial assets might include assembly and test stations on a factory production line.
+Use the [Connected Factory solution accelerator](iot-accelerators-connected-factory-features.md) to collect telemetry from industrial assets with an [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) interface and to control them. Industrial assets might include assembly and test stations on a factory production line.
 
 You can use the connected factory dashboard to monitor and manage your industrial devices:
 

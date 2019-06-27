@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/02/2017
+ms.date: 05/23/2019
 ms.author: sngun
 
 ---
@@ -267,7 +267,7 @@ Here are some sample queries, and how to interpret some of the metrics returned 
 
 
 ## Next steps
-* To learn about the supported SQL query operators and keywords, see [SQL query](how-to-sql-query.md). 
+* To learn about the supported SQL query operators and keywords, see [SQL query](sql-query-getting-started.md). 
 * To learn about request units, see [request units](request-units.md).
 * To learn about indexing policy, see [indexing policy](index-policy.md) 
 

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Configure the expiration policy for Office 365 groups
 
-You can now manage the lifecycle of Office 365 groups by setting an expiration policy for them. You can set expiration policy for only Office 365 groups in Azure Active Directory (Azure AD). 
+You can now manage the lifecycle of Office 365 groups by setting an expiration policy for them. You can set expiration policy for only Office 365 groups in Azure Active Directory (Azure AD).
 
 Once you set a group to expire:
 
@@ -51,7 +51,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 1. Open the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator in your Azure AD tenant.
 
-2. Select **Groups**,then select **Expiration** to open the expiration settings.
+2. Select **Groups**, then select **Expiration** to open the expiration settings.
   
    ![Expiration settings for groups](./media/groups-lifecycle/expiration-settings.png)
 
@@ -63,8 +63,8 @@ For more information on permissions to restore a deleted group, see [Restore a d
   * Save your settings when you're done by selecting **Save**.
 
 > [!NOTE]
-> * When you first set up expiration, any groups that are older than the expiration interval are set to 30 days until expiration. The first renewal notification email is sent out within a day. For example, Group A was created 400 days ago, and the expiration interval is set to 180 days. When you apply expiration settings, Group A has 30 days before it is deleted, unless the owner renews it.
-> * When a dynamic group is deleted and restored, it is seen as a new group and re-populated according to the rule. This process might take up to 24 hours.
+> When you first set up expiration, any groups that are older than the expiration interval are set to 30 days until expiration. The first renewal notification email is sent out within a day. For example, Group A was created 400 days ago, and the expiration interval is set to 180 days. When you apply expiration policy, Group A has 30 days before it's deleted, unless the owner renews it.
+> When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
 
 ## Email notifications
 

@@ -66,6 +66,8 @@
         href: tutorial-routing-config-message-routing-PowerShell.md
     - name: Part 2 - View message routing results
       href: tutorial-routing-view-message-routing-results.md 
+  - name: Message enrichments
+    href: tutorial-message-enrichments.md
   - name: Use metrics and diagnostic logs
     href: tutorial-use-metrics-and-diags.md
   - name: Perform manual failover
@@ -78,6 +80,8 @@
     href: tutorial-connectivity.md
 - name: Concepts
   items:
+  - name: Message enrichments overview
+    href: iot-hub-message-enrichments-overview.md
   - name: Overview of device management
     href: iot-hub-device-management-overview.md
   - name: Compare IoT Hub and Event Hubs
@@ -149,6 +153,8 @@
       href: iot-hub-devguide-sdks.md
     - name: MQTT support
       href: iot-hub-mqtt-support.md
+    - name: AMQP support
+      href: iot-hub-amqp-support.md
     - name: Glossary
       href: iot-hub-devguide-glossary.md
   - name: Security
@@ -341,7 +347,7 @@
         href: iot-hub-visual-studio-cloud-device-messaging.md
       - name: Data Visualization in Power BI
         href: iot-hub-live-data-visualization-in-power-bi.md
-      - name: Data Visualization with Web Apps
+      - name: Data Visualization in a web app
         href: iot-hub-live-data-visualization-in-web-apps.md
       - name: Weather forecast using Azure Machine Learning
         href: iot-hub-weather-forecast-machine-learning.md
@@ -413,9 +419,9 @@
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
-    - name: IoT Edge
+    - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
@@ -432,7 +438,7 @@
   - name: Azure IoT Samples for iOS Platform
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azurazureiotsolutionseiotsuite.com/
+    href: https://catalog.azureiotsolutions.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Customer data requests

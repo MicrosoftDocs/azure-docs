@@ -5,11 +5,9 @@ services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
 author: ggailey777
 manager: jeconnoc
-
-ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
@@ -27,6 +25,7 @@ In this tutorial, you learn how to:
 > * Create a function in Azure
 > * Generate an OpenAPI definition using Azure API Management
 > * Test the definition by calling the function
+> * Download the OpenAPI definition
 
 ## Create a function app
 
@@ -129,13 +128,9 @@ Now you have a function that determines the cost-effectiveness of emergency repa
 
 Now you're ready to generate the OpenAPI definition.
 
-1. Select the function app and then select **Platform features**, **All settings**
+1. Select the function app, then in **Platform features**, choose **API Management** and select **Create new** under **API Management**.
 
-    ![Test the function in the Azure portal](media/functions-openapi-definition/select-all-settings-openapi.png)
-
-1. Scroll down, then choose **API Management** > **Create new** to create a new API Management instance.
-
-    ![Link function](media/functions-openapi-definition/link-apim-openapi.png)
+    ![Choose API Management in Platform Features](media/functions-openapi-definition/select-all-settings-openapi.png)
 
 1. Use the API Management settings as specified in the table below the image.
 
@@ -146,11 +141,10 @@ Now you're ready to generate the OpenAPI definition.
     | **Name** | Globally unique name | A name is generated based on the name of your function app. |
     | **Subscription** | Your subscription | The subscription under which this new resource is created. |  
     | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | The same resource as your function app, which should get set for you. |
-    | **Location** | West US | Choose the West US location |
+    | **Location** | West US | Choose the West US location. |
     | **Organization name** | Contoso | The name of the organization used in the developer portal and for email notifications. |
     | **Administrator email** | your email | Email that received system notifications from API Management. |
-    | **Pricing tier** | Consumption (preview) | For complete pricing details, see the [API Management pricing page](https://azure.microsoft.com/pricing/details/api-management/) |
-    | **Application Insights** | Your instance | Use the same Application Insights that is used by your function app. |
+    | **Pricing tier** | Consumption (preview) | Consumption tier is in preview and isn't available in all regions. For complete pricing details, see the [API Management pricing page](https://azure.microsoft.com/pricing/details/api-management/) |
 
 1. Choose **Create** to create the API Management instance, which may take several minutes.
 
@@ -166,35 +160,40 @@ Now you're ready to generate the OpenAPI definition.
 
 The API is now created for the function.
 
-## Test the OpenAPI definition
+## Test the API
 
-Before you use the API definition, you should verify that it works.
+Before you use the OpenAPI definition, you should verify that the API works.
 
-1. On the **Test** tab of your function, select **POST** operation
+1. On the **Test** tab of your function, select **POST** operation.
 
 1. Enter values for **hours** and **capacity**
 
-```json
-{
-"hours": "6",
-"capacity": "2500"
-}
-```
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
+    ```
 
 1. Click **Send**, then view the HTTP response.
 
     ![Test function API](media/functions-openapi-definition/test-function-api-openapi.png)
 
+## Download the OpenAPI definition
+
+If your API works as expected, you can download the OpenAPI definition.
+
+1. Select **Download OpenAPI definition** at the top of the page.
+   
+   ![Download OpenAPI definition](media/functions-openapi-definition/download-definition.png)
+
+2. Open the downloaded JSON file and review the definition.
+
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a function in Azure
-> * Generate an OpenAPI definition using Azure API Management
-> * Test the definition by calling the function
-
-Advance to the next topic to learn about API Management.
+You have used API Management integration to generate an OpenAPI definition of your functions. You can now edit the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
-> [API Management](../api-management/api-management-key-concepts.md)
+> [Edit the OpenAPI definition in API Management](../api-management/edit-api.md)

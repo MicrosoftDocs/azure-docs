@@ -76,12 +76,12 @@ The Speech service also exposes REST endpoints for speech-to-text and text-to-sp
 
 ### Speech-to-text
 
-For speech-to-text reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+For speech-to-text reference documentation, see [Speech-to-text REST API](rest-speech-to-text.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### Text-to-speech
 
-For text-to-speech reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+For text-to-speech reference documentation, see [Text-to-speech REST API](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

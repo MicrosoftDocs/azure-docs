@@ -4,7 +4,7 @@ description: Microsoft Authentication Library (MSAL) enables application develop
 services: active-directory
 documentationcenter: dev-center-name
 author: negoe
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

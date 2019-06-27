@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/24/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -125,4 +125,5 @@ On the **Review + create** tab, you can review your settings and check for any v
 ## Next steps
 
 - [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
+- [Add a catalog owner or an access package manager](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Create and manage a catalog](entitlement-management-catalog-create.md)

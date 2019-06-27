@@ -21,7 +21,7 @@ ms.author: jonbeck
 
 # Storage optimized virtual machine sizes
 
-[!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
+[!INCLUDE [virtual-machines-common-sizes-storage](../../../includes/virtual-machines-common-sizes-storage.md)]
 
 ## Other sizes
 

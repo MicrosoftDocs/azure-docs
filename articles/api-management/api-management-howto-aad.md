@@ -57,14 +57,15 @@ This article shows you how to enable access to the developer portal for users fr
 14.  After the application is registered, copy the **Application (client) ID** from the **Overview** page. 
 15. Go back to your API Management instance. In the **Add identity provider** window, paste the **Application (client) ID** value into the **Client ID** box.
 16. Switch back to the Azure AD configuration, Select **Certificates & secrets** under **Manage**. Select the **New client secret** button. Enter a value in **Description**, select any option for **Expires** and choose **Add**. Copy the client secret value before leaving the page. You will need it in the next step. 
-17. Go back to your API Management instance, paste the secret into the **Client secret** box.
+17. Under **Manage**, select **Authentication** and then select **ID tokens** under **Implicit Grant**
+18. Go back to your API Management instance, paste the secret into the **Client secret** box.
 
     > [!IMPORTANT]
     > Please make sure to update the **Client secret** before the key expires. 
     >  
     >
 
-18. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
+19. The **Add identity provider** window also contains the **Allowed Tenants** text box. There, specify the domains of the Azure AD instances to which you want to grant access to the APIs of the API Management service instance. You can separate multiple domains with newlines, spaces, or commas.
 
 > [!NOTE]
 > You can specify multiple domains in the **Allowed Tenants** section. Before any user can sign in from a different domain than the original domain where the application was registered, a global administrator of the different domain must grant permission for the application to access directory data. To grant permission, the global administrator should:
@@ -72,7 +73,7 @@ This article shows you how to enable access to the developer portal for users fr
 > b. Type in the domain name of the Azure AD tenant that they want to give access to.
 > c. Select **Submit**. 
 
-19.  After you specify the desired configuration, select **Add**.
+20.  After you specify the desired configuration, select **Add**.
 
 After the changes are saved, users in the specified Azure AD instance can sign in to the developer portal by following the steps in [Sign in to the developer portal by using an Azure AD account](#log_in_to_dev_portal).
 

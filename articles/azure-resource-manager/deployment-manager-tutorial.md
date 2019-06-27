@@ -4,25 +4,25 @@ description: Use Resource Manager templates with Azure Deployment Manager to dep
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 04/02/2019
+ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 
 ---
 
-# Tutorial: Use Azure Deployment Manager with Resource Manager templates (Private preview)
+# Tutorial: Use Azure Deployment Manager with Resource Manager templates (Public preview)
 
-Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create two templates:
+Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. If you prefer a faster approach, [Azure Deployment Manager quickstart](https://github.com/Azure-Samples/adm-quickstart) creates the required configurations in your subscription and customizes the artifacts to deploy an application across multiple regions. The quickstart performs the same tasks as it does in this tutorial.
+
+To use Deployment Manager, you need to create two templates:
 
 * **A topology template**: describes the Azure resources the make up your applications and where to deploy them.
 * **A rollout template**: describes the steps to take when deploying your applications.
+
+> [!IMPORTANT]
+> If your subscription is marked for Canary to test out new Azure features, you can only use Azure Deployment Manager to deploy to the Canary regions. 
 
 This tutorial covers the following tasks:
 
@@ -38,7 +38,10 @@ This tutorial covers the following tasks:
 > * Deploy the newer version
 > * Clean up resources
 
-The Azure Deployment Manager REST API reference can be found [here](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Additional resources:
+
+* The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -49,7 +52,6 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * Some experience with developing [Azure Resource Manager templates](./resource-group-overview.md).
-* Azure Deployment Manager is in private preview. To sign up using Azure Deployment Manager, fill the [sign-up sheet](https://aka.ms/admsignup). 
 * Azure PowerShell. For more information, see [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Deployment Manager cmdlets. To install these prerelease cmdlets, you need the latest version of PowerShellGet. To get the latest version, see [Installing PowerShellGet](/powershell/gallery/installing-psget). After installing PowerShellGet, close your PowerShell window. Open a new elevated PowerShell window, and use the following command:
 
@@ -100,18 +102,18 @@ The ArtifactStore folder from the download contains two folders:
 
 The two versions (1.0.0.0 and 1.0.0.1) are for the [revision deployment](#deploy-the-revision). Even though both the template artifacts and the binary artifacts have two versions, only the binary artifacts are different between the two versions. In practice, binary artifacts are updated more frequently comparing to template artifacts.
 
-1. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in a text editor. It is a basic template for creating a storage account.  
-2. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**. 
+1. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateStorageAccount.json** in a text editor. It is a basic template for creating a storage account.
+2. Open **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplication.json**.
 
     ![Azure Deployment Manager tutorial create web application template](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
     The template calls a deploy package, which contains the files of the web application. In this tutorial, the compressed package only contains an index.html file.
-3. Open  **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**. 
+3. Open  **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![Azure Deployment Manager tutorial create web application template parameters containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
 
     The value of deployPackageUri is the path to the deployment package. The parameter contains a **$containerRoot** variable. The value of $containerRoot is provided in the [rollout template](#create-the-rollout-template) by concatenating the artifact source SAS location, artifact root, and deployPackageUri.
-4. Open **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.  
+4. Open **\ArtifactStore\binaries\1.0.0.0\helloWorldWebAppWUS.zip\index.html**.
 
     ```html
     <html>
@@ -251,7 +253,7 @@ The following screenshot shows the wait step definition:
 
 ![Azure Deployment Manager tutorial rollout template resources wait step](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-resources-wait-step.png)
 
-The duration is using the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (capital letters are required) is an example of a 1-minute wait. 
+The duration is using the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601#Durations). **PT1M** (capital letters are required) is an example of a 1-minute wait.
 
 The following screenshot only shows some parts of the rollout definition:
 
@@ -286,13 +288,13 @@ You create a parameters file used with the rollout template.
 
 ## Deploy the templates
 
-Azure PowerShell can be used to deploy the templates. 
+Azure PowerShell can be used to deploy the templates.
 
 1. Run the script to deploy the service topology.
 
     ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"  
+    $location = "Central US"
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
 
     # Create a resource group
@@ -423,10 +425,10 @@ When the Azure resources are no longer needed, clean up the resources you deploy
     * **&lt;namePrefix>ServiceWUSrg**: contains the resources defined by ServiceWUS.
     * **&lt;namePrefix>ServiceEUSrg**: contains the resources defined by ServiceEUS.
     * The resource group for the user-defined managed identity.
-3. Select the resource group name.  
+3. Select the resource group name.
 4. Select **Delete resource group** from the top menu.
 5. Repeat the last two steps to delete other resource groups created by this tutorial.
 
 ## Next steps
 
-In this tutorial, you learned how to use Azure Deployment Manager. To learn more, see [Azure Resource Manager documentation](/azure/azure-resource-manager/).
+In this tutorial, you learned how to use Azure Deployment Manager. To integrate health monitoring in Azure Deployment Manager, see [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).

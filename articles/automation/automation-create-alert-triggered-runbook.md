@@ -16,7 +16,7 @@ You can use [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomati
 
 ## Alert types
 
-You can use automation runbooks with four alert types:
+You can use automation runbooks with three alert types:
 
 * Common alerts
 * Activity log alerts

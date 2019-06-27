@@ -19,7 +19,7 @@ This article lists the features and tools that are not yet supported or only par
 
 ## Blob storage APIs
 
-Blob storage APIs are disabled to prevent inadvertent data access issues that could arise because Blob Storage APIs aren't yet interoperable with Azure Data Lake Gen2 APIs.
+Blob storage APIs are disabled to prevent feature operability issues that could arise because Blob Storage APIs aren't yet interoperable with Azure Data Lake Gen2 APIs.
 
 ### What to do with existing tools, applications, and services
 

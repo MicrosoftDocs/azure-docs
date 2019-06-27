@@ -1,7 +1,7 @@
 ---
 title: Dashboard - Language Understanding
 titleSuffix: Azure Cognitive Services
-description: Fix intents with the analytics summary dashboard, a visualized reporting tool.
+description: Fix intents with the analytics dashboard, a visualized reporting tool.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,13 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
 ---
 
 # How to use the Dashboard to improve your app
 
-Find and fix problems with your trained app's intents when you are using example utterances. The summary dashboard displays overall app information, with highlights of intents that should be fixed. 
+Find and fix problems with your trained app's intents when you are using example utterances. The dashboard displays overall app information, with highlights of intents that should be fixed. 
 
 Review Dashboard analysis is an iterative process, repeated as you change and improve your model.
 
@@ -33,11 +33,11 @@ The three problems addressed in the dashboard are:
 
 Correct predictions are represented with the color blue.
 
-The summary dashboard shows these issues and tells you which intents are affected and suggests what you should do to improve the app. 
+The dashboard shows these issues and tells you which intents are affected and suggests what you should do to improve the app. 
 
 ## Before app is trained 
 
-Before you train the app, the summary dashboard does not contain any suggestions for fixes. Train your app to see these suggestions.  
+Before you train the app, the dashboard does not contain any suggestions for fixes. Train your app to see these suggestions.  
 
 ## Check your publishing status
 
@@ -45,7 +45,7 @@ The **Publishing status** card contains information about the active version's l
 
 Check that the active version is the version you want to fix. 
 
-![Summary dashboard shows app's external services, published regions, and aggregated endpoint hits.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Dashboard shows app's external services, published regions, and aggregated endpoint hits.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 This also shows any external services, published regions, and aggregated endpoint hits. 
 
@@ -91,7 +91,7 @@ The **data imbalance** intent list shows intents that need more utterances in or
 
 * Add more utterances to the intent then train again. 
 
-Do not add utterances to the None intent unless that is suggested on the summary dashboard.
+Do not add utterances to the None intent unless that is suggested on the dashboard.
 
 > [!Tip]
 > Use the third section on the page, **Utterances per intent** with the **Utterances (number)** setting, as a quick visual guide of which intents need more utterances.  

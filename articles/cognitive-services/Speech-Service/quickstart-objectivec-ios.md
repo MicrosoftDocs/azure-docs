@@ -30,7 +30,7 @@ Before you get started, here's a list of prerequisites:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.5.0`.
+The current version of the Cognitive Services Speech SDK is `1.5.1`.
 
 The Cognitive Services Speech SDK for iOS is currently distributed as a Cocoa Framework.
 It can be downloaded from [here](https://aka.ms/csspeech/iosbinary). Download the file to your home directory.

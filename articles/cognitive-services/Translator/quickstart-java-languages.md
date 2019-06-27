@@ -3,13 +3,13 @@ title: "Quickstart: Get list of supported languages, Java - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/07/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to get a list of supported languages using Java
@@ -99,6 +99,8 @@ Add these lines to the `GetLanguages` class:
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Create a client and build a request
 
 Add this line to the `GetLanguages` class to instantiate the `OkHttpClient`:
@@ -167,7 +169,7 @@ gradle run
 
 ## Sample response
 
-Find the country abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 A successful response is returned in JSON as shown in the following example:
 

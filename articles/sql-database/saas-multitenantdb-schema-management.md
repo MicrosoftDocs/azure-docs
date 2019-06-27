@@ -25,7 +25,7 @@ This tutorial explores the following two scenarios:
 - Deploy reference data updates for all tenants.
 - Rebuild an index on the table that contains the reference data.
 
-The [Elastic Jobs](sql-database-elastic-jobs-overview.md) feature of Azure SQL Database is used to execute these operations across tenant databases. The jobs also operate on the 'template' tenant database. In the Wingtip Tickets sample app, this template database is copied to provision a new tenant database.
+The [Elastic Jobs](elastic-jobs-overview.md) feature of Azure SQL Database is used to execute these operations across tenant databases. The jobs also operate on the 'template' tenant database. In the Wingtip Tickets sample app, this template database is copied to provision a new tenant database.
 
 In this tutorial you learn how to:
 
@@ -51,7 +51,7 @@ In this tutorial you learn how to:
 
 ## Introduction to SaaS schema management patterns
 
-The sharded multi-tenant database model used in this sample enables a tenants database to contain one or more tenants. This sample explores the potential to use a mix of a many-tenant and one-tenant databases, enabling a *hybrid* tenant management model. Managing changes to these databases can be complicated. [Elastic Jobs](sql-database-elastic-jobs-overview.md) facilitates administration and management of large numbers of database. Jobs enable you to securely and reliably run Transact-SQL scripts as tasks, against a group of tenant databases. The tasks are independent of user interaction or input. This method can be used to deploy changes to schema or to common reference data, across all tenants in an application. Elastic Jobs can also be used to maintain a golden template copy of the database. The template is used to create new tenants, always ensuring the latest schema and reference data are in use.
+The sharded multi-tenant database model used in this sample enables a tenants database to contain one or more tenants. This sample explores the potential to use a mix of a many-tenant and one-tenant databases, enabling a *hybrid* tenant management model. Managing changes to these databases can be complicated. [Elastic Jobs](elastic-jobs-overview.md) facilitates administration and management of large numbers of database. Jobs enable you to securely and reliably run Transact-SQL scripts as tasks, against a group of tenant databases. The tasks are independent of user interaction or input. This method can be used to deploy changes to schema or to common reference data, across all tenants in an application. Elastic Jobs can also be used to maintain a golden template copy of the database. The template is used to create new tenants, always ensuring the latest schema and reference data are in use.
 
 ![screen](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -155,8 +155,7 @@ Observe the following items in the *OnlineReindex.sql* script:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
-* [Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)
+* [Managing scaled-out cloud databases](elastic-jobs-overview.md)
 
 ## Next steps
 

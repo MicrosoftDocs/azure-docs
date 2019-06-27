@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Using Python
           href: quickstarts/detect-data-anomalies-python.md
+- name: Tutorials
+  items:
+    - name: Visualize anomalies as a batch using Power BI
+      href: tutorials/batch-anomaly-detection-powerbi.md
+    - name: Anomaly detection on streaming data using Azure Databricks
+      href: tutorials/anomaly-detection-streaming-databricks.md
 - name: How-to guides
   items:
     - name: Identify anomalies in your data
@@ -49,10 +55,24 @@
 - name: Resources
   items:
     - name: Pricing
-      href: https://aka.ms/anomaly-detector-pricing
+      href: https://aka.ms/adpricing
     - name: Regional availability 
-      href: https://aka.ms/anomaly-detector-region
+      href: https://aka.ms/adregion
+    - name: User-generated content
+      href: user-generated-content.md
+    - name: Join the Anomaly Detector Advisors group on Microsoft Teams
+      href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture
       href: https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/
+    - name: Compliance
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+- name: Support
+  items:
+    - name: Get support
+      href: https://aka.ms/adsupport
     - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-anomaly-detection
+      href: https://aka.ms/adso
+    - name: MSDN
+      href: https://aka.ms/admsdn
+    - name: User voice
+      href: https://aka.ms/aduservoice

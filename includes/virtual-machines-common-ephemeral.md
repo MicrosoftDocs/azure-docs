@@ -1,13 +1,13 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: jonbeck7
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 05/02/2019
- ms.author: azcspmt;jonbeck;cynthn
- ms.custom: include file
+title: include file
+description: include file
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 05/02/2019
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
 ---
 
 Ephemeral OS disks are created on the local Virtual Machine (VM) storage and not persisted to the remote Azure Storage. Ephemeral OS disks work well for stateless workloads, where applications are tolerant of individual VM failures, but are more concerned about the time it takes for large-scale deployments or time to reimage the individual VM instances. It is also suitable for applications, deployed using the classic deployment model, to move to the Resource Manager deployment model. With Ephemeral OS disk, you would observe lower read/write latency to the OS disk and faster VM reimage. In addition, Ephemeral OS disk is free, you incur no storage cost for OS disk. 
@@ -25,7 +25,7 @@ Key differences between persistent and ephemeral OS disks:
 |                             | Persistent OS Disk                          | Ephemeral OS Disk                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Size limit for OS disk      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), and [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| VM sizes supported          | All                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
+| VM sizes supported          | All                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Disk type support           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
 | Region support              | All regions                                                                                  | All regions                              |
 | Data persistence            | OS disk data written to OS disk are stored in Azure Storage                                  | Data written to OS disk is stored to the local VM storage and is not persisted to Azure Storage. |
@@ -33,38 +33,6 @@ Key differences between persistent and ephemeral OS disks:
 | Specialized OS disk support | Yes                                                                                          | No                                                                                 |
 | OS disk resize              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
 | Resizing to a new VM size   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
-
-## Register for the preview
-
-
-Self-register for the preview of Ephemeral OS Disks using the latest version of Azure CLI or Azure PowerShell.
-
-### PowerShell
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-To check if you are registered for the preview:
-
-```azurepowershell-interactive
-Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
-```
-
-### CLI
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
-```
-
-To check if you are registered for the preview:
- 
-```azurecli-interactive
-az provider show --namespace Microsoft.Compute
-```
-
 
 ## Scale set deployment  
 The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 

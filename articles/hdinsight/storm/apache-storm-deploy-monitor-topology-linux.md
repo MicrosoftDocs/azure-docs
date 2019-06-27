@@ -13,11 +13,6 @@ ms.date: 02/22/2018
 
 In this document, learn the basics of managing and monitoring [Apache Storm](https://storm.apache.org/) topologies running on Storm on HDInsight clusters.
 
-> [!IMPORTANT]  
-> The steps in this article require a Linux-based Storm on HDInsight cluster. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
->
-
-
 ## Prerequisites
 
 * **A Linux-based Storm on HDInsight cluster**: see [Get started with Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md) for steps on creating a cluster

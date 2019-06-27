@@ -4,7 +4,7 @@ description: Learn about the scopes for a v1.0 application using the Microsoft A
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory

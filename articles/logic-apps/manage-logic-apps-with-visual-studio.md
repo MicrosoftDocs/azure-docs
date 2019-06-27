@@ -1,5 +1,5 @@
 ---
-title: Manage logic apps with Visual Studio - Azure Logic Apps
+title: Manage logic apps by using Visual Studio - Azure Logic Apps
 description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/25/2019
+ms.date: 05/07/2019
 ---
 
 # Manage logic apps with Visual Studio
@@ -124,6 +124,9 @@ or as Azure Resource Manager projects with Visual Studio.
 1. On the logic app's shortcut menu, 
 select **Open with Logic App Editor**.
 
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
 
@@ -156,6 +159,9 @@ that you want to download from Azure.
 
 2. On that app's shortcut menu, 
 select **Open with Logic App Editor**.
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
    The Logic App Designer opens and shows the logic app. 
    To review logic app's underlying definition and structure, 

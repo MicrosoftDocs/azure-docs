@@ -3,8 +3,8 @@ title: How to choose which application type to use when adding an application | 
 description: Understand the supported types of applications you can integrate with Azure AD and their related configuration options
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: celested
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---
@@ -77,7 +77,7 @@ Following are the supported **single sign-on** modes for Azure AD applications.
   >
   >
 
-- **Header-based Sign-on** – choose this [Header-based Sign-on](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) single sign-on mode if you have an application using PingAccess that supports HTTP-header-based authentication that you wish to perform single-sign on to 
+- **Header-based Sign-on** – choose this [Header-based Sign-on](application-proxy-configure-single-sign-on-with-ping-access.md) single sign-on mode if you have an application using PingAccess that supports HTTP-header-based authentication that you wish to perform single-sign on to 
 
   >[!NOTE]
   >This option is only available when the application proxy and PingAccess is configured for an application.

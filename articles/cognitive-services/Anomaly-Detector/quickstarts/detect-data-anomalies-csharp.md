@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: aahi
 ---
@@ -24,13 +24,15 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 ## Prerequisites
 
-- Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
-- [Newtonsoft.Json](https://www.newtonsoft.com/json)
-    - To install Newtonsoft.Json as a NuGet package in Visual studio:
-        1. Right click on the **Solution Manager**
-        2. Click **Manage NuGet Packages...**
-        3. Search for `Newtonsoft.Json` and install the package
-- If you are using Linux/MacOS, this application can be ran using [Mono](https://www.mono-project.com/).
+- Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/),
+
+- The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. To install Newtonsoft.Json as a NuGet package in Visual Studio:
+    
+    1. Right click your project in **Solution Explorer**.
+    2. Select **Manage NuGet Packages**.
+    3. Search for *Newtonsoft.Json* and install the package.
+
+- If you're using Linux/MacOS, this application can be run by using [Mono](https://www.mono-project.com/).
 
 - A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

@@ -4,7 +4,7 @@ description: With TTL, Microsoft Azure Cosmos DB provides the ability to have do
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 
@@ -40,6 +40,41 @@ The time to live value is set in seconds, and it is interpreted as a delta from 
 * If TTL on a container is set to -1, an item in this container that has the time to live set to n, will expire after n seconds, and remaining items will not expire. 
 
 Deleting items based on TTL is free. There is no additional cost (that is, no additional RUs are consumed) when item is deleted as a result of TTL expiration.
+
+## Examples
+
+This section shows some examples with different time to live values assigned to container and items:
+
+### Example1
+
+**TTL on container is set to null (DefaultTimeToLive = null)**
+
+|TTl on item| Result|
+|---|---|
+|ttl = null|	TTL is disabled. The item will never expire (default).|
+|ttl = -1	|TTL is disabled. The item will never expire.|
+|ttl = 2000	|TTL is disabled. The item will never expire.|
+
+
+### Example2
+
+**TTL on container is set to -1 (DefaultTimeToLive = -1)**
+
+|TTl on item| Result|
+|---|---|
+|ttl = null	|TTL is enabled. The item will never expire (default).|
+|ttl = -1	|TTL is enabled. The item will never expire.|
+|ttl = 2000	|TTL is enabled. The item will expire after 2000 seconds.|
+
+### Example3
+
+**TTL on container is set to 1000 (DefaultTimeToLive = 1000)**
+
+|TTl on item| Result|
+|---|---|
+|ttl = null|	TTL is enabled. The item will expire after 1000 seconds (default).|
+|ttl = -1	|TTL is enabled. The item will never expire.|
+|ttl = 2000	|TTL is enabled. The item will expire after 2000 seconds.|
 
 ## Next steps
 

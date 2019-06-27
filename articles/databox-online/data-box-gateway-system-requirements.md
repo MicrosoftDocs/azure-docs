@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/08/2019
 ms.author: alkohli
 ---
 # Azure Data Box Gateway system requirements
@@ -45,7 +45,7 @@ The underlying host system for the Data Box Gateway is able to dedicate the foll
 
 | **Operating system/platform**  |**Versions**   |**Notes**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016  |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware tools are not supported.         |
 
 

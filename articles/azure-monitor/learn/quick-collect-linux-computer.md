@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
 ---
 
 # Configure Log Analytics agent for Linux computers in a hybrid environment
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) can collect data directly from your physical or virtual Linux computer in your datacenter or other cloud environment into a single repository for detailed analysis and correlation. This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](quick-collect-azurevm.md).  
+[Azure Log Analytics](../platform/agent-windows.md) can collect data directly from your physical or virtual Linux computer in your datacenter or other cloud environment into a single repository for detailed analysis and correlation. This quickstart shows you how to configure and collect data from your Linux computer with a few easy steps.  For Azure Linux VMs, see the following topic [Collect data about Azure Virtual Machines](quick-collect-azurevm.md).  
 
-To understand the supported configuration, review [supported Linux operating systems](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) and [network firewall configuration](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+Before proceeding, you should first review the Log Analytics agent [overview](../platform/log-analytics-agent.md) article to understand what configurations are supported, the [supported Linux operating systems](../platform/log-analytics-agent.md#supported-linux-operating-systems) and [network firewall configuration](../platform/log-analytics-agent.md#network-firewall-requirements). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

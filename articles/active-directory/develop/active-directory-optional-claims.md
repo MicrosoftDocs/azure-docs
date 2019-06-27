@@ -2,9 +2,9 @@
 title: Learn how to provide optional claims to your Azure AD application | Microsoft Docs
 description: A guide for adding custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory. 
 documentationcenter: na
-author: CelesteDG
+author: rwike77
 services: active-directory
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -121,6 +121,9 @@ This OptionalClaims object causes the ID token returned to the client to include
 ## Configuring optional claims
 
 You can configure optional claims for your application by modifying the application manifest (See example below). For more info, see the [Understanding the Azure AD application manifest article](reference-app-manifest.md).
+
+> [!IMPORTANT]
+> Access tokens are **always** generated using the manifest of the resource, not the client.  So in the request `...scope=https://graph.microsoft.com/user.read...` the resource is Graph.  Thus, the access token is created using the Graph manifest, not the client's manifest.  Changing the manifest for your application will never cause tokens for Graph to look different.  In order to validate that your `accessToken` changes are in effect, request a token for your application, not another app.  
 
 **Sample schema:**
 

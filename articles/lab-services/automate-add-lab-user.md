@@ -82,7 +82,7 @@ The following sample Resource Manager template specifies a user to be added to t
 
 ```
 
-If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](/azure-resource-manager/resource-group-define-dependencies.md) article.
+If you're assigning the role in the same template that is creating the lab, remember to add a dependency between the role assignment resource and the lab. For more information, see [Defining dependencies in Azure Resource Manager Templates](../azure-resource-manager/resource-group-define-dependencies.md) article.
 
 ### Role Assignment Resource Information
 The role assignment resource needs to specify the type and name.
@@ -106,7 +106,7 @@ The role definition ID is the string identifier for the existing role definition
 
 The subscription ID is obtained by using `subscription().subscriptionId` template function.  
 
-You need to get the role definition for the `DevTest Labs User` built-in role. To get the GUID for the [DevTest Labs User](/role-based-access-control/built-in-roles.md#devtest-labs-user) role, you can use the [Role Assignments REST API](/rest/api/authorization/roleassignments) or the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition?view=azps-1.8.0) cmdlet.
+You need to get the role definition for the `DevTest Labs User` built-in role. To get the GUID for the [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user) role, you can use the [Role Assignments REST API](/rest/api/authorization/roleassignments) or the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition?view=azps-1.8.0) cmdlet.
 
 ```powershell
 $dtlUserRoleDefId = (Get-AzRoleDefinition -Name "DevTest Labs User").Id

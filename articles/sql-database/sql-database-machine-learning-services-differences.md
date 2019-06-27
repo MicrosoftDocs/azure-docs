@@ -3,6 +3,7 @@ title: Key differences for Azure SQL Database Machine Learning Services (preview
 description: This topic describes key differences between Azure SQL Database Machine Learning Services (with R) and SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

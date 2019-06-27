@@ -4,7 +4,7 @@ description: This article introduces the concepts such as stored procedures, tri
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -71,7 +71,7 @@ JavaScript functions are also subject to [provisioned throughput capacity](reque
 
 ## Triggers
 
-This section describes the two types of triggers:
+Azure Cosmos DB supports two types of triggers:
 
 ### Pre-triggers
 
@@ -80,6 +80,9 @@ Azure Cosmos DB provides triggers that can be invoked by performing an operation
 ### Post-triggers
 
 Similar to pre-triggers, post-triggers, are also associated with an operation on an Azure Cosmos DB item and they don’t require any input parameters. They run *after* the operation has completed and have access to the response message that is sent to the client. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
+
+> [!NOTE]
+> Registered triggers don't run automatically when their corresponding operations (create / delete / replace / update) happen. They have to be explicitly called when executing these operations. To learn more, see [how to run triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) article.
 
 ## <a id="udfs"></a>User-defined functions
 

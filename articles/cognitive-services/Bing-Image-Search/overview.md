@@ -55,7 +55,7 @@ To quickly get started with your first API request, you can learn to:
 
 * [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) for the Bing Search APIs. 
 
-* The [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) reference section contains information on the API's endpoints, headers, API responses, and query parameters.
+* The [Bing Image Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) reference section contains information on the API's endpoints, headers, API responses, and query parameters.
 
 * The [Bing Use and Display Requirements](./useanddisplayrequirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
 
