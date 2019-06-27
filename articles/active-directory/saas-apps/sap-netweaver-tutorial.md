@@ -93,9 +93,9 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 	>[!NOTE]
 	> Adjust above parameters as per your organization requirements, Above parameters are given here as indication only.
 
-	b. If required adjust parameters, in the instance/default profile of SAP system and restart SAP system.
+	b. If necessary adjust parameters, in the instance/default profile of SAP system and restart SAP system.
 
-	c. Double click on relevant client to enable HTTP security session.
+	c. Double-click on relevant client to enable HTTP security session.
 
 	![The Certificate download link](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_profileparameter.png)
 
@@ -129,7 +129,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	b. Click on **Metadata**.
 
-	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to auto-populate the **Identifier** and **Reply URL** values in Azure portal.
+	c. Save the generated **Metadata XML file** on your computer and upload it in **Basic SAML Configuration** section to autopopulate the **Identifier** and **Reply URL** values in Azure portal.
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -141,7 +141,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    a. Click **Upload metadata file** to upload the **Service Provider metadata file** which you have obtained earlier.
+    a. Click **Upload metadata file** to upload the **Service Provider metadata file**, which you have obtained earlier.
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
@@ -185,7 +185,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure SAP NetWeaver
 
-1. Logon to SAP system and go to transaction code SAML2. It opens new browser window with SAML configuration screen.
+1. Sign in to SAP system and go to transaction code SAML2. It opens new browser window with SAML configuration screen.
 
 2. For configuring End points for trusted Identity provider (Azure AD) go to **Trusted Providers** tab.
 
@@ -199,7 +199,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
-5. In the next screen type the Alias name. For example aadsts and press **Next** to continue.
+5. In the next screen type the Alias name. For example, aadsts and press **Next** to continue.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
@@ -231,7 +231,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
-13. From the pop-up window select **Unspecified** from the **Supported NameID formats** and click OK.
+13. From the pop-up window, select **Unspecified** from the **Supported NameID formats** and click OK.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
