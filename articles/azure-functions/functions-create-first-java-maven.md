@@ -104,7 +104,7 @@ public class Function {
 
 ```
 
-## Reference bindings
+## Enable extension bundles
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
