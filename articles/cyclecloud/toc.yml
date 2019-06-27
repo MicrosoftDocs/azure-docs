@@ -106,7 +106,7 @@
     href: images.md
   - name: Create Custom Roles
     href: create-custom-roles.md
-  - name: Using CycleCloud with Hb and Hc series VMs
+  - name: Use HB and HC VMs with CycleCloud
     href: hb-hc-best-practices.md
 - name: Reference
   items:
