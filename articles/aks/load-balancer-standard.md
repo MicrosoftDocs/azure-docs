@@ -125,12 +125,13 @@ The following example output shows the resource group created successfully:
 In order to run an AKS cluster that supports a load balancer with the *Standard* SKU, your cluster needs to set the *load-balancer-sku* parameter to *standard*. This parameter creates a load balancer with the *Standard* SKU when your cluster is created. When you run a *LoadBalancer* service on your cluster, the configuration of the *Standard* SK load balancer is updated with the service's configuration. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*.
 
 > [!NOTE]
-> The *load-balanacer-sku* property can only be used when your cluster is created. You cannot change the load balancer SKU after an AKS cluster has been created.
+> The *load-balancer-sku* property can only be used when your cluster is created. You cannot change the load balancer SKU after an AKS cluster has been created.
 
 ```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
+    --enable-vmss \
     --node-count 1 \
     --kubernetes-version 1.14.0 \
     --load-balancer-sku standard \

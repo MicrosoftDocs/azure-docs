@@ -20,6 +20,35 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+
+## 2019-06-25
+
+### Azure Machine Learning SDK for Python v1.0.45
+
++ **New features**
+  + Add decision tree surrogate model to mimic explainer in azureml-explain-model package
+  + Ability to specify a CUDA version to be installed on Inferencing images. Support for CUDA 9.0, 9.1, and 10.0.
+  + Information about Azure ML training base images are now available at [Azure ML Containers GitHub Repository](https://github.com/Azure/AzureML-Containers) and [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + Added CLI support for pipeline schedule. Run "az ml pipeline -h" to learn more
+  + Added custom Kubernetes namespace parameter to AKS webservice deployment configuration and CLI.
+  + Deprecated hash_paths parameter for all pipeline steps
+  + Model.register now supports registering multiple individual files as a single model with use of the `child_paths` parameter.
+  
++ **Preview features**
+    + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
+    + Bug Fix for Auto Feature Selector.
+    + Updated mlflow.azureml.build_image to the new api, patched bugs exposed by the new implementation.
+
++ **Breaking changes**
+
++ **Bug fixes and improvements**
+  + Removed paramiko dependency from azureml-core. Added deprecation warnings for legacy compute target attach methods.
+  + Improve performance of run.create_children
+  + In mimic explainer with binary classifier, fix the order of probabilities when teacher probability is used for scaling shap values
+  + Improved error handling and message for Automated machine learning. 
+  + Fixed the iteration timeout issue for Automated machine learning.
+  + Improved the time-series transformation performance for Automated machine learning.
+
 ## 2019-06-24
 
 ### Azure Machine Learning Data Prep SDK v1.1.6
@@ -32,6 +61,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Fixed a bug that would cause `get_profile()` on a Dataflow pointing to binary files to fail.
   + Exposed `set_diagnostics_collection()` to allow for programmatic enabling/disabling of the telemetry collection.
   + Changed the behavior of `get_profile()`. NaN values are now ignored for Min, Mean, Std, and Sum, which aligns with the behavior of Pandas.
+
 
 ## 2019-06-10
 
