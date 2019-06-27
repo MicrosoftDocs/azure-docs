@@ -9,11 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-<<<<<<< HEAD
-ms.date: 06/24/2019
-=======
 ms.date: 06/26/2019
->>>>>>> 9d54d03b4d08e46b3f0395b6a55ac1c2cb5d046e
 ms.author: scottwhi
 ---
 # What is the Bing Video Search API?
