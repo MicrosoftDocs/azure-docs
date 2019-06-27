@@ -28,7 +28,7 @@ To complete this tutorial, you need:
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
-- Create a Plug and Play device by followin the intructions in [this quickstart](quickstart-create-pnp-device.md).
+- Create a Plug and Play device by following the intructions in [this quickstart](quickstart-create-pnp-device.md).
 
 ## Include standard interfaces
 
