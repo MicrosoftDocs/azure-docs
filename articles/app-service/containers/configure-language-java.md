@@ -480,7 +480,7 @@ This section assumes you already have an app, an App Service instance, and an Az
 
 If you prefer to go through the entire process from the beginning using a sample app, see [Tutorial: Build a Java EE and Postgres web app in Azure](tutorial-java-enterprise-postgresql-app.md).
 
-The following steps explain the steps required to connect your existing App Service and database.
+The following steps explain the requirements for connecting your existing App Service and database.
 
 1. Download the JDBC driver for [PostgreSQL](https://jdbc.postgresql.org/download.html), [MySQL](https://dev.mysql.com/downloads/connector/j/), or [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server). Unpack the downloaded archive to get the driver .jar file.
 
@@ -594,7 +594,7 @@ Next, you will need to update the Wildfly configuration for your app and redeplo
 
 Your App Service instance is now configured to access your database.
 
-For more info on configuring database connectivity with Wildfly, see [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), or [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898). You can use these customized instructions along with the generalized approach above to add data source definitions to your server.
+For more info on configuring database connectivity with Wildfly, see [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), or [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
 
 ### Enable messaging providers
 
