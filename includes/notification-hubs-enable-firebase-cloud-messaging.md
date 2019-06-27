@@ -39,16 +39,16 @@
         ```
         apply plugin: 'com.google.gms.google-services'
         ```        
-    4. Select **Sync now*** on the toolbar. 
+    4. Select **Sync now** on the toolbar. 
  
         ![build.gradle configuration changes](./media/notification-hubs-enable-firebase-cloud-messaging/build-gradle-configurations.png)
 6. Select **Next**. 
 7. Select **Skip this step**. 
 
-    ![Skip the last step](./media/notification-hubs-enable-firebase-cloud-messaging/skip-this-step.png)1. 
+    ![Skip the last step](./media/notification-hubs-enable-firebase-cloud-messaging/skip-this-step.png)
 8. In the Firebase console, select the cog for your project. Then select **Project Settings**.
 
     ![Select Project Settings](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
 4. If you haven't downloaded the **google-services.json** file into the **app** folder of your Android Studio project, you can do so on this page. 
 5. Switch to the **Cloud Messaging** tab at the top. 
-6. Copy and save the **Server key** for later use. You use this value to configure your notification hub.
+6. Copy and save the **Server key** for later use. You use this value to configure your hub.
