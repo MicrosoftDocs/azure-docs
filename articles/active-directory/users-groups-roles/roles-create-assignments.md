@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# Create a custom role in your Azure Active Directory (Azure AD) organization
+# Create a custom role in your Azure Active Directory organization
 
 In Azure Active Directory (Azure AD), custom roles can be created in the Roles and administrators tab on the Azure AD page or the Application registration page. Custom roles can be assigned at the directory scope or a scope of a single app registration.
 
