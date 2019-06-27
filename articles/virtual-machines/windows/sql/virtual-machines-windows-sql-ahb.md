@@ -38,7 +38,7 @@ Switching between the two license models incurs **no downtime**, does not restar
  
 ## Limitations
 
- - Changing the licensing model is only available to customers with software assurance. 
+ - Changing the licensing model is only available to customers with software assurance.
  - Changing the licensing model is only supported for the standard and enterprise edition of SQL Server. License changes for Express, Web, and Developer are unsupported. 
  - Changing the licensing model is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. 
  - Changing the licensing model is only enabled for Public Cloud installations.

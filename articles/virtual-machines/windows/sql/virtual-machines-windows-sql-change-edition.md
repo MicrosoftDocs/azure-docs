@@ -18,7 +18,7 @@ ms.reviewer: jroth
 ---
 # How to change the SQL Server edition of your SQL Server VM in Azure
 
-This article describes how to change the edition of SQL Server for an existing SQL Server virtual machine in Azure. To change the edition, you run setup with the installation media on the SQL Server virtual machine and then configure settings in the Azure portal.
+This article describes how to change the edition of SQL Server for an existing Windows SQL Server virtual machine in Azure. To change the edition, you run setup with the installation media on the SQL Server virtual machine and then configure settings in the Azure portal.
 
 
 There are two places where the edition of your SQL Server is specified:
@@ -51,7 +51,7 @@ To change the edition of SQL Server, you will need the following:
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - [Software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
-- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md).
+- A Windows [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md).
 
 ## Obtain installation media  
 
