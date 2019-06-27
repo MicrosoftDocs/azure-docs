@@ -171,7 +171,7 @@ Unfortunately, if your subscriptions are already using the same card, it's not p
 
 ### How do I make payments?
 
-If you set up a credit card card as your payment method, we automatically charge your card after each billing period. You don't need to do anything.
+If you set up a credit card as your payment method, we automatically charge your card after each billing period. You don't need to do anything.
 
 If you're [paying by invoice](billing-how-to-pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
 
