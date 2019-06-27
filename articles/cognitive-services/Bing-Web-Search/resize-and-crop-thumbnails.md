@@ -110,11 +110,5 @@ To get insights about the image, such as web pages that include the image or peo
 
 ## Next steps
 
-View the Image response reference for the following APIs:
-
-* [Bing web search API](overview.md)
-* [Bing Image search API](../bing-image-search/overview.md)
-* [Bing Entity search API](../bing-entities-search/overview.md)
-* [Bing News search API](../bing-news-search/search-the-web.md)
-* [Bing Video search API](../bing-video-search/overview.md)
-* [Bing Visual search API](../bing-visual-search/overview.md)
+* [What are the Bing Search APIs?](bing-api-comparison.md)
+* [Bing Search API use and display requirements](use-display-requirements.md)
