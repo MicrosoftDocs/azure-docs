@@ -94,6 +94,8 @@
     href: end-cluster.md
   - name: Work with Custom Images
     href: custom-images.md
+  - name: Use HB and HC VMs with CycleCloud
+    href: hb-hc-best-practices.md
   - name: Install Jetpack
     href: jetpack-install.md
   - name: Transfer Data
@@ -138,6 +140,7 @@
         href: ~/cluster-references/special-parsing.md
       - name: Download Existing Cluster Templates
         href: download-cluster-templates.md
+
   - name: CycleCloud Application
     items:
     - name: Performance Tuning
