@@ -18,7 +18,7 @@ ms.author: aahi
 Some responses from the Bing Search APIs will include URLs to thumbnail images served by Bing, which you can resize and crop. If you display a subset of these thumbnails, provide an option to view the remaining images.
 
 > [!NOTE]
-> Be sure that cropping and resizing thumbnail images will provide a search scenario that respects third party rights, as required by Bing Search API [use and display requirements](use-display-requirements.md).
+> Be sure that cropping and resizing thumbnail images will provide a search scenario that respects third party rights, as required by the Bing Search API [use and display requirements](use-display-requirements.md).
 
 ## Resize a thumbnail 
 
@@ -110,7 +110,7 @@ To get insights about the image, such as web pages that include the image or peo
 
 ## Next steps
 
-View the Image response reference for the:
+View the Image response reference for the following APIs:
 
 * [Bing web search API](overview.md)
 * [Bing Image search API](../bing-image-search/overview.md)
