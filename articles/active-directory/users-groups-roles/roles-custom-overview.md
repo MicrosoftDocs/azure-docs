@@ -77,4 +77,5 @@ A scope is the restriction of permitted actions to a particular Azure AD resourc
 
 ## Next steps
 
-- Create role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](roles-create-assignments.md)
+- Create custom role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](roles-create-assignments.md)
+- [View the assignments for a custom role](roles-view-assignments.md#view-the-assignments-of-a-role-with-single-application-scope-using-the-azure-ad-portal-preview)
