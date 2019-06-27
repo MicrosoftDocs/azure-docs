@@ -5,7 +5,7 @@
   - name: What is Azure Monitor?
     href: overview.md
   - name: Terminology changes
-    href: azure-monitor-rebrand.md
+    href: terminology.md
 - name: Quickstarts
   expanded: true
   items:
@@ -121,6 +121,15 @@
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
+    href: platform/partners.md
+  - name: OMS portal deprecation
+    href: platform/oms-portal-transition.md
+  - name: FAQ
+    items:
+    - name: Log Analytics
+      href: platform/log-faq.md
+    - name: Application Insights
+      href: app/troubleshoot-faq.md
 - name: How-to guides
   items:
   - name: Manage Azure Monitor
@@ -247,6 +256,8 @@
           items:
           - name: Log Analytics VM Extension
             href: platform/vmext-troubleshoot.md
+          - name: Log Analytics Windows agent
+            href: platform/agent-windows-troubleshoot.md
           - name: Log Analytics Linux agent
             href: platform/agent-linux-troubleshoot.md
       - name: Agent data sources
@@ -301,6 +312,8 @@
           href: insights/vminsights-workbooks.md
         - name: Analyze data with log queries
           href: insights/vminsights-log-search.md
+        - name: Configure agent collection settings
+          href: insights/container-insights-agent-config.md
         - name: Disable monitoring
           href: insights/vminsights-optout.md
       - name: Capacity and performance solution
@@ -557,24 +570,8 @@
           href: app/configuration-with-applicationinsights-config.md
         - name: Log-based & pre-aggregated metrics
           href: app/pre-aggregated-metrics-log-metrics.md
-        - name: Application Insights portal
-          items:
-          - name: Transaction diagnostics
-            href: app/transaction-diagnostics.md
-        - name: Visual Studio
-          items:
-          - name: F5 insights
-            href: app/visual-studio.md
-          - name: Trends
-            href: app/visual-studio-trends.md
-          - name: CodeLens
-            href: app/visual-studio-codelens.md
-      - name: Application Insights portal
-        items:
         - name: Transaction diagnostics
           href: app/transaction-diagnostics.md
-        - name: HockeyApp data
-          href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
         items:
         - name: F5 insights
@@ -583,8 +580,6 @@
           href: app/visual-studio-trends.md
         - name: CodeLens
           href: app/visual-studio-codelens.md
-      - name: Web App Analytics solution
-        href: insights/azure-web-apps-analytics.md
     - name: Monitor containers
       items:
       - name: Azure Monitor for containers 
@@ -850,6 +845,8 @@
         href: platform/action-groups-create-resource-manager-template.md
       - name: Implement a Logic App action
         href: platform/action-groups-logic-app.md
+      - name: Integrate the common alert schema with Logic Apps
+        href: platform/alerts-common-schema-integrations.md  
     - name: Alert Management solution
       href: platform/alert-management-solution.md
     - name: Alert user interface
@@ -1067,6 +1064,8 @@
       href: app/hockeyapp-bridge-app.md
     - name: Web App Analytics solution
       href: insights/azure-web-apps-analytics.md
+    - name: Application Insights Connector
+      href: platform/app-insights-connector.md
 - name: Resources
   items:
   - name: Azure Roadmap
