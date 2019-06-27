@@ -20,9 +20,10 @@ ms.author: monhaber
 ## Azure native compute alerts
 
 This topic presents the alerts available for your Azure services:
-* 
+* [Azure App Service](#app-services)
+* [Containers](#azure-containers)
 
-### Azure App Service
+### Azure App Service <a name="app-services">
 
 Security Center leverages the scale of the cloud to identify attacks targeting customers applications running over Azure App Service. With web applications being practically in any modern network attackers probe to find these and exploit weaknesses. Before being routed to specific environments, requests to applications running in Azure go through several gateways when they are inspected and logged. This data is then used to identify exploits, attackers, and to learn new patterns that will be used later.
 
@@ -50,7 +51,7 @@ Please find alert list below:
 
 For more information about App Service threat detection alerts visit Protect App Service with Azure Security Center, and review how to enable monitoring and protection of your App Service workloads.
 
-## Containers
+## Containers <a name="azure-containers"></a>
 
 Security Center provides real time threat detection for your containers on Linux machines based on auditd framework. The alerts identify several suspicious Docker activities, such as the creation of a privileged container on host, an indication of Secure Shell (SSH) server running inside a Docker container, or the use of crypto miners. 
 You can use this information to quickly remediate security issues and improve the security of your containers. Besides Linux detections, Security Center also offers analytics that are more specific for Container’s deployment.
