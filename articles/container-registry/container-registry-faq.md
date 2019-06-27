@@ -23,6 +23,7 @@ This article addresses frequently asked questions and known issues about Azure C
 - [How do I get admin credentials for a container registry?](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [How do I get admin credentials in a Resource Manager template?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [Firewall rules are updated successfully but they do not take effect](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
@@ -86,6 +87,11 @@ The error is seen when the user has permissions on a registry but doesn't have R
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
+
+### Firewall rules are updated successfully but they do not take effect
+
+It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for several minutes before verifying this change.
+
 
 ## Registry operations
 
@@ -245,6 +251,8 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 ## Diagnostics
 
 - [docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
+- [docker pull is slow](#docker-pull-is-slow)
+- [docker push is slow](#docker-push-is-slow)
 - [docker push succeeds but docker pull fails with error: unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)	
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
@@ -256,8 +264,17 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 
  - If this error is a transient issue, then retry will succeed.
  - If `docker pull` fails continuously, then there could be a problem with the docker daemon. The problem can generally be mitigated by restarting the docker daemon. 
- - If you continue to see this issue after restarting docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, try a command such as `ping www.bing.com`.
+ - If you continue to see this issue after restarting docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, run az acr command to test endpoint connectivity. Least az acr version that contains connectivity check command is 2.2.9. You need to upgrade az cli if you are using old version.
+```azurecli
+az acr check-health -n myRegistry
+```
  - You should always have a retry mechanism on all docker client operations.
+
+### docker pull is slow
+Use [this](http://www.azurespeed.com/Azure/Download) tool to test your machine network download speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
+
+### docker push is slow
+Use [this](http://www.azurespeed.com/Azure/Upload) tool to test your machine network upload speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
 
 ### docker push succeeds but docker pull fails with error: unauthorized: authentication required
 
