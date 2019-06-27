@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: overview
-ms.date: 03/4/2019
+ms.date: 06/27/2019
 ms.author: aahi
 ---
 

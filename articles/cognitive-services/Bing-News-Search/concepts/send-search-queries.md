@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 06/27/2019
 ms.author: aahi
 ---
 

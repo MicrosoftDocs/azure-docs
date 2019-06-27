@@ -9,13 +9,13 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
 ---
 
 # Send queries to the Bing Image Search API
 
-[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 The Bing Image Search API provides an experience similar to Bing.com/Images. You can use it to send a search query to Bing and get back a list of relevant images. 
 

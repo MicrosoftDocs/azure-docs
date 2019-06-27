@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 06/26/2018
 ms.author: rosh; v-gedod
 ---
 

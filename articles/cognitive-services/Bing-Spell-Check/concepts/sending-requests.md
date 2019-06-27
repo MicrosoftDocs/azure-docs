@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 06/27/2019
 ms.author: aahi
 ---
 
 # Sending requests to the Bing Spell Check API
 
-[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 To check a text string for spelling and grammar errors, you'd send a GET request to the following endpoint:  
 
