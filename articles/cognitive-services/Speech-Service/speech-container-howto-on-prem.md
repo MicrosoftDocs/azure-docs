@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 06/27/2019
 ms.author: dapine
 ---
 
 # Deploy the Speech container to a Kubernetes cluster on-premises
 
-Learn how to deploy a speech container with the text-to-speech and speech-to-text images to an on-premises Kubernetes cluster. This procedure demonstrates how to deploy a helm chart to a Kubernetes cluster, configure the various images within the container and test that the services are available in an automated fashion.
+Learn how to deploy a speech container with the text-to-speech and speech-to-text images to an on-premises Kubernetes (K8s) cluster. This procedure demonstrates how to deploy a helm chart to a Kubernetes cluster, configure the various images within the container and test that the services are available in an automated fashion.
 
 ## Prerequisites
 
@@ -33,12 +33,12 @@ This procedure requires several tools that must be installed and run locally. Do
 
 ## The recommended host computer configuration
 
-Please refer to the [Speech Service container host computer](./speech-container-howto#the-host-computer) details as a reference. This *helm chart* automatically calculates CPU and memory requirements based on how many decodes (concurrent requests) that the user specifies. Additionally, it will adjust accordingly based on whether optimizations for audio/text input are configured as `enabled`. The helm chart defaults to, 2 concurrent requests and disabling optimization.
+Refer to the [Speech Service container host computer](./speech-container-howto#the-host-computer) details as a reference. This *helm chart* automatically calculates CPU and memory requirements based on how many decodes (concurrent requests) that the user specifies. Additionally, it will adjust accordingly based on whether optimizations for audio/text input are configured as `enabled`. The helm chart defaults to, two concurrent requests and disabling optimization.
 
 | Service | CPU / Container | Memory / Container |
 |--|--|--|
-| **Speech-to-Text** | 1 decoder requires a minimum of 1,150 millicores<br>If the `optimizedForAudioFile` is enabled, then 1,950 millicores is required. (support 2 decoder by default) | Required: 2GB<br>Limited:  4GB |
-| **Text-to-Speech** | 1 concurrent request requires a minimum of 500 millicores<br>If the `optimizedForTextFile` is enabled, then 1,000 millicores is required. (support 2 concurrent requests by default) | Required: 1GB<br> Limited: 2GB |
+| **Speech-to-Text** | one decoder requires a minimum of 1,150 millicores<br>If the `optimizedForAudioFile` is enabled, then 1,950 millicores are required. (default: Two decoder) | Required: 2 GB<br>Limited:  4 GB |
+| **Text-to-Speech** | one concurrent request requires a minimum of 500 millicores<br>If the `optimizedForTextFile` is enabled, then 1,000 millicores are required. (default: Two concurrent requests) | Required: 1 GB<br> Limited: 2 GB |
 
 ## Request access to the container registry
 
@@ -50,7 +50,11 @@ You must first complete and submit the [Cognitive Services Speech Containers Req
 
 ## Run speech service in K8s / helm
 
-To deploy the Speech Service in a kubernetes cluster, the following YAML file will serve as the Kubernetes package specification. Create a new text file in the working directory named `.yaml`.
+To deploy the Speech Service in a kubernetes cluster, the following YAML file will serve as the Kubernetes package specification.
+
+# // TODO: instead of having the reader create the file, instead have them `git pull` on the repo with these bits.
+
+Create a new text file in the working directory named `.yaml`.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -94,11 +98,13 @@ The *helm chart* contains the configuration of which docker images to pull from 
 
 > A [helm chart](https://helm.sh/docs/developing_charts/) is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-The provided *helm charts* pull the docker images of the Speech Service, both text-to-speech and the speech-to-text services from **containerpreview.azurecr.io** container registry. 
+The provided *helm charts* pull the docker images of the Speech Service, both text-to-speech and the speech-to-text services from the **containerpreview.azurecr.io** container registry.
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-In order to allow the Kubernetes cluster `docker pull` access of the configured image on `containerpreview.azurecr.io`, you will need to transfer the docker credentials into the cluster. Execute the [`kubectl create`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) command below to create a generic secret based on the current docker configuration.
+### Sharing Docker credentials with the Kubernetes cluster
+
+In order to allow the Kubernetes cluster to perform a `docker pull` of the configured image(s) from the `containerpreview.azurecr.io` registry, you will need to transfer the docker credentials into the cluster. Execute the [`kubectl create`](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) command below to create a *generic secret* based on the current docker configuration.
 
 ```console
 kubectl create secret generic containerpreview --from-file=.dockerconfigjson=~/.docker/config.json --type=kubernetes.io/dockerconfigjson
@@ -110,68 +116,115 @@ The following output is printed to the console when the secret has been successf
 secret "containerpreview" created
 ```
 
-Next, verify that the secret has been created by executing the [`kubectl get`] with the `secrets` flag.
+To verify that the secret has been created, execute the [`kubectl get`] with the `secrets` flag.
 
 ```console
 kuberctl get secrets
 ```
 
-...
+Executing the `kubectl get secrets` prints all the configured secrets.
 
 ```console
 NAME                  TYPE                                  DATA      AGE
 containerpreview      kubernetes.io/dockerconfigjson        1         30s
 ```
 
+## Install the helm chart on the host computer
+
+Open your command-line interface of choice at the root of the REPO. To install the *helm chart* we'll need to execute the [`helm install`](https://helm.sh/docs/helm/#helm-install) command with the source directory, replacing the `<root path>`,  , and `<name>` with the appropriate arguments.
+
 ```console
---set speechToText.image.pullSecrets={<your secret name>},textToSpeech.image.pullSecrets={<your secret name>}
+helm install <root path> --values <path to custom values.yaml> --name <name>
 ```
-
-
-If you DON’T have docker repo secret setup ready in Kubernetes cluster, follow below steps to create one in Kubernetes cluster.
-Run this command to login
-
-
-Run command
-
-
-     containerpreview is the secret name created in Kubernetes cluster. 
-     That is the name used by containerpreview-sample-deployment.yaml and containerpreview-multi-decoders-sample-deployment.yaml.
-Run this command to verify
-
-
-output
-
-
-
-
-If you have docker repo secret setup already, please feel free to use it directly when installing speech-onprem Helm chart.
-To apply your own secret, add below argument after helm install command in Step.3.
-
-3.	Install speech-onprem helm chart 
-
-https://helm.sh/docs/helm/#helm-install
+As a convenience, 
 
 ```console
-helm install <local path> --values <local path to custom values YAML> --name <name>
+helm install ./ --values ./test/containerpreview-multi-decoders-sample-deployment.yaml --name on-prem-speech
 ```
 
 ```console
-helm install "." --values speech-helm-chart.yaml --name on-prem-speech
+NAME:   on-prem-speech
+LAST DEPLOYED: Thu Jun 27 10:15:49 2019
+NAMESPACE: default
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/Pod(related)
+NAME                             READY  STATUS   RESTARTS  AGE
+speech-to-text-5dfbcd94bb-6nw64  0/1    Pending  0         0s
+speech-to-text-5dfbcd94bb-mtvrh  0/1    Pending  0         0s
+text-to-speech-66f848df94-xj6qd  0/1    Pending  0         0s
+text-to-speech-66f848df94-xzgq7  0/1    Pending  0         0s
+
+==> v1/Service
+NAME            TYPE          CLUSTER-IP  EXTERNAL-IP  PORT(S)       AGE
+speech-to-text  LoadBalancer  10.0.125.9  <pending>    80:31632/TCP  1s
+text-to-speech  LoadBalancer  10.0.80.50  <pending>    80:30071/TCP  1s
+
+==> v1beta1/PodDisruptionBudget
+NAME                                MIN AVAILABLE  MAX UNAVAILABLE  ALLOWED DISRUPTIONS  AGE
+speech-to-text-poddisruptionbudget  N/A            20%              0                    1s
+text-to-speech-poddisruptionbudget  N/A            20%              0                    1s
+
+==> v1beta2/Deployment
+NAME            READY  UP-TO-DATE  AVAILABLE  AGE
+speech-to-text  0/2    2           0          1s
+text-to-speech  0/2    2           0          1s
+
+==> v2beta2/HorizontalPodAutoscaler
+NAME                       REFERENCE                  TARGETS        MINPODS  MAXPODS  REPLICAS  AGE
+speech-to-text-autoscaler  Deployment/speech-to-text  <unknown>/50%  2        10       0         0s
+text-to-speech-autoscaler  Deployment/text-to-speech  <unknown>/50%  2        10       0         0s
+
+
+NOTES:
+speech-onprem has been installed!
+Release is named on-prem-speech
 ```
 
-4.	The K8S deployment takes a bit while. Confirm speech-to-text and text-to-speech pods and service are properly deployed and ready
-Run command:                    
+The Kubernetes deployment takes a bit while. To confirm that both the speech-to-text and the text-to-speech pods and services are properly deployed and available execute the following command:
 
 ```console
 kubectl get all
-```         
+```
 
-The installed helm charts define _helm tests_ which serve as a convenience for verification. To verify that the speech-to-text and text-to-speech services are correctly deployed, configured and available, use the [helm test](https://helm.sh/docs/helm/#helm-test) feature by executing the following command:
+You should expect to see something similar to the following output:
+
+```
+NAME                                  READY     STATUS    RESTARTS   AGE
+pod/speech-to-text-5dfbcd94bb-6nw64   0/1       Pending   0          36m
+pod/speech-to-text-5dfbcd94bb-mtvrh   0/1       Pending   0          36m
+pod/text-to-speech-66f848df94-xj6qd   0/1       Pending   0          36m
+pod/text-to-speech-66f848df94-xzgq7   0/1       Pending   0          36m
+
+NAME                     TYPE           CLUSTER-IP   EXTERNAL-IP      PORT(S)        AGE
+service/kubernetes       ClusterIP      10.0.0.1     <none>           443/TCP        1d
+service/speech-to-text   LoadBalancer   10.0.125.9   52.173.197.203   80:31632/TCP   36m
+service/text-to-speech   LoadBalancer   10.0.80.50   23.99.250.232    80:30071/TCP   36m
+
+NAME                             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/speech-to-text   2         2         2            0           36m
+deployment.apps/text-to-speech   2         2         2            0           36m
+
+NAME                                        DESIRED   CURRENT   READY     AGE
+replicaset.apps/speech-to-text-5dfbcd94bb   2         2         0         36m
+replicaset.apps/text-to-speech-66f848df94   2         2         0         36m
+
+NAME                                                            REFERENCE                   TARGETS         MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/speech-to-text-autoscaler   Deployment/speech-to-text   <unknown>/50%   2         10        2          36m
+horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-to-speech   <unknown>/50%   2         10        2          36m
+```
+
+### Verify helm deployment with helm tests
+
+The installed helm charts define _helm tests, which serve as a convenience for verification. To verify that the speech-to-text and text-to-speech services are correctly deployed, configured, and available, use the [helm test](https://helm.sh/docs/helm/#helm-test) feature by executing the following command:
 
 ```console
-helm test 
+helm test on-prem-speech
 ```
+
+> [!IMPORTANT]
+> These tests will fail if the POD status is not `RUNNING` or if the deployment is not listed as `AVAILABLE`. Be patient as this can take several minutes.
 
 These tests will output various status results:
 
@@ -182,18 +235,11 @@ RUNNING: text-to-speech-readiness-test
 PASSED: text-to-speech-readiness-test
 ```
 
-
-i.e.
-
-   You can expect to see something like
-    
-   User can also choose to verify Speech Service by hitting endpoints from browser. From above sample, endpoints are:
-   Speech-to-text:  51.143.59.79:80
-   Text-to-speech: 40.91.92.231:80 
+As an alternative to executing the *helm tests*, you could collect the external IP addresses and corresponding ports from the `kubectl get all` command. Using the IP and port, open a web browser and navigate to `http://<External IP>:<port>:/swagger/index.html` to view the API swagger page(s).
 
 ## Customizing helm charts
 
-Helm charts are hierarchial. This allows for inheritance, it also caters to the concept of specificity, where settings that are more specific override inherited rules.
+Helm charts are hierarchical. This allows for inheritance, it also caters to the concept of specificity, where settings that are more specific override inherited rules.
 
 [!INCLUDE [Speech umbrella-helm-chart-config](includes/speech-umbrella-helm-chart-config.md)]
 
