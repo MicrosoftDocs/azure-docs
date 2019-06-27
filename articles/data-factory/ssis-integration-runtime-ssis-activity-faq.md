@@ -64,6 +64,12 @@ This article includes the most common errors that you might hit when executing S
     * If the disk is consumed by your package, it will be freed up after the package execution finishes.
     * If the disk is consumed by your Custom Setup, you'll need to stop SSIS Integration Runtime, modify your Script, and start the SSIS Integration Runtime again. The whole Azure Blob Container you specified for Custom Setup will be copied over to SSIS IR node, so verify whether there is any unnecessary content under that container.
 
+### Error message: "The file name '...' specified in the connection was not valid"
+
+* Potential cause & recommended action:
+  * An invalid file name is specified
+  * Make sure you are using FQDN (Fully Qualified Domain Name) instead of short time in your connection manager
+
 ### Error message: "Cannot open file '...'"
 
 * Potential cause & recommended action:
