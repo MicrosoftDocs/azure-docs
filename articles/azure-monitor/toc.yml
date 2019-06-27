@@ -137,7 +137,7 @@
     - name: Design workspace deployment
       items: 
       - name: Workspace design
-        href: platform/designing-worksapce.md
+        href: platform/designing-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md 
     - name: Manage access
