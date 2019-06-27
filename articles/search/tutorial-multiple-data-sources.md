@@ -72,9 +72,11 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. Go to the Cosmos DB Data Explorer and select the **items** element under the **hotels** container within the **hotel-rooms-db** database. Then click **Upload Item** on the command bar.
 
-   ![Upload on command bar](media/tutorial-multiple-data-sources/cosmos-upload.png "Upload on command bar")
+   ![Upload to Cosmos DB collection](media/tutorial-multiple-data-sources/cosmos-upload.png "Upload to Cosmos DB collection")
 
 1. In the upload panel, click the folder button and then navigate to the file **cosmosdb/HotelsDataSubset_CosmosDb.json** in the project folder. Click **OK** to start the upload.
+
+   ![Select file to upload](media/tutorial-multiple-data-sources/cosmos-upload2.png "Select file to upload")
 
 1. Use the Refresh button to refresh your view of the items in the hotels collection. You should see seven new database documents listed.
 
@@ -84,7 +86,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. [Create a blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) named **hotel-rooms** to store the sample hotel room JSON files. You can set the Public Access Level to any of its valid values.
 
-   ![Create a blob container](media/tutorial-multiple-data-sources/upload-command-bar.png "Create a blob container")
+   ![Create a blob container](media/tutorial-multiple-data-sources/blob-add-container.png "Create a blob container")
 
 1. After the container is created, open it and select **Upload** on the command bar.
 
@@ -95,8 +97,6 @@ This sample uses two small sets of data that describe seven fictional hotels. On
    ![Upload files](media/tutorial-multiple-data-sources/blob-upload.png "Upload files")
 
 After the upload completes, the files should appear in the list for the data container.
-
-   ![Blob upload results](media/tutorial-multiple-data-sources/blob-upload-results.png "Blob upload results")
 
 ## Set up connections
 
@@ -335,7 +335,7 @@ In Azure portal, open the search service **Overview** page, and find the **hotel
 
   ![List of Azure Search indexes](media/tutorial-multiple-data-sources/index-list.png "List of Azure Search indexes")
 
-Try a query for a term like "Luxury". You should see at least a document in the results, and this document should have a list of room objects in its rooms[] array.
+Click on the hotel-rooms-sample index in the list. You will see a Search Explorer interface for the index. Enter a query for a term like "Luxury". You should see at least one document in the results, and this document should show a list of room objects in its rooms array.
 
 ## Clean up resources
 
