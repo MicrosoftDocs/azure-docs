@@ -48,7 +48,7 @@ If your environment has an on-premises AD footprint and you also want benefit fr
 |   | Self-service Password Reset and Windows Hello PIN reset on lock screen |
 |   | Enterprise State Roaming across devices |
 
-![Azure AD registered devices](./media/overview/01.png)
+![Hybrid Azure AD joined devices](./media/concept-azure-ad-join-hybrid/azure-ad-hybrid-joined-device.png)
 
 Use Azure AD hybrid joined devices if:
 

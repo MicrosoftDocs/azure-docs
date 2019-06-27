@@ -42,7 +42,7 @@ The goal of Azure AD registered devices is to provide your users with support fo
 |   | Conditional Access via App protection policy |
 |   | Enables Phone sign in with Microsoft Authenticator app |
 
-![Azure AD registered devices](./media/overview/03.png)
+![Azure AD registered devices](./media/overview/azure-ad-registered-device.png)
 
 Azure AD registered devices are signed in to using a local account like a Microsoft account on a Windows 10 device, but additionally have an Azure AD account attached for access to organizational resources. Access to resources in the organization can be further limited based on that Azure AD account and Conditional Access policies applied to the device identity.
 
