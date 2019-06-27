@@ -1,3 +1,30 @@
+---
+title: Application Insights log-based metrics
+description: This article lists metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements.
+author: vgorbenko
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
+ms.date: 06/26/2019
+ms.author: vitalyg
+ms.subservice: application-insights
+---
+
+# Application Insights log-based metrics
+
+Application Insights log-based metrics let you analyze the health of your monitored apps, create powerful dashboards, and configure alerts. There are two kinds of metrics:
+
+* [Log-based metrics](pre-aggregated-metrics-log-metrics.md#log-based-metrics) behind the scene are translated into [Kusto queries](/azure/kusto/query) from stored events.
+* [Standard metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) are stored as pre-aggregated time series.
+
+Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice on dashboard and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](../platform/metrics-getting-started.md#create-your-first-metric-chart) to switch between log-based and standard metrics in [metrics explorer](../platform/metrics-getting-started.md).
+
+## Interpreting and using queries from this article
+
+This article lists metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements. For convenience, each query defaults to time granularity, chart type, and, sometimes, splitting dimension that simplifies using the query in Log Analytics with no modifications.
+
+When you plot the same metric in [metrics explorer](../platform/metrics-getting-started.md), there are no defaults - the query is dynamically adjusted based on your chart settings:
+
 1. The selected **Time range** is translated into an additional *where timestamp...* clause to only pick the events from selected time range. For example, a chart showing data for the most recent 24 hours, the query includes *| where timestamp > ago(24 h))*.
 
 1. The selected **Time granularity** is put into the final *summarize ... by bin(timestamp, [time grain]) clause.
@@ -61,7 +88,7 @@ availabilityResults
 The browser metrics are collected by the Application Insights SDK from the real end-user browsers. They provide great insights into your users' experience with your web app. Browser metrics are typically not sampled, which means that they provide higher precision of the usage numbers comparing to server-side metrics that might be skewed by sampling.
 
 > [!NOTE]
-> To collect browser metrics, your application must be instrumented with the [Application Insights JavaScript SDK snippet](javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
+> To collect browser metrics, your application must be instrumented with the [Application Insights JavaScript SDK snippet](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
 
 ### Browser page load time (browserTimings/totalDuration)
 
@@ -208,7 +235,7 @@ availabilityResults
 
 ### Availability test duration (availabilityResults/duration)
 
-The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](../app/monitor-web-app-availability.md#multi-step-web-tests), the metric reflects the total execution time of all steps.
+The *Availability test duration* metric shows how much time it took for the web test to run. For the [multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests), the metric reflects the total execution time of all steps.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|---|---|---|
@@ -241,7 +268,7 @@ availabilityResults
 The browser metrics are collected by the Application Insights SDK from the real end-user browsers. They provide great insights into your users' experience with your web app. Browser metrics are typically not sampled, which means that they provide higher precision of the usage numbers comparing to server-side metrics that might be skewed by sampling.
 
 > [!NOTE]
-> To collect browser metrics, your application must be instrumented with the [Application Insights JavaScript SDK snippet](javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
+> To collect browser metrics, your application must be instrumented with the [Application Insights JavaScript SDK snippet](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
 
 ### Browser page load time (browserTimings/totalDuration)
 
