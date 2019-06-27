@@ -35,7 +35,7 @@ The machine learning model workflow generally follows this sequence:
 
 1. **Deploy** - Develop a scoring script that uses the model and **Deploy the model** as a **web service** in Azure, or to an **IoT Edge device**.
 
-1. **Monitor** - Monitor for **data drift** between the training dataset and inference data of a deployed model. When necessary, loop back to step 1 to re-train the model with new training data.
+1. **Monitor** - Monitor for **data drift** between the training dataset and inference data of a deployed model. When necessary, loop back to step 1 to retrain the model with new training data.
 
 ## Tools for Azure Machine Learning 
 
