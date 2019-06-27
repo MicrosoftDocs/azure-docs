@@ -466,63 +466,494 @@ Scoring profiles are not defined by users, but typically by administrators of a 
 
 ### How scoring profiles are defined
 
-Let's look at three examples of scoring profiles, and consider how each _should_ affect the results order.
+Let's look at three examples of scoring profiles, and consider how each _should_ affect the results order. As an app developer, you do not write these profiles, they are written by the data administrator, however, it is helpful to look at their syntax.
 
-1. xxx
+1. This is the default scoring profile, used when you do not specify any **OrderBy** or **ScoringProfile** parameter. This profile boosts the _score_ for a hotel if the search text is present in the hotel name, description, or list of tags (amenities). Notice how the weights of the scoring favor certain fields. If the search text appears in another field, not listed below, it will have a weight of 1.
 
- ```cs
-    xxx
+     ```cs
+    {
+            "name": "boostByField",
+            "text": {
+                "weights": {
+                    "HotelName": 2,
+                    "Description": 1.5,
+                    "Description_fr": 1.5,
+                    "Tags": 3
+                }
+            }
+        }
+
     ```
-2. yyy
+
+2. The following scoring profile boosts the score significantly, if a supplied parameter includes one or more of the list of tags (which we are calling "amenities"). The key point of this profile is that a parameter _must_ be supplied, containing text. If the parameter is empty, or is not supplied, an error will be thrown.
  
     ```cs
-    xxx
+            {
+            "name": "boostAmenities",
+            "functions": [
+                {
+                    "type": "tag",
+                    "fieldName": "Tags",
+                    "boost": 5,
+                    "tag": {
+                        "tagsParameter": "amenities"
+                    }
+                }
+            ]
+        }
     ```
-3. zzz
+
+3. In this third example, the rating gives a significant boost to the score. The last renovated date will also boost the score, but only if that data falls within 730 days (2 years) of the current date.
 
     ```cs
-    xxx
+            {
+            "name": "renovatedAndHighlyRated",
+            "functions": [
+                {
+                    "type": "magnitude",
+                    "fieldName": "Rating",
+                    "boost": 20,
+                    "interpolation": "linear",
+                    "magnitude": {
+                        "boostingRangeStart": 0,
+                        "boostingRangeEnd": 5,
+                        "constantBoostBeyondRange": false
+                    }
+                },
+                {
+                    "type": "freshness",
+                    "fieldName": "LastRenovationDate",
+                    "boost": 10,
+                    "interpolation": "quadratic",
+                    "freshness": {
+                        "boostingDuration": "P730D"
+                    }
+                }
+            ]
+        }
+
     ```
+
     Now, let us see if these profiles work as we think they should!
 
 ### Add code to the view to compare profiles
 
-1. Open the index.cshtml file, and add the following code just after the search bar, so, including the search bar, your code looks like the following.
+1. Open the index.cshtml file, and replace the &lt;body&gt; section with the following code.
 
     ```cs
-    xxx
+    <body>
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td></td>
+                <td>
+                    <h1 class="sampleTitle">
+                        <img src="~/images/azure-logo.png" width="80" />
+                        Hotels Search - Order Results
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <!-- Display the search text box, with the search icon to the right of it. -->
+                    <div class="searchBoxForm">
+                        @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox" }) <input class="searchBoxSubmit" type="submit" value="">
+                    </div>
+
+                    <div class="searchBoxForm">
+                        <b>&nbsp;Order:&nbsp;</b>
+                        @Html.RadioButtonFor(m => m.scoring, "Default") Default&nbsp;&nbsp;
+                        @Html.RadioButtonFor(m => m.scoring, "Rating") Rating&nbsp;&nbsp;
+                        @Html.RadioButtonFor(m => m.scoring, "RatingRenovation") Rating/renovation&nbsp;&nbsp;
+                        @Html.RadioButtonFor(m => m.scoring, "boostAmenities") Boost amenities&nbsp;&nbsp;
+                        @Html.RadioButtonFor(m => m.scoring, "renovatedAndHighlyRated") Renovated/highly rated&nbsp;&nbsp;
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td valign="top">
+                    <div id="facetplace" class="facetchecks">
+
+                        @if (Model != null && Model.facetText != null)
+                        {
+                            <h5 class="facetheader">Amenities:</h5>
+                            <ul class="facetlist">
+                                @for (var c = 0; c < Model.facetText.Length; c++)
+                                {
+                                    <li> @Html.CheckBoxFor(m => m.facetOn[c], new { @id = "check" + c.ToString() }) @Model.facetText[c] </li>
+                                }
+
+                            </ul>
+                        }
+                    </div>
+                </td>
+                <td>
+                    @if (Model != null && Model.resultList != null)
+                    {
+                        // Show the total result count.
+                        <p class="sampleText">
+                            @Html.DisplayFor(m => m.resultList.Count) Results <br />
+                        </p>
+
+                        <div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()">
+
+                            <!-- Show the hotel data. -->
+                            @for (var i = 0; i < Model.resultList.Results.Count; i++)
+                            {
+                                var rateText = $"Rates from ${Model.resultList.Results[i].Document.cheapest} to ${Model.resultList.Results[i].Document.expensive}";
+                                var lastRenovatedText = $"Last renovated: { Model.resultList.Results[i].Document.LastRenovationDate.Value.Year}";
+                                var ratingText = $"Rating: {Model.resultList.Results[i].Document.Rating}";
+
+                                string amenities = string.Join(", ", Model.resultList.Results[i].Document.Tags);
+                                string fullDescription = Model.resultList.Results[i].Document.Description;
+                                fullDescription += $"\nAmenities: {amenities}";
+
+                                // Display the hotel details.
+                                @Html.TextArea($"name{i}", Model.resultList.Results[i].Document.HotelName, new { @class = "box1A" })
+                                @Html.TextArea($"rating{i}", ratingText, new { @class = "box1B" })
+                                @Html.TextArea($"rates{i}", rateText, new { @class = "box2A" })
+                                @Html.TextArea($"renovation{i}", lastRenovatedText, new { @class = "box2B" })
+                                @Html.TextArea($"desc{i}", fullDescription, new { @class = "box3" })
+                            }
+                        </div>
+
+                        <script>
+                            function scrolled() {
+                                if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
+                                    $.getJSON("/Home/Next", function (data) {
+                                        var div = document.getElementById('myDiv');
+
+                                        // Append the returned data to the current list of hotels.
+                                        for (var i = 0; i < data.length; i += 5) {
+                                            div.innerHTML += '\n<textarea class="box1A">' + data[i] + '</textarea>';
+                                            div.innerHTML += '<textarea class="box1B">' + data[i + 1] + '</textarea>';
+                                            div.innerHTML += '\n<textarea class="box2A">' + data[i + 2] + '</textarea>';
+                                            div.innerHTML += '<textarea class="box2B">' + data[i + 3] + '</textarea>';
+                                            div.innerHTML += '\n<textarea class="box3">' + data[i + 4] + '</textarea>';
+                                        }
+                                    });
+                                }
+                            }
+                        </script>
+                    }
+                </td>
+            </tr>
+        </table>
+    }
+    </body>
     ```
-2. Open the SearchData.cs file, and add the following property to the **SearchData** class, to communicate the user's selection to the controller.
+
+2. Open the SearchData.cs file, and replace the **SearchData** class with the following code.
 
     ```cs
-    xxx
+    public class SearchData
+    {
+        public SearchData()
+        {
+        }
+
+        // Constructor to initialize the list of facets sent from the controller.
+        public SearchData(List<string> facets)
+        {
+            facetText = new string[facets.Count];
+
+            for (int i = 0; i < facets.Count; i++)
+            {
+                facetText[i] = facets[i];
+            }
+        }
+
+        // Array to hold the text for each amenity.
+        public string[] facetText { get; set; }
+
+        // Array to hold the setting for each amenitity.
+        public bool[] facetOn { get; set; }
+
+        // The text to search for.
+        public string searchText { get; set; }
+
+        // Record if the next page is requested.
+        public string paging { get; set; }
+
+        // The list of results.
+        public DocumentSearchResult<Hotel> resultList;
+
+        public string scoring { get; set; }       
+    }
+    ```
+
+3. Open the hotels.css file, and add the following HTML classes.
+
+    ```html
+    .facetlist {
+        list-style: none;
+    }
+    
+    .facetchecks {
+        width: 250px;
+        display: normal;
+        color: #666;
+        margin: 10px;
+        padding: 5px;
+    }
+
+    .facetheader {
+        font-size: 10pt;
+        font-weight: bold;
+        color: darkgreen;
+    }
     ```
 
 ### Add code to the controller to specify a scoring profile
 
-1. Open the home controller, and in the **RunQueryAsync** method, make sure we pick up the chosen results order, and set the **OrderBy** and **ScoringProfile** (??) parameters as necessary. Replace the existing **SearchParameters** code, with the following.
+1. Open the home controller file. Add the following **using** statement (to aid with creating lists).
 
     ```cs
-    xxx
+    using System.Linq;
     ```
-    
+
+2.  For this example, we need the initial call to **Index** to do a bit more than just return the initial view. The method now searches for up to 20 amenities to display in the view.
+
+    ```cs
+        public async Task<ActionResult> Index()
+        {
+            InitSearch();
+
+            // Set up the facets call in the search parameters.
+            SearchParameters sp = new SearchParameters()
+            {
+                // Search for up to 20 amenities.
+                Facets = new List<string> { "Tags,count:20" },
+            };
+
+            DocumentSearchResult<Hotel> searchResult = await _indexClient.Documents.SearchAsync<Hotel>("*", sp);
+
+            // Convert the results to a list that can be displayed in the client.
+            List<string> facets = searchResult.Facets["Tags"].Select(x => x.Value.ToString()).ToList();
+
+            // Initiate a model with a list of facets for the first view.
+            SearchData model = new SearchData(facets);
+
+            // Save the facet text for the next view.
+            SaveFacets(model, false);
+
+            // Render the view including the facets.
+            return View(model);
+        }
+    ```
+
+3. We need two private methods to save the facets to temporary storage, and to recover them from temporary storage and populate a model.
+
+    ```cs
+        // Save the facet text to temporary storage, optionally saving the state of the check boxes.
+        private void SaveFacets(SearchData model, bool saveChecks = false)
+        {
+            for (int i = 0; i < model.facetText.Length; i++)
+            {
+                TempData["facet" + i.ToString()] = model.facetText[i];
+                if (saveChecks)
+                {
+                    TempData["faceton" + i.ToString()] = model.facetOn[i];
+                }
+            }
+            TempData["facetcount"] = model.facetText.Length;
+        }
+
+        // Recover the facet text to a model, optionally recoving the state of the check boxes.
+        private void RecoverFacets(SearchData model, bool recoverChecks = false)
+        {
+            // Create arrays of the appropriate length.
+            model.facetText = new string[(int)TempData["facetcount"]];
+            if (recoverChecks)
+            {
+                model.facetOn = new bool[(int)TempData["facetcount"]];
+            }
+
+            for (int i = 0; i < (int)TempData["facetcount"]; i++)
+            {
+                model.facetText[i] = TempData["facet" + i.ToString()].ToString();
+                if (recoverChecks)
+                {
+                    model.facetOn[i] = (bool)TempData["faceton" + i.ToString()];
+                }
+            }
+        }
+    ```
+
+4. We need to set the **OrderBy** and **ScoringProfile** parameters as necessary. Replace the existing **Index(SearchData model)** method, with the following.
+
+    ```cs
+        public async Task<ActionResult> Index(SearchData model)
+        {
+            try
+            {
+                InitSearch();
+               
+                int page;
+
+                if (model.paging != null && model.paging == "next")
+                {
+                    // Recover the facet text, and the facet check box settings.
+                    RecoverFacets(model, true);
+
+                    // Increment the page.
+                    page = (int)TempData["page"] + 1;
+
+                    // Recover the search text.
+                    model.searchText = TempData["searchfor"].ToString();
+                }
+                else
+                {
+                    // First search with text. 
+                    // Recover the facet text, but ignore the check box settings, and use the current model settings.
+                    RecoverFacets(model,false);
+
+                    // First call. Check for valid text input, and valid scoring profile.
+                    if (model.searchText == null)
+                    {
+                        model.searchText = "";
+                    }
+                    if (model.scoring == null)
+                    {
+                        model.scoring = "Default";
+                    }
+                    page = 0;
+                }
+
+                // Set empty defaults for ordering and scoring parameters.
+                var orderby = new List<string>();
+                string profile = "";
+                var scoringParams = new List<ScoringParameter>();
+
+                // Set the ordering based on the user's radio button selection.
+                switch (model.scoring)
+                {
+                    case "Rating":
+                        orderby.Add("Rating desc");
+                        break;
+
+                    case "RatingRenovation":
+                        orderby.Add("Rating desc");
+                        orderby.Add("LastRenovationDate desc");
+                        break;
+
+                    case "boostAmenities":
+                        {
+                            profile = model.scoring;
+                            var setAmenities = new List<string>();
+
+                            // Create a string list of amenities that have been clicked.
+                            for (int a = 0; a < model.facetOn.Length; a++)
+                            {
+                                if (model.facetOn[a])
+                                {
+                                    setAmenities.Add(model.facetText[a]);
+                                }
+                            }
+                            if (setAmenities.Count > 0)
+                            {
+                                // Only set scoring parameters if there are any.
+                                var sp = new ScoringParameter("amenities", setAmenities);
+                                scoringParams.Add(sp);
+                            }
+                            else
+                            {
+                                // No amenities selected, so set profile back to default.
+                                profile = "";
+                            }
+                        }
+                        break;
+
+                    case "renovatedAndHighlyRated":
+                        profile = model.scoring;
+                        break;
+
+                    default:
+                        break;
+                }
+
+                // Setup the search parameters.
+                var parameters = new SearchParameters
+                {
+                    // Set the ordering/scoring parameters.
+                    OrderBy = orderby,
+                    ScoringProfile = profile,
+                    ScoringParameters = scoringParams,
+
+                    // Select the data properties to be returned.
+                    Select = new[] { "HotelName", "Description", "Tags", "Rooms", "Rating", "LastRenovationDate" },
+                    SearchMode = SearchMode.All,
+
+                    // Skip past results that have already been returned.
+                    Skip = page * GlobalVariables.ResultsPerPage,
+
+                    // Take only the next page worth of results.
+                    Top = GlobalVariables.ResultsPerPage,
+
+                    // Include the total number of results.
+                    IncludeTotalResultCount = true,
+                };
+
+                // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
+                model.resultList = await _indexClient.Documents.SearchAsync<Hotel>(model.searchText, parameters);
+
+                // Ensure TempData is stored for the next call.
+                TempData["page"] = page;
+                TempData["searchfor"] = model.searchText;
+                TempData["scoring"] = model.scoring;
+                SaveFacets(model,true);
+
+                // Calculate the room rate ranges.
+                for (int n = 0; n < model.resultList.Results.Count; n++)
+                {
+                    var cheapest = 0d;
+                    var expensive = 0d;
+
+                    for (var r = 0; r < model.resultList.Results[n].Document.Rooms.Length; r++)
+                    {
+                        var rate = model.resultList.Results[n].Document.Rooms[r].BaseRate;
+                        if (rate < cheapest || cheapest == 0)
+                        {
+                            cheapest = (double)rate;
+                        }
+                        if (rate > expensive)
+                        {
+                            expensive = (double)rate;
+                        }
+                    }
+                    model.resultList.Results[n].Document.cheapest = cheapest;
+                    model.resultList.Results[n].Document.expensive = expensive;
+                }
+            }
+            catch
+            {
+                return View("Error", new ErrorViewModel { RequestId = "1" });
+            }
+            return View("Index", model);
+        }
+    ```
+
     Read through the comments for each of the **switch** selections.
+
+5. We do not need to make any changes to the **Next** action, if you completed the additional code for the previous section on ordering based on multiple properties.
 
 ### Run and test the app
 
-1. Run the app, enter text such as "????", select the "no order" radio button. And click search.
+1. Run the app. You should see a full set of amenities in the view.
 
-2. Selecting "Rating" or "Rating/renovation" will give you the numerical ordering you have already implemented in this tutorial.
+2. For ordering, selecting "Rating" or "Rating/renovation" will give you the numerical ordering you have already implemented in this tutorial.
 
-3. Now try the "Boost field" profile. Does it boost the hotel names as it should?
+![Ordering "beach" based on rating](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
 
-Image
+3. Now try the "Boost amenities" profile. Make various selections of amenities, and verify that hotels with those amenities are promoted up the results list.
 
-4. Try the other two profiles, "Boost xxx" and "Weighted rating", and perhaps switch between the two to pick out the differences in ordering.
+![Ordering "beach" based on profile](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
 
-Image
-
-    The more text based a data set is, the more scoring profiles are needed to display results in an intuitive ordering. Even with numerical data, scoring profiles can add some intelligence to the ordering (such as, not considering a hotel that was renovated 10 years ago, and another renovated 9 years ago, as a relevant way of deciding which hotel should be displayed first!).
+4. Try the "Renovated/highly rated" profile to see if you get what you expect.
 
 ### Resources
 

@@ -459,6 +459,6 @@ Consider the following takeaways from this project:
 In the next tutorial, we have a look at another way of improving the user experience, using facets to narrow searches with a single click.
 
 > [!div class="nextstepaction"]
-> [C# Tutorial: Use facets for navigation and network efficiency - Azure Search](tutorial-csharp-facets.md)
+> [C# Tutorial: Use facets to aid navigation - Azure Search](tutorial-csharp-facets.md)
 
 
