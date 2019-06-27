@@ -35,8 +35,6 @@ Check your inbox for an invitation from your data provider. The invitation is fr
 
 Click on **View invitation** to see your invitation in Azure. This takes you to your Received Shares view.
 
-![Received Shares](./media/received-shares.png "Received shares") 
-
 Select the share you would like to view. 
 
 ## Accept the invitation
