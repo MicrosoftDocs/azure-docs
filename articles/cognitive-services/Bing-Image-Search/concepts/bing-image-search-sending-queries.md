@@ -15,8 +15,6 @@ ms.author: aahi
 
 # Send queries to the Bing Image Search API
 
-[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
-
 The Bing Image Search API provides an experience similar to Bing.com/Images. You can use it to send a search query to Bing and get back a list of relevant images. 
 
 ## Use and suggest search terms

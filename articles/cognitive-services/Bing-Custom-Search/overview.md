@@ -41,11 +41,11 @@ To get started quickly, see [Create your first Bing Custom Search instance](quic
 
 For details about customizing your search instance, see [Define a custom search instance](define-your-custom-view.md).
 
-[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
-
 Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) for using search results in your services and applications.
 
 Familiarize yourself with the reference content for each of the custom search endpoints. The reference contains the endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 - [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
 - [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)

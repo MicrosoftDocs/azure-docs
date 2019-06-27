@@ -30,6 +30,7 @@ Host: api.cognitive.microsoft.com
 > * All requests must be made from a server, and not from a client.
 > * If it's your first time calling any of the Bing search APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API that returned a client ID for the user and device combination.
 > * Images must be displayed in the order provided in the response.
+> * Because URL formats and parameters are subject to change without notice, use all URLs as-is. You should not take dependencies on the URL format or parameters except where noted.
 
 ## Get images from a specific web domain
 
