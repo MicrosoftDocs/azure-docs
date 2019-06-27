@@ -65,7 +65,7 @@ A project can include both VMware VMs and Hyper-V VMs, up to the assessment limi
 
 ## Assessment-appliance requirements
 
-For assessment, Azure Migrate runs a lightweight appliance to discover Hyper-V VMs, and send VM metadata and performance data to Azure Migrate. The appliance runs on a Hyper-V VMs, and you set up using a compressed Hyper-V VHD that you download from the Azure portal. The following table summarizes the appliance requirements.
+For assessment, Azure Migrate runs a lightweight appliance to discover Hyper-V VMs, and send VM metadata and performance data to Azure Migrate. The appliance runs on a Hyper-V VM, and you set up using a compressed Hyper-V VHD that you download from the Azure portal. The following table summarizes the appliance requirements.
 
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
@@ -90,8 +90,8 @@ To assess VMs, the Azure Migrate appliance needs internet connectivity.
 *.windows.net | Sign in to your Azure subscription
 *.microsoftonline.com | Creation of Azure Active Directory applications for appliance to service communications.
 management.azure.com | Creation of Azure Active Directory applications for appliance to service communications.
-dc.services.visualstudio.com | Logging and monitoring *.vault.azure.net | Manage secrets in Azure Key Vault
-*.vault.azure.net | Persist secrets when communicating between agent and service.
+dc.services.visualstudio.com | Logging and monitoring 
+*.vault.azure.net | Manage secrets in Azure Key Vault when communicating between the appliance and service.
 
 
 ## Assessment-port requirements
@@ -140,7 +140,7 @@ login.microsoftonline.com | Access control and identity management using Active 
 *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
-time.windows.com | Verifies time sychronization between system and global time.
+time.windows.com | Verifies time synchronization between system and global time.
 
 ## Migration-port access
 
