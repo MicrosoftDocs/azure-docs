@@ -135,7 +135,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
 
 ### Failure Anomalies v2 alert rule
 
-This Azure Resource Manager template demonstrates creating a new Failure Anomalies v2 alert with a severity of 2. Currently this type of alert can only be created via this template though once created it can be managed via the Alerts UI.
+This Azure Resource Manager template demonstrates creating a new Failure Anomalies v2 alert with a severity of 2. Currently this type of alert can only be created via this template, though once created it can be managed via the Alerts UI.
 
 ```json
 {
@@ -165,7 +165,7 @@ This Azure Resource Manager template demonstrates creating a new Failure Anomali
 ```
 
 > [!NOTE]
-> This Azure Resource Manager template is unique to to the Failure Anomalies v2 alert rule and   
+> This Azure Resource Manager template is unique to to the Failure Anomalies v2 alert rule and is different from the other classic Smart Detection rules described in this article.   
 
 ## Smart detection rule names
 
