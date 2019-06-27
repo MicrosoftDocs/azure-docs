@@ -296,11 +296,13 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
 * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
 
-* Turning on **Secure Inputs** and **Secure Outputs** in triggers and actions affects downstream actions that explicitly use outputs. Make sure that you explicitly turn on these settings where you expect to secure this data in run history. When a downstream action explicitly uses secured outputs as inputs, Logic Apps hides this downstream action's inputs in the run history without enabling **Secure Inputs** on this action. Except for a few specific actions, Logic Apps also hides this action's outputs without turning on **Secure Outputs**.
+* In an action where you secure inputs or that explicitly uses secured outputs, and this action returns a response with outputs that include this secured data, you have to manually turn on **Secure Outputs** in this action to secure these outputs.
+
+* Make sure that you turn on **Secure Inputs** or **Secure Outputs** in downstream actions where you expect the run history to secure that data.
 
   **Secure Outputs setting**
 
-  When you manually turn on **Secure Outputs** in a trigger or action, Logic Apps secures these outputs in the run history. If a downstream action explicitly uses these secured outputs as inputs, Logic Apps hides this downstream action's inputs in the run history, but *doesn't enable* the action's **Secure Inputs** setting. Also, when the downstream action's outputs are the same as the action's hidden inputs, Logic Apps doesn't hide these outputs in the run history.
+  When you manually turn on **Secure Outputs** in a trigger or action, Logic Apps secures these outputs in the run history. If a downstream action explicitly uses these secured outputs as inputs, Logic Apps hides this action's inputs in the run history, but *doesn't enable* the action's **Secure Inputs** setting.
 
   ![Secured outputs as inputs and downstream impact on most actions](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
@@ -310,7 +312,7 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
   **Secure Inputs setting**
 
-  When you manually turn on **Secure Inputs** in a trigger or action, Logic Apps secures these inputs in the run history. If a downstream action explicitly uses the visible outputs from that trigger or action as inputs, Logic Apps hides this downstream action's inputs in the run history, but *doesn't enable* the action's **Secure Inputs** setting and doesn't hide this action's outputs.
+  When you manually turn on **Secure Inputs** in a trigger or action, Logic Apps secures these inputs in the run history. If a downstream action explicitly uses the visible outputs from that trigger or action as inputs, Logic Apps hides this downstream action's inputs in the run history, but *doesn't enable* **Secure Inputs** in this action and doesn't hide this action's outputs.
 
   ![Secured inputs and downstream impact on most actions](media/logic-apps-securing-a-logic-app/secure-inputs-flow.png)
 
