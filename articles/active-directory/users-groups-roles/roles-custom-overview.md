@@ -69,7 +69,7 @@ A role definition, or role, is a collection of permissions. A role definition li
 
 ### Scope
 
-A scope is the restriction of permitted actions to a particular Azure AD resource. When you assign a role, you can customize the role to limit the administrator's allowable actions by defining a scope of action. For example, if your developers don't need to fully manage all applications, you could use Azure AD custom roles to allow them to manage only app registrations.
+A scope is the restriction of permitted actions on a particular Azure AD resource. When you assign a role, you can customize the role to limit the administrator's allowable actions by defining a scope of action. For example, if your developers don't need to fully manage all applications, you can use Azure AD custom roles to allow them to manage only app registrations.
 
 ## Required license plan
 
