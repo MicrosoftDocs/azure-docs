@@ -36,7 +36,7 @@ The following example shows the format of the configuration file:
 [
   {
     "EndpointUrl": "opc.tcp://testserver:62541/Quickstarts/ReferenceServer",
-    "UseSecurity": false,
+    "UseSecurity": true,
     "OpcNodes": [
       {
         "Id": "i=2258",
