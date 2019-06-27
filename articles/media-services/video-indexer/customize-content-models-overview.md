@@ -39,7 +39,4 @@ This article gives links to the conceptual articles that explain the benefits of
 
 ## Next steps
 
-* [Customizing the brands model using the Video Indexer website](customize-brands-model-with-website.md)
-* [Customizing language models using the Video Indexer website](customize-language-model-with-website.md)
-* [Customizing language models using the Video Indexer website](customize-language-model-with-website.md)
-
+[Video Indexer overview](video-indexer-overview.md)
