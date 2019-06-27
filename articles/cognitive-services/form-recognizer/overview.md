@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # What is Form Recognizer?
 
-Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract keys, values, and table data from form documents. You can use this service to digitize the information in paper forms or analyze large amounts of form data more easily.
+Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key/value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model by using a simple REST API to reduce complexity and easily integrate it into your workflow or application. To get started, you just need five filled-in form documents or two filled-in forms plus an empty form of the same type as your input material. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
 
 ## Custom models
 
@@ -33,22 +33,7 @@ Form Recognizer is available as a REST API. You can create, train, and score a c
 
 ## Input requirements (custom model)
 
-Form Recognizer works on input documents that meet these requirements:
-
-* Format must be JPG, PNG, or PDF (text or scanned). Text-embedded PDFs are best because there's no possibility of error in character extraction and location.
-* File size must be less than 4 megabytes (MB).
-* For images, dimensions must be between 50 x 50 pixels and 4200 x 4200 pixels.
-* If scanned from paper documents, forms should be high-quality scans.
-* Text must use the Latin alphabet (English characters).
-* Data must be printed (not handwritten).
-* Data must contain keys and values.
-* Keys can appear above or to the left of the values, but not below or to the right.
-
-Form Recognizer doesn't currently support these types of input data:
-
-* Complex tables (nested tables, merged headers or cells, and so on).
-* Checkboxes or radio buttons.
-* PDF documents longer than 50 pages.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Request access
 
@@ -70,10 +55,8 @@ We recommend that you use the free service when you're learning the technology. 
 
 You use the following APIs to train and extract structured data from forms.
 
-| REST API | Description |
-|-----|-------------|
-| Train Model | Train a new model to analyze your forms by using five forms from the same type or an empty form.  |
-| Analyze Form |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
+| Train | Train	a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
+| Analyze  |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
 | Analyze Receipt |Analyze a single receipt document to extract key information and other receipt text.|
 
 Explore the [REST API reference documentation](https://aka.ms/form-recognizer/api) to learn more. 

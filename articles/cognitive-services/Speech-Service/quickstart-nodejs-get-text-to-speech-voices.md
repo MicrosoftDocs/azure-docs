@@ -7,7 +7,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: erhopf
 ---
@@ -34,7 +34,7 @@ Create a new Node.js project using your favorite IDE or editor. Then copy this c
 // Requires request and request-promise for HTTP requests
 // e.g. npm install request request-promise
 const rp = require('request-promise');
-// Requires fs to write the list of languagesto a file
+// Requires fs to write the list of languages to a file
 const fs = require('fs');
 ```
 

@@ -140,7 +140,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/mlflow) demonstrates concepts in this article.
+The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrates concepts in this article.
 
 ## Next steps
 

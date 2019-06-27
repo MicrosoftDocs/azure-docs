@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Train a model and extract form data by using cURL - Form Recognizer"
+title: "Quickstart: Train a model and extract form data using cURL - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll use the Form Recognizer REST API with cURL to train a model and extract data from forms.
 author: PatrickFarley
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [cURL](https://curl.haxx.se/windows/) installed.
-- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample dataset](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the data to the root of an Azure Blob Storage account.
+- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the data to the root of an Azure Blob Storage account.
 
 ## Create a Form Recognizer resource
 
@@ -36,7 +36,7 @@ First, you'll need a set of training data in an Azure Storage blob. You should h
 To train a Form Recognizer model by using the documents in your Azure blob container, call the **Train** API by running the cURL command that follows. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `<SAS URL>` with an Azure Blob storage container shared access signature (SAS) URL of the location of the training data. (Retrieve your SAS-URL by clicking 'Shared Access Signature' under settings menu in the storage account and 'Generate SAS and connection string' . This will show the Blob service SAS URL. Adjust this url by adding the containername After .net/ and before ?sv= in the url, eg: .blob.core.windows.net/<name_of_your_container>/?sv=…. This is the SAS-URL to be used.)
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve this, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Click the next dialog and copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
 ```bash
@@ -93,12 +93,12 @@ Next, you'll analyze a document and extract key-value pairs and tables from it. 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<modelID>` with the model ID that you received in the previous section.
 1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
-1. Replace `<file type>` with the file type. Supported types: pdf, image/jpeg, image/png.
+1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`.
 1. Replace `<subscription key>` with your subscription key.
 
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### Examine the response

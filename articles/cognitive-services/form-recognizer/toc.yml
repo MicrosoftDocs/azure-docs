@@ -23,6 +23,8 @@
         href: quickstarts/curl-receipts.md
 - name: How-to guides
   items:
+  - name: Build a training data set
+    href: build-training-data-set.md
   - name: Use containers
     items:
     - name: Install and run containers

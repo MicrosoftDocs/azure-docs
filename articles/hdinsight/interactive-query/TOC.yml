@@ -2,20 +2,20 @@
   href: /azure/hdinsight
 - name: Overview
   items:
-  - name: Apache Hadoop components on HDInsight
-    href: ../hdinsight-component-versioning.md
+  - name: What is Interactive Query in HDInsight?
+    href: ./apache-interactive-query-get-started.md
     maintainContext: true
-  - name: HDInsight 4.0
-    href: ../hdinsight-version-release.md
-    maintainContext: true 
 - name: Quickstarts
+  expanded: true
   items:
   - name: Execute Apache Hive queries - Apache Zeppelin
     href: ./hdinsight-connect-hive-zeppelin.md
-- name: Get started
+- name: Tutorials
   items:
-  - name: Start with Interactive Query
-    href: ./apache-interactive-query-get-started.md
+  - name: Analyze data with Interactive Query
+    href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Concepts
+  items:
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
@@ -109,9 +109,6 @@
       maintainContext: true
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
-      maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
   - name: Extend clusters
     items:

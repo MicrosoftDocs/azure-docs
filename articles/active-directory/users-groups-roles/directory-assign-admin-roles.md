@@ -98,9 +98,9 @@ The following administrator roles are available:
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Has read-only permissions and can manage alerts<br>Can create and modify file policies and allow file governance actions<br> Can view all the built-in reports under Data Management
 
-* **[Conditional Access Administrator](#conditional-access-administrator)**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
+* **[Conditional Access Administrator](#conditional-access-administrator)**: Users with this role have the ability to manage Azure Active Directory Conditional Access settings.
   > [!NOTE]
-  > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be a Global Administrator.
+  > To deploy Exchange ActiveSync Conditional Access policy in Azure, the user must also be a Global Administrator.
   
 * **[Customer Lockbox access approver](#customer-lockbox-access-approver)**: Manages [Customer Lockbox requests](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) in your organization. They receive email notifications for Customer Lockbox requests and can approve and deny requests from the Microsoft 365 admin center. They can also turn the Customer Lockbox feature on or off. Only global admins can reset the passwords of people assigned to this role.
   <!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
@@ -573,7 +573,7 @@ Creates and manages compliance content.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Conditional Access Administrator
-Can manage conditional access capabilities.
+Can manage Conditional Access capabilities.
 
 | **Actions** | **Description** |
 | --- | --- |

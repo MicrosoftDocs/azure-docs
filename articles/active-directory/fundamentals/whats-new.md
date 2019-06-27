@@ -201,13 +201,13 @@ For more information, see [Azure AD audit log API overview](https://docs.microso
 
 ---
 
-### Administrators can now use conditional access for the combined registration process (Public preview)
+### Administrators can now use Conditional Access for the combined registration process (Public preview)
 
 **Type:** New feature  
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection  
 
-Administrators can now create conditional access policies for use by the combined registration page. This includes applying policies to allow registration if:
+Administrators can now create Conditional Access policies for use by the combined registration page. This includes applying policies to allow registration if:
 
 - Users are on a trusted network.
 
@@ -217,7 +217,7 @@ Administrators can now create conditional access policies for use by the combine
 
 - Users agree to the organization’s terms of use (TOU).
 
-For more information about conditional access and password reset, you can see the [Conditional access for the Azure AD combined MFA and password reset registration experience blog post](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348). For more information about conditional access policies for the combined registration process, see [Conditional access policies for combined registration](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration). For more information about the Azure AD terms of use feature, see [Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
+For more information about Conditional Access and password reset, you can see the [Conditional Access for the Azure AD combined MFA and password reset registration experience blog post](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Conditional-access-for-the-Azure-AD-combined-MFA-and-password/ba-p/566348). For more information about Conditional Access policies for the combined registration process, see [Conditional Access policies for combined registration](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined#conditional-access-policies-for-combined-registration). For more information about the Azure AD terms of use feature, see [Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -273,7 +273,7 @@ To help address your feedback about visualizations with the Azure AD Activity lo
 
 - **Sign-ins.** Provides details for apps and users, including sign-in location, the in-use operating system or browser client and version, and the number of successful or failed sign-ins.
 
-- **Legacy authentication and conditional access.** Provides details for apps and users using legacy authentication, including Multi-Factor Authentication usage triggered by conditional access policies, apps using conditional access policies, and so on.
+- **Legacy authentication and Conditional Access.** Provides details for apps and users using legacy authentication, including Multi-Factor Authentication usage triggered by Conditional Access policies, apps using Conditional Access policies, and so on.
 
 - **Sign-in failure analysis.** Helps you to determine if your sign-in errors are occurring due to a user action, policy issues, or your infrastructure.
 
@@ -335,13 +335,13 @@ For more information, see [Troubleshooting Errors during synchronization](https:
 
 ---
 
-### Increased security using the app protection-based conditional access policy in Azure AD (Public preview)
+### Increased security using the app protection-based Conditional Access policy in Azure AD (Public preview)
 
 **Type:** New feature  
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
 
-App protection-based conditional access is now available by using the **Require app protection** policy. This new policy helps to increase your organization's security by helping to prevent:
+App protection-based Conditional Access is now available by using the **Require app protection** policy. This new policy helps to increase your organization's security by helping to prevent:
 
 - Users gaining access to apps without a Microsoft Intune license.
 
@@ -349,19 +349,19 @@ App protection-based conditional access is now available by using the **Require 
 
 - Users gaining access to apps without a configured Microsoft Intune app protection policy.
 
-For more information, see [How to Require app protection policy for cloud app access with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
+For more information, see [How to Require app protection policy for cloud app access with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
 
 ---
 
-### New support for Azure AD single sign-on and conditional access in Microsoft Edge (Public preview)
+### New support for Azure AD single sign-on and Conditional Access in Microsoft Edge (Public preview)
 
 **Type:** New feature  
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
 
-We've enhanced our Azure AD support for Microsoft Edge, including providing new support for Azure AD single sign-on and conditional access. If you've previously used Microsoft Intune Managed Browser, you can now use Microsoft Edge instead.
+We've enhanced our Azure AD support for Microsoft Edge, including providing new support for Azure AD single sign-on and Conditional Access. If you've previously used Microsoft Intune Managed Browser, you can now use Microsoft Edge instead.
 
-For more information about setting up and managing your devices and apps using conditional access, see [Require managed devices for cloud app access with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) and [Require approved client apps for cloud app access with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). For more information about how to manage access using Microsoft Edge with Microsoft Intune policies, see [Manage Internet access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).
+For more information about setting up and managing your devices and apps using Conditional Access, see [Require managed devices for cloud app access with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) and [Require approved client apps for cloud app access with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). For more information about how to manage access using Microsoft Edge with Microsoft Intune policies, see [Manage Internet access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
 ---
 
@@ -473,7 +473,7 @@ For more information about the new **Audit logs** page, see [Audit activity repo
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
 
-To help prevent administrators from accidentally locking themselves out of their own tenants through misconfigured Conditional Access policies, we've created new warnings and updated guidance in the Azure portal. For more information about the new guidance, see [What are service dependencies in Azure Active Directory conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+To help prevent administrators from accidentally locking themselves out of their own tenants through misconfigured Conditional Access policies, we've created new warnings and updated guidance in the Azure portal. For more information about the new guidance, see [What are service dependencies in Azure Active Directory Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
 ---
 

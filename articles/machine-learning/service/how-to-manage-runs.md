@@ -16,7 +16,7 @@ ms.date: 04/05/2019
 
 # Start, monitor, and cancel training runs in Python
 
-The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) provides various methods to monitor, organize, and manage your runs for training and experimentation.
+The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) and [Machine Learning CLI](reference-azure-machine-learning-cli.md) provide various methods to monitor, organize, and manage your runs for training and experimentation.
 
 This article shows examples of the following tasks:
 
@@ -41,7 +41,11 @@ You'll need the following items:
     print(azureml.core.VERSION)
     ```
 
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) and [CLI extension for Azure Machine Learning service](reference-azure-machine-learning-cli.md).
+
 ## Start a run and its logging process
+
+### Using the SDK
 
 Set up your experiment by importing the [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), and [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) classes from the [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) package.
 
@@ -62,7 +66,44 @@ notebook_run = exp.start_logging()
 notebook_run.log(name="message", value="Hello from run!")
 ```
 
+### Using the CLI
+
+To start a run of your experiment, use the following steps:
+
+1. From a shell or command prompt, use the Azure CLI to authenticate to your Azure subscription:
+
+    ```azurecli-interactive
+    az login
+    ```
+
+1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning service workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
+
+    ```azurecli-interactive
+    az ml folder attach -w myworkspace -g myresourcegroup
+    ```
+
+    This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
+
+    For more information, see [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
+
+2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
+
+    ```azurecli-interactive
+    az ml run submit-script -c sklearn -e testexperiment train.py
+    ```
+
+    > [!TIP]
+    > The `az ml folder attach` command created a `.azureml` subdirectory, which contains two example runconfig files. 
+    >
+    > If you have a Python script that creates a run configuration object programmatically, you can use [RunConfig.save()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) to save it as a runconfig file.
+    >
+    > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml).
+
+    For more information, see [az ml run submit-script](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
+
 ## Monitor the status of a run
+
+### Using the SDK
 
 Get the status of a run with the [`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--) method.
 
@@ -93,9 +134,35 @@ with exp.start_logging() as notebook_run:
 print("Has it completed?",notebook_run.get_status())
 ```
 
+### Using the CLI
+
+1. To view a list of runs for your experiment, use the following command. Replace `experiment` with the name of your experiment:
+
+    ```azurecli-interactive
+    az ml run list --experiment-name experiment
+    ```
+
+    This command returns a JSON document that lists information about runs for this experiment.
+
+    For more information, see [az ml experiment list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
+
+2. To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
+
+    ```azurecli-interactive
+    az ml run show -r runid
+    ```
+
+    This command returns a JSON document that lists information about the run.
+
+    For more information, see [az ml run show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
+
 ## Cancel or fail runs
 
- If you notice a mistake or if your run is taking too long to finish, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method to stop the run before it finishes and mark it as canceled.
+If you notice a mistake or if your run is taking too long to finish, you can cancel the run.
+
+### Using the SDK
+
+To cancel a run using the SDK, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method:
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -116,9 +183,22 @@ local_script_run.fail()
 print(local_script_run.get_status())
 ```
 
+### Using the CLI
+
+To cancel a run using the CLI, use the following command. Replace `runid` with the ID of the run
+
+```azurecli-interactive
+az ml run cancel -r runid
+```
+
+For more information, see [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
+
 ## Create child runs
 
 Create child runs to group together related runs, such as for different hyperparameter-tuning iterations.
+
+> [!NOTE]
+> Child runs can only be created using the SDK.
 
 This code example uses the `hello_with_children.py` script to create a batch of five child runs from within a submitted run by using the [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) method:
 
@@ -153,6 +233,8 @@ In Azure Machine Learning service, you can use properties and tags to help organ
 
 ### Add properties and tags
 
+#### Using the SDK
+
 To add searchable metadata to your runs, use the [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) method. For example, the following code adds the `"author"` property to the run:
 
 ```Python
@@ -186,14 +268,44 @@ local_script_run.tag("worth another look")
 print(local_script_run.get_tags())
 ```
 
+#### Using the CLI
+
+> [!NOTE]
+> Using the CLI, you can only add or update tags.
+
+To add or update a tag, use the following command:
+
+```azurecli-interactive
+az ml run update -r runid --add-tag quality='fantastic run'
+```
+
+For more information, see [az ml run update](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+
 ### Query properties and tags
 
 You can query runs within an experiment to return a list of runs that match specific properties and tags.
+
+#### Using the SDK
 
 ```Python
 list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
 list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
 ```
+
+#### Using the CLI
+
+The Azure CLI supports [JMESPath](http://jmespath.org) queries, which can be used to filter runs based on properties and tags. To use a JMESPath query with the Azure CLI, specify it with the `--query` parameter. The following examples show basic queries using properties and tags:
+
+```azurecli-interactive
+# list runs where the author property = 'azureml-user'
+az ml run list --experiment-name experiment [?properties.author=='azureml-user']
+# list runs where the tag contains a key that starts with 'worth another look'
+az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+# list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+```
+
+For more information on querying Azure CLI results, see [Query Azure CLI command output](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest).
 
 ## Example notebooks
 
