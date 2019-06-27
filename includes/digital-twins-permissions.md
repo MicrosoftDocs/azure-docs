@@ -5,16 +5,17 @@
  author: alinamstanciu
  ms.service: digital-twins
  ms.topic: include
- ms.date: 12/17/2018
+ ms.date: 06/26/2019
  ms.author: alinast
  ms.custom: include file
 ---
 
-1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **App registrations** pane. Select the **New registration** button.
+>[!NOTE]
+>Be aware that the legacy AAD app registration that is used here will be discontinued soon. This section will be updated once Azure Digital Twins is completely integrated with the [new AAD app registration](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). In the meanwhile, you may experiment with the new AAD app. Note that you will need to use [public client (mobile & destkop)](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-app-types#mobile-and-native-apps) for the *Redirect URI*. 
 
-    ![App registrations pane](./media/digital-twins-permissions/aad-app-reg-start.png)
+1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **App registrations (Legacy)** pane. Select the **New application registration** button.
 
-1. Give a friendly name for this app registration in the **Name** box. Under the **Redirect URI (optional)** field, choose **Public client (mobile & desktop)**, and then enter the URI `https://microsoft.com` in the following field. Select **Register**.
+1. Give a friendly name for this app registration in the **Name** box. Choose **Application type** as **Native**, and **Redirect URI** as `https://microsoft.com`. Select **Create**.
 
     ![Create pane](./media/digital-twins-permissions/aad-app-reg-create.png)
 
