@@ -19,7 +19,9 @@ Learn how to use an existing machine learning model with the Azure Machine Learn
 If you have a machine learning model that was trained outside the Azure Machine Learning service, you can still use the service to deploy the model as a web service or to an IoT Edge device. 
 
 > [!TIP]
-> This article provides basic information on deploying an existing model. For more information on the concepts and terms used here, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
+> This article provides basic information on registering and deploying an existing model. Once deployed, Azure Machine Learning service provides monitoring for your model. It also allows you to store input data sent to the deployment, which can be used for data drift analysis or training new versions of the model.
+>
+> For more information on the concepts and terms used here, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
 >
 > For general information on the deployment process, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
 
@@ -36,14 +38,14 @@ If you have a machine learning model that was trained outside the Azure Machine 
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
-* A trained model. The model must be persisted to one or more files on your development enviornment.
+* A trained model. The model must be persisted to one or more files on your development environment.
 
     > [!NOTE]
     > To demonstrate registering a model trained outside Azure Machine Learning service, the example code snippets in this article use the models created by Paolo Ripamonti's Twitter sentiment analysis project: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
 ## Register the model(s)
 
-Registering a model allows you to store, version, and apply metadata to your trained models. In the following Python and CLI examples, the `models` directory contains the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files. This example uploads the files contained in the `models` directory as a new model registration named `sentiment`:
+Registering a model allows you to store, version, and track metadata about models in your workspace. In the following Python and CLI examples, the `models` directory contains the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files. This example uploads the files contained in the `models` directory as a new model registration named `sentiment`:
 
 ```python
 from azureml.core.model import Model
@@ -279,5 +281,7 @@ For more information on how to consume the deployed service, see [Create a clien
 
 ## Next steps
 
-* Learn more about [How and where to deploy models](how-to-deploy-and-where.md)
-* Learn more about [How to create a client for a deployed model](how-to-consume-web-service.md)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
+* [How and where to deploy models](how-to-deploy-and-where.md)
+* [How to create a client for a deployed model](how-to-consume-web-service.md)
