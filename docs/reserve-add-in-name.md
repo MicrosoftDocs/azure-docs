@@ -20,7 +20,9 @@ We recommmend that you reserve your name even if you haven't developed your add-
 
 The name is now reserved for you, and you can start working on your submission whenever you're ready. 
 
-For guidelines for add-in names, see our [title guidelines](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-title).
+We recommend that you limit your add-in name to 30-50 characters, and include the important keywords in the first 30 characters.
+
+For guidelines for add-in names, see [Use a succinct and descriptive name](create-effective-office-store-listings.md#use-a-succinct-and-descriptive-title).
 
 > [!NOTE]
 > You might find that you can't reserve a name, even though you don't see any apps listed by that name in AppSource. This is usually because another developer has reserved the name but hasn't submitted it yet. If you're unable to reserve a name for which you hold the trademark or other legal right, or if you see another app in AppSource using that name, [contact Microsoft](https://go.microsoft.com/fwlink/p/?LinkId=233777).

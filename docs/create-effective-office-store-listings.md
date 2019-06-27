@@ -56,7 +56,7 @@ The short description that you supply with your submission is the text that is s
 - Avoid using jargon or specialized terminology; don't assume that users know what they're looking for.
 - Include keywords that customers might search for.
 
-The following figure shows a good short description next to one that relies on the brand name*
+The following figure shows a good short description next to one that relies on the brand name.
 
 ![An image that shows a good short description next to one that relies on the brand name](images/description-do-dont.png)
 
