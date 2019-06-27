@@ -48,7 +48,7 @@ Site Recovery can be integrated with native SQL Server BCDR technologies summari
 ## DR recommendations for integration with Azure Site Recovery
 
 Few important considerations when protecting SQL workloads with Azure Site Recovery:
-1. Azure Site Recovery is application agnostic and hence, any version of SQL server that is deployed on a supported operating system can be protected by Azure Site Recovery. [Learn more](vmware-physical-azure-support-matrix#replicated-machines.md).
+1. Azure Site Recovery is application agnostic and hence, any version of SQL server that is deployed on a supported operating system can be protected by Azure Site Recovery. [Learn more](vmware-physical-azure-support-matrix.md#replicated-machines).
 2. Ensure that the data change rate (Write bytes per sec) observed on the machine is within [Site Recovery limits](vmware-physical-azure-support-matrix.md#churn-limits). For windows machines, you can view this under Performance tab on Task Manager. Observe Write speed for each disk.
 3. Azure Site Recovery supports replication of Failover Cluster Instances on Storage Spaces Direct. [Learn more](azure-to-azure-how-to-enable-replication-s2d-vms.md)
 4. Azure Site Recovery can be leveraged for both application and crash consistent recovery points. Application consistent snapshot is taken every 1 hour. [Read more](https://azure.microsoft.com/en-au/support/legal/sla/site-recovery/v1_2/) to learn about the RTO SLA provided by Azure Site Recovery. Note that Azure Site Recovery does not provide Application consistent recovery points for Linux machines. 
@@ -174,7 +174,7 @@ For SQL Server Standard clusters, failback after an unplanned failover requires 
 Azure Site Recovery replication for SQL Server is covered under the Software Assurance – Disaster Recovery benefit, for all Azure Site Recovery scenarios (on-premises to Azure disaster recovery, or cross-region Azure IaaS disaster recovery). [Read more](https://azure.microsoft.com/en-in/pricing/details/site-recovery/)
 
 ### Will Azure Site Recovery support my SQL version?
-Azure Site Recovery is application agnostic. Hence, any version of SQL server that is deployed on a supported operating system can be protected by Azure Site Recovery. [Learn more](vmware-physical-azure-support-matrix#replicated-machines.md)
+Azure Site Recovery is application agnostic. Hence, any version of SQL server that is deployed on a supported operating system can be protected by Azure Site Recovery. [Learn more](vmware-physical-azure-support-matrix.md#replicated-machines)
 
 ## Next steps
 [Learn more](site-recovery-components.md) about Site Recovery architecture.
