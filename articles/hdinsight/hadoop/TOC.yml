@@ -143,10 +143,8 @@
         maintainContext: true
       - name: Tools for IntelliJ
         href: ../spark/apache-spark-intellij-tool-plugin.md
-        maintainContext: true
       - name: Tools for Eclipse
         href: ../spark/apache-spark-eclipse-tool-plugin.md
-        maintainContext: true
       - name: Data Lake Tools with Hortonworks Sandbox
         href: ../hdinsight-hadoop-emulator-visual-studio.md
         maintainContext: true
