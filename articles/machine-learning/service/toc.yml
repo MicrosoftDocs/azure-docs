@@ -179,7 +179,7 @@
     - name: Create estimators in training
       href: how-to-train-ml-models.md
     - name: Use Scikit-learn
-      href: how-to-train-sklearn.md  
+      href: how-to-train-scikit-learn.md  
     - name: Use TensorFlow
       href: how-to-train-tensorflow.md
     - name: Use Keras
