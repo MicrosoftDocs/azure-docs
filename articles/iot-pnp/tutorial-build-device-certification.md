@@ -35,33 +35,33 @@ To complete this tutorial, you need:
 To pass the certification process, you must include the **Device Information** interface in your capability model. This interface has the following identification:
 
 ```json
-   "@id": "http://azureiot.com/interfaces/DeviceInformation/1.0.0"
+   "@id": "urn:azureiot:DeviceManagement:DeviceInformation:1"
 ```
 
 To include the **Device Information** interface in your device's model, add the interface ID to the `implements` property of the capability model:
 
 ```json
    {
-    "@id": "http://example.com/thermostatDevice/1.0.0",
+    "@id": "urn:azureiot:sample:ThermostatDevice:1",
     "@type": "CapabilityModel",
     "displayName": "Thermostat T-1000",
     "implements": [
-        "http://example.com/thermostat/1.0.0",
-        "http://azureiot.com/interfaces/DeviceInformation/1.0.0"
+        "urn:azureiot:sample:Thermostat:1",
+        "urn:azureiot:DeviceManagement:DeviceInformation:1"
     ],
-    "@context": "http://azureiot.com/v0/contexts/CapabilityModel.json"
+    "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
 }
 ```
 
 To view the contents of the **Device Information** interface in VS Code:
 
-1. Use **Ctrl+Shift+P** to open the command palette:
+1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Azure IoT Plug and Play: Open Model Repository** command. Choose **Global Model Repository**. The global model repository opens in VS Code:
+1. Enter **Plug and Play** and then select the **Azure IoT Plug and Play: Open Model Repository** command. Choose **Global Model Repository**. The global model repository opens in VS Code.
 
 1. In the global model repository, enter **Device Information** in the search field.
 
-1. To create a local copy of the **Device Information** interface, select it in the search results, and then select **Download**:
+1. To create a local copy of the **Device Information** interface, select it in the search results, and then select **Download**.
 
 ## Update device code
 
