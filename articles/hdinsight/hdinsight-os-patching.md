@@ -18,7 +18,7 @@ You must occasionally restart virtual machines (VMs) in an HDInsight cluster to 
 
 By using the script actions described in this article, you can modify the OS patching schedule by following these steps:
 
-1. Install all updates, kernel + security updates, or kernel updates only.
+1. Install all updates, or install only kernel + security updates or kernel updates.
 2. Do an immediate restart, or schedule a restart on the VM.
 
 > [!NOTE]  
@@ -29,11 +29,11 @@ By using the script actions described in this article, you can modify the OS pat
 
 Using script actions requires the following information:
 
-1. The install-updates-schedule-restarts script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/install-updates-schedule-restarts.sh.
+1. The install-updates-schedule-restarts script location https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/install-updates-schedule-restarts.sh.
  	
    HDInsight uses the previous Uniform Resource Identifier (URI) to find and run the script on all the VMs in the cluster. This script provides options to install updates and restart the VM.
   
-2. The schedule-restarts script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/schedule-restarts.sh.
+2. The schedule-restarts script location https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/schedule-restarts.sh.
  	
    HDInsight uses the previous URI to find and run the script on all the VMs in the cluster. This script restarts the VM.
   
@@ -60,5 +60,5 @@ Using script actions requires the following information:
 
 For specific steps about using script actions, see the following sections in [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md):
 
-* [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-* [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+* [Use a script action during cluster creation](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation).
+* [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
