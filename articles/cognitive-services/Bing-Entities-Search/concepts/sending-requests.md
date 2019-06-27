@@ -22,9 +22,6 @@ The Bing Entity Search API sends a search query to Bing and gets results that in
 
 To get entity and place search results, send a GET request to the following endpoint:  
 
->[!NOTE]
-> Because URL formats and parameters are subject to change without notice, all URLs are presented as-is. You should not take dependencies on the URL format or parameters except where noted.
-
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
@@ -34,6 +31,8 @@ Requests must use the HTTPS protocol.
 We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.
 
 ## Specifying query parameters and headers
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query) query parameter, which contains the user's search term. The request must also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters). URL encode all query parameters.  
   

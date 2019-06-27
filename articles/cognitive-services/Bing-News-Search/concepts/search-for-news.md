@@ -17,10 +17,7 @@ ms.author: scottwhi
 
 The Bing Image Search API makes it easy to integrate Bing's cognitive news searching capabilities into your applications.
 
-While the Bing News Search API primarily finds and returns relevant news articles, it provides several features for intelligent, and focused news retrieval on the web. 
-
->[!NOTE]
-> Because URL formats and parameters are subject to change without notice, all URLs are presented as-is. You should not take dependencies on the URL format or parameters except where noted.
+While the Bing News Search API primarily finds and returns relevant news articles, it provides several features for intelligent, and focused news retrieval on the web.
 
 ## Suggest and use search terms
 
