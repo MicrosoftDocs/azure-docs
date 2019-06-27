@@ -51,9 +51,9 @@ This section shows some examples with different time to live values assigned to 
 
 |TTl on item| Result|
 |---|---|
-|TimeToLive = null|	TTL is disabled. The item will never expire (default).|
-|TimeToLive = -1	|TTL is disabled. The item will never expire.|
-|TimeToLive = 2000	|TTL is disabled. The item will never expire.|
+|ttl = null|	TTL is disabled. The item will never expire (default).|
+|ttl = -1	|TTL is disabled. The item will never expire.|
+|ttl = 2000	|TTL is disabled. The item will never expire.|
 
 
 ### Example2
@@ -62,9 +62,9 @@ This section shows some examples with different time to live values assigned to 
 
 |TTl on item| Result|
 |---|---|
-|TimeToLive = null	|TTL is enabled. The item will never expire (default).|
-|TimeToLive = -1	|TTL is enabled. The item will never expire.|
-|TimeToLive = 2000	|TTL is enabled. The item will expire after 2000 seconds.|
+|ttl = null	|TTL is enabled. The item will never expire (default).|
+|ttl = -1	|TTL is enabled. The item will never expire.|
+|ttl = 2000	|TTL is enabled. The item will expire after 2000 seconds.|
 
 ### Example3
 
@@ -72,9 +72,9 @@ This section shows some examples with different time to live values assigned to 
 
 |TTl on item| Result|
 |---|---|
-|TimeToLive = null|	TTL is enabled. The item will expire after 1000 seconds (default).|
-|TimeToLive = -1	|TTL is enabled. The item will never expire.|
-|TimeToLive = 2000	|TTL is enabled. The item will expire after 2000 seconds.|
+|ttl = null|	TTL is enabled. The item will expire after 1000 seconds (default).|
+|ttl = -1	|TTL is enabled. The item will never expire.|
+|ttl = 2000	|TTL is enabled. The item will expire after 2000 seconds.|
 
 ## Next steps
 
