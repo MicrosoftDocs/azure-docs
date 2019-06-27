@@ -23,11 +23,11 @@ This article describes how to change the edition of SQL Server for an existing S
 
 There are two places where the edition of your SQL Server is specified:
 
-- **Internal edition**: This is internal to the SQL Server VM, is determined by the product key, and is specified with the installation process. The internal edition dictates what [features](/sql/sql-server/editions-and-components-of-sql-server-2017) are available within the SQL Server product. Changing the internal edition of SQL Server *does not* modify the edition metadata of the SQL Server VM.
+- **Internal edition**: This is internal to the SQL Server VM, is determined by the product key, and is specified with the installation process. The internal edition dictates what [features](/sql/sql-server/editions-and-components-of-sql-server-2017) are available within the SQL Server product. Changing the internal edition of SQL Server *does not* modify the edition metadata that Azure tracks for billing purposes. 
 
 - **Edition metadata**: This is external to the VM and dictates the billing SKU of your SQL Server VM, as there are differences in billing between the different editions of SQL Server. Changing the edition metadata of the SQL Server VM *does not* modify the internal edition of SQL Server.
 
-The **Internal** edition specification must match the **metadata** specification. If you would like to change the edition metadata of your SQL Server VM, you must first change the **internal** edition of your SQL Server.
+The **internal** edition specification must match the **metadata** specification. If you would like to change the edition metadata of your SQL Server VM, you must first change the **internal** edition of your SQL Server.
 
 ## Remarks
 
@@ -47,7 +47,8 @@ The **Internal** edition specification must match the **metadata** specification
 
 ## Prerequisites
 
-The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
+To change the edition of SQL Server, you will need the following: 
+
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - [Software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
 - A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md).
