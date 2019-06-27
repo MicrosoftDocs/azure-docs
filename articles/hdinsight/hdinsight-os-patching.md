@@ -18,7 +18,7 @@ You must occasionally restart virtual machines (VMs) in an HDInsight cluster to 
 
 By using the script actions described in this article, you can modify the OS patching schedule by following these steps:
 
-1. Install all updates or install only kernel + security updates or kernel updates.
+1. Install all updates, or install only kernel + security updates or kernel updates.
 2. Do an immediate restart, or schedule a restart on the VM.
 
 > [!NOTE]  
