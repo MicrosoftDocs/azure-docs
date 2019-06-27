@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Extract handwritten text - JavaScript"
+title: "Quickstart: Extract printed and handwritten text - REST, JavaScript"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you extract handwritten text from an image using the Computer Vision API with JavaScript.
+description: In this quickstart, you extract printed and handwritten text from an image using the Computer Vision API with JavaScript.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract handwritten text using the REST API and JavaScript in Computer Vision
+# Quickstart: Extract printed and handwritten text using the REST API and JavaScript in Computer Vision
 
-In this quickstart, you extract handwritten text from an image by using Computer Vision's REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API and the [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, you can detect handwritten text in an image, then extract recognized characters into a machine-usable character stream.
+In this quickstart, you extract printed and/or handwritten text from an image by using Computer Vision's REST API. With the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. The API will determine which recognition model to use for each line of text, so it supports images with both printed and handwritten text.
 
 > [!IMPORTANT]
 > Unlike the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Content` response header field. You can then call this URI, which represents the [Read Operation Result](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) method, to both check the status and return the results of the Batch Read method call.
@@ -34,8 +34,8 @@ To create and run the sample, do the following steps:
 1. Make the following changes in code where needed:
     1. Replace the value of `subscriptionKey` with your subscription key.
     1. Replace the value of `uriBase` with the endpoint URL for the [Batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) method from the Azure region where you obtained your subscription keys, if necessary.
-    1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image from which you want to extract handwritten text.
-1. Save the code as a file with an `.html` extension. For example, `get-handwriting.html`.
+    1. Optionally, replace the value of the `value` attribute for the `inputImage` control with the URL of a different image from which you want to extract text.
+1. Save the code as a file with an `.html` extension. For example, `get-text.html`.
 1. Open a browser window.
 1. In the browser, drag and drop the file into the browser window.
 1. When the webpage is displayed in the browser, choose the **Read image** button.
@@ -44,7 +44,7 @@ To create and run the sample, do the following steps:
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Handwriting Sample</title>
+    <title>Text Recognition Sample</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
@@ -94,10 +94,10 @@ To create and run the sample, do the following steps:
 
         .done(function(data, textStatus, jqXHR) {
             // Show progress.
-            $("#responseTextArea").val("Handwritten text submitted. " +
+            $("#responseTextArea").val("Text submitted. " +
                 "Waiting 10 seconds to retrieve the recognized text.");
 
-            // Note: The response may not be immediately available. Handwriting
+            // Note: The response may not be immediately available. Text
             // recognition is an asynchronous operation that can take a variable
             // amount of time depending on the length of the text you want to
             // recognize. You may need to wait or retry the GET operation.
@@ -155,8 +155,8 @@ To create and run the sample, do the following steps:
         });
     };
 </script>
-<h1>Read handwritten image:</h1>
-Enter the URL to an image of handwritten text, then click
+<h1>Read text from image:</h1>
+Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
 <br><br>
 Image to read:
