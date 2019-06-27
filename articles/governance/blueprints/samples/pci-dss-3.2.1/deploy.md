@@ -128,7 +128,7 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/en-us/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 > to estimate the cost of running resources deployed by this blueprint sample.
 
 ## Artifact parameters table

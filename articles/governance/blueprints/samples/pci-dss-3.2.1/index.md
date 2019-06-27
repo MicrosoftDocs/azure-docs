@@ -16,6 +16,8 @@ compliance. This blueprint helps customers govern cloud-based environments with 
 The PCI-DSS blueprint deploys a core set of policies for any Azure-deployed architecture requiring
 this accreditation.
 
+## Control mapping
+
 The control mapping section provides details on policies included within this initiative and how
 these policies help meet various controls defined by PCI-DSS v3.2.1. When assigned to an
 architecture, resources are evaluated by Azure Policy for non-compliance with assigned policies.
