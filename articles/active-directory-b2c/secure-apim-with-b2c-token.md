@@ -19,11 +19,15 @@ This document outlines how we can secure Azure API Management using B2C generate
 
 ## Prerequisites
 
-1. Azure B2C Tenant
-    1. Application
-    1. Policy
-1. Azure API Management
-    1. Configured with APIs
+You need the following resources in place before continuing with the steps in this article:
+
+:white_check_mark: [Azure AD B2C tenant](tutorial-create-tenant.md)
+
+:white_check_mark: [Application registered](tutorial-register-applications.md) in your tenant
+
+:white_check_mark: [User flows created](tutorial-create-user-flows.md) in your tenant
+
+:white_check_mark: [Published API](../api-management/import-and-publish.md) in Azure API Management
 
 ## Get the .well-known configuration from B2C
 
