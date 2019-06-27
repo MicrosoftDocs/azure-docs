@@ -288,27 +288,35 @@ If you automate logic app deployments by using an [Azure Resource Manager templa
 
       ![Hidden data in run history](media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
-Here are some considerations for when you use obfuscation:
+<a name="obfuscation-considerations"></a>
+
+#### Considerations when securing inputs and outputs
 
 * When you secure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) to that trigger or action for monitoring.
 
-* Make sure that you explicitly secure inputs or outputs where necessary. In some cases, for an action that uses secured outputs from earlier in the workflow as inputs, Logic Apps hides that action's inputs in run history but doesn't always hide that action's outputs, for example:
-
-  * When you manually enable the **Secure Outputs** setting on a trigger or action, Logic Apps hides those outputs in the run history. If a later action explicitly uses these secured outputs as inputs, Logic Apps hides these inputs in the run history, but *doesn't enable* the **Secure Inputs** setting on that action. If that action echoes the same hidden inputs as outputs, Logic Apps doesn't hide these outputs in the run history.
-
-    ![Secured outputs as inputs](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
-
-  * The Compose, Parse JSON, and Response actions provide only the **Secure Inputs** setting, which also hides their outputs when enabled. If these actions explicitly use secured outputs from earlier in the workflow as inputs, Logic Apps hides these actions' inputs and outputs, but *doesn't enable* the **Secure Inputs** setting on these actions.
-
-    If a different later action explicitly uses the hidden outputs from the Compose, Parse JSON, or Response actions as inputs, Logic Apps hides these inputs, but *not this action's outputs*, and *doesn't enable* the **Secure Inputs** setting on this action.
-
-    ![Secured outputs as inputs for specific actions, part 1](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
-
-    However, if another later Compose, Parse JSON, or Response action explicitly uses the hidden outputs from a previous Compose, Parse JSON, or Response action as inputs, Logic Apps *doesn't hide* these inputs.
-
-    ![Secured outputs as inputs for specific actions, part 2](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special-double.png)
-
 * The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
+
+* Turning on **Secure Inputs** and **Secure Outputs** in triggers and actions affects downstream actions that explicitly use outputs. Make sure that you explicitly turn on these settings where you expect to secure this data in run history. When a downstream action explicitly uses secured outputs as inputs, Logic Apps hides this downstream action's inputs in the run history without enabling **Secure Inputs** on this action. Except for a few specific actions, Logic Apps also hides this action's outputs without turning on **Secure Outputs**.
+
+  **Secure Outputs setting**
+
+  When you manually turn on **Secure Outputs** in a trigger or action, Logic Apps secures these outputs in the run history. If a downstream action explicitly uses these secured outputs as inputs, Logic Apps hides this downstream action's inputs in the run history, but *doesn't enable* the action's **Secure Inputs** setting. Also, when the downstream action's outputs are the same as the action's hidden inputs, Logic Apps doesn't hide these outputs in the run history.
+
+  ![Secured outputs as inputs and downstream impact on most actions](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
+
+  The Compose, Parse JSON, and Response actions has only the **Secure Inputs** setting. When turned on, the setting also hides these actions' outputs. If these actions explicitly use the upstream secured outputs as inputs, Logic Apps hides these actions' inputs and outputs, but *doesn't enable* these actions' **Secure Inputs** setting. If a downstream action explicitly uses the hidden outputs from the Compose, Parse JSON, or Response actions as inputs, Logic Apps *doesn't hide this downstream action's inputs or outputs*.
+
+  ![Secured outputs as inputs with downstream impact on specific actions](media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
+
+  **Secure Inputs setting**
+
+  When you manually turn on **Secure Inputs** in a trigger or action, Logic Apps secures these inputs in the run history. If a downstream action explicitly uses the visible outputs from that trigger or action as inputs, Logic Apps hides this downstream action's inputs in the run history, but *doesn't enable* the action's **Secure Inputs** setting and doesn't hide this action's outputs.
+
+  ![Secured inputs and downstream impact on most actions](media/logic-apps-securing-a-logic-app/secure-inputs-flow.png)
+
+  If the Compose, Parse JSON, and Response actions explicitly use the visible outputs from the trigger or action that has the secured inputs, Logic Apps hides these actions' inputs and outputs, but *doesn't enable* these action's **Secure Inputs** setting. If a downstream action explicitly uses the hidden outputs from the Compose, Parse JSON, or Response actions as inputs, Logic Apps *doesn't hide this downstream action's inputs or outputs*.
+
+  ![Secured inputs and downstream impact on specific actions](media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
 <a name="secure-action-parameters"></a>
 
