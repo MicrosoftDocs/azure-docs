@@ -45,7 +45,7 @@ This article contains security recommendations for the Azure IoT services. Imple
 | Recommendation | Comments |
 |-|-|
 | Protect access to your devices | Keep hardware ports in your devices to a bare minimum to avoid unwanted access. Additionally, build mechanisms to prevent or detect physical tampering of the device. Read [IoT security best practices](iot-security-best-practices.md) for details. |
-| Build secure hardware | Incorporate security features such as encrypted storage, or Trusted Platform Module (TPM), to keep devices and infrastructure more secure. Keep the device operating system and drivers upgraded to latest versions, and if space permits, install antivirus and antimalware capabilities. Read [IoT security architecture](iot-security-architecture) to understand how this can help mitigate several security threats. |
+| Build secure hardware | Incorporate security features such as encrypted storage, or Trusted Platform Module (TPM), to keep devices and infrastructure more secure. Keep the device operating system and drivers upgraded to latest versions, and if space permits, install antivirus and antimalware capabilities. Read [IoT security architecture](iot-security-architecture.md) to understand how this can help mitigate several security threats. |
 
 
 ## Monitoring

@@ -160,7 +160,7 @@
   - name: Security
     items:
     - name: Recommendations
-      href: /azure/iot-fundamentals/iot-security-recommendations?context=azure/iot-hub/rc/rc
+      href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
     - name: Security from the ground up
       href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
     - name: Security best practices

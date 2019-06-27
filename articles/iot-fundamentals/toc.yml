@@ -9,7 +9,7 @@
 - name: Security
   items:
   - name: Recommendations
-    href: iot-security-recommendations.md
+    href: security-recommendations.md
   - name: Security from the ground up
     href: iot-security-ground-up.md
   - name: Security best practices
