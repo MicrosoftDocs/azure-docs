@@ -94,6 +94,8 @@
     href: end-cluster.md
   - name: Work with Custom Images
     href: custom-images.md
+  - name: Use HB and HC VMs with CycleCloud
+    href: hb-hc-best-practices.md
   - name: Install Jetpack
     href: jetpack-install.md
   - name: Transfer Data
@@ -106,8 +108,6 @@
     href: images.md
   - name: Create Custom Roles
     href: create-custom-roles.md
-  - name: Use HB and HC VMs with CycleCloud
-    href: hb-hc-best-practices.md
 - name: Reference
   items:
   - name: Cluster Reference
