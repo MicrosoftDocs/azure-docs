@@ -117,7 +117,7 @@ The SCM site name takes you to the Kudu console, called the **Advanced portal**,
 Internet-based CI systems, such as GitHub and Azure DevOps, will still work with an ILB ASE if the build agent is internet accessible and on the same network as ILB ASE. So in case of Azure DevOps, if the build agent is created on the same VNET as ILB ASE (different subnet is fine), it will be able to pull code from Azure DevOps git and deploy to ILB ASE. 
 If you don't want to create your own build agent, you need to use a CI system that uses a pull model, such as Dropbox.
 
-The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the domain suffix *&lt;ASE name&gt;.appserviceenvironment.net*, and an app named *mytest*, use *mytest.&lt;ASE name&gt;.appserviceenvironment.net* for FTP and *mytest.scm.contoso.net* for web deployment.
+The publishing endpoints for apps in an ILB ASE use the domain that the ILB ASE was created with. This domain appears in the app's publishing profile and in the app's portal blade (**Overview** > **Essentials** and also **Properties**). If you have an ILB ASE with the domain suffix *&lt;ASE name&gt;.appserviceenvironment.net*, and an app named *mytest*, use *mytest.&lt;ASE name&gt;.appserviceenvironment.net* for FTP and *mytest.scm.appserviceenvironment.net* for web deployment.
 
 ## Configure an ILB ASE with a WAF device ##
 
