@@ -43,7 +43,7 @@ The following image shows a high-level overview of the interconnection:
 1. Create a standard ExpressRoute circuit on your Azure subscription under a resource group. 
     * While creating the ExpressRoute, choose **Oracle Cloud FastConnect** as the service provider. To create an ExpressRoute circuit, see the [step-by-step guide](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     * An Azure ExpressRoute circuit provides granular bandwidth options, whereas FastConnect supports 1, 2, 5, or 10 Gbps. Therefore, it is recommended to choose one of these matching bandwidth options under ExpressRoute.
-        ![Create ExpressRoute circuit](media/configure-azure-oci-networking/exr_create_new.png)
+    ![Create ExpressRoute circuit](media/configure-azure-oci-networking/exr_create_new.png)
 1. Note down your ExpressRoute **Service key**. You need to provide the key while configuring your FastConnect circuit.
     ![ExpressRoute Service key](media/configure-azure-oci-networking/exr_service_key.png)
 
