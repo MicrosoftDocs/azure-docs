@@ -229,7 +229,7 @@
         href: subclip-video-dotnet-howto.md
         displayName: subclipping, clip, edit, trim, clipping
       - name: With REST
-        herf: subclip-video-rest-howto.md
+        href: subclip-video-rest-howto.md
         displayName: subclipping, clip, edit, trim, clipping        
   - name: Use Event Grid
     items:

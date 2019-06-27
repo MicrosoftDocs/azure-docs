@@ -559,8 +559,8 @@ To get the same data as a file of comma-separated values, download [move-support
 | expressroutecrossconnections | No | No |
 | expressroutegateways | No | No |
 | expressrouteports | No | No |
-| frontdoors | Yes | Yes |
-| frontdoorwebapplicationfirewallpolicies | Yes | Yes |
+| frontdoors | No | No |
+| frontdoorwebapplicationfirewallpolicies | No | No |
 | loadbalancers | Yes | Yes |
 | localnetworkgateways | Yes | Yes |
 | natgateways | Yes | Yes |
