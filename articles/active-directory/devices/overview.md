@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/04/2019
+ms.date: 06/27/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -53,7 +53,7 @@ To get a device in Azure AD, you have multiple options:
 
 ## Device management
 
-Devices in Azure AD can be managed using Mobile Device Management (MDM) tools like Microsoft Intune, System Center Configuration Manager, Group Policy (hybrid Azure AD join), or other Mobile Application Management (MAM) tools. 
+Devices in Azure AD can be managed using Mobile Device Management (MDM) tools like Microsoft Intune, System Center Configuration Manager, Group Policy (hybrid Azure AD join), Mobile Application Management (MAM) tools, or other third-party tools.
 
 ## Resource access
 

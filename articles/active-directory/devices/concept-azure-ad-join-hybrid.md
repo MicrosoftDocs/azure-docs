@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/27/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -24,7 +24,7 @@ For more than a decade, many organizations have used the domain join to their on
 
 Typically, organizations with an on-premises footprint rely on imaging methods to provision devices, and they often use **System Center Configuration Manager (SCCM)** or **group policy (GP)** to manage them.
 
-If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are joined to your on-premises Active Directory and registered with your Azure Active Directory.
+If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These devices, are devices that are joined to your on-premises Active Directory and registered with your Azure Active Directory.
 
 |   | Hybrid Azure AD Join |
 | --- | --- |
@@ -35,9 +35,9 @@ If your environment has an on-premises AD footprint and you also want benefit fr
 | **Operating Systems** | Windows 10, 8.1 and 7 |
 |   | Windows Server 2008/R2, 2012/R2, 2016 and 2019 |
 | **Provisioning** | Windows 10, Windows Server 2016/2019 |
-|   | Domain join by IT and auto-join via Azure AD Connect or ADFS config |
-|   | Domain join by Windows Autopilot and auto-join via Azure AD Connect or ADFS config |
-|   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012 and Windows Server 2008 R2 - Require MSI |
+|   | Domain join by IT and autojoin via Azure AD Connect or ADFS config |
+|   | Domain join by Windows Autopilot and autojoin via Azure AD Connect or ADFS config |
+|   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2 - Require MSI |
 | **Device sign in options** | Organizational accounts using: |
 |   | Password |
 |   | Windows Hello for Business for Win10 |
@@ -48,36 +48,17 @@ If your environment has an on-premises AD footprint and you also want benefit fr
 |   | Self-service Password Reset and Windows Hello PIN reset on lock screen |
 |   | Enterprise State Roaming across devices |
 
-
 ![Azure AD registered devices](./media/overview/01.png)
 
-You should use Azure AD hybrid joined devices if:
+Use Azure AD hybrid joined devices if:
 
 - You have Win32 apps deployed to these devices that rely on Active Directory machine authentication.
-- You require GP to manage devices.
-- You want to continue to use imaging solutions to configure devices for your employees.
-
-You can configure Hybrid Azure AD joined devices for Windows 10 and down-level devices such as Windows 8 and Windows 7.
-
-## Azure AD joined devices
-
-The goal of Azure AD joined devices is to simplify:
-
-- Windows deployments of work-owned devices
-- Access to organizational apps and resources from any Windows device
-- Cloud-based management of work-owned devices
-- Users to sign in to their devices with their Azure AD or synced Active Directory work or school accounts.
-
-![Azure AD registered devices](./media/overview/02.png)
-
-Azure AD Join can be deployed by using any of the following methods:
-
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
-- [Bulk deployment](https://docs.microsoft.com/intune/windows-bulk-enroll)
-- [Self-service experience](azuread-joined-devices-frx.md)
+- You want to continue to use Group Policy to manage device configuration.
+- You want to continue to use existing imaging solutions to deploy and configure devices.
+- You must support down-level Windows 7 and 8.1 devices in addition to Windows 10
 
 ## Next steps
 
-- [What is Microsoft Intune?](https://docs.microsoft.com/intune/what-is-intune)
-- [What is co-management?](https://docs.microsoft.com/sccm/comanage/overview)
-- [Windows Hello for Business](https://docs.microsoft.com/indows/security/identity-protection/hello-for-business/hello-identity-verification)
+- [Plan your hybrid Azure AD join implementation](hybrid-azuread-join-plan.md)
+- [Manage device identities using the Azure portal](device-management-azure-portal.md)
+- [Manage stale devices in Azure AD](manage-stale-devices.md)

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/27/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -52,10 +52,11 @@ Azure AD registration can be accomplished when accessing a work application for 
 
 ## Scenarios
 
-A user in your organization wants to access tools for email, reporting time off, and benefits enrollment from their home PC. Your organization has these tools behind a Conditional Access policy that requires access from an Intune compliant device. The user adds their organization account and registers their home PC with Azure AD and the required Intune policies are enforced giving the user access to their resources.
+A user in your organization wants to access tools for email, reporting time-off, and benefits enrollment from their home PC. Your organization has these tools behind a Conditional Access policy that requires access from an Intune compliant device. The user adds their organization account and registers their home PC with Azure AD and the required Intune policies are enforced giving the user access to their resources.
 
-Another user wants to access their organizational email on their personal Android phone that has been rooted. Your company requires a compliant device and has created an Intune complance policy to block any rooted devices. The employee is stopped from accessing organizational resources on this device.
+Another user wants to access their organizational email on their personal Android phone that has been rooted. Your company requires a compliant device and has created an Intune compliance policy to block any rooted devices. The employee is stopped from accessing organizational resources on this device.
 
 ## Next steps
 
-- [What is Microsoft Intune?](https://docs.microsoft.com/intune/what-is-intune)
+- [Manage device identities using the Azure portal](device-management-azure-portal.md)
+- [Manage stale devices in Azure AD](manage-stale-devices.md)

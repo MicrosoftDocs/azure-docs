@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/27/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -50,17 +50,15 @@ Azure AD joined devices can still maintain single sign-on access to on-premises 
 
 ## Scenarios
 
-
 While Azure AD join is primarily intended for organizations that do not have an on-premises Windows Server Active Directory infrastructure, you can certainly use it in scenarios where:
 
 - You want to transition to cloud-based infrastructure using Azure AD and MDM like Intune.
 - You can’t use an on-premises domain join, for example, if you need to get mobile devices such as tablets and phones under control.
 - Your users primarily need to access Office 365 or other SaaS apps integrated with Azure AD.
-- You want to manage a group of users in Azure AD instead of in Active Directory. This can apply, for example, to seasonal workers, contractors, or students.
+- You want to manage a group of users in Azure AD instead of in Active Directory. This scenario can apply, for example, to seasonal workers, contractors, or students.
 - You want to provide joining capabilities to workers in remote branch offices with limited on-premises infrastructure.
 
 You can configure Azure AD joined devices for Windows 10 devices.
-
 
 The goal of Azure AD joined devices is to simplify:
 
@@ -79,6 +77,7 @@ Azure AD Join can be deployed by using any of the following methods:
 
 ## Next steps
 
-- [What is Microsoft Intune?](https://docs.microsoft.com/intune/what-is-intune)
-- [What is co-management?](https://docs.microsoft.com/sccm/comanage/overview)
-- [Windows Hello for Business](https://docs.microsoft.com/indows/security/identity-protection/hello-for-business/hello-identity-verification)
+- [Plan your Azure AD join implementation](azureadjoin-plan.md)
+- [How to manage the local administrators group on Azure AD joined devices](assign-local-admin.md)
+- [Manage device identities using the Azure portal](device-management-azure-portal.md)
+- [Manage stale devices in Azure AD](manage-stale-devices.md)
