@@ -67,7 +67,7 @@ The Azure Migrate appliance needs internet connectivity to the internet.
 
 **URL** | **Details**  
 --- | --- |
-*.portal.azure.com  Navigate to the Azure Migrate in the Azure portal.
+*.portal.azure.com  | Navigate to the Azure Migrate in the Azure portal.
 *.windows.net | Log into your Azure subscription.
 *.microsoftonline.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
@@ -204,7 +204,7 @@ VirtualMachine.SnapshotManagement.RemoveSnapshot | Allow removal of a snapshot f
 
 **Support** | **Details**
 --- | ---
-**Machine workload** | Azure Migrate supports migration of any workload (say Active Directory, SQL server etc) running on a supported machine.
+**Machine workload** | Azure Migrate supports migration of any workload (say Active Directory, SQL server, etc.) running on a supported machine.
 **Operating systems** | For the latest information, review the [operating system support](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for Site Recovery. Azure Migrate provides identical VM operating system support.
 **Linux file system/guest storage** | For the latest information, review the [Linux file system support](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) for Site Recovery. Azure Migrate has identical Linux file system support.
 **Network/Storage** | For the latest information, review the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate provides identical network/storage requirements.
