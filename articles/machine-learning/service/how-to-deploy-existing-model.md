@@ -36,7 +36,7 @@ If you have a machine learning model that was trained outside the Azure Machine 
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
-* A trained model. The model must be persisted to one or more files.
+* A trained model. The model must be persisted to one or more files on your development enviornment.
 
     > [!NOTE]
     > To demonstrate registering a model trained outside Azure Machine Learning service, the example code snippets in this article use the models created by Paolo Ripamonti's Twitter sentiment analysis project: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
