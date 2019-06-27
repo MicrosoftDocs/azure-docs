@@ -17,15 +17,13 @@ ms.author: pafarley
 
 Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract keys, values, and table data from form documents. You can use this service to digitize the information in paper forms or analyze large amounts of form data more easily.
 
-## What it does
-
-### Custom models
+## Custom models
 
 The Form Recognizer custom model trains to your own data, and you only need five sample input forms to start. When you submit your input data, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. It then outputs structured data that includes the relationships in the original file. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
 Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. By contrast, pre-trained machine learning models require standardized data. They're less accurate with input material that deviates from traditional formats, like industry-specific forms.
 
-### Pre-built models
+## Pre-built receipt model
 
 Form Recognizer also includes a model for reading sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the pre-built receipts model is trained to recognize and return all of the text on a receipt.
 
