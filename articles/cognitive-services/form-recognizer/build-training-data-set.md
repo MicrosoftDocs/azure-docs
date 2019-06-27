@@ -25,6 +25,11 @@ It's important to use a data set that's optimized for training. Use the followin
 1. Use forms with different values in each field.
 1. If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
+## General input requirements
+
+Make sure your training data set also follows the input requirments for all Form Recognizer content.
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
 ## Next steps
 
 Now that you've learned how to build a training data set, follow a quickstart to train a custom Form Recognizer model and start using it on your forms.
