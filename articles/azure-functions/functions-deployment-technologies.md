@@ -46,8 +46,8 @@ Some key concepts are critical to understanding how deployments work in Azure Fu
 
 When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. When you deploy your updates by referencing an external package URL, local Git, cloud sync, or FTP, you must manually sync your triggers. You can sync triggers in one of three ways:
 
-* Restart your function app in the Azure portal.
-* Send an HTTP POST request to `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` by using the [master key](functions-bindings-http-webhook.md#authorization-keys).
+* Restart your function app in the Azure portal
+* Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook.md#authorization-keys).
 * Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app.
 
 ## Deployment technology details 
@@ -58,7 +58,7 @@ The following deployment methods are available in Azure Functions.
 
 You can use an external package URL to reference a remote package (.zip) file that contains your function app. The file is downloaded from the provided URL, and the app runs in [Run From Package](run-functions-from-deployment-package.md) mode.
 
->__How to use it:__ Add `WEBSITE_RUN_FROM_PACKAGE` to your application settings. The value of this setting should be a URL. The URL is the location of the specific package file you want to run. You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+>__How to use it:__ Add `WEBSITE_RUN_FROM_PACKAGE` to your application settings. The value of this setting should be a URL (the location of the specific package file you want to run). You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
 >
 >If you use Azure Blob storage, use a private container with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) to give Functions access to the package. Any time the application restarts, it fetches a copy of the content. Your reference must be valid for the lifetime of the application.
 
@@ -131,7 +131,7 @@ You can use FTP to directly transfer files to Azure Functions.
 
 ### Portal editing
 
-In the portal-based editor, you can directly edit the files that are in your function app (essentially deploying every time you select **Save**).
+In the portal-based editor, you can directly edit the files that are in your function app (essentially deploying every time you save your changes).
 
 >__How to use it:__ To be able to edit your functions in the Azure portal, you must have [created your functions in the portal](functions-create-first-azure-function.md). To preserve a single source of truth, using any other deployment method makes your function read-only and prevents continued portal editing. To return to a state in which you can edit your files in the Azure portal, you can manually turn the edit mode back to `Read/Write` and remove any deployment-related application settings (like `WEBSITE_RUN_FROM_PACKAGE`). 
 

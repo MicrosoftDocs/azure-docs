@@ -19,7 +19,7 @@ ms.date: 05/23/2019
 Learn how to explore and prepare data with the azureml-datasets package in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). The [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class (preview) enables you to explore and prepare your data by providing functions such as: sampling, summary statistics and intelligent transformations. Transformation steps are saved in [Dataset definitions](how-to-manage-dataset-definitions.md) with the capability to handle multiple large files of different schemas in a highly scalable manner.
 
 > [!Important]
-> Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). While transformation functions can be done directly with the GA'ed [Data Prep functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](how-to-create-dataset-snapshots.md) and store [versioned dataset definitions](how-to-manage-dataset-definitions.md). Datasets is the next version of the Data Prep SDK, offering expanded functionality for managing datasets in AI solutions.
+> Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). While transformation functions can be done directly with the GA'ed [Data Prep functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) and store [versioned dataset definitions](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py). Datasets is the next version of the Data Prep SDK, offering expanded functionality for managing datasets in AI solutions.
 
 ## Prerequisites
 
@@ -372,8 +372,6 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
 
 ## Next steps
-
-* [Manage the life cycle of Dataset definitions](how-to-manage-dataset-definitions.md).
 
 * See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example.
 
