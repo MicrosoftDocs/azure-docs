@@ -60,7 +60,7 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
     
 
 > [!NOTE]  
-> For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). 
+> For other cluster creation methods and understanding the properties used in this article, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## Access the Grafana dashboard
 
