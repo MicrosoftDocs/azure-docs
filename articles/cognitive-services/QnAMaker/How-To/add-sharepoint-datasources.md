@@ -3,13 +3,13 @@ title: Sharepoint files - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Add secured Sharepoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/20/2019
-ms.author: tulasim
+ms.date: 06/24/2019
+ms.author: diberry
 ---
 
 # Add a secured Sharepoint data source to your knowledge base
