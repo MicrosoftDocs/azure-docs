@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Create on-demand Apache Hadoop clusters in Azure HDInsight using Data Factory '
-description: Learn how to create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory.
+description: Tutorial - Learn how to create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 04/18/2019
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 ---
@@ -248,7 +248,7 @@ In this section, you author two linked services within your data factory.
 
     | Property | Value |
     | --- | --- |
-    | Name | Enter `HDinisghtLinkedService`.|
+    | Name | Enter `HDInsightLinkedService`.|
     | Type | Select **On-demand HDInsight**. |
     | Azure Storage Linked Service | Select `HDIStorageLinkedService`. |
     | Cluster type | Select **hadoop** |

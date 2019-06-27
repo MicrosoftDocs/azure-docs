@@ -75,7 +75,7 @@ Details on decision questions:
    * Multi-site on-premises authentication solution.
 5. Azure AD Identity Protection requires Password Hash Sync regardless of which sign-in method you choose, to provide the *Users with leaked credentials* report. Organizations can failover to Password Hash Sync if their primary sign-in method fails and it was configured before the failure event.
 
->[!NOTE]
+> [!NOTE]
 > Azure AD Identity Protection require [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
 
 ## Detailed considerations
@@ -88,14 +88,17 @@ Details on decision questions:
 
 * **Advanced scenarios**. If organizations choose to, it's possible to use insights from identities with Azure AD Identity Protection reports with Azure AD Premium P2. An example is the leaked credentials report. Windows Hello for Business has [specific requirements when you use password hash synchronization](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) require password hash synchronization to provision users with their corporate credentials in the managed domain.
 
-	Organizations that require multifactor authentication with password hash synchronization must use Azure AD multifactor authentication. Those organizations can't use third-party or on-premises multifactor authentication methods.
+	Organizations that require multifactor authentication with password hash synchronization must use Azure AD multifactor authentication or [Conditional Access custom controls](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Those organizations can't use third-party or on-premises multifactor authentication methods that relies on federation.
+
+> [!NOTE]
+> Azure AD Conditional Access require [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
 
 * **Business continuity**. Using password hash synchronization with cloud authentication is highly available as a cloud service that scales to all Microsoft datacenters. To make sure password hash synchronization does not go down for extended periods, deploy a second Azure AD Connect server in staging mode in a standby configuration.
 
 * **Considerations**. Currently, password hash synchronization doesn't immediately enforce changes in on-premises account states. In this situation, a user has access to cloud apps until the user account state is synchronized to Azure AD. Organizations might want to overcome this limitation by running a new synchronization cycle after administrators do bulk updates to on-premises user account states. An example is disabling accounts.
 
 > [!NOTE]
-> The password expired and account locked-out states aren't currently synced to Azure AD with Azure AD Connect. 
+> The password expired and account locked-out states aren't currently synced to Azure AD with Azure AD Connect. When you change a user's password and set the *user must change password at next logon* flag, the password hash will not be synced to Azure AD with Azure AD Connect, until the user change their password.
 
 Refer to [implementing password hash synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) for deployment steps.
 
@@ -109,7 +112,7 @@ Refer to [implementing password hash synchronization](https://docs.microsoft.com
 
 * **Advanced scenarios**. Pass-through Authentication enforces the on-premises account policy at the time of sign in. For example, access is denied when an on-premises user’s account state is disabled, locked out, or [password expired](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) or falls outside the hours when the user is allowed to sign in. 
 
-	Organizations that require multifactor authentication with pass-through authentication must use Azure Multi-Factor Authentication (MFA). Those organizations can't use a third-party or on-premises multifactor authentication method. Advanced features require that password hash synchronization is deployed whether or not you choose pass-through authentication. An example is the leaked credentials report of Identity Protection.
+	Organizations that require multifactor authentication with pass-through authentication must use Azure Multi-Factor Authentication (MFA) or [Conditional Access custom controls](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Those organizations can't use a third-party or on-premises multifactor authentication method that relies on federation. Advanced features require that password hash synchronization is deployed whether or not you choose pass-through authentication. An example is the leaked credentials report of Identity Protection.
 
 * **Business continuity**. We recommend that you deploy two extra pass-through authentication agents. These extras are in addition to the first agent on the Azure AD Connect server. This additional deployment ensures high availability of authentication requests. When you have three agents deployed, one agent can still fail when another agent is down for maintenance. 
 
@@ -130,7 +133,7 @@ Refer to [implementing pass-through authentication](https://docs.microsoft.com/a
 * **Advanced scenarios**. A federated authentication solution is usually required when customers have an authentication requirement that Azure AD doesn't support natively. See detailed information to help you [choose the right sign-in option](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Consider the following common requirements:
 
   * Authentication that requires smartcards or certificates.
-  * On-premises MFA servers or third-party multifactor providers.
+  * On-premises MFA servers or third-party multifactor providers requiring a federated identity provider.
   * Authentication by using third-party authentication solutions. See the [Azure AD federation compatibility list](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
   * Sign in that requires an sAMAccountName, for example, DOMAIN\username, instead of a User Principal Name (UPN), for example, user@domain.com.
 

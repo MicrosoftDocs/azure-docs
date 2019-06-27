@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 6/21/2019
 ms.author: victorh
 ---
 
@@ -71,7 +71,6 @@ The Azure Firewall service complements network security group functionality. Tog
 
 Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC level NSGs (not viewable).  Subnet level NSGs aren't required on the Azure Firewall subnet, and are disabled to ensure no service interruption.
 
-
 ## How do I set up Azure Firewall with my service endpoints?
 
 For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features-- service endpoint security and central logging for all traffic.
@@ -118,6 +117,10 @@ Yes, you can use Azure Firewall in a hub virtual network to route and filter tra
 ## Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?
 
 Yes. However, configuring the UDRs to redirect traffic between subnets in the same VNET requires additional attention. While using the VNET address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **VNET**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don’t require UDRs.
+
+## Does Azure Firewall outbound SNAT between private networks?
+
+Azure Firewall doesn’t SNAT when the destination IP address is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet.
 
 ## Is forced tunneling/chaining to a Network Virtual Appliance supported?
 
