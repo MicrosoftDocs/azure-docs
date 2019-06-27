@@ -286,10 +286,13 @@
       href: functions-bindings-timer.md
     - name: Twilio
       href: functions-bindings-twilio.md    
-  - name: host.json 2.x reference
+  - name: host.json reference
     href: functions-host-json.md      
-  - name: host.json 1.x reference
-    href: functions-host-json-v1.md    
+    items:
+    - name: Functions 2.x
+      href: functions-host-json.md  
+    - name: Functions 1.x
+      href: functions-host-json-v1.md    
   - name: Networking FAQ
     href: functions-networking-faq.md
   - name: OpenAPI reference
