@@ -26,7 +26,7 @@ Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resour
 
     - **Subscription**: Select a Azure subscription.
     - **Resource group**: Give the resource group a name.
-    - **Region**: Specify an azure location. This is where the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
+    - **Region**: Specify an Azure location. This is where the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
    ![Set group values](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
@@ -42,11 +42,11 @@ After you create a resource group, you can deploy resources to the group from th
 
    ![New resource](./media/resource-group-template-deploy-portal/new-resources.png)
 
-1. Find the type of resource you would like to deploy. The resources are organized in catagories. If you don't see the particular solution you would like to deploy, you can search the Marketplace for it.
+1. Find the type of resource you would like to deploy. The resources are organized in catagories. If you don't see the particular solution you would like to deploy, you can search the Marketplace for it. The following screenshot shows that Ubuntu Server is selected.
 
    ![Select resource type](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. Depending on the type of selected resource, you have a collection of relevant properties to set before deployment. For all types, you must select a destination resource group. The following image shows how to create a web app and deploy it to the resource group you created.
+1. Depending on the type of selected resource, you have a collection of relevant properties to set before deployment. For all types, you must select a destination resource group. The following image shows how to create a Linux virtual machine and deploy it to the resource group you created.
 
    ![Create resource group](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
@@ -67,14 +67,11 @@ If you want to execute a deployment but not use any of the templates in the Mark
 > [!NOTE]
 > The portal interface doesn't support referencing a [secret from a Key Vault](resource-manager-keyvault-parameter.md). Instead, use [PowerShell](resource-group-template-deploy.md) or [Azure CLI](resource-group-template-deploy-cli.md) to deploy your template locally or from an external URI.
 
-1. To deploy a customized template through the portal, select **Create a resource**, search for **template**. and then select **Template Deployment**.
+1. To deploy a customized template through the portal, select **Create a resource**, search for **template**. and then select **Template deployment**.
 
    ![Search template deployment](./media/resource-group-template-deploy-portal/search-template.png)
 
 1. Select **Create**.
-
-   ![Select create](./media/resource-group-template-deploy-portal/show-template-option.png)
-
 1. You see several options for creating a template:
 
     - **Build your own template in editor**: create a template using the portal template editor.  The editor is capable to add a resource template schema.
