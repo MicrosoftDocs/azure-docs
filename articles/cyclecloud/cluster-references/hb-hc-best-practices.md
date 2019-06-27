@@ -6,21 +6,21 @@ ms.date: 06/11/2019
 ms.author: anhoward
 ---
 # Overview
-The [H-series virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc) (VMs) are the latest HPC offerings on Azure. HB-series VMs offer 60-core AMD EPYC processors, optimized for running applications with high memory-bandwidth requirements, such as explicit finite element analysis, fluid dynamics, and weather modeling. The HC-series VMs have 44-core Intel Xeon Skylake processors and are optimized for applications requiring intensive CPU calculations, like molecular dynamics and implicit finite element analysis. Both Hb and Hc series VMs feature 100 Gb/s EDR InfiniBand and support all of the latest MPI types and versions. For more information on scaling HPC applications on Hb and Hc VMs, [click here](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/hpc/compiling-scaling-applications).
+The [H-series virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc) (VMs) are the latest HPC offerings on Azure. HB-series VMs offer 60-core AMD EPYC processors, optimized for running applications with high memory-bandwidth requirements, such as explicit finite element analysis, fluid dynamics, and weather modeling. The HC-series VMs have 44-core Intel Xeon Skylake processors and are optimized for applications requiring intensive CPU calculations, like molecular dynamics and implicit finite element analysis. Hb and Hc VMs feature 100 Gb/s EDR InfiniBand and support the latest MPI types and versions. The [Scaling HPC Applications Guide](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/hpc/compiling-scaling-applications) has more information on how to scale HPC applications on Hb and Hc VMs.
 
 Azure CycleCloud supports the new H-series VMs out of the box, but for the best experience and performance, follow the guidelines and best practices on this page.
 
 ## CentOS 7.6 HPC Marketplace Image
-The CentOS 7.6 HPC Marketplace image contains all of the drivers to enable the InfiniBand interface as well as pre-compiled versions of all of the common MPI variants installed in `/opt`. For details on what exactly the image has to offer see [this blog post](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557). 
+The CentOS 7.6 HPC Marketplace image contains all of the drivers to enable the InfiniBand interface as well as pre-compiled versions of all of the common MPI variants installed in */opt*. For details on what exactly the image has to offer see [this blog post](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557). 
 
-To use the CentOS 7.6 HPC image when creating your cluster, check the `Custom Image` box on the `Advanced Settings` parameter and enter the value `OpenLogic:CentOS-HPC:7.6:latest`.
+To use the CentOS 7.6 HPC image when creating your cluster, check the **Custom Image** box on the **Advanced Settings** parameter and enter the value `OpenLogic:CentOS-HPC:7.6:latest`.
 
 ![CentOS HPC Image](~/images/hc-marketplace-image.png)
 
 In order to support the older H16r VM series and keep cluster head nodes locked to the same version of CentOS, the default "Cycle CentOS 7" image in the Base OS dropdown deploys CentOS 7.4. While this is fine for most VM series, HB/HC VMs require CentOS 7.6 or newer and a different Mellanox driver. 
 
 ## Disable SElinux in CycleCloud < 7.7.4
-By default, SElinux only considers `/root` and `/home` to be valid paths for home directories. Any users with home directories outside of these paths cause SElinux to block SSH from using any SSH keypairs in the user's home directory. In CycleCloud clusters, user home directories are created in `/shared/home`. While CycleCloud versions newer than 7.7.4 automatically set the `/shared/home` path as a valid SElinux homedir context, older versions don't support this. In order to make sure SSH works properly for users on the cluster, you need to disable SElinux in the cluster template:
+By default, SElinux only considers */root* and */home* to be valid paths for home directories. Any users with home directories outside of these paths cause SElinux to block SSH from using any SSH keypairs in the user's home directory. In CycleCloud clusters, user home directories are created in */shared/home*. While CycleCloud versions newer than 7.7.4 automatically set the */shared/home* path as a valid SElinux homedir context, older versions don't support this. In order to make sure SSH works properly for users on the cluster, you need to disable SElinux in the cluster template:
 ```ini
 [[node defaults]]
     [[[configuration]]]
@@ -28,7 +28,7 @@ By default, SElinux only considers `/root` and `/home` to be valid paths for hom
 ```
 
 ## Running MPI jobs with Slurm
-MPI jobs running on Hb/Hc VMs need to run in the same VM Scaleset (VMSS). To ensure proper autoscale placement of VMs for MPI jobs running with Slurm, make sure to set the following attribute in your cluster template:
+MPI jobs running on HB/HC VMs need to run in the same VM Scaleset (VMSS). To ensure proper autoscale placement of VMs for MPI jobs running with Slurm, make sure to set the following attribute in your cluster template:
 
 ```ini
 [[nodearray execute]]
