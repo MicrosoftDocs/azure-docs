@@ -21,6 +21,7 @@
   - name: Manage multiple tenants
     href: manage-multiple-tenants.md  
   - name: Customizing content models
+    href: customize-content-models-overview.md
     items:
     - name: Brands
       href: customize-brands-model-overview.md
