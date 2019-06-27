@@ -121,19 +121,9 @@ If you do not require activation of a role that requires approval, you can cance
 
 When you activate a role in PIM, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, here is what you should do.
 
-1. Sign out of the Azure portal and then sign back in.
+- Sign out of the Azure portal and then sign back in.
 
-    When you activate an Azure resource role, you will see the stages of your activation. Once all the stages are complete, you will see a **Sign out** link. Make sure to use this link to sign out and then sign back in. This will solve most cases for activation delay.
-
-### Permissions are not removed after deactivating a role or the role activation expires
-
-When you deactivate a role in PIM or when a role activation period expires, there might be a delay where you continue to have access. The following scenario is a possible delay.
-
-1. If the activation period has expired, but you still have the browser session open, close your browser.
-
-    You can continue to use the role until you close that session. This is a known issue and we are looking at a potential fix to actively revoke each session once activation has expired.
-
-1. If your delay is different than this scenario, please open a support ticket.
+    When you activate an Azure resource role, you will see the stages of your activation. Once all the stages are complete, you will see a **Sign out** link. You can use this link to sign out. This will solve most cases for activation delay.
 
 ## Next steps
 
