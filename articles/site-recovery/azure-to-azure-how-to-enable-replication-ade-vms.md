@@ -2,7 +2,7 @@
 title: Configure replication for Azure Disk Encryption-enabled VMs in Azure Site Recovery | Microsoft Docs
 description: This article describes how to configure replication for Azure Disk Encryption-enabled VMs from one Azure region to another by using Site Recovery.
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
