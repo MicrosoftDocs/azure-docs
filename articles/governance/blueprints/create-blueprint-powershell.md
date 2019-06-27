@@ -3,7 +3,7 @@ title: Create a blueprint with PowerShell
 description: Use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/14/2019
+ms.date: 06/27/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
@@ -197,88 +197,69 @@ a role assignment on the resource group.
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyStorageTags' -ArtifactFile .\policyStorageTags.json
      ```
 
-1. Add template under resource group. The **ArtifactFile** for a Resource Manager template includes
-   the normal JSON component of the template and defines the target resource group with
-   **properties.resourceGroup**. The template also reuses the **storageAccountType**, **tagName**,
-   and **tagValue** blueprint parameters by passing each to the template. The blueprint parameters
-   are available to the template by defining **properties.parameters** and inside the template JSON
-   that key-value pair is used to inject the value. The blueprint and template parameter names could
-   be the same, but were made different to illustrate how each passes from the blueprint to the
-   template artifact.
+1. Add template under resource group. The **TemplateFile** for a Resource Manager template includes
+   the normal JSON component of the template. The template also reuses the **storageAccountType**,
+   **tagName**, and **tagValue** blueprint parameters by passing each to the template. The blueprint
+   parameters are available to the template by using parameter **TemplateParameterFile** and inside
+   the template JSON that key-value pair is used to inject the value. The blueprint and template
+   parameter names could be the same.
 
-   - JSON file - templateStorage.json
+   - JSON Azure Resource Manager template file - templateStorage.json
 
      ```json
      {
-         "kind": "template",
-         "properties": {
-             "template": {
-                 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                 "contentVersion": "1.0.0.0",
-                 "parameters": {
-                     "storageAccountTypeFromBP": {
-                         "type": "string",
-                         "defaultValue": "Standard_LRS",
-                         "allowedValues": [
-                             "Standard_LRS",
-                             "Standard_GRS",
-                             "Standard_ZRS",
-                             "Premium_LRS"
-                         ],
-                         "metadata": {
-                             "description": "Storage Account type"
-                         }
-                     },
-                     "tagNameFromBP": {
-                         "type": "string",
-                         "defaultValue": "NotSet",
-                         "metadata": {
-                             "description": "Tag name from blueprint"
-                         }
-                     },
-                     "tagValueFromBP": {
-                         "type": "string",
-                         "defaultValue": "NotSet",
-                         "metadata": {
-                             "description": "Tag value from blueprint"
-                         }
-                     }
-                 },
-                 "variables": {
-                     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-                 },
-                 "resources": [{
-                     "type": "Microsoft.Storage/storageAccounts",
-                     "name": "[variables('storageAccountName')]",
-                     "apiVersion": "2016-01-01",
-                     "tags": {
-                        "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
-                     },
-                     "location": "[resourceGroups('storageRG').location]",
-                     "sku": {
-                         "name": "[parameters('storageAccountTypeFromBP')]"
-                     },
-                     "kind": "Storage",
-                     "properties": {}
-                 }],
-                 "outputs": {
-                     "storageAccountSku": {
-                         "type": "string",
-                         "value": "[variables('storageAccountName')]"
-                     }
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "storageAccountTypeFromBP": {
+                 "type": "string",
+                 "defaultValue": "Standard_LRS",
+                 "allowedValues": [
+                     "Standard_LRS",
+                     "Standard_GRS",
+                     "Standard_ZRS",
+                     "Premium_LRS"
+                 ],
+                 "metadata": {
+                     "description": "Storage Account type"
                  }
              },
-             "resourceGroup": "storageRG",
-             "parameters": {
-                 "storageAccountTypeFromBP": {
-                     "value": "[parameters('storageAccountType')]"
-                 },
-                 "tagNameFromBP": {
-                     "value": "[parameters('tagName')]"
-                 },
-                 "tagValueFromBP": {
-                     "value": "[parameters('tagValue')]"
+             "tagNameFromBP": {
+                 "type": "string",
+                 "defaultValue": "NotSet",
+                 "metadata": {
+                     "description": "Tag name from blueprint"
                  }
+             },
+             "tagValueFromBP": {
+                 "type": "string",
+                 "defaultValue": "NotSet",
+                 "metadata": {
+                     "description": "Tag value from blueprint"
+                 }
+             }
+         },
+         "variables": {
+             "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
+         },
+         "resources": [{
+             "type": "Microsoft.Storage/storageAccounts",
+             "name": "[variables('storageAccountName')]",
+             "apiVersion": "2016-01-01",
+             "tags": {
+                 "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
+             },
+             "location": "[resourceGroups('storageRG').location]",
+             "sku": {
+                 "name": "[parameters('storageAccountTypeFromBP')]"
+             },
+             "kind": "Storage",
+             "properties": {}
+         }],
+         "outputs": {
+             "storageAccountSku": {
+                 "type": "string",
+                 "value": "[variables('storageAccountName')]"
              }
          }
      }
@@ -288,7 +269,7 @@ a role assignment on the resource group.
 
      ```azurepowershell-interactive
      # Use the reference to the new blueprint object from the previous steps
-     New-AzBlueprintArtifact -Blueprint $blueprint -Name 'templateStorage' -ArtifactFile .\templateStorage.json
+     New-AzBlueprintArtifact -Blueprint $blueprint -Type TemplateArtifact -Name 'templateStorage' -TemplateFile .\templateStorage.json
      ```
 
 1. Add role assignment under resource group. Similar to the previous role assignment entry, the
