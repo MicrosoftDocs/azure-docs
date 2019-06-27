@@ -14,13 +14,13 @@ manager: carmonm
 The following article details how the Azure Blueprints PCI-DSS v3.2.1 blueprint sample maps to the
 PCI-DSS v3.2.1 controls. For more information about the controls, see [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
-The following mappings are to the **PCI-DSS v3.2.1** controls. Use the navigation on the right to
-jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
+The following mappings are to the **PCI-DSS v3.2.1:2018** controls. Use the navigation on the right
+to jump directly to a specific control mapping. Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
 initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
-**Definitions** page. Then, find and select the **[Preview] Audit PCI-DSS v3.2.1 controls** built-in
-policy initiative.
+**Definitions** page. Then, find and select the **[Preview] Audit PCI v3.2.1:2018 controls and
+deploy specific VM Extensions to support audit requirements** built-in policy initiative.
 
-## 1.3.2 and 1.3.4 Network controls
+## 1.3.2 and 1.3.4 Boundary Protection
 
 This blueprint helps you manage and control networks by assigning [Azure
 Policy](../../../policy/overview.md) definitions that monitors network security groups with
@@ -33,16 +33,17 @@ within the information system.
 - Audit unrestricted network access to storage accounts
 - Access through Internet facing endpoint should be restricted
 
-## 3.4.a, 4.1, 4.1.g, 4.1.h Policies on the use of cryptographic controls
+## 3.4.a, 4.1, 4.1.g, 4.1.h Cryptographic Protection
 
 This blueprint helps you enforce your policy with the use of cryptograph controls by assigning [Azure Policy](../../../policy/overview.md)
 definitions which enforce specific cryptograph controls and audit use of weak cryptographic
 settings. Understanding where your Azure resources may have non-optimal cryptographic configurations
 can help you take corrective actions to ensure resources are configured in accordance with your
-information security policy. Specifically, the policies assigned by this blueprint require transparent data
-encryption on SQL databases; audit missing encryption on storage accounts, and
-automation account variables. There are also policies which address audit insecure connections to storage accounts, 
-Function Apps, WebApp, API Apps, and Redis Cache, and audit unencrypted Service Fabric communication.
+information security policy. Specifically, the policies assigned by this blueprint require
+transparent data encryption on SQL databases; audit missing encryption on storage accounts, and
+automation account variables. There are also policies which address audit insecure connections to
+storage accounts, Function Apps, WebApp, API Apps, and Redis Cache, and audit unencrypted Service
+Fabric communication.
 
 - Function App should only be accessible over HTTPS
 - Web Application should only be accessible over HTTPS
@@ -56,7 +57,7 @@ Function Apps, WebApp, API Apps, and Redis Cache, and audit unencrypted Service 
 - Transparent Data Encryption on SQL databases should be enabled
 - Deploy SQL DB transparent data encryption
 
-## 5.1, 6.2, 6.6 and 11.2.1 Management of technical vulnerabilities
+## 5.1, 6.2, 6.6 and 11.2.1 Vulnerability Scanning and System Updates
 
 This blueprint helps you manage information system vulnerabilities by assigning [Azure
 Policy](../../../policy/overview.md) definitions that monitor missing system updates, operating
@@ -84,17 +85,18 @@ appropriate separation of duties.
 - There should be more than one owner assigned to your subscription
 - A maximum of 3 owners should be designated for your subscription 
 
-## 7.2.1, 8.3.1.a and 8.3.1.b Management of privileged access rights
+## 7.2.1, 8.3.1.a and 8.3.1.b Management of Privileged Access Rights
 
 This blueprint helps you restrict and control privileged access rights by assigning [Azure
 Policy](../../../policy/overview.md) definitions to audit external accounts with owner, write and/or
-read permissions and employee accounts with owner and/or write permissions that don't have multi-factor
-authentication enabled. Azure implements role-based access control (RBAC) to manage who has access
-to Azure resources. Understanding where custom RBAC rules are
-implement can help you verify need and proper implementation, as custom RBAC rules are error prone. This 
-blueprint also assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure Active 
-Directory authentication for SQL Servers. Using Azure Active Directory authentication simplifies 
-permission management and centralizes identity management of database users and other Microsoft services.  
+read permissions and employee accounts with owner and/or write permissions that don't have
+multi-factor authentication enabled. Azure implements role-based access control (RBAC) to manage who
+has access to Azure resources. Understanding where custom RBAC rules are implement can help you
+verify need and proper implementation, as custom RBAC rules are error prone. This blueprint also
+assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure Active
+Directory authentication for SQL Servers. Using Azure Active Directory authentication simplifies
+permission management and centralizes identity management of database users and other Microsoft  
+services.
  
 - External accounts with owner permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
@@ -105,7 +107,7 @@ permission management and centralizes identity management of database users and 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Audit usage of custom RBAC rules
 
-## 8.1.2 and 8.1.5 Review of user access rights
+## 8.1.2 and 8.1.5 Least Privilege and Review of User Access Rights
 
 Azure implements role-based access control (RBAC) to helps you manage who has access to resources in
 Azure. Using the Azure portal, you can review who has access to Azure resources and their
@@ -119,7 +121,7 @@ with elevated permissions.
 - External accounts with write permissions should be removed from your subscription
 - External accounts with read permissions should be removed from your subscription
 
-## 8.1.3 Removal or adjustment of access rights
+## 8.1.3 Removal or Adjustment of Access Rights
 
 Azure implements role-based access control (RBAC) to help you manage who has access to resources in
 Azure. Using Azure Active Directory and RBAC, you can update user roles to reflect organizational
@@ -131,7 +133,7 @@ considered for removal.
 - Deprecated accounts should be removed from your subscription
 - Deprecated accounts with owner permissions should be removed from your subscription
 
-## 8.2.3.a,b and 8.2.4.a,b Password management system
+## 8.2.3.a,b and 8.2.4.a,b Password-based Authentication
 
 This blueprint helps you enforce strong passwords by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit Windows VMs that don't enforce minimum
@@ -146,7 +148,7 @@ with policy.
 - [Preview]: Audit Windows VMs that allow re-use of the previous 24 passwords
 - [Preview]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
 
-## 10.3 and 10.5.4 Event logging
+## 10.3 and 10.5.4 Audit Generation
 
 This blueprint helps you ensure system events are logged by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources.
@@ -161,7 +163,7 @@ resources.
 - Storage accounts should be migrated to new Azure Resource Manager resources
 - Virtual machines should be migrated to new Azure Resource Manager resources
 
-## 12.3.6 and 12.3.7 Policies that addresses information security for all personnel
+## 12.3.6 and 12.3.7 Information Security
 
 This blueprint helps you manage and control your network by assigning [Azure
 Policy](../../../policy/overview.md) definitions that audit the acceptable network locations and the
