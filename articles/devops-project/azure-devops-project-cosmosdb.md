@@ -23,19 +23,20 @@ DevOps Projects also:
 
 In this tutorial, you will:
 
-* Use DevOps Projects to deploy a Node.js app powered by Azure Cosmos DB
+> [!div class="checklist"]
+> * Use DevOps Projects to deploy a Node.js app powered by Azure Cosmos DB
 
-* Configure Azure DevOps and an Azure subscription
+> * Configure Azure DevOps and an Azure subscription
 
-* Examine the Azure Cosmos DB
+> * Examine the Azure Cosmos DB
 
-* Examine the CI pipeline
+> * Examine the CI pipeline
 
-* Examine the CD pipeline
+> * Examine the CD pipeline
 
-* Commit the changes to Git and automatically deploy them to Azure
+> * Commit the changes to Git and automatically deploy them to Azure
 
-* Clean up the resources
+> * Clean up the resources
 
 ## Prerequisites
 
