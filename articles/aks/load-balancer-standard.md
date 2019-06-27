@@ -44,18 +44,22 @@ You must create an AKS cluster that sets the SKU for the load balancer to *Stand
 
 ### Install aks-preview CLI extension
 
-The CLI commands to create and manage an AKS cluster with a *Standard* SKU load balancer are available in the *aks-preview* CLI extension. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
+To use the Azure load balancer standard SKU, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> If you've previously installed the *aks-preview* extension, install any available updates using the `az extension update --name aks-preview` command.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register AKSAzureStandardLoadBalancer preview feature
 
 To create an AKS cluster that can use a load balancer with the *Standard* SKU, you must enable the *AKSAzureStandardLoadBalancer* feature flag on your subscription. The *AKSAzureStandardLoadBalancer* feature also uses *VMSSPreview* when creating a cluster using virtual machine scale sets. This feature provides the latest set of service enhancements when configuring a cluster. While it's not required, it's recommended you enable the *VMSSPreview* feature flag as well.
+
+> [!CAUTION]
+> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 Register the *VMSSPreview* and *AKSAzureStandardLoadBalancer* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
 
@@ -89,7 +93,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 While this feature is in preview, the following additional limitations apply:
 
-* When using the *Standard* SKU for a load balancer, you cannot set your own public IP address for the load balancer. You must use the IP address AKS assigns to your load balancer.
+* When using the *Standard* SKU for a load balancer in AKS, you cannot set your own public IP address for egress for the load balancer. You must use the IP address AKS assigns to your load balancer.
 
 ## Create a resource group
 
@@ -121,12 +125,13 @@ The following example output shows the resource group created successfully:
 In order to run an AKS cluster that supports a load balancer with the *Standard* SKU, your cluster needs to set the *load-balancer-sku* parameter to *standard*. This parameter creates a load balancer with the *Standard* SKU when your cluster is created. When you run a *LoadBalancer* service on your cluster, the configuration of the *Standard* SK load balancer is updated with the service's configuration. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*.
 
 > [!NOTE]
-> The *load-balanacer-sku* property can only be used when your cluster is created. You cannot change the load balancer SKU after an AKS cluster has been created.
+> The *load-balancer-sku* property can only be used when your cluster is created. You cannot change the load balancer SKU after an AKS cluster has been created.
 
 ```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
+    --enable-vmss \
     --node-count 1 \
     --kubernetes-version 1.14.0 \
     --load-balancer-sku standard \
@@ -346,3 +351,5 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [use-kubenet]: configure-kubenet.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
