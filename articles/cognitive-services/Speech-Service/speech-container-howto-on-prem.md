@@ -33,7 +33,7 @@ This procedure requires several tools that must be installed and run locally.
 
 ## The recommended host computer configuration
 
-Refer to the [Speech Service container host computer](speech-container-howto#the-host-computer) details as a reference. This *helm chart* automatically calculates CPU and memory requirements based on how many decodes (concurrent requests) that the user specifies. Additionally, it will adjust based on whether optimizations for audio/text input are configured as `enabled`. The helm chart defaults to, two concurrent requests and disabling optimization.
+Refer to the [Speech Service container host computer](speech-container-howto.md#the-host-computer) details as a reference. This *helm chart* automatically calculates CPU and memory requirements based on how many decodes (concurrent requests) that the user specifies. Additionally, it will adjust based on whether optimizations for audio/text input are configured as `enabled`. The helm chart defaults to, two concurrent requests and disabling optimization.
 
 | Service | CPU / Container | Memory / Container |
 |--|--|--|
