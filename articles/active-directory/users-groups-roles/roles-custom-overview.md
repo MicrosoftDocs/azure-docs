@@ -1,6 +1,6 @@
 ---
-title: Preview custom administrator role scope for delegating identity management in the Azure portal - Azure Active Directory | Microsoft Docs
-description: Preview custom administrator roles for delegating identity management. You can now manage the scope of an Azure AD administrator role in the Azure portal.
+title: Preview custom administrator roles grant scope to restrict identity access identity management - Azure Active Directory | Microsoft Docs
+description: Preview custom administrator roles for delegating identity management. You can now manage the scope of an Azure AD administrator role in the Azure portal, Azure AD PowerShell, or Graph API.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 06/30/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -16,13 +16,11 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# What is Azure Active Directory role-based access control? (preview)
+# Custom resource scope for administrator roles in Azure Active Directory (preview)
 
-Azure Active Directory (Azure AD) supports provides the ability to assign administrative privileges restricted to a customized Azure AD resource scope. Custom roles such as these are part of a preview release of the Azure AD role-based access control model. [Built-in roles](directory-assign-admin-roles.md) provide an adequate granularity for many situations, but when you want more granularity of control, custom roles let you assign a scope of control for the role at the level of a particular Azure AD resource. 
+Azure Active Directory (Azure AD) supports provides the ability to assign administrative privileges restricted to a customized Azure AD resource scope. Custom roles such as these are part of a preview release of the Azure AD role-based access control model. [Built-in roles](directory-assign-admin-roles.md) provide an adequate granularity for many situations, but when you want more fine-grained permissions, you can create custom roles to reduce the scope of control for the role to the level of a single Azure AD resource.
 
-## Azure AD role-based access control preview
-
-The preview release of Azure AD role-based access control exposes two scopes: an organization-wide scope (allowing the permitted actions for all Azure AD objects in the organization) and a custom scope, fine-grained permissions restricted to application registrations. In this custom role, you can edit app registration permissions. Over time, additional permissions for directory objects like enterprise applications, users, and devices will be added.
+The preview release of Azure AD role-based access control exposes two scopes: an organization-wide scope (allowing the permitted actions for all Azure AD objects in the organization) and a custom scope, with permissions restricted to application registrations. In this custom role, you can edit app registration permissions. Over time, additional permissions for directory objects like enterprise applications, users, and devices will be added.
 
 Preview features:
 
