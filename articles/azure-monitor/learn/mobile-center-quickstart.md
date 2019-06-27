@@ -66,7 +66,7 @@ Once your app is sending custom events and these events are being received by Ap
 2. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
     > [!NOTE]
-    > If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](../../azure-monitor/app/create-mew-resource.md) doc.
+    > If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
 
     A configuration box will appear. Use the table below to fill out the input fields.
 
