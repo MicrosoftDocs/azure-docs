@@ -50,6 +50,8 @@ If your environment has an on-premises AD footprint and you also want benefit fr
 
 ![Hybrid Azure AD joined devices](./media/concept-azure-ad-join-hybrid/azure-ad-hybrid-joined-device.png)
 
+## Scenarios
+
 Use Azure AD hybrid joined devices if:
 
 - You have Win32 apps deployed to these devices that rely on Active Directory machine authentication.
