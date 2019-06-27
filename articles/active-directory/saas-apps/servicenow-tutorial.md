@@ -449,7 +449,7 @@ When you select the ServiceNow tile in the Access Panel, you should be automatic
 
 	*  Click on **USE EXTERNAL LOGIN** and you will be redirected to Azure AD page for sign in.
     
-	*  Enter your credentials and if any thirdparty or other user try to test SSO the user need to respond accordingly as per requirement and the application **Home page** will be displayed as below:
+	*  Enter your credentials and if there is any Third-party authentication or any other security feature enabled then the user will have to respond accordingly and the application **Home page** will be displayed as shown below:
 
 		![The Home page](./media/servicenow-tutorial/test02.png)
 
