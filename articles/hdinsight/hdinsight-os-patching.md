@@ -29,11 +29,11 @@ By using the script actions described in this article, you can modify the OS pat
 
 Using script actions requires the following information:
 
-1. The install-updates-schedule-restarts script location https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/install-updates-schedule-restarts.sh.
+1. The install-updates-schedule-restarts script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/install-updates-schedule-restarts.sh.
  	
    HDInsight uses the previous Uniform Resource Identifier (URI) to find and run the script on all the VMs in the cluster. This script provides options to install updates and restart the VM.
   
-2. The schedule-restarts script location https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/schedule-restarts.sh.
+2. The schedule-restarts script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/schedule-restarts.sh.
  	
    HDInsight uses the previous URI to find and run the script on all the VMs in the cluster. This script restarts the VM.
   
