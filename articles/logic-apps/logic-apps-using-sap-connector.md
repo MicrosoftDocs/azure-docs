@@ -58,7 +58,7 @@ To follow along with this article, you need these items:
 
 This example uses a logic app that you can trigger with an HTTP request. The logic app sends an IDoc to an SAP server and returns a response to the requestor that called the logic app. 
 
-### Add an HTTP request trigger
+### Add an HTTP Request trigger
 
 In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance and starts running your app's workflow.
 
@@ -68,7 +68,7 @@ In this example, you create a logic app with an endpoint in Azure so that you ca
 
 1. In the search box, enter "http request" as your filter. From the triggers list, select **When a HTTP request is received**.
 
-   ![Add HTTP request trigger](./media/logic-apps-using-sap-connector/add-trigger.png)
+   ![Add HTTP Request trigger](./media/logic-apps-using-sap-connector/add-trigger.png)
 
 1. Now save your logic app so that you can generate an endpoint URL for your logic app. On the designer toolbar, select **Save**.
 
@@ -134,7 +134,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
     1. Click inside the **Input Message** box so that the dynamic content list appears. From that list, under **When a HTTP request is received**, select the **Body** field.
 
-       This step includes the body content from your HTTP request trigger and sends that output to your SAP server.
+       This step includes the body content from your HTTP Request trigger and sends that output to your SAP server.
 
        ![Select "Body" field](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
 
@@ -166,7 +166,7 @@ Now add a response action to your logic app's workflow and include the output fr
 
 1. On the designer toolbar, select **Run**. This step manually starts your logic app.
 
-1. Trigger your logic app by sending an HTTP POST request to the URL in your HTTP request trigger.
+1. Trigger your logic app by sending an HTTP POST request to the URL in your HTTP Request trigger.
 Include your message content with your request. To the send the request, you can use a tool such as [Postman](https://www.getpostman.com/apps).
 
    For this article, the request sends an IDoc file, which must be in XML format and include the namespace for the SAP action you're using, for example:
@@ -265,7 +265,7 @@ Your logic app is now ready to receive messages from your SAP system.
 
 This example uses a logic app that you can trigger with an HTTP request. The SAP action sends a request to an SAP system to generate the schemas for specified IDoc and BAPI. Schemas that return in the response are uploaded to an integration account by using the Azure Resource Manager connector.
 
-### Add an HTTP request trigger
+### Add an HTTP Request trigger
 
 1. In the Azure portal, create a blank logic app, which opens the Logic App Designer.
 
