@@ -49,6 +49,8 @@
     href: container-registry-geo-replication.md
   - name: Roles and permissions
     href: container-registry-roles.md
+  - name: Tagging and versioning images
+    href: container-registry-image-tagging-versioning.md
   - name: Registry best practices
     href: container-registry-best-practices.md
 - name: How-to guides
