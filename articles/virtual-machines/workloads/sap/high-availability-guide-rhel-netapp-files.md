@@ -243,10 +243,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
 
     ```
-    # IP address of cluster node 1
-    **192.168.14.5    anftstsapcl1**
+    `# IP address of cluster node 1`
+    **`192.168.14.5    anftstsapcl1`**
     # IP address of cluster node 2
-    **192.168.14.6     anftstsapcl2**
+    192.168.14.6     anftstsapcl2**
     # IP address of the load balancer frontend configuration for SAP Netweaver ASCS
     **192.168.14.9    anftstsapvh**
     # IP address of the load balancer frontend configuration for SAP Netweaver ERS
