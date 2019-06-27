@@ -6,7 +6,7 @@ ms.date: 04/17/2019
 ms.author: mbaldwin
 ---
 
-A security attribute is a quality or feature of an Azure service that contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.
+A security attribute is a quality or feature of an Azure service. It contributes to the service's ability to prevent, detect, and respond to security vulnerabilities.
 
 Security attributes are categorized as:
 * Preventative.
@@ -17,4 +17,4 @@ Security attributes are categorized as:
 * Access controls (if used).
 * Configuration management (if used).
 
-In each category, we indicate whether an attribute is used (**Yes/No**). For some services, an attribute might not be applicable and is shown as N/A. A note or a link to more information about an attribute might also be provided.
+In each category, we show "Yes" or "No" to indicate whether an attribute is used. For some services, we show "N/A" for an attribute that is not applicable. We might also provide a note or a link to more information about an attribute.
