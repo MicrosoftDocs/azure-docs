@@ -30,7 +30,7 @@ For high availability, it's essential to maintain the redundancy of the ExpressR
 
 ### First mile physical layer design considerations
 
- If you terminate both the primary and secondary connections of an ExpressRoute circuits on the same Customer Premises Equipment (CPE), you're compromising the high availability within your customer network. Additionally, if you configure both the primary and secondary connections via the same port of a CPE (either by terminating the two connections under different subinterfaces or by merging the two connections within the partner network), you're forcing the partner to compromise high availability on their network segment as well. This compromise is illustrated in the following figure.
+ If you terminate both the primary and secondary connections of an ExpressRoute circuits on the same Customer Premises Equipment (CPE), you're compromising the high availability within your on-premises network. Additionally, if you configure both the primary and secondary connections via the same port of a CPE (either by terminating the two connections under different subinterfaces or by merging the two connections within the partner network), you're forcing the partner to compromise high availability on their network segment as well. This compromise is illustrated in the following figure.
 
 [![2]][2]
 
