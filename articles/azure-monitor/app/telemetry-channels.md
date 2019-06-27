@@ -16,7 +16,7 @@ ms.author: cithomas
 ---
 # Telemetry channels in Application Insights
 
-Telemetry channels are an integral part of the [Azure Application Insights SDKs](../../azure-monitor/app/app-insights-overview.md). They manage buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs have two built-in telemetry channels: `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including to customize channel behavior.
+Telemetry channels are an integral part of the [Azure Application Insights SDKs](../../azure-monitor/app/app-insights-overview.md). They manage buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs have two built-in telemetry channels: `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including how to customize channel behavior.
 
 ## What are telemetry channels?
 
@@ -28,7 +28,7 @@ The `Send(ITelemetry item)` method of a telemetry channel is called after all te
 
 ## Built-in telemetry channels
 
-Application Insights .NET and .NET Core SDKs ship with two built-in channels:
+The Application Insights .NET and .NET Core SDKs ship with two built-in channels:
 
 * `InMemoryChannel`: A lightweight channel that buffers items in memory until they're sent. Items are buffered in memory and flushed once every 30 seconds, or whenever 500 items are buffered. This channel offers minimal reliability guarantees because it doesn't retry sending telemetry after a failure. This channel also doesn't keep items on disk, so any unsent items are lost permanently upon application shutdown (graceful or not). This channel implements a `Flush()` method that can be used to force-flush any in-memory telemetry items synchronously. This channel is well suited for short-running applications where a synchronous flush is ideal.
 
@@ -42,11 +42,11 @@ Application Insights .NET and .NET Core SDKs ship with two built-in channels:
 
 You configure a telemetry channel by setting it to the active telemetry configuration. For ASP.NET applications, configuration involves setting the telemetry channel instance to `TelemetryConfiguration.Active`, or by modifying `ApplicationInsights.config`. For ASP.NET Core applications, configuration involves adding the channel to the Dependency Injection Container.
 
-The following sections show examples of configuring the `StorageFolder` setting for the channel in various application types. `StorageFolder` is just one of the configurable settings. For the full list of configuration settings, see [the settings section](telemetry-channels.md#configurable-settings-in-channel) later in this article.
+The following sections show examples of configuring the `StorageFolder` setting for the channel in various application types. `StorageFolder` is just one of the configurable settings. For the full list of configuration settings, see [the settings section](telemetry-channels.md#configurable-settings-in-channels) later in this article.
 
 ### Configuration by using ApplicationInsights.config for ASP.NET applications
 
-The following section from [ApplicationInsights.config](configuration-with-applicationinsights-config.md) shows the `ServerTelemetryChannel` channel configured with `StorageFolder` set to a custom location.
+The following section from [ApplicationInsights.config](configuration-with-applicationinsights-config.md) shows the `ServerTelemetryChannel` channel configured with `StorageFolder` set to a custom location:
 
 ```xml
     <TelemetrySinks>
@@ -113,9 +113,9 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 `ServerTelemetryChannel` stores arriving items in an in-memory buffer. The items are serialized, compressed, and stored into a `Transmission` instance once every 30 seconds, or when 500 items have been buffered. A single `Transmission` instance contains up to 500 items and represents a batch of telemetry that's sent over a single HTTPS call to the Application Insights service.
 
-By default, a maximum of 10 `Transmission` instances can be sent in parallel. If telemetry is arriving at faster rates, or if the network or the Application Insights back end is slow, `Transmission` instances are stored in memory. The default capacity of this in-memory `Transmission` buffer is 5 MB. Once the in-memory capacity has been exceeded, `Transmission` instances are stored on local disk up to a limit of 50 MB. `Transmission` instances are stored on local disk also when there are network problems. Only those items that are stored on a local disk survive an application crash. They're sent whenever the application starts again.
+By default, a maximum of 10 `Transmission` instances can be sent in parallel. If telemetry is arriving at faster rates, or if the network or the Application Insights back end is slow, `Transmission` instances are stored in memory. The default capacity of this in-memory `Transmission` buffer is 5 MB. When the in-memory capacity has been exceeded, `Transmission` instances are stored on local disk up to a limit of 50 MB. `Transmission` instances are stored on local disk also when there are network problems. Only those items that are stored on a local disk survive an application crash. They're sent whenever the application starts again.
 
-## Configurable settings in Channel
+## Configurable settings in channels
 
 For the full list of configurable settings for each channel, see:
 
@@ -145,7 +145,7 @@ The short answer is that none of the built-in channels offer a transaction-type 
 
 1. Items in memory are lost when the application crashes.
 
-1. Telemetry is lost during extended periods of network problems. Telemetry is stored to local disk during network outages or when issues occur with the Application Insights back end. However, items older than 24 hours are discarded.
+1. Telemetry is lost during extended periods of network problems. Telemetry is stored to local disk during network outages or when problems occur with the Application Insights back end. However, items older than 24 hours are discarded.
 
 1. The default disk locations for storing telemetry in Windows are %LOCALAPPDATA% or %TEMP%. These locations are typically local to the machine. If the application migrates physically from one location to another, any telemetry stored in the original location is lost.
 
@@ -157,7 +157,7 @@ Although the name of its package and namespace includes "WindowsServer," this ch
 
 ### Does the SDK create temporary local storage? Is the data encrypted at storage?
 
-The SDK stores telemetry items in local storage during network issues or during throttling. This data isn't encrypted locally.
+The SDK stores telemetry items in local storage during network problems or during throttling. This data isn't encrypted locally.
 
 For Windows systems, the SDK automatically creates a temporary local folder in the %TEMP% or %APPDATA% directory, and restricts access to administrators and the current user only.
 
@@ -165,7 +165,7 @@ For systems other than Windows, no local storage is created automatically by the
 Read more about [data protection and privacy](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## Open-source SDK
-Like every SDK for Application Insights, channels are open source. Read and contribute to the code, or report issues, at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
+Like every SDK for Application Insights, channels are open source. Read and contribute to the code, or report problems, at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
 ## Next steps
 
