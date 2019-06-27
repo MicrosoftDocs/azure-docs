@@ -99,6 +99,8 @@ Add these lines to the `GetLanguages` class:
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Create a client and build a request
 
 Add this line to the `GetLanguages` class to instantiate the `OkHttpClient`:
@@ -120,8 +122,6 @@ public String Get() throws IOException {
     return response.body().string();
 }
 ```
-
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## Create a function to parse the response
 
