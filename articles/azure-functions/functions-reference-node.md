@@ -615,7 +615,7 @@ When you use a service-specific client in an Azure Functions application, don't 
 
 When writing Azure Functions in JavaScript, you should write code using the `async` and `await` keywords. Writing code using `async` and `await` instead of callbacks or `.then` and `.catch` with Promises helps avoid two common problems:
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
- - Unexpected behavior (ex: missing logs from context.log) caused by asynchronous calls that are not properly awaited.
+ - Unexpected behavior, such as missing logs from context.log, caused by asynchronous calls that are not properly awaited.
 
 In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues mentioned above. An exception that is not explicitly caught in the correct scope crashed the entire process (issue #1). Calling `context.done()` outside of the scope of the callback function means that the function invocation may end before the file is read (issue #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
 
