@@ -5,15 +5,10 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Share your data
+    - name: Share data with customers and partners using Azure Data Share Preview
       href: share-your-data.md
-    - name: Accept and receive data 
+    - name: Tutorial - Accept and receive data using Azure Data Share Preview
       href: subscribe-to-data-share.md
-- name: How-to guides
-  expanded: true
-  items:
-    - name: How to monitor your Azure Data Share
-      href: how-to-monitor.md
 - name: Concepts
   items:
   - name: Azure Data Share Terminology 
