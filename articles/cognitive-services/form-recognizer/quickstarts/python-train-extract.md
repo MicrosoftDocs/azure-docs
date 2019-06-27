@@ -44,13 +44,14 @@ When your Form Recognizer resource finishes deploying, find and select it from t
 
 ## Train a Form Recognizer model
 
-First, you'll need a set of training data in an Azure Storage blob container. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty."
+First, you'll need a set of training data in an Azure Storage blob container. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty."
 
-To train a Form Recognizer model by using the documents in your Azure blob container, call the **Train** API by running the python code that follows. Before you run the code, make these changes:
+To train a Form Recognizer model with the documents in your Azure blob container, call the **Train** API by running the following python code. Before you run the code, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint URL for the Form Recognizer resource in the Azure region where you obtained your subscription keys.
-1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve this, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Click the next dialog and copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Replace `<Subscription key>` with the subscription key you copied from the previous step.
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve this, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
