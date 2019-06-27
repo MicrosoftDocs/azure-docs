@@ -310,7 +310,7 @@ When a user selects a certain facet, for example, they click on the **Resort and
         }
     ```
 
-    We have added the **Category** and **Tags** properties to the list of **Select** items to return. This is not a requirement for facet navigation to work, but we use this information to verify that we are filtering correctly.
+    We have added the **Category** and **Tags** properties to the list of **Select** items to return. This addition is not a requirement for facet navigation to work, but we use this information to verify that we are filtering correctly.
 
 ### Add lists of facet links to the view
 
@@ -524,7 +524,7 @@ The view is going to require some significant changes.
 
 The advantage of facet navigation to the user is that they can narrow searches with a single click, which we can show in the following sequence.
 
-1. Run the app, type "airport" as the search text. Verify that the list of facets appears neatly to the left. These are all the facets that apply to hotels that have "airport" in their text data, with a count of how often they occur.
+1. Run the app, type "airport" as the search text. Verify that the list of facets appears neatly to the left. These facets are all that apply to hotels that have "airport" in their text data, with a count of how often they occur.
 
     ![Using facet navigation to narrow a search of "airport"](./media/tutorial-csharp-create-first-app/azure-search-facet-airport.png)
 
