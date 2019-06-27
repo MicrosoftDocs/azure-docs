@@ -338,7 +338,7 @@ As an operator in your Azure IoT Central application, for your real device you c
 
 * View the location on the **Measurements** page:
 
-    ![View location measurements](media/howto-connect-nodejs/viewtelemetry.png)
+    ![View location measurements](media/howto-connect-nodejs/viewlocation.png)
 
 * View the device property values sent from your device on the **Properties** page. The device property tiles update when the device connects:
 
