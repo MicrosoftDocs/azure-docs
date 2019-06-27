@@ -152,7 +152,7 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 
 If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to login.
 
-In addition to uploading your certificate to your app registration, you'll also need to have a Personal Information Exchange (PFX) file for that certificate saved to your local machine or VM. If you're using Windows, and you're certificate exists only in a certificate store, make sure to export that certificate to a PFX file (including the private key). For guidance, see [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps).
+In addition to uploading your certificate to your app registration, you'll also need to have a copy of the certificate saved to the machine or VM where AzCopy will be running. This copy of the certificate should be in .PFX or .PEM format, and must include the private key. The private key should be password-protected. If you're using Windows, and your certificate exists only in a certificate store, make sure to export that certificate to a PFX file (including the private key). For guidance, see [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
 
 Next, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate password.
 
