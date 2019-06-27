@@ -21,11 +21,6 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 ## June 2019
 
-
-
-
-## May 2019
-
 ### Service improvements
 
 | Service improvements | Details |
@@ -35,6 +30,26 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 | **SQL VM RP changes** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#sql-iaas-noagent-and-lightweight-agent-options) - even Windows 2008 images - using the new SQL IaaS modes. |
 | **BYOL images using AHUB** | BYOL images deployed from the marketplace can now switch their [license type to 'PAYG'](virtual-machines-windows-sql-ahb.md#remarks), though they'll need to register as 'AHUB' initially. | 
 | &nbsp; | &nbsp; |
+
+
+
+## May 2019
+
+### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+| **New SQL VM management in Azure portal** | There is now a new way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VM in the Azure portal](virtual-machines-windows-sql-manage-portal.md).  | 
+| &nbsp; | &nbsp; |
+
+### Documentation improvements
+
+| Documentation | Details |
+| --- | --- |
+| **New SQL VM portal management** | About a dozen articles were updated to the new SQL VM management portal experience. | 
+| &nbsp; | &nbsp; |
+
+
 
 
 ## April 2019
