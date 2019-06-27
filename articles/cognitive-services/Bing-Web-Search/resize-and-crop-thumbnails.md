@@ -114,7 +114,7 @@ View the Image response reference for the:
 
 * [Bing web search API](overview.md)
 * [Bing Image search API](../bing-image-search/overview.md)
-* [Bing Entity search API](../bing-entity-search/overview.md)
+* [Bing Entity search API](../bing-entities-search/overview.md)
 * [Bing News search API](../bing-news-search/search-the-web.md)
 * [Bing Video search API](../bing-video-search/overview.md)
 * [Bing Visual search API](../bing-visual-search/overview.md)
