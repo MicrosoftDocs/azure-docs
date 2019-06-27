@@ -57,7 +57,7 @@ In this this approach:
 1. The application can then use the value in the state parameter to determine which URL to further send the user to. Make sure you validate for CSRF protection.
 
 > [!NOTE]
-> This approach allows a compromised client to modify the additional parameters sent in the state, thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client must protect these parameters by encrypting the state or verifying it by some other means such as validating domain name in the redirect URI against the token.
+> This approach allows a compromised client to modify the additional parameters sent in the state parameter, thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client must protect these parameters by encrypting the state or verifying it by some other means such as validating domain name in the redirect URI against the token.
 
 ### Add redirect URIs to service principals
 
