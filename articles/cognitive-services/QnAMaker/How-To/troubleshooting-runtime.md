@@ -3,13 +3,13 @@ title: Troubleshooting - QnAMaker
 titlesuffix: Azure Cognitive Services 
 description: QnAMaker comprises of components hosted in the user's Azure account. Debugging may require users to manipulate their QnAMaker Azure resources or provide QnAMaker support team with additional information about their setup.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
 ---
 
