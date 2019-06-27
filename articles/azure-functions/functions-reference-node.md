@@ -640,7 +640,7 @@ module.exports = function (context) {
 
 Using the `async` and `await` keywords helps avoid both of these errors. You should use the Node.js utility function [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original) to turn error-first callback-style functions into awaitable functions.
 
-In the example below, any unhandled exceptions thrown during the Azure Function's execution will only fail the individual invocation that threw an exception. The `await` keyword ensures that steps following readFileAsync will only execute once readFile has completed. With async and await, we also don't need to call the `context.done` callback.
+In the example below, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised an exception. The `await` keyword means that steps following `readFileAsync` only execute after `readFile` is complete. With `async` and `await`, you also don't need to call the `context.done()` callback.
 
 ```javascript
 // Recommended pattern
