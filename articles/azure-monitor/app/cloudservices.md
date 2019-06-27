@@ -135,7 +135,7 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
 
 This step is only needed if you want to capture full SQL queries on .NET Framework. 
 
-1. In \*.csdef file Add [startup task](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-startup-tasks) for each role similar to 
+1. In `\*.csdef` file Add [startup task](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) for each role similar to 
 
     ```xml
     <Startup>
