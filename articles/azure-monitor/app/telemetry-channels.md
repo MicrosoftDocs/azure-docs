@@ -98,7 +98,7 @@ public void ConfigureServices(IServiceCollection services)
 > [!IMPORTANT]
 > Configuring the channel by using `TelemetryConfiguration.Active` is not recommended for ASP.NET Core applications.
 
-## Configuration in code for .NET/.NET Core console applications
+### Configuration in code for .NET/.NET Core console applications
 
 For console apps, the code is the same for both .NET and .NET Core:
 
