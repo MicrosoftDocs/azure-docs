@@ -18,16 +18,16 @@ You must occasionally restart virtual machines (VMs) in an HDInsight cluster to 
 
 By using the script actions described in this article, you can modify the OS patching schedule by following these steps:
 
-1. Install all updates, or install only kernel + security updates or kernel updates.
+1. Install all updates or install only kernel + security updates or kernel updates.
 2. Do an immediate restart, or schedule a restart on the VM.
 
 > [!NOTE]  
 > The script actions described in this article will work only with Linux-based HDInsight clusters created after August 1, 2016. Patches are effective only after restarting VMs.
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
 
-## How to use script actions
+## How to use a script actions
 
-Using script actions requires the following information:
+Using a script requires the following information:
 
 1. The install-updates-schedule-restarts script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/install-updates-schedule-restarts.sh.
  	
@@ -44,7 +44,7 @@ Using script actions requires the following information:
     | Parameter | Definition |
     | --- | --- |
     | Install only kernel updates/Install all updates/Install only kernel + security updates |0,  1, or 2. A value of 0 installs only kernel updates, while 1 installs all updates, and 2 installs only kernel + security updates. If no parameter is provided, the default is 0. |
-    | No restart/Enable schedule restart/Enables immediate restart |0, 1, or 2. A value of 0 disables restart, while 1 enables schedule restart and 2 enables immediate restart. If no parameter is provided, the default is 0. The user must input parameter 1 to input parameter 2. |
+    | No restart/Enable schedule restart/Enable immediate restart |0, 1, or 2. A value of 0 disables restart, while 1 enables schedule restart and 2 enables immediate restart. If no parameter is provided, the default is 0. The user must change input parameter 1 to input parameter 2. |
    
  5. The schedule-restarts script accepts one numeric parameter:
 
