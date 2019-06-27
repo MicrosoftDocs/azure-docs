@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 06/27/2019
 ms.author: mayg
 
 ---
@@ -72,6 +72,13 @@ Over an above ensuring that there are no connectivity, bandwidth or time sync re
         - VSS service
         - Azure Site Recovery VSS Provider
         - VDS service
+
+- If you are running SQL or Exchange workloads, check the logs of these application writers for failures. Frequent errors and their resolution are captured in following articles:
+    -  [Auto-Close option of SQL Server database is set to TRUE](https://support.microsoft.com/help/4504104)
+    - [SQL Server 2008 R2 throwing a non-retryable error](https://support.microsoft.com/en-us/help/4504103)
+    - [Known issue in SQL Server 2016 and 2017](https://support.microsoft.com/help/4493364)
+    - [Common issue with Exchange Servers 2013 and 2016](https://support.microsoft.com/en-in/help/4037535)
+
 
 ### Source machines with high churn [error 78188]
 

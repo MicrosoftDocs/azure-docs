@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 06/27/2019
 ms.author: raynew
 
 ---
@@ -203,7 +203,7 @@ Encryption at rest (Storage Service Encryption)| Yes
 Premium storage | Yes
 Import/export service | No
 Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | Yes
-General purpose v2 storage accounts (both hot and cool tiers) | No
+General purpose v2 storage accounts (both hot and cool tiers) | Yes (Transaction costs are substantially higher for V2 compared to V1)
 
 ## Azure compute
 

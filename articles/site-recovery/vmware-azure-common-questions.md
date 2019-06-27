@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
 ---
@@ -149,10 +149,6 @@ For VMware replication to Azure you can modify disk size. If you want to add new
 
 ### Can I migrate on-premises machines to a new vCenter Server without impacting ongoing replication?
 No, change of Vcenter or migration will impact ongoing replication. You need to set up Site Recovery with the new vCenter Server, and enable replication for machines again.
-
-### Can I replicate to a cache/target storage account which has a VNet (with Azure storage firewalls) configured on it?
-No, Site Recovery doesn't support replication to Storage on Vnet.
-
 
 
 
