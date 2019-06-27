@@ -17,7 +17,7 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-# Security Alerts
+# Security Alerts in Azure Security Center
 
 This article presents the different kinds of alerts available in Azure Security Center (ASC).
 

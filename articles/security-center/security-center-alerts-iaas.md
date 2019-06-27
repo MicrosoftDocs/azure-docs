@@ -17,11 +17,11 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-# IaaS VM and server alerts
+# IaaS VM and server alerts in Azure Security Center
 
 This topics presents the different types of detection methods and alerts available for VMs and Servers.
 
-* [Windows-based machines](#windows-machines) integrate with the following services to protect your resources:
+* [Windows-based machines](#windows-machines) are monitored using the following services:
   * [Microsoft Server Defender ATP](#windows-atp)
   * [Crash Dump Analysis](#windows-dump)
   * [Fileless Attack Detection](#windows-fileless)
@@ -32,6 +32,7 @@ See here for a list of supported versions.
 
 ## Windows-based machines<a name="windows-machines"></a>
 
+Security Center integrates with Azure services to monitor and protect your Windows-based machines.  Security Center presents the alerts and remediation suggestions from all of these services in an easy-to-use format.
 
 ### Microsoft Server Defender ATP <a nanme="windows-atp"></a>
 

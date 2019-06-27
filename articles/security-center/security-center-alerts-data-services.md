@@ -17,7 +17,7 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-# Azure data services alerts
+# Azure data services alerts in Azure Security Center
 
 This topic presents the alerts available for your data storage resources.
 

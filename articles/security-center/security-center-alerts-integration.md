@@ -17,7 +17,7 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-# Security Center Integration with Azure Security Products
+# Security Center Integration with Azure Security Products in ASC
 
 Security Center offers customers with additional Microsoft licenses to onboard their findings to Security Center and view them in a consolidated manner.
 

@@ -17,7 +17,7 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-## Azure native compute alerts
+## Azure native compute alerts in Azure Security Center
 
 This topic presents the alerts available for your Azure services:
 * [Azure App Service](#app-services)
