@@ -49,7 +49,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50001 | InvalidResource - The resource is disabled or does not exist. Check your app's code to ensure that you have specified the exact resource URL for the resource you are trying to access.  |
 | AADSTS50002 | NotAllowedTenant - Sign-in failed because of a restricted proxy access on the tenant. If it's your own tenant policy, you can change your restricted tenant settings to fix this issue. |
 | AADSTS50003 | MissingSigningKey - Sign-in failed because of a missing signing key or certificate. This might be because there was no signing key configured in the app. Check out the resolutions outlined at [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). If you still see issues, contact the app owner or an app admin. |
-| AADSTS50005 | DevicePolicyError - User tried to log in to a device from a platform that's currently not supported through conditional access policy. |
+| AADSTS50005 | DevicePolicyError - User tried to log in to a device from a platform that's currently not supported through Conditional Access policy. |
 | AADSTS50006 | InvalidSignature - Signature verification failed because of an invalid signature. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing - The partner encryption certificate was not found for this app. [Open a support ticket](../fundamentals/active-directory-troubleshooting-support-howto.md) with Microsoft to get this fixed. |
 | AADSTS50008 | InvalidSamlToken - SAML assertion is missing or misconfigured in the token. Contact your federation provider. |
@@ -101,7 +101,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS50127 | BrokerAppNotInstalled - User needs to install a broker app to gain access to this content. |
 | AADSTS50128 | Invalid domain name - No tenant-identifying information found in either the request or implied by any provided credentials. |
 | AADSTS50129 | DeviceIsNotWorkplaceJoined - Workplace join is required to register the device. |
-| AADSTS50131 | ConditionalAccessFailed - Indicates various conditional access errors such as bad Windows device state, request blocked due to suspicious activity, access policy, or security policy decisions. |
+| AADSTS50131 | ConditionalAccessFailed - Indicates various Conditional Access errors such as bad Windows device state, request blocked due to suspicious activity, access policy, or security policy decisions. |
 | AADSTS50132 | SsoArtifactInvalidOrExpired - The session is not valid due to password expiration or recent password change. |
 | AADSTS50133 | SsoArtifactRevoked - The session is not valid due to password expiration or recent password change. |
 | AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter - Wrong data center. To authorize a request that was initiated by an app in the OAuth 2.0 device flow, the authorizing party must be in the same data center where the original request resides. |
@@ -130,10 +130,10 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS51005 | TemporaryRedirect - Equivalent to HTTP status 307, which indicates that the requested information is located at the URI specified in the location header. When you receive this status, follow the location header associated with the response. When the original request method was POST, the redirected request will also use the POST method. |
 | AADSTS51006 | ForceReauthDueToInsufficientAuth - Integrated Windows authentication is needed. User logged in using a session token that is missing the Integrated Windows authentication claim. Request the  user to log in again. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn - The user has not provided consent for access to LinkedIn resources. |
-| AADSTS53000 | DeviceNotCompliant - Conditional access policy requires a compliant device, and the device is not compliant. The user must enroll their device with an approved MDM provider like Intune. |
-| AADSTS53001 | DeviceNotDomainJoined - Conditional access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device. |
-| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - The app used is not an approved app for conditional access. User needs to use one of the apps from the list of approved apps to use in order to get access. |
-| AADSTS53003 | BlockedByConditionalAccess - Access has been blocked by conditional access policies. The access policy does not allow token issuance. |
+| AADSTS53000 | DeviceNotCompliant - Conditional Access policy requires a compliant device, and the device is not compliant. The user must enroll their device with an approved MDM provider like Intune. |
+| AADSTS53001 | DeviceNotDomainJoined - Conditional Access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device. |
+| AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - The app used is not an approved app for Conditional Access. User needs to use one of the apps from the list of approved apps to use in order to get access. |
+| AADSTS53003 | BlockedByConditionalAccess - Access has been blocked by Conditional Access policies. The access policy does not allow token issuance. |
 | AADSTS53004 | ProofUpBlockedDueToRisk - User needs to complete the multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. |

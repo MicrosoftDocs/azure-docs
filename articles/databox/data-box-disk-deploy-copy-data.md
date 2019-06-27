@@ -245,6 +245,8 @@ This optional procedure may be used when you are using multiple disks and have a
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+If you see errors using the Split Copy tool, go to how to [troubleshoot Split Copy tool errors](data-box-disk-troubleshoot-data-copy.md).
+
 After the data copy is complete, you can proceed to validate your data. If you used the Split Copy tool, skip the validation (Split Copy tool validates as well) and advance to the next tutorial.
 
 
@@ -265,6 +267,8 @@ If you did not use the Split Copy tool to copy data, you will need to validate y
     > - Use option 1 if dealing with large data set containing small files (~ KBs). This option only validates the files, as checksum generation may take a very long time and the performance could be very slow.
 
 3. If using multiple disks, run the command for each disk.
+
+If you see errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
 ## Next steps
 

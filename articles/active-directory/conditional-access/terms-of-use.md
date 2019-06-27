@@ -110,25 +110,25 @@ Once you have finalized your terms of use document, use the following procedure 
 
    It is possible to use the **Expire consents** and **Duration before re-acceptance requires (days)** settings together, but typically you use one or the other.
 
-1. Under **Conditional Access**, use the **Enforce with conditional access policy template** list to select the template to enforce the terms of use.
+1. Under **Conditional Access**, use the **Enforce with Conditional Access policy template** list to select the template to enforce the terms of use.
 
-   ![Conditional access templates](./media/terms-of-use/conditional-access-templates.png)
+   ![Conditional Access templates](./media/terms-of-use/conditional-access-templates.png)
 
    | Template | Description |
    | --- | --- |
-   | **Access to cloud apps for all guests** | A conditional access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign-out and sign-in. |
-   | **Access to cloud apps for all users** | A conditional access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign-out and sign-in. |
+   | **Access to cloud apps for all guests** | A Conditional Access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign-out and sign-in. |
+   | **Access to cloud apps for all users** | A Conditional Access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign-out and sign-in. |
    | **Custom policy** | Select the users, groups, and apps that this terms of use will be applied to. |
-   | **Create conditional access policy later** | This terms of use will appear in the grant control list when creating a conditional access policy. |
+   | **Create Conditional Access policy later** | This terms of use will appear in the grant control list when creating a Conditional Access policy. |
 
    >[!IMPORTANT]
-   >Conditional access policy controls (including terms of use) do not support enforcement on service accounts. We recommend excluding all service accounts from the conditional access policy.
+   >Conditional Access policy controls (including terms of use) do not support enforcement on service accounts. We recommend excluding all service accounts from the Conditional Access policy.
 
-    Custom conditional access policies enable granular terms of use, down to a specific cloud application or group of users. For more information, see [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md).
+    Custom Conditional Access policies enable granular terms of use, down to a specific cloud application or group of users. For more information, see [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md).
 
 1. Click **Create**.
 
-   If you selected a custom conditional access template, then a new screen appears that allows you to create the custom conditional access policy.
+   If you selected a custom Conditional Access template, then a new screen appears that allows you to create the custom Conditional Access policy.
 
    ![Custom policy](./media/terms-of-use/custom-policy.png)
 
@@ -218,7 +218,7 @@ You can edit some details of terms of use, but you can't modify an existing docu
 1. Click **Edit terms**.
 1. In the Edit terms of use pane, change the name, display name, or require users to expand values.
 
-   If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or conditional access policy, you must create a new terms of use.
+   If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or Conditional Access policy, you must create a new terms of use.
 
    ![Edit terms of use](./media/terms-of-use/edit-tou.png)
 
@@ -299,17 +299,17 @@ By default, a deleted user is in a deleted state in Azure AD for 30 days, during
 
 ## Policy changes
 
-Conditional access policies take effect immediately. When this happens, the administrator will start to see “sad clouds” or "Azure AD token issues". The administrator must sign out and sign in again in order to satisfy the new policy.
+Conditional Access policies take effect immediately. When this happens, the administrator will start to see “sad clouds” or "Azure AD token issues". The administrator must sign out and sign in again in order to satisfy the new policy.
 
 > [!IMPORTANT]
 > Users in scope will need to sign-out and sign-in in order to satisfy a new policy if:
 >
-> - a conditional access policy is enabled on a terms of use
+> - a Conditional Access policy is enabled on a terms of use
 > - or a second terms of use is created
 
 ## B2B guests (Preview)
 
-Most organizations have a process in place for their employees to consent to their organization's terms of use and privacy statements. But how can you enforce the same consents for Azure AD business-to-business (B2B) guests when they're added via SharePoint or Teams? Using conditional access and terms of use, you can enforce a policy directly towards B2B guest users. During the invitation redemption flow, the user is presented with the terms of use. This support is currently in preview.
+Most organizations have a process in place for their employees to consent to their organization's terms of use and privacy statements. But how can you enforce the same consents for Azure AD business-to-business (B2B) guests when they're added via SharePoint or Teams? Using Conditional Access and terms of use, you can enforce a policy directly towards B2B guest users. During the invitation redemption flow, the user is presented with the terms of use. This support is currently in preview.
 
 Terms of use will only be displayed when the user has a guest account in Azure AD. SharePoint Online currently has an [ad hoc external sharing recipient experience](/sharepoint/what-s-new-in-sharing-in-targeted-release) to share a document or a folder that does not require the user to have a guest account. In this case, a terms of use is not displayed.
 
@@ -321,13 +321,13 @@ Terms of use can be used for different cloud apps, such as Azure Information Pro
 
 ### Azure Information Protection
 
-You can configure a conditional access policy for the Azure Information Protection app and require a terms of use when a user accesses a protected document. This will trigger a terms of use prior to a user accessing a protected document for the first time.
+You can configure a Conditional Access policy for the Azure Information Protection app and require a terms of use when a user accesses a protected document. This will trigger a terms of use prior to a user accessing a protected document for the first time.
 
 ![Azure Information Protection cloud app](./media/terms-of-use/cloud-app-info-protection.png)
 
 ### Microsoft Intune Enrollment
 
-You can configure a conditional access policy for the Microsoft Intune Enrollment app and require a terms of use prior to the enrollment of a device in Intune. For more information, see the Read [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+You can configure a Conditional Access policy for the Microsoft Intune Enrollment app and require a terms of use prior to the enrollment of a device in Intune. For more information, see the Read [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ![Microsoft Intune cloud app](./media/terms-of-use/cloud-app-intune.png)
 
@@ -361,10 +361,10 @@ A: Yes. Currently there are 108 different languages an administrator can configu
 A: The terms of use is triggered during the sign-in experience.
 
 **Q: What applications can I target a terms of use to?**<br />
-A: You can create a conditional access policy on the enterprise applications using modern authentication. For more information, see [enterprise applications](./../manage-apps/view-applications-portal.md).
+A: You can create a Conditional Access policy on the enterprise applications using modern authentication. For more information, see [enterprise applications](./../manage-apps/view-applications-portal.md).
 
 **Q: Can I add multiple terms of use to a given user or app?**<br />
-A: Yes, by creating multiple conditional access policies targeting those groups or applications. If a user falls in scope of multiple terms of use, they accept one terms of use at a time.
+A: Yes, by creating multiple Conditional Access policies targeting those groups or applications. If a user falls in scope of multiple terms of use, they accept one terms of use at a time.
 
 **Q: What happens if a user declines the terms of use?**<br />
 A: The user is blocked from getting access to the application. The user would have to sign in again and accept the terms in order to get access.
@@ -381,4 +381,4 @@ A: Terms of use utilizes the following endpoints for authentication: https://tok
 ## Next steps
 
 - [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md)
-- [Best practices for conditional access in Azure Active Directory](best-practices.md)
+- [Best practices for Conditional Access in Azure Active Directory](best-practices.md)

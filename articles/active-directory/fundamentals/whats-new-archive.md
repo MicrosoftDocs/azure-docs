@@ -173,10 +173,10 @@ For more information about using custom extension properties for dynamic members
 
 ---
 
-### New approved client apps for Azure AD app-based conditional access
+### New approved client apps for Azure AD app-based Conditional Access
 
 **Type:** Plan for change  
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection
 
 The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement):
@@ -187,7 +187,7 @@ The following apps are on the list of [approved client apps](https://docs.micros
 
 For more information, see:
 
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -435,7 +435,7 @@ For more information about these new capabilities, see our blog [Azure AD activi
 
 ---
 
-### Conditional access information added to the Azure AD sign-ins report
+### Conditional Access information added to the Azure AD sign-ins report
 
 **Type:** New feature  
 **Service category:** Reporting  
@@ -691,25 +691,25 @@ For more information about Azure AD Password Protection, see [Eliminate bad pass
 
 ---
 
-### New "all guests" conditional access policy template created during terms of use creation
+### New "all guests" Conditional Access policy template created during terms of use creation
 
 **Type:** New feature  
 **Service category:** Terms of use  
 **Product capability:** Governance
 
-During the creation of your terms of use, a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
+During the creation of your terms of use, a new Conditional Access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
 
 For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
-### New "custom" conditional access policy template created during terms of use creation
+### New "custom" Conditional Access policy template created during terms of use creation
 
 **Type:** New feature  
 **Service category:** Terms of use  
 **Product capability:** Governance
 
-During the creation of your terms of use, a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
+During the creation of your terms of use, a new “custom” Conditional Access policy template is also created. This new policy template lets you create the ToU and then immediately go to the Conditional Access policy creation blade, without needing to manually navigate through the portal.
 
 For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -887,7 +887,7 @@ For more information about listing your application in the Azure AD app gallery,
 **Service category:** Other  
 **Product capability:** Directory
  
-New, step-by-step guidance about how to deploy Azure Active Directory (Azure AD), including self-service password reset (SSPR), single sign-on (SSO), conditional access (CA), App proxy, User provisioning, Active Directory Federation Services (ADFS) to Pass-through Authentication (PTA), and ADFS to Password hash sync (PHS).
+New, step-by-step guidance about how to deploy Azure Active Directory (Azure AD), including self-service password reset (SSPR), single sign-on (SSO), Conditional Access (CA), App proxy, User provisioning, Active Directory Federation Services (ADFS) to Pass-through Authentication (PTA), and ADFS to Password hash sync (PHS).
 
 To view the deployment guides, go to the [Identity Deployment Guides](https://aka.ms/DeploymentPlans) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https://aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -1030,7 +1030,7 @@ You can now specify which partner organizations you want to share and collaborat
 
 This helps you to control access to your resources, while enabling a smooth experience for approved users.
 
-This B2B Collaboration feature is available for all Azure Active Directory customers and can be used in conjunction with Azure AD Premium features like conditional access and identity protection for more granular control of when and how external business users sign in and gain access.
+This B2B Collaboration feature is available for all Azure Active Directory customers and can be used in conjunction with Azure AD Premium features like Conditional Access and identity protection for more granular control of when and how external business users sign in and gain access.
 
 For more information, see [Allow or block invitations to B2B users from specific organizations](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list).
 
@@ -1133,7 +1133,7 @@ For more information, see [What is Azure AD B2B collaboration?](https://docs.mic
  
 ---
 
-### Restrict browser access using Intune Managed Browser with Azure AD application-based conditional access for iOS and Android
+### Restrict browser access using Intune Managed Browser with Azure AD application-based Conditional Access for iOS and Android
 
 **Type:** New feature  
 **Service category:** Conditional Access  
@@ -1143,13 +1143,13 @@ For more information, see [What is Azure AD B2B collaboration?](https://docs.mic
 
 **Intune Managed Browser SSO:** Your employees can use single sign-on across native clients (like Microsoft Outlook) and the Intune Managed Browser for all Azure AD-connected apps.
 
-**Intune Managed Browser Conditional Access Support:** You can now require employees to use the Intune Managed browser using application-based conditional access policies.
+**Intune Managed Browser Conditional Access Support:** You can now require employees to use the Intune Managed browser using application-based Conditional Access policies.
 
 Read more about this in our [blog post](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
 
 For more information, see:
 
-- [Setup application-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Setup application-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Configure managed browser policies](https://aka.ms/managedbrowser)  
 
@@ -1490,13 +1490,13 @@ This release has the following updates and changes:
 
 ---
  
-### Applications supporting Intune App Protection policies added for use with Azure AD application-based conditional access
+### Applications supporting Intune App Protection policies added for use with Azure AD application-based Conditional Access
 
 **Type:** Changed feature  
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
 
-We have added more applications that support application-based conditional access. Now, you can get access to Office 365 and other Azure AD-connected cloud apps using these approved client apps.
+We have added more applications that support application-based Conditional Access. Now, you can get access to Office 365 and other Azure AD-connected cloud apps using these approved client apps.
 
 The following applications will be added by the end of February:
 
@@ -1509,7 +1509,7 @@ The following applications will be added by the end of February:
 For more information, see:
 
 - [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1775,12 +1775,12 @@ Azure Active Directory Access Control (also known as the Access Control service)
 ### Restrict browser access to the Intune Managed Browser 
 
 **Type:** Plan for change  
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection
 
 You can restrict browser access to Office 365 and other Azure AD-connected cloud apps by using the Intune Managed Browser as an approved app. 
 
-You now can configure the following condition for application-based conditional access:
+You now can configure the following condition for application-based Conditional Access:
 
 **Client apps:** Browser
 
@@ -1790,14 +1790,14 @@ Today, access is blocked when you use this condition. When the preview is availa
 
 Look for this capability and more information in upcoming blogs and release notes. 
 
-For more information, see [Conditional access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
+For more information, see [Conditional Access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
  
 ---
 
-### New approved client apps for Azure AD app-based conditional access
+### New approved client apps for Azure AD app-based Conditional Access
 
 **Type:** Plan for change  
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection
 
 The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
@@ -1808,7 +1808,7 @@ The following apps are on the list of [approved client apps](https://docs.micros
 For more information, see:
 
 - [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1839,17 +1839,17 @@ For more information, see [on-premises integration](https://docs.microsoft.com/a
 
 ---
 
-### Azure AD app-based conditional access 
+### Azure AD app-based Conditional Access 
  
 **Type:** New feature  
 **Service category:** Azure AD  
 **Product capability:** Identity security and protection
 
-You now can restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) that support Intune app protection policies by using [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intune app protection policies are used to configure and protect company data on these client applications.
+You now can restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) that support Intune app protection policies by using [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intune app protection policies are used to configure and protect company data on these client applications.
 
-By combining [app-based](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) with [device-based](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) conditional access policies, you have the flexibility to protect data for personal and company devices.
+By combining [app-based](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) with [device-based](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) Conditional Access policies, you have the flexibility to protect data for personal and company devices.
 
-The following conditions and controls are now available for use with app-based conditional access:
+The following conditions and controls are now available for use with app-based Conditional Access:
 
 **Supported platform condition**
 
@@ -1864,7 +1864,7 @@ The following conditions and controls are now available for use with app-based c
 
 - Require approved client app
 
-For more information, see [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
+For more information, see [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1876,7 +1876,7 @@ For more information, see [Azure AD app-based conditional access](https://docs.m
 
 You now can find all your devices connected to Azure AD and the device-related activities in one place. There is a new administration experience to manage all your device identities and settings in the Azure portal. In this release, you can:
 
-- View all your devices that are available for conditional access in Azure AD.
+- View all your devices that are available for Conditional Access in Azure AD.
 - View properties, which include your hybrid Azure AD-joined devices.
 - Find BitLocker keys for your Azure AD-joined devices, manage your device with Intune, and more.
 - Manage Azure AD device-related settings.
@@ -1885,22 +1885,22 @@ For more information, see [Manage devices by using the Azure portal](https://doc
 
 ---
 
-### Support for macOS as a device platform for Azure AD conditional access 
+### Support for macOS as a device platform for Azure AD Conditional Access 
 
 **Type:** New feature    
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection 
 
-You now can include (or exclude) macOS as a device platform condition in your Azure AD conditional access policy. With the addition of macOS to the supported device platforms, you can:
+You now can include (or exclude) macOS as a device platform condition in your Azure AD Conditional Access policy. With the addition of macOS to the supported device platforms, you can:
 
 - **Enroll and manage macOS devices by using Intune.** Similar to other platforms like iOS and Android, a company portal application is available for macOS to do unified enrollments. You can use the new company portal app for macOS to enroll a device with Intune and register it with Azure AD.
 - **Ensure macOS devices adhere to your organization's compliance policies defined in Intune.** In Intune on the Azure portal, you now can set up compliance policies for macOS devices. 
-- **Restrict access to applications in Azure AD to only compliant macOS devices.** Conditional access policy authoring has macOS as a separate device platform option. Now you can author macOS-specific conditional access policies for the targeted application set in Azure.
+- **Restrict access to applications in Azure AD to only compliant macOS devices.** Conditional Access policy authoring has macOS as a separate device platform option. Now you can author macOS-specific Conditional Access policies for the targeted application set in Azure.
 
 For more information, see:
 
 - [Create a device compliance policy for macOS devices with Intune](https://aka.ms/macoscompliancepolicy)
-- [Conditional access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+- [Conditional Access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---
 
@@ -1939,10 +1939,10 @@ In the Azure AD admin center, you can now:
  
 ---
 
-### New approved client apps for Azure AD app-based conditional access
+### New approved client apps for Azure AD app-based Conditional Access
  
 **Type:** Changed feature  
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection
 
 The following apps were added to the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
@@ -1953,19 +1953,19 @@ The following apps were added to the list of [approved client apps](https://docs
 For more information, see:
 
 - [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
-### Use "OR" between controls in a conditional access policy 
+### Use "OR" between controls in a Conditional Access policy 
 
 **Type:** Changed feature    
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection
  
-You now can use "OR" (require one of the selected controls) for conditional access controls. You can use this feature to create policies with "OR" between access controls. For example, you can use this feature to create a policy that requires a user to sign in by using Multi-Factor Authentication "OR" to be on a compliant device.
+You now can use "OR" (require one of the selected controls) for Conditional Access controls. You can use this feature to create policies with "OR" between access controls. For example, you can use this feature to create a policy that requires a user to sign in by using Multi-Factor Authentication "OR" to be on a compliant device.
 
-For more information, see [Controls in Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
+For more information, see [Controls in Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
  
 ---
 

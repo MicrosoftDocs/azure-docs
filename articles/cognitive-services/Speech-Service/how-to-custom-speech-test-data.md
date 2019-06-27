@@ -133,11 +133,11 @@ If there are uncommon terms without standard pronunciations that your users will
 
 This includes examples of a spoken utterance, and a custom pronunciation for each:
 
-| Spoken form | Recognized/displayed form |
+| Recognized/displayed form | Spoken form |
 |--------------|--------------------------|
-| three c p o | 3CPO |  
-| c n t k | CNTK |
-| i triple e | IEEE |
+| 3CPO | three c p o |  
+| CNTK | c n t k |
+| IEEE | i triple e |
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
 
