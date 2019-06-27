@@ -8,7 +8,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Detect Anomalies in your data
+    - name: REST API
       items:
         - name: Using C#
           href: quickstarts/detect-data-anomalies-csharp.md
@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Using Python
           href: quickstarts/detect-data-anomalies-python.md
+    - name: SDK
+      items:
+        - name: Using C#
+          href: quickstarts/detect-data-anomalies-csharp-sdk.md
+        - name: Using Python
+          href: quickstarts/detect-data-anomalies-csharp-python.md
 - name: Tutorials
   items:
     - name: Visualize anomalies as a batch using Power BI
