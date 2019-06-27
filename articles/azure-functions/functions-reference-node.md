@@ -56,7 +56,7 @@ JavaScript functions must be exported via [`module.exports`](https://nodejs.org/
 
 By default, the Functions runtime looks for your function in `index.js`, where `index.js` shares the same parent directory as its corresponding `function.json`. In the default case, your exported function should be the only export from its file or the export named `run` or `index`. To configure the file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
 
-Your exported function is passed a number of arguments on execution. The first argument it takes is always a `context` object. If your function is synchronous (does not return a Promise), you must pass the `context` object, as calling `context.done` is required for correct use.
+Your exported function is passed a number of arguments on execution. The first argument it takes is always a `context` object. If your function is synchronous (doesn't return a Promise), you must pass the `context` object, as calling `context.done` is required for correct use.
 
 ```javascript
 // You should include context, other arguments are optional
@@ -395,7 +395,7 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     ```
 + **_[Response only]_ By calling `context.res.send(body?: any)`.** An HTTP response is created with input `body` as the response body. `context.done()` is implicitly called.
 
-+ **_[Response only]_ By calling `context.done()`.** A special kind of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
++ **_[Response only]_ By calling `context.done()`.** A special type of HTTP binding returns the response that is passed to the `context.done()` method. The following HTTP output binding defines a `$return` output parameter:
 
     ```json
     {
@@ -417,7 +417,7 @@ The following table shows the Node.js version used by each major version of the 
 | Functions version | Node.js version | 
 |---|---|
 | 1.x | 6.11.2 (locked by the runtime) |
-| 2.x  | _Active LTS_ and _Maintenence LTS_ Node.js versions (8.11.1 and 10.14.1 recommended). Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Active LTS_ and _Maintenance LTS_ Node.js versions (8.11.1 and 10.14.1 recommended). Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function.
 
@@ -572,7 +572,7 @@ The way that you locally develop and deploy from a TypeScript project depends on
 
 The [Azure Functions for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension lets you develop your functions using TypeScript. The Core Tools is a requirement of the Azure Functions extension.
 
-To create a TypeScript function app in Visual Studio Code, you simply choose `TypeScript` when you create a function app and are asked to choose the language.
+To create a TypeScript function app in Visual Studio Code, choose `TypeScript` as your language when you create a function app.
 
 When you press **F5** to run the app locally, transpilation is done before the host (func.exe) is initialized. 
 
@@ -580,7 +580,7 @@ When you deploy your function app to Azure using the **Deploy to function app...
 
 ### Azure Functions Core Tools
 
-To create a TypeScript function app project using Core Tools, you must specify the typescript language option when you create your function app. You can do this in one of the following ways:
+To create a TypeScript function app project using Core Tools, you must specify the TypeScript language option when you create your function app. You can do this in one of the following ways:
 
 - Run the `func init` command, select `node` as your language stack, and then select `typescript`.
 
@@ -617,7 +617,7 @@ When writing Azure Functions in JavaScript, we highly recommend writing code usi
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
  - Unexpected behavior (ex: missing logs from context.log) caused by asynchronous calls that are not properly awaited.
 
-In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code will result in both issues mentioned above. An exception that is not explicitly caught in the correct scope will result in the entire process crashing (bug #1). Calling `context.done()` outside of the scope of the callback function will mean that the Azure Function's invocation may end before the file is read (bug #2). In this example, this will result in missing the log entry starting with `Data from file:`.
+In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code will result in both issues mentioned above. An exception that is not explicitly caught in the correct scope will result in the entire process crashing (bug #1). Calling `context.done()` outside of the scope of the callback function will mean that the Azure Function's invocation may end before the file is read (bug #2). In this example, calling context.done too early will result in missing log entries starting with `Data from file:`.
 
 ```javascript
 // NOT RECOMMENDED PATTERN
