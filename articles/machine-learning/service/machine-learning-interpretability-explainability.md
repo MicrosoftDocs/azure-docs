@@ -309,7 +309,7 @@ You can click on any individual data point at any time of the preceding plots to
 [![Visualization Dashboard Feature Perturbation](./media/machine-learning-interpretability-explainability/perturbation.gif)](./media/machine-learning-interpretability-explainability/perturbation.gif#lightbox)
 
 
-[![Visualization Dashboard ICE Plots](./media/machine-learning-interpretability-explainability/ICE.png)](./media/machine-learning-interpretability-explainability/ICE.png#lightbox)
+[![Visualization Dashboard ICE Plots](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
 
 Note you will need to have widget extensions of the visualization dashboard enabled prior to Jupyter kernel starting.
 
