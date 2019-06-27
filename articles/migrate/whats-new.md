@@ -15,7 +15,7 @@ ms.custom: mvc
 
 
 
-## Azure Migrate versions
+## Azure Migrate new version
 
 A new version of Azure Migrate was released in July 2019). 
 
