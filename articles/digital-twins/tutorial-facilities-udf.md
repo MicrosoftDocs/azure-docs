@@ -10,9 +10,9 @@ ms.date: 06/26/2019
 ms.author: dkshir
 ---
 
-# Tutorial: Provision your building and monitor working conditions with Azure Digital Twins
+# Tutorial: Provision your building and monitor working conditions with Azure Digital Twins Preview
 
-This tutorial demonstrates how to use Azure Digital Twins to monitor your spaces for desired temperature conditions and comfort level. After you [configure your sample building](tutorial-facilities-setup.md), you can provision your building and run custom functions on your sensor data by using the steps in this tutorial.
+This tutorial demonstrates how to use Azure Digital Twins Preview to monitor your spaces for desired temperature conditions and comfort level. After you [configure your sample building](tutorial-facilities-setup.md), you can provision your building and run custom functions on your sensor data by using the steps in this tutorial.
 
 In this tutorial, you learn how to:
 
