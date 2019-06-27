@@ -141,6 +141,12 @@
       - name: Tools for VSCode
         href: ../hdinsight-for-vscode.md
         maintainContext: true
+      - name: Tools for IntelliJ
+        href: ../hdinsight/apache-spark-intellij-tool-plugin.md
+        maintainContext: true
+      - name: Tools for Eclipse
+        href: ../hdinsight/apache-spark-eclipse-tool-plugin.md
+        maintainContext: true
       - name: Data Lake Tools with Hortonworks Sandbox
         href: ../hdinsight-hadoop-emulator-visual-studio.md
         maintainContext: true
