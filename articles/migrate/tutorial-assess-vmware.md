@@ -195,7 +195,7 @@ There are two types of assessments in Azure Migrate.
 **Assessment type** | **Details** | **Data**
 --- | --- | ---
 **Performance-based** | Assessments that use collected performance data | VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard or premium managed disks) is on the IOPS and throughput of the on-premises disks.
-**As-is** | Assessments that don't use performance data. <br/><br/>VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is always a standard managed disk. 
+**As-is** | Assessments that don't use performance data. <br/><br/>VM size recommendation is based on the on-premises VM size<br/><br/> The recommended disk type is always a standard managed disk. 
 
 #### Example
 For example if you have an on-premises VM with four cores at 20% utilization, and memory of 8 GB with 10% utilization, the assessments will be as follows:
