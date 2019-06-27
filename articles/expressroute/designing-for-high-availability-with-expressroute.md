@@ -16,8 +16,7 @@ ms.author: rambala
 
 # Designing for high availability with ExpressRoute
 
-ExpressRoute is designed for high availability to provide carrier grade private network connectivity to Microsoft resources. In other words, there is no single point of failure in the ExpressRoute path within Microsoft network.  
-To maximize the availability, the customer and the service provider segment of your ExpressRoute circuit should also be architected for high availability. In this article, first let's look into network architecture considerations for building robust network connectivity using an ExpressRoute, then let's look into the fine-tuning features that help you to improve the high availability of your ExpressRoute circuit.
+ExpressRoute is designed for high availability to provide carrier grade private network connectivity to Microsoft resources. In other words, there is no single point of failure in the ExpressRoute path within Microsoft network. To maximize the availability, the customer and the service provider segment of your ExpressRoute circuit should also be architected for high availability. In this article, first let's look into network architecture considerations for building robust network connectivity using an ExpressRoute, then let's look into the fine-tuning features that help you to improve the high availability of your ExpressRoute circuit.
 
 
 ## Architecture considerations
@@ -36,7 +35,7 @@ For high availability, it's essential to maintain the redundancy of the ExpressR
 
 On the other hand, if you terminate the primary and the secondary connections of an ExpressRoute circuits in different geographical locations, then you could be compromising the network performance of the connectivity. If traffic is actively load balanced across the primary and the secondary connections that are terminated on different geographical locations, potential substantial difference in network latency between the two paths would result in suboptimal network performance. 
 
-For geo-redundant design considerations, see [Designing for disaster recovery with ExpressRoute private peering][DR].
+For geo-redundant design considerations, see [Designing for disaster recovery with ExpressRoute][DR].
 
 ### Active-active connections
 
