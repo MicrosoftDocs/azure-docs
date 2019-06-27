@@ -10,7 +10,9 @@ ms.author: danlep
 ---
 # Run an ACR task on a defined schedule
 
-This article shows you how to run an ACR task  on a schedule. You do this by setting up one or more *timer triggers* for the task. Schedule a task for scenarios like the following:
+This article shows you how to run an [ACR task](container-registry-tasks-overview.md) on a schedule. Schedule a task by setting up one or more *timer triggers*. 
+
+Scheduling a task is useful for scenarios like the following:
 
 * Run a container workload for scheduled maintenance operations. For example, run a containerized app to remove unneeded images from your registry.
 * Run a set of tests on a production image several times during the workday as part of your live-site monitoring.
@@ -23,17 +25,17 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI to ru
 * **Trigger with cron expression** - The timer trigger for a task uses a *cron expression*. The expression is a string with five fields specifying the minute, hour, day, month, and day of week to trigger the task. Frequencies of up to once per minute are supported. 
 
   For example, the expression `"0 12 * * Mon-Fri"` triggers a task at noon UTC on each weekday. See [details](#cron-expressions) later in this article.
-* **Multiple timer triggers** - Adding multiple timer triggers to a task is allowed, as long as the schedules differ. 
-    * Specify multiple triggers when you create the task, or add them later.
-    * Optionally name the timer triggers for easier management, or ACR Tasks will provide default trigger names.
+* **Multiple timer triggers** - Adding multiple timers to a task is allowed, as long as the schedules differ. 
+    * Specify multiple timer triggers when you create the task, or add them later.
+    * Optionally name the triggers for easier management, or ACR Tasks will provide default trigger names.
     * If timer schedules overlap at a time, ACR Tasks runs the task at the scheduled time for one of the timers, and then triggers the task one minute later for the other. 
-* **Other task triggers** - In a timer-triggered task, you can also enable triggers based on source code or base image updates. You can also manually trigger a scheduled task.
+* **Other task triggers** - In a timer-triggered task, you can also enable triggers based on source code or base image updates. Like other ACR tasks, you can also manually trigger a scheduled task.
 
 ## Create a task with a timer trigger
 
 When you create a task with the [az acr task create][az-acr-task-create] command, you can optionally add a timer trigger. Add the `--schedule` parameter and pass a cron expression for the timer. 
 
-The following example triggers building the `hello-world` image in registry *myregistry* every 5 minutes (12 times per hour): at 5 minutes past the hour, 10 minutes past the hour, and so on. Source code update triggers are disabled to simplify this example, but you could enable those. For details, see the tutorial [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
+The following example triggers building the `hello-world` image in registry *myregistry* every 5 minutes (12 times per hour): at 5 minutes past the hour, 10 minutes past the hour, and so on. Source code update triggers are disabled to simplify this example, but you could enable these triggers. For details, see the tutorial [Automate container image builds with Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
 
 ```azurecli
 az acr task create \
@@ -62,7 +64,7 @@ After several minutes, run the [az acr task list-runs][az-acr-task-list-runs] co
 az acr task list runs --name hello-world --registry myregistry
 ``` 
 
-When the timer triggers the task successfuly, output is similar to the following:
+When the timer triggers the task successfully, output is similar to the following:
 
 ```console
 RUN ID    TASK         PLATFORM    STATUS     TRIGGER    STARTED               DURATION
@@ -89,7 +91,7 @@ az acr task timer add \
   --schedule "30 10 * * *"
 ```
 
-Update the schedule of an existing timer trigger, or change its status, by using the [az acr task timer update][az-acr-task-timer-update] command. For example, update the trigger named *timer2* to trigger the task at 11:30 UTC:
+Update the schedule of an existing trigger, or change its status, by using the [az acr task timer update][az-acr-task-timer-update] command. For example, update the trigger named *timer2* to trigger the task at 11:30 UTC:
 
 ```azurecli
 az acr task timer update \
@@ -173,7 +175,7 @@ Each field can have one of the following types of values:
 
 ## Next steps
 
-* For examples of triggering tasks based on source code commits or base image updates, check out the [ACR Tasks tutorial series](container-registry-tutorial-quick-task.md).
+* For examples of tasks triggered by source code commits or base image updates, check out the [ACR Tasks tutorial series](container-registry-tutorial-quick-task.md).
 
 
 
