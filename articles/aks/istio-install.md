@@ -36,7 +36,7 @@ In this article, you learn how to:
 
 The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.11` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
 
-You'll need [Helm][helm] to follow these instructions and install Istio. It's recommended that you have version `2.12.2` or later correctly installed and configured in your cluster. If you need help with installing Helm, then see the [AKS Helm installation guidance][helm-install].
+You'll need [Helm][helm] to follow these instructions and install Istio. It's recommended that you have version `2.12.2` or later correctly installed and configured in your cluster. If you need help with installing Helm, then see the [AKS Helm installation guidance][helm-install]. All Istio pods must also be scheduled to run on Linux nodes.
 
 This article separates the Istio installation guidance into several discrete steps. The end result is the same in structure as the official Istio installation [guidance][istio-install-helm].
 
@@ -332,6 +332,9 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 ```
 
 The `istio` Helm chart deploys a large number of objects. You can see the list from the output of your `helm install` command above. The deployment of the Istio components can take 4 to 5 minutes to complete, depending on your cluster environment.
+
+> [!NOTE]
+> All Istio pods must be scheduled to run on Linux nodes. If you have Windows Server node pools in addition to Linux node pools on your cluster, verify that all Istio pods have been scheduled to run on Linux nodes.
 
 At this point, you've deployed Istio to your AKS cluster. To ensure that we have a successful deployment of Istio, let's move on to the next section to [Validate the Istio installation](#validate-the-istio-installation).
 

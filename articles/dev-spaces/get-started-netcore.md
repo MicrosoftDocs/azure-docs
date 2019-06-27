@@ -49,7 +49,7 @@ az account set --subscription <subscription ID>
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-At the command prompt, create the resource group in a [region that supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -58,7 +58,7 @@ az group create --name MyResourceGroup --location <region>
 Create a Kubernetes cluster with the following command:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.
@@ -226,3 +226,6 @@ Refresh the web app in the browser, and go to the About page. You should see you
 
 > [!div class="nextstepaction"]
 > [Learn about multi-service development](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

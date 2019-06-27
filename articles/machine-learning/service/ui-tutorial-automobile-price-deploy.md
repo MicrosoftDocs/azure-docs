@@ -103,7 +103,7 @@ You can test a web service in the web service tab in the visual interface.
 
     ![Screenshot showing the web service testing page](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Input testing data or use the autofilled sample data and select **Test** at the bottom. The test request is submitted to the web service and the results are shown on page.
+1. Input testing data or use the autofilled sample data and select **Test** at the bottom. The test request is submitted to the web service and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
 
 ## Manage the web service
 

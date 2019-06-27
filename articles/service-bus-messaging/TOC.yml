@@ -19,6 +19,8 @@
         href: service-bus-quickstart-powershell.md
       - name: Azure CLI
         href: service-bus-quickstart-cli.md
+      - name: Azure Resource Manager template
+        href: service-bus-resource-manager-namespace-queue.md
     - name: Send and receive messages
       items:      
       - name: .NET
@@ -26,7 +28,11 @@
       - name: Java
         href: service-bus-java-how-to-use-queues.md
       - name: Node.js
-        href: service-bus-nodejs-how-to-use-queues.md
+        items:
+        - name: azure/service-bus package
+          href: service-bus-nodejs-how-to-use-queues-new-package.md          
+        - name: azure-sb package
+          href: service-bus-nodejs-how-to-use-queues.md
       - name: PHP
         href: service-bus-php-how-to-use-queues.md
       - name: Python
@@ -36,7 +42,11 @@
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions 
-      href: service-bus-quickstart-topics-subscriptions-portal.md
+      items:
+      - name: Azure portal
+        href: service-bus-quickstart-topics-subscriptions-portal.md
+      - name: Azure Resource Manager template
+        href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
       items: 
       - name: .NET
@@ -44,7 +54,11 @@
       - name: Java
         href: service-bus-java-how-to-use-topics-subscriptions.md
       - name: Node.js
-        href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+        items:
+        - name: azure/service-bus package
+          href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
+        - name: azure-sb package
+          href: service-bus-nodejs-how-to-use-topics-subscriptions.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
       - name: Python
@@ -166,7 +180,7 @@
     items:
     - name: Use Azure PowerShell to provision entities
       href: service-bus-manage-with-ps.md
-    - name: Monitor Service Bus with Azure Monitoring
+    - name: Monitor Service Bus with Azure Monitor
       href: service-bus-metrics-azure-monitor.md
     - name: Service Bus management libraries
       href: service-bus-management-libraries.md
@@ -179,10 +193,6 @@
       items:
       - name: Create a namespace
         href: service-bus-resource-manager-namespace.md
-      - name: Create a namespace and a queue
-        href: service-bus-resource-manager-namespace-queue.md
-      - name: Create a namespace with topic and subscription
-        href: service-bus-resource-manager-namespace-topic.md
       - name: Create an authorization rule for namespace and queue
         href: service-bus-resource-manager-namespace-auth-rule.md
       - name: Create a namespace with topic, subscription, and rule

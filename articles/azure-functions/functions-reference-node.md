@@ -48,7 +48,7 @@ FunctionsProject
 
 At the root of the project, there's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.js) and binding configuration file (function.json). The name of `function.json`'s parent directory is always the name of your function.
 
-The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). When developing functions in the Azure portal, this registration is done for you.
+The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
 ## Exporting a function
 
@@ -417,7 +417,7 @@ The following table shows the Node.js version used by each major version of the 
 | Functions version | Node.js version | 
 |---|---|
 | 1.x | 6.11.2 (locked by the runtime) |
-| 2.x  | _Active LTS_ and even-numbered _Current_ Node.js versions (8.11.1 and 10.14.1 recommended). Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Active LTS_ and _Maintenence LTS_ Node.js versions (8.11.1 and 10.14.1 recommended). Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function.
 
@@ -461,23 +461,16 @@ There are two ways to install packages on your Function App:
 
 ## Environment variables
 
-In Functions, [app settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings using `process.env`, as shown here in the `GetEnvironmentVariable` function:
+In Functions, [app settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings using `process.env`, as shown here in the second and third calls to `context.log()` where we log the `AzureWebJobsStorage` and `WEBSITE_SITE_NAME` environment variables:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     context.log('Node.js timer trigger function ran!', timeStamp);
-    context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
-    context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
-
-    context.done();
+    context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
+    context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
 };
-
-function GetEnvironmentVariable(name)
-{
-    return name + ": " + process.env[name];
-}
 ```
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
@@ -500,7 +493,7 @@ FunctionApp
  | - myNodeFunction
  | | - function.json
  | - lib
- | | - nodeFunction.js
+ | | - sayHello.js
  | - node_modules
  | | - ... packages ...
  | - package.json
@@ -510,7 +503,7 @@ The `function.json` for `myNodeFunction` should include a `scriptFile` property 
 
 ```json
 {
-  "scriptFile": "../lib/nodeFunction.js",
+  "scriptFile": "../lib/sayHello.js",
   "bindings": [
     ...
   ]
@@ -540,7 +533,7 @@ class MyObj {
         this.foo = 1;
     };
 
-    function logFoo(context) { 
+    logFoo(context) { 
         context.log("Foo is " + this.foo); 
         context.done(); 
     }

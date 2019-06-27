@@ -3,8 +3,8 @@ title: Enable remote access to SharePoint with Azure AD Application Proxy | Micr
 description: Covers the basics about how to integrate an on-premises SharePoint server with Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -110,7 +110,7 @@ To configure the KCD, repeat the following steps for each connector machine:
 
 Now that you’ve configured KCD, you're ready to configure Azure AD Application Proxy.
 
-1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    * **Internal URL**: SharePoint Internal URL that was chosen earlier, such as **<https://SharePoint/>**.
    * **Pre-authentication Method**: Azure Active Directory
    * **Translate URL in Headers**: NO
@@ -125,7 +125,7 @@ Now that you’ve configured KCD, you're ready to configure Azure AD Application
    1. On the application page in the portal, select **Single sign-on**.
    2. For Single Sign-on Mode, select **Integrated Windows Authentication**.
    3. Set Internal Application SPN to the value that you set earlier. For this example, that would be **HTTP/SharePoint**.
-   4. In "Delegated Login Identity", select **On-premises SAM account name**.
+   4. In "Delegated Login Identity", select the most suitable option for your Active Directory forest configuration. For example if you have a single AD domain in your forest, select **On-premises SAM account name** (as shown below), but if your users are not in the same domain as SharePoint and the App Proxy Connector servers then select **On-premises user principal name** (not shown).
 
    ![Configure Integrated Windows Authentication for SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 

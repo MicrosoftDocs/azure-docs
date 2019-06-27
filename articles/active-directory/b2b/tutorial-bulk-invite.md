@@ -11,6 +11,7 @@ ms.date: 08/14/2018
 
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
 
 #customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.

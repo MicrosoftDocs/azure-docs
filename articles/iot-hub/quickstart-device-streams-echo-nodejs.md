@@ -157,4 +157,4 @@ In this quickstart, you have set up an IoT hub, registered a device, established
 Use the links below to learn more about device streams:
 
 > [!div class="nextstepaction"]
-> [Device streams overview](./iot-hub-device-streams-overview.md)
+> [Device streams overview](./iot-hub-device-streams-overview.md) 

@@ -1,17 +1,10 @@
 ---
 title: Move Azure resources to new subscription or resource group | Microsoft Docs
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 06/24/2019
 ms.author: tomfitz
 
 ---
@@ -51,6 +44,7 @@ The following list provides a general summary of Azure services that can be move
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
+* App Service Domain
 * Automation - Runbooks must exist in the same resource group as the Automation Account.
 * Azure Active Directory B2C
 * Azure Cache for Redis - if the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
@@ -81,7 +75,6 @@ The following list provides a general summary of Azure services that can be move
 * DNS
 * Event Grid
 * Event Hubs
-* Front Door
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
@@ -90,16 +83,15 @@ The following list provides a general summary of Azure services that can be move
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
 * Managed Disks - Managed Disks in Availability Zones can't be moved to a different subscription
-* Managed Identity - user-assigned
 * Media Services
-* Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#monitor-limits)
+* Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits)
 * Notification Hubs
 * Operational Insights
 * Operations Management
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - Basic SKU Public IP can be moved. Standard SKU Public IP can't be moved.
-* Recovery Services vault - enroll in a [preview](#recovery-services-limitations).
+* Recovery Services vault - see [limitations](#recovery-services-limitations).
 * SAP HANA on Azure
 * Scheduler
 * Search - You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
@@ -107,8 +99,9 @@ The following list provides a general summary of Azure services that can be move
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Storage - storage accounts in different regions can't be moved in the same operation. Instead, use separate operations for each region.
+* Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
+* Storage Sync Service
 * Stream Analytics - Stream Analytics jobs can't be moved when in running state.
 * SQL Database server - database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
 * Time Series Insights
@@ -140,8 +133,10 @@ The following list provides a general summary of Azure services that can't be mo
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
+* Front Door
 * Lab Services - Classroom Labs can't be moved to a new resource group or subscription. DevTest Labs can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Managed Applications
+* Managed Identity - user-assigned
 * Microsoft Genomics
 * Security
 * Site Recovery
@@ -169,6 +164,7 @@ The following scenarios aren't yet supported:
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved.
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
+* Virtual machines in an existing Virtual Network where the user does not intend to move all resources in the Virtual Network.
 
 To move virtual machines configured with Azure Backup, use the following workaround:
 
@@ -324,7 +320,7 @@ The operation may run for several minutes.
 
 ### Recovery Services limitations
 
- To move a Recovery Services vault, you must enroll in a [limited public preview](../backup/backup-azure-move-recovery-services-vault.md).
+ To move a Recovery Services vault, follow these steps: [Move resources to new resource group or subscription](../backup/backup-azure-move-recovery-services-vault.md).
 
 Currently, you can move one Recovery Services vault, per region, at a time. You can't move vaults that back up Azure Files, Azure File Sync, or SQL in IaaS virtual machines.
 

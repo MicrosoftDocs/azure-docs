@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/14/2019
+ms.date: 06/06/2019
 ms.author: iainfou
 
 #Customer intent: As an cluster operator, I want to restrict egress traffic for nodes to only access defined ports and addresses and improve cluster security.
@@ -14,20 +14,24 @@ ms.author: iainfou
 
 # Preview - Limit egress traffic for cluster nodes and control access to required ports and services in Azure Kubernetes Service (AKS)
 
-By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is then configured to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR), not external public repositories.
+By default, AKS clusters have unrestricted outbound (egress) internet access. This level of network access allows nodes and services you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible to maintain healthy cluster maintenance tasks. Your cluster is then configured to only use base system container images from Microsoft Container Registry (MCR) or Azure Container Registry (ACR), not external public repositories. You must configure your preferred firewall and security rules to allow these required ports and addresses.
 
 This article details what network ports and fully qualified domain names (FQDNs) are required and optional if you restrict egress traffic in an AKS cluster.  This feature is currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
 >
-> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
+> * [AKS Support Policies][aks-support-policies]
+> * [Azure Support FAQ][aks-faq]
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.66 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 To create an AKS cluster that can limit egress traffic, first enable a feature flag on your subscription. This feature registration configures any AKS clusters you create to use base system container images from MCR or ACR. To register the *AKSLockingDownEgressPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+
+> [!CAUTION]
+> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
@@ -51,7 +55,7 @@ For management and operational purposes, nodes in an AKS cluster need to access 
 
 To increase the security of your AKS cluster, you may wish to restrict egress traffic. The cluster is configured to pull base system container images from MCR or ACR. If you lock down the egress traffic in this manner, you must define specific ports and FQDNs to allow the AKS nodes to correctly communicate with required external services. Without these authorized ports and FQDNs, your AKS nodes can't communicate with the API server or install core components.
 
-You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance to secure your egress traffic and define these required ports and addresses.
+You can use [Azure Firewall][azure-firewall] or a 3rd-party firewall appliance to secure your egress traffic and define these required ports and addresses. AKS does not automatically create these rules for you. The following ports and addresses are for reference as you create the appropriate rules in your network firewall.
 
 In AKS, there are two sets of ports and addresses:
 
@@ -66,24 +70,27 @@ In AKS, there are two sets of ports and addresses:
 The following outbound ports / network rules are required for an AKS cluster:
 
 * TCP port *443*
-* TCP port *9000*
+* TCP port *9000* and TCP port *22* for the tunnel front pod to communicate with the tunnel end on the API server.
+    * To get more specific, see the **.hcp.\<location\>.azmk8s.io* and **.tun.\<location\>.azmk8s.io* addresses in the following table.
 
 The following FQDN / application rules are required:
 
-| FQDN                      | Port      | Use      |
-|---------------------------|-----------|----------|
-| *.azmk8s.io               | HTTPS:443 | This address is the API server endpoint. |
-| aksrepos.azurecr.io       | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). |
-| *.blob.core.windows.net   | HTTPS:443 | This address is the backend store for images stored in ACR. |
-| mcr.microsoft.com         | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). |
-| management.azure.com      | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
-| login.microsoftonline.com | HTTPS:443 | This address is required for Azure Active Directory authentication. |
+| FQDN                       | Port      | Use      |
+|----------------------------|-----------|----------|
+| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| aksrepos.azurecr.io        | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). |
+| *.blob.core.windows.net    | HTTPS:443 | This address is the backend store for images stored in ACR. |
+| mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). |
+| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
+| management.azure.com       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
+| login.microsoftonline.com  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
+| api.snapcraft.io           | HTTPS:443, HTTP:80 | This address is required to install Snap packages on Linux nodes. |
+| ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
+| *.docker.io                | HTTPS:443 | This address is required to pull required container images for the tunnel front. |
 
 ## Optional recommended addresses and ports for AKS clusters
 
-The following outbound ports / network rules aren't required for AKS clusters to function correctly, but are recommended:
-
-* UDP port *123* for NTP time sync
 * UDP port *53* for DNS
 
 The following FQDN / application rules are recommended for AKS clusters to function correctly:
@@ -103,9 +110,6 @@ The following FQDN / application rules are recommended for AKS clusters to funct
 
 In this article, you learned what ports and addresses to allow if you restrict egress traffic for the cluster. You can also define how the pods themselves can communicate and what restrictions they have within the cluster. For more information, see [Secure traffic between pods using network policies in AKS][network-policy].
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -116,3 +120,5 @@ In this article, you learned what ports and addresses to allow if you restrict e
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

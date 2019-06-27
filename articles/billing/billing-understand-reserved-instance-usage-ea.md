@@ -37,9 +37,9 @@ Comparison of two data sets:
 
 | Data | Actual Cost data set | Amortized Cost data set |
 | --- | --- | --- |
-| Reservation purchases | Available in this view.<br>  To get this data filter on ChargeType = &quot;Purchase&quot;. <br> Refer to ReservationID or ReservationName to know which reservation the charge is for.  | Not applicable to this view. <br> Purchase costs aren't provided in amortized data. |
+| Reservation purchases | Available in this view.<br><br>  To get this data filter on ChargeType = &quot;Purchase&quot;. <br><br> Refer to ReservationID or ReservationName to know which reservation the charge is for.  | Not applicable to this view. <br><br> Purchase costs aren't provided in amortized data. |
 | EffectivePrice | The value is zero for usage that gets reservation discount. | The value is per-hour prorated cost of the reservation for usage that has the reservation discount. |
-| Unused reservation (Provides the number of hours the reservation wasn't used in a day and the monetary value of the waste) | Not applicable in this view. | Available in this view.<br> To get this data, filter on ChargeType = &quot;UnusedReservation&quot;.<br>  Refer to ReservationID or ReservationName to know which reservation was underutilized. This is how much of the reservation was wasted in for the day.  |
+| Unused reservation (Provides the number of hours the reservation wasn't used in a day and the monetary value of the waste) | Not applicable in this view. | Available in this view.<br><br> To get this data, filter on ChargeType = &quot;UnusedReservation&quot;.<br><br>  Refer to ReservationID or ReservationName to know which reservation was underutilized. This is how much of the reservation was wasted in for the day.  |
 | UnitPrice(Price of the resource from your price sheet) | Available | Available |
 
 Other information available in Azure usage data has changed:
@@ -72,12 +72,12 @@ Information in the following table about metric and filter can help solve for co
 | **Type of API data** | API call action |
 | --- | --- |
 | **All Charges (usage and purchases)** | Replace {metric} with ActualCost |
-| **Usage that got reservation discount** | Replace {metric} with ActualCost<br>Replace {filter} with: properties/reservationId%20ne%20 |
-| **Usage that did not get reservation discount** | Replace {metric} with ActualCost<br>Replace {filter} with: properties/reservationId%20eq%20 |
+| **Usage that got reservation discount** | Replace {metric} with ActualCost<br><br>Replace {filter} with: properties/reservationId%20ne%20 |
+| **Usage that didn't get reservation discount** | Replace {metric} with ActualCost<br><br>Replace {filter} with: properties/reservationId%20eq%20 |
 | **Amortized charges (usage and purchases)** | Replace {metric} with AmortizedCost |
-| **Unused reservation report** | Replace {metric} with AmortizedCost<br>Replace {filter} with: properties/ChargeType%20eq%20'UnusedReservation' |
-| **Reservation purchases** | Replace {metric} with ActualCostReplace {filter} with: properties/ChargeType%20eq%20'Purchase'  |
-| **Refunds** | Replace {metric} with ActualCost<br>Replace {filter} with: properties/ChargeType%20eq%20'Refund' |
+| **Unused reservation report** | Replace {metric} with AmortizedCost<br><br>Replace {filter} with: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Reservation purchases** | Replace {metric} with ActualCost<br><br>Replace {filter} with: properties/ChargeType%20eq%20'Purchase'  |
+| **Refunds** | Replace {metric} with ActualCost<br><br>Replace {filter} with: properties/ChargeType%20eq%20'Refund' |
 
 ## Download the usage CSV file with new data
 

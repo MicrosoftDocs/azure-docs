@@ -33,7 +33,7 @@ The Microsoft.SCP.Net.SDK NuGet package you use for your project must match the 
 > [!IMPORTANT]  
 > The example in this document expects an HDInsight 3.5 or 3.6 cluster.
 >
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux is the only operating system used on HDInsight version 3.4 or greater. 
 
 C# topologies must also target .NET 4.5.
 

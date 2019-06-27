@@ -2,23 +2,14 @@
   href: /azure/hdinsight
 - name: Overview
   items:
-  - name: About Apache Hadoop on HDInsight
+  - name: What is Apache Hadoop in HDInsight?
     href: apache-hadoop-introduction.md
-    maintainContext: true
-  - name: Apache Hadoop architecture in HDInsight
-    href: ../hdinsight-hadoop-architecture.md
-    maintainContext: true
-  - name: Apache Hadoop components on HDInsight
-    href: ../hdinsight-component-versioning.md
-    maintainContext: true
-  - name: HDInsight 4.0
-    href: ../hdinsight-version-release.md
     maintainContext: true
 - name: Quickstarts
   items:
   - name: Create Apache Hadoop cluster - Portal
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
-  - name: Create Apache Hadoop cluster - Resource Manager template
+  - name: Create Apache Hadoop cluster - Template
     displayName: resource manager template, arm template, resource manager group
     href: apache-hadoop-linux-tutorial-get-started.md      
 - name: Tutorials
@@ -28,9 +19,6 @@
     maintainContext: true
   - name: Create on-demand clusters
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-    maintainContext: true
-  - name: Monitor cluster availability with Ambari and Azure Monitor logs
-    href: ../hdinsight-cluster-availability.md  
     maintainContext: true
 - name: Samples
   items:
@@ -45,6 +33,18 @@
     maintainContext: true
 - name: Concepts
   items:
+  - name: Monitor cluster availability with Ambari and Azure Monitor logs
+    href: ../hdinsight-cluster-availability.md  
+    maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
+  - name: Apache Hadoop architecture in HDInsight
+    href: ../hdinsight-hadoop-architecture.md
+    maintainContext: true
+  - name: Apache Hadoop components in HDInsight
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
   - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
@@ -289,7 +289,7 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Apache Ambari web UI
@@ -423,7 +423,7 @@
     items:
     - name: HDInsight virtual network architecture
       href: ../hdinsight-virtual-network-architecture.md
-    - name: HDInsight restrict outbound traffic
+    - name: Use firewall to restrict outbound traffic
       href: ../hdinsight-restrict-outbound-traffic.md
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
@@ -471,9 +471,6 @@
   items:
   - name: Windows clusters
     items:
-    - name: Migrate Windows clusters to Linux clusters
-      href: ../hdinsight-migrate-from-windows-to-linux.md
-      maintainContext: true
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true

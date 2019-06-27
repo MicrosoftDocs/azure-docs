@@ -15,13 +15,14 @@ ms.custom: seodec18
 
 # Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning
 
-In this quickstart, you run Python code from a cloud-based Jupyter notebook that logs values in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
+No install required.  Get started with Azure Machine Learning service using a managed notebook server in the cloud. If you want to instead install the SDK into your own Python environment, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).
 
-This quickstart shows how to create a cloud virtual machine in your Azure Machine Learning workspace, configured with the Python environment necessary to run Azure Machine Learning. The [notebook VM (Preview)](how-to-configure-environment.md#notebookvm) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. If you prefer to work locally, you can also [use your own notebook server](quickstart-run-local-notebook.md).  
+This quickstart shows how you can use the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md) to keep track of your machine learning experiments.  You will create a [notebook VM (Preview)](how-to-configure-environment.md#notebookvm), a secure, cloud-based Azure workstation that provides a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. You then run a Python notebook on this VM that log values into the workspace.
 
 In this quickstart, you take the following actions:
 
-* Create a new cloud-based notebook server in your workspace.
+* Create a workspace
+* Create a notebook VM in your workspace.
 * Launch the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
@@ -31,11 +32,11 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#create-a-cloud-based-notebook-server). Otherwise, create one now.
+If you have an Azure Machine Learning service workspace, skip to the [next section](#create-notebook). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## Create a cloud-based notebook server
+## <a name="create-notebook"></a>Create a notebook VM
 
  From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource gives you a cloud-based platform pre-configured with everything you need to run Azure Machine Learning service.
 
@@ -56,6 +57,7 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
 1. Wait approximately 4-5 minutes, until the status changes to **Running**.
 
+
 ## Launch Jupyter web interface
 
 After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
@@ -68,6 +70,9 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 
 1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
 
+    > [!TIP]
+    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load  this same folder.
+
 1. The samples foldername includes a version number, for example **samples-1.0.33.1**.  Select the samples folder.
 
 1. Select the **quickstart** notebook.
@@ -77,6 +82,8 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
 Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Select **01.run-experiment.ipynb** to open the notebook.
+
+1. If you see a "Kernel not found" alert, select the kernel **Python 3.6 - AzureML** (approximately mid-way down the list) and set the kernel.
 
 1. Click into the first code cell and select **Run**.
 
@@ -139,6 +146,7 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 In this quickstart, you completed these tasks:
 
+* Create a workspace
 * Create a notebook VM.
 * Launch the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.

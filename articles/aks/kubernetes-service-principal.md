@@ -100,9 +100,10 @@ You may use advanced networking where the virtual network and subnet or public I
 - Create a [custom role][rbac-custom-role] and define the following role permissions:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-  - *Microsoft.Network/publicIPAddresses/join/action*
 - Or, assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network
 
 ### Storage
@@ -134,6 +135,24 @@ When using AKS and Azure AD service principals, keep the following consideration
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## Troubleshoot
+
+The service principal credentials for an AKS cluster are cached by the Azure CLI. If these credentials have expired, you encounter errors deploying AKS clusters. The following error message when running [az aks create][az-aks-create] may indicate a problem with the cached service principal credentials:
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+Check the age of the credentials file using the following command:
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+The default expiration time for the service principal credentials is one year. If your *aksServicePrincipal.json* file is older than one year, delete the file and try to deploy an AKS cluster again.
 
 ## Next steps
 

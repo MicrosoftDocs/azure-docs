@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB. This globally-distributed multi-model 
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: rimman
 
 ---

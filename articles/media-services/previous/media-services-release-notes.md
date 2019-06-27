@@ -41,6 +41,10 @@ We want to hear from our customers so that we can focus on fixing problems that 
 ## <a id="rest_version_history"/>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
 
+## March 2019
+
+The Media Hyperlapse Preview feature of Azure Media Services was deprecated.
+
 ## December 2018
 
 The Media Hyperlapse Preview feature of Azure Media Services will soon be retired. Starting December 19, 2018, Media Services will no longer make changes or improvements to Media Hyperlapse. On March 29, 2019, it will be retired and no longer available.

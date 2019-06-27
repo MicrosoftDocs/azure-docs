@@ -1,6 +1,6 @@
 ---
-title: Authenticate access to blobs and queues with managed identities for Azure resources - Azure Storage | Microsoft Docs
-description: Azure Blob and Queue storage support Azure Active Directory authentication with managed identities for Azure resources. You can use managed identities for Azure resources to authenticate access to blobs and queues from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others.  
+title: Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources - Azure Storage
+description: Azure Blob and Queue storage support authorizing access to resources with Azure Active Directory and managed identities for Azure resources. You can use managed identities for Azure resources to authorize access to blobs and queues from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others.  
 services: storage
 author: tamram
 
@@ -12,7 +12,7 @@ ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources
+# Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources
 
 Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
@@ -44,7 +44,7 @@ To authorize requests against Blob and Queue storage with a managed identity, yo
 
 The App Authentication client library manages authentication automatically. The library uses the developer's credentials to authenticate during local development. Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers. When the solution is later deployed to Azure, the library automatically switches to using application credentials.
 
-To use the App Authentication library in an Azure Storage application, install the latest preview package from [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), as well as the latest version of the [Azure Storage common client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) and the the [Azure Blob storage client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Add the following **using** statements to your code:
+To use the App Authentication library in an Azure Storage application, install the latest preview package from [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), as well as the latest version of the [Azure Storage common client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) and the [Azure Blob storage client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Add the following **using** statements to your code:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;

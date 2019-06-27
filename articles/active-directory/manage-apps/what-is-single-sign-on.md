@@ -2,14 +2,14 @@
 title: Single sign-on to applications - Azure Active Directory | Microsoft Docs
 description: Learn how to choose a single sign-on method when configuring applications in Azure Active Directory (Azure AD). Use single sign-on so users don't need to remember passwords for every application, and to simplify the administration of account management.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvindh, japere
 
 ms.collection: M365-identity-device-management
@@ -91,7 +91,7 @@ Password-based single sign-on is supported for any cloud-based application that 
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
-To configure a cloud application for password-based single sign-on, see [Configure the application for password single sign-on](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
+To configure a cloud application for password-based single sign-on, see [Configure the application for password single sign-on](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
 
 To configure an on-premises application for single sign-on through Application Proxy, see [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 

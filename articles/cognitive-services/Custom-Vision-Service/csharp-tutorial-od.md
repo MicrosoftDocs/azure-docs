@@ -105,7 +105,7 @@ Console.WriteLine("Making a prediction:");
 var imageFile = Path.Combine("Images", "test", "test_image.jpg");
 using (var stream = File.OpenRead(imageFile))
 {
-        var result = endpoint.DetectImage(project.Id, publishedModelName, File.OpenRead(imageFile));
+        var result = endpoint.DetectImage(project.Id, publishedModelName, stream);
 
         // Loop over each prediction and write out the results
         foreach (var c in result.Predictions)

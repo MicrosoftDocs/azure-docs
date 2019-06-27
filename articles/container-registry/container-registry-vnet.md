@@ -212,7 +212,7 @@ Continue to [Verify access to the registry](#verify-access-to-the-registry).
 
 ## Allow access from an IP address
 
-In this section, configure your container registry to allow access from a subnet in an Azure virtual network. Equivalent steps using the Azure CLI and Azure portal are provided.
+In this section, configure your container registry to allow access from a specific IP address or range. Equivalent steps using the Azure CLI and Azure portal are provided.
 
 ### Allow access from an IP address - CLI
 

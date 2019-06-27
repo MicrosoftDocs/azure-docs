@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 05/29/2019
 ms.author: diberry
 ---
 
@@ -60,7 +60,7 @@ The following entities are supported:
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -165,7 +165,7 @@ The following entities are supported:
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -186,7 +186,7 @@ The following entities are supported:
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    ✔   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
@@ -207,7 +207,7 @@ The following entities are supported:
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Datetime](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    -   | 
 [Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 

@@ -76,7 +76,7 @@ We'll cover more details of how Azure Dev Spaces works in each of the below sect
 ## Prepare your AKS cluster
 
 Preparing your AKS cluster involves:
-* Verifying your AKS cluster is in a region [supported by Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Verifying your AKS cluster is in a region [supported by Azure Dev Spaces][supported-regions].
 * Verifying you are running Kubernetes 1.10.3 or later.
 * Enabling Azure Dev Spaces on your cluster using `az aks use-dev-spaces`
 
@@ -206,7 +206,7 @@ The `up` command uploads your application source files and other artifacts neede
 1. Builds the container for your application.
 1. Deploys your application to the dev space.
 1. Creates a publicly accessible DNS name for your application endpoint if configured.
-1. Uses *port-forward* to provide access to your application endpoint using http://locahost.
+1. Uses *port-forward* to provide access to your application endpoint using http://localhost.
 1. Forwards stdout and stderr to the client-side tooling.
 
 
@@ -404,7 +404,7 @@ For Java, .NET and Node.js applications, you can debug your application running 
 
 ![Debugging your code](media/get-started-node/debug-configuration-nodejs2.png)
 
-When you launch your application using Visual Studio Code or Visual Studio for debugging, they handle launching and connecting to your dev space in the same way as running `azds up`. The client-side tooling in Visual Studio Code and Visual Studio also provide an additional parameter with specific information for debugging. The parameter contains the name of debugger image, the location of the debugger within in the debugger's image, and the destination location within the application's container to mount the debugger folder. 
+When you launch your application using Visual Studio Code or Visual Studio for debugging, they handle launching and connecting to your dev space in the same way as running `azds up`. The client-side tooling in Visual Studio Code and Visual Studio also provide an additional parameter with specific information for debugging. The parameter contains the name of debugger image, the location of the debugger within in the debugger's image, and the destination location within the application's container to mount the debugger folder.
 
 The debugger image is automatically determined by the client-side tooling. It uses a method similar to the one used during Dockerfile and Helm chart generate when running `azds prep`. After the debugger is mounted in the application's image, it is run using `azds exec`.
 
@@ -438,3 +438,7 @@ To get started with team development, see the following how-to articles:
 * [Team Development - .NET Core with CLI and Visual Studio Code](team-development-netcore.md)
 * [Team Development - .NET Core with Visual Studio](team-development-netcore-visualstudio.md)
 * [Team Development - Node.js with CLI and Visual Studio Code](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

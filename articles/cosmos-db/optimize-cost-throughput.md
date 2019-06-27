@@ -4,7 +4,7 @@ description: This article explains how to optimize throughput costs for the data
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ---
 

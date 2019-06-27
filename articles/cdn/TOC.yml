@@ -42,7 +42,7 @@
     href: cdn-pop-list-api.md        
   - name: Migrate from Standard Verizon Standard to Premium Verizon  
     href: cdn-migrate.md
-  - name: DDoS Protection
+  - name: DDoS protection
     href: cdn-ddos.md
 - name: How-to guides
   items:
@@ -94,7 +94,7 @@
     - name: Monitor resources
       href: cdn-resource-health.md
     - name: Override behavior with rules
-      href: cdn-rules-engine.md
+      href: cdn-verizon-premium-rules-engine.md
     - name: Use Traffic Manager
       href: cdn-traffic-manager.md      
   - name: Analyze
@@ -134,15 +134,15 @@
       href: cdn-troubleshoot-allowed-ca.md      
 - name: Reference
   items:
-  - name: Rules engine reference
-    href: cdn-rules-engine-reference.md
+  - name: Verizon Premium rules engine reference
+    href: cdn-verizon-premium-rules-engine-reference.md
     items:
     - name: Rules engine conditional expressions
-      href: cdn-rules-engine-reference-conditional-expressions.md
+      href: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
     - name: Rules engine match conditions
-      href: cdn-rules-engine-reference-match-conditions.md
+      href: cdn-verizon-premium-rules-engine-reference-match-conditions.md
     - name: Rules engine features
-      href: cdn-rules-engine-reference-features.md
+      href: cdn-verizon-premium-rules-engine-reference-features.md
     - name: HTTP variables
       href: cdn-http-variables.md     
   - name: Verizon-specific HTTP headers
@@ -158,8 +158,6 @@
     href: /java/api/com.microsoft.azure.management.cdn
   - name: REST
     href: /rest/api/cdn/
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.cdn/allversions
 - name: Resources
   items:
   - name: Azure CDN POP locations
@@ -183,4 +181,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+    href: https://azure.microsoft.com/documentation/videos/index/?services=cdn   

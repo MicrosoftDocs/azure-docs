@@ -3,7 +3,7 @@ title: Deploy the remote monitoring solution locally (Visual Studio Code) - Azur
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Visual Studio Code for testing and development.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
@@ -54,16 +54,17 @@ dotnet build -c Release
 
 ### Deploy all other microservices on local machine
 
-The following steps show you how to run the Remote Monitoring microservices in Visual Studio 2017:
+The following steps show you how to run the Remote Monitoring microservices in Visual Studio Code:
 
 1. Launch Visual Studio Code.
-1. Open the **azure-iot-pcs-remote-monitoring-dotnet** module from your local copy in VS Code.
-1. Copy the files **launch.json** and **tasks.json** from scripts\local\launch\idesettings\vscode\. Create a new folder **azure-iot-pcs-remote-monitoring-dotnet\.vscode** and paste the files there.
-1. Open the Debug panel in VS Code and run the **Run all microservices** configuration. This configuration runs the device simulation microservice in Docker and runs the other microservices in the debugger.
+1. In VS Code, open the **azure-iot-pcs-remote-monitoring-dotnet** folder.
+1. Create a new folder called **.vscode** in the **azure-iot-pcs-remote-monitoring-dotnet** folder.
+1. Copy the files **launch.json** and **tasks.json** from services\scripts\local\launch\idesettings\vscode to the **.vscode** folder you just created.
+1. Open the **Debug panel** in VS Code and run the **Run All microservices** configuration. This configuration runs the device simulation microservice in Docker and runs the other microservices in the debugger.
 
-As an example, the output for **Auth** service in the **Debug Console** looks like the following:
+The output from running **Run All microsoervices** in the Debug Console looks like the following:
 
-[![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### Run the web UI
 

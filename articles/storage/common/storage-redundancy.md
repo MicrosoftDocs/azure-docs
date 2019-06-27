@@ -18,6 +18,8 @@ The data in your Microsoft Azure storage account is always replicated to ensure 
 
 Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
 
+Azure Storage regularly verifies the integrity of data stored using cyclic redundancy checks (CRCs). If data corruption is detected, it is repaired using redundant data. Azure Storage also calculates checksums on all network traffic to detect corruption of data packets when storing or retrieving data.
+
 ## Choosing a redundancy option
 
 When you create a storage account, you can select one of the following redundancy options:

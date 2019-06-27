@@ -16,9 +16,9 @@ You can run your Microsoft .NET Azure HDInsight application either under the app
 
 From your non-interactive .NET application, you need:
 
-* Your Azure subscription tenant ID (also called a *directory ID*). See [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
-* The Azure Active Directory (Azure AD) application client ID. See [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) and [Get an application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* The Azure AD application secret key. See [Get application authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Your Azure subscription tenant ID (also called a *directory ID*). See [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* The Azure Active Directory (Azure AD) application client ID. See [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) and [Get an application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* The Azure AD application secret key. See [Get application authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## Prerequisites
 * An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).

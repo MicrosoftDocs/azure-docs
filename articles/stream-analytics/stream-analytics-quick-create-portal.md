@@ -4,7 +4,7 @@ description: This quickstart shows you how to get started by creating a Stream A
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 11/21/2018
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
@@ -78,7 +78,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 2. Select **Create a resource** in the upper left-hand corner of the Azure portal.  
 
-3. Select **Data+Analytics** > **Stream Analytics job** from the results list.  
+3. Select **Analytics** > **Stream Analytics job** from the results list.  
 
 4. Fill out the Stream Analytics job page with the following information:
 
@@ -89,7 +89,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    |Resource group   |   asaquickstart-resourcegroup  |   Select the same resource group as your IoT Hub. |
    |Location  |  \<Select the region that is closest to your users\> | Select geographic location where you can host your Stream Analytics job. Use the location that's closest to your users for better performance and to reduce the data transfer cost. |
    |Streaming units  | 1  |   Streaming units represent the computing resources that are required to execute a job. By default, this value is set to 1. To learn about scaling streaming units, refer to [understanding and adjusting streaming units](stream-analytics-streaming-unit-consumption.md) article.   |
-   |Hosting environment  |  Cloud  |   Stream Analytics jobs can be deployed to cloud or edge. Cloud allows you to deploy to Azure Cloud, and Edge allows you to deploy to an IoT edge device. |
+   |Hosting environment  |  Cloud  |   Stream Analytics jobs can be deployed to cloud or edge. Cloud allows you to deploy to Azure Cloud, and Edge allows you to deploy to an IoT Edge device. |
 
    ![Create job](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
@@ -183,7 +183,7 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 
 ## Next steps
 
-In this quickstart, you deployed a simple Stream Analytics job using Azure portal. You can also deploy Stream Analytics jobs using [PowerShell](stream-analytics-quick-create-powershell.md) and [Visual Studio](stream-analytics-quick-create-vs.md).
+In this quickstart, you deployed a simple Stream Analytics job using Azure portal. You can also deploy Stream Analytics jobs using [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-vs-code.md).
 
 To learn about configuring other input sources and performing real-time detection, continue to the following article:
 

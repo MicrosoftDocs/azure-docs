@@ -5,13 +5,13 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/14/2019
+ ms.date: 06/04/2019
  ms.author: cynthn;kareni
  ms.custom: include file
 ---
 
 
-**Last document update**: 14 May 2019 10:00 AM PST.
+**Last document update**: 4 June 2019 3:00 PM PST.
 
 The disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
@@ -73,7 +73,7 @@ You can enable additional security features inside your VM or Cloud Service if y
 Your target operating system must be up-to-date to enable these additional security features. While numerous speculative execution side channel mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
 
 
-**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM size. To check if your VM has hyperthreading enabled, please refer to the below script using the Windows command line from within the VM.
+**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](https://docs.microsoft.com/azure/virtual-machines/windows/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, please refer to the below script using the Windows command line from within the VM.
 
 Type `wmic` to enter the interactive interface. Then type the below to view the amount of physical and logical processors on the VM.
 
@@ -81,7 +81,7 @@ Type `wmic` to enter the interactive interface. Then type the below to view the 
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-If the number of logical processors is greater than physical processors (cores), then hyperthreading is enabled.  If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Once hyperthreading is disabled, **support will require a full VM reboot**. 
+If the number of logical processors is greater than physical processors (cores), then hyper-threading is enabled.  If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
 
 
 **Step 2**: In parallel to Step 1, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
@@ -119,22 +119,21 @@ If the output shows `MDS mitigation is enabled: False`, please [contact Azure Su
 <a name="linux"></a>Enabling the set of additional security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
 
 
-**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if you are running a hyperthreaded VM, run the `lspcu` command in the Linux VM. 
+**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM.  Reference [this doc](https://docs.microsoft.com/azure/virtual-machines/linux/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if you are running a hyper-threaded VM, run the `lscpu` command in the Linux VM. 
 
-If `Thread(s) per core = 2`, then hyperthreading has been enabled. 
+If `Thread(s) per core = 2`, then hyper-threading has been enabled. 
 
-If `Thread(s) per core = 1`, then hyperthreading has been disabled. 
+If `Thread(s) per core = 1`, then hyper-threading has been disabled. 
 
  
-Sample output for a VM with hyperthreading enabled: 
+Sample output for a VM with hyper-threading enabled: 
 
 ```console
 CPU Architecture:      x86_64
 CPU op-mode(s):        32-bit, 64-bit
 Byte Order:            Little Endian
 CPU(s):                8
-On-line CPU(s) list:   0,2,4,6
-Off-line CPU(s) list:  1,3,5,7
+On-line CPU(s) list:   0-7
 Thread(s) per core:    2
 Core(s) per socket:    4
 Socket(s):             1
@@ -142,7 +141,8 @@ NUMA node(s):          1
 
 ```
 
-If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Once hyperthreading is disabled, **support will require a full VM reboot**.
+If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
+
 
 
 **Step 2**: To mitigate against any of the below speculative execution side-channel vulnerabilities, refer to your operating system provider’s documentation:   
@@ -150,6 +150,11 @@ If you are running a hyperthreaded VM, please [contact Azure Support](https://ak
 - [Redhat and CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
+
+
+### Core count
+
+When a hyper-threaded VM is created, Azure allocates 2 threads per core - these are called vCPUs. When hyper-threading is disabled, Azure removes a thread and surfaces up single threaded cores (physical cores). The ratio of vCPU to CPU is 2:1, so once hyper-threading is disabled, the CPU count in the VM will appear to have decreased by half. For example, a D8_v3 VM is a hyper-threaded VM running on 8 vCPUs (2 threads per core x 4 cores).  When hyper-threading is disabled, CPUs will drop to 4 physical cores with 1 thread per core. 
 
 ## Next steps
 

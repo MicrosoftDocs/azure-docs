@@ -10,7 +10,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2019
+ms.date: 06/21/2019
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to implement a device firmware update process that can be triggered from a back-end application connected to my IoT hub
@@ -70,7 +70,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --name $hubname -o table
+az iot hub show-connection-string --name $hubname -policy-name service -o table
 
 ```
 
@@ -92,8 +92,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 ```
 
 > [!TIP]
-> If you run these commands at a Windows command prompt or Powershell prompt, see the [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
-) page for information about how to quote JSON strings.
+> If you run these commands at a Windows command prompt or Powershell prompt, see the [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips) page for information about how to quote JSON strings.
 
 ## Start the firmware update
 

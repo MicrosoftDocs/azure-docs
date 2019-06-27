@@ -6,22 +6,22 @@
     - name: What is VMware Solution by CloudSimple
       href: cloudsimple-vmware-solutions-overview.md
     - name: Key concepts for administration
-      href: https://docs.azure.cloudsimple.com/key-concepts/
+      href: key-concepts.md
   - name: Quickstart
     expanded: true
     items:
-    - name: Initialize and purchase capacity
+    - name: Initialize and provision capacity
       href: quickstart-create-cloudsimple-service.md
     - name: Configure private cloud environment
       href: quickstart-create-private-cloud.md
     - name: Create VMware VM on Private Cloud
-      href: https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/
+      href: quickstart-create-private-cloud-vmware-virtual-machine.md
     - name: Consume VMware VMs on Azure
       href: quickstart-create-vmware-virtual-machine.md
   - name: Concepts
     items:
     - name: Service
-      href: https://docs.azure.cloudsimple.com/cloudsimple-service/
+      href: cloudsimple-service.md
     - name: Nodes
       href: cloudsimple-node.md
     - name: Private cloud
@@ -45,41 +45,37 @@
     - name: VMware on private cloud
       href: vmware-components.md
     - name: Security overview
-      href: https://docs.azure.cloudsimple.com/cloudsimple-security/
+      href: cloudsimple-security.md
     - name: Node quota
       href: node-quota.md
     - name: Maintenance and updates
       href: cloudsimple-maintenance-updates.md
     - name: FAQ
-      href: https://docs.azure.cloudsimple.com/cloudsimple-faq/
+      href: cloudsimple-faq.md
   - name: Tutorials
     items:
     - name: Enable resource provider
-      href: https://docs.azure.cloudsimple.com/enable-cloudsimple-service/
+      href: enable-cloudsimple-service.md
     - name: Create the CloudSimple Service
-      href: https://docs.azure.cloudsimple.com/create-cloudsimple-service/ 
+      href: create-cloudsimple-service.md 
     - name: Access the CloudSimple portal
-      href: https://docs.azure.cloudsimple.com/access-cloudsimple-portal/
+      href: access-cloudsimple-portal.md
     - name: Manage nodes
       items:
-      - name: Purchase nodes
+      - name: Provision nodes
         href: create-nodes.md
     - name: Manage private cloud resources
       items: 
       - name: Create a private cloud
-        href: https://docs.azure.cloudsimple.com/create-private-cloud/
+        href: create-private-cloud.md
       - name: Manage your private clouds
-        href: https://docs.azure.cloudsimple.com/manage-private-cloud/
+        href: manage-private-cloud.md
       - name: Expand a private cloud
-        href: https://docs.azure.cloudsimple.com/expand-private-cloud/
-      - name: Shrink a private cloud
-        href: https://docs.azure.cloudsimple.com/shrink-private-cloud/
-      - name: View the list of private cloud racks  
-        href: https://docs.azure.cloudsimple.com/view-cloud-racks/
+        href: expand-private-cloud.md
       - name: Map your Azure subscription
-        href: https://docs.azure.cloudsimple.com/azure-subscription-mapping/
+        href: azure-subscription-mapping.md
       - name: Escalate privileges
-        href: https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/
+        href: escalate-private-cloud-privileges.md
     - name: Monitor CloudSimple activity
       href: https://docs.azure.cloudsimple.com/activity/
     - name: Set up private cloud networking
@@ -138,18 +134,16 @@
         href: https://docs.azure.cloudsimple.com/set-vcenter-identity/
       - name: Azure Application Gateway with VMware VMs
         href: https://docs.azure.cloudsimple.com/azure-application-gateway/
-      - name: Azure Public Load Balancer with VMware VMs
-        href: https://docs.azure.cloudsimple.com/load-balancers/
       - name: Configure private cloud vCenter server as vRealize automation endpoint
         href: https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/
       - name: Migrating workload VMs to a private cloud
         href: https://docs.azure.cloudsimple.com/migrate-workloads/
       - name: Ensuring Application high availability in VMware on Azure
-        href: https://docs.azure.cloudsimple.com/ha-ensuring/
+        href: https://docs.azure.cloudsimple.com/ensuring-high-availability/
     - name: VMware ecosystem
       items:
       - name: Backup workload virtual machines
-        href: https://docs.azure.cloudsimple.com/veeam/
+        href: https://docs.azure.cloudsimple.com/backup-workloads-veeam/
       - name: VMware Horizon solution guide
         href: https://docs.azure.cloudsimple.com/horizon-guide/
       - name: Configure vSAN encryption for your private cloud
@@ -161,7 +155,7 @@
       - name: Azure AD identity source on Private Cloud vCenter
         href: https://docs.azure.cloudsimple.com/azure-ad/
       - name: On-premises network connection with ExpressRoute 
-        href: https://docs.azure.cloudsimple.com/er-connection/
+        href: https://docs.azure.cloudsimple.com/on-premises-connection/
       - name: Azure Virtual network connection with ExpressRoute
-        href: https://docs.azure.cloudsimple.com/azure-er-connection/
+        href: https://docs.azure.cloudsimple.com/azure-expressroute-connection/
 

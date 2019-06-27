@@ -7,11 +7,11 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/25/2019
-ms.custom: seodec18
+ms.date: 05/31/2019
 ---
 
 # Understand outputs from Azure Stream Analytics
+
 This article describes the types of outputs available for an Azure Stream Analytics job. Outputs let you store and save the results of the Stream Analytics job. By using the output data, you can do further business analytics and data warehousing of your data.
 
 When you design your Stream Analytics query, refer to the name of the output by using the [INTO clause](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job (if you need them) by providing multiple INTO clauses in the query.
@@ -21,28 +21,18 @@ To create, edit, and test Stream Analytics job outputs, you can use the [Azure p
 Some outputs types support [partitioning](#partitioning). [Output batch sizes](#output-batch-size) vary to optimize throughput.
 
 
-## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide, hyperscale repository for big data analytic workloads. You can use Data Lake Store to store data of any size, type, and ingestion speed for operational and exploratory analytics. Stream Analytics has to be authorized to access Data Lake Store.
+## Azure Data Lake Storage Gen 1
 
-Azure Data Lake Store output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.
+Stream Analytics supports [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md). Azure Data Lake Storage is an enterprise-wide, hyperscale repository for big data analytic workloads. You can use Data Lake Storage to store data of any size, type, and ingestion speed for operational and exploratory analytics. Stream Analytics needs to be authorized to access Data Lake Storage.
 
-### Authorize an Azure Data Lake Store account
+Azure Data Lake Storage output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
 
-1. When you select Data Lake Store as an output in the Azure portal, you're prompted to authorize a connection to an existing Data Lake Store instance.
-
-   ![Authorize a connection to Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
-
-2. If you already have access to Data Lake Store, select **Authorize Now**. A page pops up and indicates **Redirecting to authorization**. After authorization succeeds, you're presented with the page that allows you to configure the Data Lake Store output.
-
-3. After you have the Data Lake Store account authenticated, you can configure the properties for your Data Lake Store output.
-
-   ![Define Data Lake Store as Stream Analytics output](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
-
-The following table lists property names and their descriptions to configure your Data Lake Store output.   
+The following table lists property names and their descriptions to configure your Data Lake Storage Gen 1 output.   
 
 | Property name | Description |
 | --- | --- |
 | Output alias | A friendly name used in queries to direct the query output to Data Lake Store. |
+| Subscription | The subscription that contains your Azure Data Lake Storage account. |
 | Account name | The name of the Data Lake Store account where you're sending your output. You're presented with a drop-down list of Data Lake Store accounts that are available in your subscription. |
 | Path prefix pattern | The file path that's used to write your files within the specified Data Lake Store account. You can specify one or more instances of the {date} and {time} variables:<br /><ul><li>Example 1: folder1/logs/{date}/{time}</li><li>Example 2: folder1/logs/{date}</li></ul><br />The time stamp of the created folder structure follows UTC and not local time.<br /><br />If the file path pattern doesn't contain a trailing slash (/), the last pattern in the file path is treated as a file name prefix. <br /><br />New files are created in these circumstances:<ul><li>Change in output schema</li><li>External or internal restart of a job</li></ul> |
 | Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
@@ -51,25 +41,11 @@ The following table lists property names and their descriptions to configure you
 | Encoding | If you're using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.|
 | Delimiter | Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar.|
 | Format | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON, because it doesn't require any special handling while the output file is still being written to.|
-
-### Renew Data Lake Store authorization
-You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job does not produce output results and shows an error that indicates the need for reauthorization in the Operation Logs. 
-
-Currently, the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. You can overcome this limitation by [authenticating through managed identities (preview)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
-
-To renew authorization:
-
-1. Select **Stop** to stop your job.
-1. Go to your Data Lake Store output and select the **Renew authorization** link.
-
-   For a brief time, a pop-up page indicates **Redirecting to authorization**. If authorization is successful, the page indicates **Authorization has been successfully renewed** and then closes automatically. 
-   
-1. Select **Save** at the bottom of the page. You can then restart your job from the **Last Stopped Time** to avoid data loss.
-
-![Renew Data Lake Store authorization in output](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+| Authentication mode | You can authorize access to your Data Lake Storage account using [Managed Identity](stream-analytics-managed-identities-adls.md) or User token. Once you grant access, you can revoke access by changing the user account password, deleting the Data Lake Storage output for this job, or deleting the Stream Analytics job. |
 
 ## SQL Database
-You can use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) as an output for data that's relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in SQL Database. The table schema must exactly match the fields and their types in your job's output. You can also specify [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) as an output via the SQL Database output option. To learn about ways to improve write throughput, see the [Stream Analytics with Azure SQL Database as output](stream-analytics-sql-output-perf.md) article. 
+
+You can use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) as an output for data that's relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in SQL Database. The table schema must exactly match the fields and their types in your job's output. You can also specify [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) as an output via the SQL Database output option. To learn about ways to improve write throughput, see the [Stream Analytics with Azure SQL Database as output](stream-analytics-sql-output-perf.md) article.
 
 The following table lists the property names and their description for creating a SQL Database output.
 
@@ -82,14 +58,14 @@ The following table lists the property names and their description for creating 
 | Password | The password to connect to the database. |
 | Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |
 |Inherit partition scheme| An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).|
-|Match batch count| The recommended limit on the number of records sent with every bulk insert transaction.|
+|Max batch count| The recommended upper limit on the number of records sent with every bulk insert transaction.|
 
 > [!NOTE]
-> Currently the Azure SQL Database offering is supported for a job output in Stream Analytics. An Azure virtual machine running SQL Server with a database attached is not supported. This is subject to change in future releases.
->
+> The Azure SQL Database offering is supported for a job output in Stream Analytics, but an Azure virtual machine running SQL Server with a database attached or in a SQL Azure Managed Instance is not supported yet. This is subject to change in future releases.
 
 ## Blob storage
-Azure Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Blob storage and its usage, see [How to use blobs](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+
+Azure Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Blob storage and its usage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 The following table lists the property names and their descriptions for creating a blob output.
 
@@ -119,6 +95,7 @@ When you're using Blob storage as output, a new file is created in the blob in t
 * If the output is partitioned by a custom field where the partition key cardinality exceeds 8,000, and a new blob is created per partition key.
 
 ## Event Hubs
+
 The [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an event hub as output is when the output of a Stream Analytics job becomes the input of another streaming job.
 
 You need a few parameters to configure data streams from event hubs as an output.
@@ -126,7 +103,7 @@ You need a few parameters to configure data streams from event hubs as an output
 | Property name | Description |
 | --- | --- |
 | Output alias | A friendly name used in queries to direct the query output to this event hub. |
-| Event hub namespace |A container for a set of messaging entities. When you created a new event hub, you also created an event hub namespace. |
+| Event hub namespace | A container for a set of messaging entities. When you created a new event hub, you also created an event hub namespace. |
 | Event hub name | The name of your event hub output. |
 | Event hub policy name | The shared access policy, which you can create on the event hub's **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. |
 | Event hub policy key | The shared access key that's used to authenticate access to the event hub namespace. |
@@ -138,23 +115,12 @@ You need a few parameters to configure data streams from event hubs as an output
 | Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More info about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
 
 ## Power BI
+
 You can use [Power BI](https://powerbi.microsoft.com/) as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. You can use this capability for operational dashboards, report generation, and metric-driven reporting.
 
-Power BI output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.
+Power BI output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
 
-### Authorize a Power BI account
-1. When Power BI is selected as an output in the Azure portal, you're prompted to authorize an existing Power BI user or to create a new Power BI account.
-   
-   ![Authorize a Power BI user to configure output](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
-
-2. Create a new account if you don’t yet have one, and then select **Authorize Now**. The following page appears:
-   
-   ![Authenticate to Power BI from Azure account](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)
-
-3. Provide the work or school account for authorizing the Power BI output. If you're not already signed up for Power BI, select **Sign up now**. The work or school account that you use for Power BI might be different from the Azure subscription account that you're now signed in with.
-
-### Configure the Power BI output properties
-After you have the Power BI account authenticated, you can configure the properties for your Power BI output. The following table lists property names and their descriptions to configure your Power BI output.
+The following table lists property names and their descriptions to configure your Power BI output.
 
 | Property name | Description |
 | --- | --- |
@@ -162,8 +128,9 @@ After you have the Power BI account authenticated, you can configure the propert
 | Group workspace |To enable sharing data with other Power BI users, you can select groups inside your Power BI account or choose **My Workspace** if you don't want to write to a group. Updating an existing group requires renewing the Power BI authentication. |
 | Dataset name |Provide a dataset name that you want the Power BI output to use. |
 | Table name |Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can have only one table in a dataset. |
+| Authorize connection | You need to authorize with Power BI to configure your output settings. Once you grant this output access to your Power BI dashboard, you can revoke access by changing the user account password, deleting the job output, or deleting the Stream Analytics job. | 
 
-For a walkthrough of configuring a Power BI output and dashboard, see the [Azure Stream Analytics and Power BI](stream-analytics-power-bi-dashboard.md) article.
+For a walkthrough of configuring a Power BI output and dashboard, see the [Azure Stream Analytics and Power BI](stream-analytics-power-bi-dashboard.md) tutorial.
 
 > [!NOTE]
 > Don't explicitly create the dataset and table in the Power BI dashboard. The dataset and table are automatically populated when the job is started and the job starts pumping output into Power BI. If the job query doesn’t generate any results, the dataset and table aren't created. If Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data is overwritten.
@@ -200,17 +167,8 @@ Double | Double | String | String | Double
 String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
-
-### Renew Power BI Authorization
-If your Power BI account password changes after your Stream Analytics job was created or last authenticated, you need to reauthenticate Stream Analytics. If Azure Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
-
-  ![Power BI authenticate user error](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
-
-To resolve this issue, stop your running job and go to your Power BI output. Select the **Renew authorization** link, and restart your job from the **Last Stopped Time** to avoid data loss.
-
-  ![Renew Power BI authorization for output](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)
-
 ## Table storage
+
 [Azure Table storage](../storage/common/storage-introduction.md) offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft’s NoSQL key/attribute store, which you can use for structured data with fewer constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 
 The following table lists the property names and their descriptions for creating a table output.
@@ -226,7 +184,8 @@ The following table lists the property names and their descriptions for creating
 | Batch size |The number of records for a batch operation. The default (100) is sufficient for most jobs. See the [Table Batch Operation spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) for more details on modifying this setting. |
 
 ## Service Bus queues
-[Service Bus queues](https://msdn.microsoft.com/library/azure/hh367516.aspx) offer a FIFO message delivery to one or more competing consumers. Typically, messages are received and processed by the receivers in the temporal order in which they were added to the queue. Each message is received and processed by only one message consumer.
+
+[Service Bus queues](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) offer a FIFO message delivery to one or more competing consumers. Typically, messages are received and processed by the receivers in the temporal order in which they were added to the queue. Each message is received and processed by only one message consumer.
 
 The following table lists the property names and their descriptions for creating a queue output.
 
@@ -245,17 +204,17 @@ The following table lists the property names and their descriptions for creating
 
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.
 
-## Service Bus topics
+## Service Bus Topics
 Service Bus queues provide a one-to-one communication method from sender to receiver. [Service Bus topics](https://msdn.microsoft.com/library/azure/hh367516.aspx) provide a one-to-many form of communication.
 
-The following table lists the property names and their descriptions for creating a topic output.
+The following table lists the property names and their descriptions for creating a Service Bus topic output.
 
 | Property name | Description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this Service Bus topic. |
 | Service Bus namespace |A container for a set of messaging entities. When you created a new event hub, you also created a Service Bus namespace. |
 | Topic name |Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from devices and services. When a topic is created, it's also given a specific name. The messages sent to a topic aren't available unless a subscription is created, so ensure there's one or more subscriptions under the topic. |
-| Topic policy name |When you create a topic, you can also create shared access policies on the topic's **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. |
+| Topic policy name |When you create a Service Bus topic, you can also create shared access policies on the topic's **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. |
 | Topic policy key |The shared access key that's used to authenticate access to the Service Bus namespace. |
 | Event serialization format |The serialization format for output data. JSON, CSV, and Avro are supported. |
 | Encoding |If you're using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time. |
@@ -265,9 +224,9 @@ The following table lists the property names and their descriptions for creating
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition.
 
 ## Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed database service that offers limitless elastic scale around the globe, rich query, and automatic indexing over schema-agnostic data models. To learn about Azure Cosmos DB collection options for Stream Analytics, see the [Stream Analytics with Azure Cosmos DB as output](stream-analytics-documentdb-output.md) article.
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed database service that offers limitless elastic scale around the globe, rich query, and automatic indexing over schema-agnostic data models. To learn about Azure Cosmos DB container options for Stream Analytics, see the [Stream Analytics with Azure Cosmos DB as output](stream-analytics-documentdb-output.md) article.
 
-Azure Cosmos DB output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.
+Azure Cosmos DB output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
 
 > [!Note]
 > At this time, Azure Stream Analytics only supports connection to Azure Cosmos DB by using the SQL API.
@@ -283,14 +242,13 @@ The following table describes the properties for creating an Azure Cosmos DB out
 | Account ID | The name or endpoint URI of the Azure Cosmos DB account. |
 | Account key | The shared access key for the Azure Cosmos DB account. |
 | Database | The Azure Cosmos DB database name. |
-| Collection name pattern | The collection name or the pattern for the collections to be used. <br />You can construct the collection name format by using the optional {partition} token, where partitions start from 0. Two examples:  <br /><ul><li> _MyCollection_: One collection named "MyCollection" must exist.</li>  <li> _MyCollection{partition}_: Based on the partitioning column.</li></ul> The partitioning column collections must exist: "MyCollection0," "MyCollection1," "MyCollection2," and so on. |
-| Partition key | Optional. You need this only if you're using a {partition} token in your collection name pattern.<br /> The partition key is the name of the field in output events that's used to specify the key for partitioning output across collections.<br /> For single collection output, you can use any arbitrary output column. An example is PartitionId. |
+| Container name | The container name to be used, which must exist in Cosmos DB. Example:  <br /><ul><li> _MyContainer_: A container named "MyContainer" must exist.</li>|
 | Document ID |Optional. The name of the field in output events that's used to specify the primary key on which insert or update operations are based.
 
 ## Azure Functions
 Azure Functions is a serverless compute service that you can use to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that's triggered by events occurring in Azure or partner services. This ability of Azure Functions to respond to triggers makes it a natural output for Azure Stream Analytics. This output adapter enables users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
 
-Azure Functions output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.
+Azure Functions output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
 
 Azure Stream Analytics invokes Azure Functions via HTTP triggers. The Azure Functions output adapter is available with the following configurable properties:
 
@@ -332,17 +290,17 @@ The following table summarizes the partition support and the number of output wr
 | Output type | Partitioning support | Partition key  | Number of output writers |
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Yes | Use {date} and {time} tokens in the path prefix pattern. Choose the date format, such as YYYY/MM/DD, DD/MM/YYYY, or MM-DD-YYYY. HH is used for the time format. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). |
-| Azure SQL Database | Yes | Based on the PARTITION BY clause in the query. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). To learn more about achieving better write throughput performance when you're loading data into Azure SQL Database, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md). |
+| Azure SQL Database | Yes, needs to enabled. | Based on the PARTITION BY clause in the query. | When Inherit Partitioning option is enabled, follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). To learn more about achieving better write throughput performance when you're loading data into Azure SQL Database, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md). |
 | Azure Blob storage | Yes | Use {date} and {time} tokens from your event fields in the path pattern. Choose the date format, such as YYYY/MM/DD, DD/MM/YYYY, or MM-DD-YYYY. HH is used for the time format. Blob output can be partitioned by a single custom event attribute {fieldname} or {datetime:\<specifier>}. | Follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Yes | Yes | Varies depending on partition alignment.<br /> When the partition key for event hub output is equally aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in event hub output. Each writer uses the [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. <br /> When the partition key for event hub output is not aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses the [SendBatchAsync class](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) in **EventHubClient** to send events to all the output partitions. |
 | Power BI | No | None | Not applicable. |
 | Azure Table storage | Yes | Any output column.  | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). |
 | Azure Service Bus topic | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition.| Same as the number of partitions in the output topic.  |
 | Azure Service Bus queue | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition.| Same as the number of partitions in the output queue. |
-| Azure Cosmos DB | Yes | Use the {partition} token in the collection name pattern. The {partition} value is based on the PARTITION BY clause in the query. | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). |
+| Azure Cosmos DB | Yes | Based on the PARTITION BY clause in the query. | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). |
 | Azure Functions | No | None | Not applicable. |
 
-If your output adapter is not partitioned, lack of data in one input partition will cause a delay up to the late arrival amount of time. In such cases, the output is merged to a single writer, which might cause bottlenecks in your pipeline. To learn more about late arrival policy, see [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md).
+The number of output writers can also be controlled using `INTO <partition count>` (see [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) clause in your query, which can be helpful in achieving a desired job topology. If your output adapter is not partitioned, lack of data in one input partition will cause a delay up to the late arrival amount of time. In such cases, the output is merged to a single writer, which might cause bottlenecks in your pipeline. To learn more about late arrival policy, see [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md).
 
 ## Output batch size
 Azure Stream Analytics uses variable-size batches to process events and write to outputs. Typically the Stream Analytics engine doesn't write one message at a time, and uses batches for efficiency. When the rate of both the incoming and outgoing events is high, Stream Analytics uses larger batches. When the egress rate is low, it uses smaller batches to keep latency low.
@@ -352,14 +310,14 @@ The following table explains some of the considerations for output batching:
 | Output type |	Max message size | Batch size optimization |
 | :--- | :--- | :--- |
 | Azure Data Lake Store | See [Data Lake Storage limits](../azure-subscription-service-limits.md#data-lake-store-limits). | Use up to 4 MB per write operation. |
-| Azure SQL Database | 10,000 maximum rows per single bulk insert.<br />100 minimum rows per single bulk insert. <br />See [Azure SQL limits](../sql-database/sql-database-resource-limits.md). |  Every batch is initially bulk inserted with maximum batch size. You can split the batch in half (until you reach the minimum batch size) based on retryable errors from SQL. |
+| Azure SQL Database | Configurable using Max batch count. 10,000 maximum and 100 minimum rows per single bulk insert by default.<br />See [Azure SQL limits](../sql-database/sql-database-resource-limits.md). |  Every batch is initially bulk inserted with maximum batch count. Batch is split in half (until minimum batch count) based on retryable errors from SQL. |
 | Azure Blob storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits). | The maximum blob block size is 4 MB.<br />The maximum blob bock count is 50,000. |
-| Azure Event Hubs	| 256 KB per message. <br />See [Event Hubs limits](../event-hubs/event-hubs-quotas.md). |	When input/output partitioning isn't aligned, each event is packed individually in **EventData** and sent in a batch of up to the maximum message size (1 MB for the Premium SKU). <br /><br />  When input/output partitioning is aligned, multiple events are packed into a single **EventData** instance, up to the maximum message size, and sent.	|
+| Azure Event Hubs	| 256 KB or 1 MB per message. <br />See [Event Hubs limits](../event-hubs/event-hubs-quotas.md). |	When input/output partitioning isn't aligned, each event is packed individually in `EventData` and sent in a batch of up to the maximum message size. This also happens if [custom metadata properties](#custom-metadata-properties-for-output) are used. <br /><br />  When input/output partitioning is aligned, multiple events are packed into a single `EventData` instance, up to the maximum message size, and sent.	|
 | Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Azure Table storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits). | The default is 100 entities per single transaction. You can configure it to a smaller value as needed. |
-| Azure Service Bus queue	| 256 KB per message.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
-| Azure Service Bus topic | 256 KB per message.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
-| Azure Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batch size and write frequency are adjusted dynamically based Azure Cosmos DB responses. <br /> There are no predetermined limitations from Stream Analytics. |
+| Azure Service Bus queue	| 256 KB per message for Standard tier, 1MB for Premium tier.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
+| Azure Service Bus topic | 256 KB per message for Standard tier, 1MB for Premium tier.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
+| Azure Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits). | Batch size and write frequency are adjusted dynamically based on Azure Cosmos DB responses. <br /> There are no predetermined limitations from Stream Analytics. |
 | Azure Functions	| | The default batch size is 262,144 bytes (256 KB). <br /> The default event count per batch is 100. <br /> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
 
 ## Next steps

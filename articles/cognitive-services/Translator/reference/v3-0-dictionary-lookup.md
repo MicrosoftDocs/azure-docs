@@ -3,14 +3,14 @@ title: Translator Text API Dictionary Lookup Method
 titlesuffix: Azure Cognitive Services
 description: Use the Translator Text API Dictionary Lookup method.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-jansko
+ms.author: swmachan
 ---
 
 # Translator Text API 3.0: Dictionary Lookup

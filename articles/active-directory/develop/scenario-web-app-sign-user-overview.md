@@ -37,7 +37,7 @@ If you want to create your first portable (ASP.NET Core) web apps that sign in u
 If you prefer to stay with ASP.NET, try out the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Quickstart: ASP.NET Core web app that signs-in users](quickstart-v2-aspnet-webapp.md)
+> [Quickstart: ASP.NET web app that signs-in users](quickstart-v2-aspnet-webapp.md)
 
 ## Overview
 

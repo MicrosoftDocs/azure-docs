@@ -6,11 +6,11 @@ author: roygara
 
 ms.service: storage
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 06/19/2019
 ms.author: rogarana
 ---
 
-# Enable Azure Active Directory authentication over SMB for Azure Files (preview)
+# Enable Azure Active Directory Domain Service authentication over SMB for Azure Files (Preview)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 For an overview of Azure AD authentication over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (Preview)](storage-files-active-directory-overview.md).
@@ -43,13 +43,13 @@ Before you enable Azure AD over SMB for Azure Files, make sure you have complete
 
 2.  **Enable Azure AD Domain Services on the Azure AD tenant.**
 
-    To support authentication with Azure AD credentials, you must enable Azure AD Domain Services for your Azure AD tenant. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+    To support authentication with Azure AD credentials, you must enable Azure AD Domain Services for your Azure AD tenant. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/create-instance.md).
 
     It typically takes about 15 minutes for an Azure AD Domain Services deployment to complete. Verify that the health status of your Azure AD Domain Services shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
 
 3.  **Domain-join an Azure VM with Azure AD Domain Services.**
 
-    To access a file share using Azure AD credentials from a VM, your VM must be domain-joined to Azure AD Domain Services. For more information about how to domain-join a VM, see [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md).
+    To access a file share using Azure AD credentials from a VM, your VM must be domain-joined to Azure AD Domain Services. For more information about how to domain-join a VM, see [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/join-windows-vm.md).
 
     > [!NOTE]
     > Azure AD authentication over SMB with Azure Files is supported only on Azure VMs running on OS versions above Windows 7 or Windows Server 2008 R2.
@@ -139,15 +139,14 @@ The following custom role template provides share-level Change permissions, gran
   "IsCustom": true,
   "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
-   	"*"
-  ],
-  "NotActions": [
-	"Microsoft.Authorization/*/Delete",
-        "Microsoft.Authorization/*/Write",
-        "Microsoft.Authorization/elevateAccess/Action"
+   	"Microsoft.Storage/storageAccounts/fileServices/*"
   ],
   "DataActions": [
-   	"*"
+   	"Microsoft.Storage/storageAccounts/fileServices/*"
+  ],
+  "NotDataActions": [
+   	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
+	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actassuperuser/action"
   ],
   "AssignableScopes": [
     	"/subscriptions/<Subscription-ID>"
@@ -165,10 +164,10 @@ The following custom role template provides share-level Read permissions, granti
   "IsCustom": true,
   "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
-   	"*/read"
+   	"Microsoft.Storage/storageAccounts/fileServices/*/read"
   ],
   "DataActions": [
-  	"*/read"
+  	"Microsoft.Storage/storageAccounts/fileServices/*/read"
   ],
   "AssignableScopes": [
     	"/subscriptions/<Subscription-ID>"
