@@ -134,11 +134,17 @@
   items:
   - name: Plan and prepare
     items:
+    - name: Design workspace deployment
+      items: 
+      - name: Workspace design
+        href: platform/designing-worksapce.md
+      - name: Design for service providers
+        href: platform/service-providers.md 
     - name: Manage access
       items:
       - name: Roles permissions and security
         href: platform/roles-permissions-security.md
-      - name: Workspaces
+      - name: Manage workspace access
         href: platform/manage-access.md
       - name: Applications
         href: app/resources-roles-access-control.md
@@ -166,8 +172,6 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete a workspace
         href: platform/delete-workspace.md
-      - name: Design for service providers
-        href: platform/service-providers.md
   - name: Collect data
     items:
     - name: Azure resources
