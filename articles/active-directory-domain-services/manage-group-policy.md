@@ -126,7 +126,7 @@ You can import your own custom group policy definitions and use that within Grou
 >
 >
 
-1. Navigate to the **sysvol** folder from the domaincontroller. Use a file explorer of your own choice and navigate to \\<yourdomeinname>\sysvol, for example; \\contoso.com\sysvol .
+1. Navigate to the **sysvol** folder from the domaincontroller. Use a file explorer of your own choice and navigate to \\\<yourdomainname\>\sysvol, for example; \\contoso.com\sysvol .
 
 2. Browse to the Policies folder and notice that there is by default no folder called **PolicyDefinitions**. Create a new folder and name it "PolicyDefinitions".
 
