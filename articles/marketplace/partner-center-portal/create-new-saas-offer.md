@@ -37,7 +37,9 @@ Example: test-offer-1
 
 Select **Create**.  An **Offer overview** page is created for this offer.  
 
+<!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
+-->
 
 ## Offer overview
 
