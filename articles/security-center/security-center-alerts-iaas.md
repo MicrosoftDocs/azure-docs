@@ -19,14 +19,23 @@ ms.author: monhaber
 ---
 # IaaS VM and server alerts
 
-This topics presents the different types of detections available for VMs and Servers.
+This topics presents the different types of detection methods and alerts available for VMs and Servers.
 
-* [Windows-based machines](#windows-machines)
+* [Windows-based machines](#windows-machines) integrate with the following services to protect your resources:
+ 
+  * [Microsoft Server Defender ATP](#windows-atp)
+  * [Crash Dump Analysis](#windows-dump)
+  * [Fileless Attack Detection](#windows-fileless)
+ 
 * [Linux-based machines](#linux-machines)
+  * [Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration](#linux-auditd)
 
 See here for a list of supported versions.
 
 ## Windows-based machines<a name="windows-machines"></a>
+
+
+### Microsoft Server Defender ATP <a nanme="windows-atp"></a>
 
 Azure Security Center extends its Cloud Workload Protection Platforms by integrating with Windows Defender Advanced Threat Protection (ATP). This provides comprehensive Endpoint Detection and Response (EDR) capabilities.
 
@@ -39,7 +48,7 @@ When Windows Server Defender ATP detects a threat, it triggers an alert. The ale
 
 In addition to Microsoft Server Defender ATP, Security Center also offers: 
 
-### Crash Dump Analysis
+### Crash Dump Analysis <a nanme="windows-dump"></a>
 
 When software crashes, a crash dump captures a portion of memory at the time of the crash.
 
@@ -49,8 +58,7 @@ However, this kind of attack can be detected by using memory analysis. By analyz
 
 Several examples below: 
 
-### Fileless Attack Detection 
-
+### Fileless Attack Detection <a nanme="windows-fileless"></a>
 
 In Azure, we regularly see fileless attacks targeting our customers’ endpoints.
 
@@ -74,7 +82,7 @@ It finds evidence of exploitation, code injection, and execution of malicious pa
 
 Security Center collects audit records from Linux machines using auditd, one of the most common Linux auditing frameworks. auditd has the advantage of having been around for a long time and living in the mainline kernel. 
 
-### Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration
+### Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration <a name="linux-auditd"></a>
 
 The auditd system consists of a kernel-level subsystem which is responsible for monitoring system calls, filtering them by given rule set, and writing match messages to a socket. Security Center implemented functionalities from auditd package within the Microsoft Monitoring Agent (MMA) to enable auditd events collection in all supported Linux distributions without any prerequisites.  
 
