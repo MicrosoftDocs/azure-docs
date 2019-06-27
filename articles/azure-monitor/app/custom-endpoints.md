@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 06/25/2019
 ms.author: mbullwin
 ---
 
@@ -20,6 +20,9 @@ To send data from Application Insights to certain regions, you'll need to overri
 ## SDK code changes
 
 ### .NET with applicationinsights.config
+
+> [!NOTE]
+> The applicationinsights.config file is automatically overwritten anytime a SDK upgrade is performed. After performing an SDK upgrade be sure to re-enter the region specific endpoint values.
 
 ```xml
 <ApplicationInsights>
