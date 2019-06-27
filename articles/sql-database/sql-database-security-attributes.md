@@ -33,10 +33,10 @@ SQL Database offers both [single database](sql-database-single-index.yml) and [m
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support.| Yes. | Applies to [single database](sql-database-single-index.yml) only. |
+| Service-endpoint support.| Yes. | Applies to [single database](sql-database-single-index.yml) only. |
 | Azure Virtual Network injection support.| Yes. | Applies to [managed instance](sql-database-managed-instance.md) only. |
-| Network isolation and firewall support.| Yes. | Firewall at both database level and server level. Network isolation for [managed instance](sql-database-managed-instance.md) only. |
-| Forced tunneling support.| Yes. | [Managed instance](sql-database-managed-instance.md) via an [ExpressRoute](../expressroute/index.yml) VPN. |
+| Network-isolation and firewall support.| Yes. | Firewall at both database level and server level. Network isolation for [managed instance](sql-database-managed-instance.md) only. |
+| Forced-tunneling support.| Yes. | [Managed instance](sql-database-managed-instance.md) via an [ExpressRoute](../expressroute/index.yml) VPN. |
 
 ## Detection
 
@@ -63,7 +63,7 @@ SQL Database offers both [single database](sql-database-single-index.yml) and [m
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration-management support such as versioning of configuration| No  | None |
+| Configuration-management support, such as versioning of configuration| No  | None |
 
 ## Additional security attributes for SQL Database
 
