@@ -47,7 +47,7 @@ To complete the tutorial, make sure you have the following items:
 
 ## 1 - Create a single database 
 
-[!INCLUDE [sql-database-create-single-database](../../includes/sql-database-create-single-database.md)]
+[!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## 2 - Create the failover group 
 In this step, you will create a [failover group](sql-database-auto-failover-group.md) between an existing Azure SQL server and a new Azure SQL server in another region. Then add the sample database to the failover group. 

@@ -35,7 +35,7 @@ When you create a single database, you also define a [SQL Database server](sql-d
 
 To create a single database containing the AdventureWorksLT sample data:
 
-[!INCLUDE [sql-database-create-single-database](../../includes/sql-database-create-single-database.md)]
+[!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## Query the database
 

@@ -18,6 +18,17 @@ ms.date: 2/13/2019
 
 Azure allows you to deploy a virtual machine with an image of SQL Server built in. This article summarizes the new features and improvements in the recent releases of [SQL Server on Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). The article also lists notable content updates that are not directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
 
+
+## June 2019
+
+### Documentation improvements
+
+| Documentation | Details |
+| --- | --- |
+| **Move SQL VM to  new region** | Learn how to migrate your SQL Server VM to a new region within Azure using Azure Recovery Services. | 
+| &nbsp; | &nbsp; |
+
+
 ## May 2019
 
 ### Service improvements
