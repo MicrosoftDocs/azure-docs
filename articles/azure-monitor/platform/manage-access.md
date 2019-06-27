@@ -73,7 +73,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ## Manage accounts and users
 
-The permissions applied to the workspace for a particular user are defined by their access mode and the [access control mode](designing-workspaces#access-control-mode) of the workspace. **Workspace permissions** are applied when a user accesses any workspace using **workspace-context** in [workspace-context mode](designing-workspaces.md#access-mode). **Resource permissions** are applied when a user accesses a workspace with **Use resource or workspace permissions** [access control mode](designing-workspaces.md#access-control-mode) using [resource-context mode](designing-workspaces.md#access-mode).
+The permissions applied to the workspace for a particular user are defined by their access mode and the [access control mode](designing-workspace.md#access-control-mode) of the workspace. **Workspace permissions** are applied when a user accesses any workspace using **workspace-context** in [workspace-context mode](designing-workspace.md#access-mode). **Resource permissions** are applied when a user accesses a workspace with **Use resource or workspace permissions** [access control mode](designing-workspace.md#access-control-mode) using [resource-context mode](designing-workspace.md#access-mode).
 
 ### Workspace permissions
 
@@ -165,7 +165,6 @@ When users query logs from a workspace using resource-centric access, they'll ha
 This permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Note that custom roles that include specific actions or dedicated built-in roles might not include this permission.
 
 See [Defining per-table access control](#table-level-rbac) below if you want to create different access control for different tables.
-
 
 ## Table level RBAC
 
