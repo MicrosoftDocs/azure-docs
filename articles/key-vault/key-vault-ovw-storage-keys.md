@@ -90,7 +90,7 @@ There are four basic steps to use Key Vault to manage storage account keys:
 1. Assign the "Storage Account Key Operator Service Role" RBAC role to Key Vault. This role limits the access scope to your storage account. For a classic storage account, use the "Classic Storage Account Key Operator Service Role" role.
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
+    az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
     ```
     
     `93c27d83-f79b-4cb2-8dd4-4aa716542e74` is the Object ID for Key Vault in the Azure public cloud. To get the Object ID for Key Vault in the Azure Government cloud, see [Service principal application ID](#service-principal-application-id).

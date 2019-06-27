@@ -438,7 +438,12 @@ Use **LAG** to peek into the input stream one event back and get the **Make** va
 
 ```SQL
     SELECT
-        [user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+        [user],
+	feature,
+	DATEDIFF(
+	    second,
+	    LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'),
+	    Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
         Event = 'end'
@@ -704,6 +709,15 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 
 **Explanation**:
 [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
+
+## Geofencing and geospatial queries
+Azure Stream Analytics provides built-in geospatial functions that can be used to implement scenarios such as fleet management, ride sharing, connected cars, and asset tracking. Geospatial data can be ingested in either GeoJSON or WKT formats as part of event stream or reference data. For more information, refer to the [Geofencing and geospatial aggregation scenarios with Azure Stream Analytics](geospatial-scenarios.md) article.
+
+## Language extensibility through JavaScript and C#
+Azure Stream Ananlytics query langugae can be extended with custom functions written in JavaScript or C# languages. For more information see the foolowing articles:
+* [Azure Stream Analytics JavaScript user-defined functions](stream-analytics-javascript-user-defined-functions.md)
+* [Azure Stream Analytics JavaScript user-defined aggregates](stream-analytics-javascript-user-defined-aggregates.md)
+* [Develop .NET Standard user-defined functions for Azure Stream Analytics Edge jobs](stream-analytics-edge-csharp-udf-methods.md)
 
 ## Get help
 

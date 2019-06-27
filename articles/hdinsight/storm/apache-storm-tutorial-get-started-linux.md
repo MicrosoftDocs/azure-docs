@@ -179,7 +179,7 @@ If you run into an issue with creating HDInsight cluster, see [access control re
 
 ## <a id="next"></a>Next steps
 
-In this Apache Storm tutorial, you learned the basics of working with Storm on HDInsight. Next, learn how to [Develop Java-based topologies using Apache Maven](apache-storm-develop-java-topology.md).
+In this Apache Storm article, you learned the basics of working with Storm on HDInsight. Next, learn how to [Develop Java-based topologies using Apache Maven](apache-storm-develop-java-topology.md).
 
 If you're already familiar with developing Java-based topologies, see the [Deploy and manage Apache Storm topologies on HDInsight](apache-storm-deploy-monitor-topology-linux.md) document.
 
