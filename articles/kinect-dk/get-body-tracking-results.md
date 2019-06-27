@@ -98,7 +98,7 @@ Processing throughput may be limited.
 The `simple_sample.exe` sample located in `examples/src` is an example of synchronous processing.
 
 ```C
-k4a_wait_result_t queue_capture_result = k4abt_tracker_queue_capture(tracker, sensor_capture, K4A_WAIT_INFINITE);
+k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, K4A_WAIT_INFINITE);
 k4a_capture_release(sensor_capture); // Remember to release the sensor capture once you finish using it
 if (queue_capture_result != K4A_WAIT_RESULT_SUCCEEDED)
 {

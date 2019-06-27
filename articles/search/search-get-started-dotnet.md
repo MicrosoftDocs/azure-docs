@@ -21,7 +21,7 @@ ms.date: 06/20/2019
 > * [Postman](search-fiddler.md)
 >*
 
-Create a .NET Core C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [Azure Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart).
+Create a .NET Core C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [Azure Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -102,9 +102,9 @@ When printing results to the console window, individual fields from the Hotel ob
 
 1. Add two empty class definitions to your project: Address.Methods.cs, Hotel.Methods.cs
 
-1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/azure-search-quickstart/azure-search-quickstart/Address.Methods.cs/#L1-L32).
+1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L32).
 
-1. In Hotel.Methods.cs, copy [lines 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/azure-search-quickstart/azure-search-quickstart/Hotel.Methods.cs/#L1-L66).
+1. In Hotel.Methods.cs, copy [lines 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L66).
 
 
 ## 1 - Create index
