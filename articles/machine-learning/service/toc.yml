@@ -222,6 +222,9 @@
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Custom Docker image
       href: how-to-deploy-custom-docker-image.md
+    - name: Deploy existing models
+      displayName: publish existing model
+      href: how-to-deploy-existing-model.md
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
@@ -237,6 +240,8 @@
     - name: Collect & evaluate model data
       displayName: track production
       href: how-to-enable-data-collection.md
+    - name: Detect data drift
+      href: how-to-monitor-data-drift.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
   - name: Create reusable workflows
@@ -247,8 +252,6 @@
     - name: 'CI/CD of ML workflows with Azure Pipelines'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-  - name: Monitor for data drift
-    href: how-to-monitor-data-drift.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
