@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Secure Azure API Management using B2C-generated tokens
 
-This document outlines how we can secure Azure API Management using B2C generated tokens.
+In this article, you learn how to secure Azure API Management using B2C-generated tokens with support for multiple issuing domains.
 
 ## Prerequisites
 
@@ -29,13 +29,30 @@ You need the following resources in place before continuing with the steps in th
 
 :white_check_mark: [Published API](../api-management/import-and-publish.md) in Azure API Management
 
-## Get the .well-known configuration from B2C
+## Get Azure AD B2C issuer URLs
 
-1. Navigate to B2C tenant
-1. Navigate to created policy and open Run Now blade
-1. Copy .well-known URL from run now blade
+ First, select one of your existing user flows:
 
-## Add Validation at API Management
+ 1. In the Azure portal, navigate to your Azure AD B2C tenant
+1. Under **Policies**, select **User flows (policies)**
+1. Select an existing policy, for example *B2C_1_signupsignin1*, then select **Run user flow**
+
+ Next, record the issuer URIs for both domains (`<your-b2c-tenant>.b2clogin.com` and `login.microsoft.com`). You update your API in Azure API Management with these values in the following sections.
+
+1. Under the **Run user flow** heading near the top of the page, click the hyperlink to navigate to the user flow's well-known URI.
+1. In the page that opens in your browser, record the `issuer` value, for example:
+
+     `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
+1. Use the **Select domain** drop-down to select the other domain, then perform the previous two steps once again and record its `issuer` value.
+
+ You should now have two URIs recorded that are similar to:
+
+ ```
+https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
+https://your-b2c-tenant.b2clogin.com/ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
+```
+
+## Configure validation in Azure API Management
 
 1. Open APIs blade in APIManagement
 1. Navigate to API which you want to secure
@@ -69,7 +86,7 @@ You can add multiple required claims against which Azure API Management validate
     <claim name="iis"><value>https://testapimanagement.onmicrosoft.com/00000000-0000-0000-0000-000000000000/v2.0/</value></claim>
     ```
 
-## Validate Azure API Management
+## Validate Azure API Management configuration
 
 You can validate the API using a tool like Postman. Get the B2C-generated token, then add it to Authorization header when calling the Azure API.
 
@@ -77,13 +94,13 @@ For example, in Postman:
 
 ![Example request header in Postman](media/secure-apim-with-b2c-token/postman-01.png)
 
-## Multiple JWT validations in Azure API Management
+## Enable multiple JWT validation in Azure API Management
 
 You can add multiple JWT validations in Azure API Management. This is useful when you generate tokens using multiple issuer URLs for B2C (for example, `logn.microsoftonline.com` and `b2clogin.com`) to validate against a single API in Azure API Management.
 
 To enable multiple domains, use the `<choose>` tag to enable branching flow within the policy. To inform the API which condition to validate, modify the `Authorization` header.
 
-For example, this policy **[EXPLANATION HERE]**...
+For example, this policy **[TODO: EXPLANATION HERE]**
 
 ```xml
 <policies>
@@ -135,6 +152,8 @@ For example, this policy **[EXPLANATION HERE]**...
 ```
 
 ## Validate Azure API Management in multiple config URLs case
+
+**[TODO: EXPLANATION HERE]**
 
 Example request:
 
