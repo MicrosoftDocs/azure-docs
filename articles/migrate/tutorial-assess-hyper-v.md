@@ -117,7 +117,7 @@ Import the downloaded file to the Hyper-V host, and create a VM from it.
 2. In the Import Virtual Machine Wizard > **Before you begin**, click **Next**.
 3. In **Locate Folder**, specify the folder in which the extracted VHD is located. Then click **Next**.
 1. In **Select Virtual Machine**, click **Next**.
-2. In **Choose Import Type**, click **Copy the virtual machine (dreate a new unique ID)**. Then click **Next**.
+2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
 3. In **Choose Destination**, leave the default setting unless you want a specific location. Click **Next**.
 4. In **Storage Folders**, leave the default setting unless you need to modify. Click **Next**.
 5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure.
@@ -135,7 +135,7 @@ Set up the appliance for the first time.
 
 1. In Hyper-V Manager > **Virtual Machines**, right-click the VM > **Connect**.
 2. Provide the language, time zone, and password preferences for the appliance.
-3. On the desktop of the appliance VM, click the **Start discovery** shortcut to open the appliance web app. Alternatively, run the web app remotely from **https://*appliance name or IP address*:44368**. 
+3. On the desktop of the appliance VM, click the **Start discovery** shortcut to open the appliance web app. Alternatively, run the web app remotely from **https://*appliance name or IP address*: 44368**. 
 4. In the appliance web app, click **Check for updates** to verify that you're running the latest version of the app. If not, you can download the latest upgrade.
 5. In **Set up prerequisites**, do the following:
     - **License**: Accept the license terms, and read the third-party information.
@@ -149,8 +149,8 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Click **Log In**.
-2. On the new tab, log in using the Azure credentials with the required permissions. 
-3. After a successful logon, go back to the web app.
+2. On the new tab, sign in using the Azure credentials with the required permissions. 
+3. After a successful sign in, go back to the web app.
 4. Select the subscription in which the Azure Migrate project was created. The resource group is shown.
 5. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
 6. Click **Register**.
@@ -183,7 +183,7 @@ Now, connect to the Hyper-V host/cluster, and start VM discovery.
 
 1. In **User name** and **Password**, specify the account credentials that you created for the appliance to discover VMs on the Hyper-V host/cluster. Specify a friendly name for the credentials, and click **Save details**.
 2. Click **Add host**, and specify the Hyper-V hosts/clusters on which you want to discover VMs. Click **Validate**. After validation, the number of VMs that can be discovered on each host/cluster is shown.
-    - If validation fails for a host, reivewing the error by hovering over the icon in the **Status** column. Fix and validate again with **Validate list**.
+    - If validation fails for a host, reviewing the error by hovering over the icon in the **Status** column. Fix and validate again with **Validate list**.
     - To remote any hosts/clusters, select > **Delete**.
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster even if there are issues with specific hosts in the cluster.
@@ -226,7 +226,7 @@ The Azure Migrate appliance continuously profiles your on-premises environment, 
 - **Create as-is assessments**: You can create as-is assessments immediately after discovery.
 - **Create performance-based assessment**: After setting up discovery, we recommend that you wait at least a day before running a performance-based assessment:
     - Collecting performance data takes time. Waiting at least a day ensures that there are enough performance data points before you run the assessment.
-    - For performance data, the appliance collects real-time data points every 20 seconds for each performance metrics, and rolls them up to a single five minute data point. The appliance sends the five-minute data point to Azure every hour for assessment calculation.  
+    - For performance data, the appliance collects real-time data points every 20 seconds for each performance metric, and rolls them up to a single five minute data point. The appliance sends the five-minute data point to Azure every hour for assessment calculation.  
 - **Get the latest data**: Assessments aren't automatically updated with the latest data. To update an assessment with the latest data, you need to rerun it. 
 - **Make sure durations match**: When you're running performance-based assessments, make sure your profile your environment for the assessment duration. For example, if you create an assessment with a performance duration set to 1 week, you need to wait for at least a week after you start discovery, for all the data points to be collected. If you don't the assessment won't get a five-star rating. 
 - **Avoid missing data points**: The following issues might result in missing data points in a performance-based assessment:
@@ -266,7 +266,7 @@ Create a group and run an assessment as follows:
 An assessment specifies:
 
 - **Azure readiness**: Whether VMs are suitable for migration to Azure.
-- **Montly cost estimation**: The estimated monthly compute and storage costs of running VMs in Azure.
+- **Monthly cost estimation**: The estimated monthly compute and storage costs of running VMs in Azure.
 - **Monthly storage cost estimation**: Estimated costs for disk storage after migration.
 
 
@@ -294,7 +294,7 @@ In **Azure readiness**, verify whether VMs are ready for migration to Azure.
 
 This view shows the estimate compute and storage cost of running VMs in Azure.
 
-1. Review the montly compute and storage costs. Costs are aggregated for all VMs in the assessed group.
+1. Review the monthly compute and storage costs. Costs are aggregated for all VMs in the assessed group.
 2. You can view the split between compute and storage.
 
     - Cost estimates are based on the size recommendations for a machine, and its disks and properties.
@@ -316,7 +316,7 @@ When you run performance-based assessments, a confidence rating is assigned to t
 - To provide a rating Azure Migrate needs the utilization data for VM CPU/Memory, and the disk IOPS/throughput data. For each network adapter attached to a VM, Azure Migrate needs the network in/out data.
 - In particular, if utilization data isn't available in vCenter Server, the size recommendation done by Azure Migrate might not be reliable. 
 
-Depending on the percentage of data points available, the confidence rating for an assessment are summarized in the following table.
+Depending on the percentage of data points available, the confidence ratings for an assessment are summarized in the following table.
 
    **Data point availability** | **Confidence rating**
    --- | ---
