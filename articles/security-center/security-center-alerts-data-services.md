@@ -1,6 +1,6 @@
 ---
 title: Data services alerts in Azure Security Center | Microsoft Docs
-description: Azure policy definitions monitored in Azure Security Center.
+description: Alerts for data storage resources Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -19,7 +19,12 @@ ms.author: monhaber
 ---
 # Azure data services alerts
 
-## Azure SQL Database and SQL Data Warehouse
+This topic presents the alerts available for your data storage resources.
+
+* [Azure SQL Database and SQL Data Warehouse](#data-sql)
+* [Azure Storage](#azure-storage)
+
+## Azure SQL Database and SQL Data Warehouse <a name="data-sql"></a>
 
 SQL threat detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Security Center analyzes the SQL audit logs and runs natively in the SQL engine.
 
@@ -34,7 +39,7 @@ SQL threat detection detects anomalous activities indicating unusual and potenti
 
 For more information about SQL threat detection alerts visit [Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) article, and review the threat detection alerts section. Read [How Azure Security Center helps reveal a Cyberattack](https://azure.microsoft.com/is-is/blog/how-azure-security-center-helps-reveal-a-cyberattack/) to see an example of how Security Center used malicious SQL activity detection to discover an attack.
 
-## Azure Storage
+## Azure Storage<a name="azure-storage"></a>
 
 >[!NOTE]
 > Advanced Threat Protection for Azure Storage is currently available for Blob Storage only. 

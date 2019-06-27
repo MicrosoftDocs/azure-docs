@@ -20,16 +20,21 @@ ms.author: monhaber
 
 # Azure service layer
 
+This topic presents the Security Center alerts available when monitoring your Azure service layers.
+
+* [Azure Network layer](#network-layer)
+* [ Azure Management layer (Azure Resource Manager) (Preview)](#management-layer)
+
 >[!NOTE]
 >By the nature of the telemetry Security Center leverages from tapping into Azure internal feeds, the analytics provided below are applicable to all resource types.
 
-## Azure Network layer
+## Azure Network layer<a name="network-layer"></a>
 
 Security Center network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Security Center machine learning models identify and flag malicious traffic activities. To enrich IP addresses, Security Center leverages Microsoft’s Threat Intelligence database.
 
 Read the article [Heuristic DNS detections in Azure Security Center](https://azure.microsoft.com/en-us/blog/heuristic-dns-detections-in-azure-security-center/), to understand how Security Center can use network related signal to apply threat protection.
 
-## Azure Management layer (Azure Resource Manager) (Preview)
+## Azure Management layer (Azure Resource Manager) (Preview)<a name ="management-layer"></a>
 
 >[!NOTE]
 >Security Center protection layer based on Azure Resource Manager (ARM) is currently in preview.

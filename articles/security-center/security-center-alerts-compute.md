@@ -17,9 +17,10 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-# Native computer alerts
+## Azure native compute alerts
 
-## Azure Native Compute
+This topic presents the alerts available for your Azure services:
+* 
 
 ### Azure App Service
 

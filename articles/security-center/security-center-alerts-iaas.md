@@ -19,9 +19,14 @@ ms.author: monhaber
 ---
 # IaaS VM and server alerts
 
-## Windows-based machines
+This topics presents the different types of detections available for VMs and Servers.
 
-This topics presents the different types of detections available for VMs and Servers using the Windows operating system. See here for a list of supported versions.
+[Windows-based machines](#windows-machines)
+[Linux-based machines](#linux-machines)
+
+See here for a list of supported versions.
+
+## Windows-based machines<a name="windows-machines"></a>
 
 Azure Security Center extends its Cloud Workload Protection Platforms by integrating with Windows Defender Advanced Threat Protection (ATP). This provides comprehensive Endpoint Detection and Response (EDR) capabilities.
 
@@ -65,7 +70,7 @@ It finds evidence of exploitation, code injection, and execution of malicious pa
 
 [How Azure Security Center detects vulnerabilities using administrative tools](https://azure.microsoft.com/en-us/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
-## Linux-based machines
+## Linux-based machines <a name="linux-machines"></a>
 
 Security Center collects audit records from Linux machines using auditd, one of the most common Linux auditing frameworks. auditd has the advantage of having been around for a long time and living in the mainline kernel. 
 
