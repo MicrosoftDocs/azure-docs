@@ -110,9 +110,6 @@
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap

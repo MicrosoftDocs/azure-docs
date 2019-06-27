@@ -14,9 +14,6 @@
     href: apache-hadoop-linux-tutorial-get-started.md      
 - name: Tutorials
   items:
-  - name: Perform ETL operations
-    href: ../hdinsight-analyze-flight-delay-data-linux.md
-    maintainContext: true
   - name: Create on-demand clusters
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
     maintainContext: true
