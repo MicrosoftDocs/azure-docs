@@ -613,7 +613,7 @@ When you use a service-specific client in an Azure Functions application, don't 
 
 ### Use `async` and `await`
 
-When writing Azure Functions in JavaScript, we highly recommend writing code using the async and await keywords. Writing code using async and await instead of callbacks or .then and .catch with Promises will help avoid two common problems:
+When writing Azure Functions in JavaScript, you should write code using the `async` and `await` keywords. Writing code using `async` and `await` instead of callbacks or `.then` and `.catch` with Promises helps avoid two common problems:
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
  - Unexpected behavior (ex: missing logs from context.log) caused by asynchronous calls that are not properly awaited.
 
