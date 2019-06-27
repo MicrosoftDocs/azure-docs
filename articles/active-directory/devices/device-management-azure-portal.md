@@ -56,7 +56,7 @@ The device settings page enables you to configure:
 
 ![Manage an Intune device](./media/device-management-azure-portal/21.png)
 
-- **Users may join devices to Azure AD** - This setting enables you to select the users who can register their devices as [Azure AD join devices](overview.md#azure-ad-joined-devices). The default is **All**.
+- **Users may join devices to Azure AD** - This setting enables you to select the users who can register their devices as Azure AD joined devices. The default is **All**.
 
 > [!NOTE]
 > **Users may join devices to Azure AD** setting is only applicable to Azure AD join on Windows 10.
