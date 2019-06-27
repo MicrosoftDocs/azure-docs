@@ -34,7 +34,7 @@ Run this code on either of these environments:
     - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
     - [Download the sample script file](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn) `train_iris.py`
 
-  You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-sklearn.ipynb) of this guide on the GitHub samples page. The notebook includes an expanded section covering intelligent hyperparameter tuning.
+  You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-sklearn.ipynb) of this guide on the GitHub samples page. The notebook includes an expanded section covering intelligent hyperparameter tuning and retrieving the best model by primary metrics.
 
 ## Set up the experiment
 
@@ -103,17 +103,17 @@ The [datastore](how-to-access-data.md) is a place where data can be stored and a
 
 ## Create a compute target
 
-Create a compute target for your Scikit-learn job to run on. In this example, create a GPU-enabled Azure Machine Learning compute cluster. If you instead want to create CPU compute, provide a different VM size to the vm_size parameter, such as STANDARD_D2_V2.
+Create a compute target for your Scikit-learn job to run on. Scikit learn only supports single node, CPU computing.
 
 ```Python
-cluster_name = "gpucluster"
+cluster_name = "cpu-cluster"
 
 try:
     compute_target = ComputeTarget(workspace=ws, name=cluster_name)
     print('Found existing compute target')
 except ComputeTargetException:
     print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2', 
                                                            max_nodes=4)
 
     compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
@@ -141,6 +141,7 @@ estimator = SKLearn(source_directory=project_folder,
                     script_params=script_params,
                     compute_target=compute_target,
                     entry_script='train_iris.py'
+                    pip_packages=['joblib']
                    )
 ```
 
@@ -166,17 +167,19 @@ As the Run is executed, it goes through the following stages:
 ## Save and register the model
 
 Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
- 
-To save the model, include the following code to your training script, train_iris.py. 
+
+The following code saves the model as part of the training script, train_iris.py.
 
 ``` Python
-save model code
+import joblib
+
+joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
 Register the model with the following code.
 
 ```Python
-model = run.register_model(model_name='sklearn-iris', model_path='outputs/model')
+model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 ```
 
 ## Next steps
