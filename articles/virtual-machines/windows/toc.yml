@@ -267,17 +267,17 @@
       items:
       - name: Overview
         href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      - name: Use CLI with Image Builder
+      - name: Use Azure CLI 
         href: image-builder.md
-      - name: Build for shared image galleries
+      - name: Build for image galleries
         href: image-builder-gallery.md
       - name: Update an existing image
         href: image-builder-gallery-update-image-version.md
-      - name: Use scripts from Azure Storage
+      - name: Storing scripts
         href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      - name: Image Builder template reference
+      - name: Template reference
         href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-      - name: Troubleshoot Image Builder
+      - name: Troubleshoot 
         href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
