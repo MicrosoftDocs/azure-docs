@@ -514,6 +514,8 @@
       href: manage-azure-ssis-integration-runtime.md
     - name: Copy or clone a data factory
       href: copy-clone-data-factory.md
+    - name: Troubleshooting guide
+      href: data-factory-troubleshoot-guide.md
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
