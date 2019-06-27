@@ -1,6 +1,6 @@
 ---
 title: Telemetry channels in Azure Application Insights | Microsoft Docs
-description: How to customize telemetry channels in Azure Application Insights SDKs for .NET/.NET Core.
+description: How to customize telemetry channels in Azure Application Insights SDKs for .NET and .NET Core.
 services: application-insights
 documentationcenter: .net
 author: cijothomas
@@ -161,10 +161,10 @@ The SDK stores telemetry items in local storage during network issues or during 
 
 For Windows systems, the SDK automatically creates a temporary local folder in the %TEMP% or %APPDATA% directory, and restricts access to administrators and the current user only.
 
-For systems other than Windows, no local storage is created automatically by the SDK, and hence no data is stored locally by default. You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured.
+For systems other than Windows, no local storage is created automatically by the SDK, and so no data is stored locally by default. You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured.
 Read more about [data protection and privacy](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
-## Open source SDK
+## Open-source SDK
 Like every SDK for Application Insights, channels are open source. Read and contribute to the code, or report issues, at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet).
 
 ## Next steps
