@@ -44,6 +44,10 @@ It is not possible to limit R resources through [Resource Governor](https://docs
 
 During the public preview, R resources are set to a maximum of 20% of the SQL Database resources, and depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
 
+## RODBC
+
+If you're using RODBC in Azure SQL Database, then you can't write to a temporary table, whether it's created inside or outside of the `sp_execute_external_script` session. The workaround is to use RxODBC and rxDataStep (with overwrite=FALSE and append="rows").
+
 ### Insufficient memory error
 
 If there is insufficient memory available for R, you will get an error message. Common error messages are:
