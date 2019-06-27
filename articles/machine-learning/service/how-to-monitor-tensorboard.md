@@ -19,12 +19,8 @@ In this article, you learn how to export your machine learning experiment run hi
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
-With the Azure Machine Learning SDK `tensorboard` extra, you can     
-* Launch TensorBoard from your current experiment's run history.
-
-* Convert and export experiment run histories and view their performance via TensorBoard.
-
-* Compare and view historical runs via TensorBoard
+With the Azure Machine Learning SDK `tensorboard` extra, you can launch TensorBoard from your experiment's run history. If your experiment natively outputs log files that are consumable by TensorBoard, like PyTorch, Chainer and TensorFlow experiments,  you can launch TensorBoard directly from run history. Use TensorBoard with Azure Machine Learning experiments by simply converting and exporting those run histories to Tensorboard and the launching it from there. 
+    
 
 ## Prerequisites
 
@@ -42,6 +38,8 @@ The code in this how-to can be run in either of the following environments:
   * Use the [Create a workspace article](setup-create-workspace.md) to
       * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) with the `tensorboard` extra
       * Create a workspace and its configuration file (config.json)
+  * 
+
 
 ## Launch TensorBoard from run history
 
