@@ -67,7 +67,7 @@ The level of authorization that you need is based on whether you plan to upload 
 
 If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity or service principal. 
 
-> [!NOTE] 
+> [!NOTE]
 > User identities and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
 
 If you want to upload files, then verify that one of these roles has been assigned to your security principal:
@@ -151,8 +151,10 @@ Replace the `<application-id>` placeholder with the application ID of your servi
 ##### Using a certificate
 
 If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to login.
- 
-First, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate password. This value is available only to the current session. 
+
+In addition to uploading your certificate to your app registration, you'll also need to have a Personal Information Exchange (PFX) file for that certificate saved to your local machine or VM. If you're using Windows, and you're certificate exists only in a certificate store, make sure to export that certificate to a PFX file (including the private key). For guidance, see [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps).
+
+Next, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate password.
 
 > [!NOTE]
 > Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
