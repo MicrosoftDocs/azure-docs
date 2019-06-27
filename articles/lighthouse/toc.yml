@@ -1,8 +1,8 @@
-- name: Azure Service Provider Management Toolkit documentation | Microsoft Docs 
+- name: Azure Lighthouse documentation | Microsoft Docs 
   href: index.yml
 - name: Overview
   items:
-  - name: What is Microsoft Azure Service Provider Management Toolkit?
+  - name: What is Azure Lighthouse?
     displayName: management at scale, service providers
     href: overview.md
 - name: Concepts

@@ -374,7 +374,7 @@
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
-        "articles/service-provider-toolkit/**/*.md": "Azure Service Provider Management Toolkit"
+        "articles/lighthouse/**/*.md": "Azure Lighthouse"
       },
       "featureFlags": {
         "articles/**/*.md": [

@@ -110,7 +110,7 @@ featureFlags:
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/governance/policy/">Azure Policy</a></li>
                                                     <li><a class="barLink" href="/azure/security-center/">Azure Security Center</a></li>
-                                                    <li><a class="barLink" href="/azure/service-provider-toolkit/">Azure Service Provider Management Toolkit</a></li>
+                                                    <li><a class="barLink" href="/azure/lighthouse/">Azure Lighthouse</a></li>
                                                     <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                 </ul>
                                             </div>
@@ -1873,9 +1873,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/service-provider-toolkit/">
+                                            <a href="/azure/lighthouse/">
                                                 <img src="media/index/azure-resource-manager.svg" alt="" />
-                                                <p>Service Provider Management Toolkit</p>
+                                                <p>Azure Lighthouse</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -5817,7 +5817,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/service-provider-toolkit/">
+                                <a href="/azure/lighthouse/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5827,7 +5827,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Service Provider Management Toolkit</h3>
+                                                    <h3>Azure Lighthouse</h3>
                                                     <p>Manage customer resources at scale</p>
                                                 </div>
                                             </div>

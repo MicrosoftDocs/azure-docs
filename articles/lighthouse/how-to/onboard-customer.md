@@ -3,16 +3,13 @@ title: Onboard a customer to Azure Delegated Resource Management
 description: Learn how to onboard a customer to Azure Delegated Resource Management, allowing their resources to be accessed and managed through your own tenant. 
 author: JnHs
 ms.author: jenhayes
-ms.service: service-provider-toolkit
+ms.service: lighthouse
 ms.date: 06/24/2019
 ms.topic: overview
 manager: carmonm
 ---
 
 # Onboard a customer to Azure Delegated Resource Management
-
-> [!IMPORTANT]
-> Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
 
 This article explains how you, as a service provider, can onboard a customer to Azure Delegated Resource Management, allowing their delegated resources (subscriptions and/or resource groups) to be accessed and managed through your own Azure Active Directory (Azure AD) tenant. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 

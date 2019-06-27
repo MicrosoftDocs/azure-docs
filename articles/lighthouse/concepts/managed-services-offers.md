@@ -2,9 +2,9 @@
 title: Managed services offers in Azure Marketplace
 description: Managed services offers allow service providers to sell resource management offers to customers in Azure Marketplace.
 author: JnHs
-ms.service: service-provider-toolkit
+ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 06/05/2019
+ms.date: 06/26/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -12,9 +12,6 @@ manager: carmonm
 # Managed services offers in Azure Marketplace
 
 This article describes the new **Managed Services** offer type in [Azure Marketplace](https://azuremarketplace.microsoft.com). Managed services offers allow you to offer resource management services to customers with Azure Delegated Resource Management. You can make these offers available to all potential customers or only to one or more specific customers. Since you bill customers directly for costs related to these managed services, there are no fees charged by Microsoft.
-
-> [!IMPORTANT]
-> Azure Delegated Resource Management is currently in limited public preview. The info in this topic may change before general availability.
 
 ## Understand managed services offers
 

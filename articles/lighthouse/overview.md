@@ -1,33 +1,30 @@
 ---
-title: What is Microsoft Azure Service Provider Management Toolkit?
-description: Microsoft Azure Service Provider Management Toolkit lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
+title: What is Azure Lighthouse?
+description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
 author: JnHs
 ms.author: jenhayes
-ms.date: 06/05/2019
+ms.date: 06/26/2019
 ms.topic: overview
-ms.service: service-provider-toolkit
+ms.service: lighthouse
 manager: carmonm
 ---
-# What is Microsoft Azure Service Provider Management Toolkit?
+# What is Azure Lighthouse?
 
-Microsoft Azure Service Provider Management Toolkit provides comprehensive and robust management tooling, allowing service providers to deliver managed services on behalf of their customers with higher automation and efficiency at scale, using functionality built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
+Azure Lighthouse provides comprehensive and robust management tooling, allowing service providers to deliver managed services on behalf of their customers with higher automation and efficiency at scale, using functionality built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
 
-![Overview diagram of Microsoft Azure Service Provider Management Toolkit](media/azure-service-provider-management-toolkit-overview.jpg)
-
-> [!IMPORTANT]
-> Some aspects of Microsoft Azure Service Provider Management Toolkit are currently in limited public preview. The info in this topic may change before general availability.
+![Overview diagram of Azure Lighthouse](media/azure-service-provider-management-toolkit-overview.jpg)
 
 ## Benefits
 
-Azure Service Provider Management Toolkit helps you to profitably and efficiently build and deliver managed services for your customers. The benefits include:
+Azure Lighthouse helps you to profitably and efficiently build and deliver managed services for your customers. The benefits include:
 
 - **Management at scale**: Customer engagement and management experiences are easier and more scalable.
 - **Greater visibility and enhanced security for customers**: Customers whose resources you're managing will have greater visibility, enhanced security, and IP protection.
-- **Comprehensive and unified platform tooling**: Our tooling experience addresses key service provider scenarios, including multiple licensing models. The new capabilities work with existing tools, licensing models, and partner programs such as the [Cloud Solution Provider program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). The Azure Service Provider Management Toolkit options you choose are ready to be integrated into your existing workflows, and you can track your impact on customer engagements by [linking your partner ID](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
+- **Comprehensive and unified platform tooling**: Our tooling experience addresses key service provider scenarios, including multiple licensing models. The new capabilities work with existing tools, licensing models, and partner programs such as the [Cloud Solution Provider program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). The Azure Lighthouse options you choose are ready to be integrated into your existing workflows, and you can track your impact on customer engagements by [linking your partner ID](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
 
 ## Capabilities
 
-Azure Service Provider Management Toolkit includes multiple ways to help streamline customer engagement and management:
+Azure Lighthouse includes multiple ways to help streamline customer engagement and management:
 
 - **Azure Delegated Resource Management**: Manage your customers' Azure resources securely from within your own tenant. For more info, see [Azure Delegated Resource Management](./concepts/azure-delegated-resource-management.md).
 - **New Azure portal experiences**: View cross-tenant info in the new **My customers** page in the [Azure portal](https://portal.azure.com). A corresponding **Service providers** blade lets your customers view and manage service provider access. For more info, see [View and manage customers](./how-to/view-manage-customers.md) and [View and manage service providers](./how-to/view-manage-service-providers.md).
