@@ -13,31 +13,34 @@
 >[!NOTE]
 >Be aware that the legacy AAD app registration that is used here will be discontinued soon. This section will be updated once Azure Digital Twins is completely integrated with the [new AAD app registration](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). In the meanwhile, you may experiment with the new AAD app. Note that you will need to use [public client (mobile & destkop)](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-app-types#mobile-and-native-apps) for the *Redirect URI*. 
 
+1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You'll use this value to configure a sample application in the next section.
+
+    ![Azure Active Directory directory ID](./media/digital-twins-permissions/aad-app-reg-tenant.png)
+
 1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **App registrations (Legacy)** pane. Select the **New application registration** button.
 
 1. Give a friendly name for this app registration in the **Name** box. Choose **Application type** as **Native**, and **Redirect URI** as `https://microsoft.com`. Select **Create**.
 
     ![Create pane](./media/digital-twins-permissions/aad-app-reg-create.png)
 
-1. Open the registered app. Copy the following values to a temporary file:
-    a. The value of the **Application (client) ID** field, which identifies your Azure Active Directory app, and
-    b. The value of the **Directory (tenant) ID** field, which represents your Azure Active Directory tenant. 
-   
-   You'll use both these values to configure your sample application in the following sections.
+1.  Open the registered app, and copy the value of the **Application ID** field to a temporary file. This value identifies your Azure Active Directory app. You'll use the application ID to configure your sample application in the following sections.
 
     ![Azure Active Directory application ID](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
-1. In your app registration pane, select **API permissions**, and then select **Add a permission**.
+1. Open your app registration pane. Select **Settings** > **Required permissions**, and then:
 
-    ![Azure Active Directory API permissions](./media/digital-twins-permissions/aad-app-reg-api-permit.png)
+   a. Select **Add** on the upper left to open the **Add API access** pane.
 
-1. In the **Request API permissions** pane, select the tab **APIs my organization uses**, and then search for **Azure Digital Twins**. Select the **Azure Digital Twins Deployer - Dev** option. 
+   b. Select **Select an API** and search for **Azure Digital Twins**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead.
 
-    ![Azure Active Directory select API](./media/digital-twins-permissions/aad-app-reg-select-api.png)
+   c. Select the **Azure Digital Twins (Azure Smart Spaces Service)** option and choose **Select**.
 
-1. Note that the **Request API permissions** pane now shows the permissions to select for these APIs. Select **user_impersonation**, and then select **Add permissions**. 
+   d. Choose **Select permissions**. Select the **Read/Write Access** delegated permissions check box, and choose **Select**.
 
-    ![Azure Active Directory select permissions](./media/digital-twins-permissions/aad-app-reg-select-permit.png)
- 
-   The API **Azure Digital Twins Deployer - Dev** will appear in the list of **API permissions**. 
+   e. Select **Done** in the **Add API access** pane.
+
+   f. In the **Required permissions** pane, select the **Grant permissions** button, and accept the acknowledgement that appears. If the permission is not granted for this API, contact your administrator.
+
+      ![Required permissions pane](./media/digital-twins-permissions/aad-app-req-permissions.png)
+
  
