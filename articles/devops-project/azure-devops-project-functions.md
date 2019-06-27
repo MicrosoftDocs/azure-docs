@@ -23,19 +23,14 @@ DevOps Projects also:
 
 In this tutorial, you will:
 
-* Use DevOps Projects to deploy an ASP.NET app to Azure Function
-
-* Configure Azure DevOps and an Azure subscription
-
-* Examine the Azure Function
-
-* Examine the CI pipeline
-
-* Examine the CD pipeline
-
-* Commit changes to Git and automatically deploy them to Azure
-
-* Clean up resources
+> [!div class="checklist"]
+>* Use DevOps Projects to deploy an ASP.NET app to Azure Function
+>* Configure Azure DevOps and an Azure subscription
+>* Examine the Azure Function
+>* Examine the CI pipeline
+>* Examine the CD pipeline
+>* Commit changes to Git and automatically deploy them to Azure
+>* Clean up resources
 
 Currently the supported runtimes for functions are **.NET** and **Node.js**. We use. NET runtime for this tutorial to deploy to Azure Functions. 
 
