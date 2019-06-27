@@ -202,7 +202,7 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 1. Sign in to the Azure portal.
 1. Click **Create resource**, enter **Domain services** and select **Azure AD Domain Services**.
 1. On the **Basics** screen complete the following steps:
-    1. Under **Directory name** select the Azure Active Directory created for this tutorial, **HDIFabrikam**.
+    1. Under **Directory name** select the Azure Active Directory created for this article, **HDIFabrikam**.
     1. Enter a **DNS domain name** of **HDIFabrikam.com**.
     1. Select your subscription.
     1. Specify the resource group **HDIFabrikam-CentralUS** and the **Location** of **Central US**.
@@ -213,7 +213,7 @@ For more information, see [Enable Azure Active Directory Domain Services using t
 
     ![select network](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. On the **Administrator group** screen, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can optionally modify membership of this group, but it is not required for the steps of this tutorial. Click **OK**.
+1. On the **Administrator group** screen, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can optionally modify membership of this group, but it is not required for the steps of this article. Click **OK**.
 
     ![view administrator group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 
