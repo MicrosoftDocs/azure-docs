@@ -11,7 +11,7 @@
   - name: Assign licenses to users    
     href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Allow unlimited app registrations
-    href: roles-quickstart-app-registrations-unlimited.md
+    href: roles-qs-appreg-limits.md
   - name: Set groups expiration    
     href: groups-quickstart-expiration.md
   - name: Set groups naming policy    
@@ -128,6 +128,8 @@
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
+    - name: Custom roles preview
+    - href: roles-qs-appreg-limits.md
     - name: View role assignments
       href: roles-view-assignments.md
     - name: Create role assignments
