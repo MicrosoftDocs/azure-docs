@@ -21,13 +21,13 @@ The first step is to create a custom subdomain.
 
 1. Start by opening the Azure Cloud Shell. then [select a subscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
 
-   ```Powershell
+   ```azurecli-interactive
    Select-AzureSubscription -SubscriptionName <YOUR_SUBCRIPTION>
    ```
 
 2. Next, [create a Cognitive Services resource](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) with a custom subdomain. The subdomain name needs to be globally unique and cannot include special characters, such as: ".", "!", ",".
 
-   ```Powershell
+   ```azurecli-interactive
    New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
    ```
 
@@ -40,7 +40,7 @@ Now that you have a custom subdomain associated with your resource, you're going
 
 1. First, let's register an [AAD application](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 
-   ```Powershell
+   ```azurecli-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
 
    New-AzADApplication -DisplayName <APP_DISPLAY_NAME> -IdentifierUris <APP_URIS> -Password $SecureStringPassword
@@ -50,7 +50,7 @@ Now that you have a custom subdomain associated with your resource, you're going
 
 2. Next, you need to [create a service principal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) for the AAD application.
 
-   ```Powershell
+   ```azurecli-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
    ```
 
@@ -61,7 +61,7 @@ Now that you have a custom subdomain associated with your resource, you're going
    >[!NOTE]
    > The ObjectId of the service principal is used, not the ObjectId for the application.
 
-   ```Powershell
+   ```azurecli-interactive
    New-AzRoleAssignment -ObjectId <SERVICE_PRINCIPAL_OBJECTID> -Scope <ACCOUNT_ID> -RoleDefinitionName "Cognitive Services User"
    ```
 
@@ -70,20 +70,20 @@ Now that you have a custom subdomain associated with your resource, you're going
 In this sample, a password is used to authenticate the service principal. The token provided is then used to call the Computer Vision API.
 
 1. Get your **TenantId**:
-   ```Powershell
+   ```azurecli-interactive
    $context=Get-AzContext
    $context.Tenant.Id
    ```
 
 2. Get a token:
-   ```Powershell
+   ```azurecli-interactive
    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
    $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, $password
    $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
    $token
    ```
 3. Call the Computer Vision API:
-   ```Powershell
+   ```azurecli-interactive
    $url = $account.Endpoint+"vision/v1.0/models"
    $result = Invoke-RestMethod -Uri $url  -Method Get -Headers @{"Authorization"=$token.CreateAuthorizationHeader()} -Verbose
    $result | ConvertTo-Json
