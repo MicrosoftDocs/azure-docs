@@ -259,13 +259,13 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
                                                 <ul class="noBullet">
-													<li>
+                                                    <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
                                                             Azure DevOps
                                                         </a>
                                                     </li>
-													<li>
+                                                    <li>
                                                         <a class="barLink" href="https://docs.microsoft.com/azure/devops/pipelines/index">
                                                             <img src="https://docs.microsoft.com/azure/devops/_img/index/devopsiconpipelines96.svg" alt="">
                                                             Azure Pipelines
@@ -277,7 +277,7 @@ featureFlags:
                                                             Ansible
                                                         </a>
                                                     </li>
-													<li>
+                                                    <li>
                                                         <a class="barLink" href="/azure/chef">
                                                             <img src="chef/media/Chef_Regular.svg" alt="">
                                                             Chef
@@ -382,7 +382,6 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                <div class="group">
                                     <h3>Compute</h3>
                                     <ul>
                                         <li>
@@ -463,7 +462,7 @@ featureFlags:
                                                 <p>CycleCloud</p>
                                             </a>
                                         </li>
-<li>
+                                        <li>
                                             <a href="/azure/vmware-cloudsimple/">
                                                 <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
                                                 <p>Azure VMware Solution by CloudSimple</p>
@@ -549,7 +548,7 @@ featureFlags:
                                                 <img src="media/index/database-migration.svg" alt="" />
                                                 <p>Azure Database Migration Service</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                     <h3>Containers</h3>
                                     <ul>
@@ -1339,13 +1338,13 @@ featureFlags:
                                                 <p>HockeyApp</p>
                                             </a>
                                         </li>
-										<li>
+                                        <li>
                                             <a href="/azure/devops-project">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
                                                 <p>Azure DevOps Projects</p>
                                             </a>
                                         </li>
-									</ul>
+                                    </ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
@@ -1633,7 +1632,7 @@ featureFlags:
                                                 <p>Azure Dedicated HSM</p>
                                             </a>
                                         </li>
-					    <a href="/azure/virtual-network/ddos-protection-overview">
+                                            <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS protection</p>
                                             </a>
@@ -1874,6 +1873,688 @@ featureFlags:
                                         </li>
                                     </ul>
                                 </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#ai">AI + Machine Learning</a>
+                        <ul id="ai" class="cardsA">
+                            <li class="fullSpan">
+                                <h2>Artificial Intelligence + Machine Learning</h2>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Infuse apps, websites, and bots with intelligence to see, hear, speak, and understand</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/machine-learning/service">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/machine-learning-service.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Machine Learning Service</h3>
+                                                    <p>Build, deploy, and manage machine learning and AI models</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/bot-service.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Bot Service</h3>
+                                                    <p>Intelligent, serverless bot service that scales on demand</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/search/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Search.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Search</h3>
+                                                    <p>Fully-managed search-as-a-service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-databricks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Create an Azure Databricks workspace with Spark clusters</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/open-data.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Open Datasets</h3>
+                                                    <p>Curated public datasets to enhance machine learning models</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <!--li class="fullSpan">
+                                <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services APIs</h2>
+                                <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Vision</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />Computer Vision API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/API_Custom_Vision.svg" alt="" /><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Speech</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="media/index/API_Bing_Speech.svg" alt="" />Bing Speech API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Custom_Speech.svg" alt="" /><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>Speaker Recognition API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech API</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Language</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing Spell Check API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding (LUIS)</span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Linguistic Analysis API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Text Analytics API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Translator Text API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_WebLanguageModel.svg" alt="" /><span>Web Language Model API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Knowledge</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnA Maker API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recommendations API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/kes/overview">
+                                                                    <img src="media/index/API_KnowledgeExploration.svg" alt="" />
+                                                                    <span>Knowledge Exploration Service (KES)</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home">
+                                                                    <img src="media/index/API_Know_Academic.svg" alt="" />
+                                                                    <span>Academic Knowledge API</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/entitylinking/home">
+                                                                    <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
+                                                                    <span>Entity Linking Intelligence Service API</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview">
+                                                                    <img src="media/index/API_URL_Preview.svg" alt="" />
+                                                                    <span>URL Preview</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview">
+                                                                    <img src="media/index/API_Answer_Search.svg" alt="" />
+                                                                    <span>Answer Search</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Anomaly-Detector/overview">
+                                                                    <img src="media/index/API_Anomaly_Finder.svg" alt="" />
+                                                                    <span>Anomaly Finder</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview">
+                                                                    <img src="media/index/API_Conversation_Learner.svg" alt="" />
+                                                                    <span>Conversation Learner</span>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>Search</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News Search API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Bing Web Search API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-visual-search/"><img src="media/index/API_Bing_Visual_Search.svg" alt="" />Bing Visual Search API
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Bing Custom Search API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Bing Entity Search API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search API</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li-->
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#analytics">Analytics</a>
+                        <ul id="analytics" class="cardsA">
+                            <li>
+                                <a href="/azure/sql-data-warehouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SQL Data Warehouse</h3>
+                                                    <p>Elastic data warehouse as a service with enterprise-class features</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-databricks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Create an Azure Databricks workspace with Spark clusters</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/hdinsight/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/HDInsight.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>HDInsight</h3>
+                                                    <p>Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-factory/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/DataFactory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Factory</h3>
+                                                    <p>Orchestrate and manage data transformation and movement</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-explorer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Data Explorer</h3>
+                                                    <p>Fast and highly scalable data exploration service for log and telemetry data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/stream-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Stream Analytics</h3>
+                                                    <p>Real-time data stream processing from millions of IoT devices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-lake-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Analytics</h3>
+                                                    <p>Distributed analytics service that makes big data easy</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/event-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/eventhubs.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Event Hubs</h3>
+                                                    <p>Receive telemetry from millions of devices</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/power-bi-embedded/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Power BI Embedded</h3>
+                                                    <p>Embed fully interactive, stunning data visualizations in your applications</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/analysis-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AnalysisServices.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Analysis Services</h3>
+                                                    <p>Enterprise grade analytics engine as a service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/hdinsight/spark/apache-spark-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/hdinsight.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Apache Spark for Azure HDInsight</h3>
+                                                    <p>Apache Spark in the cloud for mission critical deployments</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/hdinsight/storm/apache-storm-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/hdinsight.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Apache Storm for Azure HDInsight</h3>
+                                                    <p>Real-time stream processing made easy for big data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/hdinsight/r-server/r-server-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/hdinsight.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>R Server for Azure HDInsight</h3>
+                                                    <p>Predictive analytics, machine learning, and statistical modeling for big data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/log-analytics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/OperationsManagementSuite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Log Analytics</h3>
+                                                    <p>Collect, search, and visualize machine data from on-premises and cloud</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-catalog/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-catalog.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Catalog</h3>
+                                                    <p>Get more value from your enterprise data assets</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen2</h3>
+                                                    <p>Massively scalable, secure data lake storage built on Blob storage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-lake-store/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen1</h3>
+                                                    <p>Hyperscale repository for big data analytics workloads</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/open-data.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Open Datasets</h3>
+                                                    <p>Curated public datasets to enhance machine learning models</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-netapp-files/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="/azure/azure-netapp-files/media/index/netapp.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure NetApp Files</h3>
+                                                    <p>Enterprise-grade NFS file service powered by NetApp</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </li>
@@ -2202,824 +2883,6 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Red Hat OpenShift</h3>
                                                     <p>Fully managed OpenShift service jointly operated with Red Hat</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#network">Networking</a>
-                        <ul id="network" class="cardsA">
-                            <li>
-                                <a href="/azure/networking/networking-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/networking-overview.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Networking Overview</h3>
-                                                    <p>An integrated view of the networking services in Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cdn/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Content Delivery Network</h3>
-                                                    <p>Ensure secure, reliable content delivery with broad global reach</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/expressroute/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ExpressRoute.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>ExpressRoute</h3>
-                                                    <p>Dedicated private network fiber connections to Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/dns/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/DNS.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure DNS</h3>
-                                                    <p>Host your DNS domain in Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/virtual-network/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/VirtualNetwork.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Virtual Network</h3>
-                                                    <p>Provision private networks, optionally connect to on-premises datacenters</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/traffic-manager/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/TrafficManager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Traffic Manager</h3>
-                                                    <p>Route incoming traffic for high performance and availability</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/load-balancer/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/LoadBalancer.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Load Balancer</h3>
-                                                    <p>Deliver high availability and network performance to your applications</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/vpn-gateway/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/VPNGateway.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>VPN Gateway</h3>
-                                                    <p>Establish secure, cross-premises connectivity</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/application-gateway/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Application Gateway</h3>
-                                                    <p>Build secure, scalable, and highly available web front ends in Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/virtual-network/ddos-protection-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ddos.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure DDoS Protection</h3>
-                                                    <p>Protect your applications from Distributed Denial of Service (DDoS) attacks</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/network-watcher/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/network-watcher.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Network Watcher</h3>
-                                                    <p>Network performance monitoring and diagnostics solution</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/firewall/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure_firewall.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Firewall</h3>
-                                                    <p>Highly available and scalable cloud-based network security service</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/virtual-wan/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/WAN.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Virtual WAN</h3>
-                                                    <p>Build secure global scale branch connectivity</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/frontdoor/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/frontdoor.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Front Door Service</h3>
-                                                    <p>Scalable and secure entry point to deliver global web apps</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-<li>
-                                <a href="/azure/bastion/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/web_connect.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Bastion</h3>
-                                                    <p>Secure seamless connectivity to virtual machines over SSL via the Azure portal without a public IP address</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#storage">Storage</a>
-                        <ul id="storage" class="cardsA">
-                            <li>
-                                <a href="/azure/storage/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Storage.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Storage</h3>
-                                                    <p>Durable, highly available, and massively scalable cloud storage</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/storsimple/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/StorSimple.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>StorSimple</h3>
-                                                    <p>Lower costs with an enterprise hybrid cloud storage solution</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Lake Storage Gen2</h3>
-                                                    <p>Massively scalable, secure data lake storage built on Blob storage</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-lake-store/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Lake Storage Gen1</h3>
-                                                    <p>Hyperscale repository for big data analytics workloads</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/storage/blobs/storage-blobs-introduction/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/logo_azure-blob-storage.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Blob Storage</h3>
-                                                    <p>REST-based object storage for unstructured data</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Disks-color.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Disk Storage</h3>
-                                                    <p>Persistent, secured disk options supporting virtual machines</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/managed-disks.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Managed Disks</h3>
-                                                    <p>Persistent, secured disk storage for Azure virtual machines</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/storage/queues/storage-queues-introduction/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Queue Storage</h3>
-                                                    <p>Effectively scale apps according to traffic</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/storage/files/storage-files-introduction/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/logo_azure-storage-file.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>File Storage</h3>
-                                                    <p>File shares that use the standard SMB 3.0 protocol</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/databox-family/" data-linktype="absolute-path">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img alt="" src="media/index/service-icon-small.png" data-linktype="relative-path">
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Box family</h3>
-                                                    <p>Family of storage devices that enable offline or network-based data transfer</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/avere-vfxt/" data-linktype="absolute-path">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img alt="" src="media/index/avere.svg" data-linktype="relative-path">
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Avere vFXT</h3>
-                                                    <p>Run high-performance, file-based workloads in Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Storage.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Storage Explorer</h3>
-                                                    <p>Easily manage Storage anywhere from Windows, macOS, and Linux</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/storage/blobs/storage-blob-storage-tiers">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/storage.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Archive Storage</h3>
-                                                    <p>Low cost, secure cloud storage for rarely accessed data</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/azure-netapp-files/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/NetAppStorage.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure NetApp Files</h3>
-                                                    <p>Enterprise-grade network file services powered by NetApp</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#web">Web</a>
-                        <ul id="web" class="cardsA">
-                            <li>
-                                <a href="/azure/app-service-web">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/app-service-web.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>App Service - Web Apps</h3>
-                                                    <p>Quickly create and deploy mission critical Web apps at scale</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/api-management/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/apimanagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>API Management</h3>
-                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cdn/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Content Delivery Network</h3>
-                                                    <p>Ensure secure, reliable content delivery with broad global reach</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/notification-hubs/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/NotificationHubs.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Notification Hubs</h3>
-                                                    <p>Send push notifications to any platform from any back end</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/search/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Search.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Search</h3>
-                                                    <p>Fully-managed search-as-a-service</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/app-service-api">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/app-service-api.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>API Apps</h3>
-                                                    <p>Easily build and consume Cloud APIs</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/azure-signalr">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-signalr.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure SignalR Service</h3>
-                                                    <p>Add real-time web functionalities easily</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#mobile">Mobile</a>
-                        <ul id="mobile" class="cardsA">
-                            <li>
-                                <a href="/azure/app-service-mobile">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/app-service-mobile.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>App Service - Mobile Apps</h3>
-                                                    <p>Build and host the backend for any mobile app</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/notification-hubs/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/NotificationHubs.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Notification Hubs</h3>
-                                                    <p>Send push notifications to any platform from any back end</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/app-service-api">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/app-service-api.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>API Apps</h3>
-                                                    <p>Easily build and consume Cloud APIs</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/appcenter">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Visual Studio App Center</h3>
-                                                    <p>Ship apps faster by automating application lifecycles</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/azure-maps">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-maps-icon-portal.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Maps</h3>
-                                                    <p>Simple and secure location APIs provide geospatial context to data</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://azure.microsoft.com/features/xamarin">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/logo_xamarin.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Xamarin</h3>
-                                                    <p>Create amazing cloud-powered mobile apps faster</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3457,21 +3320,21 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Analytics</a>
-                        <ul id="analytics" class="cardsA">
+                        <a href="#devtools">Developer Tools</a>
+                        <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="/azure/sql-data-warehouse/">
+                                <a href="/visualstudio/products/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_visual-studio.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>Elastic data warehouse as a service with enterprise-class features</p>
+                                                    <h3>Visual Studio</h3>
+                                                    <p>Fully-featured integrated development environment (IDE) for Android, iOS, Windows, web, and cloud</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3479,18 +3342,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-databricks/">
+                                <a href="/azure/devops/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Databricks</h3>
-                                                    <p>Create an Azure Databricks workspace with Spark clusters</p>
+                                                    <h3>Azure DevOps</h3>
+                                                    <p>Services for teams to share code, track work, and ship software</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3498,18 +3361,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/hdinsight/">
+                                <a href="https://code.visualstudio.com/docs">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/HDInsight.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>HDInsight</h3>
-                                                    <p>Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters</p>
+                                                    <h3>Visual Studio Code</h3>
+                                                    <p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3517,18 +3380,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-factory/">
+                                <a href="/azure/api-management/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/DataFactory.svg" alt="" />
+                                                        <img src="media/index/APIManagement.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Factory</h3>
-                                                    <p>Orchestrate and manage data transformation and movement</p>
+                                                    <h3>API Management</h3>
+                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3536,18 +3399,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-explorer/">
+                                <a href="/azure/sdks/index">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Data Explorer</h3>
-                                                    <p>Fast and highly scalable data exploration service for log and telemetry data</p>
+                                                    <h3>SDKs</h3>
+                                                    <p>Build cloud apps with the programming languages you already know</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3555,18 +3418,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/stream-analytics/">
+                                <a href="/azure/integrations/index">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/StreamAnalytics.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Stream Analytics</h3>
-                                                    <p>Real-time data stream processing from millions of IoT devices</p>
+                                                    <h3>Developer Tool Integrations</h3>
+                                                    <p>Third-party tools to help you with your Azure development</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3574,18 +3437,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-analytics/">
+                                <a href="/azure/cli/index">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Analytics</h3>
-                                                    <p>Distributed analytics service that makes big data easy</p>
+                                                    <h3>CLI</h3>
+                                                    <p>Access the cloud directly from command-line tools</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3593,18 +3456,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/event-hubs/">
+                                <a href="/azure/blockchain-workbench/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/eventhubs.svg" alt="" />
+                                                        <img src="media/index/blockchain-workbench.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Event Hubs</h3>
-                                                    <p>Receive telemetry from millions of devices</p>
+                                                    <h3>Blockchain Workbench</h3>
+                                                    <p>Connect your blockchain to the cloud without the heavy lifting</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3612,208 +3475,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/power-bi-embedded/">
+                                <a href="/azure/azure-app-configuration/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                        <img src="media/index/azure-appconf.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Power BI Embedded</h3>
-                                                    <p>Embed fully interactive, stunning data visualizations in your applications</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/analysis-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/AnalysisServices.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Analysis Services</h3>
-                                                    <p>Enterprise grade analytics engine as a service</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/hdinsight/spark/apache-spark-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/hdinsight.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Apache Spark for Azure HDInsight</h3>
-                                                    <p>Apache Spark in the cloud for mission critical deployments</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/hdinsight/storm/apache-storm-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/hdinsight.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Apache Storm for Azure HDInsight</h3>
-                                                    <p>Real-time stream processing made easy for big data</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/hdinsight/r-server/r-server-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/hdinsight.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>R Server for Azure HDInsight</h3>
-                                                    <p>Predictive analytics, machine learning, and statistical modeling for big data</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/log-analytics/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/OperationsManagementSuite.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Log Analytics</h3>
-                                                    <p>Collect, search, and visualize machine data from on-premises and cloud</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-catalog/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/data-catalog.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Catalog</h3>
-                                                    <p>Get more value from your enterprise data assets</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Lake Storage Gen2</h3>
-                                                    <p>Massively scalable, secure data lake storage built on Blob storage</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-lake-store/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Lake Storage Gen1</h3>
-                                                    <p>Hyperscale repository for big data analytics workloads</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/open-datasets">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/open-data.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Open Datasets</h3>
-                                                    <p>Curated public datasets to enhance machine learning models</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/azure-netapp-files/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="/azure/azure-netapp-files/media/index/netapp.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure NetApp Files</h3>
-                                                    <p>Enterprise-grade NFS file service powered by NetApp</p>
+                                                    <h3>App Configuration</h3>
+                                                    <p>Fast, scalable parameter storage for app configuration</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3823,24 +3496,21 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#ai">AI + Machine Learning</a>
-                        <ul id="ai" class="cardsA">
-                            <li class="fullSpan">
-                                <h2>Artificial Intelligence + Machine Learning</h2>
-                            </li>
+                        <a href="#devops">DevOps</a>
+                        <ul id="devops" class="cardsA">
                             <li>
-                                <a href="/azure/cognitive-services/">
+                                <a href="/azure/devops/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cognitive Services</h3>
-                                                    <p>Infuse apps, websites, and bots with intelligence to see, hear, speak, and understand</p>
+                                                    <h3>Azure DevOps</h3>
+                                                    <p>Services for teams to share code, track work, and ship software</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3848,18 +3518,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/service">
+                                <a href="/azure/application-insights/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/machine-learning-service.svg" alt="" />
+                                                        <img src="media/index/ApplicationInsights.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning Service</h3>
-                                                    <p>Build, deploy, and manage machine learning and AI models</p>
+                                                    <h3>Application Insights</h3>
+                                                    <p>Detect, triage, and diagnose issues in your web apps and services</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3867,18 +3537,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/bot-framework/bot-service-overview-introduction">
+                                <a href="/azure/lab-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/bot-service.svg" alt="" />
+                                                        <img src="media/index/DevTestLabs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Bot Service</h3>
-                                                    <p>Intelligent, serverless bot service that scales on demand</p>
+                                                    <h3>Azure Lab Services</h3>
+                                                    <p>Create labs in the cloud for classroom, development and testing, and other scenarios (formerly DevTest Labs)</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3886,18 +3556,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/search/">
+                                <a href="/appcenter">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Search.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Search</h3>
-                                                    <p>Fully-managed search-as-a-service</p>
+                                                    <h3>Visual Studio App Center</h3>
+                                                    <p>Ship apps faster by automating application lifecycles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3905,18 +3575,18 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-databricks/">
+                                <a href="/azure/integrations/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Databricks</h3>
-                                                    <p>Create an Azure Databricks workspace with Spark clusters</p>
+                                                    <h3>Developer Tool Integrations</h3>
+                                                    <p>Extend Azure with popular extensions</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3924,218 +3594,243 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/open-datasets">
+                                <a href="https://support.hockeyapp.net/kb">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/open-data.svg" alt="" />
+                                                        <img src="media/index/HockeyApp.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Open Datasets</h3>
-                                                    <p>Curated public datasets to enhance machine learning models</p>
+                                                    <h3>HockeyApp</h3>
+                                                    <p>Deploy mobile apps, collect feedback and crash reports, and monitor usage</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-                            <!--li class="fullSpan">
-                                <h2 style="margin-top:24px;margin-bottom:18px;">Cognitive Services APIs</h2>
-                                <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Vision</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="media/index/API_Computer_Vision.svg" alt="" />Computer Vision API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/API_Custom_Vision.svg" alt="" /><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />Face API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                        </ul>
+                            <li>
+                                <a href="/azure/devops-project">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
                                                     </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DevOps Projects</h3>
+                                                    <p>Quickly deploy any language on any platform to Azure</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Speech</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speech/home"><img src="media/index/API_Bing_Speech.svg" alt="" />Bing Speech API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Custom_Speech.svg" alt="" /><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Speaker_Recognition.svg" alt="" /><span>Speaker Recognition API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="https://docs.microsofttranslator.com/speech-translate.html"><img src="media/index/API_TranslatorSpeech.svg" alt="" />Translator Speech API</a>
-                                                            </li>
-                                                        </ul>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#identity">Identity</a>
+                        <ul id="identity" class="cardsA">
+                            <li>
+                                <a href="/azure/active-directory/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
                                                     </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Active Directory</h3>
+                                                    <p>Synchronize on-premises directories and enable single sign-on</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Language</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Bing Spell Check API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>Language Understanding (LUIS)</span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Linguistic Analysis API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="media/index/API_TextAnalytics.svg" alt="" />Text Analytics API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/translator/translator-info-overview"><img src="media/index/API_TranslatorText.svg" alt="" />Translator Text API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_WebLanguageModel.svg" alt="" /><span>Web Language Model API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                        </ul>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/multi-factor-authentication/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MultiFactorAuthentication.svg" alt="" />
                                                     </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Multi-Factor Authentication</h3>
+                                                    <p>Add security for your data and apps without adding hassles for users</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Knowledge</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_QnAMaker.svg" alt="" /><span>QnA Maker API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Recommendations.svg" alt="" /><span>Recommendations API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/kes/overview">
-                                                                    <img src="media/index/API_KnowledgeExploration.svg" alt="" />
-                                                                    <span>Knowledge Exploration Service (KES)</span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home">
-                                                                    <img src="media/index/API_Know_Academic.svg" alt="" />
-                                                                    <span>Academic Knowledge API</span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/entitylinking/home">
-                                                                    <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
-                                                                    <span>Entity Linking Intelligence Service API</span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview">
-                                                                    <img src="media/index/API_URL_Preview.svg" alt="" />
-                                                                    <span>URL Preview</span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview">
-                                                                    <img src="media/index/API_Answer_Search.svg" alt="" />
-                                                                    <span>Answer Search</span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Anomaly-Detector/overview">
-                                                                    <img src="media/index/API_Anomaly_Finder.svg" alt="" />
-                                                                    <span>Anomaly Finder</span>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview">
-                                                                    <img src="media/index/API_Conversation_Learner.svg" alt="" />
-                                                                    <span>Conversation Learner</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/information-protection/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
                                                     </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Information Protection</h3>
+                                                    <p>Build and deploy organizational policies for controlling sensitive information</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3>Search</h3>
-                                                        <ul class="noBullet">
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing News Search API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Bing Video Search API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Bing Web Search API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-visual-search/"><img src="media/index/API_Bing_Visual_Search.svg" alt="" />Bing Visual Search API
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Bing Autosuggest API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" />Bing Custom Search API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="media/index/API_Bing_Entity_Search.svg" alt="" />Bing Entity Search API</a>
-                                                            </li>
-                                                            <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search API</a>
-                                                            </li>
-                                                        </ul>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/active-directory-domain-services">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
                                                     </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Active Directory for Domain Services</h3>
+                                                    <p>Join Azure virtual machines to a domain without domain controllers</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                </ul>
-                            </li-->
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/active-directory-b2c">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Active Directory B2C</h3>
+                                                    <p>Consumer identity and access management in the cloud</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/security/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Security Information</h3>
+                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#integration">Integration</a>
+                        <ul id="integration" class="cardsA">
+                            <li>
+                                <a href="/azure/api-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/APIManagement.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>API Management</h3>
+                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/service-bus/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ServiceBus.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Service Bus</h3>
+                                                    <p>Connect across private and public cloud environments</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/logic-apps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/LogicApp.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Logic Apps</h3>
+                                                    <p>Automate the access and use of data across clouds without writing code</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/event-grid/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Event Grid</h3>
+                                                    <p>Get reliable event delivery at massive scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -4524,854 +4219,7 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#mixed">Mixed Reality</a>
-                        <ul id="mixed" class="cardsA">
-                            <li>
-                                <a href="/azure/digital-twins/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/digital_twin.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Digital Twins</h3>
-                                                    <p>Build next-generation IoT spatial intelligence solutions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/spatial-anchors/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/spatial_anchors.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Spatial Anchors</h3>
-                                                    <p>Create multi-user, spatially aware mixed reality experiences</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                               <li>
-                                <a href="/azure/Kinect-dk/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/kinect-viewer.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Kinect DK</h3>
-                                                    <p>Build your way with a versatile sensing device</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#integration">Integration</a>
-                        <ul id="integration" class="cardsA">
-                            <li>
-                                <a href="/azure/api-management/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/APIManagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>API Management</h3>
-                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/service-bus/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ServiceBus.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Service Bus</h3>
-                                                    <p>Connect across private and public cloud environments</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/logic-apps/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/LogicApp.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Logic Apps</h3>
-                                                    <p>Automate the access and use of data across clouds without writing code</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/event-grid/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure_event_grid.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Event Grid</h3>
-                                                    <p>Get reliable event delivery at massive scale</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#identity">Identity</a>
-                        <ul id="identity" class="cardsA">
-                            <li>
-                                <a href="/azure/active-directory/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Active Directory</h3>
-                                                    <p>Synchronize on-premises directories and enable single sign-on</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/multi-factor-authentication/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MultiFactorAuthentication.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Multi-Factor Authentication</h3>
-                                                    <p>Add security for your data and apps without adding hassles for users</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/information-protection/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Information Protection</h3>
-                                                    <p>Build and deploy organizational policies for controlling sensitive information</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/active-directory-domain-services">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Active Directory for Domain Services</h3>
-                                                    <p>Join Azure virtual machines to a domain without domain controllers</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/active-directory-b2c">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Active Directory B2C</h3>
-                                                    <p>Consumer identity and access management in the cloud</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/security/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#security">Security</a>
-                        <ul id="security" class="cardsA">
-                            <li>
-                                <a href="/azure/security/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/security-center">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Security Center</h3>
-                                                    <p>Unify security management and enable advanced threat protection across hybrid cloud workloads</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/key-vault/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/KeyVault.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Key Vault</h3>
-                                                    <p>Safeguard and maintain control of keys and other secrets</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/dedicated-hsm/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/dedicated-hsm.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Dedicated HSM</h3>
-                                                    <p>Use cryptographic key storage in Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-			        <a href="/azure/virtual-network/ddos-protection-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ddos.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure DDoS Protection</h3>
-                                                    <p>Protect your applications from Distributed Denial of Service (DDoS) attacks</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/security/azure-threat-detection">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Advanced Threat Protection</h3>
-                                                    <p>Protect your enterprise from threats in the cloud and on-premises</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/information-protection/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Information Protection</h3>
-                                                    <p>Build and deploy organizational policies for controlling sensitive information</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/active-directory/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Active Directory</h3>
-                                                    <p>Synchronize on-premises directories and enable single sign-on</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/active-directory-domain-services">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Active Directory for Domain Services</h3>
-                                                    <p>Join Azure virtual machines to a domain without domain controllers</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/application-gateway/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Application Gateway</h3>
-                                                    <p>Build secure, scalable, and highly available web front ends in Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/vpn-gateway/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/VPNGateway.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>VPN Gateway</h3>
-                                                    <p>Establish secure, cross-premises connectivity</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/role-based-access-control/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/PersonWithFriend.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Role-based access control</h3>
-                                                    <p>Manage access to Azure resources</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/sentinel/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/sentinel.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Sentinel</h3>
-                                                    <p>Learn how to use Microsoft's SIEM that provides intelligent security analytics for your entire enterprise at cloud scale</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/asc-for-iot/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/asc-for-iot.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Security Center for IoT</h3>
-                                                    <p>Learn how to unify your security management and enable advanced threat protection across your IoT solution</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#devops">DevOps</a>
-                        <ul id="devops" class="cardsA">
-                            <li>
-                                <a href="/azure/devops/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure DevOps</h3>
-                                                    <p>Services for teams to share code, track work, and ship software</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/application-insights/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Application Insights</h3>
-                                                    <p>Detect, triage, and diagnose issues in your web apps and services</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/lab-services/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/DevTestLabs.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Lab Services</h3>
-                                                    <p>Create labs in the cloud for classroom, development and testing, and other scenarios (formerly DevTest Labs)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/appcenter">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Visual Studio App Center</h3>
-                                                    <p>Ship apps faster by automating application lifecycles</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/integrations/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Developer Tool Integrations</h3>
-                                                    <p>Extend Azure with popular extensions</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://support.hockeyapp.net/kb">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/HockeyApp.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>HockeyApp</h3>
-                                                    <p>Deploy mobile apps, collect feedback and crash reports, and monitor usage</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-							<li>
-                                <a href="/azure/devops-project">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure DevOps Projects</h3>
-                                                    <p>Quickly deploy any language on any platform to Azure</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#devtools">Developer Tools</a>
-                        <ul id="devtools" class="cardsA">
-                            <li>
-                                <a href="/visualstudio/products/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_visual-studio.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Visual Studio</h3>
-                                                    <p>Fully-featured integrated development environment (IDE) for Android, iOS, Windows, web, and cloud</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/devops/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure DevOps</h3>
-                                                    <p>Services for teams to share code, track work, and ship software</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://code.visualstudio.com/docs">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Visual Studio Code</h3>
-                                                    <p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/api-management/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/APIManagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>API Management</h3>
-                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/sdks/index">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>SDKs</h3>
-                                                    <p>Build cloud apps with the programming languages you already know</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/integrations/index">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Developer Tool Integrations</h3>
-                                                    <p>Third-party tools to help you with your Azure development</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cli/index">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>CLI</h3>
-                                                    <p>Access the cloud directly from command-line tools</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/blockchain-workbench/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/blockchain-workbench.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Blockchain Workbench</h3>
-                                                    <p>Connect your blockchain to the cloud without the heavy lifting</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/azure-app-configuration/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-appconf.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>App Configuration</h3>
-                                                    <p>Fast, scalable parameter storage for app configuration</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#mgmt">Management Tools</a>
+                        <a href="#mgmt">Management and Governance</a>
                         <ul id="mgmt" class="cardsA">
                             <li>
                                 <a href="/azure/backup/">
@@ -5951,6 +4799,83 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
+                        <a href="#stack">Microsoft Azure Stack</a>
+                        <ul id="stack" class="cardsA">
+                            <li>
+                                <a href="/azure-stack">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Stack</h3>
+                                                    <p>Extend Azure services and capabilities on-premises, to build and deploy hybrid cloud and edge applications across cloud boundaries</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Stack Operator</h3>
+                                                    <p>Learn how to manage the Azure Stack integrated systems infrastructure and how to offer services</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/user">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Azure Stack User</h3>
+                                                <p>Use services and build applications for Azure Stack</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-stack/asdk/">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Azure Stack Development Kit (ASDK)</h3>
+                                                <p>A non-production environment for evaluation and testing</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="#migration">Migration</a>
                         <ul id="migration" class="cardsA">
                             <li>
@@ -6032,21 +4957,21 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#stack">Azure Stack</a>
-                        <ul id="stack" class="cardsA">
+                        <a href="#mixed">Mixed Reality</a>
+                        <ul id="mixed" class="cardsA">
                             <li>
-                                <a href="/azure-stack">
+                                <a href="/azure/digital-twins/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                        <img src="media/index/digital_twin.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Stack</h3>
-                                                    <p>Extend Azure services and capabilities on-premises, to build and deploy hybrid cloud and edge applications across cloud boundaries</p>
+                                                    <h3>Azure Digital Twins</h3>
+                                                    <p>Build next-generation IoT spatial intelligence solutions</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6054,18 +4979,61 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-stack/">
+                                <a href="/azure/spatial-anchors/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                        <img src="media/index/spatial_anchors.png" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Stack Operator</h3>
-                                                    <p>Learn how to manage the Azure Stack integrated systems infrastructure and how to offer services</p>
+                                                    <h3>Azure Spatial Anchors</h3>
+                                                    <p>Create multi-user, spatially aware mixed reality experiences</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                               <li>
+                                <a href="/azure/Kinect-dk/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/kinect-viewer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Kinect DK</h3>
+                                                    <p>Build your way with a versatile sensing device</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#mobile">Mobile</a>
+                        <ul id="mobile" class="cardsA">
+                            <li>
+                                <a href="/azure/app-service-mobile">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-mobile.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Service - Mobile Apps</h3>
+                                                    <p>Build and host the backend for any mobile app</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -6073,34 +5041,656 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-stack/user">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                <a href="/azure/notification-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/NotificationHubs.svg" alt="" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>Azure Stack User</h3>
-                                                <p>Use services and build applications for Azure Stack</p>
+                                                <div class="cardText">
+                                                    <h3>Notification Hubs</h3>
+                                                    <p>Send push notifications to any platform from any back end</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure-stack/asdk/">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                <a href="/azure/app-service-api">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-api.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>API Apps</h3>
+                                                    <p>Easily build and consume Cloud APIs</p>
                                                 </div>
                                             </div>
-                                            <div class="cardText">
-                                                <h3>Azure Stack Development Kit (ASDK)</h3>
-                                                <p>A non-production environment for evaluation and testing</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/appcenter">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Visual Studio App Center</h3>
+                                                    <p>Ship apps faster by automating application lifecycles</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-maps">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-maps-icon-portal.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Maps</h3>
+                                                    <p>Simple and secure location APIs provide geospatial context to data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/features/xamarin">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_xamarin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Xamarin</h3>
+                                                    <p>Create amazing cloud-powered mobile apps faster</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#network">Networking</a>
+                        <ul id="network" class="cardsA">
+                            <li>
+                                <a href="/azure/networking/networking-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/networking-overview.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Networking Overview</h3>
+                                                    <p>An integrated view of the networking services in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cdn/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Content Delivery Network</h3>
+                                                    <p>Ensure secure, reliable content delivery with broad global reach</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/expressroute/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ExpressRoute.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>ExpressRoute</h3>
+                                                    <p>Dedicated private network fiber connections to Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/dns/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/DNS.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DNS</h3>
+                                                    <p>Host your DNS domain in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-network/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/VirtualNetwork.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Virtual Network</h3>
+                                                    <p>Provision private networks, optionally connect to on-premises datacenters</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/traffic-manager/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/TrafficManager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Traffic Manager</h3>
+                                                    <p>Route incoming traffic for high performance and availability</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/load-balancer/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/LoadBalancer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Load Balancer</h3>
+                                                    <p>Deliver high availability and network performance to your applications</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/vpn-gateway/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/VPNGateway.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>VPN Gateway</h3>
+                                                    <p>Establish secure, cross-premises connectivity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/application-gateway/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ApplicationGateway.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Application Gateway</h3>
+                                                    <p>Build secure, scalable, and highly available web front ends in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ddos.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DDoS Protection</h3>
+                                                    <p>Protect your applications from Distributed Denial of Service (DDoS) attacks</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/network-watcher/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/network-watcher.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Network Watcher</h3>
+                                                    <p>Network performance monitoring and diagnostics solution</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/firewall/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_firewall.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Firewall</h3>
+                                                    <p>Highly available and scalable cloud-based network security service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-wan/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/WAN.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Virtual WAN</h3>
+                                                    <p>Build secure global scale branch connectivity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/frontdoor/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/frontdoor.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Front Door Service</h3>
+                                                    <p>Scalable and secure entry point to deliver global web apps</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/bastion/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/web_connect.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Bastion</h3>
+                                                    <p>Secure seamless connectivity to virtual machines over SSL via the Azure portal without a public IP address</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#security">Security</a>
+                        <ul id="security" class="cardsA">
+                            <li>
+                                <a href="/azure/security/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Security Information</h3>
+                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/security-center">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Security Center</h3>
+                                                    <p>Unify security management and enable advanced threat protection across hybrid cloud workloads</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/key-vault/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/KeyVault.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Key Vault</h3>
+                                                    <p>Safeguard and maintain control of keys and other secrets</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/dedicated-hsm/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Dedicated HSM</h3>
+                                                    <p>Use cryptographic key storage in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ddos.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DDoS Protection</h3>
+                                                    <p>Protect your applications from Distributed Denial of Service (DDoS) attacks</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/security/azure-threat-detection">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Advanced Threat Protection</h3>
+                                                    <p>Protect your enterprise from threats in the cloud and on-premises</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/information-protection/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Information Protection</h3>
+                                                    <p>Build and deploy organizational policies for controlling sensitive information</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/active-directory/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Active Directory</h3>
+                                                    <p>Synchronize on-premises directories and enable single sign-on</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/active-directory-domain-services">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Active Directory for Domain Services</h3>
+                                                    <p>Join Azure virtual machines to a domain without domain controllers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/application-gateway/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ApplicationGateway.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Application Gateway</h3>
+                                                    <p>Build secure, scalable, and highly available web front ends in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/vpn-gateway/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/VPNGateway.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>VPN Gateway</h3>
+                                                    <p>Establish secure, cross-premises connectivity</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/role-based-access-control/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PersonWithFriend.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Role-based access control</h3>
+                                                    <p>Manage access to Azure resources</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/sentinel/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sentinel.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sentinel</h3>
+                                                    <p>Learn how to use Microsoft's SIEM that provides intelligent security analytics for your entire enterprise at cloud scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/asc-for-iot/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/asc-for-iot.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Security Center for IoT</h3>
+                                                    <p>Learn how to unify your security management and enable advanced threat protection across your IoT solution</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -6162,6 +5752,415 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure China 21Vianet</h3>
                                                     <p>Build and host applications in compliance with policies and data-handling regulations stipulated by the government in China</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#storage">Storage</a>
+                        <ul id="storage" class="cardsA">
+                            <li>
+                                <a href="/azure/storage/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Storage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Storage</h3>
+                                                    <p>Durable, highly available, and massively scalable cloud storage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/StorSimple.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>StorSimple</h3>
+                                                    <p>Lower costs with an enterprise hybrid cloud storage solution</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/blobs/data-lake-storage-introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen2</h3>
+                                                    <p>Massively scalable, secure data lake storage built on Blob storage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-lake-store/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen1</h3>
+                                                    <p>Hyperscale repository for big data analytics workloads</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Blob Storage</h3>
+                                                    <p>REST-based object storage for unstructured data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Disk Storage</h3>
+                                                    <p>Persistent, secured disk options supporting virtual machines</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/managed-disks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Managed Disks</h3>
+                                                    <p>Persistent, secured disk storage for Azure virtual machines</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/queues/storage-queues-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Queue Storage</h3>
+                                                    <p>Effectively scale apps according to traffic</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/files/storage-files-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>File Storage</h3>
+                                                    <p>File shares that use the standard SMB 3.0 protocol</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/databox-family/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/service-icon-small.png" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Box family</h3>
+                                                    <p>Family of storage devices that enable offline or network-based data transfer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/avere-vfxt/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/avere.svg" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Avere vFXT</h3>
+                                                    <p>Run high-performance, file-based workloads in Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Storage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Storage Explorer</h3>
+                                                    <p>Easily manage Storage anywhere from Windows, macOS, and Linux</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/blobs/storage-blob-storage-tiers">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/storage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Archive Storage</h3>
+                                                    <p>Low cost, secure cloud storage for rarely accessed data</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-netapp-files/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/NetAppStorage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure NetApp Files</h3>
+                                                    <p>Enterprise-grade network file services powered by NetApp</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#web">Web</a>
+                        <ul id="web" class="cardsA">
+                            <li>
+                                <a href="/azure/app-service-web">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-web.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>App Service - Web Apps</h3>
+                                                    <p>Quickly create and deploy mission critical Web apps at scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/api-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/apimanagement.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>API Management</h3>
+                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cdn/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Content Delivery Network</h3>
+                                                    <p>Ensure secure, reliable content delivery with broad global reach</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/notification-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/NotificationHubs.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Notification Hubs</h3>
+                                                    <p>Send push notifications to any platform from any back end</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/search/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Search.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Search</h3>
+                                                    <p>Fully-managed search-as-a-service</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/app-service-api">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/app-service-api.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>API Apps</h3>
+                                                    <p>Easily build and consume Cloud APIs</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-signalr">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-signalr.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure SignalR Service</h3>
+                                                    <p>Add real-time web functionalities easily</p>
                                                 </div>
                                             </div>
                                         </div>
