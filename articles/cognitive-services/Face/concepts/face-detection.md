@@ -25,7 +25,7 @@ The face ID is a unique identifier string for each detected face in an image. Yo
 
 ## Face landmarks
 
-Face landmarks are a set of easy-to-find points on a face, such as the pupils or the tip of the nose. By default, there are 27 predefined landmark points. The following figure shows all 27 points:
+Face landmarks are a set of easy-to-find points on a face, such as the pupils or the tip of the nose. By default, there are 27 predefined landmark points. The following figure shows all 25 points:
 
 ![A face diagram with all 27 landmarks labeled](../Images/landmarks.1.jpg)
 
