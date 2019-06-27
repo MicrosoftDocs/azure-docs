@@ -6,7 +6,7 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 12/27/2018
+ms.date: 06/26/2019
 ms.author: dkshir
 ---
 
@@ -38,14 +38,14 @@ You can define a set of specific conditions to monitor in the device or sensor d
 
 From the **occupancy-quickstart** sample project, open the file **src\actions\provisionSample.yaml** in Visual Studio Code. Note the section that begins with the type **matchers**. Each entry under this type creates a matcher with the specified **Name**. The matcher will monitor a sensor of type **dataTypeValue**. Notice how it relates to the space named *Focus Room A1*, which has a **devices** node that contains a few sensors. To provision a matcher that will track one of these sensors, make sure that its **dataTypeValue** matches the sensor's **dataType**. 
 
-Add the following matcher below the existing matchers. Make sure the keys are aligned and spaces are not replaced by tabs.
+Add the following matcher below the existing matchers. Make sure the keys are aligned and spaces are not replaced by tabs. These lines are also present in the *provisionSample.yaml* file as commented-out lines. You can uncomment them by removing the `#` character in front of each line.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-This matcher will track the SAMPLE_SENSOR_TEMPERATURE sensor that you added in [the first tutorial](tutorial-facilities-setup.md). These lines are also present in the *provisionSample.yaml* file as commented-out lines. You can uncomment them by removing the `#` character in front of each line.
+This matcher will track the SAMPLE_SENSOR_TEMPERATURE sensor that you added in [the first tutorial](tutorial-facilities-setup.md). 
 
 <a id="udf"></a>
 
