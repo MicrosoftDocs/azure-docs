@@ -11,61 +11,59 @@ ms.custom: mvc
 
 # Prepare VMware VMs for assessment and migration to Azure
 
-This article describes how to prepare your on-premises environment and Azure resources for migration of on-premises VMware VMs to Azure, using [Azure Migrate](migrate-services-overview.md) server assessment and migration
+This article describes how to prepare for assessment and migration of on-premises VMware VMs to Azure, using [Azure Migrate](migrate-services-overview.md).
+
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate from on-premises to Azure, using Azure services and third-party tools. [Learn more](migrate-architecture.md) about assessment and migration.
+
 
 This tutorial is the first in a series that shows you how to assess and migrate VMware VMs. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Set up permissions for your Azure account and resources to work with Azure Migrate.
-> * Verify vCenter Server and ESXi host settings.
-> * Create an account on the vCenter Server. The account is used by the Azure Migrate service to discover VMware VMs for assessment and migration.
-> * Verify you have vCenter Server permissions to create a VMware VM with an OVA file. Azure Migrate uses a lightweight appliance set up as a VMware VM using an OVA file, for discovery and assessment.
-> * Verify required ports, and appliance internet access to Azure URLs.
+> * Prepare Azure. Set up permissions for your Azure account and resources to work with Azure Migrate.
+> * Prepare on-premises VMware servers and VMs for VM assessment.
+> * Prepare on-premises VMware servers and VMs for VM migration.
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How Tos for VMware assessment and migration.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
-## Before you begin
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. [Review VMware](migrate-support-matrix-vmware.md) requirements for assessment and migration.
+## Prepare Azure
 
+You need these Azure permissions:
 
-## Set up Azure permissions
-
-Your Azure account needs a number of permissions.
-
-**Permission** | **Details**
---- | --- 
-**Create Azure Migrate project**  | To create an Azure Migrate project, the Azure account needs Contributor or Owner permissions for the subscription.
-**Register subscription**  | You create an appliance as you deploy Azure Migrate Server Assessment and Server Migration. During appliance registration, it creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance<br/> - The first app communicates with Azure Migrate service endpoints. <br/> - The second app accesses an Azure Key Vault created during registration to store Azure AD app info and appliance configuration settings.<br/> The Azure Migrate account needs permission to create these Azure AD apps.
-**Migrate permissions** | To migrate VMware VMs using Azure Migrate Server Migration, Azure Migrate creates a Key Vault in the resource group, to manage access keys to the replication storage account in your subscription. To do this, you need role assignment permissions on the resource group in which the Azure Migrate project resides. 
+- Your Azure account needs permissions to create an Azure Migrate project for assessment and migration. 
+- For assessment and agentless migration of VMware VMs, Azure Migrate runs a lightweight appliance that discovers VMs, and sends VM metadata and performance data to Azure Migrate. In Azure, you need permissions to register the Azure Migrate appliance.
+- To migrate VMware VMs using Azure Migrate Server Migration, Azure Migrate creates a Key Vault in the resource group, to manage access keys to the replication storage account in your subscription. To create the vault, you need role assignment permissions on the resource group in which the Azure Migrate project resides. 
 
 
-## Assign permissions to create project
+### Assign permissions to create project
 
 1. In the Azure portal, open the subscription, and select **Access control (IAM)**.
 2. In **Check access**, find the relevant account, and click it to view permissions.
-3. You should have **Contributor** or **Owner** permissions. If you don't, request them from the subscription owner. 
+3. You should have **Contributor** or **Owner** permissions.
+    - If you just created a free Azure account, you're the owner of your subscription.
+    - If you're not the subscription owner, work with the owner to assign the role.
 
-- If you just created your free Azure account, you're the owner of your subscription.
-- If you're not the subscription owner, work with the owner to assign the role.
+### Assign permissions to register the appliance
 
-## Assign permissions to register the appliance
+If you're deploying the Azure Migrate appliance to assess or run an agentless migration of VMs, you need to register it.
 
-You can assign permissions using one of the following methods:
-
-- A tenant/global admin can grant permissions to create Azure AD apps to the account.
-- You can assign the Application Developer role (that has the permissions) to the account.
+- During appliance registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance
+    - The first app communicates with Azure Migrate service endpoints.
+    - The second app accesses an Azure Key Vault created during registration to store Azure AD app info and appliance configuration settings.
+- You can assign permissions for Azure Migrate to create these Azure AD apps using one of the following methods:
+    - A tenant/global admin can grant permissions to users in the tenant, to create and register Azure AD apps.
+    - A tenant/global admin can assign the Application Developer role (that has the permissions) to the account.
 
 It's worth noting that:
 
 - The apps don't have any other access permissions on the subscription other than those described above.
 - You only need these permissions when you register a new appliance. You can remove the permissions after the appliance is set up. 
 
-### Grant account permissions
+
+#### Grant account permissions
 
 The tenant/global admin can grant permissions as follows
 
@@ -79,9 +77,9 @@ The tenant/global admin can grant permissions as follows
 
 
 
-### Assign Application Developer role 
+#### Assign Application Developer role 
 
-The tenant/global admin has permissions to assign the role to the account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 ## Assign role assignment permissions
 
@@ -91,33 +89,61 @@ Assign role assignment permissions on the resource group in which the Azure Migr
 2. In **Check access**, find the relevant account, and click it to view permissions.
 
     - To run server assessment, **Contributor** permissions are enough.
-    - To run server migration, you should have **Owner** (or **Contributor** and **User Access Administrator**) permissions.
+    - To run agentless server migration, you should have **Owner** (or **Contributor** and **User Access Administrator**) permissions.
 
 3. If you don't have the required permissions, request them from the resource group owner. 
 
 
 
-## Verify VMware settings
+## Prepare for VMware VM assessment
 
-1. Verify [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) for VM assessment and migration.
-2. Verify [requirements](migrate-support-matrix-vmware.md#azure-migrate-appliance-support) for setting up the Azure Migrate appliance in VMware.
-3. You set up the Azure Migrate appliance using an OVA file. On vCenter Server, make sure that your account has permissions to create a VM using an OVA file.
+To prepare for VMware VM assessment, you need to verify Hyper-V host and VM settings, and verify settings for appliance deployment.
 
-## Set up an account for discovery
+### Verify VMware settings
 
-Azure Migrate needs to access the vCenter Server to discover VMs for assessment and migration. Prepare an account with the [required permissions](migrate-support-matrix-vmware.md#vcenter-account-permissions) for assessment and migration.
+1. [Verify](migrate-support-matrix-vmware.md#assessment-vmware-server-requirements) VMware server requirements for VM assessment.
+2. [Make sure](migrate-support-matrix-vmware.md#assessment-port-requirements) that the required ports are open on vCenter servers.
 
 
-## Verify port and URL access
+### Set up an account for assessment
 
-There are a number of ports required for Azure Migrate Server Assessment and Server Migration. In addition, the Azure Migrate appliance needs internet connectivity to Azure.
+Azure Migrate needs to access the vCenter Server to discover VMs for assessment and agentless migration. For assessment only, you need a read-only account for the vCenter Server.
 
-1. [Review](migrate-support-matrix-vmware.md#required-ports) port requirements.
-2. If you're using a URL-based firewall.proxy, allow access to the required [Azure URLs](migrate-support-matrix-vmware.md#url-access-requirements).
+. If you're using a URL-based firewall.proxy, allow access to the required [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
 3. Make sure that the proxy resolves any CNAME records received while looking up the URLs.
 
-When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
 
+### Verify appliance settings for assessment
+
+Before setting up the Azure Migrate appliance and beginning assessment in the next tutorial, prepare for appliance deployment.
+
+1. Verify [Verify](migrate-support-matrix-vmware.md#assessment-appliance-requirements) requirements for setting up the Azure Migrate appliance in VMware.
+2. [Review](migrate-support-matrix-vmware.md#assessment-url-access-requirements) the Azure URLs that the appliance will need to access.
+3. Review the data that the appliance will collect during discovery and assessment.
+4. [Note](migrate-support-matrix-vmware.md#assessment-port-requirements) port access requirements for the appliance.
+5. You deploy the Azure Migrate appliance as a VMware VM using an OVA file. On vCenter Server, make sure that your account has permissions to create a VM using an OVA file.
+
+
+## Prepare for agentless VMware migration
+
+Review the requirements for agentless migration of VMware VMs.
+
+1. [Review](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) VMware server requirements for agentless migration.
+2. Set up an account to access the vCenter Server with the [required permissions](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions) for agentless migration.
+3. [Note](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) the requirements for VMware VMs that you want to migrate to Azure using agentless migration.
+4. [Review](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) appliance requirements for agentless migration.]
+5. Note appliance [URL access](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) and [port access](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) requirements for agentless migration.
+
+
+## Prepare for agent-based VMware migration
+
+Review the requirements for agent-based migration of VMware VMs.
+
+1. [Review](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware server requirements for agentless migration. 
+2. Set up an account to access the vCenter Server with the [required permissions](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions) for agentless migration.
+3. [Note](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) the requirements for VMware VMs that you want to migrate to Azure using agent-based migration, including installation of the Mobility service on each VM you want to migrate.
+4. Note [URL access](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
+5. Review [port access](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) requirements for the Mobility service running on each VM, and for the Azure Migrate configuration server.
 
 ## Next steps
 
@@ -125,8 +151,7 @@ In this tutorial, you:
  
 > [!div class="checklist"] 
 > * Set up Azure permissions.
-> * Prepared VMware for Azure Migrate.
-> * Verified port requirements, and URL access for the Azure Migrate appliance. 
+> * Prepared VMware for assessment and migration.
 
 
 Continue to the second tutorial to set up an Azure Migrate project, and assess VMware VMs for migration to Azure.

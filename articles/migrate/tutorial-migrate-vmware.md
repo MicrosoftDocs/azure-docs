@@ -38,8 +38,9 @@ Before you begin this tutorial, you should:
 
 1. [Review the limitations](server-migrate-overview.md#agentless-migration-limitations) for agentless migration.
 2. [Set up Azure and VMware](tutorial-prepare-vmware.md) by following the [first tutorial] in the series.
-3. [Deploy an Azure Migrate appliance and start continuous on-premises discovery](tutorial-assess-vmware.md), by following the[second tutorial] in the series.
-    - The second tutorial includes instructions on running an assessment. We recommend you try out an assessment, but you don't have to run an assessment before you try a migration.
+3. [Deploy an Azure Migrate appliance and start continuous on-premises discovery](tutorial-assess-vmware.md), by following the [second tutorial] in the series.
+    - The second tutorial also includes instructions on running an assessment.
+    We recommend you try out an assessment, but you don't have to run an assessment before you try a migration.
 4. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 
@@ -148,7 +149,7 @@ Now connect to the vCenter Server and start discovery.
 
 1. In **Specify vCenter Server details**, do the following:
     - Specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-    - In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions](tutorial-prepare-vmware.md#set-up-an-account-for-discovery).
+    - In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. 
     - In **Collection scope**, select a scope for VM discovery. The collector discovers VMs within the specified scope. Scope can be set to a specific folder, datacenter, or cluster.
 2. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 3. After the connection is established, click **Save** > **Start discovery**.
