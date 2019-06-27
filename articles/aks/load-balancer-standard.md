@@ -93,7 +93,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 While this feature is in preview, the following additional limitations apply:
 
-* When using the *Standard* SKU for a load balancer, you cannot set your own public IP address for the load balancer. You must use the IP address AKS assigns to your load balancer.
+* When using the *Standard* SKU for a load balancer in AKS, you cannot set your own public IP address for egress for the load balancer. You must use the IP address AKS assigns to your load balancer.
 
 ## Create a resource group
 
