@@ -18,7 +18,7 @@ Azure Data Share ensures that the data provider is always in control. Data consu
 
 Azure Data Share helps enhance insights by making it easy to combine internal data with third-party data to enrich analytics use cases. Easily use the power ot Azure analytics tools to prepare, process, and analyze data shared using Azure Data Share. 
 
-# How it works
+## How it works
 
 Azure Data Share uses a snapshot-based sharing approach, where data is shared through data movement. As a data provider, you provision a data share and invite recipients to the data share. Data consumers receive an invitation to your data share via e-mail. Once a data consumer accepts the invitation, they can trigger a full snapshot of the data shared you shared them. This data is received into the data consumers storage account. Data consumers can receive regular, incremental updates to the data shared with them so that they always have the latest version of the data. 
 
@@ -52,15 +52,16 @@ Azure Data Share enables Data Consumers to:
 
 All key capabilities listed above are supported through the Azure or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
 
-# Pricing
+## Pricing
 
-Azure Data Share Preview bills for two components:
-1. Management
+Azure Data Share Preview bills for two components. The first component is for data share management. Azure Data Share charges for the volume of datasets managed by your Data Share account. While in preview, Data Share Management will be free.
 
-Azure Data Share charges for the volume of datasets managed by your Data Share account. While in preview, Data Share Management will be free.
-
-1. Dataset Movement
-
-Azure Data Share charges for the movement of data from the data provider’s Azure tenant to the data consumer’s Azure tenant. You pay for dataset movement per dataset movement operation and the compute required to move a dataset. Dataset movement compute is charged per vCore-hour. Dataset movement compute charges are prorated by the minute in and rounded up. While in preview, dataset movement operations are free. 
+The second component is for movement. Aure Data Share charges for the movement of data from the data provider’s Azure tenant to the data consumer’s Azure tenant. You pay for dataset movement per dataset movement operation and the compute required to move a dataset. Dataset movement compute is charged per vCore-hour. Dataset movement compute charges are prorated by the minute in and rounded up. While in preview, dataset movement operations are free. 
 
 For more information about pricing, visit the Azure Data Share [pricing page](https://azure.microsoft.com/pricing/).
+
+## Next steps
+To learn how to start sharing data, continue to the "Share your data" tutorial. 
+
+> [!div class="nextstepaction"]
+> [Tutorial: Share your data](share-your-data.md)

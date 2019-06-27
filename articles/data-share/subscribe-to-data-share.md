@@ -42,13 +42,9 @@ Select the share you would like to view.
 ## Accept the invitation
 Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you'll be required to check the box to indicate you agree. 
 
-![Consumer Share Invitation](./media/consumer-share-accept.png "Consumers Data Share") 
-
 Under *Target Data Share Account*, select the Subscription and Resource Group that you'll be deploying your Data Share into. 
 
 For the **Data Share Account** field, select **Create new** if you don't have an existing Data Share account. Otherwise, select an existing Data Share account that you'd like to accept your data share into. 
-
-![Consumer Share Account Creation](./media/consumer-new-share-account.png "New Data Share Account") 
 
 For the *Received Share Name* field, you may leave the default specified by the Data Provide, or specify a new name for the received share. 
 

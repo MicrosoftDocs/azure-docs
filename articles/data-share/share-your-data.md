@@ -57,8 +57,6 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. In your data share account, select 'Start sharing your data'. 
 
-    ![StartSharing](./media/start-sharing.png "Start sharing your data")
-
 1. Select **Create**.
    
 
