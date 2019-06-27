@@ -21,8 +21,8 @@ ms.author: monhaber
 
 This topics presents the different types of detections available for VMs and Servers.
 
-[Windows-based machines](#windows-machines)
-[Linux-based machines](#linux-machines)
+* [Windows-based machines](#windows-machines)
+* [Linux-based machines](#linux-machines)
 
 See here for a list of supported versions.
 
