@@ -58,7 +58,7 @@ Then add the following plugin definition inside the `<build>` element of the `po
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
     </plugin>
 </plugins>
 ```
@@ -110,7 +110,7 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
 
-Navigate to `pom.xml` again to see the plugin configuration is updated, common configurations for Azure App Service are listed here:
+Navigate to `pom.xml` again to see the plugin configuration is updated,  You can modify other configurations for App Service directly in your pom file if needed, some common ones are listed below:
 
  Property | Required | Description | Version
 ---|---|---|---
