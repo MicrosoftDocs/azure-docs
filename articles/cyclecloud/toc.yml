@@ -138,6 +138,8 @@
         href: ~/cluster-references/special-parsing.md
       - name: Download Existing Cluster Templates
         href: download-cluster-templates.md
+      - name: Using CycleCloud with Hb and Hc series VMs
+        href: ~/cluster-references/hb-hc-best-practices.md
   - name: CycleCloud Application
     items:
     - name: Performance Tuning
