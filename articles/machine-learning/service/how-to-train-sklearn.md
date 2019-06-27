@@ -168,7 +168,7 @@ As the Run is executed, it goes through the following stages:
 
 Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
 
-The following code saves the model as part of the training script, train_iris.py.
+Add the following code to your training script, train_iris.py, to save the model. 
 
 ``` Python
 import joblib
@@ -176,7 +176,7 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Register the model with the following code.
+Register the model to your workspace with the following code.
 
 ```Python
 model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
