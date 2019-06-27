@@ -312,28 +312,6 @@ The [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcente
    1. Add the security group **Secure Workstations**.
    1. Select **Save**.
 
-### Use the preview: MDM Security Baseline for October 2018
-
-Intune features security baseline management that lets administrators enforce a common, baseline security posture. The baseline describes a unified approach for achieving locked-down, enhanced profile workstations.
-
-For your secure workstation in this article, you won't implement this baseline. It conflicts with the secure configuration deployment.
-
-|   |   |   |
-| :---: | :---: | :---: |
-| Above Lock | Device Installation | Remote Desktop Services |
-| App Runtime | Device Lock | Remote Management |
-| Application Management | Event Log Service | Remote Procedure Call |
-| Auto Play | Experience | Search |
-| BitLocker | Exploit Guard | Smart Screen |
-| Browser | File Explorer | System requirement|
-| Connectivity | Internet Explorer | Wi-Fi |
-| Credentials Delegation | Local Policies Security Options | Windows Connection Manager |
-| Credentials UI | MS Security Guide | Windows Defender|
-| Data Protection | MSS Legacy | Windows Ink Workspace |
-| Device Guard | Power | Windows PowerShell |
-
-For more information about this preview feature, see [Windows security baseline settings for Intune](https://docs.microsoft.com/Intune/security-baseline-settings-windows).
-
 ## Enroll and validate your first device
 
 1. To enroll your device, you need the following information:
