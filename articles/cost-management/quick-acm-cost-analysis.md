@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Explore Azure costs with Cost analysis | Microsoft Docs
-description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
+title: Quickstart - Explore Azure costs with the cost analysis feature | Microsoft Docs
+description: This quickstart helps you use the cost analysis feature to explore and analyze your Azure organizational costs.
 services: cost-management
 keywords:
 author: bandersmsft
@@ -11,9 +11,9 @@ ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
 ---
-# Quickstart: Explore and analyze costs with Cost analysis
+# Quickstart: Explore and analyze costs with the cost analysis feature
 
-Before you can properly control and optimize your Azure costs, you need to understand where costs originated within your organization. It's also useful to know how much money your services cost, and in support of what environments and systems. Visibility into the full spectrum of costs is critical to accurately understand organizational spending patterns. Spending patterns can be used to enforce cost control mechanisms, like budgets.
+Before you can properly control and optimize your Azure costs, you must understand where costs originate within your organization. It's also useful to know how much money your services cost and which environments and systems they support. Visibility into the full spectrum of costs is critical to accurately understand organizational spending patterns. You can use spending patterns to enforce cost control mechanisms, like budgets.
 
 In this quickstart, you use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. A budget helps to provide adherence to financial constraints. And a budget is used to view daily or monthly costs to isolate spending irregularities. And, you can download the current report's data for further analysis or to use in an external system.
 
