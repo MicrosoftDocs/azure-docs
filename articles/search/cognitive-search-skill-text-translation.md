@@ -17,7 +17,7 @@ ms.custom: seodec2018
 
 The **Text Translation** skill evaluates text, and for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) available in Cognitive Services.  While currently available in the latest Azure Search generally available API version, it is considered to be in preview and should be treated as such until announced as generally available.
 
-This capability is useful if you expect that your documents may not all be in one language, in which case you can normalize the text to all be the same language before indexing for search by translating it.  It is also useful for localization use cases, where you may want to have copies of the same text available in multiple languages.
+This capability is useful if you expect that your documents may not all be in one language, in which case you can normalize the text to a single language before indexing for search by translating it.  It is also useful for localization use cases, where you may want to have copies of the same text available in multiple languages.
 
 The [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) is a non-regional Cognitive Service, meaning that your data is not guaranteed to stay in the same region as your Azure Search or attached Cognitive Services resource.
 
@@ -39,16 +39,16 @@ Parameters are case-sensitive.
 | Inputs	            | Description |
 |---------------------|-------------|
 | defaultToLanguageCode | (Required) The language code to translate documents into for documents that don't specify the to language explicitly. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
-| defaultFromLanguageCode | (Optional) The language code to translate documents from for documents that don't specify the from language explicitly.  If the default from language code is not specified, the automatic language detection provided by the Translator Text API will be used to determine the from language. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
-| suggestedFrom | (Optional) The language code to translate documents from for documents when the fromLanguageCode input and defaultFromLanguageCode parameter are not provided and the automatic language detection is unsuccessful.  If the suggested from language is not specified,  English (en) will be used as the suggested from language. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
+| defaultFromLanguageCode | (Optional) The language code to translate documents from for documents that don't specify the from language explicitly.  If the defaultFromLanguageCode is not specified, the automatic language detection provided by the Translator Text API will be used to determine the from language. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
+| suggestedFrom | (Optional) The language code to translate documents from when neither the fromLanguageCode input nor the defaultFromLanguageCode parameter are provided, and the automatic language detection is unsuccessful.  If the suggestedFrom language is not specified,  English (en) will be used as the suggestedFrom language. <br/> See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
 
 ## Skill inputs
 
 | Input name	 | Description |
 |--------------------|-------------|
 | text | The text to be translated.|
-| toLanguageCode	| A string indicating the language to translate the records into. If this input is not specified, the default to language code will be used to translate the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
-| fromLanguageCode	| A string indicating the current language of the records. If this parameter is not specified, the default from language code (or automatic language detection if the default from language code is not provided) will be used to translate the records. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
+| toLanguageCode	| A string indicating the language the text should be translated to. If this input is not specified, the defaultToLanguageCode will be used to translate the text. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
+| fromLanguageCode	| A string indicating the current language of the text. If this parameter is not specified, the defaultFromLanguageCode (or automatic language detection if the defaultFromLanguageCode is not provided) will be used to translate the text. <br/>See [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
 
 ## Skill outputs
 
@@ -98,7 +98,7 @@ Parameters are case-sensitive.
       "recordId": "1",
       "data":
         {
-          "text": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. "
+          "text": "What a beautiful day it is today"
         }
     },
     {
@@ -122,7 +122,7 @@ Parameters are case-sensitive.
       "recordId": "1",
       "data":
         {
-          "translatedText": "Les glaciers sont d'énormes rivières de glace qui suintent leur chemin au-dessus de la terre, alimentées par la gravité et leur propre poids.",
+          "translatedText": "Quelle belle jour née c'est aujourd'hui",
           "translatedFromLanguageCode": "en",
           "translatedToLanguageCode": "fr"
         }

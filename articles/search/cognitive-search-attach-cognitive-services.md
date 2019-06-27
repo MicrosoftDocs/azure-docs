@@ -29,7 +29,7 @@ We require that Azure Search and Azure Cognitive Services exist within the same 
 There is no way to move a service across regions. If you get this error, you should create a new Cognitive Services resource in the same region as Azure Search.
 
 > [!NOTE]
-> Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Be aware that if you add any of these skills to your skillset that your data is not guaranteed to stay in the same region as your Azure Search or Cognitive Services resource.
+> Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Be aware that if you add any of these skills to your skillset that your data is not guaranteed to stay in the same region as your Azure Search or Cognitive Services resource. See the [service status page](https://aka.ms/allinoneregioninfo) for more details.
 
 ## Use Free resources
 
