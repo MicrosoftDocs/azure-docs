@@ -155,6 +155,8 @@
         href: configure-azure-cni.md
     - name: Create an internal load balancer
       href: internal-lb.md
+    - name: Use a Standard Load Balancer (preview)
+      href: load-balancer-standard.md
     - name: Use a static IP address
       href: static-ip.md
     - name: Ingress
