@@ -632,7 +632,7 @@ module.exports = function (context) {
         }
         context.log(`Data from file: ${data}`);
         // context.done() should be called here
-    };
+    });
     // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
     context.done();
 }
