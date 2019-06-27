@@ -116,6 +116,7 @@ vi helloImageTemplateLinux.json
 
 > [!NOTE]
 > For source image, you must always [specify a version](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), you cannot use `latest`.
+>
 > If you add or change the resource group where the image is being distributed, you need to make sure the [permissions are set for the resource group](#set-permissions-on-the-resource-group).
 
 
