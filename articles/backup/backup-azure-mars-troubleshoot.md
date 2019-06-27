@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Backup agent
-description: Troubleshoot installation and registration of Azure Backup agent
+title: Troubleshoot the Azure Backup agent
+description: Troubleshoot installation and registration of the Azure Backup agent
 services: backup
 author: saurabhsensharma
 manager: shivamg
@@ -10,16 +10,16 @@ ms.date: 05/21/2019
 ms.author: saurse
 ---
 
-# Troubleshoot Microsoft Azure Recovery Services (MARS) agent
+# Troubleshoot the Microsoft Azure Recovery Services (MARS) agent
 
 This article describes how to resolve errors you might see during configuration, registration, backup, and restore.
 
 ## Basic troubleshooting
 
-We recommend that you check the following before you start troubleshooting Microsoft Azure Recovery Services (MARS) agent:
+We recommend that you check the following before you start troubleshooting Microsoft the Azure Recovery Services (MARS) agent:
 
-- [Ensure MARS agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
-- [Ensure you have network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50).
+- [Ensure the MARS agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
+- [Ensure you have network connectivity between the MARS agent and Azure](https://aka.ms/AB-A4dp50).
 - Ensure MARS is running (in Service console). If you need to, restart and retry the operation.
 - [Ensure 5% to 10% free volume space is available in the scratch folder location](https://aka.ms/AB-AA4dwtt).
 - [Check if another process or antivirus software is interfering with Azure Backup](https://aka.ms/AB-AA4dwtk).
@@ -32,7 +32,7 @@ We recommend that you check the following before you start troubleshooting Micro
   - Ensure the agent is uninstalled on the server and that it's deleted from the portal.
   - Use the same passphrase that was initially used to register the server.
 - For offline backups, ensure Azure PowerShell 3.7.0 is installed on both the source and the copy computer before you start the backup.
-- If Backup agent is running on an Azure virtual machine, see [this article](https://aka.ms/AB-AA4dwtr).
+- If the Backup agent is running on an Azure virtual machine, see [this article](https://aka.ms/AB-AA4dwtr).
 
 ## Invalid vault credentials provided
 
@@ -41,7 +41,7 @@ We recommend that you check the following before you start troubleshooting Micro
 | Cause | Recommended actions |
 | ---     | ---    |
 | **Vault credentials aren't valid** <br/> <br/> Vault credential files might be corrupt or might have expired. (For example, they might have been downloaded more than 48 hours before the time of registration.)| Download new credentials from Recovery Services vault on the Azure portal. (See step 6 in the [Download the MARS agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) section.) Then take these steps, as appropriate: <ul><li> If you've already installed and registered MARS, open the Microsoft Azure Backup Agent MMC console and then select **Register Server** in the **Actions** pane to complete the registration with the new credentials. <br/> <li> If the new installation fails, try reinstalling with the new credentials.</ul> **Note**: If multiple vault credential files have been downloaded, only the latest file is valid for the next 48 hours. We recommend that you download a new vault credential file.
-| **Proxy server/firewall is blocking registration** <br/>or <br/>**No internet connectivity** <br/><br/> If your machine or proxy server has limited internet connectivity and you don't ensure access for the necessary URLs, the registration will fail.| Take these steps:<br/> <ul><li> Work with your IT team to ensure the system has internet connectivity.<li> If you don't have a proxy server, ensure the proxy option isn't selected when you register the agent. [Check your proxy settings](#verifying-proxy-settings-for-windows).<li> If you do have a firewall/proxy server, work with your networking team to ensure these URLs and IP addresses have access:<br/> <br> **URLs**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP addresses**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Try registering again after you complete the preceding troubleshooting steps
+| **Proxy server/firewall is blocking registration** <br/>or <br/>**No internet connectivity** <br/><br/> If your machine or proxy server has limited internet connectivity and you don't ensure access for the necessary URLs, the registration will fail.| Take these steps:<br/> <ul><li> Work with your IT team to ensure the system has internet connectivity.<li> If you don't have a proxy server, ensure the proxy option isn't selected when you register the agent. [Check your proxy settings](#verifying-proxy-settings-for-windows).<li> If you do have a firewall/proxy server, work with your networking team to ensure these URLs and IP addresses have access:<br/> <br> **URLs**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP addresses**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Try registering again after you complete the preceding troubleshooting steps.
 | **Antivirus software is blocking registration** | If you have antivirus software installed on the server, add necessary exclusion rules to the antivirus scan for these files and folders: <br/><ui> <li> CBengine.exe <li> CSC.exe<li> The scratch folder. Its default location is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> The bin folder at C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### Additional recommendations
@@ -138,7 +138,7 @@ Azure Backup might not successfully mount the recovery volume, even after severa
 
 1.  Cancel the mount process if it's been running for several minutes.
 
-2.  Check if you have the latest version of Backup agent. To check the version, on the **Actions** pane of the MARS console, select **About Microsoft Azure Recovery Services Agent**. Confirm that the **Version** number is equal to or higher than the version mentioned in [this article](https://go.microsoft.com/fwlink/?linkid=229525). Select this link to [download the latest version](https://go.microsoft.com/fwLink/?LinkID=288905).
+2.  Check if you have the latest version of the Backup agent. To check the version, on the **Actions** pane of the MARS console, select **About Microsoft Azure Recovery Services Agent**. Confirm that the **Version** number is equal to or higher than the version mentioned in [this article](https://go.microsoft.com/fwlink/?linkid=229525). Select this link to [download the latest version](https://go.microsoft.com/fwLink/?LinkID=288905).
 
 3.  Go to **Device Manager** > **Storage controllers** and locate **Microsoft iSCSI Initiator**. If you locate it, go directly to step 7.
 
