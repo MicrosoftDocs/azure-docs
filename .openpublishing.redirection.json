@@ -40027,6 +40027,11 @@
       "source_path": "articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instance.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+      "redirect_document_id": false
     }
   ]
 }
