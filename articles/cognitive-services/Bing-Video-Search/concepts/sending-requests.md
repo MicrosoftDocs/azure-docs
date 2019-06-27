@@ -26,7 +26,7 @@ After the user enters their search term, URL-encode it before setting the [q](ht
 
 ## Sending a request
 
-[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 To get Video search results, you'd send a GET request to the following endpoint:  
   
