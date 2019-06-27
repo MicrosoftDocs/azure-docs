@@ -19,6 +19,8 @@ Azure Storage provides a layered security model. This model enables you to secur
 An application that accesses a storage account when network rules are in effect requires proper authorization on the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token.
 
 > [!IMPORTANT]
+> Azure File Sync does not yet support firewalls and virtual networks. If you are using Azure File Sync on your storage account, do not enable these.
+>
 > Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests come from a service that is operating within an Azure Virtual Network (VNet). Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
 >
 > You can grant access to Azure services that operate from within a VNet by allowing the subnet of the service instance. Enable a limited number of scenarios through the [Exceptions](#exceptions) mechanism described in the following section. To access the Azure portal, you would need to be on a machine within the trusted boundary (either IP or VNet) that you set up.
