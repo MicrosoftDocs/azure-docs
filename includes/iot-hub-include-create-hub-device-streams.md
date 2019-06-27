@@ -1,12 +1,12 @@
 ---
 title: include file (device streams preview)
 description: include file (device streams preview)
-author: rezas
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 03/14/2019
-ms.author: rezas
+ms.author: robinsh
 ms.custom: include file
 ---
 
