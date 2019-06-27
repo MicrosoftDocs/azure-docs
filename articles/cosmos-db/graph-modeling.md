@@ -106,6 +106,6 @@ The more specific the label that the traverser will use to filter the edges, the
 
 
 ## Next steps: 
-* Check out the list of supported [Gremlin steps](#gremlin-support.md).
-* Learn about [graph database partitioning](#graph-partitioning.md) to deal with large-scale graphs.
+* Check out the list of supported [Gremlin steps](gremlin-support.md).
+* Learn about [graph database partitioning](graph-partitioning.md) to deal with large-scale graphs.
 * Evaluate your Gremlin queries using the [Execution Profile step](graph-execution-profile.md).
