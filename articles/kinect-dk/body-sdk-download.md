@@ -23,7 +23,7 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 Version       | Download
 --------------|----------
-0.9.0 | [msi](http://download.microsoft.com/download/F/D/E/FDE380A1-6E63-4571-94F3-F3744E9EE85A/Azure Kinect Body Tracking SDK 0.9.0.msi)
+0.9.0 | [msi](https://download.microsoft.com/download/F/D/E/FDE380A1-6E63-4571-94F3-F3744E9EE85A/Azure%20Kinect%20Body%20Tracking%20SDK%200.9.0.msi)
 
 > [!NOTE]
 > When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 0.9.0". You will find the samples referenced in articles in this path.
