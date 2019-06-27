@@ -183,7 +183,7 @@ For volumes that don't have cloud tiering enabled, Azure File Sync supports Wind
     - Download the Azure File Sync agent for the new server OS version (Windows Server 2016 or Windows Server 2019).
     - Install the Azure File Sync agent and restart the server.  
     
-    Note: The Azure File Sync server configuration settings are retained when the agent is uninstalled and reinstalled.
+    Note: The Azure File Sync configuration settings on the server are retained when the agent is uninstalled and reinstalled.
 
 ### Distributed File System (DFS)
 Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).
