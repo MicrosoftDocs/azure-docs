@@ -35,8 +35,7 @@ When you send Bing Web Search a search request, it returns a [`SearchResponse`](
 
 Typically, Bing Web Search returns a subset of the answers. For example, if the query term was *sailing dinghies*, the response might include `webPages`, `images`, and `rankingResponse`. Unless you've used [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) to filter out webpages, the response always includes the `webpages` and `rankingResponse` answers.
 
-> [!NOTE]
-> Because URL formats and parameters are subject to change without notice, all URLs are presented as-is. You should not take dependencies on the URL format or parameters except where noted.
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ## Webpages answer
 

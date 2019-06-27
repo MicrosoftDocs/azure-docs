@@ -17,9 +17,6 @@ ms.author: aahi
 
 This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object. 
 
->[!NOTE]
-> Because URL formats and parameters are subject to change without notice, all URLs are presented as-is. You should not take dependencies on the URL format or parameters except where noted.
-
 You can get insights about an image in three ways:
 
 - Using an insights token that you get from an image in a previous call to one of the [Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints.
@@ -27,6 +24,8 @@ You can get insights about an image in three ways:
 - Uploading an image (in binary format).
 
 ## Bing Visual Search requests
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 If you send Visual Search an image token or URL, the following snippet shows the JSON object that you must include in the body of the POST:
 
