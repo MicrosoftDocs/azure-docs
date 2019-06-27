@@ -34,7 +34,7 @@ Run this code on either of these environments:
     - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
     - [Download the sample script file](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn) `train_iris.py`
 
-  You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-sklearn.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+  You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-sklearn.ipynb) of this guide on the GitHub samples page. The notebook includes an expanded section covering intelligent hyperparameter tuning.
 
 ## Set up the experiment
 
@@ -163,25 +163,20 @@ As the Run is executed, it goes through the following stages:
 
 - **Post-Processing**: The ./outputs folder of the run is copied over to the run history.
 
-## Register or download a model
+## Save and register the model
 
-Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+ 
+To save the model, include the following code to your training script, train_iris.py. 
+
+``` Python
+save model code
+```
+
+Register the model with the following code.
 
 ```Python
 model = run.register_model(model_name='sklearn-iris', model_path='outputs/model')
-```
-
-You can also download a local copy of the model by using the Run object. In the training script `train_iris.py`, a Scikit-learn saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy.
-
-```Python
-# Create a model folder in the current directory
-os.makedirs('./model', exist_ok=True)
-
-for f in run.get_file_names():
-    if f.startswith('outputs/model'):
-        output_file_path = os.path.join('./model', f.split('/')[-1])
-        print('Downloading from {} to {} ...'.format(f, output_file_path))
-        run.download_file(name=f, output_file_path=output_file_path)
 ```
 
 ## Next steps
