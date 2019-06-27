@@ -404,6 +404,10 @@
         items:
         - name: Node.js
           href: app/nodejs.md
+      - name: Python apps
+        items:
+        - name: Python
+          href: app/opencensus-python.md
       - name: Web pages
         items:
         - name: JavaScript
@@ -414,8 +418,6 @@
         items:
         - name: Local forwarder
           href: app/opencensus-local-forwarder.md
-        - name: Python
-          href: app/opencensus-python.md
         - name: Go
           href: app/opencensus-go.md
       - name: Other platforms
