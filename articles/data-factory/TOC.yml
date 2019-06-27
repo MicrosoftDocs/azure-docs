@@ -514,8 +514,6 @@
       href: manage-azure-ssis-integration-runtime.md
     - name: Copy or clone a data factory
       href: copy-clone-data-factory.md
-    - name: Troubleshooting guide
-      href: data-factory-troubleshoot-guide.md
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
@@ -550,8 +548,6 @@
       href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Clean up SSISDB logs with Elastic Database Jobs
       href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
-    - name: Troubleshooting Package Execution in Azure-SSIS IR
-      href: ssis-integration-runtime-ssis-activity-faq.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger
@@ -574,6 +570,12 @@
       href: solution-template-delta-copy-with-control-table.md
     - name: Transform data with Databricks
       href: solution-template-databricks-notebook.md
+  - name: Troubleshooting guide
+    items:
+    - name: Activity troubleshooting
+      href: data-factory-troubleshoot-guide.md
+    - name: Troubleshooting Package Execution in Azure-SSIS IR
+      href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Reference
   items:
   - name: .NET

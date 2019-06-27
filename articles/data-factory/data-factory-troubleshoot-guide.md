@@ -15,12 +15,12 @@ ms.reviewer: craigg
 # Troubleshooting Azure Data Factory
 This article lists common troubleshooting questions.
 
-- [Azure Databricks (notebook, jars, python)](#Azure-Databricks)
-- [Azure Data Lake Analytics (U-SQL)](#Azure-Data-Lake-Analytics-(U-SQL))
-- [Azure Functions](#Azure-Functions)
-- [Custom (Azure Batch)](#Custom-(Azure-Batch))
-- [HDInsight (Spark, Hive, MapReduce, Pig, Hadoop Streaming)](#HDInsight-(Spark,-Hive,-MapReduce,-Pig,-Hadoop-Streaming))
-- [Web Activity](#Web-Activity)
+- [Azure Databricks (notebook, jars, python)](#azure-databricks)
+- [Azure Data Lake Analytics (U-SQL)](#azure-data-lake-analytics-u-sql)
+- [Azure Functions](#azure-functions)
+- [Custom (Azure Batch)](#custom-azure-batch)
+- [HDInsight (Spark, Hive, MapReduce, Pig, Hadoop Streaming)](#hdinsight-spark-hive-mapreduce-pig-hadoop-streaming)
+- [Web Activity](#web-activity)
 
 
 
@@ -100,16 +100,16 @@ This article lists common troubleshooting questions.
 | Error   Code | Error Message                                                | Description                                                  | Possible Fix/   Recommended Action                           |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 2108         | Invalid HttpMethod: ‘..’.                                    | This means that Http method specified in the activity payload is   not supported by Web Activity. | The Http methods that are supported are: <br/>PUT, POST, GET, DELETE |
-| 2108         | Invalid Server Error 500                                     | Internal error on the endpoint                               | Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
-| 2108         | Unauthorized 401                                             | Missing valid authentication on request                      | Provide valid authentication method (token may have expired).   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
-| 2108         | Forbidden 403                                                | Missing required permissions                                 | Check user permissions on the accessed resource.   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
-| 2108         | Bad Request 400                                              | Invalid Http request                                         | Check the URL, verb and body of the request.   <br/><br/>Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
-| 2108         | Not found 404                                                | Resource was not found                                       | Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
-| 2108         | Service unavailable                                          | Service is unavailable                                       | Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
-| 2108         | Unsupported Media Type                                       | Mismatched Content-Type with the Web activity body           | Specify the correct Content-Type that matches the payload format   Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
-| 2108         | The resource you are looking for has been removed, had its name changed, or is temporarily unavailable. | The resource is not available                                | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
-| 2108         | The page you are looking for cannot be displayed because an invalid method (HTTP   verb) is being used. | Incorrect Web activity method was specified in the request   | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
-| 2108         | invalid_payload                                              | The body for Web activity is incorrect                       | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#How-to-use-Fiddler-to-create-an-HTTP-session-of-the-monitored-web-application) |
+| 2108         | Invalid Server Error 500                                     | Internal error on the endpoint                               | Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | Unauthorized 401                                             | Missing valid authentication on request                      | Provide valid authentication method (token may have expired).   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | Forbidden 403                                                | Missing required permissions                                 | Check user permissions on the accessed resource.   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | Bad Request 400                                              | Invalid Http request                                         | Check the URL, verb and body of the request.   <br/><br/>Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | Not found 404                                                | Resource was not found                                       | Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | Service unavailable                                          | Service is unavailable                                       | Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | Unsupported Media Type                                       | Mismatched Content-Type with the Web activity body           | Specify the correct Content-Type that matches the payload format   Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | The resource you are looking for has been removed, had its name changed, or is temporarily unavailable. | The resource is not available                                | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | The page you are looking for cannot be displayed because an invalid method (HTTP   verb) is being used. | Incorrect Web activity method was specified in the request   | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | invalid_payload                                              | The body for Web activity is incorrect                       | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
 
 #### How to use Fiddler to create an HTTP session of the monitored web application
 
