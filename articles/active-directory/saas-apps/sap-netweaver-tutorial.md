@@ -40,7 +40,7 @@ To get started, you need the following items:
 
 ## Scenario description
 
-SAP NetWeaver supports **SAML** (**SP** initiated SSO)** and **OAuth** both. User can configure the settings as per there requirement. In this tutorial, you configure and test Azure AD SSO in a test environment.
+SAP NetWeaver supports **SAML** (**SP** initiated SSO) and **OAuth** both. User can configure the settings as per there requirement. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding SAP NetWeaver from the gallery
 
