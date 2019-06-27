@@ -12,7 +12,7 @@ ms.author: raynew
 
 # Azure Migrate support matrix
 
-You can use the [Azure Migrate service](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This articles summarizes general support settings and limitations for Azure Migrate scenarios and deployments.
+You can use the [Azure Migrate service](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This article summarizes general support settings and limitations for Azure Migrate scenarios and deployments.
 
 
 ## Azure Migrate versions
@@ -24,14 +24,12 @@ There are two versions of the Azure Migrate service:
 
 ## Supported migration scenarios
 
-The table summarizes typical migration scenarios and the tools we recommend that you use to assess and perform migrations to Azure.
-
 The table summarizes supported migration scenarios.
 
 **Deployment** | **Details*** 
 --- | --- 
 **On-premises assessment** | Assess on-premises workloads and data running on VMware VMs and Hyper-V VMs. Assess using Azure Migrate Server Assessment and Microsoft Data Migration Assistant (DMA), as well as third-party tools that include Cloudamize, Corent Tech, and Turbonomic Server.
-**On-premises migration to Azure** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, and on AWS/GCP instances, to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as using third-party tools that include Carboniate and CorentTech.
+**On-premises migration to Azure** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, and on AWS/GCP instances, to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as using third-party tools that include Carbonite and CorentTech.
 
 Specific tool support is summarized as follows.
 
