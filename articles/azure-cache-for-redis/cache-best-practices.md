@@ -20,7 +20,7 @@ ms.author: joncole
 # Best practices for Azure Cache for Redis 
 By following these best practices, you can help maximize the performance and cost-effective use of your Azure Cache for Redis instance.
 
-## Configuration and Concepts
+## Configuration and concepts
  * **Use Standard or Premium tier for production systems.**  The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache.  C0 caches are meant for simple dev/test scenarios since they have a shared CPU core, little memory, and are prone to "noisy neighbor" issues.
 
  * **Remember that Redis is an in-memory data store.**  [This article](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) outlines some scenarios where data loss can occur.
