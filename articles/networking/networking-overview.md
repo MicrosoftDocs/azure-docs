@@ -25,7 +25,7 @@ The networking services in Azure provide a variety of networking capabilities th
 
 ## <a name="connect"></a>Connectivity services
  
-This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual network, ExpressRoute, VPN Gateway, Virtual WAN, and DNS.
+This section describes services that provide connectivity between Azure resources, connectivity from an on-premises network to Azure resources, and branch to branch connectivity in Azure - Virtual network, ExpressRoute, VPN Gateway, Virtual WAN, DNS, and Azure Bastion.
 
 |Service|Why use?|Scenarios|
 |---|---|---|
@@ -34,6 +34,7 @@ This section describes services that provide connectivity between Azure resource
 |[VPN Gateway](#vpngateway)|Sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.|<p>[Site-to-site-connections](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[VNet-to-VNet connections](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Point-to-site connections](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
 |[Virtual WAN](#virtualwan)|Optimizes and automates branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to.|<p>[Site-to-site connections](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute connections](../virtual-wan/virtual-wan-expressroute-portal.md)</p> <p>[Point-to-site connections](../virtual-wan/virtual-wan-point-to-site-portal.md)</p> |
 |[Azure DNS](#dns)|Hosts DNS domains that provide name resolution by using Microsoft Azure infrastructure.|<p>[Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Create DNS records for a web app](../dns/dns-web-sites-custom-domain.md)</p> <p>[Create an alias record for Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Create an alias record for public IP Address](../dns/tutorial-alias-pip.md)</p> <p>[Create an alias record for zone resource record](../dns/tutorial-alias-rr.md)</p>|
+|[Azure Bastion (Preview)](#bastion)|Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address|<p>[Create an Azure Bastion host](../bastion/bastion-create-host-portal.md)</p><p>[Connect using SSH to a Linux VM](../bastion/bastion-connect-vm-ssh.md)</p><p>[Connect using RDP to a Windows VM](/bastion/bastion-connect-vm-rdp.md)</p>|
 ||||
 
 
@@ -68,6 +69,12 @@ Azure Virtual WAN brings together many Azure cloud connectivity services such as
 
 ### <a name="dns"></a>Azure DNS
 Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../dns/dns-overview.md).
+
+### <a name="bastion"></a>Azure Bastion (Preview)
+The Azure Bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](/bastion/bastion-overview.md).
+
+![Azure Bastion architecture](../bastion/media/bastion-overview/architecture.png))
+
 
 ## <a name="protect"></a>Application protection services
 
