@@ -3,11 +3,11 @@ title: Set up monitoring alerts for Azure Stream Analytics jobs
 description: This article describes how to use the Azure portal to set up monitoring and alerts for Azure Stream Analytics jobs.
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 06/21/2019
 ---
 # Set up alerts for Azure Stream Analytics jobs
 
@@ -16,6 +16,7 @@ It's important to monitor your Azure Stream Analytics job to ensure the job is r
 You can define rules on metrics from Operation Logs data through the portal, as well as [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## Set up alerts in the Azure portal
+### Get alerted when a job stops unexpectedly
 
 The following example demonstrates how to set up alerts for when your job enters a failed state. This alert is recommended for all jobs.
 

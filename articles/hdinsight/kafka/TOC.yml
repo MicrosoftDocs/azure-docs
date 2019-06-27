@@ -16,14 +16,14 @@
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutorials
   items:
-  - name: Use Apache Spark structured streaming
-    href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-  - name: Write/read from Apache Kafka with Apache Storm
-    href: ../hdinsight-apache-storm-with-kafka.md
   - name: Use Apache Kafka Producer and Consumer API
     href: apache-kafka-producer-consumer-api.md
   - name: Develop app with Apache Kafka Streams API
     href: apache-kafka-streams-api.md
+  - name: Use Apache Spark structured streaming
+    href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+  - name: Write/read from Apache Kafka with Apache Storm
+    href: ../hdinsight-apache-storm-with-kafka.md
 - name: Concepts
   items:
   - name: Capacity planning

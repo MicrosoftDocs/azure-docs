@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -426,10 +426,6 @@ If Bing determines that the user may have intended to search for something diffe
     }]
 }, ...
 ```
-
-The following shows how Bing uses the spelling suggestion.
-
-![Bing spelling suggestion example](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
 ## Response headers
 

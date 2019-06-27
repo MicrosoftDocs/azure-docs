@@ -60,6 +60,9 @@ The PRT is issued during user authentication on a Windows 10 device in two scena
 
 In these scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this  Azure AD account.
 
+> [!NOTE]
+> 3rd party identity providers need to support the WS-Trust protocol to enable PRT issuance on Windows 10 devices. Without WS-Trust, PRT cannot be issued to users on Hybrid Azure AD joined or Azure AD joined devices
+
 ## What is the lifetime of a PRT?
 
 Once issued, a PRT is valid for 14 days and is continuously renewed as long as the user actively uses the device.  

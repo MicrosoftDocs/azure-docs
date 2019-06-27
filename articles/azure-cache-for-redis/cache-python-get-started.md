@@ -64,6 +64,9 @@ True
 b'bar'
 ```
 
+> [!IMPORTANT]
+> For Redis version is 3.0 or higher, SSL certificate check is enforced. ssl_ca_certs must be explicitly set when connecting to Redis. In case of RH Linux, ssl_ca_certs can be found in the "/etc/pki/tls/certs/ca-bundle.crt" certificate module.
+
 ## Create a Python script
 
 Create a new script text file named *PythonApplication1.py*.
@@ -76,7 +79,8 @@ import redis
 myHostname = "<Your Host Name>.redis.cache.windows.net"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -88,9 +92,9 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
-	print("id : " + c['id'] + ", addr : " + c['addr'])
+    print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
 
 Run the script with Python.
