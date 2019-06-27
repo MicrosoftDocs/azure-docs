@@ -137,6 +137,10 @@ Deleted or disabled users who didn't sign in previously can't access a device. T
 
 **A:** Currently, UPN changes are not fully supported on Azure AD joined devices. So their authentication with Azure AD fails after their UPN changes. As a result, users have SSO and Conditional Access issues on their devices. At this time, users need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
 
+>[!NOTE] 
+>The problems with SSO after changing UPN are resolved in Windows 10 v1803. 
+
+
 ---
 
 ### Q: My users can't search printers from Azure AD joined devices. How can I enable printing from those devices?
