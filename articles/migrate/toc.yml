@@ -10,8 +10,6 @@
   items:
   - name: VMware VM assessment and migration
     items:
-    - name: Support matrix for VMware assessment and migration
-      href: migrate-support-matrix-vmware.md
     - name: Prepare VMware for assessment and migration
       href: tutorial-prepare-vmware.md
     - name: Assess VMware VMs for migration
@@ -26,8 +24,7 @@
         href: tutorial-migrate-vmware-agent.md
   - name: Hyper-V assessment and migration
     items:
-    - name: Support matrix for Hyper-V assessment and migration
-      href: migrate-support-matrix-hyper-v.md
+    
     - name: Prepare Hyper-V for assessment and migration
       href: tutorial-prepare-hyper-v.md
     - name: Assess Hyper-V VMs for migration
@@ -36,6 +33,12 @@
       href: tutorial-migrate-hyper-v.md
 - name: Concepts
   items:
+  - name: Support matrix for Azure Migrate
+    href: migrate-support-matrix.md
+  - name: Support matrix for VMware assessment and migration
+    href: migrate-support-matrix-vmware.md
+  - name: Support matrix for Hyper-V assessment and migration
+    href: migrate-support-matrix-hyper-v.md
   - name: Azure Migrate architecture
     href: migrate-architecture.md
   - name: About the collector
@@ -50,6 +53,12 @@
   items:
   - name: Migration examples-Contoso series
     href: contoso-migration-overview.md
+  - name: How to create an Azure Migrate project
+    href: how-to-create-project.md
+  - name: How to create assessments
+    href: how-to-assess.md
+  - name: How to migrate to Azure
+    href: how-to-migrate.md
   - name: Scale assessment and migration
     items:
     - name: Assess large numbers of VMware VMs

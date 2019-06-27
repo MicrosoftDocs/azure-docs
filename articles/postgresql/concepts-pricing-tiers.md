@@ -68,7 +68,7 @@ We are increasing the storage limits in our General Purpose and Memory Optimized
 >
 > * Incoming connections through virtual network service endpoints
 > * Geographically redundant backups
-> * Cross region replication
+> * Read replicas
 
 ### Reaching the storage limit
 

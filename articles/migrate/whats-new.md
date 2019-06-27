@@ -4,47 +4,46 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/29/2019
+ms.date: 06/27/2019
 ms.author: raynew
 ms.custom: mvc
 ---
 
 # What's new in Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) discovers, assesses, and migrates on-premises infrastructure, apps, and workloads to the Microsoft Azure cloud. This article summarizes new features and updates for Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate servers, apps, and data to the Microsoft Azure cloud. This article summarizes new features in for Azure Migrate.
+
+
 
 ## Azure Migrate new version
 
-A new version of Azure Migrate has recently been released (June 2019). The new version replaces the earlier one. If you're using the old version, you can continue to manage backups, but you can't create new Azure Migrate projects.??????
+A new version of Azure Migrate was released in July 2019). 
+
+- **Current (new) version**: Use this version to create Azure Migrate projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md#azure-migrate-new-version). [Learn more](whats-new.md) about what's new.
+- **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new Azure Migrate projects or perform new discoveries.
+
+
+## Azure Migrate features
 
 The new version of Azure Migrate provides a number of new features:
 
+
 - **Unified migration platform**: Azure Migrate now provides single portal to centralize, manage, and track your migration journey to Azure, with an improved deployment flow and portal experience.
-- **Server assessment and migration**: You can assess on-premises VMware VMs and Hyper-V VMs for migration to Azure using the Azure Migrate Server Assessment tool, or integrated third-party tools. You can migrate on-premises VMware VMs, Hyper-V VMs, physical servers, AWS and GCP instances to Azure using the Azure Migrate Server Migration tool, or integrated third-party tools.
-- **VMware VM migration**:  Azure Migrate provides an agentless migration experience for migration of VMware VMs to Azure. Discovery,assessment, and migration is handled by an Azure Migrate appliance running as a VMware VM, interacting with vCenter Server. An alternative agent-based migration is also available.
+- **Assessment and migration tools**: Azure Migrate provides native tools, and integrates with other Azure services, as well as with independent software vendor (ISV) tools.
+- **Assessment support**: Using the Azure Migrate Server Assessment tool, you can assess VMware VMs and Hyper-V VMs for migration to Azure. You can also assess migration using other Microsoft and Azure services, and third-party tools.
+- **Azure Migrate appliance**: Azure Migrate deploys a lightweight appliance for discovery and assessment of on-premises VMware VMs and Hyper-V VMs.
+    - This appliance is used by Azure Migrate Server Assessment, and Azure Migrate Server Migration for agentless migration.
+    - The appliance continuously discovers server metadata and performance data for the purposes of assessment and migration.  
+- **Migration support**: Using the Azure Migrate Server Migration tool, you can migrate on-premises VMware VMs, Hyper-V VMs, physical servers, as well as AWS and GCP instances to Azure. In addition, you can migrate to Azure using third-party tools.
+- **ISVs**: Azure Migrate integrates with ISVs for assessment and migration to Azure. [Learn more](migrate-services-overview.md#isv-integration)
+- **On-premises VMware VM migration**:  Azure Migrate Server Migration provides a couple of methods for migrating on-premises VMware VMs to Azure.  An agentless migration deploys a lightweight Azure Migrate Replication application that uses snapshot-based replication. An agent-based appliance deploys an agent on each VM you want to migrate. [Learn more](server-migrate-overview.md)
  - **Database assessment and migration**: From Azure Migrate, you can assess on-premises databases for migration to Azure using the Azure Database Migration Assistant. You can migrate databases using the Azure Database Migration Service.
-- **Web app migration**: You can assess web apps using a public endpoint URL with the Azure App Service. For migration of internal .NET apps you can download and run the App Service Migration Assistant. 
+- **Web app migration**: You can assess web apps using a public endpoint URL with the Azure App Service. For migration of internal .NET apps, you can download and run the App Service Migration Assistant. 
 - **Data Box**: Import offline Data Box data into Azure from Azure Migrate.
-- **Azure Migrate appliance**: A lightweight, easily-deployed appliance for discovery and assessment of on-premises VMware VMs and Hyper-V VMs using Azure Migrate Server Assessment and Migration.
-**Continuous discovery of VMs**: The Azure Migrate appliance continuous discovers server metadata and performance data for the purposes of assessment and migration.  
-**Performance-based assessment**: The Azure Migrate appliance now gathers, measures, and assesses server performance data.
-
-
-## ISV integration
-
-Azure Migrate integrates with these ISV offerings.
-
-**ISV**	| **Feature**
---- | ---
-Cloudamize | Server assessment
-Corent Tech	| Server assessment
-Turbonomic	| Server assessment
-Zerto | Server migration
 
 
 ## Next steps
 
 - [Learn more](https://azure.microsoft.com/pricing/details/azure-migrate/) about Azure Migrate pricing.
-- Review the support matrix for information about requirements and limitations for discovery, assessment, and migration of [VMware VMs](migrate-support-matrix-vmware.md) and [Hyper-V VMs](migrate-support-matrix-hyper-v.md).
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.
-
+- Try out our tutorials to assess [VMware VMs](tutorial-assess-vmware.md) and [Hyper-V VMs](tutorial-assess-hyper-v.md).

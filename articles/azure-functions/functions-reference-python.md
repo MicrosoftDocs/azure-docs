@@ -68,10 +68,11 @@ Optionally, to leverage the intellisense and auto-complete features provided by 
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
-```  
+```
 
 Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods.
 
@@ -149,6 +150,7 @@ For example, the following code demonstrates the difference between the two:
 import azure.functions as func
 import logging
 
+
 def main(req: func.HttpRequest,
          obj: func.InputStream):
 
@@ -195,6 +197,7 @@ To produce multiple outputs, use the `set()` method provided by the `azure.funct
 ```python
 import azure.functions as func
 
+
 def main(req: func.HttpRequest,
          msg: func.Out[func.QueueMessage]) -> str:
 
@@ -211,6 +214,7 @@ The following example logs an info message when the function is invoked via an H
 
 ```python
 import logging
+
 
 def main(req):
     logging.info('Python HTTP trigger function processed a request.')
@@ -232,6 +236,8 @@ We recommend that you write your Azure Function as an asynchronous coroutine usi
 
 ```python
 # Will be run with asyncio directly
+
+
 async def main():
     await some_nonblocking_socket_io_op()
 ```
@@ -240,6 +246,8 @@ If the main() function is synchronous (no `async` qualifier) we automatically ru
 
 ```python
 # Would be run in an asyncio thread-pool
+
+
 def main():
     some_blocking_socket_io()
 ```
@@ -253,8 +261,9 @@ For example:
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest,
-            context: azure.functions.Context) -> str:
+         context: azure.functions.Context) -> str:
     return f'{context.invocation_id}'
 ```
 
@@ -275,6 +284,7 @@ It is not guaranteed that the state of your app will be preserved for future exe
 
 ```python
 CACHED_DATA = None
+
 
 def main(req):
     global CACHED_DATA
@@ -330,6 +340,7 @@ For example, following is a mock test of an HTTP triggered function:
 import azure.functions as func
 import logging
 
+
 def main(req: func.HttpRequest,
          obj: func.InputStream):
 
@@ -343,13 +354,14 @@ import unittest
 import azure.functions as func
 from . import my_function
 
+
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
         # Construct a mock HTTP request.
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/my_function', 
+            url='/my_function',
             params={'name': 'Test'})
 
         # Call the function.
@@ -357,7 +369,7 @@ class TestFunction(unittest.TestCase):
 
         # Check the output.
         self.assertEqual(
-            resp.get_body(), 
+            resp.get_body(),
             'Hello, Test!',
         )
 ```
@@ -367,6 +379,7 @@ Here is another example, with a queue triggered function:
 ```python
 # myapp/__init__.py
 import azure.functions as func
+
 
 def my_function(msg: func.QueueMessage) -> str:
     return f'msg body: {msg.get_body().decode()}'
@@ -379,6 +392,7 @@ import unittest
 import azure.functions as func
 from . import my_function
 
+
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
         # Construct a mock Queue message.
@@ -390,10 +404,10 @@ class TestFunction(unittest.TestCase):
 
         # Check the output.
         self.assertEqual(
-            resp, 
+            resp,
             'msg body: test',
         )
-``` 
+```
 
 ## Known issues and FAQ
 
