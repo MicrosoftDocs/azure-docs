@@ -106,6 +106,8 @@
     href: concept-accelerate-with-fpgas.md
   - name: ONNX and ONNX Runtime
     href: concept-onnx.md
+  - name: Data drift monitoring
+    href: concept-data-drift.md
   - name: Security
     items:
     - name: Enterprise security overview
@@ -151,12 +153,6 @@
     - name: Explore data
       displayName: data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
       href: how-to-explore-prepare-data.md
-    - name: Version & manage data definitions
-      displayName: data, etl, dataset, data preparation, dataprep, version
-      href: how-to-manage-dataset-definitions.md
-    - name: Snapshot your data
-      displayName: snapshots, profile, summary statistics, data copy
-      href: how-to-create-dataset-snapshots.md
     - name: Get data from a datastore
       displayName: blob get fileshare access storage
       href: how-to-access-data.md
@@ -178,6 +174,8 @@
       href: how-to-set-up-training-targets.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
+    - name: Use Scikit-learn
+      href: how-to-train-scikit-learn.md  
     - name: Use TensorFlow
       href: how-to-train-tensorflow.md
     - name: Use Keras
@@ -211,6 +209,8 @@
     - name: Auto-train a forecast model
       displayName: time series
       href: how-to-auto-train-forecast.md
+    - name: View accuracy metrics
+      href: how-to-understand-accuracy-metrics.md  
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
@@ -224,6 +224,9 @@
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Custom Docker image
       href: how-to-deploy-custom-docker-image.md
+    - name: Deploy existing models
+      displayName: publish existing model
+      href: how-to-deploy-existing-model.md
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
@@ -239,6 +242,8 @@
     - name: Collect & evaluate model data
       displayName: track production
       href: how-to-enable-data-collection.md
+    - name: Detect data drift
+      href: how-to-monitor-data-drift.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
   - name: Create reusable workflows

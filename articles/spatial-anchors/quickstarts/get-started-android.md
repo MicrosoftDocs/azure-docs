@@ -55,7 +55,7 @@ Select **Open an existing Android Studio project** and select the project locate
 
 Select **Open an existing Android Studio project** and select the project located at `Android/NDK/`.
 
-***
+---
 
 ## Configure account identifier and key
 
@@ -77,7 +77,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-***
+---
 
 ## Deploy the app to your Android device
 

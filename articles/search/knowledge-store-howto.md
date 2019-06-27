@@ -328,7 +328,7 @@ The endpoint of this call is `https://[service name].search.windows.net/skillset
         "storageConnectionString": "YOUR-STORAGE-ACCOUNT-CONNECTION-STRING",
     ```
 
-3. Review the skills collection, in particular the Shaper skills on lines 85 and 170, respectively. The Shaper skill is important because it assembles the data structures you want for knowledge mining. During skillset execution, these structures are in-memory only, but as you move to the next step, you'll see how this output can be saved to a knowledge store for further exploration.
+3. Review the skills collection, in particular the Shaper skills on lines 85 and 179, respectively. The Shaper skill is important because it assembles the data structures you want for knowledge mining. During skillset execution, these structures are in-memory only, but as you move to the next step, you'll see how this output can be saved to a knowledge store for further exploration.
 
    The following snippet is from line 217. 
 
