@@ -22,11 +22,9 @@ ms.author: monhaber
 This topics presents the different types of detection methods and alerts available for VMs and Servers.
 
 * [Windows-based machines](#windows-machines) integrate with the following services to protect your resources:
- 
   * [Microsoft Server Defender ATP](#windows-atp)
   * [Crash Dump Analysis](#windows-dump)
   * [Fileless Attack Detection](#windows-fileless)
- 
 * [Linux-based machines](#linux-machines)
   * [Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration](#linux-auditd)
 
