@@ -18,7 +18,7 @@ You will learn:
 
 > [!div class="checklist"]
 > * Which network settings might need to be updated after creating a cluster
-> * Which FXT Edge Filer use cases require an AD server or a DNS server 
+> * Which Azure FXT Edge Filer use cases require an AD server or a DNS server 
 > * How to configure round-robin DNS (RRDNS) to automatically load balance client requests to the FXT cluster
 
 The amount of time it takes to complete these steps depends on how many configuration changes are needed in your system:

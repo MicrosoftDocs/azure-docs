@@ -5,7 +5,7 @@ services:
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
 ---
 
@@ -29,9 +29,7 @@ This tutorial includes these setup steps:
 Before you begin, make sure that the data center and rack you will use has these features:
 
 * An available 1U slot on the rack where you intend to mount the device.
-* AC power supply and cooling systems that meet the needs of the Azure FXT Edge Filer. 
-
-  For help planning and sizing the installation, read [Power and thermal specifications](fxt-specs.md#power-and-thermal-specifications) to learn about nameplate ratings and thermal output under common conditions.  
+* AC power supply and cooling systems that meet the needs of the Azure FXT Edge Filer. (Read [Power and thermal specifications](fxt-specs.md#power-and-thermal-specifications) for help planning and sizing the installation.)  
 
   > [!NOTE] 
   > To take full advantage of the two redundant power supply units (PSUs), use power distribution units on two different branch circuits when attaching AC power. Read [Connect power cables](fxt-network-power.md#connect-power-cables) for details.  

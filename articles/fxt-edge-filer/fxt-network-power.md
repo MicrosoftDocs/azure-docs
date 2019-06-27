@@ -4,7 +4,7 @@ description: How to cable the network ports and attach power for Azure FXT Edge 
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
 ---
 
@@ -38,7 +38,7 @@ Identify the various ports on the back of your Azure FXT Edge Filer.
 
 This article also describes how to [connect AC power](#connect-power-cables) for the node. 
 
-This article also explains how to connect to the node's [serial port](#serial-port-only-when-necessary), but the serial port is only used for advanced troubleshooting. 
+This article also explains how to connect to the node's [serial port](#serial-port-only-when-necessary), if necessary for specialized troubleshooting. 
 
 ### Network ports 
 
@@ -70,7 +70,7 @@ The type of connections to use for your system depends on your data center envir
   * SFP28 type 25GbE-capable direct attach twinaxial cable
   * SFP28 type 10GbE-capable direct attach twinaxial cable
 
-* The 1GbE network ports are used for cluster management traffic. Check the **Use 1Gb mgmt network** option when creating the cluster (described in [Configure the management network](fxt-cluster-create.md#configure-the-management-network)). Cable the ports with standard Cat5 or better cable as described in the supported cables list.
+* The 1GbE network ports are used for cluster management traffic. Check the **Use 1Gb mgmt network** option when creating the cluster if you want to create a physically separate network for cluster configuration (described in [Configure the management network](fxt-cluster-create.md#configure-the-management-network)). Cable the ports with standard Cat5 or better cable as described in the supported cables list.
 
   You can leave the 1GbE ports uncabled if you plan to use the high-speed ports for all traffic. By default, the 1GbE network ports are not used if a higher speed data port is available.  
 
@@ -110,7 +110,7 @@ Follow these instructions to route the cables through the CMA:
 1. With the CMA in the service position, route the cable bundle through the inner and outer baskets (2).
 1. Use the preinstalled hook and loop straps at either end of the baskets to secure the cables (3).
 1. Swing the CMA back into place on the tray (4).
-1. Use the preinstalled status indicator cable at the back of the system and secure the cable by routing it through the CMA. Attach the other end of the cable to the corner of the outer CMA basket (5). 
+1. Install the status indicator cable at the back of the system and secure the cable by routing it through the CMA. Attach the other end of the cable to the corner of the outer CMA basket (5). 
 
    > [!CAUTION]
    > To avoid potential damage from protruding cables, secure any slack in the status indicator cable after routing this cable through the CMA. 

@@ -4,7 +4,7 @@ description: How to create a hybrid storage cache cluster with the Azure FXT Edg
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell 
 ---
 
@@ -29,7 +29,10 @@ This procedure takes between 15 and 45 minutes, depending on how much research y
 
 Complete these prerequisites before starting this tutorial:
 
-* Install at least three Azure FXT Edge Filer hardware systems in your data center 
+* Install your Azure FXT Edge Filer hardware systems in your data center 
+
+  You only need one node to create the cluster, but you need to [add at least two more nodes](fxt-add-nodes.md) before you can configure the cluster and get it ready to use. 
+
 * Connect appropriate power and network cables to the system  
 * Power on at least one Azure FXT Edge Filer node and [set its root password](fxt-node-password.md)
 
@@ -109,7 +112,7 @@ Use the command `ifconfig` to see the addresses assigned to this system.
 
 For example, the command `ifconfig | grep -B5 inet` searches for ports with internet addresses and gives five lines of context to show the port identifier.
 
-Write down any IP address shown in the ifconfig report. Addresses listed with port names like e0a or e0b are good options. Do not use any IP addresses listed with e7* names, since those names are only used for IPMI ports, not regular network ports.  
+Write down any IP address shown in the ifconfig report. Addresses listed with port names like e0a or e0b are good options. Do not use any IP addresses listed with e7* names, since those names are only used for iDRAC/IPMI service ports.  
 
 ## Load the cluster configuration wizard
 
@@ -208,7 +211,7 @@ Settings in the **Management** section are for the network that provides adminis
 
 * **MTU** - If necessary, adjust the maximum transmission unit (MTU) for your cluster’s management network.
 
-* **Use 1Gb mgmt network** - Check this box if you want to assign the two 1GbE network ports on your FXT nodes to the management network only. If you don't check this box, the management network uses the highest speed port available. 
+* **Use 1Gb mgmt network** - Check this box if you want to assign the two 1GbE network ports on your FXT nodes to the management network only. (You must have 25GbE/10GbE ports available for all other traffic.) If you don't check this box, the management network uses the highest speed port available. 
 
 ### Configure the cluster network 
 
@@ -310,7 +313,7 @@ These steps are needed for most or all clusters.
 
   Read [Configure the namespace](fxt-add-storage.md#configure-the-namespace) for details. This step includes:
   * Creating vservers
-  * Setting up junctions between the client network view and backend storage 
+  * Setting up junctions between the client network view and back-end storage 
   * Defining which client IP addresses are served by each vserver
 
   > [!Note] 
