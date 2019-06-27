@@ -70,7 +70,7 @@ prioritize remediation actions.
 ## 5.3 Protective Monitoring
 
 This blueprint helps you protect information system assets by assigning [Azure Policy](../../../policy/overview.md)
-definitions that provide protective monitoring on unrestricted acces, whitelist activity and threats.
+definitions that provide protective monitoring on unrestricted access, whitelist activity, and threats.
 
 - Audit unrestricted network access to storage accounts
 - Adaptive Application Controls should be enabled on virtual machines
