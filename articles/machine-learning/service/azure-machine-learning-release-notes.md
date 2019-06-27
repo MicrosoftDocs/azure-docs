@@ -28,7 +28,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **New features**
   + Add decision tree surrogate model to mimic explainer in azureml-explain-model package
   + Ability to specify a CUDA version to be installed on Inferencing images. Support for CUDA 9.0, 9.1, and 10.0.
-  + Information about Azure ML training base images are now available at [Azure ML Contianers Github Repository](https://github.com/Azure/AzureML-Containers) and [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + Information about Azure ML training base images are now available at [Azure ML Containers GitHub Repository](https://github.com/Azure/AzureML-Containers) and [DockerHub](https://hub.docker.com/_/microsoft-azureml)
   + Added CLI support for pipeline schedule. Run "az ml pipeline -h" to learn more
   + Added custom Kubernetes namespace parameter to AKS webservice deployment configuration and CLI.
   + Deprecated hash_paths parameter for all pipeline steps
