@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/17/2019
+ms.date: 06/25/2019
 ms.author: wesmc
 ---
 
@@ -25,6 +25,8 @@ You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 * How to prepare the development environment and develop application for the IoT DevKit.
 
 Don't have a DevKit yet? Try the [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [purchase a DevKit](https://aka.ms/iot-devkit-purchase).
+
+You can find the source code for all DevKit tutorials at the [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) repository.
 
 ## What you need
 
@@ -127,6 +129,11 @@ The DevKit connects to a device-specific endpoint on your IoT hub and sends temp
     ![WiFi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
 
     ![Sending data](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
+
+1. To verify the telemetry data sent to Azure, run the following command in Azure Cloud Shell:
+    ```bash
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    ```
 
 ## Prepare the development environment
 

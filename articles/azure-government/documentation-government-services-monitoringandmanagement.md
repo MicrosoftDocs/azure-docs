@@ -185,6 +185,9 @@ In order to send data from Application Insights to the Azure Government region, 
 
 ### .NET with applicationinsights.config
 
+> [!NOTE]
+> The applicationinsights.config file is automatically overwritten anytime a SDK upgrade is performed. After performing an SDK upgrade be sure to re-enter the region specific endpoint values.
+
 ```xml
 <ApplicationInsights>
   ...
@@ -282,8 +285,8 @@ appInsights.Configuration.start();
 The endpoints can also be configured through environment variables:
 
 ```
-Instrumentation Key: “APPINSIGHTS_INSTRUMENTATIONKEY”
-Profile Endpoint: “https://dc.applicationinsights.us/api/profiles/{0}/appId”
+Instrumentation Key: "APPINSIGHTS_INSTRUMENTATIONKEY"
+Profile Endpoint: "https://dc.applicationinsights.us/api/profiles/{0}/appId"
 Live Metrics Endpoint: "https://quickpulse.applicationinsights.us/QuickPulseService.svc"
 ```
 
@@ -291,16 +294,15 @@ Live Metrics Endpoint: "https://quickpulse.applicationinsights.us/QuickPulseServ
 
 ```javascript
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
-(
-	{
-	instrumentationKey:"INSTRUMENTATION_KEY",
-	endpointUrl: "https://dc.applicationinsights.us/v2/track"
-  }
-);
-window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-</script>
+   var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
+      function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
+   }({
+      instrumentationKey:"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+      endpointUrl: "https://dc.applicationinsights.us/v2/track"
+   });
 
+   window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+</script>
 ```
 
 ### Firewall exceptions

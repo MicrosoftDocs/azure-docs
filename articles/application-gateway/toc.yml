@@ -96,6 +96,7 @@
     - name: Azure CLI
       href: tutorial-manage-web-traffic-cli.md       
     - name: Template
+      displayName: ARM, Resource Manager, template
       href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
@@ -241,6 +242,8 @@
     href: /rest/api/applicationgateway
   - name: Azure Resource Manager
     href: ../azure-resource-manager/resource-group-overview.md
+  - name: Resource Manager template
+    href: https://docs.microsoft.com/azure/templates/microsoft.network/allversions
 - name: Resources
   items:
   - name: Author templates
