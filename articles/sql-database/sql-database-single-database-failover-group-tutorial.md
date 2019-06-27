@@ -78,7 +78,7 @@ Create your failover group and add your single database to it using the Azure po
     > [!NOTE]
     > The server login and firewall settings must match that of your primary server. 
     
-       ![Create a secondary server for the failover group](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
+      ![Create a secondary server for the failover group](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
    - **Databases within the group**: Once a secondary server is selected, this option becomes unlocked. Select it to **Select databases to add** and then choose the database you created in section 1. Adding the database to the failover group will automatically start the geo-replication process. 
         

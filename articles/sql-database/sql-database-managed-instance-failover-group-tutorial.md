@@ -24,7 +24,7 @@ Configure a failover group for an Azure SQL database managed instance. In this a
 > - Test failover
 
   > [!NOTE]
-  > Creating a managed instance can take a significant amount of time. As a result, this tutorial could take a few hours to complete. 
+  > Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. 
 
 ## Prerequisites
 
@@ -71,11 +71,11 @@ The following steps create a secondary managed instance as part of failover grou
    | **Field** | Value |
    | --- | --- |
    | **Subscription** |  The subscription where your primary managed instance resides. |
-   | **Managed instance name** | The name of your new secondary managed instance.  | 
-   | **Managed instance admin login** | The login you want to use for your new secondary managed instance. |
+   | **Managed instance name** | The name of your new secondary managed instance, such as `sql-mi-secondary`  | 
+   | **Managed instance admin login** | The login you want to use for your new secondary managed instance, such as `azureuser`. |
    | **Password** | A complex password that will be used by the admin login for the new secondary managed instance.  |
    | **Collation** | The collation for your secondary managed instance. *SQL_Latin1_General_CP1_CI_AS* is provided by default. |
-   | **Location**| The location where your resource group resides.  |
+   | **Location**| The location where your resource group resides. This must be a different region than where your primary managed instance is.  |
    | **Virtual network**| Create a new virtual network for the secondary managed instance, as the two managed instances need to be in different vNets. |
    | **Resource group**| The resource group where your primary managed instance resides. |
    | &nbsp; | &nbsp; |
@@ -83,7 +83,7 @@ The following steps create a secondary managed instance as part of failover grou
 1. Select the checkbox next to *I want to use this managed instance as an Instance Failover Group secondary*. 
 1. From the **DnsZonePartner managed instance** drop-down, select the managed instance you want to act as the primary.
 
-
+![Secondary MI values](media/sql-database-managed-instance-failover-group-tutorial/secondary-sql-mi-values.png)
 
 
 
