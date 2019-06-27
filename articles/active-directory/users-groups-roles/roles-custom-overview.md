@@ -47,7 +47,7 @@ The way you control access using Azure AD role-based access control is to create
 - Role definition
 - Scope
 
-Access is granted by creating a role assignment, and access is revoked by removing a role assignment. You can create role assignments using the [Azure portal](roles-assign-portal.md), [Azure PowerShell](roles-assign-powershell.mnd), and [Graph API](roles-assign-graph.md).
+Access is granted by creating a role assignment, and access is revoked by removing a role assignment. You can [create role assignments](roles-create-assignment.md) using the Azure portal, Azure AD PowerShell, and Graph API.
 
 The following diagram shows an example of a role assignment. In this example, Chris Green has been assigned the [Application administrator](directory-assign-admin-roles.md#application-administrator) role in the scope of the SalesForce application. Chris doesn't have access to manage any other application, unless they are part of a different role assignment.
 
@@ -77,8 +77,6 @@ A scope is the restriction of permitted actions to a particular Azure AD resourc
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
-## Next  steps
+## Next steps
 
-- Create role assignments using [the Azure portal](roles-assign-portal.md)
-- Create role assignments using [Azure PowerShell](roles-assign-powershell.mnd)
-- Create role assignments using [Graph API](roles-assign-graph.md)
+- Create role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](roles-create-assignments.md)
