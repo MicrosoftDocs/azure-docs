@@ -617,7 +617,7 @@ When writing Azure Functions in JavaScript, you should write code using the `asy
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
  - Unexpected behavior (ex: missing logs from context.log) caused by asynchronous calls that are not properly awaited.
 
-In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code will result in both issues mentioned above. An exception that is not explicitly caught in the correct scope will result in the entire process crashing (bug #1). Calling `context.done()` outside of the scope of the callback function will mean that the Azure Function's invocation may end before the file is read (bug #2). In this example, calling context.done too early will result in missing log entries starting with `Data from file:`.
+In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues mentioned above. An exception that is not explicitly caught in the correct scope crashed the entire process (issue #1). Calling `context.done()` outside of the scope of the callback function means that the function invocation may end before the file is read (issue #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
 
 ```javascript
 // NOT RECOMMENDED PATTERN
