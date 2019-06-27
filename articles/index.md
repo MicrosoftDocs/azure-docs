@@ -367,447 +367,6 @@ featureFlags:
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
-                                    <h3>Blockchain</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/blockchain/service/">
-                                                <img src="media/index/blockchain-service.svg" alt="" />
-                                                <p>Azure Blockchain Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/blockchain/workbench/">
-                                                <img src="media/index/blockchain-workbench.svg" alt="" />
-                                                <p>Azure Blockchain Workbench</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Compute</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/virtual-machines/linux/">
-                                                <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Linux Virtual Machines</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/windows/">
-                                                <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>Windows Virtual Machines</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/azure-functions/">
-                                                <img src="media/index/AzureFunctions.svg" alt="" />
-                                                <p>Functions</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch/">
-                                                <img src="media/index/Batch.svg" alt="" />
-                                                <p>Batch</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/container-instances/">
-                                                <img src="media/index/ContainerInstances.svg" alt="" />
-                                                <p>Azure Container Instances</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/service-fabric/">
-                                                <img src="media/index/Fabric.svg" alt="" />
-                                                <p>Service Fabric</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machine-scale-sets/">
-                                                <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Virtual Machine Scale Sets</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/aks/">
-                                                <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Kubernetes Service (AKS)</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cloud-services/">
-                                                <img src="media/index/CloudService.svg" alt="" />
-                                                <p>Cloud Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json">
-                                                <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>SQL Server on Virtual Machines</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/workloads/sap/hana-overview-architecture">
-                                                <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>SAP HANA on Azure Large Instances</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cyclecloud/">
-                                                <img src="media/index/logo_cyclecloud.svg" alt="" />
-                                                <p>CycleCloud</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/vmware-cloudsimple/">
-                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
-                                                <p>Azure VMware Solution by CloudSimple</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Databases</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/sql-database/">
-                                                <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>Azure SQL Database</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cosmos-db/">
-                                                <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Azure Cosmos DB</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-factory/">
-                                                <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Data Factory</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-explorer">
-                                                <img src="media/index/azure_data_explorer.svg" alt="" />
-                                                <p>Azure Data Explorer</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/azure-cache-for-redis/">
-                                                <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Azure Cache for Redis</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDatabase.svg" alt="" />
-                                                <p>SQL Server Stretch Database</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json">
-                                                <img src="media/index/VirtualMachine.svg" alt="" />
-                                                <p>SQL Server on Virtual Machines</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cosmos-db/table-storage-overview">
-                                                <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Table Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/postgresql/">
-                                                <img src="media/index/PostgreSQL.svg" alt="" />
-                                                <p>Azure Database for PostgreSQL</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/mysql/">
-                                                <img src="media/index/MySQL.svg" alt="" />
-                                                <p>Azure Database for MySQL</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/mariadb/">
-                                                <img src="media/index/MariaDB.svg" alt="" />
-                                                <p>Azure Database for MariaDB</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/dms/dms-overview">
-                                                <img src="media/index/database-migration.svg" alt="" />
-                                                <p>Azure Database Migration Service</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Containers</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/app-service/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/batch/">
-                                                <img src="media/index/Batch.svg" alt="" />
-                                                <p>Batch</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/container-registry/">
-                                                <img src="media/index/container-registry.svg" alt="" />
-                                                <p>Container Registry</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/container-instances/">
-                                                <img src="media/index/ContainerInstances.svg" alt="" />
-                                                <p>Container Instances</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/service-fabric/">
-                                                <img src="media/index/Fabric.svg" alt="" />
-                                                <p>Service Fabric</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/aks/">
-                                                <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Kubernetes Service (AKS)</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service/containers/">
-                                                <img src="media/index/AppService.svg" alt="" />
-                                                <p>Web App for Containers</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/dev-spaces/">
-                                                <img src="media/index/AzureDevSpaceController_50x.svg" alt=""/>
-                                                <p>Azure Dev Spaces</p>
-                                        </li>
-                                    </ul>
-                                    <h3>Integration</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/api-management/">
-                                                <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>API Management</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/service-bus/">
-                                                <img src="media/index/ServiceBus.svg" alt="" />
-                                                <p>Service Bus</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/logic-apps/">
-                                                <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/event-grid/">
-                                                <img src="media/index/azure_event_grid.svg" alt="" />
-                                                <p>Event Grid</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Media</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/media-services/">
-                                                <img src="media/index/Media-Services.svg" alt="" />
-                                                <p>Media Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/media-services/media-services-encode-asset">
-                                                <img src="media/index/Media-encoding.svg" alt="" />
-                                                <p>Encoding</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/media-services/media-services-manage-channels-overview">
-                                                <img src="media/index/media-ondemand.svg" alt="" />
-                                                <p>Live and On-Demand Streaming</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/media-services/media-services-playback-content-with-existing-players">
-                                                <img src="media/index/media-player.svg" alt="" />
-                                                <p>Azure Media Player</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/media-services/media-services-content-protection-overview">
-                                                <img src="media/index/media-protection.svg" alt="" />
-                                                <p>Content Protection</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/media-services/media-services-analytics-overview">
-                                                <img src="media/index/MediaServices.svg" alt="" />
-                                                <p>Media Analytics</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
-                                                <img src="media/index/API_VideoIndexer.svg" alt="" />
-                                                <p>Video Indexer</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Azure Stack</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure-stack">
-                                                <img src="media/index/azure-stack.svg" alt="" />
-                                                <p>Azure Stack</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/azure-stack/">
-                                                <img src="media/index/azure-stack.svg" alt="" />
-                                                <p>Azure Stack Operator</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/azure-stack/user">
-                                                <img src="media/index/azure-stack.svg" alt="" />
-                                                <p>Azure Stack User</p>
-                                            </a>
-                                        </li>                                        <li>
-                                            <a href="/azure-stack/asdk/">
-                                                <img src="media/index/azure-stack.svg" alt="" />
-                                                <p>Azure Stack Development Kit (ASDK)</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Sovereign Clouds</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/azure-government/">
-                                                <img src="media/index/azure-government.svg" alt="" />
-                                                <p>Azure US Government</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/germany/">
-                                                <img src="media/index/azure-germany.svg" alt="" />
-                                                <p>Azure Germany</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/china/">
-                                                <img src="media/index/azure-germany.svg" alt="" />
-                                                <p>Microsoft Azure China 21Vianet</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Networking</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/networking/networking-overview">
-                                                <img src="media/index/networking-overview.svg" alt="" />
-                                                <p>Networking Overview</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cdn/">
-                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>Content Delivery Network</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/expressroute/">
-                                                <img src="media/index/ExpressRoute.svg" alt="" />
-                                                <p>ExpressRoute</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/dns/">
-                                                <img src="media/index/DNS.svg" alt="" />
-                                                <p>Azure DNS</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-network/">
-                                                <img src="media/index/VirtualNetwork.svg" alt="" />
-                                                <p>Virtual Network</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/traffic-manager/">
-                                                <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Traffic Manager</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/load-balancer/">
-                                                <img src="media/index/LoadBalancer.svg" alt="" />
-                                                <p>Load Balancer</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/vpn-gateway/">
-                                                <img src="media/index/VPNGateway.svg" alt="" />
-                                                <p>VPN Gateway</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/application-gateway/">
-                                                <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>Application Gateway</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-network/ddos-protection-overview">
-                                                <img src="media/index/ddos.svg" alt="" />
-                                                <p>Azure DDoS protection</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/network-watcher/">
-                                                <img src="media/index/network-watcher.svg" alt="" />
-                                                <p>Network Watcher</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/firewall/">
-                                                <img src="media/index/azure_firewall.svg" alt="" />
-                                                <p>Azure Firewall</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/frontdoor/">
-                                                <img src="media/index/frontdoor.svg" alt="" />
-                                                <p>Azure Front Door Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/bastion/">
-                                                <img src="media/index/web_connect.svg" alt="" />
-                                                <p>Azure Bastion</p>
-                                            </a>
-                                        </li>
-                                    </ul>
                                     <h3>AI + Machine Learning</h3>
                                     <ul>
                                         <li>
@@ -1057,145 +616,6 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Migration</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/site-recovery/">
-                                                <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Site Recovery</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cost-management/">
-                                                <img src="media/index/cost-management.svg" alt="" />
-                                                <p>Cost Management</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/dms/dms-overview">
-                                                <img src="media/index/database-migration.svg" alt="" />
-                                                <p>Azure Database Migration Service</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/migrate/migrate-overview">
-                                                <img src="media/index/azure-migrate.svg" alt="" />
-                                                <p>Azure Migrate</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Mixed Reality</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/digital-twins/">
-                                                <img src="media/index/digital_twin.svg" alt="" />
-                                                <p>Azure Digital Twins</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/spatial-anchors/">
-                                                <img src="media/index/spatial_anchors.png" alt="" />
-                                                <p>Azure Spatial Anchors</p>
-                                            </a>
-                                        </li>
-                                         <li>
-                                            <a href="/azure/Kinect-dk/">
-                                                <img src="media/index/kinect-viewer.svg" alt="" />
-                                                <p>Azure Kinect DK</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="group">
-                                    <h3>Storage</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/storage/">
-                                                <img src="media/index/Storage.svg" alt="" />
-                                                <p>Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storsimple/">
-                                                <img src="media/index/StorSimple.svg" alt="" />
-                                                <p>StorSimple</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storage/blobs/data-lake-storage-introduction">
-                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Storage Gen2</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-lake-store/">
-                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Storage Gen1</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storage/blobs/storage-blobs-introduction">
-                                                <img src="media/index/logo_azure-blob-storage.svg" alt="" />
-                                                <p>Blob Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/windows/managed-disks-overview">
-                                                <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Disk Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/virtual-machines/windows/managed-disks-overview">
-                                                <img src="media/index/managed-disks.svg" alt="" />
-                                                <p>Managed Disks</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storage/queues/storage-queues-introduction">
-                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
-                                                <p>Queue Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storage/files/storage-files-introduction/">
-                                                <img src="media/index/logo_azure-storage-file.svg" alt="" />
-                                                <p>File Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/databox-family/">
-                                                <img src="media/index/Service-icon.png" alt="" />
-                                                <p>Data Box</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/avere-vfxt/">
-                                                <img src="media/index/avere.svg" alt="" />
-                                                <p>Avere vFXT</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
-                                                <img src="media/index/storage.svg" alt="" />
-                                                <p>Storage Explorer</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/storage/blobs/storage-blob-storage-tiers">
-                                                <img src="media/index/storage.svg" alt="" />
-                                                <p>Archive Storage</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/azure-netapp-files/">
-                                                <img src="media/index/NetAppStorage.svg" alt="" />
-                                                <p>Azure NetApp Files</p>
-                                            </a>
-                                        </li>
-                                    </ul>
                                     <h3>Analytics</h3>
                                     <ul>
                                         <li>
@@ -1300,48 +720,238 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>DevOps</h3>
+                                    <h3>Blockchain</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/devops/">
-                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Azure DevOps</p>
+                                            <a href="/azure/blockchain/service/">
+                                                <img src="media/index/blockchain-service.svg" alt="" />
+                                                <p>Azure Blockchain Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/application-insights/">
-                                                <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                <p>Application Insights</p>
+                                            <a href="/azure/blockchain/workbench/">
+                                                <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                <p>Azure Blockchain Workbench</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="group">
+                                    <h3>Compute</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/virtual-machines/linux/">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>Linux Virtual Machines</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/lab-services/">
-                                                <img src="media/index/DevTestLabs.svg" alt="" />
-                                                <p>Azure Lab Services</p>
+                                            <a href="/azure/virtual-machines/windows/">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>Windows Virtual Machines</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/appcenter/">
-                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
-                                                <p>Visual Studio App Center</p>
+                                            <a href="/azure/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>App Service</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/integrations">
-                                                <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
-                                                <p>Developer Tool Integrations</p>
+                                            <a href="/azure/azure-functions/">
+                                                <img src="media/index/AzureFunctions.svg" alt="" />
+                                                <p>Functions</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://support.hockeyapp.net/kb">
-                                                <img src="media/index/HockeyApp.svg" alt="" />
-                                                <p>HockeyApp</p>
+                                            <a href="/azure/batch/">
+                                                <img src="media/index/Batch.svg" alt="" />
+                                                <p>Batch</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devops-project">
-                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Azure DevOps Projects</p>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
+                                                <p>Service Fabric</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machine-scale-sets/">
+                                                <img src="media/index/AvailabilitySetOld.svg" alt="" />
+                                                <p>Virtual Machine Scale Sets</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/aks/">
+                                                <img src="media/index/containerservice.svg" alt="" />
+                                                <p>Azure Kubernetes Service (AKS)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cloud-services/">
+                                                <img src="media/index/CloudService.svg" alt="" />
+                                                <p>Cloud Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>SQL Server on Virtual Machines</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/workloads/sap/hana-overview-architecture">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>SAP HANA on Azure Large Instances</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cyclecloud/">
+                                                <img src="media/index/logo_cyclecloud.svg" alt="" />
+                                                <p>CycleCloud</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/vmware-cloudsimple/">
+                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                <p>Azure VMware Solution by CloudSimple</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Containers</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/app-service/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>App Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/batch/">
+                                                <img src="media/index/Batch.svg" alt="" />
+                                                <p>Batch</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-registry/">
+                                                <img src="media/index/container-registry.svg" alt="" />
+                                                <p>Container Registry</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Container Instances</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/service-fabric/">
+                                                <img src="media/index/Fabric.svg" alt="" />
+                                                <p>Service Fabric</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/aks/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <p>Azure Kubernetes Service (AKS)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service/containers/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>Web App for Containers</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/dev-spaces/">
+                                                <img src="media/index/AzureDevSpaceController_50x.svg" alt=""/>
+                                                <p>Azure Dev Spaces</p>
+                                        </li>
+                                    </ul>
+                                    <h3>Databases</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/sql-database/">
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
+                                                <p>Azure SQL Database</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Azure Cosmos DB</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sql-data-warehouse/">
+                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                <p>SQL Data Warehouse</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-factory/">
+                                                <img src="media/index/DataFactory.svg" alt="" />
+                                                <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-explorer">
+                                                <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                <p>Azure Data Explorer</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-cache-for-redis/">
+                                                <img src="media/index/RedisCache.svg" alt="" />
+                                                <p>Azure Cache for Redis</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sql-server-stretch-database/">
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
+                                                <p>SQL Server Stretch Database</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json">
+                                                <img src="media/index/VirtualMachine.svg" alt="" />
+                                                <p>SQL Server on Virtual Machines</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cosmos-db/table-storage-overview">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Table Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/postgresql/">
+                                                <img src="media/index/PostgreSQL.svg" alt="" />
+                                                <p>Azure Database for PostgreSQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/mysql/">
+                                                <img src="media/index/MySQL.svg" alt="" />
+                                                <p>Azure Database for MySQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/mariadb/">
+                                                <img src="media/index/MariaDB.svg" alt="" />
+                                                <p>Azure Database for MariaDB</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/dms/dms-overview">
+                                                <img src="media/index/database-migration.svg" alt="" />
+                                                <p>Azure Database Migration Service</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1396,6 +1006,121 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
+                                    <h3>DevOps</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/devops/">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Azure DevOps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/application-insights/">
+                                                <img src="media/index/ApplicationInsights.svg" alt="" />
+                                                <p>Application Insights</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/lab-services/">
+                                                <img src="media/index/DevTestLabs.svg" alt="" />
+                                                <p>Azure Lab Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/appcenter/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                <p>Visual Studio App Center</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/integrations">
+                                                <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
+                                                <p>Developer Tool Integrations</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://support.hockeyapp.net/kb">
+                                                <img src="media/index/HockeyApp.svg" alt="" />
+                                                <p>HockeyApp</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/devops-project">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Azure DevOps Projects</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Identity</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/active-directory/">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/multi-factor-authentication/">
+                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
+                                                <p>Multi-Factor Authentication</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/information-protection/">
+                                                <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
+                                                <p>Azure Information Protection</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/active-directory-domain-services">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory for Domain Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/active-directory-b2c">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory B2C</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Security Information</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Integration</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>API Management</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/service-bus/">
+                                                <img src="media/index/ServiceBus.svg" alt="" />
+                                                <p>Service Bus</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/logic-apps/">
+                                                <img src="media/index/LogicApp.svg" alt="" />
+                                                <p>Logic Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Event Grid</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="group">
                                     <h3>Internet of Things</h3>
                                     <ul>
                                         <li>
@@ -1519,219 +1244,7 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                                <div class="group">
-                                    <h3>Web</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/app-service-web/">
-                                                <img src="media/index/app-service-web.svg" alt="" />
-                                                <p>App Service - Web Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/api-management/">
-                                                <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>API Management</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cdn/">
-                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>Content Delivery Network</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Notification Hubs</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/search/">
-                                                <img src="media/index/Search.svg" alt="" />
-                                                <p>Azure Search</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service-api/">
-                                                <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/azure-signalr/">
-                                                <img src="media/index/azure-signalr.svg" alt="" />
-                                                <p>Azure SignalR Service</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Mobile</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/app-service-mobile/">
-                                                <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>App Service - Mobile Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>Notification Hubs</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/app-service-api/">
-                                                <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/appcenter/">
-                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
-                                                <p>Visual Studio App Center</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/azure-maps/">
-                                                <img src="media/index/azure-maps-icon-portal.svg" alt="" />
-                                                <p>Azure Maps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://azure.microsoft.com/features/xamarin">
-                                                <img src="media/index/logo_xamarin.svg" alt="" />
-                                                <p>Xamarin</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Security</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/security/">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Security Information</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/security-center">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Security Center</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/key-vault/">
-                                                <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Key Vault</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                        <li>
-                                            <a href="/azure/dedicated-hsm">
-                                                <img src="media/index/dedicated-hsm.svg" alt="" />
-                                                <p>Azure Dedicated HSM</p>
-                                            </a>
-                                        </li>
-                                            <a href="/azure/virtual-network/ddos-protection-overview">
-                                                <img src="media/index/ddos-protection.svg" alt="" />
-                                                <p>Azure DDoS protection</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/security/azure-threat-detection">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Azure Advanced Threat Protection</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/information-protection/">
-                                                <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
-                                                <p>Azure Information Protection</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/active-directory/">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/active-directory-domain-services">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory for Domain Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/application-gateway/">
-                                                <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>Application Gateway</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/vpn-gateway/">
-                                                <img src="media/index/VPNGateway.svg" alt="" />
-                                                <p>VPN Gateway</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/role-based-access-control/">
-                                                <img src="media/index/PersonWithFriend.svg" alt="" />
-                                                <p>Role-based access control</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/sentinel/">
-                                                <img src="media/index/sentinel.png" alt="" />
-                                                <p>Azure Sentinel</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/asc-for-iot/">
-                                                <img src="media/index/asc-for-iot.svg" alt="" />
-                                                <p>Azure Security Center for IoT</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Identity</h3>
-                                    <ul>
-                                        <li>
-                                            <a href="/azure/active-directory/">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/multi-factor-authentication/">
-                                                <img src="media/index/MultiFactorAuthentication.svg" alt="" />
-                                                <p>Multi-Factor Authentication</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/information-protection/">
-                                                <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
-                                                <p>Azure Information Protection</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/active-directory-domain-services">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory for Domain Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/active-directory-b2c">
-                                                <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory B2C</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/security/">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Security Information</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Management Tools</h3>
+                                    <h3>Management and Governance</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/backup/">
@@ -1869,6 +1382,493 @@ featureFlags:
                                             <a href="/azure/billing/">
                                                 <img src="media/index/billing.svg" alt="" />
                                                 <p>Billing</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Media</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/media-services/">
+                                                <img src="media/index/Media-Services.svg" alt="" />
+                                                <p>Media Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-encode-asset">
+                                                <img src="media/index/Media-encoding.svg" alt="" />
+                                                <p>Encoding</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-manage-channels-overview">
+                                                <img src="media/index/media-ondemand.svg" alt="" />
+                                                <p>Live and On-Demand Streaming</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-playback-content-with-existing-players">
+                                                <img src="media/index/media-player.svg" alt="" />
+                                                <p>Azure Media Player</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-content-protection-overview">
+                                                <img src="media/index/media-protection.svg" alt="" />
+                                                <p>Content Protection</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/media-services/media-services-analytics-overview">
+                                                <img src="media/index/MediaServices.svg" alt="" />
+                                                <p>Media Analytics</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
+                                                <img src="media/index/API_VideoIndexer.svg" alt="" />
+                                                <p>Video Indexer</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Microsoft Azure Stack</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure-stack">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-stack/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack Operator</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-stack/user">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack User</p>
+                                            </a>
+                                        </li>                                        <li>
+                                            <a href="/azure-stack/asdk/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack Development Kit (ASDK)</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Migration</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/site-recovery/">
+                                                <img src="media/index/SiteRecovery.svg" alt="" />
+                                                <p>Site Recovery</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cost-management/">
+                                                <img src="media/index/cost-management.svg" alt="" />
+                                                <p>Cost Management</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/dms/dms-overview">
+                                                <img src="media/index/database-migration.svg" alt="" />
+                                                <p>Azure Database Migration Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/migrate/migrate-overview">
+                                                <img src="media/index/azure-migrate.svg" alt="" />
+                                                <p>Azure Migrate</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Mixed Reality</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/digital-twins/">
+                                                <img src="media/index/digital_twin.svg" alt="" />
+                                                <p>Azure Digital Twins</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/spatial-anchors/">
+                                                <img src="media/index/spatial_anchors.png" alt="" />
+                                                <p>Azure Spatial Anchors</p>
+                                            </a>
+                                        </li>
+                                         <li>
+                                            <a href="/azure/Kinect-dk/">
+                                                <img src="media/index/kinect-viewer.svg" alt="" />
+                                                <p>Azure Kinect DK</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Mobile</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/app-service-mobile/">
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
+                                                <p>App Service - Mobile Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Notification Hubs</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service-api/">
+                                                <img src="media/index/app-service-api.svg" alt="" />
+                                                <p>API Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/appcenter/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                <p>Visual Studio App Center</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-maps/">
+                                                <img src="media/index/azure-maps-icon-portal.svg" alt="" />
+                                                <p>Azure Maps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://azure.microsoft.com/features/xamarin">
+                                                <img src="media/index/logo_xamarin.svg" alt="" />
+                                                <p>Xamarin</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Networking</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/networking/networking-overview">
+                                                <img src="media/index/networking-overview.svg" alt="" />
+                                                <p>Networking Overview</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cdn/">
+                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
+                                                <p>Content Delivery Network</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/expressroute/">
+                                                <img src="media/index/ExpressRoute.svg" alt="" />
+                                                <p>ExpressRoute</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/dns/">
+                                                <img src="media/index/DNS.svg" alt="" />
+                                                <p>Azure DNS</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-network/">
+                                                <img src="media/index/VirtualNetwork.svg" alt="" />
+                                                <p>Virtual Network</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/traffic-manager/">
+                                                <img src="media/index/TrafficManager.svg" alt="" />
+                                                <p>Traffic Manager</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/load-balancer/">
+                                                <img src="media/index/LoadBalancer.svg" alt="" />
+                                                <p>Load Balancer</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/vpn-gateway/">
+                                                <img src="media/index/VPNGateway.svg" alt="" />
+                                                <p>VPN Gateway</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/application-gateway/">
+                                                <img src="media/index/ApplicationGateway.svg" alt="" />
+                                                <p>Application Gateway</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                                <img src="media/index/ddos.svg" alt="" />
+                                                <p>Azure DDoS protection</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/network-watcher/">
+                                                <img src="media/index/network-watcher.svg" alt="" />
+                                                <p>Network Watcher</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/firewall/">
+                                                <img src="media/index/azure_firewall.svg" alt="" />
+                                                <p>Azure Firewall</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/frontdoor/">
+                                                <img src="media/index/frontdoor.svg" alt="" />
+                                                <p>Azure Front Door Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/bastion/">
+                                                <img src="media/index/web_connect.svg" alt="" />
+                                                <p>Azure Bastion</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="group">
+                                    <h3>Security</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Security Information</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/security-center">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Security Center</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/key-vault/">
+                                                <img src="media/index/KeyVault.svg" alt="" />
+                                                <p>Key Vault</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                        <li>
+                                            <a href="/azure/dedicated-hsm">
+                                                <img src="media/index/dedicated-hsm.svg" alt="" />
+                                                <p>Azure Dedicated HSM</p>
+                                            </a>
+                                        </li>
+                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                                <img src="media/index/ddos-protection.svg" alt="" />
+                                                <p>Azure DDoS protection</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/security/azure-threat-detection">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Azure Advanced Threat Protection</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/information-protection/">
+                                                <img src="https://docs.microsoft.com/media/common/i_information-protection.svg" alt="" />
+                                                <p>Azure Information Protection</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/active-directory/">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/active-directory-domain-services">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory for Domain Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/application-gateway/">
+                                                <img src="media/index/ApplicationGateway.svg" alt="" />
+                                                <p>Application Gateway</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/vpn-gateway/">
+                                                <img src="media/index/VPNGateway.svg" alt="" />
+                                                <p>VPN Gateway</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/role-based-access-control/">
+                                                <img src="media/index/PersonWithFriend.svg" alt="" />
+                                                <p>Role-based access control</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sentinel/">
+                                                <img src="media/index/sentinel.png" alt="" />
+                                                <p>Azure Sentinel</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/asc-for-iot/">
+                                                <img src="media/index/asc-for-iot.svg" alt="" />
+                                                <p>Azure Security Center for IoT</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Sovereign Clouds</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/azure-government/">
+                                                <img src="media/index/azure-government.svg" alt="" />
+                                                <p>Azure US Government</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/germany/">
+                                                <img src="media/index/azure-germany.svg" alt="" />
+                                                <p>Azure Germany</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/china/">
+                                                <img src="media/index/azure-germany.svg" alt="" />
+                                                <p>Microsoft Azure China 21Vianet</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Storage</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/storage/">
+                                                <img src="media/index/Storage.svg" alt="" />
+                                                <p>Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storsimple/">
+                                                <img src="media/index/StorSimple.svg" alt="" />
+                                                <p>StorSimple</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/blobs/data-lake-storage-introduction">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Storage Gen2</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-lake-store/">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Storage Gen1</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/blobs/storage-blobs-introduction">
+                                                <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                <p>Blob Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>Disk Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                                <img src="media/index/managed-disks.svg" alt="" />
+                                                <p>Managed Disks</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/queues/storage-queues-introduction">
+                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                <p>Queue Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/files/storage-files-introduction/">
+                                                <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                <p>File Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/databox-family/">
+                                                <img src="media/index/Service-icon.png" alt="" />
+                                                <p>Data Box</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/avere-vfxt/">
+                                                <img src="media/index/avere.svg" alt="" />
+                                                <p>Avere vFXT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
+                                                <img src="media/index/storage.svg" alt="" />
+                                                <p>Storage Explorer</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/blobs/storage-blob-storage-tiers">
+                                                <img src="media/index/storage.svg" alt="" />
+                                                <p>Archive Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-netapp-files/">
+                                                <img src="media/index/NetAppStorage.svg" alt="" />
+                                                <p>Azure NetApp Files</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Web</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/app-service-web/">
+                                                <img src="media/index/app-service-web.svg" alt="" />
+                                                <p>App Service - Web Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/api-management/">
+                                                <img src="media/index/APIManagement.svg" alt="" />
+                                                <p>API Management</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cdn/">
+                                                <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
+                                                <p>Content Delivery Network</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>Notification Hubs</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/search/">
+                                                <img src="media/index/Search.svg" alt="" />
+                                                <p>Azure Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service-api/">
+                                                <img src="media/index/app-service-api.svg" alt="" />
+                                                <p>API Apps</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-signalr/">
+                                                <img src="media/index/azure-signalr.svg" alt="" />
+                                                <p>Azure SignalR Service</p>
                                             </a>
                                         </li>
                                     </ul>
