@@ -13,7 +13,6 @@ ms.date: 01/24/2019
 > [!IMPORTANT]
 > Ubuntu images become available for new HDInsight cluster creation within three months of being published. As of January 2019, running clusters aren't auto-patched. Customers must use script actions or other mechanisms to patch a running cluster. Newly created clusters will always include the latest available updates, including the most recent security patches.
 
-## Modify the OS patching schedule
 Occasionally, you must restart virtual machines (VMs) in an HDInsight cluster to install important security patches.
 
 By using the script actions described in this article, you can modify the OS patching schedule by following these steps:
@@ -25,28 +24,28 @@ By using the script actions described in this article, you can modify the OS pat
 > The script actions described in this article will work only with Linux-based HDInsight clusters created after August 1, 2016. Patches are effective only after restarting VMs.
 > Script actions won't automatically apply updates for all future update cycles. Run the scripts each time new updates must be applied to install the updates, and then restart the VM.
 
-## How to use script actions
+## Add information to the script
 
 Using a script requires the following information:
 
-1. The install-updates-schedule-restarts script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/install-updates-schedule-restarts.sh.
+- The install-updates-schedule-restarts script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/install-updates-schedule-restarts.sh.
  	
    HDInsight uses the previous Uniform Resource Identifier (URI) to find and run the script on all the VMs in the cluster. This script provides options to install updates and restart the VM.
   
-2. The schedule-restarts script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/schedule-restarts.sh.
+- The schedule-restarts script location: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrestartconfigv02/schedule-restarts.sh.
  	
    HDInsight uses the previous URI to find and run the script on all the VMs in the cluster. This script restarts the VM.
   
-3. The cluster node types that the script is applied to are headnode, workernode, and zookeeper. Apply the script to all node types in the cluster. If the script isn't applied to a node type, then the VMs for that node type won't be updated or restarted.
+- The cluster node types that the script is applied to are headnode, workernode, and zookeeper. Apply the script to all node types in the cluster. If the script isn't applied to a node type, then the VMs for that node type won't be updated or restarted.
 
-4. The install-updates-schedule-restarts script accepts two numeric parameters:
+- The install-updates-schedule-restarts script accepts two numeric parameters:
 
     | Parameter | Definition |
     | --- | --- |
     | Install only kernel updates/Install all updates/Install only kernel + security updates |0,  1, or 2. A value of 0 installs only kernel updates, while 1 installs all updates, and 2 installs only kernel + security updates. If no parameter is provided, the default is 0. |
     | No restart/Enable schedule restart/Enable immediate restart |0, 1, or 2. A value of 0 disables restart, while 1 enables schedule restart and 2 enables immediate restart. If no parameter is provided, the default is 0. The user must change input parameter 1 to input parameter 2. |
    
- 5. The schedule-restarts script accepts one numeric parameter:
+ - The schedule-restarts script accepts one numeric parameter:
 
     | Parameter | Definition |
     | --- | --- |
