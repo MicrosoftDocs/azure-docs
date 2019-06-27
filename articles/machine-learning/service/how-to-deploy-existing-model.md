@@ -25,24 +25,25 @@ If you have a machine learning model that was trained outside the Azure Machine 
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](setup-create-workspace.md) article.
+* An Azure Machine Learning service workspace. For more information, see [Create a workspace](setup-create-workspace.md).
 
     > [!TIP]
     > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning service workspace.
     >
     > The CLI examples use a placeholder of `myworkspace` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
 
-* The Azure Machine Learning SDK. For more information, see the Python SDK section of the [Create a workspace](setup-create-workspace.md#sdk) article.
+* The Azure Machine Learning SDK. For more information, see the Python SDK section of [Create a workspace](setup-create-workspace.md#sdk).
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
+
 * A trained model. The model must be persisted to one or more files.
 
     > [!NOTE]
-    > The example code snippets in this article demonstrate how to register and deploy the four output files created from Paolo Ripamonti's Twitter sentiment analysis project at Kaggle: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
+    > To demonstrate registering a model trained outside Azure Machine Learning service, the example code snippets in this article use the models created by Paolo Ripamonti's Twitter sentiment analysis project: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
 ## Register the model(s)
 
-Registering a model allows you to store, version, and apply metadata to your trained models. In the following examples, the `models` directory contains the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files. This example uploads the files contained in the `models` directory as a new model registration named `sentiment`:
+Registering a model allows you to store, version, and apply metadata to your trained models. In the following Python and CLI examples, the `models` directory contains the `model.h5`, `model.w2v`, `encoder.pkl`, and `tokenizer.pkl` files. This example uploads the files contained in the `models` directory as a new model registration named `sentiment`:
 
 ```python
 from azureml.core.model import Model
@@ -54,7 +55,7 @@ model = Model.register(model_path = "./models",
                        workspace = ws)
 ```
 
-For more information, see the [Model.register()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--root-dir-none-) reference.
+For more information, see the [Model.register()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#register-workspace--model-path--model-name--tags-none--properties-none--description-none--datasets-none--model-framework-none--model-framework-version-none--child-paths-none-) reference.
 
 ```azurecli
 az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
@@ -99,6 +100,11 @@ The CLI loads the inference configuration from a YAML file:
 For more information on inference configuration, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
 
 ### Entry script
+
+The entry script has only two required functions, `init()` and `run(data)`. These functions are used to initialize the service at startup and run the model using request data passed in by a client. The rest of the script handles loading and running the model(s).
+
+> [!IMPORTANT]
+> There isn't a generic entry script that works for all models. It is always specific to the model that is used. It must understand how to load the model, the data format that the model expects, and how to score data using the model.
 
 The following Python code is an example entry script (`score.py`):
 
@@ -176,9 +182,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-The entry script has only two required functions, `init()` and `run(data)`. These functions are used to initialize the service at startup and run the model using request data passed in by a client. The rest of the script handles loading and running the model(s).
-
-For more information on the entry script, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
+For more information on entry scripts, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
 
 ### Conda environment
 
