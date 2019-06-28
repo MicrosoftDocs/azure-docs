@@ -18,7 +18,7 @@ This article shows you how to train and register a TensorFlow model using Azure 
 
 TensorFlow is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, Azure Machine Learning service can help you build production-ready models.
 
 ## Prerequisites
 
@@ -285,7 +285,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## Next steps
 
-In this article, you trained and registered a TensorFlow model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a TensorFlow model on Azure Machine Learning service. To learn how to deploy a model to a gpu-enabled cluster, continue on to our gpu model deployment article.
 
 > [!div class="nextstepaction"]
-> [How and where to deploy models](how-to-deploy-and-where.md)
+> [How to deploy a deep learning model for inference with GPU](how-to-deploy-inferencing-gpus.md)
