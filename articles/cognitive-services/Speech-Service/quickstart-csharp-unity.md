@@ -14,6 +14,8 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech with the Speech SDK for Unity (Beta)
 
+Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-csharp-unity.md).
+
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Use this guide to create a speech-to-text application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (Beta).

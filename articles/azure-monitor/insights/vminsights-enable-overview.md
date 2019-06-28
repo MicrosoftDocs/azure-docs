@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 06/28/2019
 ms.author: magoedte
 ---
 
@@ -81,7 +81,7 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
 |Ubuntu 14.04, 16.04, 18.04 | X | X | X |
 |CentOS Linux 6, 7 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 11, 12 | X | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available directly from the left pane of the Azure VM.
@@ -127,18 +127,14 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
-#### SUSE Linux 11 Enterprise Server
-
-| OS version | Kernel version
-|:--|:--|
-|11 SP4 | 3.0.* |
-
 #### SUSE Linux 12 Enterprise Server
 
 | OS version | Kernel version
 |:--|:--|
 |12 SP2 | 4.4.* |
 |12 SP3 | 4.4.* |
+|12 SP4 | 4.4.* |
+|12 SP4 | Azure-Tuned Kernel |
 
 ### The Microsoft Dependency agent
 
