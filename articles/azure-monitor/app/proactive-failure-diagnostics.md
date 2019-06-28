@@ -45,7 +45,7 @@ A new version of the Failure Anomalies alert rule is now available. This new ver
 - Faster detection of issues
 - A richer set of actions - The alert rule is created with an associated [Action Group](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
 - More focused notifications - Email notifications sent from this alert rule are now sent by default to users associated with the subscription's Monitoring Reader and Monitoring Contributor roles. More information on this is available [here](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
-- Easier configuration via ARM templates - See example [here](https://docs.microsoft.com/en-us/azure/azure-monitor/app/proactive-arm-config).
+- Easier configuration via ARM templates - See example [here](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
 - Common alert schema support - Notifications sent from this alert rule follow the [common alert schema](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
 - Unified email template - Email notifications from this alert rule have a consistent look & feel with other alert types. With this change, the option to get Failure Anomalies alerts with detailed diagnostics information is no longer available.
 
