@@ -146,8 +146,8 @@ ___
 | `AADB2C90125` | The application insights profile '{0}' has no value for the InstrumentationKey. |
 | `AADB2C90126` | The application insights profile '{0}' does not specify an input claim with a partner claim type of 'eventName'. |
 | `AADB2C90127` | The application insights profile '{0}' does not specify or has an empty DefaultValue for the 'eventName' claim. |
-| [AADB2C90128](error-handling.md#aadb2c900128) | The account associated with this grant no longer exists. Please reauthenticate and try again. |
-| [AADB2C90129](error-handling.md#aadb2c900129) | The provided grant has been revoked. Please reauthenticate and try again. |
+| [AADB2C90128](error-handling.md#aadb2c90128) | The account associated with this grant no longer exists. Please reauthenticate and try again. |
+| [AADB2C90129](error-handling.md#aadb2c90129) | The provided grant has been revoked. Please reauthenticate and try again. |
 | `AADB2C90130` | The key container in tenant '{0}' with storageReferenceId '{1}' does not exist. |
 | `AADB2C90131` | The key container in tenant '{0}' with storageReferenceId '{1}' does not has a key referenced by '{2}'. |
 | `AADB2C90132` | The key container in tenant '{0}' with storageReferenceId '{1}' has a key referenced by '{2}'. The key can't be revoked because there is no future key. |
@@ -243,7 +243,7 @@ ___
 | `AADB2C90222` | The language resource exceeds the maximum size allowed.  For more information see: https://go.microsoft.com/fwlink/?linkid=849075 |
 | `AADB2C90223` | An error has occurred sanitizing the CORS resource. |
 | `AADB2C90224` | Resource owner flow has not been enabled for the application. |
-| [AADB2C90225](error-handling.md#AADB2C900225) | The username or password provided in the request are invalid. |
+| [AADB2C90225](error-handling.md#aadb2c90225) | The username or password provided in the request are invalid. |
 | `AADB2C90226` | The specified token exchange is only supported over HTTP POST. |
 | `AADB2C90227` | The application '{0}' contains reply urls with fragments. Fragments are not allowed in reply urls. |
 | `AADB2C90228` | The RelyingParty section of TrustFramework Policy does not have required TechnicalProfiles. |
