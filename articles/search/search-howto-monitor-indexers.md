@@ -71,9 +71,9 @@ If there were document-specific problems during the run, they will be listed in 
 
 Warnings are common with some types of indexers, and do not always indicate a problem. For example indexers that use cognitive services can report warnings when image or PDF files don't contain any text to process.
 
-For more information about investigating indexer errors and warnings, see [Troubleshooting common indexer issues in Azure Search](search-indexer-troubleshooting..md).
+For more information about investigating indexer errors and warnings, see [Troubleshooting common indexer issues in Azure Search](search-indexer-troubleshooting.md).
 
-<a name="restApi"></a>
+<a name="restapi"></a>
 
 ## Monitor indexers using the REST API
 
@@ -120,7 +120,7 @@ When an indexer is reset to refresh its change tracking state, a separate execut
 
 For more details about status codes and indexer monitoring data, see [GetIndexerStatus](https://docs.microsoft.com/en-us/rest/api/searchservice/get-indexer-status).
 
-<a name="dotNetSdk"></a>
+<a name="dotnetsdk"></a>
 
 ## Monitor indexers using the .NET SDK
 
