@@ -1,6 +1,6 @@
 ---
-title: Custom Resource Proxy Reference
-description: Custom Resource Proxy reference for Azure Custom Resource Providers. This article will go through the requirements for endpoints implementing proxy custom resources.
+title: Custom resource proxy reference
+description: Custom resource proxy reference for Azure Custom Resource Providers. This article will go through the requirements for endpoints implementing proxy custom resources.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Custom Resource Proxy Reference
 
-This article will go through the requirements for endpoints implementing proxy custom resources. [Learn more about custom resources](./custom-providers-resources-endpoint-how-to.md).
+This article will go through the requirements for endpoints implementing proxy custom resources. If you are unfamiliar with Azure Custom Resource Providers, [see the overview on custom resource providers](./custom-providers-overview.md).
 
 ## How to define a proxy resource endpoint
 
@@ -320,4 +320,4 @@ Content-Type: application/json; charset=utf-8
 - [Overview on Azure Custom Resource Providers](./custom-providers-overview.md)
 - [Tutorial: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [Reference: Custom Resource Cache Reference](./custom-providers-proxycache-resource-endpoint-reference.md)
+- [Reference: Custom Resource Cache Reference](./custom-providers-proxy-cache-resource-endpoint-reference.md)

@@ -1,6 +1,6 @@
 ---
-title: Custom Resource Cache Reference
-description: Custom Resource Cache reference for Azure Custom Resource Providers. This article will go through the requirements for endpoints implementing cache custom resources.
+title: Custom resource cache reference
+description: Custom resource cache reference for Azure Custom Resource Providers. This article will go through the requirements for endpoints implementing cache custom resources.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Custom Resource Cache Reference
 
-This article will go through the requirements for endpoints implementing cache custom resources. [Learn more about custom resources](./custom-providers-resources-endpoint-how-to.md).
+This article will go through the requirements for endpoints implementing cache custom resources. If you are unfamiliar with Azure Custom Resource Providers, [see the overview on custom resource providers](./custom-providers-overview.md).
 
 ## How to define a cache resource endpoint
 

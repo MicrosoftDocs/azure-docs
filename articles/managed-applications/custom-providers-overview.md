@@ -37,7 +37,7 @@ Azure Custom Resource Providers are made by creating a contract between Azure an
 
 ## How to build custom resource providers
 
-Custom Resource Providers are a list of contracts between Azure and endpoints. This contract describes how Azure should interact with an endpoint. The resource provider acts like a proxy and will forward requests and responses to and from the specified **endpoint**. A resource provider can specify two types of contracts: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) and [**actions**](./custom-providers-action-endpoint-how-to.md). These are enabled through endpoint definitions. An endpoint definition is comprised of three fields: **name**, **routingType**, and **endpoint**.
+Custom resource providers are a list of contracts between Azure and endpoints. This contract describes how Azure should interact with an endpoint. The resource provider acts like a proxy and will forward requests and responses to and from the specified **endpoint**. A resource provider can specify two types of contracts: [**resourceTypes**](./custom-providers-resources-endpoint-how-to.md) and [**actions**](./custom-providers-action-endpoint-how-to.md). These are enabled through endpoint definitions. An endpoint definition is comprised of three fields: **name**, **routingType**, and **endpoint**.
 
 Sample Endpoint:
 
@@ -57,7 +57,7 @@ endpoint | *yes* | The endpoint to route the requests to. This will handle the r
 
 ### Building custom resources
 
-**ResourceTypes** describe new custom resources that are added to Azure. These expose basic RESTful CRUD methods. [Learn more about creating custom resources](./custom-providers-resources-endpoint-how-to.md)
+**ResourceTypes** describe new custom resources that are added to Azure. These expose basic RESTful CRUD methods. See [more about creating custom resources](./custom-providers-resources-endpoint-how-to.md)
 
 Sample Custom Resource Provider with **resourceTypes**:
 
@@ -87,7 +87,7 @@ GET | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>pro
 
 ### Building custom actions
 
-**Actions** describe new actions that are added to Azure. These can be exposed on top of the resource provider or nested under a **resourceType**. [Learn more about creating custom resources](./custom-providers-action-endpoint-how-to.md)
+**Actions** describe new actions that are added to Azure. These can be exposed on top of the resource provider or nested under a **resourceType**. See [more about creating custom actions](./custom-providers-action-endpoint-how-to.md)
 
 Sample Custom Resource Provider with **actions**:
 

@@ -29,15 +29,15 @@
     href: sample-projects.md
 - name: Concepts
   items:
-  - name: Custom Providers
+  - name: Azure Custom Resource Providers
     href: custom-providers-overview.md
 - name: How-to guides
   items:
-  - name: Custom Resource Providers
+  - name: Custom resource providers
     items:
-    - name: Adding custom actions to Azure
+    - name: Add custom actions to Azure
       href: custom-providers-action-endpoint-how-to.md
-    - name: Adding custom resources to Azure
+    - name: Add custom resources to Azure
       href: custom-providers-resources-endpoint-how-to.md
   - name: Publishers
     items:
@@ -59,11 +59,11 @@
       href: monitor-managed-application-portal.md
 - name: Reference
   items:
-  - name: Custom Resource Providers
+  - name: Custom resource providers
     items:
-    - name: Custom Resource Proxy Reference
+    - name: Custom resource proxy reference
       href: custom-providers-proxy-resource-endpoint-reference.md
-    - name: Custom Resource Cache Reference
+    - name: Custom resource cache reference
       href: custom-providers-proxycache-resource-endpoint-reference.md
   - name: Azure CLI
     href: /cli/azure/managedapp

@@ -1,5 +1,5 @@
 ---
-title: Adding Custom Actions to Azure REST API
+title: Adding custom actions to Azure REST API
 description: Learn how to add custom actions to the Azure REST API. This article will walk through the requirements and best practices for endpoints that wish to implement custom actions.
 services: managed-applications
 ms.service: managed-applications
@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Adding Custom Actions to Azure REST API
 
-This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implement custom actions. [Learn more about Azure Custom Resource Providers](./custom-providers-overview.md).
+This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implement custom actions. If you are unfamiliar with Azure Custom Resource Providers, [see the overview on custom resource providers](./custom-providers-overview.md).
 
 ## How to define an Action Endpoint
 
