@@ -15,6 +15,8 @@
     href: terminology.md
 - name: How-to guides
   items:
+  - name: Configure a Dataset Mapping
+    href: how-to-configure-mapping.md
   - name: Troubleshoot Azure Data Share Preview
     href: data-share-troubleshooting.md
 - name: Resources
