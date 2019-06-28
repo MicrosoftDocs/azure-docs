@@ -62,9 +62,9 @@
   - name: Frequently asked questions
     items:
     - name: FAQs
-    href: faq.md
+      href: faq.md
     - name: Enable enterprise state FAQs
-    href: enterprise-state-roaming-faqs.md
+      href: enterprise-state-roaming-faqs.md
 - name: Reference
   items:
   - name: Enterprise state roaming GPO settings
