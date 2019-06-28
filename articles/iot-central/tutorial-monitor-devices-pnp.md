@@ -48,7 +48,7 @@ As an operator, you can view information about the device on the **Measurements*
 
 Choose the **Dashboard** view to see information about the device.
 
-![Device dashboard](media/tutorial-monitor-devices-pnp/initial_screen.png)
+![Device dashboard](media/tutorial-monitor-devices-pnp/initial-screen.png)
 
 The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Device properties** tile. You decide that the target temperature is too high.
 
@@ -58,11 +58,11 @@ To change the target temperature of the device, use the **Settings** page:
 
 1. Choose **Settings**. Change **Set Temperature** to 75. Choose **Update** to send the new target temperature to the device. When the device confirms the settings change, the status of the setting changes to **synced**:
 
-    ![Update settings](media/tutorial-monitor-devices-pnp/change_settings.png)
+    ![Update settings](media/tutorial-monitor-devices-pnp/change-settings.png)
 
 2. Choose **Dashboard** and verify the new setting value:
 
-    ![Updated device dashboard](media/tutorial-monitor-devices-pnp/new_settings.png)
+    ![Updated device dashboard](media/tutorial-monitor-devices-pnp/new-settings.png)
 
 ## Next steps
 

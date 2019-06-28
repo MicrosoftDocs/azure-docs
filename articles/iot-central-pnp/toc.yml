@@ -1,5 +1,5 @@
-- name: Azure IoT Central Documentation (Plug and Play)
-  href: ../iot-central/index-pnp.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+- name: Azure IoT Central documentation (Plug and Play)
+  href: ../iot-central/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - name: Overview
   items:
   - name: What is Azure IoT Central
