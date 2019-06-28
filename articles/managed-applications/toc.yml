@@ -31,6 +31,8 @@
   items:
   - name: Azure custom resource providers
     href: custom-providers-overview.md
+  - name: View definition artifact
+    href: concepts-view-definition.md
 - name: How-to guides
   items:
   - name: Custom resource providers
