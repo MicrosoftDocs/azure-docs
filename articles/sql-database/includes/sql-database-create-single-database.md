@@ -52,7 +52,7 @@ Create your resource group and single database using the Azure portal.
 
    - Select **Provisioned** and **Gen4**.
 
-     ![serverless compute tier](../media/sql-database-get-started-portal/create-database-provisioned.png)
+     ![Provisioned Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
    - Review the settings for **Max vCores**, **Min vCores**, **Auto-pause delay**, and **Data max size**. Change these as desired.
    - Accept the preview terms and click **OK**.

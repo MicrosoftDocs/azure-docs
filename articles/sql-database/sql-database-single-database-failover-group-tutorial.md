@@ -298,7 +298,8 @@ Delete the resource group using the Azure portal.
 
 
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com).
-1. Select to **Delete resource group**. 
+1. Select  **Delete resource group** to delete all the resources in the group, as well as the resource group itself. 
+1. Type the name of the resource group, `myResourceGroup`, in the textbox, and then select **Delete** to delete the resource group.  
 
 # [PowerShell](#tab/powershell)
 Delete the resource group using PowerShell. 
@@ -322,7 +323,7 @@ Delete the resource group by using AZ CLI.
    
    # Remove the resource group
    az group delete \
-      --name $ResourceGroupName \
+      --name $ResourceGroupName \ 
    ```
 
 ---
@@ -343,7 +344,9 @@ $DatabaseName = "mySampleDatabase"
 $drLocation = "eastus2"
 $drServerName = "mysqlsecondary" # to randomize: "mysqlsecondary-$(Get-Random)"
 $FailoverGroupName = "failovergrouptutorial" # to randomize: "failovergrouptutorial-$(Get-Random)"
-# The ip address range that you want to allow to access your server (leaving at 0.0.0.0 will prevent outside-of-azure connections)
+
+# The ip address range that you want to allow to access your server 
+# Leaving at 0.0.0.0 will prevent outside-of-azure connections
 $startIp = "0.0.0.0"
 $endIp = "0.0.0.0"
 
@@ -359,7 +362,8 @@ $resourceGroup = New-AzResourceGroup -Name $ResourceGroupName -Location $Locatio
 $server = New-AzSqlServer -ResourceGroupName $ResourceGroupName `
    -ServerName $ServerName `
    -Location $Location `
-   -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $AdminLogin, $(ConvertTo-SecureString ring $Password -AsPlainText -Force))
+   -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+   -ArgumentList $AdminLogin, $(ConvertTo-SecureString ring $Password -AsPlainText -Force))
 
 # Create a server firewall rule that allows access from the specified IP range
 $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
@@ -375,6 +379,7 @@ $database = New-AzSqlDatabase  -ResourceGroupName $ResourceGroupName `
    -ComputeGeneration Gen4  `
    -MinimumCapacity 1 `
    -SampleName "AdventureWorksLT" `
+
 # Create a secondary server in the failover region
 New-AzSqlServer -ResourceGroupName $ResourceGroupName `
    -ServerName $drServerName `
@@ -400,21 +405,25 @@ Add-AzSqlDatabaseToFailoverGroup `
    -ResourceGroupName $ResourceGroupName `
    -ServerName $ServerName `
    -FailoverGroupName $FailoverGroupName
+
 # Check role of secondary replica
 (Get-AzSqlDatabaseFailoverGroup `
    -FailoverGroupName $FailoverGroupName `
    -ResourceGroupName $ResourceGroupName `
    -ServerName $drServerName).ReplicationRole
+
 # Failover to secondary server
 Switch-AzSqlDatabaseFailoverGroup `
    -ResourceGroupName $ResourceGroupName `
    -ServerName $drServerName `
    -FailoverGroupName $FailoverGroupName
+
 # Revert failover to primary server
 Switch-AzSqlDatabaseFailoverGroup `
    -ResourceGroupName $ResourceGroupName `
    -ServerName $ServerName `
    -FailoverGroupName $FailoverGroupName
+
 # Clean up resources by removing the resource group
 # Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
 ```
@@ -434,9 +443,12 @@ export DatabaseName=mySampleDatabase
 export drLocation=EastUS2
 export drServerName="mysqlsecondary" # to randomize: mysqlsecondary-$RANDOM
 export FailoverGroupName="failovergrouptutorial" # to randomize: failovergrouptutorial-$RANDOM
-# The ip address range that you want to allow to access your DB. Leaving at 0.0.0.0 will prevent outside-of-azure connections
+
+# The ip address range that you want to allow access to your DB. 
+# Leaving at 0.0.0.0 will prevent outside-of-azure connections
 export startip=0.0.0.0
 export endip=0.0.0.0
+
 # Connect to Azure
 az login
 $ Set subscription ID
@@ -472,7 +484,8 @@ az sql db create \
    --edition GeneralPurpose \
    --family Gen4 \
    --capacity 1 \
-# Create a secondary server in the DR region
+
+# Create a secondary server in the failover region
 az sql server create \
    --name $drServerName \
    --resource-group $ResourceGroupName \

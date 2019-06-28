@@ -32,7 +32,7 @@ To complete this tutorial, make sure you have:
 
 ## 1 - Create a single database 
 
-[!INCLUDE [sql-database-create-single-database](../../includes/sql-database-create-single-database.md)]
+[!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## 2 - Add single database to elastic pool
 
@@ -116,7 +116,8 @@ In this step, you will fail your failover group over to the secondary server, an
 Clean up resources by deleting the resource group. 
 
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com).
-1. Select to **Delete resource group**. 
+1. Select  **Delete resource group** to delete all the resources in the group, as well as the resource group itself. 
+1. Type the name of the resource group, `myResourceGroup`, in the textbox, and then select **Delete** to delete the resource group.  
 
 
 ## Next steps

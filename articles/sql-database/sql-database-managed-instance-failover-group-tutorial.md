@@ -61,10 +61,10 @@ In this step, you will create the resource group and the primary managed instanc
    | **Resource group**| The resource group where your primary managed instance resides. |
    | &nbsp; | &nbsp; |
 
-   [Create primary MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
+   ![Create primary MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
 
 ## Create a secondary managed instance
-The following steps create a secondary managed instance as part of failover group using the Azure portal. 
+In this step, you will create a secondary managed instance in the Azure portal, which will also configure the networking between the two managed instances. 
 
 1. In the [Azure portal](http://portal.azure.com), select **Create a resource** and search for *Azure SQL Managed Instance*. 
 1. Select the **Azure SQL Managed Instance** option published by Microsoft, and then select **Create** on the next blade.
@@ -87,7 +87,7 @@ The following steps create a secondary managed instance as part of failover grou
 1. Select the checkbox next to *I want to use this managed instance as an Instance Failover Group secondary*. 
 1. From the **DnsZonePartner managed instance** drop-down, select the managed instance you want to act as the primary.
 
-![Secondary MI values](media/sql-database-managed-instance-failover-group-tutorial/secondary-sql-mi-values.png)
+   ![Secondary MI values](media/sql-database-managed-instance-failover-group-tutorial/secondary-sql-mi-values.png)
 
 ## Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
@@ -125,10 +125,10 @@ In this step, you will fail your failover group over to the secondary server, an
 Clean up resources by first deleting the managed instance, then the virtual cluster, then any remaining resources, and finally the resource group. 
 
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com). 
-1. Select the managed instance and then select **Delete**. This process may take some time to complete in the background, and until it's done, you will not be able to delete the *Virtual cluster* or any other dependent resources. Monitor the delete in the Activity tab to confirm your managed instance has been deleted. 
-1. Once the managed instance is deleted, delete the *Virtual cluster* by selecting it in your resource group, and then choosing **Delete**. 
-1. Delete any remaining resources. 
-1. Delete the resource group. 
+1. Select the managed instance and then select **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. This process may take some time to complete in the background, and until it's done, you will not be able to delete the *Virtual cluster* or any other dependent resources. Monitor the delete in the Activity tab to confirm your managed instance has been deleted. 
+1. Once the managed instance is deleted, delete the *Virtual cluster* by selecting it in your resource group, and then choosing **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
+1. Delete any remaining resources. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
+1. Delete the resource group by selecting **Delete resource group**, typing in the name of the resource group, `myResourceGroup`, and then selecting **Delete**. 
 
 ## Next steps
 

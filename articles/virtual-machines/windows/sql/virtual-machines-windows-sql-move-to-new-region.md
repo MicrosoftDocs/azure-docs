@@ -70,6 +70,9 @@ The following steps show you how to use Azure Site Recovery to copy data to the 
 1. (Optionally) Select the star next to **Recovery Services vaults** to add it to your quick navigation bar. 
 1. Select **Recovery services vaults** and then select the Recovery Services vault you created. 
 1. On the **Overview** pane, select **Replicate**. 
+
+  ![Configure replication](media/virtual-machines-windows-sql-move-to-new-region/configure-replication.png)
+
 1. Select **Source** and then select **Azure** as the source. Select the appropriate values for the other drop-down fields, such as the location for your source VMs. Only resources groups located in the **Source location** region will be visible in the **Source resource group** field. 
 1. Select **Virtual machines** and then choose the virtual machines you want to migrate. Select **OK** to save your VM selection. 
 1. Select **Settings**, and then choose your **Target location** from the drop-down. You can leave the rest of the fields default, or you can customize other settings here too, such as a different subscription, or a specific resource group. By default, a new resource group is created in the target region with `-asr` appended to your existing resource group name. 
