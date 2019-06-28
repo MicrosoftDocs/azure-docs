@@ -51,7 +51,7 @@
     href: enterprise-state-roaming-enable.md
   - name: Deploy Azure-managed workstations
     href: howto-azure-managed-workstation.md
-  - name: Troubleshooting device Identities
+  - name: Troubleshoot device identities
     items: 
     - name: Troubleshoot hybrid Azure AD joined Windows current devices
       href: troubleshoot-hybrid-join-windows-current.md
