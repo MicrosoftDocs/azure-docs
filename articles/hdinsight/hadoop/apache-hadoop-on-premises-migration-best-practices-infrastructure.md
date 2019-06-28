@@ -1,7 +1,6 @@
 ---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - infrastructure best practices
 description: Learn infrastructure best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonwhowell 
 ms.service: hdinsight
@@ -32,7 +31,7 @@ See [Default node configuration and virtual machine sizes for clusters](../hdins
 
 ## Check Hadoop components availability in HDInsight
 
-Each HDInsight version is a cloud distribution of a version of Hortonworks Data Platform (HDP) and consists of a set of Hadoop eco-system components. See [HDInsight Component Versioning](../hdinsight-component-versioning.md) for details on all HDInsight components and their current versions.
+Each HDInsight version is a cloud distribution of a set of Hadoop eco-system components. See [HDInsight Component Versioning](../hdinsight-component-versioning.md) for details on all HDInsight components and their current versions.
 
 You can also use Apache Ambari UI or Ambari REST API to check the Hadoop components and versions in HDInsight.
 

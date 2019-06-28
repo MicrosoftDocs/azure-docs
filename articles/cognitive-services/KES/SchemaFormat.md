@@ -39,14 +39,14 @@ Below is a list of supported attribute data types:
 
 | Type | Description | Operations | Example |
 |------|-------------|------------|---------|
-| String | String (1-1024 characters) | equals, starts_with | "hello world" |
-| Int32 | Signed 32-bit integer | equals, starts_with, is_between | 2016 |
-| Int64 | Signed 64-bit integer | equals, starts_with, is_between | 9876543210 |
-| Double | Double-precision floating-point value | equals, starts_with, is_between | 1.602e-19 |
-| Date | Date (1400-01-01 to 9999-12-31) | equals, is_between | '2016-03-14' |
-| Guid | Globally unique identifier | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blob | Internally compressed non-indexed data | *None* | "Empower every person and every organization on the planet to achieve more" |
-| Composite | Composition of multiple sub-attributes| *N/A* | { "Name":"harry shum", "Affiliation":"microsoft" } |
+| `String` | String (1-1024 characters) | equals, starts_with | "hello world" |
+| `Int32` | Signed 32-bit integer | equals, starts_with, is_between | 2016 |
+| `Int64` | Signed 64-bit integer | equals, starts_with, is_between | 9876543210 |
+| `Double` | Double-precision floating-point value | equals, starts_with, is_between | 1.602e-19 |
+| `Date` | Date (1400-01-01 to 9999-12-31) | equals, is_between | '2016-03-14' |
+| `Guid` | Globally unique identifier | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | Internally compressed non-indexed data | *None* | "Empower every person and every organization on the planet to achieve more" |
+| `Composite` | Composition of multiple sub-attributes| *N/A* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 String attributes are used to represent string values that may appear as part of the user query.  They support the exact-match *equals* operation, as well as the *starts_with* operation for query completion scenarios, such as matching "micros" with "microsoft".  Case-insensitive and fuzzy matching to handle spelling errors will be supported in a future release.
 

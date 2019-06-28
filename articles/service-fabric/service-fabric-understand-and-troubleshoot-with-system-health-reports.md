@@ -25,7 +25,7 @@ Azure Service Fabric components provide system health reports on all entities in
 > 
 > 
 
-System health reports provide visibility into cluster and application functionality, and flag problems. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports don't provide any health monitoring of the business logic of the service or detection of hung processes. User services can enrich the health data with information specific to their logic.
+System health reports provide visibility into cluster and application functionality, and flag problems. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports don't provide any health monitoring of the business logic of the service or detection of processes that are not responding. User services can enrich the health data with information specific to their logic.
 
 > [!NOTE]
 > Health reports sent by user watchdogs are visible only *after* the system components create an entity. When an entity is deleted, the health store automatically deletes all the health reports associated with it. The same is true when a new instance of the entity is created. An example is when a new stateful persisted service replica instance is created. All reports associated with the old instance are deleted and cleaned up from the store.
@@ -67,6 +67,29 @@ When one of the previous conditions happens, **System.FM** or **System.FMM** fla
 * **SourceID**: System.FM or System.FMM
 * **Property**: Rebuild.
 * **Next steps**: Investigate the network connection between the nodes, as well as the state of any specific nodes that are listed on the description of the health report.
+
+### Seed Node Status
+**System.FM** reports a cluster level warning if some seed nodes are unhealthy. Seed nodes are the nodes which maintain the availability of the underlying cluster. These nodes help to ensure the cluster remains up by establishing leases with other nodes and serving as tiebreakers during certain kinds of network failures. If a majority of the seed nodes are down in the cluster and they are not brought back, the cluster automatically shuts down. 
+
+A seed node is unhealthy if its node status is Down, Removed or Unknown.
+The warning report for seed node status will list all the unhealthy seed nodes with detailed information.
+
+* **SourceID**: System.FM
+* **Property**: SeedNodeStatus
+* **Next steps**: If this warning shows in the cluster, follow below instructions to fix it:
+For cluster running Service Fabric version 6.5 or higher:
+For Service Fabric cluster on Azure, after the seed node goes down, Service Fabric will try to change it to a non-seed node automatically. To make this happen, make sure the number of non-seed nodes in the primary node type is greater or equal to the number of Down seed nodes. If necessary, add more nodes to the primary node type to achieve this.
+Depending on the cluster status, it may take some time to fix the issue. Once this is done, the warning report is automatically cleared.
+
+For Service Fabric standalone cluster, to clear the warning report, all the seed nodes need to become healthy. Depending on why seed nodes are unhealthy, different actions need to be taken: if the seed node is Down, users need to bring that seed node up; if the seed node is Removed or Unknown, this seed node [needs to be removed from the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
+The warning report is automatically cleared when all seed nodes become healthy.
+
+For cluster running Service Fabric version older than 6.5:
+In this case, the warning report needs to be cleared manually. **Users should make sure all the seed nodes become healthy before clearing the report**: if the seed node is Down, users need to bring that seed node up;if the seed node is Removed or Unknown, that seed node needs to be removed from the cluster.
+After all the seed nodes become healthy, use following command from Powershell to [clear the warning report](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+
+```powershell
+PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
 
 ## Node system health reports
 System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed. For more information, see [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).
@@ -628,7 +651,7 @@ The property and text indicate which API got stuck. The next steps to take for d
 
 - **IStatefulServiceReplica.Close** and **IStatefulServiceReplica.Abort**: The most common case is a service not honoring the cancellation token passed in to `RunAsync`. It might also be that `ICommunicationListener.CloseAsync`, or if overridden, `OnCloseAsync` is stuck.
 
-- **IStatefulServiceReplica.ChangeRole(S)** and **IStatefulServiceReplica.ChangeRole(N)**: The most common case is a service not honoring the cancellation token passed in to `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole(S)** and **IStatefulServiceReplica.ChangeRole(N)**: The most common case is a service not honoring the cancellation token passed in to `RunAsync`. In this scenario, the best solution is to restart the replica.
 
 - **IStatefulServiceReplica.ChangeRole(P)**: The most common case is that the service has not returned a task from `RunAsync`.
 
@@ -636,7 +659,7 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 
 - **IReplicator.CatchupReplicaSet**: This warning indicates one of two things. There are insufficient up replicas. To see if this is the case, look at the replica status of the replicas in the partition or the System.FM health report for a stuck reconfiguration. Or the replicas are not acknowledging operations. The PowerShell cmdlet `Get-ServiceFabricDeployedReplicaDetail` can be used to determine the progress of all the replicas. The problem lies with replicas whose `LastAppliedReplicationSequenceNumber` value is behind the primary's `CommittedSequenceNumber` value.
 
-- **IReplicator.BuildReplica(<Remote ReplicaId>)**: This warning indicates a problem in the build process. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). It might be due to a misconfiguration of the replicator address. For more information, see [Configure stateful Reliable Services](service-fabric-reliable-services-configuration.md) and [Specify resources in a service manifest](service-fabric-service-manifest-resources.md). It might also be a problem on the remote node.
+- **IReplicator.BuildReplica(\<Remote ReplicaId>)**: This warning indicates a problem in the build process. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). It might be due to a misconfiguration of the replicator address. For more information, see [Configure stateful Reliable Services](service-fabric-reliable-services-configuration.md) and [Specify resources in a service manifest](service-fabric-service-manifest-resources.md). It might also be a problem on the remote node.
 
 ### Replicator system health reports
 **Replication queue full:**

@@ -101,6 +101,8 @@ In the virtual machine, build a C SDK tool that you can use to retrieve the devi
    make
    sudo ./tpm_device_provision
    ```
+   >[!TIP]
+   >If you are testing with TPM simulator, you'll need to put an extra parameter `-Duse_tpm_simulator:BOOL=ON` to enable it. The full command will be `cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..`.
 
 5. Copy the values for **Registration ID** and **Endorsement Key**. You use these values to create an individual enrollment for your device in DPS. 
 

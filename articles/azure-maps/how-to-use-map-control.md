@@ -1,8 +1,8 @@
 ---
-title: How to use the Azure Maps Map Control | Microsoft Docs 
+title: Getting started with web map control in Azure Maps | Microsoft Docs 
 description: Learn how to use the Azure Maps Map Control client-side Javascript library.
-author: dsk-2015
-ms.author: dkshir
+author: walsehgal
+ms.author: v-musehg
 ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
@@ -63,7 +63,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </body>
     ```
 
-5. To initialize the map control, define a new section in the html body and create a script. Use your own Azure Maps account key or Azure Active Directory (AAD) credentials to authenticate the map using [authentication options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). If you need to create an account or find your key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md). The **language** option specifies the language to be used for map labels and controls. For more information on supported languages, see [supported languages](supported-languages.md). If using a subscription key for authentication.
+5. To initialize the map control, define a new section in the html body and create a script. Pass in the `id` of the map `<div>` or an `HTMLElement` (for example, `document.getElementById('myMap')`) as the first parameter when creating an instance of the `Map` class. Use your own Azure Maps account key or Azure Active Directory (AAD) credentials to authenticate the map using [authentication options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). If you need to create an account or find your key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md). The **language** option specifies the language to be used for map labels and controls. For more information on supported languages, see [supported languages](supported-languages.md). If using a subscription key for authentication.
 
     ```HTML
     <script type="text/javascript">
@@ -161,9 +161,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 
 8. Open the file in your web browser and view the rendered map. It should look like the following code:
 
-    <iframe height="700" style="width: 100%;" scrolling="no" title="How to use the map control" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-      See the Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>How to use the map control</a> by Azure Maps
-      (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+    <iframe height="700" style="width: 100%;" scrolling="no" title="How to use the map control" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>How to use the map control</a> by Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
 ## Next steps

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/21/2019
+ms.date: 05/21/2019
 
 ---
 
 # Create an Azure Machine Learning service workspace
 
-To use Azure Machine Learning service, you need an [**Azure Machine Learning service workspace**](concept-azure-machine-learning-architecture.md#workspace).  This workspace is the top-level resource for the service and provides you with a centralized place to work with all the artifacts you create. 
+To use Azure Machine Learning service, you need an [**Azure Machine Learning service workspace**](concept-workspace.md).  This workspace is the top-level resource for the service and provides you with a centralized place to work with all the artifacts you create. 
 
 In this article, you learn how to create a workspace using any of these methods: 
 * The [Azure portal](#portal) interface
@@ -23,11 +23,13 @@ In this article, you learn how to create a workspace using any of these methods:
 * An Azure Resource Manager template
 * The [Azure Machine Learning CLI](#cli)
 
-The workspace you create using the steps here-in can be used as a prerequisite to other tutorials and how-to articles. 
+The workspace you create using the steps here-in can be used as a prerequisite to other tutorials and how-to articles.
+
+If you would like to use a script to setup automated machine learning in a local Python environment please refer to the [Azure/MachineLearningNotebooks GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for instructions.  
 
 When you create a workspace the following Azure resources are added automatically (if they're regionally available):
  
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): To minimize costs, ACR is **lazy-loaded** until deployment images are created.
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
@@ -67,7 +69,7 @@ The instructions in this article will install all the packages you need to run t
 
 ### Create an isolated Python environment
 
-1. Open a command-line window, then create a new conda environment named *myenv* and install Python 3.6.5. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.  It will take several minutes to create the environment while components and packages are downloaded.
+1. Open Anaconda Prompt , then create a new conda environment named *myenv* and install Python 3.6.5. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.  It will take several minutes to create the environment while components and packages are downloaded. 
 
     ```shell
     conda create -n myenv python=3.6.5
@@ -156,13 +158,13 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
 
 ### Write a configuration file
 
-Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config/config.json*.  
+Save the details of your workspace in a configuration file to the current directory. This file is called *.azureml/config.json*.  
 
 This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory using the code `ws=Workspace.from_config()` . 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-This `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following:
+This `write_config()` API call creates the configuration file in the current directory. The *.azureml/config.json* file contains the following:
 
 ```json
 {
@@ -173,13 +175,14 @@ This `write_config()` API call creates the configuration file in the current dir
 ```
 
 > [!TIP]
-> To use your workspace in Python scripts or Jupyter Notebooks located in other directories, copy this file to that directory. The file can be in the same directory, a subdirectory named *aml_config*, or in a parent directory.
+> To use your workspace in Python scripts or Jupyter Notebooks located in other directories, copy this file to that directory. The file can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
 ## Resource manager template
 
 To create a workspace with a template, see [Create an Azure Machine Learning service workspace by using a template](how-to-create-workspace-template.md)
 
-## CLI
+<a name="cli"></a>
+## Command-line interface
 
 To create a workspace with the CLI, see [Use the CLI extension for Azure Machine Learning service](reference-azure-machine-learning-cli.md).
 

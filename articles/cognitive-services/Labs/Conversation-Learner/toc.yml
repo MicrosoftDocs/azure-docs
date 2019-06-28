@@ -34,6 +34,8 @@
     href: tutorials/08-pre-trained-entities.md
   - name: Entity resolvers
     href: tutorials/09-entity-resolvers.md
+  - name: Enum entities
+    href: tutorials/tutorial-enum-set-entity.md
   - name: Alternative inputs
     href: tutorials/10-alternative-inputs.md
   - name: Log dialogs

@@ -1,20 +1,12 @@
 ---
-title: Configure the Microsoft Azure-hosted VM for the Azure Marketplace | Microsoft Docs
+title: Configure the Microsoft Azure-hosted VM for the Azure Marketplace 
 description: Explains how to size, update, and generalize a VM hosted on Azure.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Configure the Azure-hosted VM

@@ -1,17 +1,21 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Interactive Query on HDInsight
+- name: Overview
   items:
-  - name: Apache Hadoop components on HDInsight
-    href: ../hdinsight-component-versioning.md
-    maintainContext: true
-  - name: HDInsight 4.0
-    href: ../hdinsight-version-release.md
-    maintainContext: true
-- name: Get started
-  items:
-  - name: Start with Interactive Query
+  - name: What is Interactive Query in HDInsight?
     href: ./apache-interactive-query-get-started.md
+    maintainContext: true
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Execute Apache Hive queries - Apache Zeppelin
+    href: ./hdinsight-connect-hive-zeppelin.md
+- name: Tutorials
+  items:
+  - name: Analyze data with Interactive Query
+    href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Concepts
+  items:
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
@@ -30,13 +34,13 @@
       maintainContext: true
   - name: Use Apache Hadoop for interactive queries
     items:
+    - name: Apache Hive with Apache Spark
+      href: apache-hive-warehouse-connector.md
+      maintainContext: true
     - name: Apache Hive with Hadoop
       href: ../hadoop/hdinsight-use-hive.md
       maintainContext: true
       items:
-      - name: Use Apache Zeppelin
-        href: ../hdinsight-connect-hive-zeppelin.md
-        maintainContext: true
       - name: Tools for Visual Studio
         href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
         maintainContext: true
@@ -58,7 +62,7 @@
       - name: Use Azure PowerShell
         href: ../hadoop/apache-hadoop-use-hive-powershell.md
         maintainContext: true
-      - name: Use .NET SDK
+      - name: Use SDK for .NET
         href: ../hadoop/apache-hadoop-use-hive-dotnet-sdk.md
         maintainContext: true
       - name: Use the HDInsight tools for Visual Studio
@@ -106,9 +110,6 @@
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
@@ -154,22 +155,10 @@
       maintainContext: true
   - name: Manage
     items:
-    - name: Create clusters
+    - name: Create HDInsight clusters
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       maintainContext: true
       items:
-      - name: Use Azure PowerShell
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
-      - name: Use cURL and the Azure REST API
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true
-      - name: Use the .NET SDK
-        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        maintainContext: true
-      - name: Use the Azure Classic CLI
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
       - name: Use the Azure portal
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
@@ -177,20 +166,43 @@
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
+      - name: Use SDK for .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+      - name: Use SDK for Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: Use SDK for Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
+      - name: Use Azure PowerShell
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: Use cURL and the Azure REST API
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true      
+      - name: Use the Azure CLI
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: Create on-demand clusters
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
     - name: Create on-demand clusters
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
-    - name: Manage Apache Hadoop clusters
+    - name: Manage HDInsight clusters
       href: ../hdinsight-administer-use-portal-linux.md
       maintainContext: true
       items:
-      - name: Use .NET SDK
-        href: ../hdinsight-administer-use-dotnet-sdk.md
-        maintainContext: true
+      - name: Use SDK for .NET
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+      - name: Use SDK for Python
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+      - name: Use SDK for Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+      - name: Use SDK for Go (Preview)
+        href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Apache Ambari web UI
@@ -302,12 +314,14 @@
     maintainContext: true
   - name: Network access
     items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+    - name: Use firewall to restrict outbound traffic
+      href: ../hdinsight-restrict-outbound-traffic.md
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
-      maintainContext: true
   - name: Monitoring using Azure Monitor logs
     items:
     - name: Use Azure Monitor logs
@@ -319,19 +333,24 @@
     - name: Monitor cluster performance
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true 
+- name: How to
+  items:
+  - name: Migrate Hive workloads to HDInsight 4.0
+    href: apache-hive-migrate-workloads.md
+    maintainContext: true
 - name: Reference
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: .NET SDK
+  - name: SDK for .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Python SDK
+  - name: SDK for Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Java SDK
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Go SDK
+  - name: SDK for Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: SDK for Go
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
@@ -345,12 +364,15 @@
 - name: Resources
   items:
   - name: Release notes
-    href: ../hdinsight-release-notes.md
-    maintainContext: true
     items:
+    - name: Current release notes
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: Archived release notes
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
+    - name: Migrate to granular role-based access for cluster configurations
+      href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum

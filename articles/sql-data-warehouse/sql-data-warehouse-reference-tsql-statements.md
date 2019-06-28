@@ -2,13 +2,13 @@
 title: T-SQL statements - Azure SQL Data Warehouse | Microsoft Docs
 description: Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 06/13/2018
-ms.author: twounder
+ms.subservice: query
+ms.date: 05/01/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
@@ -35,7 +35,7 @@ Links to the documentation for T-SQL statements supported in Azure SQL Data Ware
 * [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [CREATE VIEW](https://msdn.microsoft.com/library/ms187956.aspx)
-* [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) (Preview)
+* [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql)
 * [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/mt146367.aspx)
 * [DROP EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/mt146379.aspx)
 * [DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/mt130698.aspx)
@@ -45,8 +45,9 @@ Links to the documentation for T-SQL statements supported in Azure SQL Data Ware
 * [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx)
 * [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
-* [DROP WORKLOAD CLASSIFIER](/sql/t-sql/statements/drop-workload-classifier-transact-sql) (Preview)
+* [DROP WORKLOAD CLASSIFIER](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
+* [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) (Preview)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 

@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ---
 

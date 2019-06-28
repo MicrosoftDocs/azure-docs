@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 2/14/2019
+ms.date: 04/19/2019
 ms.custom: seodec18
 
 ---
@@ -22,7 +22,7 @@ To facilitate deep learning model training, the Azure Machine Learning Python SD
 
 ## Train with an estimator
 
-Once you've created your [workspace](concept-azure-machine-learning-architecture.md#workspace) and set up your [development environment](how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
+Once you've created your [workspace](concept-workspace.md) and set up your [development environment](how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
 1. Create a [remote compute target](how-to-set-up-training-targets.md) (note you can also use local computer as compute target)
 2. Upload your [training data](how-to-access-data.md) to datastore (Optional)
 3. Create your [training script](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -55,14 +55,14 @@ This code snippet specifies the following parameters to the `Estimator` construc
 Parameter | Description
 --|--
 `source_directory`| Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute 
-`script_params`| Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
+`script_params`| Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs. To specify a verbose flag in `script_params`, use `<command-line argument, "">`.
 `compute_target`| Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster. (Please note even though AmlCompute cluster is the commonly used target, it is also possible to choose other compute target types such as Azure VMs or even local computer.)
 `entry_script`| Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 `conda_packages`| List of Python packages to be installed via conda needed by your training script.  
 
 The constructor has another parameter called `pip_packages` that you use for any pip packages needed
 
-Now that you've created your `Estimator` object, submit the training job to be run on the remote compute with a call to the `submit` function on your [Experiment](concept-azure-machine-learning-architecture.md#experiment) object `experiment`. 
+Now that you've created your `Estimator` object, submit the training job to be run on the remote compute with a call to the `submit` function on your [Experiment](concept-azure-machine-learning-architecture.md#experiments) object `experiment`. 
 
 ```Python
 run = experiment.submit(sk_est)
@@ -118,14 +118,18 @@ run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
 
+## GitHub tracking and integration
+
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
+
 ## Examples
-For a notebook that shows the basics of estimator pattern, see:
+For a notebook that shows the basics of an estimator pattern, see:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-For a notebook that trains an scikit-learn model using estimator, see:
+For a notebook that trains a scikit-learn model by using estimator, see:
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-For notebooks on training models using deep-learning-framework specific estimators, see:
+For notebooks on training models by using deep-learning-framework specific estimators, see:
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

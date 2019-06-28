@@ -43,9 +43,9 @@ Enterprise State Roaming data is hosted in one or more [Azure regions](https://a
 
 Country/region value | has their data hosted in
 ---------------------|-------------------------
-An EMEA country such as France or Zambia | One or more of the Azure regions within Europe 
-A North American country such as United States or Canada | One or more of the Azure regions within the US
-An APAC country such as Australia or New Zealand | One or more of the Azure regions within Asia
+An EMEA country/region such as France or Zambia | One or more of the Azure regions within Europe 
+A North American country/region such as United States or Canada | One or more of the Azure regions within the US
+An APAC country/region such as Australia or New Zealand | One or more of the Azure regions within Asia
 South American and Antarctica regions | One or more Azure regions within the US
 
 The country/region value is set as part of the Azure AD directory creation process and cannot be subsequently modified. If you need more details on your data storage location, file a ticket with [Azure support](https://azure.microsoft.com/support/options/).
@@ -81,7 +81,7 @@ Explicit deletion is when an Azure admin deletes a user or a directory or otherw
 Data that has not been accessed for one year (“the retention period”) will be treated as stale and may be deleted from the Microsoft cloud. The retention period is subject to change but will not be less than 90 days. The stale data may be a specific set of Windows/application settings or all settings for a user. For example:
 
 * If no devices access a particular settings collection (for example, an application is removed from the device, or a settings group such as “Theme” is disabled for all of a user’s devices), then that collection becomes stale after the retention period and may be deleted. 
-* If a user has turned off settings sync on all his/her devices, then none of the settings data will be accessed, and all the settings data for that user will become stale and may be deleted after the retention period. 
+* If a user has turned off settings sync on all their devices, then none of the settings data will be accessed, and all the settings data for that user will become stale and may be deleted after the retention period. 
 * If the Azure AD directory admin turns off Enterprise State Roaming for the entire directory, then all users in that directory will stop syncing settings, and all settings data for all users will become stale and may be deleted after the retention period. 
 
 ### Deleted data recovery

@@ -2,7 +2,6 @@
 title: Use Azure Toolkit for IntelliJ with Hortonworks Sandbox 
 description: Learn how to use HDInsight Tools in Azure Toolkit for IntelliJ with Hortonworks Sandbox.
 keywords: hadoop tools,hive query,intellij,hortonworks sandbox,azure toolkit for intellij
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -21,7 +20,7 @@ Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applicatio
 
 ## Prerequisites
 
-Before you begin this tutorial, you must have the following items:
+Before you begin this article, you must have the following items:
 
 - Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox running on your local computer. To set up HDP, see [Get started in the Apache Hadoop ecosystem with a Hadoop sandbox on a virtual machine](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
@@ -139,7 +138,7 @@ To submit a project to an emulator:
 2. Complete the following steps:
 
     1. In the **Spark cluster (Linux only)** drop-down list, select your local Hortonworks Sandbox.
-    2. In the **Main class name** box, select or enter the main class name. For this tutorial, the name is **GroupByTest**.
+    2. In the **Main class name** box, select or enter the main class name. For this article, the name is **GroupByTest**.
 
 3. Select **Submit**. The job submission logs are shown in the Spark submission tool window.
 

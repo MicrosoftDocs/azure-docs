@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ---
 
@@ -25,14 +25,14 @@ This article describes changes that were introduced in Azure Media Services v3, 
 If you have a video service developed today on top of the [legacy Media Services v2 APIs](../previous/media-services-overview.md), you should review the following guidelines and considerations prior to migrating to the v3 APIs. There are many benefits and new features in the v3 API that improve the developer experience and capabilities of Media Services. However, as called out in the [Known Issues](#known-issues) section of this article, there are also some limitations due to changes between the API versions. This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions. 
 
 > [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Benefits of Media Services v3
   
 ### API is more approachable
 
 *  v3 is based on a unified API surface, which exposes both management and operations functionality built on Azure Resource Manager. Azure Resource Manager templates can be used to create and deploy Transforms, Streaming Endpoints, Live Events, and more.
-* [Open API (aka Swagger) Specification](https://aka.ms/ams-v3-rest-sdk) document.
+* [OpenAPI Specification (formerly called Swagger)](https://aka.ms/ams-v3-rest-sdk) document.
     Exposes the schema for all service components, including file-based encoding.
 * SDKs available for [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref), and Ruby.
 * [Azure CLI](https://aka.ms/ams-v3-cli-ref) integration for simple scripting support.
@@ -67,7 +67,7 @@ If you have a video service developed today on top of the [legacy Media Services
     * Streaming Locator replaces Locator.
     * Live Event replaces Channel.<br/>Live Events billing is based on Live Channel meters. For more information, see [billing](live-event-states-billing.md) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output replaces Program.
-* Live Outputs do not need to be started explicitly, they start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
+* Live Outputs start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
 *  To get information about a job, you need to know the Transform name under which the job was created. 
 
 ## Feature gaps with respect to v2 APIs
@@ -76,7 +76,7 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
 
 * The [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) and the legacy [media analytics processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via v3.<br/>Customers who wish to migrate from the Media Indexer 1 or 2 preview can immediately use the AudioAnalyzer preset in the v3 API.  This new preset contains more features than the older Media Indexer 1 or 2. 
 * Many of the [advanced features of the Media Encoder Standard in v2](../previous/media-services-advanced-encoding-with-mes.md) APIs are currently not available in v3, such as:
-    * Clipping (for on-demand and live scenarios)
+  
     * Stitching of Assets
     * Overlays
     * Cropping
@@ -110,6 +110,10 @@ The following table shows the code differences between v2 and v3 for common scen
 
 > [!NOTE]
 > This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions.
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

@@ -1,7 +1,6 @@
 ---
 title: Microsoft Cognitive Toolkit with Azure HDInsight Spark for deep learning 
 description: Learn how a trained Microsoft Cognitive Toolkit deep learning model can be applied to a dataset using the Spark Python API in an Azure HDInsight Spark cluster.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -22,13 +21,13 @@ In this article, you do the following steps.
 
 ## Prerequisites
 
-* **An Azure subscription**. Before you begin this tutorial, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
+* **An Azure subscription**. Before you begin this article, you must have an Azure subscription. See [Create your free Azure account today](https://azure.microsoft.com/free).
 
 * **Azure HDInsight Spark cluster**. For this article, create a Spark 2.0 cluster. For instructions, see [Create Apache Spark cluster in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## How does this solution flow?
 
-This solution is divided between this article and a Jupyter notebook that you upload as part of this tutorial. In this article, you complete the following steps:
+This solution is divided between this article and a Jupyter notebook that you upload as part of this article. In this article, you complete the following steps:
 
 * Run a script action on an HDInsight Spark cluster to install Microsoft Cognitive Toolkit and Python packages.
 * Upload the Jupyter notebook that runs the solution to the HDInsight Spark cluster.
@@ -80,7 +79,7 @@ To use the Microsoft Cognitive Toolkit with the Azure HDInsight Spark cluster, y
 
 4. Click **Upload** again.
 
-5. After the notebook is uploaded, click the name of the notebook and then follow the instructions in the notebook itself on how to load the data set and perform the tutorial.
+5. After the notebook is uploaded, click the name of the notebook and then follow the instructions in the notebook itself on how to load the data set and perform the article.
 
 ## See also
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)

@@ -3,8 +3,8 @@ title: Create PHP app on Linux - Azure App Service | Microsoft Docs
 description: Deploy your first PHP Hello World in App Service on Linux in minutes.
 services: app-service\web
 documentationcenter: ''
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
@@ -13,8 +13,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/30/2017
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 ---
@@ -165,4 +165,7 @@ The left menu provides different pages for configuring your app.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [PHP with MySQL](tutorial-php-mysql-app.md)
+> [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure PHP app](configure-language-php.md)

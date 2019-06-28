@@ -67,6 +67,9 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ## Partition key
 
+> [!NOTE]
+> If you aren't familiar with partitions, see [this article](event-hubs-features.md#partitions). 
+
 When sending event data, you can specify a value that is hashed to produce a partition assignment. You specify the partition using the [Partition​Sender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) property. However, the decision to use partitions implies a choice between availability and consistency. 
 
 ### Availability considerations
@@ -106,7 +109,7 @@ To use the [EventProcessorHost][] class, you can implement [IEventProcessor](/do
 To start event processing, instantiate [EventProcessorHost][], providing the appropriate parameters for your event hub. For example:
 
 > [!NOTE]
-> EventProcessorHost and its related classes are provided in the **Microsoft.Azure.EventHubs.Processor** package. Add the package to your Visual Studio project by following instructions in [this article](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package) or by issuing the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost and its related classes are provided in the **Microsoft.Azure.EventHubs.Processor** package. Add the package to your Visual Studio project by following instructions in [this article](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) or by issuing the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

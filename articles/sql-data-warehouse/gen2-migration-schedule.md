@@ -27,15 +27,15 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
 | Australia East |Available |June 1, 2019 |
-| Australia Southeast |April 15, 2019 |May 1, 2019 |
-| Brazil South |May 15, 2019 |June 1, 2019 |
+| Australia Southeast |Available |May 1, 2019 |
+| Brazil South |Available |June 1, 2019 |
 | Canada Central |Available |June 1, 2019 |
 | Canada East |\* |\* |
 | Central US |Available |June 1, 2019 |
 | China East |\* |\* |
-| China East 2 |\* |\* |
+| China East 2 |\* |Gen2 only |
 | China North |\* |\* |
-| China North 2 |\* |\* |
+| China North 2 |Available |Gen2 only |
 | East Asia |Available |June 1, 2019 |
 | East US |Available |June 1, 2019 |
 | East US 2 |Available |June 1, 2019 |
@@ -43,25 +43,25 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | Germany Central |\* |\* |
 | Germany West Central |September 1, 2019|January 2, 2020 |
 | India Central |Available |June 1, 2019 |
-| India South |April 15, 2019 |June 1, 2019 |
+| India South |Available |June 1, 2019 |
 | Japan East |Available |June 1, 2019 |
 | Japan West |Available |May 1, 2019 |
-| Korea Central |April 15, 2019 |June 1, 2019 |
-| Korea South |April 15, 2019 |May 1, 2019 |
-| North Central US |April 15, 2019 |May 1, 2019 |
+| Korea Central |Available |June 1, 2019 |
+| Korea South |Available |May 1, 2019 |
+| North Central US |Available |May 1, 2019 |
 | North Europe |Available |June 1, 2019 |
 | South Central US |Available |June 1, 2019 |
 | South East Asia |Available |June 1, 2019 |
-| UK South |April 15, 2019 |June 1, 2019 |
+| UK South |Available, 2019 |June 1, 2019 |
 | UK West |\*|\* |
 | West Central US |September 2, 2019 |January 2, 2020|
 | West Europe |Available |June 1, 2019 |
-| West US |April 15, 2019 |June 1, 2019 |
+| West US |Available |June 1, 2019 |
 | West US 2 |Available |June 1, 2019 |
 
 ## Automatic upgrade process
 
-Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
+Based on the availability chart above, we'll be scheduling automated upgrades for your Gen1 instances. To avoid any unexpected interruptions on the availability of the data warehouse, the automated upgrades will be scheduled during your maintenance schedule. The ability to create a new Gen1 instance will be disabled in regions undergoing auto upgrade to Gen2. Gen1 will be deprecated once the automatic upgrades have been completed. For more information on schedules, see [View a maintenance schedule](viewing-maintenance-schedule.md)
 
 The upgrade process will involve a brief drop in connectivity (approximately 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. However, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 

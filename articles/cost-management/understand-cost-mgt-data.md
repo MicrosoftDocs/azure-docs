@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/08/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -14,11 +14,13 @@ ms.custom:
 
 # Understand Cost Management data
 
-This article helps you better understand what data is included in Azure Cost Management. And it explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. However, your Azure subscription type determines when your billing month ends. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
+This article helps you better understand Azure cost and usage data that's included in Azure Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
-## Supported Microsoft offers
+Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement (MCA) accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs are not included. Costs are estimated until an invoice is generated and do not factor in credits.
 
-The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) in Azure Cost Management.  An Azure offer is the type of the Azure subscription that you have.
+## Supported Microsoft Azure offers
+
+The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) by Azure Cost Management. Your signed agreement for an Azure offer determines the type of the Azure subscription that you have.
 
 | Category  | **Offer name** | **Quota ID** | **Offer number** |
 | --- | --- | --- | --- |
@@ -42,7 +44,7 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
-The following table shows unsupported offers.
+The following table shows Azure offers that aren't supported by Cost Management.
 
 | Category  | **Offer name** | **Quota ID** | **Offer number** |
 | --- | --- | --- | --- |
@@ -59,7 +61,7 @@ The following table shows unsupported offers.
 | **Support Plans** | Azure Government Pro-Direct Support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Support Plans** | Azure Government Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-For customers with Pay-As-You-Go, MSDN, and Visual Studio offer categories, data is available in Cost Management starting from 10/02/2018. To access data for your subscription before 10/02/2018, you can use the [Azure Account Center](https://account.azure.com/subscriptions) to download your usage details in a CSV file or you can use the [Usage Details API](/rest/api/consumption/usagedetails).
+For customers with pay-as-you-go, MSDN, and Visual Studio offer categories, data is available in Cost Management starting from 10/02/2018. To access data for your subscription before 10/02/2018, you can use the [Azure Account Center](https://account.azure.com/subscriptions) to download your usage details in a CSV file or you can use the [Usage Details API](/rest/api/consumption/usagedetails).
 
 ## Determine your offer type
 If you don't see data for a subscription and you want to determine if your subscription falls under the supported offers, you can validate that your subscription is supported. To validate that an Azure subscription is supported, sign-in to the [Azure portal](https://portal.azure.com). Then select **All Services** in the left menu pane. In the list of services, select **Subscriptions**. In the subscription list menu, click on the subscription that you want to verify. Your subscription is shown on the Overview tab and you can see the **Offer** and **Offer ID**. The following image shows an example.
@@ -81,6 +83,7 @@ The following tables show data that's included or isn't in Cost Management. All 
 |   | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> Azure service usage is based on reservation and negotiated prices.
+
 <sup>2</sup> Marketplace offering usage is not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time.
 
 **Metadata**
@@ -108,7 +111,7 @@ Pay-as-you-go subscriptions – If the billing month ends on May 15, then the es
 
 ### Rerated data
 
-Whether you use the [Cost Management APIs](https://aka.ms/costmgmt/docs), PowerBI, or the Azure portal to retrieve data, expect the current billing period's charges to get re-rated, and consequently change, until the invoice is closed.
+Whether you use the [Cost Management APIs](index.yml), Power BI, or the Azure portal to retrieve data, expect the current billing period's charges to get re-rated, and consequently change, until the invoice is closed.
 
 ## Usage data update frequency varies
 
@@ -118,6 +121,25 @@ The availability of your incurred usage data in Cost Management depends on a cou
 - The time taken to process the usage data through the rating engine and cost management pipelines.
 
 Some services emit usage more frequently than others. So, you might see data in Cost Management for some services sooner than other services that emit data less frequently. Typically, usage for services takes 8-24 hours to appear in Cost Management. Keep in mind that data for an open month gets refreshed as you incur more usage because updates are cumulative.
+
+## Historical data might not match invoice
+
+Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure pay-as-you-go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. However, the historical data shown in Cost Management is based on your estimated consumption charges only. Cost Management historical data doesn't include payments and credits. As a result, the historical data shown for the following offers may not match exactly with your invoice.
+
+-	MS-AZR-0029P
+-	MS-AZR-0064P
+-	MS-AZR-0170P
+-	MS-AZR-0062P
+-	MS-AZR-0123P
+-	MS-AZR-0129P
+-	MS-AZR-0044P
+-	MS-AZR-0128P
+-	MS-AZR-0120P
+-	MS-AZR-0125P
+-	MS-AZR-0059P
+-	MS-AZR-0063P
+-	MS-AZR-0060P
+-	MS-AZR-0111P
 
 ## See also
 

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 
@@ -60,12 +60,21 @@ You can create a new app with the authoring APIs in a couple of ways:
 
 Possible errors are: 
 
-* An app with that name already exists. Reimport the app, and set the **Optional Name** to a new name. 
+* An app with that name already exists. To fix this, reimport the app, and set the **Optional Name** to a new name. 
 
-## Export app
+## Export app for backup
 
-1. On **My Apps** page, select **Import new app**.
-1. In the **Import new app** dialog, select the JSON file defining the LUIS app.
+1. On **My Apps** page, select **Export**.
+1. Select **Export as JSON**. Your browser downloads the active version of the app.
+1. Add this file to your backup system to archive the model.
+
+## Export app for containers
+
+1. On **My Apps** page, select **Export**.
+1. Select **Export as container** then select which published slot (production or stage) you want to export.
+1. Use this file with your [LUIS container](luis-container-howto.md). 
+
+    If you are interested in exporting a trained but not yet published model to use with the LUIS container, go to the **Versions** page and export from there. 
 
 ## Delete app
 

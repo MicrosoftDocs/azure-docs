@@ -1,5 +1,5 @@
 ---
-title: Understand the storage hierarchy of Azure NetApp Files | Microsoft Docs
+title: What is the storage hierarchy of Azure NetApp Files | Microsoft Docs
 description: Describes the storage hierarchy, including Azure NetApp Files accounts, capacity pools, and volumes.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/03/2019
+ms.topic: overview
+ms.date: 04/16/2019
 ms.author: b-juche
 ---
-# Understand the storage hierarchy of Azure NetApp Files
+# What is the storage hierarchy of Azure NetApp Files
 
 Before creating a volume in Azure NetApp Files, you must purchase and set up a pool for provisioned capacity.  To set up a capacity pool, you must have a NetApp account. Understanding the storage hierarchy helps you set up and manage your Azure NetApp Files resources.
 
@@ -35,14 +35,16 @@ Before creating a volume in Azure NetApp Files, you must purchase and set up a p
 - Each capacity pool can belong to only one NetApp account. However, you can have multiple capacity pools within a NetApp account.  
 - A capacity pool cannot be moved across NetApp accounts.   
   For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, Capacity Pool 1 cannot be moved from US East NetApp account to US West 2 NetApp account.  
+- A capacity pool cannot be deleted until all volumes within the capacity pool have been deleted.
 
 ## <a name="volumes"></a>Volumes
 
 - A volume is measured by logical capacity consumption and is scalable. 
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
-- Within the same NetApp account, you can move a volume across pools.    
-  For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, you can move the volumes from Capacity Pool 1 to Capacity Pool 2.
+- A volume cannot be moved across capacity pools. <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, you cannot move the volumes from Capacity Pool 1 to Capacity Pool 2.
+- A volume cannot be deleted until all its snapshots have been deleted.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
 The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   

@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * An Azure AD tenant
 * [An Atlassian Cloud tenant](https://www.atlassian.com/licensing/cloud)
-* An user account in Atlassian Cloud with Admin permissions.
+* A user account in Atlassian Cloud with Admin permissions.
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the **Atlassian Cloud SCIM API**, which is available to Atlassian Cloud teams.

@@ -5,7 +5,7 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 02/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
 ---
@@ -17,6 +17,8 @@ You first need to create a Media Services account. This section shows what you n
 ### Create a resource group
 
 Create a resource group using the following command. An Azure resource group is a logical container into which resources like Azure Media Services accounts and the associated Storage accounts are deployed and managed.
+
+You can substitute `amsResourceGroup` with your value.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -30,7 +32,7 @@ You must have one **Primary** storage account and you can have  any number of **
 
 In this example, we create a General Purpose v2, Standard LRS account. If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production you should consider, `--sku Standard_RAGRS`, which provides geographic replication for business continuity. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
-The following command creates a Storage account that is going to be associated with the Media Services account. In the script below, you can substitute `storageaccountforams` with your value. The account name must have length less than 24.
+The following command creates a Storage account that is going to be associated with the Media Services account. In the script below, you can substitute `storageaccountforams` with your value. `amsResourceGroup` must match the value you gave for the resource group in the previous step. The storage account name must have length less than 24.
 
 ```azurecli
 az storage account create --name storageaccountforams \  

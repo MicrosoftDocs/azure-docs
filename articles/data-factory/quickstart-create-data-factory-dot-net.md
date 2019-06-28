@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/26/2019
 ms.author: jingwang
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
@@ -280,13 +280,13 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```csharp
     // Check the copy activity run details
     Console.WriteLine("Checking copy activity run details...");
-   
-    List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
-    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
+
+    RunFilterParameters filterParams = new RunFilterParameters(DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
+    ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
     if (pipelineRun.Status == "Succeeded")
-        Console.WriteLine(activityRuns.First().Output);
+        Console.WriteLine(queryResponse.Value.First().Output);
     else
-        Console.WriteLine(activityRuns.First().Error);
+        Console.WriteLine(queryResponse.Value.First().Error);
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```

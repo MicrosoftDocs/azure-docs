@@ -3,8 +3,8 @@ title: Advanced certificate signing options in the SAML token for pre-integrated
 description: Learn how to use advanced certificate signing options in the SAML token for pre-integrated apps in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 
@@ -45,7 +45,7 @@ Azure AD supports two signing algorithms, or secure hash algorithms (SHAs), to s
 
 * **SHA-1**. This algorithm is older, and it's treated as less secure than SHA-256. If an application supports only this signing algorithm, you can select this option in the **Signing Algorithm** drop-down list. Azure AD then signs the SAML response with the SHA-1 algorithm.
 
-## Change the certificate signing options and certificate signing algorithm
+## Change certificate signing options and signing algorithm
 
 To change an application's SAML certificate signing options and the certificate signing algorithm, select the application in question:
 

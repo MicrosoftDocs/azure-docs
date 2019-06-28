@@ -3,31 +3,25 @@ title: Set up a device template in an Azure IoT Central application | Microsoft 
 description: Learn how to set up a device template with measurements, settings, properties, rules, and a dashboard.
 author: viv-liu
 ms.author: viviali
-ms.date: 01/30/2019
+ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
 ---
 
-# Set up a device template (New UI design)
+# Set up a device template
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 
-For example, a builder can create a device template for an IoT-connected fan that has a:
+For example, a builder can create a device template for a connected fan that has the following characteristics:
 
 - Temperature telemetry measurement
-
+- Location measurement
 - Fan motor error event measurement
-
 - Fan operating state measurement
-
 - Fan speed setting
-
-- Location property
-
 - Rules that send alerts
-
 - Dashboard that gives you an overall view of the device
 
 From this device template, an operator can create and connect real fan devices with names such as **fan-1** and **fan-2**. All these fans have measurements, settings, properties, rules, and a dashboard that users of your application can monitor and manage.
@@ -56,6 +50,7 @@ Measurements are the data that comes from your device. You can add multiple meas
 - **Telemetry** measurements are the numerical data points that your device collects over time. They're represented as a continuous stream. An example is temperature.
 - **Event** measurements are point-in-time data that represents something of significance on the device. A severity level represents the importance of an event. An example is a fan motor error.
 - **State** measurements represent the state of the device or its components over a period of time. For example, a fan mode can be defined as having **Operating** and **Stopped** as the two possible states.
+- **Location** measurements are the longitude and latitude coordinates of the device over a period of time in. For example, a fan can be moved from one location to another.
 
 ### Create a telemetry measurement
 
@@ -63,7 +58,7 @@ To add a new telemetry measurement, select **+ New Measurement**, choose **Telem
 
 > [!NOTE]
 > The field names in the device template must match the property names in the corresponding device code in order for the telemetry measurement to be displayed in the application when a real device is connected. Do the same when you configure settings, device properties, and commands as you continue to define the device template in the following sections.
-
+.png
 For example, you can add a new temperature telemetry measurement:
 
 | Display Name        | Field Name    |  Units    | Min   |Max|
@@ -74,7 +69,7 @@ For example, you can add a new temperature telemetry measurement:
 
 After you select **Save**, the **Temperature** measurement appears in the list of measurements. In a short while, you see the visualization of the temperature data from the simulated device.
 
-When displaying telemetry, you can choose from the following aggregation options: Average, Minimum, Maximum, Sum, and Count. **Average** is selected as the default aggregation on the chart. 
+When displaying telemetry, you can choose from the following aggregation options: Average, Minimum, Maximum, Sum, and Count. **Average** is selected as the default aggregation on the chart.
 
 > [!NOTE]
 > The data type of the telemetry measurement is a floating point number.
@@ -123,6 +118,32 @@ If the device sends too many data points in a small duration, the state measurem
 > [!NOTE]
 > The data type of the state measurement is string.
 
+### Create a location measurement
+
+To add a new location measurement, select **+ New Measurement**, choose **Location** as the measurement type, and enter the details on the **Create Measurement** form.
+
+For example, you can add a new location telemetry measurement:
+
+| Display Name        | Field Name    |
+| --------------------| ------------- |
+| Asset Location      |  assetloc     |
+
+!["Create Location" form with details for location measurement](./media/howto-set-up-template/locationmeasurementsform.png)
+
+After you select **Save**, the **Location** measurement appears in the list of measurements. In a short while, you see the visualization of the location data from the simulated device.
+
+When displaying location, you can choose from the following options: latest location and location history. **Location history** is only applied over the selected time range.
+
+The data type of the location measurement is an object that contains longitude, latitude, and an optional altitude. The following snippet shows the JavaScript structure:
+
+```javascript
+assetloc: {
+  lon: floating point number,
+  lat: floating point number,
+  alt?: floating point number
+}
+```
+
 ## Settings
 
 Settings control a device. They enable operators to provide inputs to the device. You can add multiple settings to your device template that appear as tiles on the **Settings** tab for operators to use. You can add many types of settings: number, text, date, toggle, pick list, and section label.
@@ -147,12 +168,12 @@ After you select **Save**, the **Fan Speed** setting appears as a tile. An opera
 
 ## Properties
 
-Properties are metadata that's associated with the device, such as device location and serial number. Add multiple properties to your device template that appear as tiles on the **Properties** tab. A property can have a type such as number, text, date, toggle, device property, label, or location. An operator can specify the values for properties when they create a device, and they can edit these values at any time. Device properties are read-only and are sent from the device to the application. An operator cannot change device properties. When a real device connects, the device property tile is updates in the application.
+Properties are metadata that's associated with the device, such as a fixed device location and serial number. Add multiple properties to your device template that appear as tiles on the **Properties** tab. A property has a type such as number, text, date, toggle, device property, label, or a fixed location. An operator specifies the values for properties when they create a device, and they can edit these values at any time. Device properties are read-only and are sent from the device to the application. An operator can't change device properties. When a real device connects, the device property tile updates in the application.
 
 There are two categories of properties:
 
 - _Device properties_ that the device reports to the IoT Central application. Device properties are read-only values reported by the device and are updated in the application when a real device is connected.
-- _Application properties_ that are stored in the application and can be edited by the operator. The device doesn't recognize application properties.
+- _Application properties_ that are stored in the application and can be edited by the operator. Application properties are only stored in the application and are never seen by a device.
 
 For example, you can add the last serviced date for the device as a new **Date** property (an application property) on the **Properties** tab:
 
@@ -166,14 +187,17 @@ After you select **Save**, the last serviced date for the device appears as a ti
 
 After you create the tile, you can change the application property value in the **Device Explorer**.
 
-### Create a location property through Azure Maps
+### Create a location property
 
-You can give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates of a street address. Or you can map latitude and longitude coordinates. Azure Maps enables this capability in IoT Central.
+You can give geographic context to your location data in Azure IoT Central and map any latitude and longitude coordinates or a street address. Azure Maps enables this capability in IoT Central.
 
 You can add two types of location properties:
 
-- **Location as an application property**, which is stored in the application. The device doesn't recognize application properties.
-- **Location as a device property**, which the device reports to the application.
+- **Location as an application property**, which is stored in the application. Application properties are only stored in the application and are never seen by a device.
+- **Location as a device property**, which the device reports to the application. This type of property is best used for a static location.
+
+> [!NOTE]
+> Location as a property does not record a history. If history is desired, use a location measurement.
 
 #### Add location as an application property
 
@@ -186,7 +210,7 @@ You can create a location property as an application property by using Azure Map
 3. Configure **Display Name**, **Field Name**, and (optionally) **Initial Value** for the location.
 
     | Display Name  | Field Name | Initial Value |
-    | --------------| -----------|---------| 
+    | --------------| -----------|---------|
     | Installation address | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
    !["Configure Location" form with details for location](./media/howto-set-up-template/locationcloudproperty2.png)
@@ -216,7 +240,7 @@ You can create a location property as a device property that the device reports.
 
    !["Configure Device Properties" form with details for location](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Once the real device is connected, the location that you added as a device property is updated with the value sent by the device. Now that you've configured your location property, you can [add a map to visualize the location in the device dashboard](#add-an-azure-maps-location-in-the-dashboard).
+Once the real device is connected, the location you added as a device property is updated with the value sent by the device. After you've configured your location property, you can [add a map to visualize the location in the device dashboard](#add-a-location-in-the-dashboard).
 
 ## Commands
 
@@ -234,9 +258,9 @@ For example, you can add a new **Echo** command by selecting the **Commands** ta
 | --------------| -----------|---------------- | --------- |
 | Echo Command  | echo       |  30             | text      |
 
-!["Configure Command" form with details for echo](./media/howto-set-up-template/commandsecho.png)
+!["Configure Command" form with details for echo](./media/howto-set-up-template/commandsecho1.png)
 
-After you select **Save**, the **Echo** command appears as a tile and is ready to be used from the **Device Explorer** when your real device connects. The field names of your command must match the property names in the corresponding device code in order for commands to be run successfully.
+After you select **Save**, the **Echo** command appears as a tile and is ready to be used from the **Device Explorer** when your real device connects. The field names of your command must match the property names in the corresponding device code in order for commands to run successfully.
 
 ## Rules
 
@@ -246,29 +270,29 @@ Rules enable operators to monitor devices in near real time. Rules automatically
 
 ## Dashboard
 
-The dashboard is where an operator can go to see information about a device. As a builder, you can add tiles on this page to help operators understand how the device is behaving. You can add multiple dashboard tiles to your device template. You can add many types of dashboard tiles such as image, line chart, bar chart, key performance indicator (KPI), settings and properties, and label.
+The dashboard is where an operator goes to see information about a device. As a builder, you add tiles to this page to help operators understand how the device is behaving. You can add many types of dashboard tiles such as image, line chart, bar chart, key performance indicator (KPI), settings and properties, and label.
 
 For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties by selecting the **Dashboard** tab and the tile from the Library:
 
-!["Configure Device Details" form with details for settings and properties](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+!["Configure Device Details" form with details for settings and properties](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Now when an operator views the dashboard in the **Device Explorer**, they can see the tile.
 
-### Add an Azure Maps location in the dashboard
+### Add a location in the dashboard
 
-If you configured a location property, you can visualize the location by using a map in your device dashboard.
+If you configured a location measurement, you can visualize the location with a map in your device dashboard.
 
 1. Navigate to the **Dashboard** tab.
 
 1. On the device dashboard, select **Map** from the library.
 
-1. Give the map a title. The following example has the title **Installation Location**. Then choose the location property that you previously configured on the **Properties** tab. In the following example, **Installation address** is selected.
+1. Give the map a title. The following example has the title **Device Current Location**. Then choose the location measurement that you previously configured on the **Measurements** tab. In the following example, the **Asset Location** measurement is selected:
 
    !["Configure Map" form with details for title and properties](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-4. Select **Save**. The map tile now displays the location that you selected.
+1. Select **Save**. The map tile now displays the location that you selected.
 
-You can resize the map to your desired size. Now when an operator views the dashboard in the **Device Explorer**, all the dashboard tiles that you've configured, including a location map are visible.
+You can resize the map tile. When an operator views the dashboard in the **Device Explorer**, all the dashboard tiles that you've configured, including a location map are visible.
 
 ## Next steps
 

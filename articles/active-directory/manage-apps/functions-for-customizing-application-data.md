@@ -3,8 +3,8 @@ title: Writing Expressions for Attribute Mappings in Azure Active Directory | Mi
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: chmutali
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---
@@ -36,7 +36,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 ## List of Functions
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### Append
 **Function:**<br> 
 Append(source, suffix)
@@ -51,7 +51,7 @@ Takes a source string value and appends the suffix to the end of it.
 | **source** |Required |String |Usually name of the attribute from the source object. |
 | **suffix** |Required |String |The string that you want to append to the end of the source value. |
 
-- - -
+---
 ### FormatDateTime
 **Function:**<br> 
 FormatDateTime(source, inputFormat, outputFormat)
@@ -67,7 +67,7 @@ Takes a date string from one format and converts it into a different format.
 | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Required |String |Format of the output date. |
 
-- - -
+---
 ### Join
 **Function:**<br> 
 Join(separator, source1, source2, …)
@@ -84,7 +84,7 @@ If one of the source values is a multi-value attribute, then every value in that
 | **separator** |Required |String |String used to separate source values when they are concatenated into one string. Can be "" if no separator is required. |
 | **source1  … sourceN** |Required, variable-number of times |String |String values to be joined together. |
 
-- - -
+---
 ### Mid
 **Function:**<br> 
 Mid(source, start, length)
@@ -100,7 +100,7 @@ Returns a substring of the source value. A substring is a string that contains o
 | **start** |Required |integer |Index in the **source** string where substring should start. First character in the string will have index of 1, second character will have index 2, and so on. |
 | **length** |Required |integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index till end of **source** string. |
 
-- - -
+---
 ### NormalizeDiacritics
 **Function:**<br> 
 NormalizeDiacritics(source)
@@ -114,7 +114,7 @@ Requires one string argument. Returns the string, but with any diacritical chara
 | --- | --- | --- | --- |
 | **source** |Required |String | Usually a first name or last name attribute. |
 
-- - -
+---
 ### Not
 **Function:**<br> 
 Not(source)
@@ -128,7 +128,7 @@ Flips the boolean value of the **source**. If **source** value is "*True*", retu
 | --- | --- | --- | --- |
 | **source** |Required |Boolean String |Expected **source** values are "True" or "False". |
 
-- - -
+---
 ### Replace
 **Function:**<br> 
 Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
@@ -162,7 +162,7 @@ Replaces values within a string. It works differently depending on the parameter
 | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value, when source has no value. |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with source value. |
 
-- - -
+---
 ### SelectUniqueValue
 **Function:**<br> 
 SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
@@ -182,7 +182,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 | **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate. |
 
 
-- - -
+---
 ### SingleAppRoleAssignment
 **Function:**<br> 
 SingleAppRoleAssignment([appRoleAssignments])
@@ -196,7 +196,7 @@ Returns a single appRoleAssignment from the list of all appRoleAssignments assig
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Required |String |**[appRoleAssignments]** object. |
 
-- - -
+---
 ### Split
 **Function:**<br> 
 Split(source, delimiter)
@@ -211,7 +211,7 @@ Splits a string into a mulit-valued array, using the specified delimiter charact
 | **source** |Required |String |**source** value to update. |
 | **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
 
-- - -
+---
 ### StripSpaces
 **Function:**<br> 
 StripSpaces(source)
@@ -225,7 +225,7 @@ Removes all space (" ") characters from the source string.
 | --- | --- | --- | --- |
 | **source** |Required |String |**source** value to update. |
 
-- - -
+---
 ### Switch
 **Function:**<br> 
 Switch(source, defaultValue, key1, value1, key2, value2, …)
@@ -242,7 +242,7 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 | **key** |Required |String |**Key** to compare **source** value with. |
 | **value** |Required |String |Replacement value for the **source** matching the key. |
 
-- - -
+---
 ### ToLower
 **Function:**<br> 
 ToLower(source, culture)
@@ -257,7 +257,7 @@ Takes a *source* string value and converts it to lower case using the culture ru
 | **source** |Required |String |Usually name of the attribute from the source object |
 | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 
-- - -
+---
 ### ToUpper
 **Function:**<br> 
 ToUpper(source, culture)

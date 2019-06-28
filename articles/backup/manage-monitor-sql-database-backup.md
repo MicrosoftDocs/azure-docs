@@ -27,7 +27,7 @@ Azure Backup shows all manually triggered jobs in the **Backup jobs** portal. Th
 > The **Backup jobs** portal doesn't show scheduled backup jobs. Use SQL Server Management Studio to monitor scheduled backup jobs, as described in the next section.
 >
 
-For details on Monitoring scenarios, go to [Monitoring in Azure Portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
+For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
 
 ## View backup alerts
@@ -86,6 +86,14 @@ To stop protection for a database:
 
 6. Select **Stop backup**.
 
+>
+> [!NOTE]
+Refer the below FAQ for more information on delete data option: <br/>
+* [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+* [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>
+
 
 ## Resume protection for a SQL database
 
@@ -125,9 +133,9 @@ Unregister a SQL Server instance after you disable protection but before you del
 
 3. In **Protected Servers**, select the server to unregister. To delete the vault, you must unregister all servers.
 
-4. Right-click the protected server, and select **Delete**.
+4. Right-click the protected server, and select **Unregister**.
 
-   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## Re-register extension on the SQL Server VM
 

@@ -7,8 +7,9 @@ author: anikaz
 manager: johndeu
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
 ---
 
@@ -43,7 +44,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 --data-ascii "{body}" 
 ```
 
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
 ### Request parameters
 
@@ -114,7 +115,7 @@ Below is the request in Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Train?accessToken={accessToken}"
 ```
  
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5bac3cf761779a6c2ab27?).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train).
 
 ### Request parameters
 
@@ -179,7 +180,7 @@ Below is the request in Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5ba53782606e91f65be9d?).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete).
 
 ### Request parameters 
 
@@ -221,7 +222,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 --data-ascii "{body}" 
 ```
  
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b3ce85f4684240bdb78f?).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update).
 
 ### Request parameters 
 
@@ -290,7 +291,7 @@ Below is the request in Curl.
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}?fileName={string}&enable={string}"
 ```
  
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b60547f33c1c2b2d1375?).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update).
 
 ### Request parameters 
 
@@ -340,7 +341,7 @@ Below is the request in Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
 ```
  
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4fcbd9b437d27d53f16).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get).
 
 ### Request parameters and request body
 
@@ -405,7 +406,7 @@ Below is the request in Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}"
 ```
  
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b4979e6ecbd30faa6f75?).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get).
 
 ### Request parameters
 
@@ -476,7 +477,7 @@ Below is the request in Curl.
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b57b5de51e64ee52242e).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete).
 
 ### Request parameters 
 
@@ -513,7 +514,7 @@ Below is the request in Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
 ```
  
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b73f9e6416d7a9965b42).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model).
 
 ### Request parameters 
 
@@ -562,7 +563,7 @@ Below is the request in Curl.
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}"
 ```
  
-[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/5ae5b99e522cb47bd9679122).
+[See required parameters and test out using the Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?).
 
 ### Request parameters 
 

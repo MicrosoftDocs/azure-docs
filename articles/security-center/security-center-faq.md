@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Azure Security Center frequently asked questions (FAQ)
@@ -73,7 +73,7 @@ Windows or Linux IaaS VMs qualify if:
 
 - The Microsoft Monitoring Agent extension is not currently installed on the VM.
 - The VM is in running state.
-- The Windows or Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) is installed.
+- The Windows or Linux [Azure Virtual Machine Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) is installed.
 - The VM is not used as an appliance such as web application firewall or next generation firewall.
 
 ### Can I delete the default workspaces created by Security Center?
@@ -122,8 +122,10 @@ For more information, see [Automatic provisioning in cases of a preexisting agen
 
 ### What if I had a Microsoft Monitoring Agent is directly installed on the machine but not as an extension (Direct Agent)?<a name="directagentinstalled"></a>
 If the Microsoft Monitoring Agent is installed directly on the VM (not as an Azure extension), Security Center will install the Microsoft Monitoring Agent extension, and may upgrade the Microsoft Monitoring agent to the latest version.
-The agent installed will continue to report to its already configured workspace(s), and in addition will report to the workspace configured in Security Center (Multi-homing is supported).
+The agent installed will continue to report to its already configured workspace(s), and in addition will report to the workspace configured in Security Center (Multi-homing is supported on Windows machines).
 IF the configured workspace is a user workspace (not Security Center's default workspace), you will need to install the "Security/"SecurityCenterFree" solution on it for Security Center to start processing events from VMs and computers reporting to that workspace.
+
+For Linux machines, Agent multi-homing is not yet supported - hence, if an existing agent installation is detected, automatic provisioning will not occur and the machine's configuration will not be altered.
 
 For existing machines on subscriptions onboarded to Security Center before 2019-03-17, when an existing agent will be detected, the Microsoft Monitoring Agent extension will not be installed and the machine will not be affected. For these machines, see the "Resolve monitoring agent health issues on your machines" recommendation to resolve the agent installation issues on these machines
 
@@ -319,6 +321,11 @@ The latency in Security Center scans for vulnerabilities, updates, and issues is
 - Endpoint Protection issues – data is updated within 8 hours
 
 Security Center typically scans for new data every hour, and refreshes the recommendations accordingly. 
+
+> [!NOTE]
+> Beginning in early June 2017, Security Center will use the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration](security-center-platform-migration.md). The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+>
+>
 
 ### Why do I get the message "VM Agent is Missing?"
 The VM Agent must be installed on VMs to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

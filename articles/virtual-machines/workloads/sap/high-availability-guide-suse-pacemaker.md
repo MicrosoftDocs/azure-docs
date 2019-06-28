@@ -25,8 +25,8 @@ ms.author: sedusch
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#memory-preserving-maintenance
-[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#memory-preserving-maintenance
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
@@ -81,7 +81,7 @@ Run the following commands on all **iSCSI target virtual machines**.
 
 Run the following commands on all **iSCSI target virtual machines** to create the iSCSI disks for the clusters used by your SAP systems. In the following example, SBD devices for  multiple clusters are created. It shows you how you would use one iSCSI target server for multiple clusters. The SBD devices are placed on the OS disk. Make sure that you have enough space.
 
-**` nfs`** is used to identify the NFS cluster, **ascsnw1** is used to identify the ASCS cluster of **NW1**, **dbnw1** is used to identify the database cluster of **NW1**, **nfs-0** and **nfs-1** are the hostnames of the NFS cluster nodes, **nw1-xscs-0** and **nw1-xscs-1** are the hostnames of the **NW1** ASCS cluster nodes, and **nw1-db-0** and **nw1-db-1** are the hostnames of the database cluster nodes. Replace them with the hostnames of your cluster nodes and the SID of your SAP system.
+**`nfs`** is used to identify the NFS cluster, **ascsnw1** is used to identify the ASCS cluster of **NW1**, **dbnw1** is used to identify the database cluster of **NW1**, **nfs-0** and **nfs-1** are the hostnames of the NFS cluster nodes, **nw1-xscs-0** and **nw1-xscs-1** are the hostnames of the **NW1** ASCS cluster nodes, and **nw1-db-0** and **nw1-db-1** are the hostnames of the database cluster nodes. Replace them with the hostnames of your cluster nodes and the SID of your SAP system.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -299,7 +299,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Create the ` softdog` configuration file
+   Create the `softdog` configuration file
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -575,7 +575,7 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 ## Pacemaker configuration for Azure scheduled events
 
-Azure offers [scheduled events](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM re-deployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
+Azure offers [scheduled events](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM re-deployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
 
 1. **[A]** Install the **azure-events** agent . 
 

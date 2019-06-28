@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 06/11/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -30,7 +30,8 @@ Azure Data Box Edge is an AI-enabled edge computing device with network data tra
     - Subset and transfer the data needed for deeper analytics in the cloud.
     - Analyze and react to IoT Events. 
 
-- **Inference Azure Machine Learning** - With Data Box Edge, you can run Machine Learning (ML) models to get quick results that can be acted on before the data is sent to the cloud. The full data set is transferred to continue to retrain and improve your ML models.
+- **Inference Azure Machine Learning** - With Data Box Edge, you can run Machine Learning (ML) models to get quick results that can be acted on before the data is sent to the cloud. The full data set can be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Databox Edge device, see 
+[Deploy Azure ML hardware accelerated models on Databox Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Transfer data over network to Azure** - Use Data Box Edge to easily and quickly transfer data to Azure to enable further compute and analytics or for archival purposes. 
 
@@ -89,7 +90,7 @@ Data Box Edge physical device, Azure resource, and target storage account to whi
     - **European Union** - West Europe
     - **Asia Pacific** - SE Asia
     
-    Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    Data Box Edge can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. 
 

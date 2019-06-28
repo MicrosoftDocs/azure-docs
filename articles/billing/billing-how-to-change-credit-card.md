@@ -1,22 +1,16 @@
 ---
-title:  Change your credit card for Azure | Microsoft Docs
-description: Describes how to How to change the credit card used to pay for an Azure subscription
-services: ''
-documentationcenter: ''
-author: genlin
+title:  Change your credit card for Azure
+description: Describes how to change the credit card used to pay for an Azure subscription.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-
-ms.assetid: 15252ced-1841-4a66-ae79-2e58af1d3370
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-
 ---
 # Add, update, or remove a credit card for Azure
 
@@ -31,7 +25,7 @@ If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-custom
 ## Add a new credit card to an Azure subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
-1. Search on **Cost Management + Billing**.
+1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
 
@@ -56,7 +50,7 @@ If you get an error after you add the credit card, see [Credit card declined at 
 If your credit card gets renewed and the number stays the same, update the existing credit card details like the expiration date. If your credit card number changes because the card is lost, stolen, or expired, follow the steps in the [Add a credit card as a payment method](#addcard) section. You don't need to update the CVV.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
-1. Search on **Cost Management + Billing**.
+1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
 
@@ -71,12 +65,12 @@ If your credit card gets renewed and the number stays the same, update the exist
 1. Update the credit card details.
 1. Select **Save**.
 
-## Use a different credit card for the Azure subscription
+## Use a different credit card
 
 If more than one of your subscriptions have the same active payment method, then changing the active payment method on any of these subscriptions also updates the active payment method on the others.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
-1. Search on **Cost Management + Billing**.
+1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows search](./media/billing-how-to-change-credit-card/search.png)
 
@@ -85,7 +79,7 @@ If more than one of your subscriptions have the same active payment method, then
 
     ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. Check the box next to the card you'd like to make the active payment method.
+1. Select the box next to the card you'd like to make the active payment method.
 1. Click **Set active**.
     ![Screenshot that shows credit card selected and set active.](./media/billing-how-to-change-credit-card/sub-change-active-x.png)
 
@@ -100,7 +94,7 @@ If more than one of your subscriptions have the same active payment method, then
 
     ![Screenshot that shows Manage payment methods option selected.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
-1. Check the box next to the card that you want to remove.
+1. Select the box next to the card that you want to remove.
 1. Click **Delete**.
 
 If your credit card is the active payment method for any of your Microsoft subscriptions, you can't remove it from your Azure account. Change the active payment method for all subscriptions linked to this credit card and try again
@@ -109,7 +103,7 @@ If your credit card is the active payment method for any of your Microsoft subsc
 In the Account Center, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be an [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
 
 **Want to switch to pay by invoice?** See [Pay for Azure subscriptions by invoice](billing-how-to-pay-by-invoice.md).
- 
+
 <a id="addcard"></a>
 
 ## Add a new credit or debit card
@@ -123,7 +117,7 @@ In the Account Center, you can add a new credit card, update an existing credit 
 
     ![Screenshot that shows the edit option next to the payment method.](./media/billing-how-to-change-credit-card/editcard_new.png)
 1. Enter credit or debit card details.
-1. Select **Save**. 
+1. Select **Save**.
 
 If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](billing-credit-card-fails-during-azure-sign-up.md).
 
@@ -143,7 +137,7 @@ If your credit card gets renewed and the number remains the same, update the exi
 1. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the [Account Administrator](billing-subscription-transfer.md#whoisaa).
 1. Select the subscription that's linked to the card.
 1. On the right side of the page, select **Manage payment methods**.
-1. Click **Use Instead** next to the card that you want to use. This also updates any other subscriptions currently associated with this card. 
+1. Click **Use Instead** next to the card that you want to use. This also updates any other subscriptions currently associated with this card.
 
 ## Remove a credit or debit card from the account
 
@@ -178,6 +172,7 @@ If you'd like to switch the default payment method to check/wire transfer, learn
 1. Select an existing card or add a new one.
 
 ## Frequently asked questions
+The following sections answer commonly asked questions about changing your credit or debit card information.
 
 ### My subscription is disabled. Why can't I remove my credit card now?
 
@@ -195,13 +190,13 @@ Unfortunately, if your subscriptions are already using the same card, it's not p
 
 ### How do I make payments?
 
-If you set up a credit card card as your payment method, we automatically charge your card after each billing period. You don't need to do anything.
+If you set up a credit card as your payment method, we automatically charge your card after each billing period. You don't need to do anything.
 
 If you're [paying by invoice](billing-how-to-pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
 
 ### How do I change the tax ID?
 
-To add or update tax ID, visit [**Profile** in Azure Account Center](https://account.azure.com/Profile), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
+To add or update tax ID, update your profile in the  [Azure Account Center](https://account.azure.com/Profile), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
@@ -209,3 +204,6 @@ To add or update tax ID, visit [**Profile** in Azure Account Center](https://acc
 ## Need help? Contact us.
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## Next steps
+- Learn about [Azure reservations](billing-save-compute-costs-reservations.md) to see if they can save you money.

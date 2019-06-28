@@ -12,21 +12,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 06/03/2019
 ms.author: juliako
-
+#Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live) content so that my customers could view the content on a wide variety of clients (these clients understand different formats).
 ---
+
 # Dynamic Packaging
 
-Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS and XBOX). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG DASH, or Smooth Streaming, you can take advantage of Dynamic Packaging. The packaging is agnostic to the video resolution, SD/HD/UHD-4K are supported.
+Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS and XBOX). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG DASH, or Smooth Streaming, you can take advantage of **Dynamic Packaging**. The packaging is agnostic to the video resolution, SD/HD/UHD-4K are supported.
 
-[Streaming Endpoints](streaming-endpoint-concept.md) is the dynamic packaging service in Media Services used to deliver media content to client players. Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). 
+In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). Dynamic Packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). 
 
 To take advantage of **Dynamic Packaging**, you need to have an **Asset** with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services Dynamic Packaging. One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the encoded Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, DASH, or Smooth), you receive the stream in the protocol you have chosen.
 
 As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
 In Media Services, Dynamic Packaging is used whether you are streaming live or on-demand. 
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## Common on-demand workflow
 
@@ -39,7 +43,7 @@ The following is a common Media Services streaming workflow where Dynamic Packag
 
 The following diagram shows the on-demand streaming with dynamic packaging workflow.
 
-![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 ### Encode to adaptive bitrate MP4s
 
@@ -88,10 +92,32 @@ Dynamic Packaging supports MP4 files, which contain video encoded with [H.264](h
 
 ## Audio codecs supported by dynamic packaging
 
-Dynamic Packaging supports MP4 files, which contain audio encoded with [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 or E-AC3), Dolby Atmos, or [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless). Streaming of Dolby Atmos content is supported for standards like MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
+### MP4 files support
 
-> [!NOTE]
-> Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
+Dynamic Packaging supports MP4 files, which contain audio encoded with 
+
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 or E-AC3)
+* Dolby Atmos
+   
+   Streaming of Dolby Atmos content is supported for standards like MPEG-DASH protocol with either Common Streaming Format (CSF) or Common Media Application Format (CMAF) fragmented MP4, and via HTTP Live Streaming (HLS) with CMAF.
+
+* [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29)
+
+    DTS codecs supported by DASH-CSF, DASH-CMAF, HLS-M2TS, and HLS-CMAF packaging formats are:  
+
+    * DTS Digital Surround (dtsc)
+    * DTS-HD High Resolution and DTS-HD Master Audio  (dtsh)
+    * DTS Express (dtse)
+    * DTS-HD Lossless (no core) (dtsl)
+
+### Multi audio tracks
+
+When streaming Assets that have multiple audio tracks with multiple codecs and languages, Dynamic Packaging supports multi audio tracks for the HLS output (version 4 or above).
+ 
+### Not supported
+
+Dynamic Packaging does not support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it is a legacy codec).
 
 ## Dynamic Encryption
 
@@ -189,10 +215,11 @@ Here is an example of a Smooth Streaming manifest:
 
 ## Dynamic Manifest
 
-Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see  [filters and dynamic manifests](filters-dynamic-manifest-overview.md).
+Dynamic filtering is used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see  [Pre-filtering manifests with Dynamic Packager](filters-dynamic-manifest-overview.md).
 
-> [!NOTE]
-> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

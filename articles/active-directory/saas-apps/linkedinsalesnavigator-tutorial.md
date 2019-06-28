@@ -1,10 +1,11 @@
 ---
 title: 'Tutorial: Azure Active Directory integration with LinkedIn Sales Navigator | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and LinkedInSalesNavigator.
+description: Learn how to configure single sign-on between Azure Active Directory and LinkedIn Sales Navigator.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 7a9fa8f3-d611-4ffe-8d50-04e9586b24da
 ms.service: active-directory
@@ -12,8 +13,8 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/12/2018
+ms.topic: tutorial
+ms.date: 04/19/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -21,90 +22,147 @@ ms.collection: M365-identity-device-management
 # Tutorial: Azure Active Directory integration with LinkedIn Sales Navigator
 
 In this tutorial, you learn how to integrate LinkedIn Sales Navigator with Azure Active Directory (Azure AD).
-
 Integrating LinkedIn Sales Navigator with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to LinkedIn Sales Navigator
-- You can enable your users to automatically get signed-on to LinkedIn Sales Navigator (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to LinkedIn Sales Navigator.
+* You can enable your users to be automatically signed-in to LinkedIn Sales Navigator (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, browse [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with LinkedIn Sales Navigator, you need the following items:
 
-- An Azure AD subscription
-- A LinkedIn Sales Navigator single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Avoid using your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* LinkedIn Sales Navigator single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding LinkedIn Sales Navigator from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* LinkedIn Sales Navigator supports **SP and IDP** initiated SSO
+
+* LinkedIn Sales Navigator supports **Just In Time** user provisioning
+
+* LinkedIn Sales Navigator supports [**Automated** user provisioning](linkedinsalesnavigator-provisioning-tutorial.md)
 
 ## Adding LinkedIn Sales Navigator from the gallery
+
 To configure the integration of LinkedIn Sales Navigator into Azure AD, you need to add LinkedIn Sales Navigator from the gallery to your list of managed SaaS apps.
 
 **To add LinkedIn Sales Navigator from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. Click **New application** button on the top of the dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **LinkedIn Sales Navigator**.
+	![The New application button](common/add-new-app.png)
 
-	![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_search.png)
+4. In the search box, type **LinkedIn Sales Navigator**, select **LinkedIn Sales Navigator** from result panel then click **Add** button to add the application.
 
-1. In the results panel, select **LinkedIn Sales Navigator**, and then click **Add** button to add the application.
+	![LinkedIn Sales Navigator in the results list](common/search-new-app.png)
 
-	![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_addfromgallery.png)
+## Configure and test Azure AD single sign-on
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with LinkedIn Sales Navigator based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in LinkedIn Sales Navigator is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in LinkedIn Sales Navigator needs to be established.
-
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in LinkedIn Sales Navigator.
+In this section, you configure and test Azure AD single sign-on with LinkedIn Sales Navigator based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in LinkedIn Sales Navigator needs to be established.
 
 To configure and test Azure AD single sign-on with LinkedIn Sales Navigator, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a LinkedIn Sales Navigator test user](#creating-a-linkedin-sales-navigator-test-user)** - to have a counterpart of Britta Simon in LinkedIn Sales Navigator that is linked to the Azure AD representation of the user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure LinkedIn Sales Navigator Single Sign-On](#configure-linkedin-sales-navigator-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create LinkedIn Sales Navigator test user](#create-linkedin-sales-navigator-test-user)** - to have a counterpart of Britta Simon in LinkedIn Sales Navigator that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your LinkedIn Sales Navigator application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with LinkedIn Sales Navigator, perform the following steps:**
+To configure Azure AD single sign-on with LinkedIn Sales Navigator, perform the following steps:
 
-1. In the Azure portal, on the **LinkedIn Sales Navigator** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **LinkedIn Sales Navigator** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, in **Mode** select **SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+
+    ![Single sign-on select mode](common/select-saml-option.png)
+
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+
+	![Edit Basic SAML Configuration](common/edit-urls.png)
+
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
+
+    ![LinkedIn Sales Navigator Domain and URLs single sign-on information](common/idp-intiated.png)
+
+    a. In the **Identifier** text box, enter the **Entity ID** value, you will copy Entity ID value from the Linkedin Portal explained later in this tutorial.
+
+    b. In the **Reply URL** text box, enter the **Assertion Consumer Access (ACS) Url** value, you will copy Assertion Consumer Access (ACS) Url value from the Linkedin Portal explained later in this tutorial.
+
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    ![LinkedIn Sales Navigator Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
+
+6. LinkedIn Sales Navigator application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. LinkedIn Sales Navigator application expects nameidentifier to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
+
+	![image](common/edit-attribute.png)
+
+7. In addition to above, LinkedIn Sales Navigator application expects few more attributes to be passed back in SAML response. In the User Claims section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+
+	| Name | Source Attribute|
+	| --- | --- |
+	| email| user.mail |
+	| department| user.department |
+	| firstname| user.givenname |
+	| lastname| user.surname |
+
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
+
+	![image](common/new-save-attribute.png)
+
+	![image](common/new-attribute-details.png)
+
+	b. In the **Name** textbox, type the attribute name shown for that row.
+
+	c. Leave the **Namespace** blank.
+
+	d. Select Source as **Attribute**.
+
+	e. From the **Source attribute** list, type the attribute value shown for that row.
+
+	f. Click **Ok**
+
+	g. Click **Save**.
+
+8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+
+	![The Certificate download link](common/metadataxml.png)
+
+9. On the **Set up LinkedIn Sales Navigator** section, copy the appropriate URL(s) as per your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure LinkedIn Sales Navigator Single Sign-On
 
 1. In a different web browser window, sign-on to your **LinkedIn Sales Navigator** website as an administrator.
 
@@ -112,70 +170,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
-1. Click **OR Click Here to load and copy individual fields from the form** and copy **Entity Id** and **Assertion Consumer Access (ACS) Url**.
+1. Click on **OR Click Here to load and copy individual fields from the form** and perform the following steps:
 
 	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-1. On Azure portal, under **LinkedIn Sales Navigator Domain and URLs** section, perform the following steps if you wish to configure the application in **IDP** initiated mode.
+	a. Copy **Entity Id** and paste it into the **Identifier** text box in the **Basic SAML Configuration** in the Azure portal.
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
+	b. Copy **Assertion Consumer Access (ACS) Url** and paste it into the **Reply URL** text box in the **Basic SAML Configuration** in the Azure portal.
 
-    a. In the **Identifier** textbox, enter the **Entity ID** copied from LinkedIn Portal 
-
-	b. In the **Reply URL** textbox, enter the **Assertion Consumer Access (ACS) Url** copied from LinkedIn Portal
-
-1. Check **Show advanced URL settings**, if you wish to configure the application in **SP** initiated mode.
-
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
-
-    In the **Sign-on URL** textbox, type the value using the following pattern: `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
-
-1. Your **LinkedIn Sales Navigator** application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example. The default value of **User Identifier** is **user.userprincipalname** but LinkedIn Sales Navigator expects it to be mapped with the user's email address. You can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration. 
-
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/updateusermail.png)
-	
-1. In **User Attributes** section, click **View and edit all other user attributes** and set the attributes. The user needs to add four claims named **email**, **department**, **firstname**, and **lastname** and the value is to be mapped with **user.mail**, **user.department**, **user.givenname**, and **user.surname** respectively
-
-	| Attribute Name | Attribute Value |
-	| --- | --- |    
-	| email| user.mail |
-	| department| user.department |
-	| firstname| user.givenname |
-	| lastname| user.surname |
-	
-	![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/userattribute.png)
-	
-	a. Click on **Add Attribute** to open the attribute dialog.
-	
-	![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
-	
-	![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
-   
-	b. In the **Name** textbox, type the attribute name shown for that row.
-	
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**
-
-1. Perform the following steps on the **name** attribute-
-
-	a. Click on the attribute to open the **Edit Attribute** window.
-
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/url_update.png)
-
-	b. Delete the URL value from the **namespace**.
-	
-	c. Click **Ok** to save the setting.
-
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
-
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_general_400.png)
-
-1. Go to **LinkedIn Admin Settings** section. Click **Upload XML file** to upload the Metadata XML file that you have downloaded from the Azure portal.
+1. Go to **LinkedIn Admin Settings** section. Upload the XML file that you have downloaded from the Azure portal by clicking on the **Upload XML file** option.
 
 	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
@@ -183,102 +186,73 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
+### Create an Azure AD test user 
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the **Azure  portal**, on the left navigation pane, click **Azure Active Directory** icon.
+2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/create_aaduser_01.png) 
+    ![New user Button](common/new-user.png)
 
-1. Go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/create_aaduser_02.png) 
+3. In the User properties, perform the following steps.
 
-1. At the top of the dialog click **Add** to open the **User** dialog.
- 
-	![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/create_aaduser_03.png) 
+    ![The User dialog box](common/user-properties.png)
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/create_aaduser_04.png) 
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Creating a LinkedIn Sales Navigator test user
 
-Linked Sales Navigator Application supports Just in Time (JIT) user provisioning and after authentication users are created in the application automatically. Activate **Automatically assign licenses** to assign a license to the user.
-   
-   ![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/LinkedinUserprovswitch.png)
-
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to LinkedIn Sales Navigator.
 
-![Assign User][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **LinkedIn Sales Navigator**.
 
-**To assign Britta Simon to LinkedIn Sales Navigator, perform the following steps:**
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the applications list, select **LinkedIn Sales Navigator**.
 
-	![Assign User][201] 
+	![The LinkedIn Sales Navigator link in the Applications list](common/all-applications.png)
 
-1. In the applications list, select **LinkedIn Sales Navigator**.
+3. In the menu on the left, select **Users and groups**.
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_app.png) 
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][202] 
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![Assign User][203]
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create LinkedIn Sales Navigator test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+Linked Sales Navigator Application supports Just in Time (JIT) user provisioning and after authentication users are created in the application automatically. Activate **Automatically assign licenses** to assign a license to the user.
+
+   ![Creating an Azure AD test user](./media/linkedinsalesnavigator-tutorial/LinkedinUserprovswitch.png)
+
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the LinkedIn Sales Navigator tile in the Access Panel, you should be redirected to Organizational page where you have to provide your personal LinkedIn account details. It links your personal account with your LinkedIn business account. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the LinkedIn Sales Navigator tile in the Access Panel, you should be automatically signed in to the LinkedIn Sales Navigator for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/linkedinsalesnavigator-tutorial/tutorial_general_01.png
-[2]: ./media/linkedinsalesnavigator-tutorial/tutorial_general_02.png
-[3]: ./media/linkedinsalesnavigator-tutorial/tutorial_general_03.png
-[4]: ./media/linkedinsalesnavigator-tutorial/tutorial_general_04.png
-
-[100]: ./media/linkedinsalesnavigator-tutorial/tutorial_general_100.png
-
-[200]: ./media/linkedinsalesnavigator-tutorial/tutorial_general_200.png
-[201]: ./media/linkedinsalesnavigator-tutorial/tutorial_general_201.png
-[202]: ./media/linkedinsalesnavigator-tutorial/tutorial_general_202.png
-[203]: ./media/linkedinsalesnavigator-tutorial/tutorial_general_203.png
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

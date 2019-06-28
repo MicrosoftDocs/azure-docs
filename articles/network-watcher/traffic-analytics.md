@@ -3,8 +3,8 @@ title: Azure traffic analytics | Microsoft Docs
 description: Learn how to analyze Azure network security group flow logs with traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.service: network-watcher
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;jdial
+ms.author: yagup;kumud
 ---
 
 # Traffic Analytics
@@ -83,12 +83,19 @@ You can use traffic analytics for NSGs in any of the following supported regions
 The Log Analytics workspace must exist in the following regions:
 * Canada Central
 * West Central US
-* West US 2
 * East US
+* East US 2
+* South Central US
+* West US
+* West US 2
+* Central US
 * France Central
+* North Europe
 * West Europe
 * UK South
+* Australia East
 * Australia Southeast
+* East Asia
 * Southeast Asia
 * Korea Central
 * Central India
@@ -126,14 +133,6 @@ For information on how to check user access permissions, see [Traffic analytics 
 ### Enable Network Watcher
 
 To analyze traffic, you need to have an existing network watcher, or [enable a network watcher](network-watcher-create.md) in each region that you have NSGs that you want to analyze traffic for. Traffic analytics can be enabled for NSGs hosted in any of the [supported regions](#supported-regions).
-
-### Re-register the network resource provider
-
-Before you can use traffic analytics, you must re-register your network resource provider. Click **Try It** in the following code box to open the Azure Cloud Shell. The Cloud Shell automatically logs you into to your Azure subscription. Once the Cloud Shell is open, enter the following command to re-register the network resource provider:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
-```
 
 ### Select a network security group
 
@@ -180,7 +179,7 @@ Select the following options, as shown in the picture:
 
     ![Selection of storage account, Log Analytics workspace, and Traffic Analytics enablement](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country permit data storage in the region where the workspace exists.
+Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country/region permit data storage in the region where the workspace exists.
 
 You can also configure traffic analytics using the [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell cmdlet in Azure PowerShell. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
@@ -274,13 +273,13 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
     ![Dashboard showcasing traffic distribution](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- The geo-map shows the top ribbon for selection of parameters such as data centers (Deployed/No-deployment/Active/Inactive/Traffic Analytics Enabled/Traffic Analytics Not Enabled) and countries contributing Benign/Malicious traffic to the active deployment:
+- The geo-map shows the top ribbon for selection of parameters such as data centers (Deployed/No-deployment/Active/Inactive/Traffic Analytics Enabled/Traffic Analytics Not Enabled) and countries/regions contributing Benign/Malicious traffic to the active deployment:
 
     ![Geo map view showcasing active deployment](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- The geo-map shows the traffic distribution to a data center from countries and continents communicating to it in blue (Benign traffic) and red (malicious traffic) colored lines:
+- The geo-map shows the traffic distribution to a data center from countries/regions and continents communicating to it in blue (Benign traffic) and red (malicious traffic) colored lines:
 
-    ![Geo map view showcasing traffic distribution to countries and continents](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Geo map view showcasing traffic distribution to countries/regions and continents](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Flow details for traffic distribution in log search](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
@@ -366,3 +365,8 @@ Do you have malicious traffic in your environment? Where is it originating from?
 ## Frequently asked questions
 
 To get answers to frequently asked questions, see [Traffic analytics FAQ](traffic-analytics-faq.md).
+
+## Next steps
+
+- To learn how to enable flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
+- To understand the schema and processing details of Traffic Analytics, see [Traffic analytics schema](traffic-analytics-schema.md).

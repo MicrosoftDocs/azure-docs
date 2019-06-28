@@ -298,7 +298,7 @@ then sends an email that confirms the current value.
 
       | Property | Value | Description |
       | -------- | ----- | ----------- | 
-      | **To** | *<email-address\@domain>* | The recipient's email address. For testing, use your own email address. | 
+      | **To** | *\<email-address\@domain>* | The recipient's email address. For testing, use your own email address. | 
       | **Subject** | Current value for "Limit" is **Limit** | Specify the email subject. For this example, make sure that you include the **Limit** variable. | 
       | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
       |||| 

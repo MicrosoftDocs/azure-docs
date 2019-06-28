@@ -5,7 +5,7 @@ author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ---
@@ -61,7 +61,7 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 ## Additional resources
 
 * [Azure Cosmos DB change feed processor library](sql-api-sdk-dotnet-changefeed.md)
-* [NugGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
+* [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Additional samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 ## Next steps

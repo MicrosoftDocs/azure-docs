@@ -3,8 +3,8 @@ title: Troubleshoot Virtual Network Gateway and Connections using Azure Network 
 description: This page explains how to troubleshoot Virtual Network Gateways and Connections with Azure Network Watcher using REST
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: e4d5f195-b839-4394-94ef-a04192766e55
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/19/2017
-ms.author: jdial
+ms.author: kumud
 
 ---
 

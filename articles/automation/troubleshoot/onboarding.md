@@ -4,7 +4,7 @@ description: Learn how to troubleshoot onboarding errors with the Update Managem
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -36,6 +36,24 @@ This error is caused by incorrect or missing permissions on the virtual machine,
 #### Resolution
 
 Ensure you have correct permissions to onboard the virtual machine. Review the [permissions needed to onboard machines](../automation-role-based-access-control.md#onboarding) and try to onboard the solution again. If you receive the error `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, ensure you have the `Microsoft.OperationalInsights/workspaces/read` permission to be able to find if the VM is onboarded to a workspace.
+
+### <a name="diagnostic-logging"></a>Scenario: Onboarding fails with the message - Failed to configure Automation Account for diagnostic logging
+
+#### Issue
+
+You receive the following message when you attempt to onboard a virtual machine to a solution:
+
+```error
+Failed to configure automation account for diagnostic logging
+```
+
+#### Cause
+
+This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](https://aka.ms/PricingTierWarning).
+
+#### Resolution
+
+Create your Log Analytics workspace manually and repeat the onboarding process to select the workspace created.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
@@ -72,6 +90,36 @@ In order to successfully deploy the solution, you need to consider altering the 
   * Revising the set of resources that policy was configured to deny.
 
 Check the notifications in the top-right corner of the Azure portal or navigate to the resource group that contains your automation account and select **Deployments** under **Settings** to view the failed deployment. To learn more about Azure Policy visit: [Overview of Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+
+### <a name="unlink"></a>Scenario: Errors trying to unlink a workspace
+
+#### Issue
+
+You receive the following error when trying to unlink a workspace:
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### Cause
+
+This error occurs when you still have solutions active in your Log Analytics workspace that depend on your Automation Account and Log Analtyics workspace being linked.
+
+### Resolution
+
+To resolve this you'll need to remove the following solutions from your Workspace if you are using them:
+
+* Update Management
+* Change Tracking
+* Start/Stop VMs during off-hours
+
+Once you remove the solutions you can unlink your workspace. It is important to clean up any existing artifacts from those solutions from your workspace and Automation Account as well.  
+
+* Update Management
+  * Remove Update Deployments (Schedules) from your Automation Account
+* Start/Stop VMs during off-hours
+  * Remove any locks on solution components in your Automation Account under **Settings** > **Locks**.
+  * For additional steps to remove the Start/Stop VMs during off-hours solution see, [Remove the Start/Stop VM during off-hours solution](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>MMA Extension failures
 

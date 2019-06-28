@@ -2,7 +2,7 @@
 title: Custom orchestration status in Durable Functions - Azure
 description: Learn how to configure and use custom orchestration status for Durable Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions

@@ -15,6 +15,8 @@ ms.custom: bfmigrate
 
 Most networking services don't support migration from Azure Germany to global Azure. However, you can connect your networks in both cloud environments by using a site-to-site VPN. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The steps you take to set up a site-to-site VPN between clouds are similar to the steps you take to deploy a site-to-site VPN between your on-premises network and Azure. Define a gateway in both clouds, and then tell the VPNs how to communicate with each other. [Create a site-to-site connection in the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) describes the steps you complete to deploy a site-to-site VPN. Here's a summary of the steps:
 
 1. Define a virtual network.
@@ -54,8 +56,8 @@ Migrating network security groups from Azure Germany to global Azure isn't suppo
 Get the current configuration of any network security group from the portal or by running the following PowerShell commands:
 
 ```powershell
-$nsg=Get-AzureRmNetworkSecurityGroup -ResourceName <nsg-name> -ResourceGroupName <resourcegroupname>
-Get-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg
+$nsg=Get-AzNetworkSecurityGroup -ResourceName <nsg-name> -ResourceGroupName <resourcegroupname>
+Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg
 ```
 
 For more information:
@@ -79,7 +81,7 @@ For more information:
 
 Migrating an Azure VPN Gateway instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new instance of VPN Gateway in global Azure.
 
-You can collect information about your current VPN Gateway configuration by using the portal or PowerShell. In PowerShell, use a set of cmdlets that begin with `Get-AzureRmVirtualNetworkGateway*`.
+You can collect information about your current VPN Gateway configuration by using the portal or PowerShell. In PowerShell, use a set of cmdlets that begin with `Get-AzVirtualNetworkGateway*`.
 
 Make sure that you update your on-premises configuration. Also, delete any existing rules for the old IP address ranges after you update your Azure network environment.
 
@@ -87,20 +89,20 @@ For more information:
 
 - Refresh your knowledge by completing the [VPN Gateway tutorials](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials).
 - Learn how to [create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
-- Review the [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway) PowerShell cmdlets.
+- Review the [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) PowerShell cmdlets.
 - Read the blog post [Create a site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/).
  
 ## Application Gateway
 
 Migrating an Azure Application Gateway instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new gateway in global Azure.
 
-You can collect information about your current gateway configuration by using the portal or PowerShell. In PowerShell, use a set of cmdlets that begin with `Get-AzureRmApplicationGateway*`.
+You can collect information about your current gateway configuration by using the portal or PowerShell. In PowerShell, use a set of cmdlets that begin with `Get-AzApplicationGateway*`.
 
 For more information:
 
 - Refresh your knowledge by completing the [Application Gateway tutorials](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
 - Learn how to [create an application gateway](../application-gateway/quick-create-portal.md).
-- Review the [Get-AzureRmApplicationGateway](/powershell/module/azurerm.network/get-azurermapplicationgateway) PowerShell cmdlets.
+- Review the [Get-AzApplicationGateway](/powershell/module/az.network/get-azapplicationgateway) PowerShell cmdlets.
 
 ## DNS
 

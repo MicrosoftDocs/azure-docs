@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/14/2018
+ms.date: 05/08/2019
 ms.author: alsin
 ---
 
@@ -180,7 +180,7 @@ GRUB access in SLES requires bootloader configuration via YaST. To do this, foll
 You will be automatically dropped into emergency shell if SLES cannot boot normally. To manually enter the emergency shell, use the following instructions:
 
 1. From GRUB, press 'e' to edit your boot entry (the SLES entry)
-1. Look for the kernel line it will start with `linux`
+1. Look for the kernel line - it will start with `linux`
 1. Append `systemd.unit=emergency.target` to the end of the line
 1. Press Ctrl + X to reboot with these settings and enter emergency shell
    > Note that you will be dropped into emergency shell with a _read-only_ filesystem. If you want to make any edits to any files, you will need to remount the filesystem with read-write permissions. To do this, enter `mount -o remount,rw /` into the shell

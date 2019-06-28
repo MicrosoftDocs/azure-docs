@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Sentiment analysis on streaming data using Azure Databricks'
-description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to run sentiment analysis on streaming data in near real-time.
+description: Learn to use Azure Databricks with Event Hubs and Cognitive Services API to run sentiment analysis on streaming data in near real time.
 services: azure-databricks
 author: lenadroid
 ms.author: alehall
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 04/29/2019
 ---
 
 # Tutorial: Sentiment analysis on streaming data using Azure Databricks
@@ -50,9 +50,9 @@ Before you start with this tutorial, make sure to meet the following requirement
 
 You can meet these requirements by completing the steps in the article, [Create an Azure Event Hubs namespace and event hub](../event-hubs/event-hubs-create.md).
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure Databricks workspace
 
@@ -149,7 +149,7 @@ In this tutorial, you use the Twitter APIs to send tweets to Event Hubs. You als
 
 ## Get a Cognitive Services access key
 
-In this tutorial, you use the [Microsoft Cognitive Services Text Analytics APIs](../cognitive-services/text-analytics/overview.md) to run sentiment analysis on a stream of tweets in near real time. Before you use the APIs, you must create a Microsoft Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
+In this tutorial, you use the [Azure Cognitive Services Text Analytics APIs](../cognitive-services/text-analytics/overview.md) to run sentiment analysis on a stream of tweets in near real time. Before you use the APIs, you must create a Azure Cognitive Services account on Azure and retrieve an access key to use the Text Analytics APIs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -222,7 +222,7 @@ val connStr = new ConnectionStringBuilder()
             .setSasKeyName(sasKeyName)
             .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
+val pool = Executors.newScheduledThreadPool(1)
 val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
 def sendEvent(message: String) = {
@@ -303,12 +303,18 @@ In the **AnalyzeTweetsFromEventHub** notebook, paste the following code, and rep
 import org.apache.spark.eventhubs._
 
 // Build connection string with the above information
-val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-  .setEventHubName("<EVENT HUB NAME>")
-  .build
+val namespaceName = "<EVENT HUBS NAMESPACE>"
+val eventHubName = "<EVENT HUB NAME>"
+val sasKeyName = "<POLICY NAME>"
+val sasKey = "<POLICY KEY>"
+val connectionString = ConnectionStringBuilder()
+            .setNamespaceName(namespaceName)
+            .setEventHubName(eventHubName)
+            .setSasKeyName(sasKeyName)
+            .setSasKey(sasKey)
 
 val customEventhubParameters =
-  EventHubsConf(connectionString)
+  EventHubsConf(connectionString.toString())
   .setMaxEventsPerTrigger(5)
 
 val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()

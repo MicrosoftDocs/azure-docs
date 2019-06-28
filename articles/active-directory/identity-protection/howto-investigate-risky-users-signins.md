@@ -148,7 +148,7 @@ The **Status** filter enables you to select:
 
 ### Download risky users data
 
-You can download the risky users data if you want work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 5K records. 
+You can download the risky users data if you want to work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 2,500 records. 
 
 ![Risky users report](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -196,7 +196,7 @@ The risky sign-ins report has a default view that shows:
 
 - Risk level (real-time)
 
-- Conditional access
+- Conditional Access
 
 - MFA required  
  
@@ -225,7 +225,7 @@ The details view shows:
 
 - MFA info
 
-- Conditional access
+- Conditional Access
 
 
 
@@ -254,7 +254,7 @@ To narrow down the reported data to a level that works for you, you can filter t
 - Risk state
 - Risk level (aggregate)
 - Risk level (real-time)
-- Conditional access
+- Conditional Access
 - Date
 - Risk level type
 
@@ -295,7 +295,7 @@ The **Risk level (real-time)** filter enables you to select:
 - Low
 
 
-The **Conditional access** filter enables you to select:
+The **Conditional Access** filter enables you to select:
 
 - All
 - Not applied
@@ -317,7 +317,7 @@ Possible values are:
 
 ### Download risky sign-ins data
 
-You can download the risky sign-ins data if you want work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 5K records. 
+You can download the risky sign-ins data if you want to work with it outside the Azure portal. Clicking Download creates a CSV file of the most recent 2,500 records. 
 
 ![Risky users report](./media/howto-investigate-risky-users-signins/15.png)
 

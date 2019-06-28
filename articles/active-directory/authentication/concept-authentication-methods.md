@@ -1,12 +1,12 @@
 ---
 title: Authentication methods - Azure Active Directory
-description: What authentication methods are available in Azure AD for MFA and SSPR
+description: Authentication methods available in Azure AD for MFA and SSPR
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -162,7 +162,7 @@ OATH hardware tokens are being supported as part of a public preview. For more i
 Once tokens are acquired they must be uploaded in a comma-separated values (CSV) file format including the UPN, serial number, secret key, time interval, manufacturer, and model as the example below shows.
 
 ```csv
-upn,serial number,secret key,timeinterval,manufacturer,model
+upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 
@@ -177,7 +177,9 @@ Once any errors have been addressed, the administrator then can activate each ke
 
 Users may have a combination of up to five OATH hardware tokens or authenticator applications such as the Microsoft Authenticator app configured for use at any time.
 
-## Mobile phone
+## Phone options
+
+### Mobile phone
 
 Two options are available to users with mobile phones.
 
@@ -190,18 +192,18 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 >
 > Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
 
-### Text message
+#### Text message
 
 An SMS is sent to the mobile phone number containing a verification code. Enter the verification code provided in the sign-in interface to continue.
 
-### Phone call
+#### Phone call
 
 An automated voice call is made to the phone number you provide. Answer the call and press # in the phone keypad to authenticate
 
 > [!IMPORTANT]
 > Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
 
-## Office phone
+### Office phone
 
 An automated voice call is made to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate.
 
@@ -216,6 +218,25 @@ The office phone attribute is managed by your administrator.
 > There needs to be a space between the country code and the phone number.
 >
 > Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
+
+### Troubleshooting phone options
+
+Common problems related to authentication methods using a phone number:
+
+* Blocked caller ID on a single device
+   * Troubleshoot device
+* Wrong phone number, incorrect country code, home phone number versus work phone number
+   * Troubleshoot user object and configured authentication methods. Ensure correct phone numbers are registered.
+* Wrong PIN entered
+   * Confirm user has used the correct PIN registered in Azure MFA Server.
+* Call forwarded to voicemail
+   * Ensure user has phone turned on and that service is available in their area or use alternate method.
+* User is blocked
+   * Have administrator unblock the user in the Azure portal.
+* SMS is not subscribed on the device
+   * Have the user change methods or activate SMS on the device.
+* Faulty telecom providers (No phone input detected, missing DTMF tones issues, blocked caller ID on multiple devices, or blocked SMS across multiple devices)
+   * Microsoft uses multiple telecom providers to route phone calls and SMS messages for authentication. If you are seeing any of the above issues have a user attempt to use the method at least 5 times within 5 minutes and have that user's information available when contacting Microsoft support.
 
 ## App Passwords
 

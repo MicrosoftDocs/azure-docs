@@ -3,8 +3,8 @@ title: Problems signing in to a Microsoft application | Microsoft Docs
 description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Office 365)
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ Following is a list of the general problem areas that you can drill into if you 
 
 -   [Problems with groups](#problems-with-groups)
 
--   [Problems with conditional access policies](#problems-with-conditional-access-policies)
+-   [Problems with Conditional Access policies](#problems-with-conditional-access-policies)
 
 -   [Problems with application consent](#problems-with-application-consent)
 
@@ -64,7 +64,7 @@ Following are some common issues folks run into when their users cannot sign in 
 
   * Make sure **Multi-Factor Authentication** is not blocking user access. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
 
-  * Make sure a **Conditional Access policy** or **Identity Protection** policy is not blocking user access. [Check a specific conditional access policy](#problems-with-conditional-access-policies) or [Check a specific application’s conditional access policy](#check-a-specific-applications-conditional-access-policy) or [Disable a specific conditional access policy](#disable-a-specific-conditional-access-policy)
+  * Make sure a **Conditional Access policy** or **Identity Protection** policy is not blocking user access. [Check a specific Conditional Access policy](#problems-with-conditional-access-policies) or [Check a specific application’s Conditional Access policy](#check-a-specific-applications-conditional-access-policy) or [Disable a specific Conditional Access policy](#disable-a-specific-conditional-access-policy)
 
   * Make sure that a user’s **authentication contact info** is up to date to allow Multi-Factor Authentication or Conditional Access policies to be enforced. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
 
@@ -84,7 +84,7 @@ Following are some common issues folks run into when their users cannot sign in 
 
 - For **Microsoft** **applications that don’t require a license**, here are some other things to check:
 
-  * If the application is requesting **user-level permissions** (for example “Access this user’s mailbox”), make sure that the user has signed in to the application and has performed a **user-level consent operation** to let the application access her data.
+  * If the application is requesting **user-level permissions** (for example “Access this user’s mailbox”), make sure that the user has signed in to the application and has performed a **user-level consent operation** to let the application access their data.
 
   * If the application is requesting **administrator-level permissions** (for example “Access all user’s mailboxes”), make sure that a Global Administrator has performed an **administrator-level consent operation on behalf of all users** in the organization.
 
@@ -414,11 +414,11 @@ To assign a license to a group, follow these steps:
     > 
     >
 
-## Problems with conditional access policies
+## Problems with Conditional Access policies
 
-### Check a specific conditional access policy
+### Check a specific Conditional Access policy
 
-To check or validate a single conditional access policy:
+To check or validate a single Conditional Access policy:
 
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
@@ -428,20 +428,20 @@ To check or validate a single conditional access policy:
 
 4. click **Enterprise applications** in the navigation menu.
 
-5. click the **Conditional access** navigation item.
+5. click the **Conditional Access** navigation item.
 
 6. click the policy you are interested in inspecting.
 
-7. Review that there are no specific conditions, assignments, or other settings which may be blocking user access.
+7. Review that there are no specific conditions, assignments, or other settings that may be blocking user access.
 
    >[!NOTE]
    >You may wish to temporarily disable this policy to ensure it is not affecting sign ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
    >
    >
 
-### Check a specific application’s conditional access policy
+### Check a specific application’s Conditional Access policy
 
-To check or validate a single application’s currently configured conditional access policy:
+To check or validate a single application’s currently configured Conditional Access policy:
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
@@ -453,14 +453,14 @@ To check or validate a single application’s currently configured conditional a
 
 5.  click **All applications**.
 
-6.  Search for the application you are interested in, or the user is attempting to sign in to by application display name or application id.
+6.  Search for the application you are interested in, or the user is attempting to sign in to by application display name or application ID.
 
      >[!NOTE]
      >If you don’t see the application you are looking for, click the **Filter** button and expand the scope of the list to **All applications**. If you want to see more columns, click the **Columns** button to add additional details for your applications.
      >
      >
 
-7.  click the **Conditional access** navigation item.
+7.  click the **Conditional Access** navigation item.
 
 8.  click the policy you are interested in inspecting.
 
@@ -471,9 +471,9 @@ To check or validate a single application’s currently configured conditional a
      >
      >
 
-### Disable a specific conditional access policy
+### Disable a specific Conditional Access policy
 
-To check or validate a single conditional access policy:
+To check or validate a single Conditional Access policy:
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
@@ -483,7 +483,7 @@ To check or validate a single conditional access policy:
 
 4.  click **Enterprise applications** in the navigation menu.
 
-5.  click the **Conditional access** navigation item.
+5.  click the **Conditional Access** navigation item.
 
 6.  click the policy you are interested in inspecting.
 

@@ -103,12 +103,18 @@ If you use Exchange Online, some users in your tenant might be incorrectly confi
 > [!TIP]
 > To see if there is a duplicate proxy address, execute the following PowerShell cmdlet against Exchange Online:
 > ```
-> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
 > For more information about this problem, see ["Proxy address 
-> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx). See this article for more information [on how the proxyAddresses attribute is populated in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
 
 After you resolve any proxy address problems for the affected users, make sure to force license processing on the group to make sure that the licenses can now be applied.
+
+## Azure AD Mail and ProxyAddresses attribute change
+
+**Problem:** While updating license assignment on a user or a group, you might see that the Azure AD Mail and ProxyAddresses attribute of some users are changed.
+
+Updating license assignment on a user causes the proxy address calculation to be triggered, which can change user attributes. To understand the exact reason of the change and solve the problem, see this article on [how the proxyAddresses attribute is populated in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## What happens when there's more than one product license on a group?
 

@@ -83,7 +83,9 @@ The last step is to go to the target server, or servers, and generate the logins
 > [!NOTE]
 > If you want to grant user access to the secondary, but not to the primary, you can do that by altering the user login on the primary server by using the following syntax.
 >
+> ```sql
 > ALTER LOGIN <login name> DISABLE
+> ```
 >
 > DISABLE doesn’t change the password, so you can always enable it if needed.
 

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 04/30/2019
 ms.author: jowargo
 ---
 
@@ -107,7 +107,8 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 1. In the `Build.Gradle` file for the **app**, add the following lines in the **dependencies** section if it doesn't already exist. 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     ```
 
 2. Add the following plugin at the end of the file if it doesn't already exist. 
@@ -115,22 +116,11 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
     ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
+3. Select **Sync Now** on the toolbar.
 
 ### Updating the AndroidManifest.xml
 
-1. To support FCM, you must implement an Instance ID listener service in your code, which is used to [obtain registration tokens](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) using [Google's FirebaseInstanceId API](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId). In this tutorial, the name of the class is `MyInstanceIDService`.
-
-    Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag.
-
-    ```xml
-    <service android:name=".MyInstanceIDService">
-        <intent-filter>
-            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-        </intent-filter>
-    </service>
-    ```
-
-2. Once you have received your FCM registration token from the FirebaseInstanceId API, you use it to [register with the Azure Notification Hub](notification-hubs-push-notification-registration-management.md). You support this registration in the background using an `IntentService` named `RegistrationIntentService`. This service is also responsible for refreshing your FCM registration token.
+1. Once you have received your FCM registration token, you use it to [register with the Azure Notification Hub](notification-hubs-push-notification-registration-management.md). You support this registration in the background using an `IntentService` named `RegistrationIntentService`. This service is also responsible for refreshing your FCM registration token.
 
     Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag.
 
@@ -141,7 +131,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
     </service>
     ```
 
-3. You need to also define a receiver to receive notifications. Add the following receiver definition to the AndroidManifest.xml file, inside the `<application>` tag. 
+2. You need to also define a receiver to receive notifications. Add the following receiver definition to the AndroidManifest.xml file, inside the `<application>` tag. 
 
     ```xml
     <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
@@ -155,8 +145,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 
     > [!IMPORTANT]
     > Replace the `<your package NAME>` placeholder with your actual package name shown at the top of the `AndroidManifest.xml` file.
-4. Select **Sync Now** on the toolbar.
-5. Add the following necessary FCM-related permissions **below the**  `</application>` tag.
+3. Add the following necessary FCM-related permissions **below the**  `</application>` tag.
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -184,29 +173,6 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
 
      > [!IMPORTANT]
      > Enter the **name** and the **DefaultListenSharedAccessSignature** of your notification hub before proceding further. 
-2. Add another class named `MyInstanceIDService`. This class is your Instance ID listener service implementation.
-
-    The code for this class calls your `IntentService` to [refresh the FCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) in the background.
-
-    ```java
-    import android.content.Intent;
-    import android.util.Log;
-    import com.google.firebase.iid.FirebaseInstanceIdService;
-
-    public class MyInstanceIDService extends FirebaseInstanceIdService {
-
-        private static final String TAG = "MyInstanceIDService";
-
-        @Override
-        public void onTokenRefresh() {
-
-            Log.d(TAG, "Refreshing FCM Registration Token");
-
-            Intent intent = new Intent(this, RegistrationIntentService.class);
-            startService(intent);
-        }
-    };
-    ```
 
 3. Add another new class to your project named, `RegistrationIntentService`. This class implements the `IntentService` interface, and handles [refreshing the FCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) and [registering with the notification hub](notification-hubs-push-notification-registration-management.md).
 
@@ -218,12 +184,16 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
     import android.content.SharedPreferences;
     import android.preference.PreferenceManager;
     import android.util.Log;
+    import com.google.android.gms.tasks.OnSuccessListener;
     import com.google.firebase.iid.FirebaseInstanceId;
+    import com.google.firebase.iid.InstanceIdResult;
     import com.microsoft.windowsazure.messaging.NotificationHub;
+    import java.util.concurrent.TimeUnit;
 
     public class RegistrationIntentService extends IntentService {
 
         private static final String TAG = "RegIntentService";
+        String FCM_token = null;
 
         private NotificationHub hub;
 
@@ -240,8 +210,14 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
             String storedToken = null;
 
             try {
-                String FCM_token = FirebaseInstanceId.getInstance().getToken();
-                Log.d(TAG, "FCM Registration Token: " + FCM_token);
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() { 
+                    @Override 
+                    public void onSuccess(InstanceIdResult instanceIdResult) { 
+                        FCM_token = instanceIdResult.getToken(); 
+                        Log.d(TAG, "FCM Registration Token: " + FCM_token); 
+                    } 
+                }); 
+                TimeUnit.SECONDS.sleep(1);
 
                 // Storing the registration ID that indicates whether the generated token has been
                 // sent to your server. If it is not stored, send the token to your server,
@@ -537,13 +513,13 @@ You can send push notifications from the [Azure portal] by doing the following a
 ### Run the mobile app on emulator
 If you want to test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you may get the **SERVICE\_NOT\_AVAILABLE** exception.
 
-In addition, ensure that you have added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with GCM may result in the **AUTHENTICATION\_FAILED** exception.
+In addition, ensure that you have added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with FCM may result in the **AUTHENTICATION\_FAILED** exception.
 
 ## Next steps
-In this tutorial, you used Firebase Cloud Messaging to push notifications to Android devices. To learn how to push notifications by using Google Cloud Messaging, advance to the following tutorial:
+In this tutorial, you used Firebase Cloud Messaging to broadcast notifications to all Android devices registered with the service. To learn how to push notifications to specific devices, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
->[Push notifications to Android devices using Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md)
+>[Tutorial: Push notifications to specific Android devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
 
@@ -552,6 +528,4 @@ In this tutorial, you used Firebase Cloud Messaging to push notifications to And
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure portal]: https://portal.azure.com

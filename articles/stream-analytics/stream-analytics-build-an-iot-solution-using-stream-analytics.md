@@ -133,7 +133,8 @@ There are several resources that can easily be deployed in a resource group toge
 10. After a few moments, a notification appears to confirm the **Deployment succeeded**.
 
 ### Review the Azure Stream Analytics TollApp resources
-1. Log in to the Azure portal
+
+1. Sign in to the Azure portal
 
 2. Locate the Resource Group that you named in the previous section.
 
@@ -166,7 +167,7 @@ There are several resources that can easily be deployed in a resource group toge
    - **Registration** input is an Azure Blob storage connection, pointing to a static registration.json file, used for lookups as needed. This reference data input is used in later variations of the query syntax.
 
 4. Examine the Outputs of the TollApp sample job.
-   - **Cosmos DB** output is a Cosmos database collection that receives the output sink events. Note that this output is used in INTO clause of the streaming query.
+   - **Cosmos DB** output is a Cosmos database container that receives the output sink events. Note that this output is used in INTO clause of the streaming query.
 
 ## Start the TollApp streaming job
 Follow these steps to start the streaming job:

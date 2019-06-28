@@ -201,7 +201,7 @@ Typically, this is due to an error with port 443. Use the following steps to unb
 
 To verify that the Master Target Agent can create a TCP session for the Configuration server IP, look for a trace similar to the following in the Master Target agent logs:
 
-TCP <Replace IP with CS IP here>:52739 <Replace IP with CS IP here>:443 SYN_SENT 
+TCP \<Replace IP with CS IP here>:52739 \<Replace IP with CS IP here>:443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Replace IP with CS IP here
 

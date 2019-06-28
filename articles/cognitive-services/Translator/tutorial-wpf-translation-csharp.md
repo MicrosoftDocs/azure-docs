@@ -3,13 +3,13 @@ title: "Tutorial: Create a translation app with WPF, C#  - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create a Windows Presentation Foundation (WPF) app that uses Cognitive Service APIs for text translation, language detection, and spell checking with a single subscription key. This exercise will show you how to use features from the Translator Text API and Bing Spell Check API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/13/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Tutorial: Create a translation app with WPF
@@ -74,9 +74,9 @@ Let's add assemblies to our project to serialize and deserialize objects, and to
 1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**, which opens **Reference Manager**.
    ![Add assembly references](media/add-assemblies-sample.png)
 2. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper right of the screen to search for these references and add them to your project:
-   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
-   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
 3. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
 
 > [!NOTE]
@@ -365,7 +365,7 @@ Now we're going to create method to detect the language of the source text (text
        HttpWebRequest detectLanguageWebRequest = (HttpWebRequest)WebRequest.Create(detectUri);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
-       detectLanguageWebRequest.ContentType = "app/json; charset=utf-8";
+       detectLanguageWebRequest.ContentType = "application/json; charset=utf-8";
        detectLanguageWebRequest.Method = "POST";
 
        // Send request
@@ -422,7 +422,7 @@ private string CorrectSpelling(string text)
     HttpWebRequest spellCheckWebRequest = (HttpWebRequest)WebRequest.Create(uri);
     spellCheckWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
     spellCheckWebRequest.Method = "POST";
-    spellCheckWebRequest.ContentType = "app/x-www-form-urlencoded"; // doesn't work without this
+    spellCheckWebRequest.ContentType = "application/x-www-form-urlencoded"; // doesn't work without this
 
     // Create and send the request
     string body = "text=" + System.Web.HttpUtility.UrlEncode(text);

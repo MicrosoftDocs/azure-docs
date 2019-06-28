@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 

@@ -40,6 +40,8 @@ In this tutorial, you learn how to:
 > * Configure a network rule to allow access to external DNS servers
 > * Test the firewall
 
+If you prefer, you can complete this tutorial using [Azure PowerShell](deploy-ps.md).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Set up the network
@@ -230,12 +232,12 @@ Now, test the firewall to confirm that it works as expected.
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address.
 
-3. Open Internet Explorer and browse to http://www.google.com.
+3. Open Internet Explorer and browse to https://www.google.com.
 4. Select **OK** > **Close** on the Internet Explorer security alerts.
 
    You should see the Google home page.
 
-5. Browse to http://www.microsoft.com.
+5. Browse to https://www.microsoft.com.
 
    You should be blocked by the firewall.
 

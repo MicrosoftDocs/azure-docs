@@ -62,7 +62,7 @@ In order to add Log Analytics connection, your Configuration Manager environment
    
 2. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
 
-   1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
+   1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../../active-directory/develop/quickstart-register-app.md).
    2. In the Azure portal, you've created an app secret key for the registered app in Azure Active Directory.  
    3. In the Azure portal, you've provided the registered web app with permission to access to the Log Analytics workspace in Azure Monitor.  
       ![Connection to Log Analytics Wizard General page](./media/collect-sccm/sccm-console-general01.png)

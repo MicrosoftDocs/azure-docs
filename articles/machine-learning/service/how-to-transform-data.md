@@ -10,13 +10,17 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 
 # Transform data with the Azure Machine Learning Data Prep SDK
 
-In this article, you learn different methods of transforming data using the Azure Machine Learning Data Prep SDK. The SDK offers functions that make it simple to add columns, filter out unwanted rows or columns, and impute missing values. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk).
+In this article, you learn different methods of transforming data using the `azureml-dataprep` package. The package offers functions that make it simple to add columns, filter out unwanted rows or columns, and impute missing values. See full reference documentation for the [azureml-dataprep package](https://aka.ms/data-prep-sdk).
+
+> [!Important]
+> If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) to transform your data, snapshot data, and store versioned dataset definitions. Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions. 
+> If you use the `azureml-dataprep` package to create a dataflow with your transformations instead of using the `azureml-datasets` package to create a dataset, you won't be able to use snapshots or versioned datasets later.
 
 This how-to shows examples for the following tasks:
 
@@ -30,7 +34,7 @@ This how-to shows examples for the following tasks:
 
 The Azure Machine Learning Data Prep SDK includes `substring` expressions you can use to calculate a value from existing columns, and then put that value in a new column. In this example, you load data and try to add columns to that input data.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -47,7 +51,7 @@ dflow.head(3)
 
 Use the `substring(start, length)` expression to extract the prefix from the Case Number column and put that string in a new column, `Case Category`. Passing the `substring_expression` variable to the `expression` parameter creates a new calculated column that executes the expression on each record.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -62,10 +66,9 @@ case_category.head(3)
 |2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
-
 Use the `substring(start)` expression to extract only the number from the Case Number column and create a new column. Convert it to a numeric data type using the `to_number()` function, and pass the string column name as a parameter.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',
@@ -493,5 +496,4 @@ dflow.head(2)
 
 ## Next steps
 
-* See the SDK [overview](https://aka.ms/data-prep-sdk) for design patterns and usage examples
 * See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario

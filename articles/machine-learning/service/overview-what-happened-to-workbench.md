@@ -9,7 +9,7 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 01/09/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
 ---
 # What happened to Azure Machine Learning Workbench?
@@ -34,7 +34,7 @@ The latest release of Azure Machine Learning service includes the following feat
 + A new, more comprehensive Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + The new expanded [Azure CLI extension](reference-azure-machine-learning-cli.md) for machine learning.
 
-The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service Workspace](concept-azure-machine-learning-architecture.md#workspace). You can create workspaces quickly in the [Azure portal]((setup-create-workspace.md#portal). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal]((setup-create-workspace.md#portal). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
 Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
@@ -62,7 +62,7 @@ Start training your models and tracking the run histories using the new CLI and 
 
 Your pre-existing data preparation files aren't portable to the latest release because we don't have Machine Learning Workbench anymore. But you can still prepare any size data set for modeling.   
 
-With data sets of any size, you can use the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
+With data sets of any size, you can use the [data prep package for Azure Machine Learning](https://aka.ms/data-prep-sdk) to quickly prepare your data prior to modeling by writing Python code. 
 
 You can follow [this tutorial](tutorial-data-prep.md) to learn more about how to use Azure Machine Learning Data Prep SDK.
 
@@ -70,7 +70,7 @@ You can follow [this tutorial](tutorial-data-prep.md) to learn more about how to
 
 You won't lose any code or work. In the older version, projects are cloud entities with a local directory. In the latest version, you attach local directories to the Azure Machine Learning service Workspace by using a local config file. See a [diagram of the latest architecture](concept-azure-machine-learning-architecture.md).
 
-Much of the project content was already on your local machine. So you just need to create a config file in that directory and reference it in your code to connect to your workspace. To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the 'az ml project attach' CLI command.  For example:
+Much of the project content was already on your local machine. So you just need to create a config file in that directory and reference it in your code to connect to your workspace. To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the `az ml project attach` CLI command.  For example:
 ```python
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
@@ -81,7 +81,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To migrate your models, download the models and re-register them in your new workspace. 
 
-The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can re-create these images by following the [Configure and create image](how-to-deploy-and-where.md#configureimage) sections. 
+The images that you created in your old image registry cannot be directly migrated to the new workspace. In most cases, the model can be deployed without having to create an image. If needed, you can create an image for the model in the new workspace. For more information, see [Manage, register, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
 
 ## What about deployed web services?
 

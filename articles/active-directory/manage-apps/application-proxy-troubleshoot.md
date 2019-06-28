@@ -3,8 +3,8 @@ title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.author: celested
-ms.reviewer: harshja
+ms.date: 06/24/2019
+ms.author: mimart
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 
 ms.collection: M365-identity-device-management
@@ -29,7 +29,7 @@ If errors occur in accessing a published application or in publishing applicatio
 * Open Event Viewer and look for Application Proxy connector events in **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
 * If needed, more detailed logs are available by [turning on the Application Proxy connector session logs](application-proxy-connectors.md#under-the-hood).
 
-For more information about the Azure AD Troubleshooting tool, see [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
+When troubleshooting Application Proxy issues, we recommend you start with reviewing the troubleshooting flow, [Debug Application Proxy Connector issues](application-proxy-debug-connectors.md), to determine if Application Proxy connectors are configured correctly. If you're still having trouble connecting to the application, follow the troubleshooting flow in [Debug Application Proxy application issues](application-proxy-debug-apps.md).
 
 ## The page is not rendered correctly
 You may have problems with your application rendering or functioning incorrectly without receiving specific error messages. This can occur if you published the article path, but the application requires content that exists outside that path.
@@ -48,12 +48,13 @@ Once you find the Connector error from the event log, use this table of common e
 
 | Error | Recommended steps |
 | ----- | ----------------- |
-| Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'One or more errors occurred.' | If you closed the registration window without signing in to Azure AD, run the Connector wizard again and register the Connector. <br><br> If the registration window opens and then immediately closes without allowing you to log in, you will probably get this error. This error occurs when there is a networking error on your system. Make sure that it is possible to connect from a browser to a public website and that the ports are open as specified in [Application Proxy prerequisites](application-proxy-add-on-premises-application.md). |
+| Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'One or more errors occurred.' | If you closed the registration window without signing in to Azure AD, run the Connector wizard again and register the Connector. <br><br> If the registration window opens and then immediately closes without allowing you to log in, you will probably get this error. This error occurs when there is a networking error on your system. Make sure that it is possible to connect from a browser to a public website and that the ports are open as specified in [Application Proxy prerequisites](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | Clear error is presented in the registration window. Cannot proceed | If you see this error and then the window closes, you entered the wrong username or password. Try again. |
 | Connector registration failed: Make sure you enabled Application Proxy in the Azure Management Portal and that you entered your Active Directory user name and password correctly. Error: 'AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials and search by service principal URI has failed. | You are trying to sign in using a Microsoft Account and not a domain that is part of the organization ID of the directory you are trying to access. Make sure that the admin is part of the same domain name as the tenant domain, for example, if the Azure AD domain is contoso.com, the admin should be admin@contoso.com. |
 | Failed to retrieve the current execution policy for running PowerShell scripts. | If the Connector installation fails, check to make sure that PowerShell execution policy is not disabled. <br><br>1. Open the Group Policy Editor.<br>2. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows PowerShell** and double-click **Turn on Script Execution**.<br>3. The execution policy can be set to either **Not Configured** or **Enabled**. If set to **Enabled**, make sure that under Options, the Execution Policy is set to either **Allow local scripts and remote signed scripts** or to **Allow all scripts**. |
 | Connector failed to download the configuration. | The Connector’s client certificate, which is used for authentication, expired. This may also occur if you have the Connector installed behind a proxy. In this case, the Connector cannot access the Internet and will not be able to provide applications to remote users. Renew trust manually using the `Register-AppProxyConnector` cmdlet in Windows PowerShell. If your Connector is behind a proxy, it is necessary to grant Internet access to the Connector accounts “network services” and “local system.” This can be accomplished either by granting them access to the Proxy or by setting them to bypass the proxy. |
 | Connector registration failed: Make sure you are an Application Administrator of your Active Directory to register the Connector. Error: 'The registration request was denied.' | The alias you're trying to log in with isn't an admin on this domain. Your Connector is always installed for the directory that owns the user’s domain. Make sure that the admin account you are trying to sign in with has atleast application administrator permissions to the Azure AD tenant. |
+| The Connector was unable to connect to the service due to networking issues. The Connector tried to access the following URL. | The connector is unable to connect to the Application Proxy cloud service. This may happen if you have a firewall rule blocking the connection. Make sure that you have allowed access to the correct ports and URLS listed in [Application Proxy prerequisites](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 
 ## Kerberos errors
 
@@ -89,7 +90,7 @@ If you encounter an error or problem with Azure AD Application Proxy that isn't 
 * [Enable Application Proxy for Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md)
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md)
-* [Enable conditional access](application-proxy-integrate-with-sharepoint-server.md)
+* [Enable Conditional Access](application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->
