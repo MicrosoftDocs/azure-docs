@@ -78,7 +78,7 @@ The Data Box Edge solution comprises of Data Box Edge resource, Data Box Edge ph
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-edge-manage-access-power-connectivity-mode).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-edge-manage-access-power-connectivity-mode.md).
 
 
 ## Region availability
