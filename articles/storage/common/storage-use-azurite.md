@@ -13,28 +13,87 @@ ms.subservice: common
 
 # Use the Azurite open-source emulator for blob storage development and testing (preview)
 
-The Azurite version 3 open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications. When you're satisfied with how your application is working, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform experiences on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
+The Azurite version 3 open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications. When you're satisfied with how your application is working, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
 
+<!-- 
 ## Prerequisites
 
 * [GitHub account](https://github.com)
 * [Git](https://git-scm.com/)
 * [Node.js version 8.0 or later](https://nodejs.org)
+ -->
 
 ## Install Azurite
 
-To get the Azurite emulator on your local system, clone the GitHub repository for the project by using the following console command.
+There are four different ways to get Azurite installed on your local system:
+
+  1. [Install by using NPM](install-by-using-npm)
+  1. [Run the Docker image](run-the-docker-image)
+  1. [Install the Visual Studio Code extension](install-the-visual-studio-code-extension)
+  1. [Clone the GitHub repository](clone-the-github-repository)
+
+Select the method below that works best for you.
+
+### Install Azurite by using NPM
+<span id="install-by-using-npm"/>
+
+This installation method requires that you have [Node.js version 8.0 or later](https://nodejs.org) installed. **npm** is the package management tool included with every Node.js installation. After installing Node.js, execute the following **npm** command to install Azurite.
+
+```console
+npm install -g azurite
+```
+
+### Run the Docker image
+<span id="run-the-docker-image"/>
+
+**Run the Azurite Docker image**:
+
+The following command runs the Azurite Docker image:
+
+```console
+docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+```
+
+The `-p 10000:10000` parameter redirects requests from host machine's port 10000 to the Docker instance.
+
+**Specify the workspace location**:
+
+```console
+docker run -p 10000:10000 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+```
+
+The `-v c:/azurite:/data` parameter specifies `c:/azurite` as the Azurite persisted data location.
+
+**Set all Azurite parameters**:
+
+```console
+docker run -p 8888:8888 -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite -l /workspace -d /workspace/debug.log --blobPort 8888 --blobHost 0.0.0.0
+```
+
+The `-p 8888:8888` parameter redirects requests from host machine's port 8888 to the Docker instance. For more information about command line parameters, see [Command-line syntax](command-line-syntax).
+
+### Install the Visual Studio Code Azurite extension
+<span id="install-the-visual-studio-code-extension"/>
+
+Search for Azurite in the **EXTENSIONS:MARKETPLACE** inside Visual Studio Code.
+
+Alternatively, install the Azurite extension from the [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite).
+
+### Clone the GitHub repository
+<span id="clone-the-github-repository"/>
+
+Clone the GitHub repository for the project by using the following console command.
 
 ```console
 git clone https://github.com/Azure/Azurite.git
 ```
 
-After cloning the source code, build and install Azurite by using **npm**. **npm** is the package management tool included with every Node.js installation. Execute the following **npm** commands from the local root directory of the cloned repo.
+After cloning the source code, execute following commands from the root of the cloned repo to install Azurite.
 
 ```console
 npm install
 npm run build
-npm install -g azurite
+npm install -g
 ```
 
 ## Command-line syntax
