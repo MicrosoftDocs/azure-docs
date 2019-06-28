@@ -15,7 +15,7 @@ ms.custom:
 
 # Quickstart: Create a voice-first virtual assistant with the Speech SDK, UWP
 
-Quickstarts are also available for [speech-to-text](quickstart-csharp-uwp.md) and [speech-translation](quickstart-translate-speech-uwp.md).
+Quickstarts are also available for [speech-to-text](quickstart-csharp-uwp.md), [text-to-speech](quickstart-text-to-speech-csharp-uwp.md) and [speech-translation](quickstart-translate-speech-uwp.md).
 
 In this article, you'll develop a C# Universal Windows Platform (UWP) application by using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 

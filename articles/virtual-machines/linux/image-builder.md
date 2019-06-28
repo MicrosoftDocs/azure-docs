@@ -53,7 +53,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## Setup Example Variables
+## Setup example variables
 
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
@@ -134,7 +134,7 @@ az resource create \
 
 If it completes successfully, it will return a success message, and create an image builder configuration template artifact in the $imageResourceGroup. You can see the resource group in the portal if you enable 'Show hidden types'.
 
-Also, in the background, Image Builder creates a staging resource group in your subcription. Image Builder uses the staging resource group for the image build. The name of the resource group will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`.
+Also, in the background, Image Builder creates a staging resource group in your subscription. Image Builder uses the staging resource group for the image build. The name of the resource group will be in this format: `IT_<DestinationResourceGroup>_<TemplateName>`.
 
 > [!IMPORTANT]
 > Do not delete the staging resource group directly. If you delete the image template artifact, it will automatically delete the staging resource group. For more information, see the [Clean up](#clean-up) section at the end of this article.
