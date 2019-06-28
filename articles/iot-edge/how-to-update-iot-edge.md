@@ -118,11 +118,11 @@ In a JSON deployment manifest, update the module images in the **systemModules**
 
 ## Update to a release candidate version
 
-Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each release, there is one or more release candidate (RC) version of the service made public. RC versions have all the planned features for a release, but are still going through the testing and validation processes required for a generally available release. If you want to test out a new feature before it's officially released, you can try it out in the RC version and provide feedback through GitHub. 
+Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each stable release, there is one or more release candidate (RC) versions. RC versions include all the planned features for the release, but are still going through the testing and validation processes required for a stable release. If you want to test a new feature early, you can install the RC version and provide feedback through GitHub. 
 
-Release candidate versions follow the same numbering convention of releases, but have **-rc** plus an incremental number appended to the end. You can see the release candidates in the same list of [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) as generally available versions. For example, find **1.0.7-rc1** and **1.0.7-rc2**, the two release candidates that came before **1.0.7**. You can also see that RC versions are marked with **pre-release** labels. 
+Release candidate versions follow the same numbering convention of releases, but have **-rc** plus an incremental number appended to the end. You can see the release candidates in the same list of [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) as the stable versions. For example, find **1.0.7-rc1** and **1.0.7-rc2**, the two release candidates that came before **1.0.7**. You can also see that RC versions are marked with **pre-release** labels. 
 
-As previews, RC versions aren't included as the latest version that the regular installers target. Instead, you need to manually target the assets for the RC version that you want to test. Depending on your IoT Edge device operating system, use the following sections to update IoT Edge to a specific version:
+As previews, release candidate versions aren't included as the latest version that the regular installers target. Instead, you need to manually target the assets for the RC version that you want to test. Depending on your IoT Edge device operating system, use the following sections to update IoT Edge to a specific version:
 
 * [Linux X64](how-to-install-iot-edge-linux.md#install-a-specific-version)
 * [Linux ARM32](how-to-install-iot-edge-linux-arm.md#install-a-specific-version)
