@@ -90,6 +90,15 @@
       - name: 'C# (.NET Framework Windows)'
         href: quickstart-text-to-speech-dotnet-windows.md
         displayName: synthesize speech, speech synthesis, text-to-speech, tts
+      - name: 'C# (.NET Core Windows)'
+        href: quickstart-text-to-speech-dotnetcore.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
+      - name: 'C# (UWP)'
+        href: quickstart-text-to-speech-csharp-uwp.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, universal windows platform
+      - name: 'C# (Unity)'
+        href: quickstart-text-to-speech-csharp-unity.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, unity 3d, windows, android, universal windows platform, uwp
       - name: 'C++ (Windows)'
         href: quickstart-text-to-speech-cpp-windows.md
         displayName: synthesize speech, speech synthesis, text-to-speech, tts
