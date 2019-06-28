@@ -35,9 +35,15 @@ You must be a billing profile owner, contributor, or invoice manager to pay for 
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Search on **Cost Management + Billing**.
-1. In the **Overview** blade, click the *Summary* tab.<!-- screenshot of summary tab -->
+1. In the **Overview** blade, click the *Summary* tab.
+
+    ![screenshot that shows summary tab](./media/billing-how-to-pay-bill/billing-account-overview.png)
+
 1. If you have a due or past due invoice, you'll see the total amount due.
-1. Click the blue **Pay now** button.<!-- screenshot of pay now button from overview -->
+1. Click the blue **Pay now** button.
+
+    ![screenshot that shows pay now button](./media/billing-how-to-pay-bill/paynow-button-overview.png)
+
 1. In the new blade, click **Select a payment method** to choose an existing credit card or add a new one.<!-- screenshot of select payment method link -->
 1. Once the payment method is selected, click **Pay now**.
 
