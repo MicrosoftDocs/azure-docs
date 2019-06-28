@@ -62,7 +62,7 @@
       - name: Use device sets
         href: ../iot-central/howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Version device template
-        href: ../iot-central/howto-version-devicetemplate-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-version-device-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - name: Monitoring and analytics
     items:
       - name: Create telemetry rule

@@ -26,19 +26,19 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 1. If you haven’t created any rules yet, you see the following screen:
 
-    ![No rules yet](media/howto-create-telemetry-rules-pnp/rules_landing_page1.png)
+    ![No rules yet](media/howto-create-telemetry-rules-pnp/rules-landing-page1.png)
 
 1. On the **Rules** tab, select **+ New Rule** to see the types of rules you can create.
 
 1. Select **Telemetry** to create a rule to monitor device telemetry.
 
-    ![Rule Types](media/howto-create-telemetry-rules-pnp/rule_types1.png)
+    ![Rule Types](media/howto-create-telemetry-rules-pnp/rule-types1.png)
 
 1. Enter a name that helps you to identify the rule in this device template.
 
 1. To immediately enable the rule for all the devices created for this template, toggle **Enable rule for all devices for this template**.
 
-   ![Rule Detail](media/howto-create-telemetry-rules-pnp/rule_detail1.png)
+   ![Rule Detail](media/howto-create-telemetry-rules-pnp/rule-detail1.png)
 
     The rule automatically applies to all the devices under the device template.
 
@@ -54,7 +54,7 @@ Condition defines the criteria that is monitored by the rule.
    - Aggregation is optional. Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 80 then the rule triggers almost instantly when the device reports temperature > 80.
    - If an aggregate function like Average, Min, Max, Count is chosen then, the user must provide an **Aggregate time window** over which the condition needs to be evaluated. For example, if you set the period as "5 minutes" and your rule looks for Average temperature above 80, the rule triggers when the average temperature is above 80 for at least 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is evaluated once every 5 minutes.
 
-     ![Condition](media/howto-create-telemetry-rules-pnp/aggregate_condition_filled_out1.png)
+     ![Condition](media/howto-create-telemetry-rules-pnp/aggregate-condition-filled-out1.png)
 
      >[!NOTE]
      >More than one telemetry measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
@@ -65,14 +65,14 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. Choose the **+** next to **Actions**. Here you see the list of available actions.  
 
-    ![Add Action](media/howto-create-telemetry-rules-pnp/add_action1.png)
+    ![Add Action](media/howto-create-telemetry-rules-pnp/add-action1.png)
 
 1. Choose the **Email** action, enter a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-   ![Configure Action](media/howto-create-telemetry-rules-pnp/configure_action1.png)
+   ![Configure Action](media/howto-create-telemetry-rules-pnp/configure-action1.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
 

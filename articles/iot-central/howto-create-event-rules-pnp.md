@@ -26,19 +26,19 @@ To create an event rule, the device template must have at least one event measur
 
 1. If you haven’t created any rules yet, you see the following screen:
 
-    ![No rules yet](media/howto-create-event-rules-pnp/rules_landing_page1.png)
+    ![No rules yet](media/howto-create-event-rules-pnp/rules-landing-page1.png)
 
 1. On the **Rules** tab, select **+ New Rule** to see the types of rules you can create.
 
 1. Choose the **Event** tile to create an event monitoring rule.
 
-    ![Rule types](media/howto-create-event-rules-pnp/rule_types1.png)
+    ![Rule types](media/howto-create-event-rules-pnp/rule-types1.png)
 
 1. Enter a name that helps you to identify the rule in this device template.
 
 1. To immediately enable the rule for all the devices created from this template, toggle **Enable rule for all devices of this template**.
 
-    ![Rule Detail](media/howto-create-event-rules-pnp/rule_detail1.png)
+    ![Rule Detail](media/howto-create-event-rules-pnp/rule-detail1.png)
 
     The rule automatically applies to all the devices under the device template.
 
@@ -50,7 +50,7 @@ Condition defines the criteria that is monitored by the rule.
 
 1. Choose the event that you want to monitor from the Measurement dropdown. In this example, **Fan Motor Error** event has been selected.
 
-   ![Condition](media/howto-create-event-rules-pnp/condition_filled_out1.png)
+   ![Condition](media/howto-create-event-rules-pnp/condition-filled-out1.png)
 
 1. Optionally, you can also set **Count** as **Aggregation** and provide the corresponding threshold.
 
@@ -59,7 +59,7 @@ Condition defines the criteria that is monitored by the rule.
 
      For example, if you want to alert when there are more than three device events within 5 minutes, then select the event and set the aggregate function as "count",  operator as "greater than", and "threshold" as 3. Set "Aggregation time period" as "5 minutes". The rule triggers when more than three events are sent by the device within 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is  evaluated once every 5 minutes.
 
-     ![Add Event Condition](media/howto-create-event-rules-pnp/aggregate_condition_filled_out1.png)
+     ![Add Event Condition](media/howto-create-event-rules-pnp/aggregate-condition-filled-out1.png)
 
      >[!NOTE]
      >More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each condition gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
@@ -70,14 +70,14 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. Choose the **+** next to **Actions**. Here you see the list of available actions.
 
-    ![Add Action](media/howto-create-event-rules-pnp/add_action1.png)
+    ![Add Action](media/howto-create-event-rules-pnp/add-action1.png)
 
 1. Choose the **Email** action, enter a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-   ![Configure Action](media/howto-create-event-rules-pnp/configure_action1.png)
+   ![Configure Action](media/howto-create-event-rules-pnp/configure-action1.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring the events being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
 
