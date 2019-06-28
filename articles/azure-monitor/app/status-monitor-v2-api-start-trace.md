@@ -47,13 +47,13 @@ To collect these events:
 2. Execute this cmdlet
 3. In a cmd console with admin privileges, execute `iisreset /start` To start IIS.
 4. Try to browse to your app.
-5. After your app finishes loading, you can wait for this cmdlet to time out or manually stop it (`Ctrl + C`).
+5. After your app finishes loading, you can manually stop it (`Ctrl + C`) or wait for the timeout.
 
 ### What events to collect
 
 You have three options when collecting events:
 1. Use the switch `-CollectSdkEvents` to collect events emitted from the Application Insights SDK.
-2. Use the switch `-CollectRedfieldEvents` to collect events emitted by Status Monitor and the Redfield Runtime. This is useful for diagnosing IIS and application startup.
+2. Use the switch `-CollectRedfieldEvents` to collect events emitted by Status Monitor and the Redfield Runtime. These logs are helpful when diagnosing IIS and application startup.
 3. Use both switches to collect both event types.
 4. By default, if no switch is specified both event types will be collected.
 
