@@ -12,7 +12,7 @@ Security attributes are categorized as:
 * Preventative.
 * Network segmentation.
 * Detection.
-* Identity and access management support.
+* Identity-and-access management support.
 * Audit trail.
 * Access controls (if used).
 * Configuration management (if used).

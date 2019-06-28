@@ -13,17 +13,17 @@ ms.author: mbaldwin
 ---
 # Security attributes for Azure SQL Database
 
-This article documents the common security attributes that are built in to Azure SQL Database.
+This article documents the common security attributes that are built-in to Azure SQL Database.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-SQL Database offers both [single database](sql-database-single-index.yml) and [managed instance](sql-database-managed-instance.md). The entries below apply to both offerings except where otherwise noted.
+SQL Database offers both [single database](sql-database-single-index.yml) and [managed instance](sql-database-managed-instance.md). The following entries apply to both offerings except where otherwise noted.
 
 ## Preventative
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption.</li><li>Server-side encryption with customer-managed keys.</li><li>Other encryption features, such as client side or always encrypted.</ul>| Yes. | Referred to as "encryption-in-use," as described in the article [Always Encrypted](sql-database-always-encrypted.md). Server-side encryption uses [transparent data encryption](transparent-data-encryption-azure-sql.md).|
+| Encryption at rest:<ul><li>Server-side encryption.</li><li>Server-side encryption with customer-managed keys.</li><li>Other encryption features, such as client side or always encrypted.</ul>| Yes. | Referred to as "encryption in use" as described in the article [Always Encrypted](sql-database-always-encrypted.md). Server-side encryption uses [transparent data encryption](transparent-data-encryption-azure-sql.md).|
 | Encryption in transit:<ul><li>Azure ExpressRoute encryption.</li><li>Encryption in a virtual network.</li><li>Encryption between virtual networks.</ul>| Yes. | Using HTTPS. |
 | Encryption-key handling, such as CMK or BYOK.| Yes. | Both service-managed and customer-managed key handling are offered. The latter is offered through [Azure Key Vault](../key-vault/index.yml). |
 | Column-level encryption provided by Azure data services.| Yes. | Through [Always Encrypted](sql-database-always-encrypted.md). |
@@ -44,13 +44,12 @@ SQL Database offers both [single database](sql-database-single-index.yml) and [m
 |---|---|--|
 | Azure monitoring support, such as Log Analytics or Application Insights.| Yes. | SecureSphere, the SIEM solution from Imperva, is also supported through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL auditing](sql-database-auditing.md). |
 
-## Identity and access management
+## Identity-and-access management
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Azure Active Directory (Azure AD) |
 | Authorization| Yes | None |
-
 
 ## Audit trail
 
