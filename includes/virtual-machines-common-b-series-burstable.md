@@ -64,7 +64,7 @@ The table shows the hourly traffic data and the chart is a visual representation
 | No traffic | 22:00 | 0 | 162 | 642 |
 | No traffic | 23:00 | 0 | 162 | 804 |
 
-<sup>1</sup>Credits accumulated/credits used in an hour is equivalent to: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
+<sup>1</sup> Credits accumulated/credits used in an hour is equivalent to: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
 
 ## Q & A
 
