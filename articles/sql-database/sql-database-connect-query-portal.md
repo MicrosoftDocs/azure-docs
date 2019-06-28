@@ -8,11 +8,11 @@ ms.subservice: development
 ms.custom:
 ms.devlang:
 ms.topic: quickstart
-author: AyoOlubeko
-ms.author: ayolubek
+author: Ninarn
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/12/2019
+ms.date: 06/28/2019
 ---
 # Quickstart: Use the Azure portal's SQL query editor to connect and query data
 
