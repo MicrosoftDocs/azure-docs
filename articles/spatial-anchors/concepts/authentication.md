@@ -199,45 +199,9 @@ And the response contains the MR token in plain text.
  
 That MR token is then returned to the client. Your client app can then set it as its access token in the cloud session config.
 
-# [C#](#tab/csharp)
-
 ```csharp
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
 ```
-
-# [ObjC](#tab/objc)
-
-```objc
-_cloudSession.configuration.accessToken = @"MyAccessToken";
-```
-
-# [Swift](#tab/swift)
-
-```swift
-_cloudSession!.configuration.accessToken = "MyAccessToken"
-```
-
-# [Java](#tab/java)
-
-```java
-mCloudSession.getConfiguration().setAccessToken("MyAccessToken");
-```
-
-# [C++ NDK](#tab/cpp)
-
-```cpp
-auto configuration = cloudSession_->Configuration();
-configuration->AccessToken(R"(MyAccessToken)");
-```
-
-# [C++ WinRT](#tab/cppwinrt)
-
-```cpp
-auto configuration = m_cloudSession.Configuration();
-configuration.AccessToken(LR"(MyAccessToken)");
-```
-
-***
 
 ## Role-based access control
 
