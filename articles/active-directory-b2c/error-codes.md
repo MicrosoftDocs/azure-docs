@@ -135,7 +135,7 @@ ___
 | `AADB2C90114` | Your account is temporarily locked to prevent unauthorized use. Try again later. |
 | `AADB2C90115` | When requesting the 'code' response_type, the scope parameter must include a resource or client ID for access tokens, and 'openid' for ID tokens. Additionally include 'offline_access' for refresh tokens. |
 | `AADB2C90116` | The default culture is not specified. Please select a valid default culture. |
-| [AADB2C90117](error-handling.md#AADB2C90117) | The scope '{0}' provided in the request is not supported. |
+| [AADB2C90117](error-handling.md#aadb2c90117) | The scope '{0}' provided in the request is not supported. |
 | `AADB2C90118` | The user has forgotten their password. |
 | `AADB2C90119` | User has exceeded the maximum number of retries for step '{0}' of policy '{1}'. |
 | `AADB2C90120` | The max age parameter '{0}' specified in the request is invalid. Max age must be an integer between '{1}' and '{2}' inclusive. |
