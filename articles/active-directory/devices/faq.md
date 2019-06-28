@@ -1,25 +1,20 @@
 ---
 title: Azure Active Directory device management FAQ | Microsoft Docs
 description: Azure Active Directory device management FAQ.
-services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
 
-ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
+services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/22/2019
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: jairoc
 
 ms.collection: M365-identity-device-management
 ---
-
 # Azure Active Directory device management FAQ
 
 ### Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
@@ -209,7 +204,6 @@ Create a different local account before you use Azure Active Directory join to f
 
 ---
 
-
 ## Hybrid Azure AD join FAQ
 
 ### Q: Where can I find troubleshooting information to diagnose hybrid Azure AD join failures?
@@ -225,7 +219,6 @@ Create a different local account before you use Azure Active Directory join to f
 **A:** When your users add their accounts to apps on a domain-joined device, they might be prompted with **Add account to Windows?** If they enter **Yes** on the prompt, the device registers with Azure AD. The trust type is marked as Azure AD registered. After you enable hybrid Azure AD join in your organization, the device also gets hybrid Azure AD joined. Then two device states show up for the same device. 
 
 Hybrid Azure AD join takes precedence over the Azure AD registered state. So your device is considered hybrid Azure AD joined for any authentication and Conditional Access evaluation. You can safely delete the Azure AD registered device record from the Azure AD portal. Learn to [avoid or clean up this dual state on the Windows 10 machine](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
-
 
 ---
 
@@ -248,7 +241,6 @@ If a password is changed outside the corporate network (for example, by using Az
 
 ---
 
-
 ## Azure AD register FAQ
 
 ### Q: Can I register Android or iOS BYOD devices?
@@ -268,3 +260,8 @@ If a password is changed outside the corporate network (for example, by using Az
 
 - During the first access try, your users are prompted to enroll the device by using the company portal.
 
+## Next steps
+
+- Learn more about [Azure AD registered devices](concept-azure-ad-register.md)
+- Learn more about [Azure AD joined devices](concept-azure-ad-join.md)
+- Learn more about [hybrid Azure AD joined devices](concept-azure-ad-join-hybrid.md)
