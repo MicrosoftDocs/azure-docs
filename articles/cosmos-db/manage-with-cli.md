@@ -26,7 +26,8 @@ az cosmosdb create \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations EastUS=0 WestUS=1 \
+   --locations regionName=EastUS failoverPriority=0 isZoneRedundant=False \
+   --locations regionName=WestUS failoverPriority=1 isZoneRedundant=False \
    --enable-multiple-write-locations false
 ```
 
