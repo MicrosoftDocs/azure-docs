@@ -16,6 +16,9 @@
   - name: Managed services offers in Azure Marketplace
     displayName: managed services offer, azure marketplace
     href: ./concepts/managed-services-offers.md
+  - name: Recommended security practices
+    displayName: managed services offer, azure marketplace
+    href: ./concepts/recommended-security-practices.md
 - name: How-to guides
   items:
   - name: Onboard a customer to Azure Delegated Resource Management

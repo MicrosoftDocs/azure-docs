@@ -4,7 +4,7 @@ description: Learn how to onboard a customer to Azure Delegated Resource Managem
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 06/24/2019
+ms.date: 06/28/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -52,9 +52,11 @@ az account set --subscription <subscriptionId/name>
 az account show
 ```
 
-## Confirm that the customer's subscription is ready for onboarding
+## Register the customer's subscription for onboarding
 
-During the limited preview period, each subscription must be authorized for onboarding. When a subscription is authorized, the **Microsoft.ManagedServices** resource provider is registered for that subscription. You can confirm that this is the case (from within the customer's tenant) in one of the following ways.
+Each subscription must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. For more info, see [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
+
+You can confirm that the subscription is ready for onboarding (from within the customer's tenant) in one of the following ways.
 
 ### Azure portal
 
@@ -111,18 +113,9 @@ Microsoft.ManagedServices  Registered
 
 As a service provider, you may want to use multiple offers with a single customer, requiring different access for different scopes.
 
-To make management easier, we recommend using Azure AD user groups for each role, allowing you to add or remove individual users to the group rather than assigning permissions directly to that user. You may also want to assign roles to a service principal. Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors.
+To make management easier, we recommend using Azure AD user groups for each role, allowing you to add or remove individual users to the group rather than assigning permissions directly to that user. You may also want to assign roles to a service principal. Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors. For more info, see [Recommended security practices](../concepts/recommended-security-practices.md).
 
-For example, you may want to use a structure like this:
-
-|Group name  |Type  |principalId  |Role definition  |Role definition ID  |
-|---------|---------|---------|---------|---------|
-|Architects     |User group         |\<principalId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Assessment     |User group         |\<principalId\>         |Reader         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
-|VM Specialists     |User group         |\<principalId\>         |VM Contributor         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automation     |Service principal name (SPN)         |\<principalId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-
-You'll need to have these ID values ready in order to define authorizations. If you don't have them already, you can retrieve them in one of the following ways.
+In order to define authorizations, you'll need to know the ID values for each user, user group, or service principal to which you want to grant access. You'll also need the role definition ID for each built-in role you want to assign. If you don't have them already, you can retrieve them in one of the following ways.
 
 ### PowerShell
 
