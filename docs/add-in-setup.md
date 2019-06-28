@@ -6,7 +6,7 @@ localization_priority: Normal
 
 # Add-in setup
 
-On the Add-in setup page, you can indicate whether you want your add-in to be available in the Apple Store and add lead management details.
+On the Add-in setup page, you can indicate whether you want your add-in to be available in the Apple Store,provide authorization information, and add lead management details.
 
 ## Setup details
 
@@ -16,6 +16,19 @@ If you want your add-in to be available in the Apple Store, select the **iOS** c
 > To make your add-in available for iOS, you must set up your Apple ID on the [Account settings](https://partner.microsoft.com/dashboard/account/management) page. If you add your ID in Account settings, remember to refresh the **Add-in setup** page.
 
 If your add-in requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **Associated service purchase** check box.
+
+## Authorization
+
+If your add-in requires Azure Active Directory (Azure AD), you must check the box in the Authorization section and specify your target Office 365 plan. Your add-in requires Azure AD if it targes a specific national cloud, or if it uses single sign-on (SSO) or Microsoft Graph. 
+
+When you select the check box, you must select one of the following target plans:
+- Office 365 or Office 365 Education
+- Office 365 operated by 21Vianet
+- Office 365 Germany
+- Office 365 U.S. Government
+
+> [!Note]
+> Add-ins that require Azure AD might be subject to additional validation requirements during the certification process.
 
 ## Lead management
 

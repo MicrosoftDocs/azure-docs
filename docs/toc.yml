@@ -75,8 +75,6 @@
   items:
     - name: Mange add-in names
       href: manage-add-in-names.md
-    - name: Add lead management details
-      href: add-lead-management-details.md
     - name: Create or update client IDs and secrets
       href: create-or-update-client-ids-and-secrets.md
 - name: Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China

@@ -10,10 +10,12 @@ You can define the markets for your add-in on the **Pricing and availability** p
 
 ## Markets
 
-By default, your add-in will be available in all markets, including any future markets that are added later. If you don't want your add-in to be available in some countries/regions, you can select the markets in which your add-in will be available. Choose **Show options** and uncheck the check box next to the market or markets in which you don't want your add-in to be available. If you don't want your add-in to automatically be made available in future markets, uncheck the **Make my product available in any future market at the base price and general availability date** check box.
+By default, your add-in will be available in all markets, including any future markets that are added later. If you don't want your add-in to be available in some countries/regions, you can select the markets in which your add-in will be available. Choose **Show options** and uncheck the check box next to the market or markets in which you don't want your add-in to be available. You can also **Unselect all** markets and then select markets individually.
+
+If you don't want your add-in to automatically be made available in future markets, uncheck the **Make my product available in any future market at the base price and general availability date** check box.
 
 > [!NOTE]
-> To submit a SharePoint Add-in that uses OAuth and that you want to distribute to China, you must block access for all countries except China.
+> To submit a SharePoint Add-in that uses OAuth and that you want to distribute to China, you must select China only.
 
 
 ## Visibility
