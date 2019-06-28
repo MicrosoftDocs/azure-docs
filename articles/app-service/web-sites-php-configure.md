@@ -180,9 +180,9 @@ For more information, see the [PHP Developer Center](https://azure.microsoft.com
 [free trial]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[List of php.ini directives]: http://www.php.net/manual/en/ini.list.php
-[.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[List of php.ini directives]: https://www.php.net/manual/en/ini.list.php
+[.user.ini]: https://www.php.net/manual/en/configuration.file.per-user.php
+[ini_set()]: https://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png

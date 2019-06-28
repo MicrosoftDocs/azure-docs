@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Train a model and extract form data using REST API with Python - Form Recognizer"
+title: "Quickstart: Train a model and extract form data using the REST API with Python - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will use the Form Recognizer REST API with Python to train a model and extract data from forms.
+description: In this quickstart, you'll use the Form Recognizer REST API with Python to train a model and extract data from forms.
 author: PatrickFarley
 manager: nitinme
 
@@ -13,27 +13,44 @@ ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use Form Recognizer to extract my form data.
 ---
 
-# Quickstart: Train a Form Recognizer model and extract form data using REST API with Python
+# Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python
 
-In this quickstart, you will use Form Recognizer's REST API with Python to train and score forms to extract key-value pairs and tables.
+In this quickstart, you'll use the Azure Form Recognizer REST API with Python to train and score forms to extract key-value pairs and tables.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+To complete this quickstart, you must have:
+- Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
+- [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
+- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the data to the root of an Azure Blob Storage account.
 
--  You must get access to the Form Recognizer limited-access preview. To get access to the preview, please fill out and submit the [Cognitive Services Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. 
-- You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
-- You must have a subscription key for Form Recognizer. To get a subscription key, see [Obtaining Subscription Keys](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-- You must have a minimum set of five forms of the same type. You can use a [sample dataset](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
+## Create a Form Recognizer resource
 
-## Create and run the sample
+When you are granted access to use Form Recognizer, you'll receive a Welcome email with several links and resources. Use the "Azure portal" link in that message to open the Azure portal and create a Form Recognizer resource. In the **Create** pane, provide the following information:
 
-To create and run the sample, make the following changes to the code snippet below:
+|    |    |
+|--|--|
+| **Name** | A descriptive name for your resource. We recommend using a descriptive name, for example *MyNameFormRecognizer*. |
+| **Subscription** | Select the Azure subscription which has been granted access. |
+| **Location** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
+| **Pricing tier** | The cost of your resource depends on the pricing tier you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
+| **Resource group** | The [Azure resource group](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) that will contain your resource. You can create a new group or add it to a pre-existing group. |
 
-1. Replace the value of `<subscription_key>` with your subscription key.
-1. Replace the value of `<Endpoint>` with the endpoint URL for the Form Recognizer resource in the Azure region where you obtained your subscription keys.
-1. Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the training data is located.  
+> [!IMPORTANT]
+> Normally when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key (used across multiple cognitive services) or a single-service subscription key (used only with a specific cognitive service). However, because Form Recognizer is a preview release, it is not included in the multi-service subscription, and you cannot create the single-service subscription unless you use the link provided in the Welcome email.
 
+When your Form Recognizer resource finishes deploying, find and select it from the **All resources** list in the portal. Then select the **Keys** tab to view your subscription keys. Either key will give your app access to the resource. Copy the value of **KEY 1**. You will use it in the next section.
+
+## Train a Form Recognizer model
+
+First, you'll need a set of training data in an Azure Storage blob container. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty."
+
+To train a Form Recognizer model by using the documents in your Azure blob container, call the **Train** API by running the python code that follows. Before you run the code, make these changes:
+
+1. Replace `<Endpoint>` with the endpoint URL for the Form Recognizer resource in the Azure region where you obtained your subscription keys.
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve this, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Click the next dialog and copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Replace `<Subscription key>` with the subscription key you copied from the previous step.
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
@@ -55,11 +72,11 @@ To create and run the sample, make the following changes to the code snippet bel
     except Exception as e:
         print(str(e))
     ```
-1. Save the code as a file with an `.py` extension. For example, `form-recognize-train.py`.
+1. Save the code in a file with a .py extension. For example, *form-recognize-train.py*.
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognize-train.py`.
 
-You will receive a `200 (Success)` response with the following JSON output:
+You'll receive a `200 (Success)` response with this JSON output:
 
 ```json
 {
@@ -100,16 +117,16 @@ You will receive a `200 (Success)` response with the following JSON output:
 }
 ```
 
-Take note of the `"modelId"` value; you will need it for the following steps.
+Note the `"modelId"` value. You'll need it for the following steps.
   
 ## Extract key-value pairs and tables from forms
 
-Next, you will analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by executing the Python script below. Before running the command, make the following changes:
+Next, you'll analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the Python script that follows. Before you run the command, make these changes:
 
-1. Replace `<Endpoint>` with the endpoint you obtained with your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
-1. Replace `<File Path>` with the file path location or URL where the form to extract data is located.
-1. Replace `<modelID>` with the model ID you received in the previous step of training the model.
-1. Replace `<file type>` with the file type - supported types pdf, image/jpeg, image/png.
+1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
+1. Replace `<modelID>` with the model ID you received in the previous section.
+1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`.
 1. Replace `<subscription key>` with your subscription key.
 
     ```python
@@ -118,11 +135,11 @@ Next, you will analyze a document and extract key-value pairs and tables from it
     
     # Endpoint URL
     base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
-    file_path = r"<File Path>"
+    file_path = r"<path to your form>"
     model_id = "<modelID>"
     headers = {
         # Request headers
-        'Content-Type': 'application/<file type>',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<subscription key>',
     }
 
@@ -137,13 +154,13 @@ Next, you will analyze a document and extract key-value pairs and tables from it
         print(str(e))
     ```
 
-1. Save the code as a file with an `.py` extension. For example, `form-recognize-analyze.py`.
+1. Save the code in a file with a .py extension. For example, *form-recognize-analyze.py*.
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognize-analyze.py`.
 
 ### Examine the response
 
-A successful response is returned in JSON and represents the extracted key-value pairs and tables extracted from the form.
+A success response is returned in JSON. It represents the key-value pairs and tables extracted from the form:
 
 ```bash
 {
@@ -468,7 +485,7 @@ A successful response is returned in JSON and represents the extracted key-value
 
 ## Next steps
 
-In this guide, you used the Form Recognizer REST APIs with Python to train a model and run it in a sample case. Next, see the reference documentation to explore the Form Recognizer API in more depth.
+In this quickstart, you used the Form Recognizer REST API with Python to train a model and run it in a sample scenario. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
 > [REST API reference documentation](https://aka.ms/form-recognizer/api)

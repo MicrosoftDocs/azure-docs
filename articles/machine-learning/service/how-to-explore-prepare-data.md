@@ -1,5 +1,5 @@
 ---
-title: Explore and prepare data (Dataset class)
+title: Explore and transform data (Dataset class)
 titleSuffix: Azure Machine Learning service
 description: Explore data using summary statistics and prepare data through data cleaning, transformation, and feature engineering
 services: machine-learning
@@ -10,16 +10,16 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
+ms.date: 05/23/2019
 
 ---
 
 # Explore and prepare data with the Dataset class (Preview)
 
-Learn how to explore and prepare data with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). The [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class (preview) enables you to explore and prepare your data by providing functions such as: sampling, summary statistics and intelligent transformations. Transformation steps are saved in [Dataset definitions](how-to-manage-dataset-definitions.md) with the capability to handle multiple large files of different schemas in a highly scalable manner.
+Learn how to explore and prepare data with the azureml-datasets package in the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). The [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) class (preview) enables you to explore and prepare your data by providing functions such as: sampling, summary statistics and intelligent transformations. Transformation steps are saved in [Dataset definitions](how-to-manage-dataset-definitions.md) with the capability to handle multiple large files of different schemas in a highly scalable manner.
 
 > [!Important]
-> Some Dataset classes (preview) have dependencies on the Data Prep SDK (GA). While transformation functions can be done directly with the GA'ed [Data Prep SDK functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](how-to-create-dataset-snapshots.md) and store [versioned dataset definitions](how-to-manage-dataset-definitions.md). Datasets is the next version of the Data Prep SDK, offering expanded functionality for managing datasets in AI solutions.
+> Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). While transformation functions can be done directly with the GA'ed [Data Prep functions](how-to-transform-data.md), we recommend the Dataset package wrappers described in this article if you are building a new solution. Azure Machine Learning Datasets (preview) allow you to not only transform your data, but also [snapshot data](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) and store [versioned dataset definitions](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py). Datasets is the next version of the Data Prep SDK, offering expanded functionality for managing datasets in AI solutions.
 
 ## Prerequisites
 
@@ -29,9 +29,9 @@ To explore and prepare your data, you'll need:
 
 * An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* The Azure Machine Learning SDK for Python (version 1.0.21 or later), which includes the azureml-datasets package. To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* The Azure Machine Learning Data Prep SDK. To install or update to the latest version, see [Install or update the the Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
+* The Azure Machine Learning Data Prep SDK. To install or update to the latest version, see [Install or update the Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
 
 * Download the sample files to follow along with the examples: [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) and [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
 
@@ -40,7 +40,7 @@ To explore and prepare your data, you'll need:
 Take a sample of your data to get an initial understanding of your data architecture and content. At this time, the [`sample()`](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) method from the Dataset class supports Top N, Simple Random, and Stratified sampling strategies.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import random
 
 # create an in-memory Dataset from a local file
@@ -105,7 +105,6 @@ sample_dataset.to_pandas_dataframe()
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN AVE|810|THEFT|...
 
-
 ## Explore with summary statistics
 
  Detect anomalies, missing values, or error counts with the [`get_profile()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) method. This function gets the profile and summary statistics of your data, which in turn helps determine the necessary data preparation operations to apply.
@@ -145,10 +144,10 @@ In Datasets,  null values, NaN's and values that contain no content are consider
 
 From the Dataset profile generated in the preceding section, we see that `Latitude` and `Longitude` columns have a high percentage of missing values. In this example, we calculate the mean and impute missing values for those two columns.
 
-First, get the latest definition of the Dataset with [`get_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) and pare down the data with [`keep_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), so we only view the columns we want to address.
+First, get the latest definition of the Dataset with [`get_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) and pare down the data with [`keep_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow#keep-columns-columns--multicolumnselection--validate-column-exists--bool---false-----azureml-dataprep-api-dataflow-dataflow), so we only view the columns we want to address.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import azureml.dataprep as dprep
 
 # get the latest definition of Dataset
@@ -218,7 +217,6 @@ As shown in the following output table, the missing latitude was imputed with th
 1|10516598|False|41.744107|-87.664494
 2|10519196|False|41.780049|-87.000000
 
-
 Update the Dataset definition with, [`update_definition()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) to keep the performed transformation steps.
 
 ```Python
@@ -236,12 +234,13 @@ dataset.head(3)
 
 Frequently, the data we work with while cleaning and preparing data is just a subset of the total data we need for production. As a result, some of the assumptions we make as part of our cleaning might turn out to be false. For example, in a data set that updates continuously, a column that originally only contained numbers within a certain range might contain a wider range of values in later executions. These errors often result in either broken pipelines or bad data.
 
-Datasets supports creating assertions on data, which are evaluated as the pipeline executes. These assertions let us verify that our assumptions on the data continue to be accurate and, when not, to handle failures accordingly.
+Datasets support creating assertions on data, which are evaluated as the pipeline executes. These assertions let us verify that our assumptions on the data continue to be accurate and, when not, to handle failures accordingly.
 
 For example, if you want to constrain `Latitude` and `Longitude` values in your Dataset to specific numeric ranges, the [`assert_value()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) method ensures this is always the case.
 
 ```Python
 from azureml.dataprep import value
+from azureml.core.dataset import Dataset
 
 # get the latest definition of the Dataset
 ds_def = dataset.get_definition()
@@ -278,7 +277,7 @@ print(error.originalValue)
 One of the more advanced tools for Datasets is the ability to derive columns using examples of desired results. This lets you give the SDK an example, so it can generate code to achieve the intended transformations.
 
 ```Python
-from azureml.dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
@@ -298,8 +297,8 @@ The following code provides two examples of desired output, ("2016-04-04 23:56:0
 ```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
-        source_columns = "Date", 
-        new_column_name = "Date_Time_Range", 
+        source_columns = "Date",
+        new_column_name = "Date_Time_Range",
         example_data = [("2016-04-04 23:56:00", "2016-04-04 10PM-12AM"), ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")]
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
@@ -325,7 +324,7 @@ When you gather data from different sources you might encounter variations in sp
 For example, the column `inspections.business.city` contains several forms of the city name "San Francisco".
 
 ```Python
-from azureml.Dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')
@@ -373,8 +372,6 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
 
 ## Next steps
-
-* [Manage the life cycle of Dataset definitions](how-to-manage-dataset-definitions.md).
 
 * See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example.
 

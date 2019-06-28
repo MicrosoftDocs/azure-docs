@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with HRworks Single Sign-On, perform the fo
 
 2. Click on **Administrator** > **Basics** > **Security** > **Single Sign-on** from the left side of menu bar and perform the following steps:
 
-	   ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Configure single sign-on](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
 	a. Check the **Use Single Sign-on** box.
 
@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with HRworks Single Sign-On, perform the fo
 
 	c. Select **Individual NameID identifier** as **Value for NameID**.
 
-	d. In Notepad, open the Metadata XML that you downloaded from the Azure portal, copy its content, and then paste it into the **Metadata** textbox.
+	d. In Notepad, open the Metadata XML that you downloaded from the Azure portal, copy its content, and then paste it into the **Metadata** textbox.
 
 	e. Click **Save**.
 
@@ -199,7 +199,7 @@ To enable Azure AD users, sign in to HRworks Single Sign-On, they must be provis
 
 2. Click on **Administrator** > **Persons** > **Persons** > **New person** from the left side of menu bar.
 
-	 ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
+	 ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 3. On the Pop-up, click **Next**.
 
@@ -221,5 +221,5 @@ When you click the HRworks Single Sign-On tile in the Access Panel, you should b
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

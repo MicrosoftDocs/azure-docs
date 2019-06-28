@@ -227,6 +227,14 @@ You can publish metadata by using a public API or a click-once registration tool
       <td></td>
     </tr>
     <tr>
+      <td>SAP Business Warehouse</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>Only works in English. Measures are unsupported.</td>
+    </tr>
+    <tr>
       <td>SAP HANA view</td>
       <td>✓</td>
       <td>✓</td>

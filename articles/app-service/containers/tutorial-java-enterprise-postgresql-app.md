@@ -154,7 +154,7 @@ Next, we need to edit our Java Transaction API (JPA) configuration so that our J
 
 ## Configure the WildFly application server
 
-Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. More configuration information can be found at [Configure WildFly server](configure-language-java.md#configure-wildfly-server).
+Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. More configuration information can be found at [Configure WildFly server](configure-language-java.md#configure-java-ee-wildfly).
 
 To configure the server, we will need the four files in the  `wildfly_config/` directory:
 

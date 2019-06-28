@@ -1,29 +1,29 @@
 ---
 title: Azure Files performance troubleshooting guide
-description: Known performance issues with Azure premium file shares (preview) and associated workarounds.
+description: Known performance issues with Azure file shares and associated workarounds.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
 # Troubleshoot Azure Files performance issues
 
-This article lists some common problems related to Microsoft Azure premium file shares (preview). It provides potential causes and workarounds when these problems are encountered.
+This article lists some common problems related to Azure file shares. It provides potential causes and workarounds when these problems are encountered.
 
 ## High latency, low throughput, and general performance issues
 
 ### Cause 1: Share experiencing throttling
 
-The default quota on a share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
+The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
-1. Log in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **All services** and then search for **Metrics**.
 
@@ -35,7 +35,7 @@ To confirm if your share is being throttled, you can leverage Azure Metrics in t
 
 1. Select **Transactions** as the metric.
 
-1. Add a filter for **ResponseType** and check to see if any requests have a response code of **SuccessWithThrottling**.
+1. Add a filter for **ResponseType** and check to see if any requests have a response code of **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
 
 ![Metrics options for premium fileshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -68,15 +68,15 @@ If the application being used by the customer is single-threaded, this can resul
 
 ### Cause
 
-The client VM could be located in a different region than the premium file share.
+The client VM could be located in a different region than the file share.
 
 ### Solution
 
-- Run the application from a VM that is located in the same region as the premium file share.
+- Run the application from a VM that is located in the same region as the file share.
 
 ## Client unable to achieve maximum throughput supported by the network
 
-One potential cause of this is a lack fo SMB multi-channel support. Currently, premium files only support single channel, so there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
+One potential cause of this is a lack fo SMB multi-channel support. Currently, Azure file shares only support single channel, so there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
 
 ### Workaround
 
@@ -118,6 +118,10 @@ IO depth greater than one is not supported on CentOS/RHEL.
 - Upgrade to CentOS 8 / RHEL 8.
 - Change to Ubuntu.
 
+## Slow file copying to and from Azure Files in Linux
+
+If you are experiencing slow file copying to and from Azure Files, take a look at the [Slow file copying to and from Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) section in the Linux troubleshooting guide.
+
 ## Jittery/saw-tooth pattern for IOPS
 
 ### Cause
@@ -133,7 +137,7 @@ Client application consistently exceeds baseline IOPS. Currently, there is no se
 
 ### Cause
 
-If the number of DirectoryOpen/DirectoryClose calls is among the top API calls and you don't expect the client to be making that many calls, it may be an issue with the antivirus installed on the Azue client VM.
+If the number of DirectoryOpen/DirectoryClose calls is among the top API calls and you don't expect the client to be making that many calls, it may be an issue with the antivirus installed on the Azure client VM.
 
 ### Workaround
 

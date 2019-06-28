@@ -295,7 +295,6 @@ The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d2
 
 ```PowerShell
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-Set-RdsContext -Name <Windows Virtual Desktop tenant group name>
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName “RDS Contributor” -SignInName <UPN>
 ```
 

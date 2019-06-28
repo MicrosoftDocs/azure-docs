@@ -4,7 +4,7 @@ description: Learn how to connect Syslog data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 5dd59729-c623-4cb4-b326-bb847c8f094b

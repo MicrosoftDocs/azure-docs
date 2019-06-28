@@ -59,6 +59,8 @@
   - name: VM types and sizes
     href: sizes.md
     items:
+    - name: Generation 2 VMs
+      href: generation-2.md
     - name: General purpose
       href: sizes-general.md
       displayName: Dsv3 Dv3 DSv2 Dv2 Av2      
@@ -80,10 +82,10 @@
       items:
       - name: Optimize performance
         href: storage-performance.md
-    - name: GPU optimized
-      displayName: NV NVv2 NC NCv2 NCv3 ND
-      href: sizes-gpu.md   
+    - name: Accelerated compute
       items:
+      - name: GPU optimized
+        href: sizes-gpu.md
       - name: Setup GPU drivers
         href: n-series-driver-setup.md      
     - name: High performance compute
@@ -111,11 +113,13 @@
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
-      href: backup-and-disaster-recovery-for-azure-iaas-disks.md     
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md   
+    - name: Ephemeral OS disks
+      href: ephemeral-os-disks.md
   - name: Networking
     href: network-overview.md
-  - name: Auto-scale applications
-    href: autoscale.md
+  - name: Scale sets
+    href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Infrastructure automation
     href: infrastructure-automation.md
   - name: Security and policy
@@ -243,18 +247,38 @@
       href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
-    - name: Shared images (preview)
+    - name: Shared images 
       items: 
       - name: Overview
         href: shared-image-galleries.md
-      - name: Create shared images using PowerShell
+      - name: PowerShell
         href: shared-images.md
-      - name: Create shared images using CLI
+      - name: Portal
+        href: shared-images-portal.md
+      - name: CLI
         href: ../linux/shared-images.md
       - name: Portal
         href: shared-images-portal.md
+      - name: Share images across tenants
+        href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
+    - name: Image builder (preview)
+      items:
+      - name: Overview
+        href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Use Azure CLI 
+        href: image-builder.md
+      - name: Build for image galleries
+        href: image-builder-gallery.md
+      - name: Update an existing image
+        href: image-builder-gallery-update-image-version.md
+      - name: Store scripts
+        href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Template reference
+        href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Troubleshoot 
+        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Prepare VM for upload

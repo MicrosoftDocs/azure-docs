@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/26/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -346,4 +346,5 @@ In entitlement management, Azure AD will process bulk changes for assignment and
 
 ## Next steps
 
+- [Add a catalog owner or an access package manager](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Request process and email notifications](entitlement-management-process.md)

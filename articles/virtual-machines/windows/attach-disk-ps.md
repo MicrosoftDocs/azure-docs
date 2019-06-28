@@ -30,7 +30,7 @@ First, review these tips:
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Add an empty data disk to a virtual machine
 

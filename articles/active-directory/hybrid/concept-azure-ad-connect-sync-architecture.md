@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync: Understanding the architecture | Microsoft Docs'
+title: 'Azure AD Connect sync: Understanding the architecture - Azure'
 description: This topic describes the architecture of Azure AD Connect sync and explains the terms used.
 services: active-directory
 documentationcenter: ''

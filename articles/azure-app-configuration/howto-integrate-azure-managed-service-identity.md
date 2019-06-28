@@ -16,7 +16,7 @@ ms.date: 02/24/2019
 ms.author: yegu
 
 ---
-# Tutorial: Integrate with Azure managed identities
+# Integrate with Azure managed identities
 
 Azure Active Directory [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) help simplify secrets management for your cloud application. With a managed identity, you can set up your code to use the service principal that was created for the Azure compute service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
 
@@ -45,7 +45,7 @@ To complete this tutorial, you must have:
 
 To set up a managed identity in the portal, you first create an application as normal and then enable the feature.
 
-1. Create an app in the [Azure portal](https://aka.ms/azconfig/portal) as you normally do. Go to it in the portal.
+1. Create an app in the [Azure portal](https://portal.azure.com) as you normally do. Go to it in the portal.
 
 2. Scroll down to the **Settings** group in the left pane, and select **Identity**.
 
@@ -55,7 +55,7 @@ To set up a managed identity in the portal, you first create an application as n
 
 ## Grant access to App Configuration
 
-1. In the [Azure portal](https://aka.ms/azconfig/portal), select **All resources** and select the app configuration store that you created in the quickstart.
+1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the app configuration store that you created in the quickstart.
 
 2. Select **Access control (IAM)**.
 

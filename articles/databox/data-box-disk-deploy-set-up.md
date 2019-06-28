@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 06/13/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -118,7 +118,9 @@ Perform the following steps to connect and unlock your disks.
     ```  
 8. Once the disk is unlocked, you can view the contents of the disk.    
 
-    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md). 
 
 ## Unlock disks on Linux client
 
@@ -248,6 +250,9 @@ Perform the following steps to connect and unlock your disks.
 8. Once the disk is unlocked, you can go to the mount point and view the contents of the disk. You are now ready to copy the data to *BlockBlob* or *PageBlob* folders. 
 
     ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+
+
+If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md). 
 
 ## Next steps
 

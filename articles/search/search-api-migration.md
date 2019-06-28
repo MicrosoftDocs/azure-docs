@@ -30,7 +30,7 @@ Version 2019-05-06 is the newest generally available release of the Azure Search
 
 * [JsonLines parsing modes](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
 
-* [Cognitive Search](cognitive-search-concept-intro.md) provides indexing that leverages the AI enrichment engines of Cognitive Services.
+* [Cognitive search](cognitive-search-concept-intro.md) provides indexing that leverages the AI enrichment engines of Cognitive Services.
 
 Several preview feature releases coincide with this generally available update. To review the list of new preview features, see [Search REST api-version 2019-05-06-Preview](search-api-preview.md).
 
@@ -67,7 +67,9 @@ If either of these situations apply to you, then you may need to change your cod
 
 If you are upgrading from a preview API version, the above also applies, but you must also be aware that some preview features are not available in version 2019-05-06:
 
-* ["More like this" queries](search-more-like-this.md) continue to be a preview-only feature.
+* ["More like this" queries](search-more-like-this.md)
+* [CSV blob indexing](search-howto-index-csv-blobs.md)
+* [MongoDB API support for Cosmos DB indexers](search-howto-index-cosmosdb.md)
 
 If your code uses these features, you will not be able to upgrade to API version 2019-05-06 without removing your usage of them.
 

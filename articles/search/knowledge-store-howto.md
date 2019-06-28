@@ -1,19 +1,23 @@
 ---
-title: 'How to get started with Knowledge Store (preview) - Azure Search'
+title: 'How to get started with knowledge store (preview) - Azure Search'
 description: Learn the steps for sending enriched documents created by AI indexing pipelines in Azure Search to a knowledge store in your Azure storage account. From there, you can view, reshape, and consume enriched documents in Azure Search and in other applications. 
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ---
-# How to get started with Knowledge Store
+# How to get started with knowledge store in Azure Search
 
-[Knowledge Store](knowledge-store-concept-intro.md) is a new preview feature in Azure Search that saves AI enrichments created in an indexing pipeline for knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
+> [!Note]
+> Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
+>
 
-A knowledge store is defined by a skillset. For regular Azure Search full-text search scenarios, the purpose of a skillset is providing AI enrichments to make content more searchable. For knowledge store scenarios, the role of a skillset is creating and populating multiple data structures for knowledge mining.
+[Knowledge store](knowledge-store-concept-intro.md) saves AI enrichments created during indexing to your Azure storage account for downstream knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
+
+A knowledge store is defined by a skillset. For regular Azure Search full-text search scenarios, the purpose of a skillset is providing AI enrichments to make content more searchable. For knowledge mining scenarios, the role of a skillset is creating, populating, and storing multiple data structures for analysis or modeling in other apps and processes.
 
 In this exercise, start with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store, with emphasis on skillset definition.
 
@@ -23,13 +27,13 @@ The following services, tools, and data are used in this quickstart.
 
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
-+ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data. Your knowledge store will exist in Azure storage.
++ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data. Your knowledge store will exist in Azure storage. 
 
-+ [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) at the S0 pay-as-you-go tier for broad-spectrum access to the full range of skills used in AI enrichments.
++ [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) at the S0 pay-as-you-go tier for broad-spectrum access to the full range of skills used in AI enrichments. This resource and your Azure Search service are required to be in the same region.
 
 + [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search.
 
-+ [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/caselaw) with prepared requests for creating a data source, index, skillset, and indexer. Several object definitions are too long to include in this article. You must get this collection to see the index and skillset definitions in their entirety.
++ [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw) with prepared requests for creating a data source, index, skillset, and indexer. Several object definitions are too long to include in this article. You must get this collection to see the index and skillset definitions in their entirety.
 
 + [Caselaw sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) originating from the [Caselaw Access Project](https://case.law/bulk/download/) Public Bulk Data download page. Specifically, the exercise uses the first 10 documents of the first download (Arkansas). We uploaded a 10-document sample to GitHub for this exercise.
 
@@ -49,7 +53,7 @@ All requests require an api-key on every request sent to your service.
 
 1. [Sign in to the Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 
-1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. You can set the Public Access Level to any of its valid values.
+1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. Use the container name "caselaw-test". You can set the Public Access Level to any of its valid values.
 
 1. After the container is created, open it and select **Upload** on the command bar.
 
@@ -60,19 +64,19 @@ All requests require an api-key on every request sent to your service.
 
 ## Set up Postman
 
-Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-fiddler.md).
+Start Postman and import the Caselaw Postman collection. Alternatively, set up a series of HTTP requests. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-fiddler.md).
 
-+ Request method for every call in this walkthrough is **POST**.
++ Request method for every call in this walkthrough is **PUT** or **POST**.
 + Request headers (2) include the following: "Content-type" set to "application/json", "api-key" set to your "admin key" (the admin key is a placeholder for your search primary key) respectively. 
 + Request body is where you place the actual contents of your call. 
 
   ![Semi-structured search](media/search-semi-structured-data/postmanoverview.png)
 
-We are using Postman to make four API calls to your search service, creating a data source, an index, a skillset, and an indexer. The data source includes a pointer to your storage account and JSON data. Your search service makes the connection when importing the data.
+We are using Postman to make four API calls to your search service, creating a data source, an index, a skillset, and an indexer - in that order. The data source includes a pointer to your Azure storage account and JSON data. Your search service makes the connection when importing the data.
 
 [Create a skillset](#create-skillset) is the focus of this walkthrough: it specifies the enrichment steps and how data is persisted in a knowledge store.
 
-URL endpoint must specify an api-version and each call should return a **201 Created**. The preview api-version for creating a skillset with knowledge store support is `2019-05-06-Preview`.
+URL endpoint must specify an api-version and each call should return a **201 Created**. The preview api-version for creating a skillset with knowledge store support is `2019-05-06-Preview` (case-sensitive).
 
 Execute the following API calls from your REST client.
 
@@ -95,10 +99,10 @@ The endpoint of this call is `https://[service name].search.windows.net/datasour
         "type": "azureblob",
         "subtype": null,
         "credentials": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your storage key>;EndpointSuffix=core.windows.net"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT>;AccountKey=<YOUR-STORAGE-KEY>;EndpointSuffix=core.windows.net"
         },
         "container": {
-            "name": "<your blob container name>",
+            "name": "<YOUR-BLOB-CONTAINER-NAME>",
             "query": null
         },
         "dataChangeDetectionPolicy": null,
@@ -312,24 +316,23 @@ The endpoint of this call is `https://[service name].search.windows.net/skillset
    }
    ```
 
-3. First, set `cognitiveServices` and `knowledgeStore` key and connection string. In the example, these strings are located after the skillset definition, towards the end of the request body.
+3. First, set `cognitiveServices` and `knowledgeStore` key and connection string. In the example, these strings are located after the skillset definition, towards the end of the request body. Use a Cognitive Services resource, provisioned at the S0 tier, located in the same region as Azure Search.
 
     ```json
     "cognitiveServices": {
         "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-        "description": "<your cognitive services resource name>",
-        "key": "<your cognitive services key>"
+        "description": "YOUR-SAME-REGION-S0-COGNITIVE-SERVICES-RESOURCE",
+        "key": "YOUR-COGNITIVE-SERVICES-KEY"
     },
     "knowledgeStore": {
-        "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your storage account key>;EndpointSuffix=core.windows.net",
+        "storageConnectionString": "YOUR-STORAGE-ACCOUNT-CONNECTION-STRING",
     ```
 
-3. Review the skills collection, in particular the Shaper skills on lines 85 and 170, respectively. The Shaper skill is important because it assembles the data structures you want for knowledge mining. During skillset execution, these structures are in-memory only, but as you move to the next step, you'll see how this output can be saved to a knowledge store for further exploration.
+3. Review the skills collection, in particular the Shaper skills on lines 85 and 179, respectively. The Shaper skill is important because it assembles the data structures you want for knowledge mining. During skillset execution, these structures are in-memory only, but as you move to the next step, you'll see how this output can be saved to a knowledge store for further exploration.
 
-   The following snippet is from line 207. 
+   The following snippet is from line 217. 
 
     ```json
-    {
     "name": "Opinions",
     "source": null,
     "sourceContext": "/document/casebody/data/opinions/*",
@@ -355,44 +358,46 @@ The endpoint of this call is `https://[service name].search.windows.net/skillset
                     "name": "EntityType",
                     "source": "/document/casebody/data/opinions/*/text/pages/*/entities/*/category"
                 }
-             ]
-          }
-     ]
-   }
+            ]
+        }
+    ]
    . . .
    ```
 
-3. Review the `projections` element in `knowledgeStore`, starting on line 253. Projections specify the knowledge store composition. Projections are specified in tables-objects pairs, but currently only one at time. As you can see in the first projection, `tables` is specified but `objects` is not. In the second, it's the opposite.
+3. Review the `projections` element in `knowledgeStore`, starting on line 262. Projections specify the knowledge store composition. Projections are specified in tables-objects pairs, but currently only one at time. As you can see in the first projection, `tables` is specified but `objects` is not. In the second, it's the opposite.
 
    In Azure storage, tables will be created in Table storage for each table you create, and each object gets a container in Blob storage.
 
-   Objects typically contain the full expression of an enrichment. Tables typically contain partial enrichments, in combinations that you arrange for specific purposes. This example shows a Cases table, but not shown are other tables like Entities, Judges, and Opinions.
+   Blob objects typically contain the full expression of an enrichment. Tables typically contain partial enrichments, in combinations that you arrange for specific purposes. This example shows a Cases table and an Opinions table, but not shown are other tables like Entities, Attorneys, Judges, and Parties.
 
     ```json
     "projections": [
-    {
-        "tables": [
-            {
-              "tableName": "Opinions",
-              "generatedKeyName": "OpinionId",
-              "source": "/document/Case/OpinionsSnippets/*"
-            },
-          . . . 
-        ],
-        "objects": []
-    },
-    {
-        "tables": [],
-        "objects": [
-            {
-                "storageContainer": "enrichedcases",
-                "key": "/document/CaseFull/Id",
-                "source": "/document/CaseFull"
-            }
-          ]
+        {
+            "tables": [
+                {
+                    "tableName": "Cases",
+                    "generatedKeyName": "CaseId",
+                    "source": "/document/Case"
+                },
+                {
+                    "tableName": "Opinions",
+                    "generatedKeyName": "OpinionId",
+                    "source": "/document/Case/OpinionsSnippets/*"
+                }
+            ],
+            "objects": []
+        },
+        {
+            "tables": [],
+            "objects": [
+                {
+                    "storageContainer": "enrichedcases",
+                    
+                    "source": "/document/CaseFull"
+                }
+            ]
         }
-      ]
-    }
+    ]
     ```
 
 5. Send the request. The response should be **201** and look similar to the following example, showing the first part of the response.

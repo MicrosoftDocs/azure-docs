@@ -13,6 +13,8 @@ manager: dikamath
 
 CloudSimple provides a network per region where your CloudSimple service is deployed.  The network is a single TCP Layer 3 address space with routing enabled by default.  All private clouds and subnets created in this region can communicate with each other without any additional configuration.  You can create distributed port groups on the vCenter using the VLANs.
 
+![CloudSimple Network Topology](media/cloudsimple-network-topology.png)
+
 ## VLANs
 
 VLANs (Layer 2 network) are created per private cloud.  The Layer 2 traffic stays within the boundary of a private cloud, allowing you to isolate the local traffic within the private cloud.  A VLAN created on the private cloud can be used to create distributed port groups only in that private cloud.  A VLAN created on a private cloud is automatically configured on all the switches connected to the hosts of a private cloud.
@@ -29,6 +31,10 @@ A Private Cloud is created as an isolated VMware stack (ESXi hosts, vCenter, vSA
 
 Minimum vSphere/vSAN subnets CIDR range prefix: **/24**
 Maximum vSphere/vSAN subnets CIDR range prefix: **/21**
+
+> [!CAUTION]
+> IP addresses in the vSphere/vSAN CIDR range are reserved for use by Private Cloud infrastructure. Don't use an IP address in this range on any virtual machine.
+
 
 ### vSphere/vSAN subnets CIDR range limits
 
@@ -71,4 +77,4 @@ Example:
 
 ## Next steps
 
-* [Create and manage VLANs and Subnets](https://docs.azure.cloudsimple.com/vlansubnet/)
+* [Create and manage VLANs and Subnets](https://docs.azure.cloudsimple.com/create-vlan-subnet/)

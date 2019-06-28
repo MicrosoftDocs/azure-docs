@@ -42,6 +42,8 @@
       href: automation-onboard-solutions-from-vm.md
     - name: Onboard from Automation account
       href: automation-onboard-solutions-from-automation-account.md
+    - name: Region mappings
+      href: how-to/region-mappings.md
   - name: Update Management
     items:
     - name: Update Management overview

@@ -34,6 +34,8 @@
       href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates 
     - name: Azure PowerShell
       href: samples-powershell.md
+    - name: Azure PowerShell - Az.DevTestLabs2 module
+      href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library      
     - name: Azure CLI
       href: samples-cli.md    
 - name: Concepts
@@ -49,7 +51,11 @@
   - name: DevTest Labs
     items: 
     - name: DevTest Labs concepts
-      href: devtest-lab-concepts.md    
+      href: devtest-lab-concepts.md
+    - name: Best practices for distributed and collaborative development
+      href: best-practices-distributive-collaborative-development-environment.md    
+    - name: Integration with Azure DevOps
+      href: devtest-lab-dev-ops.md
     - name: Scenarios
       items:
       - name: Popular scenarios for using DevTest Labs
@@ -64,26 +70,36 @@
   items:
   - name: Classroom labs
     items: 
-    - name: Manage lab accounts
-      href: classroom-labs/how-to-manage-lab-accounts.md
-    - name: Manage classroom labs
-      href: classroom-labs/how-to-manage-classroom-labs.md
-    - name: Set up and publish templates
-      href: classroom-labs/how-to-create-manage-template.md
-    - name: Configure and control usage
-      href: classroom-labs/how-to-configure-student-usage.md      
-    - name: Access classroom labs
-      href: classroom-labs/how-to-use-classroom-lab.md
-    - name: Create and manage schedules
-      href: classroom-labs/how-to-create-schedules.md
-    - name: Create an environment with multiple VMs inside a template VM
-      href: classroom-labs/how-to-enable-multi-vm-environment.md
-    - name: Connect your labs to a peer virtual network
-      href: classroom-labs/how-to-connect-peer-virtual-network.md
-    - name: Attach and use a shared image gallery
-      href: classroom-labs/how-to-use-shared-image-gallery.md            
-    - name: Enable remote desktop connection for Linux
-      href: classroom-labs/how-to-enable-remote-desktop-linux.md
+    - name: Create and configure lab accounts
+      items:
+      - name: Create and manage lab accounts
+        href: classroom-labs/how-to-manage-lab-accounts.md
+      - name: Configure lab accounts
+        href: classroom-labs/how-to-configure-lab-accounts.md
+      - name: Connect your labs to a peer virtual network
+        href: classroom-labs/how-to-connect-peer-virtual-network.md
+      - name: Attach or detach a shared image gallery
+        href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+    - name: Create, configure, and use classroom labs
+      items:        
+      - name: Create and manage classroom labs
+        href: classroom-labs/how-to-manage-classroom-labs.md
+      - name: Set up and publish templates
+        href: classroom-labs/how-to-create-manage-template.md
+      - name: Configure and control usage
+        href: classroom-labs/how-to-configure-student-usage.md      
+      - name: Access classroom labs
+        href: classroom-labs/how-to-use-classroom-lab.md
+      - name: Create and manage schedules
+        href: classroom-labs/how-to-create-schedules.md
+      - name: Create an environment with multiple VMs inside a template VM
+        href: classroom-labs/how-to-enable-multi-vm-environment.md
+      - name: Use a shared image gallery
+        href: classroom-labs/how-to-use-shared-image-gallery.md            
+      - name: Enable remote desktop connection for Linux
+        href: classroom-labs/how-to-enable-remote-desktop-linux.md
+      - name: Set or reset passwords for virtual machines 
+        href: classroom-labs/how-to-set-virtual-machine-passwords.md
   - name: DevTest Labs
     items:
     - name: Specify resource group for lab virtual machines
@@ -98,6 +114,8 @@
       href: personal-data-delete-export.md
     - name: Import virtual machines from another lab
       href: import-virtual-machines-from-another-lab.md
+    - name: Configure a lab to use a remote desktop gateway
+      href: configure-lab-remote-desktop-gateway.md
     - name: Create an image factory
       href: image-factory-create.md
       items:
@@ -108,8 +126,9 @@
       - name: Set retention policy and run cleanup scripts
         href: image-factory-set-retention-policy-cleanup.md
     - name: DevTest Labs in the enterprise
-      href: devtest-lab-guidance-prescriptive-adoption.md
       items:
+      - name: DevTest Labs at enterprise scale
+        href: devtest-lab-guidance-prescriptive-adoption.md
       - name: Reference architecture
         href: devtest-lab-reference-architecture.md
       - name: Scale up your DevTest Labs deployment
@@ -166,16 +185,24 @@
         href: connect-environment-lab-virtual-network.md
       - name: Integrate environments into your Azure DevOps CI/CD pipeline
         href: integrate-environments-devops-pipeline.md
+      - name: Use Platform-as-a-Service (PaaS) services
+        href: use-paas-services.md
+      - name: Deploy nested templates 
+        href: deploy-nested-template-environments.md
     - name: Secure access to labs
       items:
       - name: Add lab owners and users
         href: devtest-lab-add-devtest-user.md
       - name: Customize permissions with custom roles
         href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+      - name: Automate adding a lab user
+        href: automate-add-lab-user.md
     - name: Configure a lab
       items: 
       - name: Set policies and schedules
         href: devtest-lab-set-lab-policy.md
+      - name: Send autoshutdown notifications
+        href: devtest-lab-auto-shutdown.md
       - name: Configure cost management
         href: devtest-lab-configure-cost-management.md
       - name: Configure Azure Marketplace images
@@ -188,6 +215,8 @@
         href: devtest-lab-announcements.md
       - name: Add support info to a lab
         href: devtest-lab-internal-support-message.md
+      - name: Configure a shared image gallery in Azure DevTest Labs
+        href: configure-shared-image-gallery.md
     - name: Select custom image or formula
       href: devtest-lab-comparing-vm-base-image-types.md
     - name: Manage custom images
@@ -256,6 +285,8 @@
       href: /cli/azure/lab
     - name: PowerShell
       href: /powershell/module/az.devtestlabs
+    - name: PowerShell - sample Az.DevTestLabs2 module
+      href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
     - name: REST API
       href: https://docs.microsoft.com/rest/api/dtl/
     - name: Resource Manager template

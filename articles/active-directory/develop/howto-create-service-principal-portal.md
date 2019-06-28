@@ -3,8 +3,8 @@ title: Create identity for Azure app in portal | Microsoft Docs
 description: Describes how to create a new Azure Active Directory application and service principal that can be used with the role-based access control in Azure Resource Manager to manage access to resources.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/17/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
@@ -36,11 +36,11 @@ Let's jump straight into creating the identity. If you run into a problem, check
 
    ![Select app registrations](./media/howto-create-service-principal-portal/select-app-registrations.png)
 
-1. Select **New application registration**.
+1. Select **New registration**.
 
    ![Add app](./media/howto-create-service-principal-portal/select-add-app.png)
 
-1. Provide a name and URL for the application. Select **Web app / API** for the type of application you want to create. You can't create credentials for a [Native application](../manage-apps/application-proxy-configure-native-client-application.md). You can't use that type for an automated application. After setting the values, select **Create**.
+1. Provide a name for the application. Select a supported account type, which determines who can use the application. Under **Redirect URI**, select **Web** for the type of application you want to create. Enter the URI where the access token is sent to.  You can't create credentials for a [Native application](../manage-apps/application-proxy-configure-native-client-application.md). You can't use that type for an automated application. After setting the values, select **Register**.
 
    ![Name application](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -77,43 +77,53 @@ Your service principal is set up. You can start using it to run your scripts or 
 
 ## Get values for signing in
 
-### Get tenant ID
-
-When programmatically signing in, you need to pass the tenant ID with your authentication request.
+When programmatically signing in, you need to pass the tenant ID with your authentication request. You also need the ID for your application and an authentication key. To get those values, use the following steps:
 
 1. Select **Azure Active Directory**.
-1. Select **Properties**.
-
-   ![Select Azure AD properties](./media/howto-create-service-principal-portal/select-ad-properties.png)
-
-1. Copy the **Directory ID** to get your tenant ID.
-
-   ![Tenant ID](./media/howto-create-service-principal-portal/copy-directory-id.png)
-
-### Get application ID and authentication key
-
-You also need the ID for your application and an authentication key. To get those values, use the following steps:
 
 1. From **App registrations** in Azure AD, select your application.
 
    ![Select application](./media/howto-create-service-principal-portal/select-app.png)
 
+1. Copy the Directory (tenant) ID and store it in your application code.
+
+    ![Tenant ID](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+
 1. Copy the **Application ID** and store it in your application code.
 
    ![Client ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Select **Settings**.
+## Certificates and secrets
+Daemon applications can use two forms of credentials to authenticate with Azure AD: certificates and application secrets.  We recommend using a certificate, but you can also create a new application secret.
 
-   ![Select settings](./media/howto-create-service-principal-portal/select-settings.png)
+### Upload a certificate
 
-1. Select **Keys**.
-1. Provide a description of the key, and a duration for the key. When done, select **Save**.
+You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for testing purposes. Open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create a self-signed certificate in the user certificate store on your computer: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Export this certificate using the [Manage User Certificate](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC snap-in accessible from the Windows Control Panel.
 
-   ![Save key](./media/howto-create-service-principal-portal/save-key.png)
+To upload the certificate:
+1. Select **Certificates & secrets**.
 
-   After saving the key, the value of the key is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
+   ![Select settings](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+1. Click on **Upload certificate** and select the certificate (an existing certificate or the self-signed certificate you exported).
+    ![Upload certificate](./media/howto-create-service-principal-portal/upload-cert.png)
+1. Click **Add**.
 
-   ![Saved key](./media/howto-create-service-principal-portal/copy-key.png)
+After registering the certificate with your application in the application registration portal, you need to enable the client application code to use the certificate.
+
+### Create a new application secret
+If you choose not to use a certificate, you can create a new application secret.
+1. Select **Certificates & secrets**.
+
+   ![Select settings](./media/howto-create-service-principal-portal/select-certs-secrets.png)
+
+1. Select **Client secrets -> New client secret**.
+1. Provide a description of the secret, and a duration. When done, select **Add**.
+
+   ![Save secret](./media/howto-create-service-principal-portal/save-secret.png)
+
+   After saving the client secret, the value of the client secret is displayed. Copy this value because you aren't able to retrieve the key later. You provide the key value with the application ID to sign in as the application. Store the key value where your application can retrieve it.
+
+   ![Copy secret](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## Required permissions
 
@@ -142,7 +152,7 @@ In your Azure subscription, your account must have `Microsoft.Authorization/*/Wr
 
 To check your subscription permissions:
 
-1. Select your account in the upper right corner, and select **My permissions**.
+1. Select your account in the upper right corner, and select **... -> My permissions**.
 
    ![Select user permissions](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -150,7 +160,7 @@ To check your subscription permissions:
 
    ![Find user](./media/howto-create-service-principal-portal/view-details.png)
 
-1. View your assigned roles, and determine if you have adequate permissions to assign an AD app to a role. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned to the Owner role, which means that user has adequate permissions.
+1. Select **Role assignments** to view your assigned roles, and determine if you have adequate permissions to assign an AD app to a role. If not, ask your subscription administrator to add you to User Access Administrator role. In the following image, the user is assigned to the Owner role, which means that user has adequate permissions.
 
    ![Show permissions](./media/howto-create-service-principal-portal/view-user-role.png)
 

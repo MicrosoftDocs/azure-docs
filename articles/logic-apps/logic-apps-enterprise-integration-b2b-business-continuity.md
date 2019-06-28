@@ -88,7 +88,7 @@ To avoid sending duplicate generated control numbers
 to partners during a disaster event, 
 the recommendation is to increment the control numbers 
 in the secondary region agreements by using 
-[PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
+[PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## Fall back to a primary region post-disaster event
 
@@ -98,7 +98,7 @@ To fall back to a primary region when it is available, follow these steps:
 
 2. Increment the generated control numbers for all the 
 primary region agreements by using 
-[PowerShell cmdlets](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).  
+[PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Direct traffic from the secondary region to the primary region.
 

@@ -1,16 +1,16 @@
 ---
-title: 'How to authenticate and authorize by API in Azure Time Series Insights | Microsoft Docs'
+title: 'Authenticate and authorize by using an API in Azure Time Series Insights | Microsoft Docs'
 description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/27/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
 ---
 
@@ -18,65 +18,77 @@ ms.custom: seodec18
 
 This article explains how to configure the authentication and authorization used in a custom application that calls the Azure Time Series Insights API.
 
+> [!TIP]
+> Read about [granting data access](./time-series-insights-data-access.md) to your Time Series Insights environment in Azure Active Directory.
+
 ## Service principal
 
-This section explains how to configure an application to access the Time Series Insights API on behalf of the application. The application can then query data or publish reference data in the Time Series Insights environment with application credentials rather than user credentials.
+The following sections describe how to configure an application to access the Time Series Insights API for the application. The application can then query or publish reference data in the Time Series Insights environment with application credentials rather than user credentials.
 
-When you have an application that must access Time Series Insights, you must set up an Azure Active Directory application and assign the data access policies in the Time Series Insights environment. This approach is preferable to running the app under your own credentials because:
+## Best practices
 
-* You can assign permissions to the app identity that are different from your own permissions. Typically, these permissions are restricted to only what the app requires. For example, you can allow the app to only read data in a particular Time Series Insights environment.
+When you have an application that must access Time Series Insights:
+
+1. Set up an Azure Active Directory app.
+1. [Assign data access policies](./time-series-insights-data-access.md) in the Time Series Insights environment.
+
+Using application credentials rather than your user credentials is desirable because:
+
+* You can assign permissions to the app identity that are distinct from your own permissions. Typically, these permissions are restricted to only what the app requires. For example, you can allow the app to only read data in a particular Time Series Insights environment.
 * You don't have to change the app's credentials if your responsibilities change.
-* You can use a certificate or an application key to automate authentication when you're running an unattended script.
+* You can use a certificate or an application key to automate authentication when you run an unattended script.
 
-This article shows how to perform those steps through the Azure portal. It focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
+The following sections demonstrate how to perform those steps through the Azure portal. The article focuses on a single-tenant application where the application is intended to run in only one organization. You typically use single-tenant applications for line-of-business applications that run in your organization.
 
-The setup flow consists of three high-level steps:
+## Setup summary
+
+The setup flow consists of three steps:
 
 1. Create an application in Azure Active Directory.
-2. Authorize this application to access the Time Series Insights environment.
-3. Use the application ID and key to acquire a token to the `"https://api.timeseries.azure.com/"` audience or resource. The token can then be used to call the Time Series Insights API.
+1. Authorize this application to access the Time Series Insights environment.
+1. Use the application ID and key to acquire a token from `https://api.timeseries.azure.com/`. The token then can be used to call the Time Series Insights API.
 
-Here are the detailed steps:
+## Detailed setup
 
 1. In the Azure portal, select **Azure Active Directory** > **App registrations** > **New application registration**.
 
-   ![New application registration in Azure Active Directory](media/authentication-and-authorization/active-directory-new-application-registration.png)  
+   [![New application registration in Azure Active Directory](media/authentication-and-authorization/active-directory-new-application-registration.png)](media/authentication-and-authorization/active-directory-new-application-registration.png#lightbox)
 
-2. Give the application a name, select the type to be **Web app / API**, select any valid URI for **Sign-on URL**, and click **Create**.
+1. Give the application a name, select the type to be **Web app / API**, select any valid URI for **Sign-on URL**, and select **Create**.
 
-   ![Create the application in Azure Active Directory](media/authentication-and-authorization/active-directory-create-web-api-application.png)
+   [![Create the application in Azure Active Directory](media/authentication-and-authorization/active-directory-create-web-api-application.png)](media/authentication-and-authorization/active-directory-create-web-api-application.png#lightbox)
 
-3. Select your newly created application and copy its application ID to your favorite text editor.
+1. Select your newly created application, and copy its application ID to your favorite text editor.
 
-   ![Copy the application ID](media/authentication-and-authorization/active-directory-copy-application-id.png)
+   [![Copy the application ID](media/authentication-and-authorization/active-directory-copy-application-id.png)](media/authentication-and-authorization/active-directory-copy-application-id.png#lightbox)
 
-4. Select **Keys**, enter the key name, select the expiration, and click **Save**.
+1. Select **Keys**, enter the key name, select the expiration, and select **Save**.
 
-   ![Select application keys](media/authentication-and-authorization/active-directory-application-keys.png)
+   [![Select application keys](media/authentication-and-authorization/active-directory-application-keys.png)](media/authentication-and-authorization/active-directory-application-keys.png#lightbox)
 
-   ![Enter the key name and expiration and click Save](media/authentication-and-authorization/active-directory-application-keys-save.png)
+   [![Enter the key name and expiration and select Save](media/authentication-and-authorization/active-directory-application-keys-save.png)](media/authentication-and-authorization/active-directory-application-keys-save.png#lightbox)
 
-5. Copy the key to your favorite text editor.
+1. Copy the key to your favorite text editor.
 
-   ![Copy the application key](media/authentication-and-authorization/active-directory-copy-application-key.png)
+   [![Copy the application key](media/authentication-and-authorization/active-directory-copy-application-key.png)](media/authentication-and-authorization/active-directory-copy-application-key.png#lightbox)
 
-6. For the Time Series Insights environment, select **Data Access Policies** and click **Add**.
+1. For the Time Series Insights environment, select **Data Access Policies** and select **Add**.
 
-   ![Add new data access policy to the Time Series Insights environment](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)
+   [![Add new data access policy to the Time Series Insights environment](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
-7. In the **Select User** dialog box, paste the application name (from step 2) or application ID (from step 3).
+1. In the **Select User** dialog box, paste the application name from step 2 or the application ID from step 3.
 
-   ![Find an application in the Select User dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)
+   [![Find an application in the Select User dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
-8. Select the role (**Reader** for querying data, **Contributor** for querying data and changing reference data) and click **Ok**.
+1. Select the role. Select **Reader** to query data or **Contributor** to query data and change reference data. Select **OK**.
 
-   ![Pick Reader or Contributor in the Select Role dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)
+   [![Pick Reader or Contributor in the Select User Role dialog box](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
-9. Save the policy by clicking **Ok**.
+1. Save the policy by selecting **OK**.
 
-10. Use the application ID (from step 3) and application key (from step 5) to acquire the token on behalf of the application. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
+1. Use the application ID from step 3 and the application key from step 5 to acquire the token for the application. The token then can be passed in the `Authorization` header when the application calls the Time Series Insights API.
 
-    If you're using C#, you can use the following code to acquire the token on behalf of the application. For a complete sample, see [Query data using C#](time-series-insights-query-data-csharp.md).
+    If you use C#, you can use the following code to acquire the token for the application. For a complete sample, see [Query data using C#](time-series-insights-query-data-csharp.md).
 
     ```csharp
     // Enter your Active Directory tenant domain name
@@ -87,22 +99,20 @@ Here are the detailed steps:
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
         // Set the resource URI to the Azure Time Series Insights API
-        resource: "https://api.timeseries.azure.com/", 
+        resource: "https://api.timeseries.azure.com/",
         clientCredential: new ClientCredential(
             // Application ID of application registered in Azure Active Directory
-            clientId: "1bc3af48-7e2f-4845-880a-c7649a6470b8", 
+            clientId: "YOUR_APPLICATION_ID",
             // Application key of the application that's registered in Azure Active Directory
-            clientSecret: "aBcdEffs4XYxoAXzLB1n3R2meNCYdGpIGBc2YC5D6L2="));
+            clientSecret: "YOUR_CLIENT_APPLICATION_KEY"));
 
     string accessToken = token.AccessToken;
     ```
 
-Use the application ID and key in your application to authenticate with Azure Time Series Insight. 
+Use the **Application ID** and **Key** in your application to authenticate with Azure Time Series Insight.
 
 ## Next steps
 
 - For sample code that calls the Time Series Insights API, see [Query data using C#](time-series-insights-query-data-csharp.md).
-
 - For API reference information, see [Query API reference](/rest/api/time-series-insights/ga-query-api).
-
 - Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

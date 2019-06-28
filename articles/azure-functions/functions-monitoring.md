@@ -620,6 +620,10 @@ This connects your app to the log streaming service and application logs are dis
 
 ![View streaming logs in the portal](./media/functions-monitoring/streaming-logs-window.png)
 
+### Visual Studio Code
+
+[!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
+
 ### Azure CLI
 
 You can enable streaming logs by using the [Azure CLI](/cli/azure/install-azure-cli). Use the following commands to sign in, choose your subscription, and stream log files:

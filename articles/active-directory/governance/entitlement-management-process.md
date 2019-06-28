@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/26/2019
+ms.date: 05/30/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -42,7 +42,7 @@ A user that needs access to an access package can submit an access request. Depe
 | --- | --- |
 | Submitted | User submits a request. |
 | Pending approval | If the policy for an access package requires approval, a request moves to pending approval. |
-| Expired | If no approvers review a request within the approval request timeout, the request expires. To try again, the user will have to resubmit their request. |
+| Expired | If no approvers approve a request within the approval request timeout, the request expires. To try again, the user will have to resubmit their request. |
 | Denied | Approver denies a request. |
 | Approved | Approver approves a request. |
 | Delivering | User has **not** been assigned access to all the resources in the access package. If this is an external user, the user has not yet accessed the resource directory and accepted the permissions prompt. |
@@ -69,7 +69,7 @@ The following table provides more detail about each of these email notifications
 | 7 | Your access to *[access package]* expires in X day(s) | X days before the requestor's access to the access package expires | Requestor |
 | 8 | Your access to *[access package]* has expired | When the requestor's access to an access package expires | Requestor |
 
-### Review access request emails
+### Access request emails
 
 When a requestor submits an access request for an access package that is configured to require approval, all approvers configured in the policy receive an email notification with details of the request. Details include the requestor's name, organization, access start and end date if provided, business justification, when the request was submitted, and when the request will expire. The email includes a link where approvers can approve or deny the access request. Here is a sample email notification that is sent to an approver when a requestor submits an access request.
 
@@ -77,7 +77,7 @@ When a requestor submits an access request for an access package that is configu
 
 ### Approved or denied emails
 
-Requestors are notified when their access request is approved and available for access, or when their access request is denied. When an approver reviews an access request submitted by a requestor, they can approve or deny the access request. The approver needs to add a business justification for their decision.
+Requestors are notified when their access request is approved and available for access, or when their access request is denied. When an approver receives an access request submitted by a requestor, they can approve or deny the access request. The approver needs to add a business justification for their decision.
 
 When an access request is approved, entitlement management starts the process of granting the requestor access to each of the resources in the access package. After the requestor has been granted access to every resource in the access package, an email notification is sent to the requestor that their access request was approved and that they now have access to the access package. Here is a sample email notification that is sent to a requestor when they are granted access to an access package.
 

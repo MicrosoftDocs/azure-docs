@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 05/30/2019
 ms.author: byvinyal
 
 ---
@@ -40,7 +40,6 @@ In the following list of limits, a new table reflects any differences in limits 
 * [API Management](#api-management-limits)
 * [App Service](#app-service-limits)
 * [Application Gateway](#application-gateway-limits)
-* [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
@@ -49,9 +48,11 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
+* [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
-* [Azure Monitor](#monitor-limits)
+* [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
 * [Azure Search](#azure-search-limits)
 * [Azure SignalR Service](#azure-signalr-service-limits)
@@ -72,15 +73,21 @@ In the following list of limits, a new table reflects any differences in limits 
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Load Balancer](#load-balancer)
-* [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Networking](#networking-limits)
-* [Network Watcher](#network-watcher-limits)
+  * [Application Gateway](#application-gateway-limits)
+  * [Azure DNS](#azure-dns-limits)
+  * [Azure Front Door Service](#azure-front-door-service-limits)
+  * [Azure Firewall](#azure-firewall-limits)
+  * [ExpressRoute](#expressroute-limits)
+  * [Load Balancer](#load-balancer)
+  * [Public IP address](#publicip-address)
+  * [Network Watcher](#network-watcher-limits)
+  * [Traffic Manager](#traffic-manager-limits)
+  * [Virtual Network](#networking-limits)
 * [Notification Hubs](#notification-hubs-limits)
-* [Public IP address](#publicip-address)
 * [Resource group](#resource-group-limits)
 * [Role-based access control](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -92,7 +99,6 @@ In the following list of limits, a new table reflects any differences in limits 
 * [StorSimple System](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Subscription](#subscription-limits)
-* [Traffic Manager](#traffic-manager-limits)
 * [Virtual Machines](#virtual-machines-limits)
 * [Virtual machine scale sets](#virtual-machine-scale-sets-limits)
 
@@ -119,6 +125,13 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+#### Shared Image Gallery limits
+
+There are limits, per subscription, for deploying resources using Shared Image Galleries:
+- 100 shared image galleries, per subscription, per region
+- 1,000 image definitions, per subscription, per region
+- 10,000 image versions, per subscription, per region
+
 ### Virtual machine scale sets limits
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
@@ -132,6 +145,9 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ### Azure Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
+
+### Azure Machine Learning Service limits
+The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../articles/machine-learning/service/how-to-manage-quotas.md)
 
 ### Networking limits
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
@@ -210,6 +226,9 @@ The following App Service limits include limits for Web Apps, Mobile Apps, and A
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+### Functions limits
+[!INCLUDE [functions-limits](../includes/functions-limits.md)]
+
 ### Scheduler limits
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
@@ -222,7 +241,7 @@ The following table shows the limits for Azure BizTalk Services.
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### Azure Cosmos DB limits
-Azure Cosmos DB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale Azure Cosmos DB provides, send email to askcosmosdb@microsoft.com.
+For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](cosmos-db/concepts-limits.md).
 
 ### Azure Database for MySQL
 For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQL](mysql/concepts-limits.md).
@@ -256,8 +275,26 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Mobile Services limits
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### Monitor limits
-[!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+### Azure Monitor limits
+
+#### Alerts
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
+
+#### Action groups
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
+
+#### Log Analytics workspaces
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-workspaces.md)]
+
+#### Application Insights
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-app-insights.md)]
+
+
+
 
 ### Notification Hubs limits
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -304,9 +341,6 @@ To learn more about limits on a more granular level, such as document size, quer
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### Log Analytics limits
-[!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
-
 ### Backup limits
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
@@ -315,9 +349,6 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Site Recovery limits
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### Application Insights limits
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### API Management limits
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

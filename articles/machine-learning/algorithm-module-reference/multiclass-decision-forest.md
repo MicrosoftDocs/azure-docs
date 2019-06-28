@@ -31,7 +31,7 @@ Decision trees have many advantages:
 + They perform integrated feature selection and classification.
 + They are resilient in the presence of noisy features.
 
-The decision forest classifier in Azure Machine Learning consists of an ensemble of decision trees. Generally, ensemble models provide better coverage and accuracy than single decision trees. For more information, see [Decision trees](http://go.microsoft.com/fwlink/?LinkId=403677).
+The decision forest classifier in Azure Machine Learning consists of an ensemble of decision trees. Generally, ensemble models provide better coverage and accuracy than single decision trees. For more information, see [Decision trees](https://go.microsoft.com/fwlink/?LinkId=403677).
 
 ## How to configure Multiclass Decision Forest
 

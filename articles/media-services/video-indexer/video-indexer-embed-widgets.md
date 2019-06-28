@@ -7,8 +7,9 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/05/2019
 ms.author: juliako
 ---
 
@@ -56,6 +57,9 @@ A **Player** widget enables you to stream the video using adaptive bit rate. The
 5. Copy the embed code, and add to your application. 
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+
+> [!NOTE]
+> If you have issues with sharing your video URLs, try adding the ‘location’ parameter to the link. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example, `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## Embedding private content
 

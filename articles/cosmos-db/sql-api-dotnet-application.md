@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 05/21/2019
 ms.author: sngun
 
 ---

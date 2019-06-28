@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: abshamsft
+ms.author: absha
 ---
 
 # Service Connectivity Monitor
@@ -59,6 +59,7 @@ Start creating your tests to monitor network connectivity to the service endpoin
 
     * Select **Web** to monitor connectivity to a service that responds to HTTP/S requests, such as outlook.office365.com or bing.com.<br>
     * Select **Network** to monitor connectivity to a service that responds to TCP requests but doesn't respond to HTTP/S requests, such as a SQL server, FTP server, or SSH port. 
+    * For example: To create a web test to a blob storage account, select **Web** and enter target as *yourstorageaccount*.blob.core.windows.net. Similarly you can create tests for other table storage, queue storage and Azure Files using [this link.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. If you don't want to perform network measurements, such as network latency, packet loss, and topology discovery, clear the **Perform network measurements** check box. Keep it selected to get maximum benefit from the capability. 
 5. In **Target**, enter the URL/FQDN/IP address to which you want to monitor network connectivity.
 6. In **Port number**, enter the port number of the target service. 
@@ -122,6 +123,16 @@ If you observe an abnormality, follow these steps:
 
 * If the application is running slow, determine whether poor application performance is because of the network or an issue on the application provider's end.
 
+## GCC Office URLs for US Government customers
+For US Government Virginia region, only DOD URLs are built-in NPM. Customers using GCC URLs need to create custom tests and add each URL individually.
+
+| Field | GCC |
+|:---   |:--- |
+| Office 365 Portal and shared | portal.apps.mil |
+| Office 365 auth and identity | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www .office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| MS Teams | gov.teams.microsoft.us | 
 
 ## Next steps
 [Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.

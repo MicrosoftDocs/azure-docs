@@ -17,7 +17,7 @@ manager: chakdan
 To build and run Azure Service Fabric Mesh applications on your Windows development machine, you'll need:
 
 * Docker
-* Visual Studio 2017
+* Visual Studio 2017 or later
 * Service Fabric Mesh runtime
 * Service Fabric Mesh SDK, and tools.
 
@@ -27,20 +27,20 @@ And one of the following versions of Windows:
 * Windows Server version 1709
 * Windows Server version 1803
 
-The following instructions will help you get everything installed based on the version of Windows you are running.
+The following instructions will help you get everything installed based on the version of Windows you're running.
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## Visual Studio
 
-Visual Studio 2017 is required to deploy Service Fabric Mesh applications. [Install version 15.6.0][download-visual-studio] or greater and enable the following workloads:
+Visual Studio 2017 or later is required to deploy Service Fabric Mesh applications. [Install version 15.6.0][download-visual-studio] or greater and enable the following workloads:
 
 * ASP.NET and web development
 * Azure Development
 
 ## Install Docker
 
-If you already have Docker installed, ensure that you have the latest version. Docker may  prompt you when a new version is out, but check manually to ensure that you have the latest version.
+If you already have Docker installed, ensure that you have the latest version. Docker may  prompt you when a new version is out, but check manually to ensure you have the latest version.
 
 #### Install Docker on Windows 10
 
@@ -48,7 +48,7 @@ Download and install the latest version of [Docker Community Edition for Windows
 
 During installation, select **Use Windows containers instead of Linux containers** when asked.
 
-If Hyper-V is not enabled on your machine, Docker's installer will offer to enable it. Click **OK** to do so if prompted.
+If Hyper-V isn't enabled on your machine, Docker's installer will offer to enable it. Click **OK** to do so if prompted.
 
 #### Install Docker on Windows Server 2016
 
@@ -85,9 +85,9 @@ Install the Service Fabric Mesh runtime, SDK, and tools in the following order.
 > If you are developing on the Windows Fall Creators update (version 1709) machine, you can only use Windows version 1709 docker images.
 > If you are developing on the Windows 10 April 2018 update (version 1803) machine, you can use either Windows version 1709 or 1803 docker images.
 
-If you are using Visual Studio, you can skip this section because Visual Studio will create a local cluster for you if you don't have one.
+If you're using Visual Studio, you can skip this section because Visual Studio will create a local cluster for you if you don't have one.
 
-For the best debugging performance when you are creating and running a single Service Fabric app at a time, create a single-node local development cluster. If you are running multiple applications at a time, create a five-node local development cluster. The cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
+For the best debugging performance when you're creating and running a single Service Fabric app at a time, create a single-node local development cluster. If you're running multiple applications at a time, create a five-node local development cluster. The cluster must be running whenever you deploy or debug a Service Fabric Mesh project.
 
 After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docker running, create a development cluster.
 

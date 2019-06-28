@@ -1,19 +1,20 @@
 ---
 title: 'Configure peering for a circuit - ExpressRoute: Azure | Microsoft Docs'
-description: This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
+description: This article documents the steps for creating and provisioning ExpressRoute private and Microsoft peering. This article also demonstrates how to check the status, update, or delete peerings for a circuit.
+
 services: expressroute
-author: cherylmc
+author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: cherylmc
+ms.date: 05/20/2019
+ms.author: mialdrid
 ms.custom: seodec18
 
 ---
 # Create and modify peering for an ExpressRoute circuit
 
-This article helps you create and manage routing configuration for an ExpressRoute circuit in the Resource Manager deployment model using the Azure portal. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
+This article helps you create and manage routing configuration for an Azure Resource Manager (ARM) ExpressRoute circuit, using the Azure portal. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
@@ -25,12 +26,12 @@ This article helps you create and manage routing configuration for an ExpressRou
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
-You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [About circuits and peerings](expressroute-circuit-peerings.md).
+You can configure Azure private and Microsoft peering for an ExpressRoute circuit (Azure public peering is deprecated for new circuits). You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [About circuits and peerings](expressroute-circuit-peerings.md).
 
 ## Configuration prerequisites
 
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the [routing requirements](expressroute-routing.md) page, and the [workflows](expressroute-workflows.md) page before you begin configuration.
-* You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider before you proceed. The ExpressRoute circuit must be in a provisioned and enabled state for you to be able to run the cmdlets in the next sections.
+* You must have an active ExpressRoute circuit. Follow the instructions to [Create an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md) and have the circuit enabled by your connectivity provider before you proceed. In order to configure peering(s), the ExpressRoute circuit must be in a provisioned and enabled state. 
 * If you plan to use a shared key/MD5 hash, be sure to use this on both sides of the tunnel and limit the number of alphanumeric characters to a maximum of 25. Special characters are not supported. 
 
 These instructions only apply to circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider that offers managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider configures and manages routing for you. 
@@ -51,7 +52,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 ### To create Microsoft peering
 
-1. Configure ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Microsoft peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
+1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Microsoft peering for you. In that case, you won't need to follow the instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, proceed with the next steps.
 
    ![list Microsoft peering](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you proceed.
@@ -81,7 +82,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
    ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
 
-1. After the configuration has been accepted successfully, you see something similar to the following image:
+1. After the configuration has been accepted successfully, you'll see something similar to the following image:
 
    ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
@@ -109,7 +110,7 @@ This section helps you create, get, update, and delete the Azure private peering
 
 ### To create Azure private peering
 
-1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
+1. Configure the ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Azure private peering for you. In that case, you won't need to follow the instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, proceed with the next steps.
 
    ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:

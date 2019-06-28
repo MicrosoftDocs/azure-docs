@@ -1,6 +1,6 @@
 ---
 title: Managing the Azure Log Analytics Agent | Microsoft Docs
-description: This article describes the different management tasks that you will typically perform during the lifecycle of the Microsoft Monitoring Agent (MMA) deployed on a machine.
+description: This article describes the different management tasks that you will typically perform during the lifecycle of the Log Analytics Windows or Linux agent deployed on a machine.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,13 +11,13 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 06/14/2019
 ms.author: magoedte
 ---
 
 # Managing and maintaining the Log Analytics agent for Windows and Linux
 
-After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
+After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
 ## Upgrading agent
 
@@ -35,7 +35,7 @@ To update the agent on a Windows VM to the latest version not installed using th
 
 You can download the latest version of the Windows agent from your Log Analytics workspace, by performing the following steps.
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
@@ -86,6 +86,7 @@ Run the following command to upgrade the agent.
 ## Adding or removing a workspace
 
 ### Windows agent
+The steps in this section are necessary when you want to not only reconfigure the Windows agent to report to a different workspace or to remove a workspace from its configuration, but also when you want to configure the agent to report to more than one workspace (commonly referred to as multi-homing). Configuring the Windows agent to report to multiple workspaces can only be performed after initial setup of the agent and using the methods described below.    
 
 #### Update settings from Control Panel
 
@@ -135,7 +136,7 @@ $mma.ReloadConfiguration()
 >
 
 ### Linux agent
-The following steps demonstrate how to reconfigure the Linux agent if you decide to register it with a different workspace or want to remove a workspace from its configuration.
+The following steps demonstrate how to reconfigure the Linux agent if you decide to register it with a different workspace or to remove a workspace from its configuration.
 
 1. To verify it is registered to a workspace, run the following command:
 
@@ -155,7 +156,7 @@ The following steps demonstrate how to reconfigure the Linux agent if you decide
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. To verify your changes took affect, run the following command:
+4. To verify your changes took effect, run the following command:
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -226,7 +227,7 @@ Perform the following steps if your Linux computers need to communicate through 
     ```
 
 ## Uninstall agent
-Use one of the following procedures to uninstall the Windows or Linux agent using the command-line or setup wizard.
+Use one of the following procedures to uninstall the Windows or Linux agent using the command line or setup wizard.
 
 ### Windows agent
 
@@ -294,4 +295,6 @@ Perform the following steps to configure the Log Analytics agent for Linux to re
 
 ## Next steps
 
-Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the agent.
+- Review [Troubleshooting the Linux agent](agent-linux-troubleshoot.md) if you encounter issues while installing or managing the Linux agent.
+
+- Review [Troubleshooting the Windows agent](agent-windows-troubleshoot.md) if you encounter issues while installing or managing the Windows agent.

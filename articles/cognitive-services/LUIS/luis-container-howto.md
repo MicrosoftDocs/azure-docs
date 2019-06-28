@@ -3,14 +3,14 @@ title: Docker containers
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: The LUIS container loads your trained or published app into a docker container and provides access to the query predictions from the container's API endpoints. 
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/16/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
 ---
 
 # Install and run LUIS docker containers
@@ -218,21 +218,24 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 |{ENDPOINT_KEY} | This key is used to start the container. Do not use the starter key. |
 |{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's `Cognitive Services` Overview page. You need to add the `luis/v2.0` routing to the endpoint URI as shown in the following example: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
-Replace these parameters with your own values in the following example `docker run` command.
+Replace these parameters with your own values in the following example `docker run` command. Run the command in the Windows console.
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 ^
+--memory 4g ^
+--cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output\,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-> [!Note] 
-> The preceding command uses the directory off the `c:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission. 
-> The preceding docker command uses the back slash, `\`, as a line continuation character. Replace or remove this based on your [host computer](#the-host-computer) operating system's requirements. Do not change the order of the arguments unless you are very familiar with docker containers.
+* This example uses the directory off the `c:` drive to avoid any permission conflicts on Windows. If you need to use a specific directory as the input directory, you may need to grant the docker service permission. 
+* Do not change the order of the arguments unless you are very familiar with docker containers.
+* If you are using a different operating system, use the correct console/terminal, folder syntax for mounts, and line continuation character for your system. These examples assume a Windows console with a line continuation character `^`. Because the container is a Linux operating system, the target mount uses a Linux-style folder syntax.
+
 
 
 This command:
@@ -251,6 +254,10 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 > The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure `Cognitive Services` resource keys page.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+## Endpoint APIs supported by the container
+
+Both V2 and [V3 (Preview)](luis-migration-api-v3.md) versions of the API are available with the container. 
 
 ## Query the container's prediction endpoint
 
@@ -333,19 +340,32 @@ The LUIS container sends billing information to Azure, using a _Cognitive Servic
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 
-## Unsupported dependencies
+## Supported dependencies for `latest` container
+
+The latest container, released at 2019 //Build, will support:
+
+* Bing spell check: requests to the query prediction endpoint with the `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` query string parameters. Use the [Bing Spell Check v7 tutorial](luis-tutorial-bing-spellcheck.md) to learn more. If this feature is used, the container sends the utterance to your Bing Spell Check V7 resource.
+* [New prebuilt domains](luis-reference-prebuilt-domains.md): these enterprise-focused domains include entities, example utterances, and patterns. Extend these domains for your own use. 
+
+<a name="unsupported-dependencies"></a>
+
+## Unsupported dependencies for `latest` container
+
+If your LUIS app has unsupported dependencies, you won't be able to [export for container](#export-packaged-app-from-luis) until you remove the unsupported features. When you attempt to export for container, the LUIS portal reports the unsupported features you need to remove.
 
 You can use a LUIS application if it **doesn't include** any of the following dependencies:
 
 Unsupported app configurations|Details|
 |--|--|
-|Unsupported container cultures| German (de-DE)<br>Dutch (nl-NL)<br>Japanese (ja-JP)<br>|
-|Unsupported domains|Prebuilt domains, including prebuilt domain intents and entities|
+|Unsupported container cultures| Dutch (nl-NL)<br>Japanese (ja-JP)<br>German is only supported with the [1.0.1 tokenizer or later](luis-language-support.md#custom-tokenizer-versions).|
 |Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
 |Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) prebuilt entities|
 |Speech priming|External dependencies are not supported in the container.|
 |Sentiment analysis|External dependencies are not supported in the container.|
-|Bing spell check|External dependencies are not supported in the container.|
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

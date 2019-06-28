@@ -4,8 +4,11 @@
   items:
   - name: About Security Center
     href: security-center-intro.md
-  - name: Security Center supported platforms & features
+  - name: Security Center supported platforms and features
     href: security-center-os-coverage.md
+  - name: Endpoint protection assessment and recommendations 
+    href: security-center-endpoint-protection.md
+
 - name: Quickstarts
   expanded: true
   items:
@@ -45,6 +48,8 @@
     href: security-center-onboarding.md
   - name: Server protection with Windows Defender ATP
     href: security-center-wdatp.md
+  - name: Advanced data security for SQL on Azure VMs (Public Preview)
+    href: security-center-iaas-advanced-data.md
   - name: Protect App Service
     href: security-center-app-services.md
   - name: Working with security policies
@@ -57,29 +62,31 @@
     href: security-center-powershell-onboarding.md
   - name: Security Center settings
     href: security-center-policies-overview.md
-    items:
-    - name: Data collection
-      href: security-center-enable-data-collection.md
-    - name: Built-in security policies
-      href: security-center-policy-definitions.md
-    - name: Email notifications
-      href: security-center-provide-security-contact-details.md
-    - name: Pricing tier
-      href: security-center-pricing.md
-    - name: Security configurations
-      href: security-center-customize-os-security-config.md
-    - name: Tenant-wide visibility
-      href: security-center-management-groups.md
+  - name: Compare baselines using File Integrity Monitoring
+    href: security-center-file-integrity-monitoring-baselines.md
+  - name: Data collection
+    href: security-center-enable-data-collection.md
+  - name: Built-in security policies
+    href: security-center-policy-definitions.md
+  - name: Email notifications
+    href: security-center-provide-security-contact-details.md
+  - name: Pricing tier
+    href: security-center-pricing.md
+  - name: Security configurations
+    href: security-center-customize-os-security-config.md
+  - name: Tenant-wide visibility
+    href: security-center-management-groups.md
   - name: Implement security recommendations
-    href: security-center-recommendations.md
     items:
+    - name: What are security recommendations
+      href: security-center-recommendations.md
     - name: Strengthen security posture
       href: security-center-monitoring.md
     - name: Protect your machines and apps
       href: security-center-virtual-machine-protection.md
     - name: Protect network resources
       href: security-center-network-recommendations.md
-    - name: Protect SQL service and data
+    - name: Protect data and storage services
       href: security-center-sql-service-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md  
@@ -181,6 +188,8 @@
     href: /learn/browse/?term=securityS
   - name: Manage user data
     href: security-center-privacy.md
+  - name: Manage IoT
+    href: https://docs.microsoft.com/en-us/azure/asc-for-iot/
   - name: FAQ
     href: security-center-faq.md
   - name: Azure Security

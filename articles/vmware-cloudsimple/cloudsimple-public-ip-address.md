@@ -27,4 +27,4 @@ Using a public IP address to communicate inbound provides:
 
 ## Next steps
 
-* Learn how to [Allocate a public IP address](https://docs.azure.cloudsimple.com/publicips/)
+* Learn how to [Allocate a public IP address](https://docs.azure.cloudsimple.com/public-ips/)

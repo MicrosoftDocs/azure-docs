@@ -1,6 +1,6 @@
 ---
 title: Secure managed instance public endpoints - Azure SQL Database managed instance | Microsoft Docs
-description: "Securely use public endpoints in Azure with managed instance"
+description: "Securely use public endpoints in Azure with a managed instance"
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,38 +10,42 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/16/2019
+ms.date: 05/08/2019
 ---
-# Using Azure SQL Database managed instance securely with public endpoint
+# Use an Azure SQL Database managed instance securely with public endpoints
 
-Azure SQL Database managed instance could be enabled to provide user connectivity over [public endpoint](../virtual-network/virtual-network-service-endpoints-overview.md). This article provides guidance how to make this configuration more secure.
+Azure SQL Database managed instances can provide user connectivity over [public endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). This article explains how to make this configuration more secure.
 
 ## Scenarios
 
-Managed instance provides private endpoint to enable connectivity from inside its virtual network. The default option is to provide maximum isolation. However, there are scenarios where a public endpoint connection is needed:
+A SQL Database managed instance provides a private endpoint to allow connectivity from inside its virtual network. The default option is to provide maximum isolation. However, there are scenarios where you need to provide a public endpoint connection:
 
-- Integration with multi-tenant only PaaS offerings.
-- Higher throughput of data exchange than using VPN.
+- The managed instance must integrate with multi-tenant-only platform-as-a-service (PaaS) offerings.
+- You need higher throughput of data exchange than is possible when you're using a VPN.
 - Company policies prohibit PaaS inside corporate networks.
 
-## Deploying managed instance for public Endpoint access
+## Deploy a managed instance for public endpoint access
 
-Although not mandatory, the common deployment model for a managed instance with public endpoint access is to create the instance in a dedicated isolated virtual network. In this configuration, the virtual network is used just for virtual cluster isolation. It's not relevant if the managed instance IP address space overlaps with a corporate network IP address space.
+Although not mandatory, the common deployment model for a managed instance with public endpoint access is to create the instance in a dedicated isolated virtual network. In this configuration, the virtual network is used only for virtual cluster isolation. It doesn't matter if the managed instance's IP address space overlaps with a corporate network's IP address space.
 
-## Securing data in motion
+## Secure data in motion
 
-Managed instance data traffic is always encrypted if the client driver supports encryption. Data between the managed instance and other Azure Virtual Machines or Azure services never leaves Azure's backbone. If there's a managed instance to an on-premises network connection, it's recommended to use Express Route with Microsoft peering. Express Route will help avoid moving data over public Internet (for managed instance private connectivity, only private peering can be used).
+Managed instance data traffic is always encrypted if the client driver supports encryption. Data sent between the managed instance and other Azure virtual machines or Azure services never leaves Azure's backbone. If there's a connection between the managed instance and an on-premises network, we recommend you use Azure ExpressRoute with Microsoft peering. ExpressRoute helps you avoid moving data over the public internet. For managed instance private connectivity, only private peering can be used.
 
-## Locking down inbound and outbound connectivity
+## Lock down inbound and outbound connectivity
 
-The following diagram shows recommended security configurations.
+The following diagram shows the recommended security configurations:
 
-![managed-instance-vnet.png](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
+![Security configurations for locking down inbound and outbound connectivity](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
 
-Managed Instance has a [dedicated public endpoint address](sql-database-managed-instance-find-management-endpoint-ip-address.md). This IP address should be set in the client side outbound firewall and Network Security Group rules to limit outbound connectivity.
+A managed instance has a [dedicated public endpoint address](sql-database-managed-instance-find-management-endpoint-ip-address.md). In the client-side outbound firewall and in the network security group rules,  set this public endpoint IP address to limit outbound connectivity.
 
-To ensure traffic to the managed instance is coming from trusted sources, it’s recommended to connect from sources with well-known IP addresses. Limit the access to the managed instance public endpoint on port 3342 using a Network Security Group.
+To ensure traffic to the managed instance is coming from trusted sources, we recommend connecting from sources with well-known IP addresses. Use a network security group to limit access to the managed instance public endpoint on port 3342.
 
-When clients need to initiate a connection from an on-premise network, make sure the originating address is translated to a well-known set of IPs. If that can't be achieved (for example, mobile workforce being a typical scenario), it's recommended to use [Point-to-site VPN connections and a private endpoint](sql-database-managed-instance-configure-p2s.md).
+When clients need to initiate a connection from an on-premises network, make sure the originating address is translated to a well-known set of IP addresses. If you can't do so (for example, a mobile workforce being a typical scenario), we recommend you use [point-to-site VPN connections and a private endpoint](sql-database-managed-instance-configure-p2s.md).
 
-If connections are started from Azure, it's recommended that traffic comes from well-known assigned [VIP](../virtual-network/virtual-networks-reserved-public-ip.md) (for example, Virtual Machines). For ease of managing VIP addresses, customers might consider using [public IP address prefix](../virtual-network/public-ip-address-prefix.md).
+If connections are started from Azure, we recommend that traffic come from a well-known assigned [virtual IP address](../virtual-network/virtual-networks-reserved-public-ip.md) (for example, a virtual machine). To make managing virtual IP (VIP) addresses easier, you might want to use [public IP address prefixes](../virtual-network/public-ip-address-prefix.md).
+
+## Next steps
+
+- Learn how to configure public endpoint for manage instances: [Configure public endpoint](sql-database-managed-instance-public-endpoint-configure.md)

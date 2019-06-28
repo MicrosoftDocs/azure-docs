@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 05/09/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -43,7 +43,7 @@ You can connect to Data Box Blob storage over *http* or *https*.
 - *Https* is the secure and recommended way to connect to Data Box Blob storage.
 - *Http* is used  when connecting over trusted networks.
 
-The steps to connect are different when you connect to Data Box Blob storage over *http* or *https*, .
+The steps to connect are different when you connect to Data Box Blob storage over *http* or *https*.
 
 ## Connect via http
 
@@ -149,6 +149,7 @@ Once you are connected to the Data Box Blob storage, the next step is to copy da
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, this may result in upload job failures and data corruption.
 
 In this tutorial, AzCopy is used to copy data to Data Box Blob storage. You can also use Azure Storage Explorer (if you prefer a GUI-based tool) or a partner software to copy the data.
+
 The copy procedure has the following steps:
 
 - Create a container
@@ -212,6 +213,8 @@ If you only want to copy source resources that do not exist in the destination, 
 #### Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
+
+If there are any errors during the connect or copy operation, see [Troubleshoot issues with Data Box Blob storage](data-box-troubleshoot-rest.md).
 
 Next step is to prepare your device to ship.
 

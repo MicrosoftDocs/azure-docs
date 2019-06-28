@@ -21,9 +21,6 @@ Learn how to use the WebHCat REST API to run Apache Hive queries with Apache Had
 
 * A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
 
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 * A REST client. This document uses Windows PowerShell and [Curl](https://curl.haxx.se/) examples.
 
     > [!NOTE]  

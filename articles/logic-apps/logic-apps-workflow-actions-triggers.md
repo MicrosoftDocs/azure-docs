@@ -8,7 +8,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 06/22/2018
+ms.date: 06/19/2019
 ---
 
 # Reference for trigger and action types in Workflow Definition Language for Azure Logic Apps
@@ -871,6 +871,8 @@ Here are some commonly used action types:
 
   * [**Response**](#response-action) for responding to requests
 
+  * [**Execute JavaScript Code**](#run-javascript-code) for running JavaScript code snippets
+
   * [**Function**](#function-action) for calling Azure Functions
 
   * Data operation actions such as [**Join**](#join-action), [**Compose**](#compose-action), 
@@ -898,6 +900,7 @@ and help you organize workflow execution
 | Action type | Description | 
 |-------------|-------------| 
 | [**Compose**](#compose-action) | Creates a single output from inputs, which can have various types. | 
+| [**Execute JavaScript Code**](#run-javascript-code) | Run JavaScript code snippets that fit within specific criteria. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Function**](#function-action) | Calls an Azure Function. | 
 | [**HTTP**](#http-action) | Calls an HTTP endpoint. | 
 | [**Join**](#join-action) | Creates a string from all the items in an array and separates those items with a specified delimiter character. | 
@@ -1144,6 +1147,99 @@ This action definition merges a string variable that contains
 Here is the output that this action creates:
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### Execute JavaScript Code action
+
+This action runs a JavaScript code snippet and returns the results 
+through a `Result` token that later actions can reference.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+         "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*Required*
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). <p>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the results from the trigger and previous actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+||||
+
+*Required in some cases*
+
+The `explicitDependencies` attribute specifies that you want to explicitly 
+include results from the trigger, previous actions, or both as dependencies 
+for your code snippet. For more information about adding these dependencies, see 
+[Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+
+For the `includeTrigger` attribute, you can specify `true` or `false` values.
+
+| Value | Type | Description |
+|-------|------|-------------|
+| <*previous-actions*> | String array | An array with your specified action names. Use the action names that appear in your workflow definition where action names use underscores (_), not spaces (" "). |
+||||
+
+*Example 1*
+
+This action runs code that gets your logic app's name and returns 
+the text "Hello world from <logic-app-name>" as the result. 
+In this example, the code references the workflow's name by 
+accessing the `workflowContext.workflow.name` property through 
+the read-only `workflowContext` object. For more information about 
+using the `workflowContext` object, see 
+[Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
+
+*Example 2*
+
+This action runs code in a logic app that triggers when 
+a new email arrives in an Office 365 Outlook account. 
+The logic app also uses a send approval email action that 
+forwards the content from the received email along with a 
+request for approval. 
+
+The code extracts email addresses from the trigger's `Body` 
+property and returns those email addresses along with the 
+`SelectedOption` property value from the approval action. 
+The action explicitly includes the send approval email action 
+as a dependency in the `explicitDependencies` > `actions` attribute.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 
@@ -2549,6 +2645,7 @@ properties in the trigger or action definition.
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of workflow instances that can wait to run when your workflow is already running the maximum concurrent instances. You can change the concurrency limit in the `concurrency.runs` property. <p>To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | All triggers | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of "for each" loop iterations that can run at the same time, or in parallel. <p>Setting the `repetitions` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <p>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency) or [Run "for each" loops sequentially](#sequential-for-each). | Action: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | For specific actions that support and have pagination turned on, this value specifies the *minimum* number of results to retrieve. <p>To turn on pagination, see [Get bulk data, items, or results by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action: Varied |
+| `runtimeConfiguration.staticResult` | JSON Object | For actions that support and have the [static result](../logic-apps/test-logic-apps-mock-data-static-results.md) setting turned on, the `staticResult` object has these attributes: <p>- `name`, which references the current action's static result definition name, which appears inside the `staticResults` attribute in your logic app workflow's `definition` attribute. For more information, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, which specifies whether static results are `Enabled` or not for the current action. <p>To turn on static results, see [Test logic apps with mock data by setting up static results](../logic-apps/test-logic-apps-mock-data-static-results.md) | Action: Varied |
 ||||| 
 
 <a name="operation-options"></a>
@@ -2862,7 +2959,7 @@ the action's inputs.
 
 ### Run in high throughput mode
 
-For a single logic app run, the number of actions that execute every 5 minutes has a 
+For a single logic app definition, the number of actions that execute every 5 minutes has a 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). 
 To raise this limit to the [maximum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) 
 possible, set the `operationOptions` property to `OptimizedForHighThroughput`. 

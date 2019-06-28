@@ -1,15 +1,15 @@
 ---
 title: Data loading best practices - Azure SQL Data Warehouse | Microsoft Docs
-description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse. 
+description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
-ms.reviewer: jrasnick
+ms.subservice: load data
+ms.date: 05/31/2019
+ms.author: kevin
+ms.reviewer: igorstan
 ms.custom: seoapril2019
 ---
 
@@ -97,7 +97,9 @@ If you have thousands or more single inserts throughout the day, batch the inser
 
 ## Creating statistics after the load
 
-To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  For a detailed explanation of statistics, see [Statistics](sql-data-warehouse-tables-statistics.md). The following example creates statistics on five columns of the Customer_Speed table.
+To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  This can be done manually or you can enable [auto-create statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
+
+For a detailed explanation of statistics, see [Statistics](sql-data-warehouse-tables-statistics.md). The following example shows how to manually create statistics on five columns of the Customer_Speed table.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);

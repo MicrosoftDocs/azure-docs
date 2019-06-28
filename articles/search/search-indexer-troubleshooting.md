@@ -30,14 +30,11 @@ Azure Storage provides a configurable firewall. By default, the firewall is disa
 
 There's no specific error message when the firewall is enabled. Typically, firewall errors look like `The remote server returned an error: (403) Forbidden`.
 
-You can verify that the firewall is enabled in the [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). If the firewall is enabled, you have two options for getting around this issue:
+You can verify that the firewall is enabled in the [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). The only supported workaround is to disable the firewall by choosing to allow access from ['All networks'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-1. Disable the firewall by choosing to allow access from ['All networks'](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal)
-1. [Add an exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) for the IP address of your search service. To find this IP address, use the following command:
+If your indexer does not have an attached skillset, you _may_ attempt to [add an exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) for the IP addresses of your search service. However, this scenario is not supported and is not guaranteed to work.
 
-`nslookup <service name>.search.windows.net`
-
-Exceptions don't work for [Cognitive Search](cognitive-search-concept-intro.md). The only workaround is to disable the firewall.
+You can find out the IP address of your search service by pinging its FQDN (`<your-search-service-name>.search.windows.net`).
 
 ### Cosmos DB
 
@@ -66,7 +63,7 @@ api-key: [admin key]
 
 The blob indexer [finds and extracts text from blobs in a container](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Some problems with extracting text include:
 
-* The document only contains scanned images. PDF blobs that have non-text content, such as scanned images (JPGs), don't produce results in a standard blob indexing pipeline. If you have image content with text elements, you can use [Cognitive Search](cognitive-search-concept-image-scenarios.md) to find and extract the text.
+* The document only contains scanned images. PDF blobs that have non-text content, such as scanned images (JPGs), don't produce results in a standard blob indexing pipeline. If you have image content with text elements, you can use [cognitive search](cognitive-search-concept-image-scenarios.md) to find and extract the text.
 * The blob indexer is configured to only index metadata. To extract content, the blob indexer must be configured to [extract both content and metadata](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
 
 ```
@@ -89,5 +86,5 @@ Indexers find documents from a [data source](https://docs.microsoft.com/rest/api
 * The document hasn't been indexed. Check the portal for a successful indexer run.
 * The document was updated after the indexer run. If your indexer is on a [schedule](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), it will eventually rerun and pick up the document.
 * The [query](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) specified in the data source excludes the document. Indexers can't index documents that aren't part of the data source.
-* [Field mappings](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) or [Cognitive Search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) have changed the document and it looks different than you expect.
+* [Field mappings](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) or [cognitive search](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) have changed the document and it looks different than you expect.
 * Use the [lookup document API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) to find your document.

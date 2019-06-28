@@ -181,7 +181,11 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 ### Set up logs and diagnostics
 
-On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-WinEvent` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
+On Linux, the IoT Edge daemon uses journals as the default logging driver. You can use the command-line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-IoTEdgeLog` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the  default.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. Consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own. 
 
@@ -206,7 +210,7 @@ Add (or append) this information to a file named `daemon.json` and place it the 
 | Platform | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
 
 The container engine must be restarted for the changes to take effect.
 

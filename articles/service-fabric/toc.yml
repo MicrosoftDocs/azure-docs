@@ -73,10 +73,14 @@
       href: service-fabric-tutorial-upgrade-cluster.md
     - name: 5- Delete a cluster
       href: service-fabric-tutorial-delete-cluster.md
-  - name: Create a standalone cluster on AWS
+  - name: Create a standalone cluster 
     items:
-    - name: 1- Create the infrastructure on AWS
-      href: service-fabric-tutorial-standalone-create-infrastructure.md
+    - name: 1- Create the infrastructure
+      items:
+      - name: Using AWS
+        href: service-fabric-tutorial-standalone-create-infrastructure.md
+      - name: Using Azure
+        href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
     - name: 2- Set up Service Fabric
       href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
     - name: 3- Deploy an application into the cluster
@@ -97,6 +101,8 @@
     href: service-fabric-best-practices-infrastructure-as-code.md
   - name: Monitoring and diagnostics
     href: service-fabric-best-practices-monitoring.md
+  - name: Application design
+    href: service-fabric-best-practices-applications.md
   - name: Production readiness checklist
     href: service-fabric-production-readiness-checklist.md  
 - name: Samples
@@ -515,6 +521,8 @@
         href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
       - name: Set up a Linux cluster on Windows
         href: service-fabric-local-linux-cluster-windows.md
+      - name: Deploy a .NET Core app to a remote Linux cluster from VS
+        href: service-fabric-how-to-publish-linux-app-vs.md
     - name: Work in a Linux/Eclipse dev environment
       items:
       - name: Get started with Eclipse plugin for Java development
@@ -609,6 +617,8 @@
           href: service-fabric-cluster-azure-deployment-preparation.md
         - name: Create in Azure portal
           href: service-fabric-cluster-creation-via-portal.md
+        - name: Deploy an Azure Service Fabric Cluster across Availability Zones
+          href: service-fabric-cross-availability-zones.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
         - name: Create a custom cluster template
@@ -639,8 +649,6 @@
           href: service-fabric-cluster-config-upgrade-azure.md
         - name: Patch cluster nodes (Windows)
           href: service-fabric-patch-orchestration-application.md
-        - name: Patch cluster nodes (Linux)
-          href: service-fabric-patch-orchestration-application-linux.md  
         - name: Enable disk encryption (Windows)
           href: service-fabric-enable-azure-disk-encryption-windows.md
         - name: Enable disk encryption (Linux)
@@ -691,6 +699,8 @@
     items:
     - name: Diagnose common scenarios
       href: service-fabric-diagnostics-common-scenarios.md
+    - name: Diagnose code package errors
+      href: service-fabric-diagnostics-code-package-errors.md
     - name: Monitor applications
       items:
       - name: Add logging to your application
@@ -841,8 +851,8 @@
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Troubleshooting guides
-    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
+  - name: Release notes
+    href: release-notes.md
   - name: Sample code
     href: https://aka.ms/servicefabricsamples
   - name: Support options
@@ -851,5 +861,7 @@
     href: service-fabric-versions.md
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=service-fabric
+  - name: Troubleshooting guides
+    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric

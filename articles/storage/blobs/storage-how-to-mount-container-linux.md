@@ -2,18 +2,19 @@
 title: How to mount Azure Blob storage as a file system on Linux | Microsoft Docs
 description: Mount an Azure Blob storage container with FUSE on Linux
 services: storage
-author: seguler
+author: normesta
 
 ms.service: storage
 ms.topic: article
 ms.date: 2/1/2019
-ms.author: seguler
+ms.author: normesta
+ms.reviewer: seguler
 ---
 
 # How to mount Blob storage as a file system with blobfuse
 
 ## Overview
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob storage. Blobfuse allows you to access your existing block blob data in your storage account through the Linux file system. Azure Blob storage is an object storage service and doesn't have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the forward-slash '/' as a delimiter.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob storage. Blobfuse allows you to access your existing block blob data in your storage account through the Linux file system. Blobfuse uses the virtual directory scheme with the forward-slash '/' as a delimiter.  
 
 This guide shows you how to use blobfuse, and mount a Blob storage container on Linux and access data. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
 

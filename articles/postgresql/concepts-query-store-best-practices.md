@@ -1,16 +1,16 @@
 ---
-title: Query Store best practices in Azure Database for PostgreSQL
-description: This article describes best practices for the Query Store in Azure Database for PostgreSQL.
+title: Query Store best practices in Azure Database for PostgreSQL - Single Server
+description: This article describes best practices for the Query Store in Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 5/6/2019
 ---
 
 # Best practices for Query Store
 
-**Applies to:** Azure Database for PostgreSQL 9.6 and 10
+**Applies to:** Azure Database for PostgreSQL - Single Server 9.6 and 10
 
 This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
 

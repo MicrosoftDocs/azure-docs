@@ -118,7 +118,7 @@
       href: samples/enforce-data-lake-store-encryption.md
   - name: Guest Configuration
     items:
-    - name: Audit applications installed on Linux
+    - name: Audit applications aren't installed on Linux
       displayName: audit, vm
       href: samples/guest-configuration-applications-installed-linux.md
   - name: Key Vaults
@@ -260,6 +260,9 @@
   - name: Understand Policy effects
     displayName: order, evaluation
     href: ./concepts/effects.md
+  - name: Azure Policy for Kubernetes
+    displayName: aks, rego, k8s, opa, open policy agent, gatekeeper
+    href: ./concepts/rego-for-aks.md
   - name: Audit VMs with Guest Configuration
     displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
@@ -280,6 +283,9 @@
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
+  - name: Enable Azure Monitor for VMs (preview)
+    displayName: insights, log analytics, builtin
+    href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: Reference
   items:
   - name: Azure CLI

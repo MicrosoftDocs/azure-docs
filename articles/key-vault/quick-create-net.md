@@ -2,7 +2,7 @@
 title: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app - Azure Key Vault | Microsoft Docs'
 description: In this quickstart, you set and retrieve a secret from Azure Key Vault by using a .NET web app
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
@@ -36,7 +36,7 @@ Before we go any further, please read the [basic concepts for Key Vault](key-vau
 ## Prerequisites
 
 * On Windows:
-  * [Visual Studio 2017 version 15.7.3 or later](https://www.microsoft.com/net/download/windows) with the following workloads:
+  * [Visual Studio 2019](https://www.microsoft.com/net/download/windows) with the following workloads:
     * ASP.NET and web development
     * .NET Core cross-platform development
   * [.NET Core 2.1 SDK or later](https://www.microsoft.com/net/download/windows)
@@ -116,14 +116,14 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 Edit the program.cs file to run the sample with your specific key vault name:
 
 1. Browse to the folder key-vault-dotnet-core-quickstart.
-2. Open the key-vault-dotnet-core-quickstart.sln file in Visual Studio 2017.
+2. Open the key-vault-dotnet-core-quickstart.sln file in Visual Studio 2019.
 3. Open the Program.cs file and update the placeholder *YourKeyVaultName* with the name of the key vault that you created earlier.
 
 This solution uses [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet libraries.
 
 ## Run the app
 
-From the main menu of Visual Studio 2017, select **Debug** > **Start** without debugging. When the browser appears, go to the **About** page. The value for **AppSecret** is displayed.
+From the main menu of Visual Studio 2019, select **Debug** > **Start without debugging**. When the browser appears, go to the **About** page. The value for **AppSecret** is displayed.
 
 ## Publish the web application to Azure
 
@@ -171,7 +171,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 Now when you run the application, you should see your secret value retrieved. In the preceding command, you're giving the identity of the app service permissions to do **get** and **list** operations on your key vault.
 
 ## Clean up resources
-Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.
+Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the key vault and select **Delete**.
 
 Delete the key vault by using the [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete) command:
 

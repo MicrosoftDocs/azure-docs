@@ -66,6 +66,8 @@
   - name: VM types and sizes
     href: sizes.md
     items:
+    - name: Generation 2 VMs
+      href: generation-2.md
     - name: General purpose
       href: sizes-general.md
       items:
@@ -83,9 +85,10 @@
       items:
       - name: Optimize performance
         href: storage-performance.md
-    - name: GPU optimized
-      href: sizes-gpu.md
+    - name: Accelerated compute
       items:
+      - name: GPU optimized
+        href: sizes-gpu.md
       - name: Setup GPU drivers
         href: n-series-driver-setup.md
     - name: High performance compute
@@ -112,10 +115,12 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Ephemeral OS disks
+      href: ephemeral-os-disks.md
   - name: Networking
     href: network-overview.md
-  - name: Auto-scale applications
-    href: autoscale.md
+  - name: Scale sets
+    href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Infrastructure automation
     href: infrastructure-automation.md
   - name: Security and policy
@@ -214,11 +219,11 @@
       displayName: AAD
       items:
         - name: Red Hat Enterprise Linux
-          href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+          href: ../../active-directory-domain-services/join-rhel-linux-vm.md
         - name: CentOS
-          href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+          href: ../../active-directory-domain-services/join-centos-linux-vm.md
         - name: Ubuntu
-          href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
+          href: ../../active-directory-domain-services/join-ubuntu-linux-vm.md
     - name: Sign in with Azure Active Directory credentials
       href: login-using-aad.md
     - name: Updates and patches
@@ -253,16 +258,32 @@
       href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
-    - name: Shared image galleries (preview)
+    - name: Shared image galleries 
       items:
       - name: Overview
         href: shared-image-galleries.md
-      - name: Create shared images using CLI
+      - name: CLI
         href: shared-images.md
       - name: Portal
         href: shared-images-portal.md
+      - name: Share images across tenants
+        href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
+    - name: Image builder (preview)
+      items:
+      - name: Overview
+        href: image-builder-overview.md
+      - name: Use Azure CLI
+        href: image-builder.md
+      - name: Template reference
+        href: image-builder-json.md
+      - name: Build for image galleries
+        href: image-builder-gallery.md
+      - name: Update an existing image
+        href: image-builder-gallery-update-image-version.md
+      - name: Troubleshoot
+        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Create custom image
@@ -390,8 +411,6 @@
       href: freebsd-pf-nat.md
     - name: Databases
       items:
-      - name: MySQL
-        href: mysql-install.md
       - name: MySQL on SUSE
         href: mysql-on-opensuse.md
       - name: MongoDB

@@ -26,9 +26,9 @@ You can use a resource dashboard to perform an access review in Azure Active Dir
 - Two charts that display the distribution of role assignments by assignment type.
 - A data area pertaining to new role assignments.
 
-![Screenshot of the Admin View dashboard, showing graphs and charts](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Screenshot of the Admin View dashboard, showing graphs and charts](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
-![Screenshot of the Admin View dashboard, showing data lists](media/azure-pim-resource-rbac/role-settings.png)
+![Screenshot of the Admin View dashboard, showing data lists](media/pim-resource-roles-overview-dashboards/role-settings.png)
 
 The graphical representation of resource role activations covers the past seven days. This data is scoped to the selected resource, and displays activations for the most common roles (owner, contributor, user access administrator), and for all roles combined.
 

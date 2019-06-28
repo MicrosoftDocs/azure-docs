@@ -4,7 +4,7 @@ description: Provides an index of Azure Active Directory (v1.0 endpoint) code sa
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -110,7 +110,7 @@ Platform | Sample
 
 ### Web API calling Microsoft Graph or another Web API
 
-The following samples demonstrate a web API that calls another web API. The second sample shows how to handle conditional access.
+The following samples demonstrate a web API that calls another web API. The second sample shows how to handle Conditional Access.
 
  Platform |  Calls Microsoft Graph | Calls another ASP.NET or ASP.NET Core 2.0 Web API
  -------- |  --------------------- | -------------------------

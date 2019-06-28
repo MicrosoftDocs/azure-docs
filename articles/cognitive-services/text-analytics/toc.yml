@@ -8,21 +8,35 @@
   - name: Example user scenarios
     href: text-analytics-user-scenarios.md
 - name: Quickstarts
+  expanded: true
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Go
-    href: quickstarts/go.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
+    - name: REST API
+      items:
+      - name: Go
+        href: quickstarts/go.md
+      - name: Java
+        href: quickstarts/java.md
+      - name: Node.js
+        href: quickstarts/nodejs.md
+      - name: PHP
+        href: quickstarts/php.md
+      - name: Python
+        href: quickstarts/python.md
+      - name: Ruby
+        href: quickstarts/ruby.md
+    - name: SDK
+      items:
+      - name: C#
+        href: quickstarts/csharp.md
+      - name: Python
+        href: quickstarts/python-sdk.md
+      - name: Go
+        href: quickstarts/go-sdk.md
+      - name: Ruby
+        href: quickstarts/ruby-sdk.md
+      - name: Node.js
+        href: quickstarts/nodejs-sdk.md
+
 - name: Tutorials
   items:
     - name: Integrate Power BI to analyze customer feedback
@@ -58,8 +72,16 @@
         href: how-tos/text-analytics-how-to-install-containers.md
       - name: Configure containers
         href: text-analytics-resource-container-config.md
-      - name: How to run on Azure Kubernetes Service
-        href: How-tos/text-analytics-how-to-use-container-instance.md
+      - name: Use container instances (ACI)
+        items:
+          - name: Sentiment analysis
+            href: how-tos/use-sentiment-analysis-on-aci.md
+      - name: Use kubernetes service (AKS)
+        items:
+          - name: Language detection
+            href: how-tos/use-language-detection-on-aks.md
+          - name: Sentiment analysis
+            href: how-tos/use-sentiment-analysis-on-aks.md
    - name: Use the Text Analytics Connected Service
      href: vs-text-connected-service.md
 - name: Reference
@@ -96,6 +118,8 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/text-analytics-api
   - name: Subscription key
