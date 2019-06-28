@@ -10,6 +10,8 @@
  ms.custom: include file
 ---
 
+>[!NOTE]
+>This section provides instructions for the [new Azure AD app registration](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). If you still have legacy native app registration, you may use it as long as it's supported. Additionally, if for some reason the new way of app registation is not working in your setup, you may try to create a legacy native AAD app. Read [Register your Azure Digital Twins app with Azure Active Directory legacy](../articles/digital-twins/how-to-use-legacy-aad.md) for more instructions. 
 
 1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **App registrations** pane. Select the **New registration** button.
 
@@ -42,19 +44,3 @@
 
     ![Add API permissions](./media/digital-twins-permissions/aad-app-admin-consent.png)
 
-
-   a. Select **Add** on the upper left to open the **Add API access** pane.
-
-   b. Select **Select an API** and search for **Azure Digital Twins**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead.
-
-   c. Select the **Azure Digital Twins (Azure Smart Spaces Service)** option and choose **Select**.
-
-   d. Choose **Select permissions**. Select the **Read/Write Access** delegated permissions check box, and choose **Select**.
-
-   e. Select **Done** in the **Add API access** pane.
-
-   f. In the **Required permissions** pane, select the **Grant permissions** button, and accept the acknowledgement that appears. If the permission is not granted for this API, contact your administrator.
-
-      ![Required permissions pane](./media/digital-twins-permissions/aad-app-req-permissions.png)
-
- 

@@ -10,9 +10,6 @@
  ms.custom: include file
 ---
 
->[!NOTE]
->Be aware that the legacy AAD app registration that is used here will be discontinued soon. This section will be updated once Azure Digital Twins is completely integrated with the [new AAD app registration](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). In the meanwhile, you may experiment with the new AAD app registration. Note that you will need to use [public client (mobile & destkop)](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types#mobile-and-native-apps) for the *Redirect URI*. 
-
 1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You'll use this value to configure a sample application in the next section.
 
     ![Azure Active Directory directory ID](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)
