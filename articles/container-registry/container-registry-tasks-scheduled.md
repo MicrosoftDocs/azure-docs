@@ -185,7 +185,7 @@ Each field can have one of the following types of values:
 |`"0 * * * *"`|once at the top of every hour|
 |`"0 */2 * * *"`|once every two hours|
 |`"0 9-17 * * *"`|once every hour from 9:00 to 17:00 UTC|
-|`"30 9 * * *"`|at 9:00 UTC every day|
+|`"30 9 * * *"`|at 9:30 UTC every day|
 |`"30 9 * * 1-5"`|at 9:30 UTC every weekday|
 |`"30 9 * Jan Mon"`|at 9:30 UTC every Monday in January|
 
