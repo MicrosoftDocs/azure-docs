@@ -22,6 +22,8 @@ Because you can delete image data in several different ways, it's important to u
 
 Sample scripts are provided to help automate delete operations.
 
+For an introduction to these concepts, see [About registries, repositories, and images](container-registry-concepts.md).
+
 ## Delete repository
 
 Deleting a repository deletes all of the images in the repository, including all tags, unique layers, and manifests. When you delete a repository, you recover the storage space used by the images that reference unique layers in that repository.
@@ -141,7 +143,7 @@ fi
 
 ## Delete untagged images
 
-As mentioned in the [Manifest digest](#manifest-digest) section, pushing a modified image using an existing tag **untags** the previously pushed image, resulting in an orphaned (or "dangling") image. The previously pushed image's manifest--and its layer data--remains in the registry. Consider the following sequence of events:
+As mentioned in the [Manifest digest](container-registry-concepts.md#manifest-digest) section, pushing a modified image using an existing tag **untags** the previously pushed image, resulting in an orphaned (or "dangling") image. The previously pushed image's manifest--and its layer data--remains in the registry. Consider the following sequence of events:
 
 1. Push image *acr-helloworld* with tag **latest**: `docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Check manifests for repository *acr-helloworld*:

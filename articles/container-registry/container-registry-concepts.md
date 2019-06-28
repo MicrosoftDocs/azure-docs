@@ -118,6 +118,6 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 ## Next steps
 
-Learn more about [image storage](container-registry-storage.md) and [supported content formats](container-registry-image-formats) in Azure Container Registry.
+Learn more about [image storage](container-registry-storage.md) and [supported content formats](container-registry-image-formats.md) in Azure Container Registry.
 
 
