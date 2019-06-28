@@ -5,7 +5,7 @@ description: Reply URLs/redirect URls restrictions & limitations
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 06/27/2019
+ms.date: 06/29/2019
 ms.topic: article
 ms.subservice: develop
 ms.service: active-directory
@@ -24,10 +24,6 @@ The following table shows the maximum number of redirect URIs that you can add w
 |--------------------------|---------------------------------|-------------|
 | Microsoft work or school accounts in any organization's Azure Active Directory (Azure AD) tenant | 256 | `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs* |
 | Personal Microsoft accounts and work and school accounts | 100 | `signInAudience` field in the application manifest is set to *AzureADandPersonalMicrosoftAccount* |
-
-<!---
-A maximum of 256 redirect URIs can be added to an app registration if the app is configured to sign in Microsoft work or school accounts in any organization's Azure AD tenant (i.e. `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs*). However, if the app is configured to sign in both personal and work or school accounts (i.e. `signInAudience` field in the application manifest is set to *AzureADandPersonalMicrosoftAccount*), a maximum of 100 redirect URIs are allowed.
---->
 
 ## Maximum URI length
 
@@ -61,7 +57,7 @@ In this this approach:
 
 ### Add redirect URIs to service principals
 
-This approach is suitable when you can't use a state paramater or your scenario requires you to add new redirect URIs to your app registration for every new tenant you support. In this approach, instead of adding redirect URIs to your app registration, you can add redirect URIs to the [service principals](app-objects-and-service-principals.md#application-and-service-principal-relationship) that represent your app registration in any Azure AD tenant.
+Another approach is to add redirect URIs to the [service principals](app-objects-and-service-principals.md#application-and-service-principal-relationship) that represent your app registration in any Azure AD tenant. You can use this approach when you can't use a state parameter or your scenario requires you to add new redirect URIs to your app registration for every new tenant you support. 
 
 ## Next steps
 
