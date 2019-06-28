@@ -63,7 +63,7 @@ In this article, you learn how to:
 > Front Door managed certificate management type is not currently supported for apex or root domains. The only option available for enabling HTTPS on an apex or root domain for Front Door is using your own custom SSL certificate hosted on Azure Key Vault.
 
 3. Ensure that you have setup the right permissions for Front Door to access your key Vault as noted in the UI, before proceeding to the next step.
-4. Choose a **Key Vault account** from your current subscription and then select the appropriate **Secret** and **Secret version** to map to the right certificate.
+4. Choose a **Key Vault account** from your current subscription and then select the appropriate **Secret** and **Secret version** to map to the right certificate.  In Key Vault, the content type of the **Secret** needs to be 'application/x-pkcs12'.
 5. Click on **Update** to save the selection and then click **Save**.
 6. Click **Refresh** after a couple of minutes and then click on the custom domain again to see the progress of certificate provisioning. 
 
