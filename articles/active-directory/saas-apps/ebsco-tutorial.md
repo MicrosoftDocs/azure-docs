@@ -111,7 +111,7 @@ To configure Azure AD single sign-on with EBSCO, perform the following steps:
     ![image](common/both-preintegrated-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `http://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
+    `https://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
 
 	> [!NOTE]
 	> The Sign-on URL value is not real. Update the value with the actual Sign-on URL. Contact [EBSCO Client support team](mailto:sso@ebsco.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

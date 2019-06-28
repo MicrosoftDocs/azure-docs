@@ -4,7 +4,7 @@ description: Learn how to manage indexing policies in Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/27/2019
 ms.author: thweiss
 ---
 
@@ -352,7 +352,7 @@ You can define multiple different composite indexes within the same indexing pol
                     "path":"/age",
                     "order":"ascending"
                 }
-            ]
+            ],
             [  
                 {  
                     "path":"/name",

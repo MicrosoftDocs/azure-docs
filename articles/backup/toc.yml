@@ -144,8 +144,6 @@
       items:
       - name: Manage Azure VM backups
         href: backup-azure-manage-vms.md
-      - name: Monitor alerts for Azure VM backups
-        href: backup-azure-monitor-vms.md
     - name: Restore Azure VMs
       items:
       - name: Restore Azure VMs in the portal

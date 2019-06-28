@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 02/20/2019
+ms.date: 06/25/2019
 ms.topic: article
 ms.service: iot-edge
 
