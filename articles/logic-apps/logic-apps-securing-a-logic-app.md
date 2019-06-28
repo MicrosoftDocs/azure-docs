@@ -1,6 +1,6 @@
 ---
 title: Secure access and data - Azure Logic Apps
-description: Add security to parameter inputs, HTTP request triggers, run history, logic app operations, and connections to other services in Azure Logic Apps
+description: Protect parameter inputs, HTTP request triggers, run history, logic app operations, and connections to other services in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -13,7 +13,7 @@ ms.date: 06/28/2019
 
 # Secure access and data in Azure Logic Apps
 
-To control access in Azure Logic Apps, you can add security and protection in various areas:
+To control access and protect data in Azure Logic Apps, you can set up security in these areas:
 
 * [Access to HTTP request triggers](#secure-triggers)
 * [Access to logic app operations](#secure-operations)
@@ -179,7 +179,7 @@ To prevent others from changing or deleting your logic app, you can use [Azure R
 
 <a name="secure-run-history"></a>
 
-## Access to run history inputs and outputs
+## Access to run history data
 
 During a logic app run, all the data is encrypted during transit and at rest. When your logic app finishes running, you can view the history for that run, including the steps that ran along with the status, duration, inputs, and outputs for each action. This rich detail provides insight into how your logic app ran and where you might start troubleshooting any problems that arise.
 
