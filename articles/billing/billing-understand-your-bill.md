@@ -18,7 +18,7 @@ To understand your Azure bill, you compare your invoice with the detailed daily 
 
 This article doesn't apply to Azure customers with an Enterprise Agreement (EA customers). If you're an EA customer, see [Understand your bill for Azure customers with an Enterprise Agreement](billing-understand-your-bill-ea.md).
 
-This article doesn't apply to Azure customers with a Microsoft Customer Agreement. If you have a billing account for a Microsoft Customer Agreement, see [Understand the Azure charges on your Microsoft Customer Agreement invoice](billing-mca-understand-your-bill.md).
+This article doesn't apply to Azure customers with a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement). If you have a Microsoft Customer Agreement, see [Understand the Azure charges on your Microsoft Customer Agreement invoice](billing-mca-understand-your-bill.md).
 
 For an explanation of how billing works in the Azure Cloud Solution Provider (Azure CSP) program, including the billing cycle, pricing, and usage, see [Azure CSP Billing Overview](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -126,6 +126,9 @@ To check the status of your payment, [create a support ticket](https://portal.az
   - [Total cost of ownership calculator](https://aka.ms/azure-tco-calculator)
   - [Detailed pricing information for each service](https://azure.microsoft.com/pricing/)
 - [Review your usage and costs regularly in the Azure portal](billing-getting-started.md#costs).
+
+## Check access to a Microsoft Customer Agreement
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us.
 

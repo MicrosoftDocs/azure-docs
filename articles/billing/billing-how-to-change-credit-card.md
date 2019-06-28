@@ -16,9 +16,9 @@ ms.author: banders
 
 In the Azure portal, you can add a new credit card, update an existing credit card, or delete a credit card that you don't use. You must be an [Account Administrator](billing-subscription-transfer.md#whoisaa) to make these changes.
 
-<!-- If your Angola, Belize, Algeria, Vietnam, or Virgin Islands. -->
+If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement), your payment methods are associated with billing profiles. Learn how to [change the default payment method for a billing profile](#change-payment-method-for-a-billing-profile). Only the user who signed up for Azure can update the payment method.
 
-**Want to switch to pay by invoice?** See [Pay for Azure subscriptions by invoice](billing-how-to-pay-by-invoice.md).
+**Want to switch to pay by invoice (check/wire transfer)?** See [Pay for Azure subscriptions by invoice](billing-how-to-pay-by-invoice.md).
 
 <a id="addcard"></a>
 
@@ -147,6 +147,30 @@ If your credit card gets renewed and the number remains the same, update the exi
 4. Click **Delete** for the credit card that you want to delete.
 
 If your credit card is associated with other active Microsoft subscriptions, you can't remove it from your Azure account. Remove the credit card from all active subscriptions that you have with Microsoft and try again. -->
+
+## Change payment method for a billing profile
+
+To change the payment method for a billing profile, you must be the person who signed up for Azure.
+
+If you'd like to switch the default payment method to check/wire transfer, learn how to [switch a billing profile to check/wire transfer](billing-how-to-pay-by-invoice.md).
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search on **Cost Management + Billing**.
+1. In the menu on the left, click on **Billing profiles**.
+
+    ![screenshot that shows billing profile in menu](./media/billing-how-to-change-credit-card/billing-profile.png)
+
+1. Select a billing profile.
+1. In the menu on the left, select **Payment methods**.
+
+   ![Screenshot that shows payment methods in menu](./media/billing-how-to-change-credit-card/billing-profile-payment-methods.png)
+
+1. Above the default payment method, click **Change**.
+
+    ![Screenshot that shows change button](./media/billing-how-to-change-credit-card/customer-led-switch-credit-card.png)
+
+1. Select an existing card or add a new one.
+
 ## Frequently asked questions
 The following sections answer commonly asked questions about changing your credit or debit card information.
 
@@ -173,6 +197,9 @@ If you're [paying by invoice](billing-how-to-pay-by-invoice.md), send your payme
 ### How do I change the tax ID?
 
 To add or update tax ID, update your profile in the  [Azure Account Center](https://account.azure.com/Profile), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
+
+## Check access to a Microsoft Customer Agreement
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Need help? Contact us.
 
