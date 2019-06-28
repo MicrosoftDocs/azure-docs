@@ -2,32 +2,46 @@
  title: include file
  description: include file
  services: digital-twins
- author: alinamstanciu
+ author: dsk-2015
  ms.service: digital-twins
  ms.topic: include
- ms.date: 06/26/2019
- ms.author: alinast
+ ms.date: 06/28/2019
+ ms.author: dkshir
  ms.custom: include file
 ---
 
->[!NOTE]
->Be aware that the legacy AAD app registration that is used here will be discontinued soon. This section will be updated once Azure Digital Twins is completely integrated with the [new AAD app registration](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). In the meanwhile, you may experiment with the new AAD app registration. Note that you will need to use [public client (mobile & destkop)](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types#mobile-and-native-apps) for the *Redirect URI*. 
 
-1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **Properties** pane. Copy the **Directory ID** to a temporary file. You'll use this value to configure a sample application in the next section.
+1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **App registrations** pane. Select the **New registration** button.
 
-    ![Azure Active Directory directory ID](./media/digital-twins-permissions/aad-app-reg-tenant.png)
+    ![App registered](./media/digital-twins-permissions/aad-app-register.png)
 
-1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the left pane, and then open the **App registrations (Legacy)** pane. Select the **New application registration** button.
-
-1. Give a friendly name for this app registration in the **Name** box. Choose **Application type** as **Native**, and **Redirect URI** as `https://microsoft.com`. Select **Create**.
+1. Give a friendly name for this app registration in the **Name** box. Under the **Redirect URI (optional)** section, choose **Public client (mobile & desktop)** in the drop-down on the left, and enter `https://microsoft.com` in the textbox on the right. Select **Register**.
 
     ![Create pane](./media/digital-twins-permissions/aad-app-reg-create.png)
 
-1.  Open the registered app, and copy the value of the **Application ID** field to a temporary file. This value identifies your Azure Active Directory app. You'll use the application ID to configure your sample application in the following sections.
+1. To make sure that [the app is registered as a *native app*](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), open the **Authentication** pane for your app registration, and scroll down in that pane. In the **Default client type** section, choose **Yes** for **Treat application as a public client**. 
+
+    ![Default native](./media/digital-twins-permissions/aad-app-default-native.png)
+
+1.  Open the **Overview** pane of your registered app, and copy the values of following entities to a temporary file. You'll use these values to configure your sample application in the following sections.
+
+    - **Application (client) ID**
+    - **Directory (tenant) ID**
 
     ![Azure Active Directory application ID](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
-1. Open your app registration pane. Select **Settings** > **Required permissions**, and then:
+1. Open the **API permissions** pane for your app registration. Select **Add a permission** button. In the **Request API permissions** pane, select the **APIs my organization uses** tab, and then search for **Azure Smart Spaces**. Select the **Azure Smart Spaces Service** API.
+
+    ![Search API](./media/digital-twins-permissions/aad-app-search-api.png)
+
+1. The selected API shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read (1)** drop down, and then select **Read.Write** checkbox. Select the **Add permissions** button.
+
+    ![Add API permissions](./media/digital-twins-permissions/aad-app-req-permissions.png)
+
+1. Depending on your organization's settings, you might need to take additional steps to grant admin access to this API. Contact your adminstrator for more information. Once the admin access is approved, the **ADMIN CONSENT REQUIRED** column in the **API permissions** pane will show similar to the following for your APIs:
+
+    ![Add API permissions](./media/digital-twins-permissions/aad-app-admin-consent.png)
+
 
    a. Select **Add** on the upper left to open the **Add API access** pane.
 
