@@ -61,7 +61,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    **Circuit - Provider status: Provisioned**
 
-   [![Provisioned](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png#lightbox)
+   [![Provisioned](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png "provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you proceed.
 
    * A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
@@ -74,8 +74,8 @@ This section helps you create, get, update, and delete the Microsoft peering con
    * **Optional -** An MD5 hash if you choose to use one.
 3. You can select the peering you wish to configure, as shown in the following example. Select the Microsoft peering row.
 
-   [![Select Microsoft peering row](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Select microsoft peering row")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png#lightbox)
-4. Configure Microsoft peering. Save the configuration once you have specified all parameters. The following image shows a configuration example:
+   [![Select Microsoft peering row](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m.png "Select microsoft peering row")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-m-lightbox.png#lightbox)
+4. Configure Microsoft peering. **Save** the configuration once you have specified all parameters. The following image shows an example configuration:
 
    ![Configure Microsoft peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-m.png)
 
@@ -85,14 +85,13 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 5. After the configuration has been accepted successfully, you'll see something similar to the following image:
 
-   ![Status: Configured](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png)
+   [![Status: Configured](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "configured")](./media/expressroute-howto-routing-portal-resource-manager/configured-m-lightbox.png#lightbox)
 
 ### <a name="getmsft"></a>To view Microsoft peering details
 
 You can view the properties of Microsoft peering by selecting the row for the peering.
 
-[![View properties](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "view properties")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png#lightbox)
-
+[![View properties](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "properties")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-configured.png)
 ### <a name="updatemsft"></a>To update Microsoft peering configuration
 
 You can select the row for the peering that you want to modify, then modify the peering properties and save your modifications.
@@ -117,11 +116,11 @@ This section helps you create, get, update, and delete the Azure private peering
 
    **Circuit - Provider status: Not provisioned**
 
-   [![Not provisioned](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png#lightbox)
+   [![Not provisioned](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
 
    **Circuit - Provider status: Provisioned**
 
-   [![Provisioned](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png#lightbox)
+   [![Provisioned](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "provisioned")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
 
 2. Configure Azure private peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
 
@@ -133,18 +132,18 @@ This section helps you create, get, update, and delete the Azure private peering
 3. Select the Azure private peering row, as shown in the following example:
 
    [![private](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "private peering row")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png#lightbox)
-4. Configure private peering. Save the configuration once you have specified all parameters.
+4. Configure private peering. **Save** the configuration once you have specified all parameters.
 
-   [![configure private peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png "configure private peering)](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png#lightbox)
+   ![configure private peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
 5. After the configuration has been accepted successfully, you see something similar to the following example:
 
-   [![saved private peering](./media/expressroute-howto-routing-portal-resource-manager/save-p.png "saved private peering")](./media/expressroute-howto-routing-portal-resource-manager/save-p.png#lightbox)
+   ![saved private peering](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
 
 ### <a name="getprivate"></a>To view Azure private peering details
 
 You can view the properties of Azure private peering by selecting the peering.
 
-![view private peering](./media/expressroute-howto-routing-portal-resource-manager/view-p.png)
+[![view private peering](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "view")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png)
 
 ### <a name="updateprivate"></a>To update Azure private peering configuration
 
