@@ -32,9 +32,8 @@ This article provides a general workflow for moving resources to a different reg
 - Remove the resources from the source region 
 
 
-
-  > [!NOTE]
-  > This article applies to migrations within the Azure public cloud, or within the same sovereign cloud. 
+> [!NOTE]
+> This article applies to migrations within the Azure public cloud, or within the same sovereign cloud. 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -77,11 +76,11 @@ Once **ReplicationState** is `2`, connect to each database, or subset of databas
 
 ### Remove the source databases
 
-Once the move completes, , remove the resources in the source region to avoid unnecessary charges. 
+Once the move completes, remove the resources in the source region to avoid unnecessary charges. 
 
 - Delete the failover group using [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup). 
 - Delete each source database using [Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase) for each of the databases on the source server. This will automatically terminate geo-replication links. 
-- Delete the source server using [Remove-AzSqlInstance](/powershell/module/az.sql/remove-azsqlinstance). 
+- Delete the source server using [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
 - Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop the billing. 
 
 ## Move elastic pools
@@ -126,11 +125,11 @@ Once **ReplicationState** is `2`, connect to each database, or subset of databas
 
 ### Remove the source elastic pools
  
-Once the move completes, , remove the resources in the source region to avoid unnecessary charges. 
+Once the move completes, remove the resources in the source region to avoid unnecessary charges. 
 
 - Delete the failover group using [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup).
 - Delete each source elastic pool on the source server using [Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool). 
-- Delete the source server using [Remove-AzSqlInstance](/powershell/module/az.sql/remove-azsqlinstance). 
+- Delete the source server using [Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver). 
 - Remove the key vault, audit storage containers, event hub, AAD instance, and other dependent resources to stop the billing. 
 
 ## Move managed instance
@@ -149,7 +148,7 @@ Once the move completes, , remove the resources in the source region to avoid un
 ### Prepare resources
 
  - Create a failover group between each source instance and the corresponding target instance.
-     - Replication of all databases on each instance will be initiated automatically. See [Autofailover groups](sql-database-auto-failover-group.md) for more information.
+     - Replication of all databases on each instance will be initiated automatically. See [Auto-failover groups](sql-database-auto-failover-group.md) for more information.
 
  
 ### Monitor the preparation process
@@ -169,7 +168,7 @@ Once **ReplicationState** is `2`, connect to each database, or subset of databas
 - Verify that the command has completed successfully by using `nslook up <fog-name>.secondary.database.windows.net` to ascertain that the DNS CNAME entry points to the target region IP address. If the switch command fails, the CNAME will not get updated. 
 
 ### Remove the source managed instances
-Once the move completes, , remove the resources in the source region to avoid unnecessary charges. 
+Once the move completes, remove the resources in the source region to avoid unnecessary charges. 
 
 - Delete the failover group using [Remove-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup). This will drop the failover group configuration and terminate geo-replication links between the two instances. 
 - Delete the source managed instance using [Remove-AzSqlInstance](/powershell/module/az.sql/remove-azsqlinstance). 

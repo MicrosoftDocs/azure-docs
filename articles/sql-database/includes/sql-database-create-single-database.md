@@ -10,7 +10,7 @@ ms.author: mathoma
 In this step, you will create your resource group and an Azure SQL Database single database. 
 
 > [!IMPORTANT]
-> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this article. Database-level firewall rules will replicate automatically to the secondary server.
+> Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this article. 
 >
 > For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md).  
 
@@ -42,17 +42,17 @@ Create your resource group and single database using the Azure portal.
 
       > [!IMPORTANT]
       > Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
-
-        ![SQL Database details](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
-
+        
    - **Want to use SQL elastic pool**: Select the **No** option.
-   - **Compute + storage**: Select **Configure database** and for this quickstart, select **vCore-based purchasing options**
+   - **Compute + storage**: Select **Configure database** and for this article, select **vCore-based purchasing options**
+
+     ![SQL Database details](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
      ![vCore-based purchasing options](../media/sql-database-get-started-portal/create-database-vcore.png)
 
    - Select **Provisioned** and **Gen4**.
 
-     ![serverless compute tier](../media/sql-database-get-started-portal/create-database-serverless.png)
+     ![serverless compute tier](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
    - Review the settings for **Max vCores**, **Min vCores**, **Auto-pause delay**, and **Data max size**. Change these as desired.
    - Accept the preview terms and click **OK**.

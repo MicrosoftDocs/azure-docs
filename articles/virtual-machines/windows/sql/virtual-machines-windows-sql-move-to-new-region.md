@@ -77,9 +77,14 @@ The following steps show you how to use Azure Site Recovery to copy data to the 
 1. Once resource creation is complete, select **Enable replication** to start replication your SQL Server VM from the source to the target region. 
 
 ## Test the move process
+The following steps show you how to use Azure Site Recovery to test the move process. 
 
+1. Navigate to your **Recovery Services vault** in the [Azure portal](https://portal.azure.com) and select **Replicated items**. 
+1. Select the SQL Server VM you would like to move, verify that the **Replication Health** shows as **Healthy** and then select **Test Failover**. 
 
+  ![Test failover for your VM](media/virtual-machines-windows-sql-move-to-new-region/test-failover-of-replicated-vm.png)
 
+1. Select the virtual network under **Azure virtual network** and then select **OK** to test failover. 
 
 ## Next steps
 
