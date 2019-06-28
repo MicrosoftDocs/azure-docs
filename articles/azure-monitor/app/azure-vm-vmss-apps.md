@@ -157,5 +157,5 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWi
 ```
 
 ## Next steps
-* Learn how to [deploy your application](virtual-machine-scale-sets-deploy-app.md) on virtual machine scale sets.
+* Learn how to [deploy an application to an Azure virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).
 * [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your endpoint is down.
