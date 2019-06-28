@@ -20,7 +20,7 @@ In some cases, when a new user accepts an Azure Data Share invitation, they may 
 
 **"InvitationBrowseBlade | MICROSOFT_AZURE_DATASHARE"**
 
-![Invitation Error](media/invitation-blade-error.png)
+![Invitation error](media/invitation-blade-error.png)
 
 The above error is a known issue with the service and is currently being addressed. As a workaround, follow the below steps. 
 
@@ -39,6 +39,8 @@ You'll need to have the [Azure Contributor RBAC role](https://docs.microsoft.com
 "Error: AuthorizationFailed"
 
 "Error: role assignment to storage account"
+
+![Privilege error](media/error-privilege.png)
 
 If you receive any of the above errors when creating a new data share or receiving a new data share, it is because there are insufficient permissions to the storage account. Even if you created the Storage account, it does NOT automatically make you the owner of the storage account. Follow these steps to grant yourself owner of the storage account.
 
