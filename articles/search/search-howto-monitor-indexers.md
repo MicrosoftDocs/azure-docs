@@ -118,7 +118,7 @@ Each run of the indexer also has its own status that indicates whether that spec
 
 When an indexer is reset to refresh its change tracking state, a separate execution history entry is added with a **Reset** status.
 
-For more details about status codes and indexer monitoring data, see [GetIndexerStatus](https://docs.microsoft.com/en-us/rest/api/searchservice/get-indexer-status).
+For more details about status codes and indexer monitoring data, see [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
