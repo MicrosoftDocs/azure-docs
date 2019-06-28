@@ -23,9 +23,7 @@ To use the snippets presented in this article, you'll need to create a storage a
 
 Perform these tasks:
 
-* Install the [JDK](https://docs.microsoft.com/en-us/java/azure/java-supported-jdk-runtime?view=azure-java-stable).
-
-* Set the JAVA_HOME environment variable to the install location of the JDK.
+* Install the [JDK](http://aka.ms/vscode-java-installer-win).
 
 * Install [Apache Maven](https://maven.apache.org/download.cgi).
 
