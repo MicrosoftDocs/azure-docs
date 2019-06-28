@@ -289,6 +289,8 @@
       href: idp-pass-through-user-flow.md
     - name: Request access token
       href: active-directory-b2c-access-tokens.md
+  - name: Troubleshoot errors
+    href: error-handling.md
   - name: Use b2clogin.com
     href: b2clogin.md
   - name: Use the Azure AD Graph API
