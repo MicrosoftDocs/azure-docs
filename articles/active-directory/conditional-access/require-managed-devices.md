@@ -21,20 +21,17 @@ ms.reviewer: jairoc
 
 ms.collection: M365-identity-device-management
 ---
-
 # How To: Require managed devices for cloud app access with Conditional Access
 
 In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables single sign-on to apps, and services from anywhere. Authorized users can access your cloud apps from a broad range of devices including mobile and also personal devices. However, many environments have at least a few apps that should only be accessed by devices that meet your standards for security and compliance. These devices are also known as managed devices. 
 
 This article explains how you can configure Conditional Access policies that require managed devices to access certain cloud apps in your environment. 
 
-
 ## Prerequisites
 
 Requiring managed devices for cloud app access ties **Azure AD Conditional Access** and **Azure AD device management** together. If you are not familiar with one of these areas yet, you should read the following topics, first:
 
 - **[Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** - This article provides you with a conceptual overview of Conditional Access and the related terminology.
-
 - **[Introduction to device management in Azure Active Directory](../devices/overview.md)** - This article gives you an overview of the various options you have to get devices under organizational control. 
 
 
@@ -45,9 +42,7 @@ Mastering the balance between security and productivity is a challenge. The prol
 With Azure AD Conditional Access, you can address this requirement with a single policy that grants access:
 
 - To selected cloud apps
-
 - For selected users and groups
-
 - Requiring a managed device
 
 
@@ -57,13 +52,13 @@ In simple terms, managed devices are devices that are under *some sort* of organ
   
 ![Device-based conditions](./media/require-managed-devices/32.png)
 
-To get a device registered with Azure AD, you have three options:
+To get a device registered with Azure AD, you have three options: 
 
-- **[Azure AD registered devices](../devices/overview.md#azure-ad-registered-devices)** - to get a personal device registered with Azure AD
+- **Azure AD registered devices** - to get a personal device registered with Azure AD
+- **Azure AD joined devices** - to get an organizational Windows 10 device that is not joined to an on-premises AD registered with Azure AD. 
+- **Hybrid Azure AD joined devices** - to get a Windows 10 or supported down-level device that is joined to an on-premises AD registered with Azure AD.
 
-- **[Azure AD joined devices](../devices/overview.md#azure-ad-joined-devices)** - to get an organizational Windows 10 device that is not joined to an on-premises AD registered with Azure AD. 
-
-- **[Hybrid Azure AD joined devices](../devices/overview.md#hybrid-azure-ad-joined-devices)** - to get a Windows 10 or supported down-level device that is joined to an on-premises AD registered with Azure AD.
+These three options are discussed in the article [What is a device identity?](../devices/overview.md)
 
 To become a managed device, a registered device must be either a **Hybrid Azure AD joined device** or a **device that has been marked as compliant**.  
 
