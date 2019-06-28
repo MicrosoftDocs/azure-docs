@@ -1,7 +1,7 @@
 ---
 title: View acquisitions report
 description: Analyze your add-in performance and see funnel and acquisitions metrics.
-ms.date: 1/11/2018
+ms.date: 06/28/2019
 localization_priority: Normal
 ---
 
@@ -36,7 +36,7 @@ The values supported within the Acquisitions chart include:
 
 - Free - Webstore: Free acquisitions generated in web surfaces such as AppSource.
 
-- Free - Client: Free acquisitions generated in store surfaces within the Office Apps. This includes Windows, Mac and Office Online.
+- Free - Client: Free acquisitions generated in store surfaces within the Office Apps. This includes Windows, Mac, and the web client.
 
 - Paid: These are paid acquisitions, and may be either perpetual or subscription based on your solution's payment model.
 
