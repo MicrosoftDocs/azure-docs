@@ -49,16 +49,19 @@ Create an Azure Data Share resource in an Azure resource group.
     | Location | *East US 2* | Select a region for your data share account.
     | | |
 
-1. Select **Create** to provision your data share account. Provisioning a new data share account typically takes about 2 minutes or less. 
+1. Click **Create** to provision your data share account. Provisioning a new data share account typically takes about 2 minutes or less. 
 
 1. When the deployment is complete, select **Go to resource**.
 
 ## Create a Data Share
 
-1. In your data share account, select 'Start sharing your data'. 
+1. Navigate to your Data Share Overview page.
 
-1. Select **Create**.
-   
+    ![Share your data](./media/share-receive-data.png "Share your data") 
+
+1. Click **Start sharing your data**.
+
+1. Click **Create**.   
 
 1. Fill out the details for your Data Share. Specify a name, description of share contents, and terms of use (optional). 
 
