@@ -17,7 +17,7 @@ Azure SignalR Service events allow applications to react to client connections c
 
 Azure SignalR Service events are reliably sent to the Event Grid service which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery. To learn more, see [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
-![Event Grid Model](https://docs.microsoft.com/en-us/azure/event-grid/media/overview/functional-model.png)
+![Event Grid Model](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png)
 
 ## Serverless state
 Azure SignalR Service events are only active when client connections are in serverless state. Generally speaking, if a client doesn't route to a hub server, it goes into the serverless state. Classic mode work only when the hub, that client connections connect to, doesn't have a hub server. However, serverless mode is recommended to avoid some problem. To learn more details about service mode, see [How to choose Service Mode](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).
@@ -25,12 +25,12 @@ Azure SignalR Service events are only active when client connections are in serv
 ## Available Azure SignalR Service events
 Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Azure SignalR Service event subscriptions support two types of events:  
 
-> |Event Name|Description|
-> |----------|-----------|
-> |`Microsoft.SignalRService.ClientConnectionConnected`|Raised when a client connection is connected.|
-> |`Microsoft.SignalRService.ClientConnectionDisconnected`|Raised when a client connection is disconnected.|
+|Event Name|Description|
+|----------|-----------|
+|`Microsoft.SignalRService.ClientConnectionConnected`|Raised when a client connection is connected.|
+|`Microsoft.SignalRService.ClientConnectionDisconnected`|Raised when a client connection is disconnected.|
 
-## Event Schema
+## Event schema
 Azure SignalR Service events contain all the information you need to respond to the changes in your data. You can identify an Azure SignalR Service event with the eventType property starts with "Microsoft.SignalRService". Additional information about the usage of Event Grid event properties is documented at [Event Grid event schema](../event-grid/event-schema.md).  
 
 Here is an example of a client connection connected event:
@@ -58,4 +58,6 @@ For more information, see [SignalR Service events schema](../event-grid/event-sc
 
 Learn more about Event Grid and give Azure SignalR Service events a try:
 
-- [About Event Grid](../event-grid/overview.md)
+> [!div class="nextstepaction"]
+> [Try a sample Event Grid integration with Azure SignalR Service](./signalr-howto-event-grid-integration.md)
+> [About Event Grid](../event-grid/overview.md)

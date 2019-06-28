@@ -1,6 +1,6 @@
 ---
 title: Azure Event Grid Azure SignalR event schema
-description: Describes the properties that are provided for azure signalr events with Azure Event Grid
+description: Describes the properties that are provided for Azure SignalR events with Azure Event Grid
 services: event-grid
 author: chenyl
 
