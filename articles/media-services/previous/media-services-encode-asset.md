@@ -1,6 +1,6 @@
 ---
-title: Overview and comparison of Azure on demand media encoders | Microsoft Docs
-description: This topic gives an overview and comparison of Azure on demand media encoders.
+title: Overview of Azure on-demand media encoders | Microsoft Docs
+description: This topic gives an overview of Azure on-demand media encoders.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 06/25/2019
 ms.author: juliako
 
 ---
-# Overview and comparison of Azure on demand media encoders 
+# Overview of Azure on-demand media encoders 
 
 ## Encoding overview
 
