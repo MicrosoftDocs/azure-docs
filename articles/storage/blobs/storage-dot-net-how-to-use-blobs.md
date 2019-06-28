@@ -1,5 +1,5 @@
 ---
-title: Use .NET to interact with blobs in Azure Data Lake Gen2 storage
+title: Use .NET with Azure Data Lake Storage Gen2
 description: Use the Azure Storage Client Library for .NET to interact with Azure Blob storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
@@ -10,13 +10,14 @@ ms.topic: article
 ms.component: data-lake-storage-gen2
 ---
 
-# Use .NET to interact with blobs in Azure Data Lake Gen2 storage
+# Use .NET with Azure Data Lake Storage Gen2
 
-This guide shows you how to use .NET to interact with blobs, manage directories, and set directory-level access permissions in storage accounts that have a hierarchical namespace. 
+This guide shows you how to use .NET to interact with files (blobs), manage directories, and set directory-level access permissions (access-control lists) in storage accounts that have a hierarchical namespace. 
 
-## Create a storage account
+To use the snippets presented in this article, you'll need to create a storage account, and then enable the hierarchical namespace feature on that account. See [Create a storage account](data-lake-storage-quickstart-create-account.md).
 
-To create a storage account and enable the hierarchical namespace feature. See [Create a storage account](data-lake-storage-quickstart-create-account.md).
+> [!NOTE]
+> The snippets featured in this article use terms such as containers and blobs instead of the terms file system and files. At the object layer, these terms mean the same things. Azure Data Lake Storage Gen2 is built on blob storage so files are blobs, and file systems are containers. 
 
 ## Set up your development environment
 
@@ -57,18 +58,9 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 ## Perform common blob tasks 
 
-You can use the same set of APIs to interact with blobs regardless of whether the account has a hierarchical namespace. 
+You can use the same set of APIs to interact with your files (blobs) regardless of whether the account has a hierarchical namespace. To find snippets that help you perform common tasks such as creating a file system, uploading and downloading files, and deleting files and file systems, see [Quickstart: Use .NET to create a blob in object storage](storage-quickstart-blobs-dotnet.md).
 
-See [Quickstart: Use .NET to create a blob in object storage](storage-quickstart-blobs-dotnet.md) to find snippets that help you perform these tasks:
-
-> [!div class="checklist"]
-> * Connect to your storage account 
-> * Create a container
-> * Upload blobs to a container
-> * List blobs in a container
-> * Download blobs from a container
-> * Delete blobs from a container
-> * Delete a container
+The rest of this article presents snippets that help you perform tasks related only to accounts that have a hierarchical namespace. 
 
 ## Add directory to a container
 
