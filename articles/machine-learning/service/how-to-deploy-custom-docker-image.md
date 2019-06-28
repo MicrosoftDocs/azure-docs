@@ -50,8 +50,8 @@ The information in this section assumes that you are using an Azure Container Re
 
     When using images stored in the __container registry for the workspace__, you do not need to authenticate to the registry. Authentication is handled by the workspace.
 
-    > [!TIP]
-    > The container registry for your workspace is created the first time you train or deploy a model using the workspace. If you've created a new workspace, but not trained or created a model, no Azure Container Registry will exist for the workspace.
+    > [!WARNING]
+    > The Azure Container Rzegistry for your workspace is __created the first time you train or deploy a model__ using the workspace. If you've created a new workspace, but not trained or created a model, no Azure Container Registry will exist for the workspace.
 
     For information on retrieving the name of the Azure Container Registry for your workspace, see the [Get container registry name](#getname) section of this article.
 
@@ -75,8 +75,8 @@ The information in this section assumes that you are using an Azure Container Re
 
 In this section, learn how to get the name of the Azure Container Registry for your Azure Machine Learning service workspace.
 
-> [!TIP]
-> The container registry for your workspace is created the first time you train or deploy a model using the workspace. If you've created a new workspace, but not trained or created a model, no Azure Container Registry will exist for the workspace.
+> [!WARNING]
+> The Azure Container Registry for your workspace is __created the first time you train or deploy a model__ using the workspace. If you've created a new workspace, but not trained or created a model, no Azure Container Registry will exist for the workspace.
 
 If you've already trained or deployed models using the Azure Machine Learning service, a container registry was created for your workspace. To find the name of this container registry, use the following steps:
 

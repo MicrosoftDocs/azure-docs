@@ -58,6 +58,12 @@
     href: cross-network-connectivity.md   
   - name: Azure common security attributes 
     href: expressroute-security-attributes.md   
+  - name: Designing for High Availability
+    href: designing-for-high-availability-with-expressroute.md
+  - name: Designing for Disaster Recovery
+    items:
+    - name: Private Peering
+      href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - name: How-to guides
   items:
   - name: Create and modify a circuit
