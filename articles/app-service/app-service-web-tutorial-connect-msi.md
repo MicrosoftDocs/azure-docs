@@ -29,7 +29,7 @@ What you learn how to:
 > [!div class="checklist"]
 > * Enable managed identities
 > * Grant SQL Database access to the managed identity
-> * Configure application code to authenticate with SQL Database using Azure AD authentication
+> * Configure Entity Framework to use Azure AD authentication with SQL Database
 > * Connect to SQL Database from Visual Studio using Azure AD authentication
 
 > [!NOTE]
@@ -47,38 +47,50 @@ To debug your app using SQL Database as the back end, make sure that you've [all
 
 ## Grant Azure account access to database
 
-First enable Azure AD authentication to SQL Database by assigning your signed-in Azure account as the Active Directory admin of the server, using the [`az ad signed-in-user show`](/cli/azure/ad/signed-in-user?view=azure-cli-latest#az-ad-signed-in-user-show) and [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<server-name>*.
+First enable Azure AD authentication to SQL Database by assigning an Azure AD user as the Active Directory admin of the SQL Database server. This user is different from the Microsoft account you used to sign up for your Azure subscription. It must be a user that you created, imported, synced, or invited into Azure AD. For more information on allowed Azure AD users, see [Azure AD features and limitations in SQL Database](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). 
+
+Find the object ID of the Azure AD user using the [`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) and replace *\<user-principal-name>*. The result is saved to a variable.
 
 ```azurecli-interactive
-signedinuser=$(az ad signed-in-user show --query objectId --output tsv)
-az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $signedinuser
+azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
 ```
+> [!TIP]
+> To see the list of all user principal names in Azure AD, run `az ad user list --query [].userPrincipalName`.
+>
 
-Your Azure account now is an Active Directory admin for the SQL Database server.
+Add this Azure AD user as an Active Directory admin using [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) command in the Cloud Shell. In the following command, replace *\<server-name>*.
+
+```azurecli-interactive
+az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
+```
 
 For more information on adding an Active Directory admin, see [Provision an Azure Active Directory administrator for your Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)
 
 ## Set up Visual Studio
 
-To enable development and debugging in Visual Studio, add your Azure account in Visual Studio
+To enable development and debugging in Visual Studio, add your Azure AD user in Visual Studio by selecting **File** > **Account Settings** from the menu, and click **Add an account**.
 
-To add your Azure account, select **File** > **Account Settings** from the menu, and click Add an account.
+To set the Azure AD user for Azure service authentication, select **Tools** > **Options** from the menu, then select **Azure Service Authentication** > **Account Selection**. Select the Azure AD user you added and click **OK**.
 
-To set the Azure account for Azure service authentication, select **Tools** > **Options** from the menu, then select **Azure Service Authentication** > **Account Selection**. Select the account you added and click **OK**.
-
-You're now ready to develop and debug your app with the SQL Database as the back end, using your Azure account for authentication.
+You're now ready to develop and debug your app with the SQL Database as the back end, using Azure AD authentication.
 
 ## Modify ASP.NET project
 
 In Visual Studio, open the Package Manager Console and add the NuGet package [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
 ```powershell
-Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.2.0-preview3
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.2.0
 ```
 
 In *Web.config*, working from the top of the file and make the following changes:
 
-- Add the following `<SqlAuthenticationProviders>` code directly under the opening `<configuration>` tag.
+- In `<configSections>`, add the following section declaration in it:
+
+    ```xml
+    <section name="SqlAuthenticationProviders" type="System.Data.SqlClient.SqlAuthenticationProviderConfigurationSection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    ```
+
+- below the closing `</configSections>` tag, add the following XML code for `<SqlAuthenticationProviders>`.
 
     ```xml
     <SqlAuthenticationProviders>
@@ -86,17 +98,11 @@ In *Web.config*, working from the top of the file and make the following changes
         <add name="Active Directory Interactive" type="Microsoft.Azure.Services.AppAuthentication.SqlAppAuthenticationProvider, Microsoft.Azure.Services.AppAuthentication" />
       </providers>
     </SqlAuthenticationProviders>
-    ```
-    
-- The next element in *Web.config* is `<configSections>`. Add the following section in it:
+    ```    
 
-    ```xml
-    <section name="SqlAuthenticationProviders" type="System.Data.SqlClient.SqlAuthenticationProviderConfigurationSection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-    ```
+- Find the connection string called `MyDbConnection` and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Replace _\<server-name>_ and _\<db-name>_ with your server name and database name.
 
-- Next, find the connection string called `MyDbConnection` and replace its `connectionString` value with `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Replace _\<server-name>_ and _\<db-name>_ with your server name and database name.
-
-Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now connecting to the Azure SQL Database directly, using your Azure account for authentication. This setup lets you run database migrations. Later when you deploy your changes to App Service, the same settings work with the app's managed identity.
+Type `Ctrl+F5` to run the app again. The same CRUD app in your browser is now connecting to the Azure SQL Database directly, using Azure AD authentication. This setup lets you run database migrations. Later when you deploy your changes to App Service, the same settings work with the app's managed identity.
 
 ## Use managed identity connectivity
 
@@ -136,10 +142,10 @@ If you want to see the full JSON output for each command, drop the parameters `-
 
 ### Grant permissions to Azure AD group
 
-In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<server-name>_ with your SQL Database server name, _\<db-name>_ with the database name your app uses, and _\<AADuser-name>_ and _\<AADpassword>_ with your Azure account credentials.
+In the Cloud Shell, sign in to SQL Database by using the SQLCMD command. Replace _\<server-name>_ with your SQL Database server name, _\<db-name>_ with the database name your app uses, and _\<aad-user-name>_ and _\<aad-password>_ with your Azure AD user's credentials.
 
 ```azurecli-interactive
-sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <AADuser-name> -P "<AADpassword>" -G -l 30
+sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
 In the SQL prompt for the database you want, run the following commands to add the Azure AD group and grant the permissions your app needs. For example, 
@@ -156,10 +162,10 @@ Type `EXIT` to return to the Cloud Shell prompt.
 
 ### Modify connection string
 
-Remember that the same changes you made in `Web.config` works with the managed identity, so the only thing to do is to remove the existing connection string in your app, which Visual Studio created deploying your app the first time. Use the following command, but replace *\<app name>* with the name of your app.
+Remember that the same changes you made in `Web.config` works with the managed identity, so the only thing to do is to remove the existing connection string in your app, which Visual Studio created deploying your app the first time. Use the following command, but replace *\<app-name>* with the name of your app.
 
 ```azurecli-interactive
-az webapp config connection-string delete --resource-group myResourceGroup --name <app name> --setting-names MyDbConnection
+az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection
 ```
 
 ## Publish your changes
@@ -185,7 +191,7 @@ What you learned:
 > [!div class="checklist"]
 > * Enable managed identities
 > * Grant SQL Database access to the managed identity
-> * Configure application code to authenticate with SQL Database using Azure AD authentication
+> * Configure Entity Framework to use Azure AD authentication with SQL Database
 > * Connect to SQL Database from Visual Studio using Azure AD authentication
 
 Advance to the next tutorial to learn how to map a custom DNS name to your web app.
