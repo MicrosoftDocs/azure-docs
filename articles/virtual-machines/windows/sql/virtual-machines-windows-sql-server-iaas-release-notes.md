@@ -25,7 +25,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Documentation | Details |
 | --- | --- |
-| **Move SQL VM to  new region** | Learn how to migrate your SQL Server VM to a new region within Azure using Azure Recovery Services. | 
+| **Move SQL VM to  new region** | Learn how to [migrate your SQL Server VM to a new region](virtual-machines-windows-sql-move-to-new-region.md) within Azure using Azure Recovery Services. |
 | &nbsp; | &nbsp; |
 
 
@@ -35,7 +35,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **New SQL VM management in Azure portal** | There is now a new way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VM in the Azure portal](virtual-machines-windows-sql-manage-portal.md).  | 
+| **New SQL VM management in Azure portal** | There is now a new way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VM in the Azure portal](virtual-machines-windows-sql-manage-portal.md).  |
 | &nbsp; | &nbsp; |
 
 ### Documentation improvements

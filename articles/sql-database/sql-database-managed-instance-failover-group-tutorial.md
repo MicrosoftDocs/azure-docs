@@ -1,17 +1,17 @@
 ---
-title: "Tutorial: Configure a failover group for an Azure SQL Database managed instance"
-description: Learn to configure a failover group for you Azure SQL database managed instance. 
+title: "Tutorial: Add a SQL Database managed instance to a failover group"
+description: Learn to configure a failover group for your Azure SQL database managed instance. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, carlrab
-manager: craigg
-ms.date: 01/10/2019
+author: MashaMSFT
+ms.author: mathoma
+ms.reviewer: sashan, carlrab
+manager: jroth
+ms.date: 06/27/2019
 ---
 # Tutorial: Configure a failover group for an Azure SQL Database managed instance
 
@@ -99,7 +99,7 @@ In this step, you will create the failover group and add both managed instances 
 
    ![Add a failover group](media/sql-database-managed-instance-failover-group-tutorial/add-failover-group.png)
 
-1. On the **Instance Failover Group** page, type the name of  your failover group, such as `failovergrouptutorial` and then choose the secondary managed instance, such as `sql-mi-secondary` from the drop down. Select **Create** to create your failover group. 
+1. On the **Instance Failover Group** page, type the name of  your failover group, such as `failovergrouptutorial` and then choose the secondary managed instance, such as `sql-mi-secondary` from the drop-down. Select **Create** to create your failover group. 
 
    ![Create failover group](media/sql-database-managed-instance-failover-group-tutorial/create-failover-group.png)
 
