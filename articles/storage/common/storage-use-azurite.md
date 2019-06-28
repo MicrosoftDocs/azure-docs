@@ -27,15 +27,14 @@ The Azurite version 3 open-source emulator (preview) provides a free local envir
 
 There are four different ways to get Azurite installed on your local system:
 
-  1. [Install by using NPM](install-by-using-npm)
-  1. [Install the Azurite Docker image](install-the-azurite-docker-image)
-  1. [Install the Visual Studio Code extension](install-the-visual-studio-code-extension)
-  1. [Clone the GitHub repository](clone-the-github-repository)
+  1. [Install by using NPM](#install-azurite-by-using-npm)
+  1. [Install the Azurite Docker image](#install-the-azurite-docker-image)
+  1. [Install the Azurite Visual Studio Code extension](#install-the-azurite-visual-studio-code-extension)
+  1. [Clone the Azurite GitHub repository](#clone-the-azurite-github-repository)
 
 Select the method below that works best for you.
 
 ### Install Azurite by using NPM
-<span id="install-by-using-npm"/>
 
 This installation method requires that you have [Node.js version 8.0 or later](https://nodejs.org) installed. **npm** is the package management tool included with every Node.js installation. After installing Node.js, execute the following **npm** command to install Azurite.
 
@@ -44,7 +43,6 @@ npm install -g azurite
 ```
 
 ### Install the Azurite Docker image
-<span id="install-the-azurite-docker-image"/>
 
 Use [DockerHub](https://hub.docker.com/) to install the latest Azurite image with the following command:
 
@@ -79,15 +77,13 @@ docker run -p 8888:8888 -v c:/azurite:/workspace mcr.microsoft.com/azure-storage
 
 The `-p 8888:8888` parameter redirects requests from host machine's port 8888 to the Docker instance. For more information about command line parameters, see [Command-line syntax](command-line-syntax).
 
-### Install the Visual Studio Code Azurite extension
-<span id="install-the-visual-studio-code-extension"/>
+### Install the Azurite Visual Studio Code extension
 
 Search for Azurite in the **EXTENSIONS:MARKETPLACE** inside Visual Studio Code.
 
 Alternatively, install the Azurite extension from the [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite).
 
-### Clone the GitHub repository
-<span id="clone-the-github-repository"/>
+### Clone the Azurite GitHub repository
 
 This installation method requires that you have [Git](https://git-scm.com/) installed. You'll also want to have a [GitHub account](https://github.com).
 
