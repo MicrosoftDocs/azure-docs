@@ -38,6 +38,17 @@ Because of the size of the first Virtual Machine, the sizes it can be scaled to,
 
 You can choose to scale between the following pairs of sizes:
 
+* [A-Series](#a-series)
+* [B-Series](#b-series)
+* [D-Series](#d-series)
+* [E-Series](#e-series)
+* [F-Series](#f-series)
+* [G-Series](#g-series)
+* [H-Series](#h-series)
+* [L-Series](#l-series)
+* [M-Series](#m-series)
+* [N-Series](#n-series)
+
 ### A-Series
 
 | Initial size | Scale up size | 
