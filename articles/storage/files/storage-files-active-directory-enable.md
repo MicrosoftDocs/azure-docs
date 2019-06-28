@@ -6,7 +6,7 @@ author: roygara
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 06/19/2019
 ms.author: rogarana
 ---
 
@@ -139,15 +139,14 @@ The following custom role template provides share-level Change permissions, gran
   "IsCustom": true,
   "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
-   	"*"
-  ],
-  "NotActions": [
-	"Microsoft.Authorization/*/Delete",
-        "Microsoft.Authorization/*/Write",
-        "Microsoft.Authorization/elevateAccess/Action"
+   	"Microsoft.Storage/storageAccounts/fileServices/*"
   ],
   "DataActions": [
-   	"*"
+   	"Microsoft.Storage/storageAccounts/fileServices/*"
+  ],
+  "NotDataActions": [
+   	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
+	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actassuperuser/action"
   ],
   "AssignableScopes": [
     	"/subscriptions/<Subscription-ID>"
@@ -165,10 +164,10 @@ The following custom role template provides share-level Read permissions, granti
   "IsCustom": true,
   "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
-   	"*/read"
+   	"Microsoft.Storage/storageAccounts/fileServices/*/read"
   ],
   "DataActions": [
-  	"*/read"
+  	"Microsoft.Storage/storageAccounts/fileServices/*/read"
   ],
   "AssignableScopes": [
     	"/subscriptions/<Subscription-ID>"

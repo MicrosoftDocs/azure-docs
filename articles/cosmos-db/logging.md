@@ -71,7 +71,7 @@ Use the following steps to enable diagnostic logging in the Azure portal:
 
     ![Turn on diagnostic logging for Azure Cosmos DB in the Azure portal](./media/logging/turn-on-portal-logging.png)
 
-1. In the **Diagnostic settings** page, fill the form with with the following details: 
+1. In the **Diagnostic settings** page, fill the form with the following details: 
 
     * **Name**: Enter a name for the logs to create.
 
@@ -246,7 +246,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 ```
 
 ### <a id="access"></a>Access your logs
-Azure Cosmos DB logs for the **DataPlaneRequests** category are stored in the **insights-logs-data-plane-requests** container in the storage account that you provided. 
+Azure Cosmos DB logs for the **DataPlaneRequests** category are stored in the **insights-logs-dataplanerequests** container in the storage account that you provided. 
 
 First, create a variable for the container name. The variable is used throughout the walk-through.
 
