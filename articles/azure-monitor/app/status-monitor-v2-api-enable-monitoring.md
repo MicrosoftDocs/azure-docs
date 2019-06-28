@@ -102,6 +102,12 @@ The instrumentation engine adds overhead and is off by default.
 ### -AcceptLicense
 **Optional.** Use this switch to accept the license and privacy statement in headless installations.
 
+### -IgnoreSharedConfig
+When you have a cluster of web servers, you might be using a [shared configuration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+The HttpModule can't be injected into this shared configuration.
+This script will fail with the message that extra installation steps are required.
+Use this switch to ignore this check and continue installing prerequisites. 
+
 ### -Verbose
 **Common parameter.** Use this switch to display detailed logs.
 
