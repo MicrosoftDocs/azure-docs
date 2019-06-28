@@ -478,6 +478,8 @@ Once the image has been created, you can download and run it locally.
 
 At this point, VS Code connects to PTVSD inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
+For more information on using VS Code to debug Python, see [Debug your Python code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+
 <a id="editfiles"></a>
 ### Modify the container files
 
