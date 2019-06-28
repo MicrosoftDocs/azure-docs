@@ -72,13 +72,13 @@ The Data Box Edge solution comprises of Data Box Edge resource, Data Box Edge ph
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    For more information, go to [Use the Data Box Edge service to administer your Data Box Edge device](data-box-portal-admin.md).
+    For more information, go to [Create an order for your Data Box Edge device](data-box-edge-deploy-prep.md#create-a-new-resource).
 
 * **Data Box local web UI** - Use the local web UI to run diagnostics, shut down and restart the Data Box Edge device, view copy logs, and contact Microsoft Support to file a service request.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-local-web-ui-admin.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-edge-manage-access-power-connectivity-mode).
 
 
 ## Region availability
