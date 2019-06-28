@@ -10,7 +10,7 @@ The following Azure CLI commands will provision an Anomaly Detector resource on 
 
 > [!NOTE]
 > * You can optionally:
->    * create a resource using the [Azure portal](../../cognitive-services-create-account.md), or [Azure CLI](../../cognitive-services-apis-create-account.md) on your local machine.
+>    * create a resource using the [Azure portal](../../cognitive-services-apis-create-account.md), or [Azure CLI](../../cognitive-services-apis-create-account.md) on your local machine.
 >    * get a [trial key](https://azure.microsoft.com/en-us/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 >    * view this resource on the [Azure portal](https://portal.azure.com/). 
 

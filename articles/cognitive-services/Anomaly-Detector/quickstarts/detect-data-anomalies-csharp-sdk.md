@@ -33,7 +33,7 @@ Use the Anomaly Detector client library for .NET to:
 
 ### Create an Anomaly Detector resource
 
-[!INCLUDE [anomaly-detector-resource-creation](../includes/anomaly-detector-resource-cli.md)]
+[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 ### Create a new C# app
 
@@ -97,7 +97,8 @@ From the project directory:
 
 [!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
 
-[!INCLUDE [environment-key-note](../includes/environment-key-note.md)]
+> [!NOTE]
+> This quickstart assumes you've [created an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Anomaly Detector key, named `ANOMALY_DETECTOR_KEY`.
 
 In the application's `main()` method, create variables for your resource's Azure location, and your key as an environment variable. If you created the environment variable after application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable.
 
@@ -146,9 +147,22 @@ dotnet run
 
 ## Clean up resources
 
-[!INCLUDE [clean-up-resources](../includes/clean-up-resources.md)]
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+You can also run the following cloud shell command to remove the resource group and its associated resources. This may take a few minutes to complete. 
+
+```azurecli-interactive
+az group delete --name example-anomaly-detector-resource-group
+```
 
 ## Next steps
 
-[!INCLUDE [clean-up-resources](../includes/next-steps.md)]
+> [!div class="nextstepaction"]
+>[Streaming anomaly detection with Azure Databricks](anomaly-detection-streaming-databricks.md)
+
+* What is the [Anomaly Detector API?](../overview.md)
+* [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
