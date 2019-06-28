@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-machines
- author: jonbeck7
+ author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/24/2019
- ms.author: azcspmt;jonbeck;cynthn
+ ms.date: 06/28/2019
+ ms.author: cynthn
  ms.custom: include file
 ---
 
@@ -44,13 +44,13 @@ Ephemeral disks also require that the VM size supports Premium storage. The size
 
 ## PowerShell
 
-To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching ReadOnly`.     
+To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly`.     
 
 ```powershell
 Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
 ```
 
-For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet in your configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching ReadOnly`.
+For scale set deployments, use the [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet in your configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly`.
 
 
 ```powershell
