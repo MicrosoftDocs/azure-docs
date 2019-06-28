@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 05/06/2019
+ms.date: 06/26/2019
 ---
 # Choose among the vCore service tiers and migrate from the DTU service tiers
 
@@ -22,6 +22,8 @@ The virtual core (vCore)-based purchasing model lets you independently scale com
 
 Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher.
 
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
 > [!NOTE]
 > For information about the DTU-based service tiers, see [Service tiers for the DTU-based purchasing model](sql-database-service-tiers-dtu.md). For information about the differences between the service tiers for the DTU-based and the vCore-based purchasing models, see [Azure SQL Database purchasing models](sql-database-purchase-models.md).
 

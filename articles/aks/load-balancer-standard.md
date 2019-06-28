@@ -93,7 +93,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 While this feature is in preview, the following additional limitations apply:
 
-* When using the *Standard* SKU for a load balancer, you cannot set your own public IP address for the load balancer. You must use the IP address AKS assigns to your load balancer.
+* When using the *Standard* SKU for a load balancer in AKS, you cannot set your own public IP address for egress for the load balancer. You must use the IP address AKS assigns to your load balancer.
 
 ## Create a resource group
 
@@ -125,12 +125,13 @@ The following example output shows the resource group created successfully:
 In order to run an AKS cluster that supports a load balancer with the *Standard* SKU, your cluster needs to set the *load-balancer-sku* parameter to *standard*. This parameter creates a load balancer with the *Standard* SKU when your cluster is created. When you run a *LoadBalancer* service on your cluster, the configuration of the *Standard* SK load balancer is updated with the service's configuration. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*.
 
 > [!NOTE]
-> The *load-balanacer-sku* property can only be used when your cluster is created. You cannot change the load balancer SKU after an AKS cluster has been created.
+> The *load-balancer-sku* property can only be used when your cluster is created. You cannot change the load balancer SKU after an AKS cluster has been created. Also, you can only use one type of load balancer SKU in a single cluster.
 
 ```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
+    --enable-vmss \
     --node-count 1 \
     --kubernetes-version 1.14.0 \
     --load-balancer-sku standard \

@@ -35,7 +35,7 @@ The public preview is limited to the following Azure public regions:
 
 This section helps you create a new Azure Bastion resource from the Azure portal.
 
-1. From the home page in the [Azure portal - preview](https://aka.ms/BastionHost), click **+ Create a resource**. Make sure you use the link provided to access the portal for this preview, not the regular Azure portal.
+1. From the home page in the [Azure portal - Bastion Preview](https://aka.ms/BastionHost), click **+ Create a resource**. Make sure you use the link provided to access the portal for this preview, not the regular Azure portal.
 
 1. On the **New** page, in the *Search the Marketplace* field, type **Bastion**, then click **Enter** to get to the search results.
 
@@ -66,7 +66,7 @@ This section helps you create a new Azure Bastion resource from the Azure portal
 
 If you create a bastion host in the portal by using an existing VM, various settings will automatically default corresponding to your virtual machine and/or virtual network.
 
-1. In the [preview portal](https://aka.ms/BastionHost), navigate to your virtual machine, then click **Connect**.
+1. In the [Azure portal - Bastion Preview](https://aka.ms/BastionHost), navigate to your virtual machine, then click **Connect**.
 
     ![VM Connect](./media/bastion-create-host-portal/vmsettings.png)
 
