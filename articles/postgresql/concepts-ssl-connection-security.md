@@ -50,7 +50,7 @@ psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoser
 ```
 
 > [!TIP]
-> Confirm that the value passed to sslrootcert matches the file path for the certificate you saved.
+> Confirm that the value passed to `sslrootcert` matches the file path for the certificate you saved.
 
 
 ## Next steps
