@@ -21,6 +21,12 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Bulk invite Azure AD B2B collaboration users
 
+|     |
+| --- |
+| This article describes a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|     |
+
+
 If you use Azure Active Directory (Azure AD) B2B collaboration to work with external partners, you can invite multiple guest users to your organization at the same time. In this tutorial, you learn how to use the Azure portal to send bulk invitations to external users. Specifically, you do the following:
 
 > [!div class="checklist"]
@@ -34,19 +40,20 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 You need two or more test email accounts that you can send the invitations to. The accounts must be from outside your organization. You can use any type of account, including social accounts such as gmail.com or outlook.com addresses.
 
-## Invite guest users in bulk
+## Invite guest users in bulk (preview)
 
 1.	Sign in to the Azure portal with an account that is a User administrator in the organization.
 2.	In the navigation pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Users** > **Bulk invite**.
-4.	On the **Bulk invite users** page, select **Download** to get a valid .csv file with invitation properties. Save the file in the default location (**C:\Users\**<username>**\UserInviteTemplate.csv**).
-5.	Open the .csv file and add a line for each guest user.  Save the file.
+4.	On the **Bulk invite users (Preview)** page, select **Download** to get a valid .csv file with invitation properties. 
+5.	Open the .csv file and add a line for each guest user. Then save the file.
    
     ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
-6. In the Azure portal on the **Bulk invite users** page, under **Upload your csv file**, browse to the file. 
+6. On the **Bulk invite users (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
 7.	When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
-8.	When your file passes validation, select **Submit** to start the Azure batch job that adds the invitations. Look for the batch create notification to see the job status.
+8.	When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. To view the status, select **Click here to view the status of each operation** or navigate to open the **Users - Bulk operation results (Preview)** page.
+9. When the bulk operation completes, you'll see a notification that the bulk operation succeeded. 
 
 
 ## Verify guest users in the directory
