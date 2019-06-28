@@ -61,12 +61,12 @@ Keep this resource group, database server, and single database if you want to go
 To delete the resource group by Azure Powershell:
 
 ```azurepowershell-interactive
-  $projectName = Read-Host -Prompt "Enter the same project name"
-  $resourceGroupName = "${projectName}rg"
+$projectName = Read-Host -Prompt "Enter the same project name"
+$resourceGroupName = "${projectName}rg"
 
-  Remove-AzResourceGroup -Name $resourceGroupName
+Remove-AzResourceGroup -Name $resourceGroupName
 
-  Read-Host -Prompt "Press [ENTER] to continue ..."
+Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
 ## Next steps
@@ -75,5 +75,5 @@ To delete the resource group by Azure Powershell:
 - After you create a server-level firewall rule, [connect and query](sql-database-connect-query.md) your database using several different tools and languages.
   - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- To create a single databases using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
-- To create a single databases using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
+- To create a single database using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
+- To create a single database using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
