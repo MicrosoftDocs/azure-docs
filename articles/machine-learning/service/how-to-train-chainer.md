@@ -177,7 +177,7 @@ As the Run is executed, it goes through the following stages:
 
 In this article, you trained a Chainer model on Azure Machine Learning service. 
 
-* To learn how to deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
+* To learn how to register and deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
 
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 
