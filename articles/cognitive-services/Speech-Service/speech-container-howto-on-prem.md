@@ -77,7 +77,7 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## Run speech services in K8s with helm
 
-Visit the [Microsoft Helm Hub][ms-helm-hub] for all the publicly available helm charts offered by Microsoft. From the Microsoft Helm Hub, you'll find the **on-prem speech chart**. This is the chart we'll use to install, but we must first create an `override-values.yaml` file with our desired customizations.
+Visit the [Microsoft Helm Hub][ms-helm-hub] for all the publicly available helm charts offered by Microsoft. From the Microsoft Helm Hub, you'll find the **on-prem speech chart**. The **on-prem speech chart** is the chart we'll use to install, but we must first create an `override-values.yaml` file with customizations.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -243,7 +243,7 @@ Helm charts are hierarchical. Being hierarchical allows for chart inheritance, i
 
 ## Next steps
 
-For more details on installing applications with Helm in Azure Kubernetes Service (AKS), [please visit here][installing-helm-apps-in-aks].
+For more details on installing applications with Helm in Azure Kubernetes Service (AKS), [visit here][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
 > [Cognitive Services Containers][cog-svcs-containers]
