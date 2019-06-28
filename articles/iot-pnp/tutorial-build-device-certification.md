@@ -3,7 +3,7 @@ title: Build an Azure IoT Plug and Play device that's ready for certification | 
 description: As a device developer, learn about how you can build a Plug and Play device that's ready for certification.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/21/2019
+ms.date: 06/28/2019
 ms.topic: Tutorial
 ms.custom: mvc
 ms.service: iot-pnp
@@ -28,7 +28,8 @@ To complete this tutorial, you need:
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
-- Create a Plug and Play device by following the intructions in [this quickstart](quickstart-create-pnp-device.md).
+
+You also need the Plug and Play device that you create when you follow [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
 
 ## Include standard interfaces
 
@@ -79,13 +80,13 @@ If you chose to not use the Azure IoT device SDK, you can use the SDK source cod
 
 #### Implement the Device Information interface
 
-You must implement the **Device Information** interface on your device and provide device-specific information from the device at run time. 
+You must implement the **Device Information** interface on your device and provide device-specific information from the device at run time.
 
 You can use an example implementation of the **Device Information** interface for [Linux](https://github.com/Azure/azure-iot-sdk-c-pnp/) as reference.
 
 ### Implement all the capabilities defined in your model
 
-During certification, your device will be tested programmatically to ensure it implements capabilities claimed its interfaces. Use http status code 501 to respond to read-write Properties and Command requests if your device does not implement them. 
+During certification, your device is tested programmatically to ensure it implements capabilities defined in its interfaces. Use HTTP status code 501 to respond to read-write property and command requests if your device doesn't implement them.
 
 ## Next steps
 
