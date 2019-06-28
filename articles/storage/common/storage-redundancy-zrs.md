@@ -131,9 +131,10 @@ ZRS Classic is available only for **block blobs** in general-purpose V1 (GPv1) s
 
 To manually migrate ZRS account data to or from an LRS, ZRS Classic, GRS, or RA-GRS account, use one of the following tools: AzCopy, Azure Storage Explorer, Azure PowerShell, or Azure CLI. You can also build your own migration solution with one of the Azure Storage client libraries.
 
-You can also upgrade your ZRS Classic account(s) to ZRS in the Portal or using Azure PowerShell or Azure CLI in the regions where ZRS is available.
+You can also upgrade your ZRS Classic account(s) to ZRS in the Portal or using Azure PowerShell or Azure CLI in the regions where ZRS is available. 
+To upgrade to ZRS in the Azure portal, navigate to the **Configuration** section of the account and choose **Upgrade**:
 
-To upgrade to ZRS in the Portal go to the Configuration section of the account and choose Upgrade:![Upgrade ZRS Classic to ZRS in the Portal](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+![Upgrade ZRS Classic to ZRS in the Portal](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.png)
 
 To upgrade to ZRS using PowerShell call the following command:
 ```powershell
