@@ -70,6 +70,8 @@
      items:
      - name: What is Azure AD Connect Sync?
        href: how-to-connect-sync-whatis.md
+     - name: Azure ADSync service account
+       href: concept-adsync-service-account.md
      - name: Azure AD Connect Sync features
        href: how-to-connect-syncservice-features.md
      - name: What is the Azure AD Connect Sync service manager?
