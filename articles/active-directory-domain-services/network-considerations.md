@@ -19,7 +19,7 @@ ms.author: mstephen
 
 ---
 # Plan your network for Azure AD Domain Services 
-You host Azure AD Domain Services in a subnet within an Azure virtual network. Properly planning your subnet and virtual network ensures you can use Azure AD Domain Services a shared service for your legacy applications.
+Properly planning your subnet and virtual network ensures you can use Azure AD Domain Services a shared service for your legacy applications.
 
 The ideal design is to host Azure AD Domain Services in its own virtual network. However, you may include a workload subnet in the same virtual network to host your management virtual machine or light application workloads. Consider using a separate virtual network for larger or complex application workloads that need legacy authentication and peer those virtual networks with the Azure AD Domain Services virtual network. Read [Connect to the Azure AD Domain Services virtual network for more information](#connect-to-the-azure-ad-domain-services-virtual-network).
 
@@ -31,13 +31,12 @@ The ideal design is to host Azure AD Domain Services in its own virtual network.
 Design the virtual network hosting Azure AD Domain Services with the following considerations:
 * Azure AD Domain Services is deployed in the same Azure region as the selected virtual network. Ensure you select a virtual network that is in an Azure region that supports [Azure AD Domain Services](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=active-directory-ds&regions=all).
 * Consider the proximity of the Azure regions and the virtual networks that host your application workloads when choosing a virtual network.
-* The virtual network cannot rely on DNS services other than the services provided by Azure AD Domain Services. This configuraiton includes custom DNS server settings to other DNS servers, including virtual machines. Name resolution for additional namespaces can be accomplished using conditional forwarders.
+* The virtual network cannot rely on DNS services other than the services provided by Azure AD Domain Services. This configuration includes custom DNS server settings to other DNS servers, including virtual machines. Name resolution for additional namespaces can be accomplished using conditional forwarders.
 
 > [!IMPORTANT]
 > You cannot move Domain Services to a different virtual network after you have enabled the service.
 >
 >
-
 
 ## The subnet
 
@@ -46,18 +45,24 @@ Design the virtual network hosting Azure AD Domain Services with the following c
 Design the subnet hosting Azure AD Domain Services with the following considerations: 
 * Deploy Azure AD Domain Services in its own subnet (required).
 * Use the default Network Security Group (NSG) provided during the creation of your Azure AD Domain Service instance to ensure you have the proper network configuration.
-* Provide an adequate number of available IP addresses to the subnet (minimum 10). Restricting the available IP addresses can prevent Azure AD Domain Services from maintaining two domain controllers.
-* **Do not use create Azure AD Domain Services in a gateway subnet.**
+* Provide an adequate number of available IP addresses to the subnet (between five and seven IP addresses). Restricting the available IP addresses can prevent Azure AD Domain Services from maintaining two domain controllers.
+* **Do not create Azure AD Domain Services in a gateway subnet.**
 
 ## Additional network components
 An Azure AD Domain Services instance also creates the following additional networking components, which are needed for successful operation and management of the managed domain service.
 
 | Component | Description |
 |:---|:---|
+| Network Interface| Azure AD Domain Services hosts the domain on two domain controllers. Each virtualized domain controller has a virtualized network interface connected to the selected virtual network. Two network interfaces are attached to the subnet where Azure AD Domain Services is created. |
 | Dynamic Basic Public IP Address | Azure AD Domain Services communicates with the synchronization and management service using a public IP address. For more information about public IP addresses, read [IP address types and allocation methods in Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses). |
 | Azure Basic Public Load Balancer | Azure AD Domain Services uses the load balancer for network address translation and load balancing (when used with secure LDAP). For more information about Azure Load Balancers, read [What is Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). |
 | Network Address Translation Rules | Azure AD Domain Services uses three network addresses translation rules: one rule for secure HTTP traffic and two rules for secure PowerShell remoting. |
 | Load Balancer Rules | Azure AD Domain Services creates load-balancing rules only when a managed domain is configured for secure LDAP (TCP port 636) |
+
+> [!IMPORTANT]
+> Do not delete any of the networking components created by Azure AD Domain Services. Deleting any of the networking components results in a service outage.
+>
+>
 
 ## User-defined routes
 Avoid making any changes to the route table, especially the 0.0.0.0 route, which can disrupt Azure AD Domain Services. A properly configured [network security group]() provides access control to inbound traffic.
@@ -87,7 +92,7 @@ The following ports are required for Azure AD Domain Services to service and mai
 ### Port 5986 (PowerShell remoting)
 * It is used to perform management tasks using PowerShell remoting on your managed domain.
 * It is mandatory to allow access through this port in your NSG. Without access to this port, your managed domain cannot be updated, configured, backed-up, or monitored.
-* For any new domains or domains with an Azure Resource Manager virtual network, you can restrict inbound access to this port to the AzureActiveDirectoryDomainServices service tag.
+* For any new domains or domains with an Azure Resource Manager virtual network, you can restrict inbound access to this port to the **AzureActiveDirectoryDomainServices** service tag.
 * For existing domains using a classic virtual network, you can restrict inbound access to this port to the following source IP addresses: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209
 
 ### Port 3389 (Remote desktop)
