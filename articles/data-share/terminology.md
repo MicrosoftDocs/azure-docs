@@ -1,6 +1,6 @@
 ---
-title: Azure Data Share Preview Concepts 
-description: Azure Data Share Preview Concepts
+title: Azure Data Share Preview Terminology 
+description: Azure Data Share Preview Terminology
 author: joannapea
 
 ms.service: data-share
@@ -10,7 +10,7 @@ ms.author: joanpo
 ---
 # Azure Data Share Preview Concepts 
 
-Azure Data Share Preview introduces some new concepts related to data sharing. This article explains terms that are commonly used in Azure Data Share. It introduces some concepts related to how organizations typically use Azure Data Share to meet their data sharing needs. 
+Azure Data Share Preview introduces some new terminology related to data sharing. This article explains some frequently used terms that you may see used throughout the service. 
 
 ## Data Provider
 
