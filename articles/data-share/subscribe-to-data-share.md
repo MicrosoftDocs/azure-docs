@@ -56,7 +56,7 @@ Once you've agreed to the terms of use and specified a location for your share, 
 
 ![Accept options](./media/accept-options.png "Accept options") 
 
-If you prefer to accept the invitation now but configure your storage at a later time, click *Accept and Configure later*. This option allows you to configure your target storage account later. To continue configuring your storage later, see [how to configure your storage account](how-to-configure-storage.md) page for detailed steps on how to resume your data share configuration. 
+If you prefer to accept the invitation now but configure your storage at a later time, click *Accept and Configure later*. This option allows you to configure your target storage account later. To continue configuring your storage later, see [how to configure your storage account](how-to-configure-mapping.md) page for detailed steps on how to resume your data share configuration. 
 
 If you don't want to accept the invitation, click *Reject*. 
 

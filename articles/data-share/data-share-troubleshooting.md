@@ -40,7 +40,7 @@ You'll need to have the [Azure Contributor RBAC role](https://docs.microsoft.com
 
 "Error: role assignment to storage account"
 
-![Privilege error](media/error-privilege.png)
+![Privilege error](media/error_write_privilege.png)
 
 If you receive any of the above errors when creating a new data share or receiving a new data share, it is because there are insufficient permissions to the storage account. Even if you created the Storage account, it does NOT automatically make you the owner of the storage account. Follow these steps to grant yourself owner of the storage account.
 
