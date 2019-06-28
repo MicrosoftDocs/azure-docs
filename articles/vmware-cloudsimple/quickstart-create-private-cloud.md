@@ -181,7 +181,10 @@ You can find the fully qualified domain name (FQDN) and IP address of NSX manage
 
     ![Find NSX Manager FQDN](media/private-cloud-nsx-manager-fqdn.png)
 
-To change the password, follow the instructions in [NSX Manager Installation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
+To change the password, follow the instructions in [Manage a User's Password](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html).
+
+> [!WARNING]
+> By default, the NSX administrator password expires after 90 days.
 
 ## Create a port group
 

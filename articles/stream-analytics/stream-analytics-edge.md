@@ -107,7 +107,8 @@ These steps are described in the IoT Edge documentation for [Windows](https://do
 
 > [!Note]
 > During this step, ASA creates a folder named "EdgeJobs" in the storage container (if it does not exist already). For each  deployment, a new subfolder is created in the "EdgeJobs" folder.
-> In order to deploy your job to edge devices, ASA creates a shared access signature (SAS) for the job definition file. The SAS key is securely transmitted to the IoT Edge devices using device twin. The expiration of this key is three years from the day of its creation.
+> When you deploy your job to IoT Edge devices, ASA creates a shared access signature (SAS) for the job definition file. The SAS key is securely transmitted to the IoT Edge devices using device twin. The expiration of this key is three years from the day of its creation. 
+> When you update an IoT Edge job, the SAS will change, but the image version will not change. Once you **Update**, follow the deployment workflow, and an update notification is logged on the device.
 
 
 For more information about IoT Edge deployments, see to [this page](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).

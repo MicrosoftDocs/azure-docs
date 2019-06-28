@@ -5,7 +5,7 @@
  author: ayshakeen
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/09/2018
+ ms.date: 06/25/2019
  ms.author: azcspmt;ayshak;cynthn
  ms.custom: include file
 ---
@@ -28,7 +28,45 @@ The B-series comes in the following six VM sizes:
 
 <sup>1</sup> B1ls is supported only on Linux
 
-## Q & A 
+## Workload example
+
+Consider an office check-in/out application. The application needs CPU bursts during business hours, but not a lot of computing power during off hours. In this example, the workload requires a 16vCPU virtual machine with 64GiB of RAM to work efficiently.
+
+The table shows the hourly traffic data and the chart is a visual representation of that traffic.
+
+![Chart of hourly traffic data](./media/virtual-machines-common-b-series-burstable/office-workload.png)
+
+| Scenario | Time | CPU usage (%) | Credits accumulated<sup>1</sup> | Credits available |
+| --- | --- | --- | --- | --- |
+| B16ms Deployment | Deployment | Deployment  | 480 (Initial Credits) | 480 |
+| No traffic | 0:00 | 0 | 162 | 642 |
+| No traffic | 1:00 | 0 | 162 | 804 |
+| No traffic | 2:00 | 0 | 162 | 966 |
+| No traffic | 3:00 | 0 | 162 | 1128 |
+| No traffic | 4:00 | 0 | 162 | 1290 |
+| No traffic | 5:00 | 0 | 162 | 1452 |
+| Low Traffic | 6:00 | 270 | 0 | 1452 |
+| Employees come to office (app needs 80% vCPU) | 7:00 | 1280 | -606 | 846 |
+| Employees continue coming to office (app needs 80% vCPU) | 8:00 | 1280 | -606 | 240 |
+| Low Traffic | 9:00 | 270 | 0 | 240 |
+| Low Traffic | 10:00 | 100 | 102 | 342 |
+| Low Traffic | 11:00 | 50 | 132 | 474 |
+| Low Traffic | 12:00 | 100 | 102 | 576 |
+| Low Traffic | 13:00 | 100 | 102 | 678 |
+| Low Traffic | 14:00 | 50 | 132 | 810 |
+| Low Traffic | 15:00 | 100 | 102 | 912 |
+| Low Traffic | 16:00 | 100 | 102 | 1014 |
+| Employees checking out (app needs 100% vCPU) | 17:00 | 1600 | -798 | 216 |
+| Low Traffic | 18:00 | 270 | 0 | 216 |
+| Low Traffic | 19:00 | 270 | 0 | 216 |
+| Low Traffic | 20:00 | 50 | 132 | 348 |
+| Low Traffic | 21:00 | 50 | 132 | 480 |
+| No traffic | 22:00 | 0 | 162 | 642 |
+| No traffic | 23:00 | 0 | 162 | 804 |
+
+<sup>1</sup> Credits accumulated/credits used in an hour is equivalent to: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
+
+## Q & A
 
 ### Q: How do you get 135% baseline performance from a VM?
 **A**: The 135% is shared amongst the 8 vCPU’s that make up the VM size. For example, if your application uses 4 of the 8 cores working on batch processing and each of those 4 vCPU’s are running at 30% utilization the total amount of VM CPU performance would equal 120%.  Meaning that your VM would be building credit time based on the 15% delta from your baseline performance.  But it also means that when you have credits available that same VM can use 100% of all 8 vCPU’s giving that VM a Max CPU performance of 800%.
@@ -63,7 +101,3 @@ If I take the 120 credits I earned off-peak and subtract the 96 credits I used f
 ### Q: Why is there no pricing information for B1ls windows?
 **A** : B1ls only supports Linux images and if you deploy any another OS image you might not get the best customer experience but you will get billed.
 
-
-	
-
-	
