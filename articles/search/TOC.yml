@@ -35,6 +35,8 @@
       href: tutorial-csharp-type-ahead-and-suggestions.md
     - name: 4 - Add facets
       href: tutorial-csharp-facets.md
+    - name: 5 - Add results ordering
+      href: tutorial-csharp-orders.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
   - name: Index Azure JSON blobs
