@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 06/20/2019
 ---
 
-The following Azure CLI commands will provision an Anomaly Detector resource on the free pricing tier. Click on the **Try It** button, paste the code, and press enter to run it in the Azure cloud shell. It will print your keys for authenticating your application. After it completes, [create an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your either of your keys, named `ANOMALY_DETECTOR_KEY`.
+The following Azure CLI commands will provision an Anomaly Detector resource on the free pricing tier. Click on the **Try It** button, paste the code, and press enter to run it in the Azure cloud shell. It will print your keys for authenticating your application. After it completes, [create an environment variable](../articles/cognitive-services/cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your either of your keys, named `ANOMALY_DETECTOR_KEY`.
 
 > [!NOTE]
 > * You can optionally:
->    * create a resource using the [Azure portal](../../cognitive-services-apis-create-account.md), or [Azure CLI](../../cognitive-services-apis-create-account.md) on your local machine.
->    * get a [trial key](https://azure.microsoft.com/en-us/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+>    * create a resource using the [Azure portal](../articles/cognitive-services/cognitive-services-apis-create-account.md), or [Azure CLI](../articles/cognitive-services/cognitive-services-apis-create-account.md) on your local machine.
+>    * get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 >    * view this resource on the [Azure portal](https://portal.azure.com/). 
 
 Cognitive Services are represented by Azure resources that you provision. Every Cognitive Services account (and its associated Azure resource) must belong to an Azure resource group.

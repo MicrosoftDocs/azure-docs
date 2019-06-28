@@ -129,7 +129,7 @@ az group delete --name example-anomaly-detector-resource-group
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Streaming anomaly detection with Azure Databricks](anomaly-detection-streaming-databricks.md)
+>[Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
 
 * What is the [Anomaly Detector API?](../overview.md)
 * [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
