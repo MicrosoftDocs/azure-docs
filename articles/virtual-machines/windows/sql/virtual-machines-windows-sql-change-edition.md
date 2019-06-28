@@ -39,7 +39,6 @@ The **internal** edition specification must match the **metadata** specification
  
 ## Limitations
 
- - While it is possible to upgrade from lower internal editions of SQL Server, it is not possible to downgrade from enterprise or developer to any lower edition, such as standard, or express. 
  - Changing the edition metadata is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. 
  - Changing the edition metadata is only enabled for Public Cloud installations.
  - Changing the edition metadata is supported only on virtual machines that have a single NIC (network interface). On virtual machines that have more than one NIC, you should first remove one of the NICs (by using the Azure portal) before you attempt the procedure. Otherwise, you will run into an error similar to the following: 
@@ -50,7 +49,7 @@ The **internal** edition specification must match the **metadata** specification
 To change the edition of SQL Server, you will need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- [Software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
+- [Software assurance](). 
 - A Windows [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md).
 
 ## Obtain installation media  
@@ -59,7 +58,7 @@ The internal edition of SQL Server is determined by the setup media used to inst
 
 ### Software assurance customers
 
-Customers who have software assurance can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). 
+Customers who have [software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). 
 
 ### Customers without software assurance 
 
@@ -76,9 +75,12 @@ Customers who do not have software assurance can use the setup media from a mark
 ## Change internal edition
 
   > [!WARNING]
-  > **Changing the internal edition of SQL Server will restart the service for SQL Server, as well as any associated services, such as Analysis Services and R Services.** 
+  > - **Upgrading the internal edition of SQL Server will restart the service for SQL Server, as well as any associated services, such as Analysis Services and R Services.** 
+  > - **Downgarding the internal edition of SQL Server requires completely uninstalling SQL Server, which may incur additional downtime**. 
 
-To change the internal edition of SQL Server, [obtain the SQL Server setup media](#obtain-installation-media) for the desired edition of SQL Server, and then do the following:
+
+### Upgrade edition
+To upgrade the internal edition of SQL Server, [obtain the SQL Server setup media](#obtain-installation-media) for the desired edition of SQL Server, and then do the following:
 
 1. Launch Setup.exe from the SQL Server installation media. 
 1. Navigate to **Maintenance** and choose the **Edition Upgrade** option. 
@@ -86,6 +88,20 @@ To change the internal edition of SQL Server, [obtain the SQL Server setup media
    ![Upgrade edition of SQL Server](media/virtual-machines-windows-sql-change-edition/edition-upgrade.png)
 
 1. Select **Next** until you reach the **Ready to upgrade edition** page, and then select **Upgrade**. The setup window may hang for a few minutes while the change is taking effect, and then you will see a **Complete** page confirming that your edition upgrade is complete. 
+
+### Downgrade edition
+To downgrade the edition of SQL Server, you will need to completely uninstall SQL Server, and reinstall it again with the desired edition setup media. 
+
+To downgrade the edition of SQL Server, do the following:
+
+1. Back up all databases, including the system databases. 
+1. Move system databases (master, model, and msdb) to a new location. 
+1. Completely uninstall SQL Server and all associated services. 
+1. Restart the virtual machine. 
+1. Install SQL Server using the media with the desired edition of SQL Server.
+1. Install the latest service packs and cumulative updates.  
+1. Replace the new system databases that were created during installation with the system databases you previously moved to a different location. 
+
 
 
 ## Change edition metadata
