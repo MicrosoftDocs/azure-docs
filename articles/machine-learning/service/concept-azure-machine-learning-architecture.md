@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 Learn about the architecture, concepts, and workflow for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
 
-[![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## Workflow
 
