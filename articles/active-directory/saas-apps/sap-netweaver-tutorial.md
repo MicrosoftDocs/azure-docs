@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/27/2019
+ms.date: 06/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -40,7 +40,7 @@ To get started, you need the following items:
 
 ## Scenario description
 
-SAP NetWeaver supports **SAML** (**SP** initiated SSO) and **OAuth** both. User can configure the settings as per there requirement. In this tutorial, you configure and test Azure AD SSO in a test environment.
+SAP NetWeaver supports **SAML** (**SP** initiated SSO) and **OAuth** both. Users can configure as per their requirement. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding SAP NetWeaver from the gallery
 
