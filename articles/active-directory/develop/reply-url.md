@@ -44,7 +44,7 @@ If your scenario requires more redirect URIs than the maximum limit allowed, ins
 
 If you have a number of sub-domains, and if your scenario requires you to redirect users upon successful authentication to the same page where they started, using a state parameter might be helpful. 
 
-In this this approach:
+In this approach:
 
 1. Create a "shared" redirect URI per application to process the security tokens you receive from the authorization endpoint.
 1. Your application can send application-specific parameters (such as sub-domain URL where the user originated or anything like branding information) in the state parameter. When using a state parameter, guard against CSRF protection as specified in [section 10.12 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-10.12)). 
