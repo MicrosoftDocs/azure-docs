@@ -121,7 +121,7 @@ Tile size must already be set before calling Force Load Tile. For example, you c
 
 The Load Acoustics Data blueprint function used in this example has the following parameters:
 
-* **Target:** The AcousticsSpace actor
+* **Target:** The AcousticsSpace actor.
 * **New Bake:** The acoustics data asset to be loaded. Leaving this blank/setting it to null will unload the current bake without loading a new one.
 
 ### Optionally query for surface proximity
