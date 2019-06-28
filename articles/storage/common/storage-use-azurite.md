@@ -15,14 +15,6 @@ ms.subservice: common
 
 The Azurite version 3 open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications. When you're satisfied with how your application is working, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
 
-<!-- 
-## Prerequisites
-
-* [GitHub account](https://github.com)
-* [Git](https://git-scm.com/)
-* [Node.js version 8.0 or later](https://nodejs.org)
- -->
-
 ## Install Azurite
 
 There are four different ways to get Azurite installed on your local system:
