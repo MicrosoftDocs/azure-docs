@@ -343,7 +343,7 @@ End-user. Not automatic.
 
 Yes. Temp db will scale up automatically as the compute grows.  
 
-### Can I provision multiple primaries computes such as a multi-master system where multiple primary compute heads can drive a higher level of concurrency
+### Can I provision multiple primary compute nodes such as a multi-master system where multiple primary compute heads can drive a higher level of concurrency
 
 No. Only the primary compute node accepts read/write requests. Secondary compute nodes only accept read-only requests.
 

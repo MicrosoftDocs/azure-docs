@@ -268,7 +268,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview and is o
 |Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB size (GB)|64|128|256|384|384|384|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|Target IOPS (64 KB)| [Note 1](#Note-1) |[Note 1](#Note-1)|[Note 1](#Note-1) |[Note 1](#Note-1) |[Note 1](#Note-1) |[Note 1](#Note-1) |[Note 1](#Note-1) | [Note 1](#Note-1) |
 |IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -277,6 +277,10 @@ The [serverless compute tier](sql-database-serverless.md) is in preview and is o
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage |7|7|7|7|7|7|7|7|
 |||
+
+### Note 1
+
+Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload. 
 
 ## Next steps
 
