@@ -1,6 +1,6 @@
 ---
 title: Join a new Windows 10 device with Azure AD during a first run | Microsoft Docs
-description: A topic that explains how users can set up Azure AD Join during the first run experience.
+description: How users can set up Azure AD Join during the out of box experience.
 
 services: active-directory
 ms.service: active-directory
@@ -38,7 +38,7 @@ In this tutorial, you learn how to join a device to Azure AD during FRX:
 
 To join a Windows 10 device, the device registration service must be configured to enable you to register devices. In addition to having permission to joining devices in your Azure AD tenant, you must have fewer devices registered than the configured maximum. For more information, see [configure device settings](device-management-azure-portal.md#configure-device-settings).
 
-In addition, if your tenant is federated, your Identity provider MUST support WS-Fed and WS-Trust username/password endpoint. This can be version 1.3 or 2005. This protocol support is required to both join the device to Azure AD and log on to the device with a password.
+In addition, if your tenant is federated, your Identity provider MUST support WS-Fed and WS-Trust username/password endpoint. This can be version 1.3 or 2005. This protocol support is required to both join the device to Azure AD and sign in to the device with a password.
 
 ## Joining a device
 
@@ -58,7 +58,7 @@ In addition, if your tenant is federated, your Identity provider MUST support WS
 
     ![Sign-in screen](./media/azuread-joined-devices-frx/03.png)
 
-1. You device locates a matching tenant in Azure AD. If you are in a federated domain, you are redirected to your on-premises Secure Token Service (STS) server, for example, Active Directory Federation Services (AD FS).
+1. Your device locates a matching tenant in Azure AD. If you are in a federated domain, you are redirected to your on-premises Secure Token Service (STS) server, for example, Active Directory Federation Services (AD FS).
 1. If you are a user in a non-federated domain, enter your credentials directly on the Azure AD-hosted page. 
 1. You are prompted for a multi-factor authentication challenge. 
 1. Azure AD checks whether an enrollment in mobile device management is required.
