@@ -40,17 +40,17 @@ If the application hasn't been added to your Azure AD tenant, see [Add a gallery
 
    ![Password-based single sign-on](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
-1. Select **Save**. Azure AD tries to parse the sign-in page for a username input and a password input. If the attempt succeeds, you're done.
+1. Select **Save**. Azure AD tries to parse the sign-in page for a username input and a password input. If the attempt succeeds, you're done. 
 
 ## Manual configuration
 
 If Azure AD's parsing attempt fails, you can configure sign-on manually.
 
-1. select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page. 
+1. Under **\<application name> Configuration**, select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page. 
 
 3. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields appear.
 
-   ![Manual configuration of password-based single sign-on](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
+   ![Manual configuration of password-based single sign-on](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 1. Select **Capture sign-in fields**. A capture status page opens in a new tab, showing the message **metadata capture is currently in progress**.
 1. If the **Access Panel Extension Required** box appears in a new tab, select **Install Now** to install the **My Apps Secure Sign-in Extension** browser extension. (The browser extension requires Microsoft Edge, Chrome, or Firefox.) Then install, launch, and enable the extension, and refresh the capture status page.
 
@@ -66,13 +66,6 @@ After the capture of the sign-in page, you may assign users and groups, and you 
 
 > [!NOTE]
 > You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
-
-## Existing single sign-on
-
-Select this option to add a link to the application in your organization's Azure AD Access Panel or Office 365 portal. You can use this method to add links to custom web applications that currently use Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels.
-
-After you select **Linked**, you're prompted to enter the URL of the application to link to. Type the URL and select **Save**. You may assign users and groups to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](end-user-experiences.md) for those users.
-
 
 ## Next steps
 

@@ -138,7 +138,7 @@
       - name: Configure SAML-based single sign-on
         items:
         - name: Configure SAML-based single sign-on
-          href: configure-single-sign-on-portal.md
+          href: configure-single-sign-on-non-gallery-applications.md
         - name: Customize user attributes and claims
           items:
           - name: Configure group claims

@@ -16,10 +16,12 @@ ms.collection: M365-identity-device-management
 
 # How to configure SAML-based single sign-on
 
-This article describes how to configure SAML-based single sign-on for an app after you've added the app to your Azure Active Directory (Azure AD) Enterprise Applications.  
+After you've added an app to your Azure AD Enterprise Applications, you configure single sign-on settings. This article describes how to configure SAML-based single sign-on for a non-gallery app. 
 
-> [!IMPORTANT]
-> Is the app from the Azure AD Gallery? If the app was added from the Azure AD gallery, there is a setup tutorial available for the app. See the [list of tutorials for integrating SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md) for step-by-step guidance tailored to your app.
+> [!NOTE]
+> Adding a gallery app? Find step-by-step setup instructions in the [list of SaaS app tutorials](../saas-apps/tutorial-list.md)
+
+To configure single sign-on for a non-gallery application *without writing code*, you need to have a subscription or Azure AD Premium and the application must support SAML 2.0. For more information about Azure AD versions, visit [Azure AD pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Before you begin
 
