@@ -28,7 +28,7 @@ The Azurite version 3 open-source emulator (preview) provides a free local envir
 There are four different ways to get Azurite installed on your local system:
 
   1. [Install by using NPM](install-by-using-npm)
-  1. [Run the Docker image](run-the-docker-image)
+  1. [Install the Azurite Docker image](install-the-azurite-docker-image)
   1. [Install the Visual Studio Code extension](install-the-visual-studio-code-extension)
   1. [Clone the GitHub repository](clone-the-github-repository)
 
@@ -43,9 +43,16 @@ This installation method requires that you have [Node.js version 8.0 or later](h
 npm install -g azurite
 ```
 
-### Run the Docker image
-<span id="run-the-docker-image"/>
+### Install the Azurite Docker image
+<span id="install-the-azurite-docker-image"/>
 
+Use [DockerHub](https://hub.docker.com/) to install the latest Azurite image with the following command:
+
+```console
+docker pull mcr.microsoft.com/azure-storage/azurite
+```
+
+<!-- Move all this into a new section on running Azurite using the various platforms -->
 **Run the Azurite Docker image**:
 
 The following command runs the Azurite Docker image:
@@ -81,6 +88,8 @@ Alternatively, install the Azurite extension from the [VS Code extension market]
 
 ### Clone the GitHub repository
 <span id="clone-the-github-repository"/>
+
+This installation method requires that you have [Git](https://git-scm.com/) installed. You'll also want to have a [GitHub account](https://github.com).
 
 Clone the GitHub repository for the project by using the following console command.
 
