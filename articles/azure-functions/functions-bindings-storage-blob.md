@@ -208,6 +208,7 @@ Here's the Python code:
 import logging
 import azure.functions as func
 
+
 def main(myblob: func.InputStream):
     logging.info('Python Blob trigger function processed %s', myblob.name)
 ```
@@ -627,6 +628,7 @@ Here's the Python code:
 import logging
 import azure.functions as func
 
+
 def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
     logging.info('Python Queue trigger function processed %s', inputblob.name)
     return inputblob
@@ -949,6 +951,7 @@ Here's the Python code:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
          outputblob: func.Out[func.InputStream]):

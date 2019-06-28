@@ -341,7 +341,7 @@ The templates in this section allow you to customize the content of the API page
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|`apiId`|string|The id of the current API.|  
+|`apiId`|string|The ID of the current API.|  
 |`apiName`|string|The name of the API.|  
 |`apiDescription`|string|A description of the API.|  
 |`api`|[API summary](api-management-template-data-model-reference.md#APISummary) entity.|The current API.|  
@@ -1359,7 +1359,7 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))  
   
 ####################################  
-```  
+```
   
 #### Controls  
  The code sample templates do not allow the use of any [page controls](api-management-page-controls.md).  

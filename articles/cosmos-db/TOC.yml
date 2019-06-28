@@ -408,6 +408,8 @@
           href: connect-mongodb-account.md
         - name: Connect using Studio 3T
           href: mongodb-mongochef.md
+        - name: Connect using Compass
+          href: mongodb-compass.md
         - name: Connect using Robomongo
           href: mongodb-robomongo.md
         - name: Connect using Mongoose
