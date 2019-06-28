@@ -51,4 +51,4 @@ If you receive any of the above errors when creating a new data share or receivi
 
 ## Next steps
 
-Learn how to [monitor your Azure Data Share](how-to-monitor.md).
+Learn how to [share your data](share-your-data.md).
