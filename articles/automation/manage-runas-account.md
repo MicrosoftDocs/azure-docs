@@ -4,8 +4,8 @@ description: This article describes how to manage your Run As accounts with Powe
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
