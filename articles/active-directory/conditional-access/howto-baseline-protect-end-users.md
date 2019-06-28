@@ -1,6 +1,6 @@
 ---
 title: Baseline policy End user protection (preview) - Azure Active Directory
-description: Conditional access policy to require multi-factor authentication for users
+description: Conditional Access policy to require multi-factor authentication for users
 
 services: active-directory
 ms.service: active-directory
@@ -55,18 +55,7 @@ Because the **End user protection** policy applies to all users in your director
 Legacy authentication protocols (IMAP, SMTP, POP3, etc.) are used by mail clients to make authentication requests. These protocols do not support MFA.  Most of the account compromises seen by Microsoft are caused by bad actors performing attacks against legacy protocols attempting to bypass MFA. To ensure that MFA is required when logging into an account and bad actors aren’t able to bypass MFA, this policy blocks all authentication requests made to administrator accounts from legacy protocols.
 
 > [!WARNING]
-> Before you enable this policy, make sure your users aren’t using legacy authentication protocols. See the article [How to: Block legacy authentication to Azure AD with conditional access](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) for more information.
-
-### User exclusions
-
-This baseline policy provides you the option to exclude users. Before enabling the policy for your tenant, we recommend excluding the following accounts:
-
-* **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
-   * More information can be found in the article, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Service accounts** and **service principles**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can’t be completed programmatically.
-   * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
-* Users who do not have or will not be able to use a smart phone.
-   * This policy requires users to register for MFA using the Microsoft Authenticator app.
+> Before you enable this policy, make sure your users aren’t using legacy authentication protocols. See the article [How to: Block legacy authentication to Azure AD with Conditional Access](howto-baseline-protect-legacy-auth.md#identify-legacy-authentication-use) for more information.
 
 ## Enable the baseline policy
 
@@ -74,17 +63,16 @@ The policy **Baseline policy: End user protection (preview)** comes pre-configur
 
 To enable this policy and protect your users:
 
-1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
+1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: End user protection (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
-1. Add any user exclusions by clicking on **Users** > **Select excluded users** and choosing the users that need to be excluded. Click **Select** then **Done**.
 1. Click **Save**.
 
 ## Next steps
 
 For more information, see:
 
-* [Conditional access baseline protection policies](concept-baseline-protection.md)
+* [Conditional Access baseline protection policies](concept-baseline-protection.md)
 * [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
-* [What is conditional access in Azure Active Directory?](overview.md)
+* [What is Conditional Access in Azure Active Directory?](overview.md)

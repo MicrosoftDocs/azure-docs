@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -179,17 +179,17 @@ For more information about CNAME records, see [Create the CNAME DNS record](http
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a dedicated certificate for your domain name. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 
-Automatic validation typically takes a few mins. If you don’t see your domain validated within an hour, open a support ticket.
+Automatic validation typically takes a few hours. If you don’t see your domain validated in 24 hours, open a support ticket.
 
 >[!NOTE]
 >If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
 
 ### Custom domain is not mapped to your CDN endpoint
 
-If the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, follow the rest of the instructions in this step.
-
 >[!NOTE]
->Email validation of custom domain ownership is currently unavailable for **Azure CDN from Akamai** profiles. This feature is currently in our backlog. 
+>Email validation of custom domain ownership is currently unavailable for **Azure CDN from Akamai** profiles. If you are using **Azure CDN from Akamai**, your custom domain must be mapped to your cdn enpoint with a CNAME record as stated above.  This feature is currently in our backlog. 
+
+If the CNAME record entry contains the cdnverify subdomain, follow the rest of the instructions in this step.
 
 After you submit a request to enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
 

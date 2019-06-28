@@ -29,6 +29,17 @@ Azure Site Recovery publishes service updates on a regular basis - including the
 > [!IMPORTANT]
 > The official support for upgrades is from > N-4 to N version (N being the latest version). If you are on N-6, you need to first upgrade to N-4, and then upgrade to N.
 
+## Expiry of components
+Site Recovery notifies customers of components nearing expiry or already expired via email notifications (if you have subscribed to them) or on the vault dashboard in the portal. The vault dashboard notifications aren't available if you are protecting a hYpe-rV VM as of now. Also, if you navigate to the corresponding infrastructure view for your scenario, there will be an 'update available' button next to the component, which will redirect you to the links to downloads the latest versions.
+
+Below is the frequency of email notifications when a components is nearing expiry.
+- 60 days before the component is about to expire : bi-weekly once
+- Next 53 days : weekly once
+- Last 7 days : Daily once
+- After its expired : bi-weekly once
+
+
+
 ### Upgrading when the difference between current version and latest released version is greater than 4
 
 1. As a first step, upgrade the currently installed component from version say N to N+4, and then move to the next compatible version. Let's say the current version is 9.24, and you are on 9.16, first upgrade to 9.20 and then to 9.24.
@@ -113,15 +124,16 @@ A reboot is recommended after every upgrade of Mobility agent to ensure that all
 
 |Update Rollup  |Provider  |Unified Setup| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Update Rollup 37](https://support.microsoft.com/help/4508614/update-rollup-37-for-azure-site-recovery)     |   5.1.4300.0  |  9.25.5241.1   |  5.1.4300.0  | 2.0.9163.0
 |[Update Rollup 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Update Rollup 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Update Rollup 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) - Hot fix     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Update Rollup 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Update Rollup 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
-|[Update Rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 
 ## Previous Update Rollups
 
+- [Update Rollup 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)
 - [Update Rollup 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [Update Rollup 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [Update Rollup 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)

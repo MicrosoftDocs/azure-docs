@@ -2,20 +2,20 @@
   href: /azure/hdinsight
 - name: Overview
   items:
-  - name: Apache Hadoop components on HDInsight
-    href: ../hdinsight-component-versioning.md
+  - name: What is Interactive Query in HDInsight?
+    href: ./apache-interactive-query-get-started.md
     maintainContext: true
-  - name: HDInsight 4.0
-    href: ../hdinsight-version-release.md
-    maintainContext: true 
 - name: Quickstarts
+  expanded: true
   items:
   - name: Execute Apache Hive queries - Apache Zeppelin
     href: ./hdinsight-connect-hive-zeppelin.md
-- name: Get started
+- name: Tutorials
   items:
-  - name: Start with Interactive Query
-    href: ./apache-interactive-query-get-started.md
+  - name: Analyze data with Interactive Query
+    href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Concepts
+  items:
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
@@ -109,9 +109,6 @@
       maintainContext: true
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
-      maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
   - name: Extend clusters
     items:
@@ -251,9 +248,6 @@
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
-    - name: Migrate Hive workloads to HDInsight 4.0
-      href: apache-hive-migrate-workloads.md
-      maintainContext: true
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
@@ -339,6 +333,11 @@
     - name: Monitor cluster performance
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true 
+- name: How to
+  items:
+  - name: Migrate Hive workloads to HDInsight 4.0
+    href: apache-hive-migrate-workloads.md
+    maintainContext: true
 - name: Reference
   items:
   - name: Code samples

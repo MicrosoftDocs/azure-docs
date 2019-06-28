@@ -81,3 +81,7 @@ No. All resources, including the cluster master, run in your customer subscripti
 ## Is Open Service Broker for Azure (OSBA) supported?
 
 Yes. You can use OSBA with Azure Red Hat OpenShift. See [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) for more information.
+
+## I am trying to peer into a virtual network in a different subscription but getting `Failed to get vnet CIDR` error.
+
+In the subscription that has the virtual network, make sure to register `Microsoft.ContainerService` provider with `az provider register -n Microsoft.ContainerService --wait` 

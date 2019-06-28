@@ -156,4 +156,4 @@ The validators are all associated with properties of the `TokenValidationParamet
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Move to production](scenario-protected-web-api-production.md)
+> [Verify scopes and app roles in your code](scenario-protected-web-api-verification-scope-app-roles.md)

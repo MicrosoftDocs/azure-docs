@@ -56,7 +56,19 @@ ds = ws.get_default_datastore()
 
 ### Register your own datastore with the workspace
 
-If you have existing Azure Storage, you can register it as a datastore on your workspace.   All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*. 
+If you have existing Azure Storage, you can register it as a datastore on your workspace. 
+
+<a name="store"></a>
+
+####  Storage guidance
+
+We recommend blob storage and blob datastores. Both standard and premium storage are available for blobs. Although more expensive, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, particlularly if you train against a large data set. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) for storage account cost information.
+
+>[!NOTE]
+> Azure Machine Learning service supports other types of datastores,   which may be useful for specific scenarios. For example, if you need to train using data stored in a database, you might use the AzureSQLDatabaseDatastore or AzurePostgreSqlDatastore. See [this table](#matrix) for the available datastore types.
+
+#### Register your datastore
+All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
 
 The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
@@ -175,6 +187,7 @@ ds.path('./bar').as_download()
 > [!NOTE]
 > Any `ds` or `ds.path` object resolves to an environment variable name of the format `"$AZUREML_DATAREFERENCE_XXXX"` whose value represents the mount/download path on the target compute. The datastore path on the target compute might not be the same as the execution path for the training script.
 
+<a name="matrix"></a>
 ### Training compute and datastore matrix
 
 The following matrix displays the available data access functionalities for the different training compute targets and datastore scenarios. Learn more about the [training compute targets for Azure Machine Learning](how-to-set-up-training-targets.md#compute-targets-for-training).
@@ -191,7 +204,7 @@ The following matrix displays the available data access functionalities for the 
 | Azure DataLake Analytics       |N/A                                           |N/A                                           |[ML&nbsp;pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
 
 > [!NOTE]
-> There may be scenarios in which highly iterative, large data processes run faster using [`as_download()`] instead of [`as_mount()`]; this can be validated experimentally.
+> There may be scenarios in which highly iterative, large data processes run faster using `as_download()` instead of `as_mount()`; this can be validated experimentally.
 
 ### Examples 
 

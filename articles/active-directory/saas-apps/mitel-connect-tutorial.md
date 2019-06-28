@@ -206,7 +206,7 @@ Create a user on your MiCloud Connect account with the following details:
 * **Business Email Address:** `brittasimon@<yourcompanydomain>.<extension>`   
 (Example: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))
 
-* **Username:** `brittasimon@<yourcompanydomain>.<extension> `  
+* **Username:** `brittasimon@<yourcompanydomain>.<extension>`  
 (Example: [brittasimon@contoso.com](mailto:brittasimon@contoso.com); the user’s username is typically the same as the user’s business email address)
 
 **NOTE:** The user’s MiCloud Connect username must be identical to the user’s email address in Azure.
@@ -223,4 +223,4 @@ When you click the Mitel Connect tile in the Access Panel, you should be automat
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

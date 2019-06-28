@@ -21,7 +21,7 @@ ms.custom: seodec18
 ---
 # Tutorial: Build a custom image and run in App Service from a private registry
 
-[App Service](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom image and run it in App Service. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
+[App Service](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.3 and Node.js 10.14. App Service uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom image and run it in App Service. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
 
 In this tutorial, you learn how to:
 
