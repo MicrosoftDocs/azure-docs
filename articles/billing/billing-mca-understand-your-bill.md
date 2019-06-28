@@ -26,7 +26,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
     ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
-3. Select **All transactions** from the left side of the page. Depending on your access, you might have to select a billing account or a billing profile, then select **All transactions**.
+3. Select **All transactions** from the left side of the page. Depending on your access, you might have to select a billing account, billing profile, or an invoice section and then select **All transactions**.
 
 4. The All transactions page displays the following information:
 

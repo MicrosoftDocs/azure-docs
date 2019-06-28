@@ -14,7 +14,7 @@ ms.author: banders
 
 # Create sections on your invoice to organize your costs
 
-Create sections on your invoice to organize your costs by a department, development environment, or based on your organization's needs. Then give others permission to create Azure subscriptions for the section. Any usage charges or purchases for the subscriptions reflect on the invoice section. View the total charges for the section on your invoice, in the Azure portal, or review them in Azure cost analysis. For more information, see [view transactions by invoice sections](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Create sections on your invoice to organize your costs by a department, development environment, or based on your organization's needs. Then give others permission to create Azure subscriptions that are billed to the section. Any usage charges and purchases for the subscriptions are then billed to the section. You can view the total charges for the section on your invoice, in the Azure portal, or review them in Azure cost analysis. For more information, see [view transactions by invoice sections](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -30,17 +30,15 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 3. Select **Invoice sections** from the left-hand pane. Depending on your access, you may need to select a billing profile or a billing account and then select **Invoice sections**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
+   ![Screenshot that shows invoice section list](./media/billing-mca-section-invoice/mca-select-invoice-sections.png)
 
 4. From the top of the page, select **Add**.
 
-5. Enter the name of the invoice section.
+5. Enter a name for the invoice section and select a billing profile. You’ll see the section on this billing profile's invoice reflecting the usage of each subscription and purchases you’ve assigned to the section. 
 
    ![Screenshot that shows invoice section creation page](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 
-6. Select a billing profile. Any usage charges or purchases for the invoice section will reflect on the billing profile's invoice.
-
-7. Select **Create**.
+6. Select **Create**.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

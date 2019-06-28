@@ -15,7 +15,7 @@ ms.author: banders
 ---
 # Track Microsoft Customer Agreement Azure credit balance
 
-You can check the Azure credit balance for Microsoft Customer Agreement in the Azure portal. You use credits to pay for products that are covered by the credits.
+You can check the Azure credit balance for Microsoft Customer Agreement in the Azure portal. You use credits to pay for charges that are covered by the credits.
 
 You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits.(#products-that-arent-covered-by-azure-credits).
 
@@ -25,13 +25,13 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 1. Sign-in to the [Azure portal]( https://portal.azure.com).
 
-2. Search for *Cost Management + Billing*.
+2. Search for **Cost Management + Billing**.
 
    ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Go to the billing profile. Depending on your access, you may need to select a billing account. From the billing account, select **Billing profiles** and then a billing profile.
+3.  Select **Azure credits** from the left-hand side. Depending on your access, you may need to select a billing account or a billing profile and then select **Azure credits**.
 
-4. Select **Azure credits**.
+   ![Screenshot that shows selecting Azure credits page](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
 5. The Azure credits page displays the following information:
 
