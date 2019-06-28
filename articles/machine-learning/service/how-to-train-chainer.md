@@ -172,23 +172,13 @@ As the Run is executed, it goes through the following stages:
 
 - **Post-Processing**: The ./outputs folder of the run is copied over to the run history.
 
-## Register the model
-
-Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
-
-```Python
-CODE HERE
-```
-
-You can also download a local copy of the model. This can be useful for doing additional model validation work locally. In the training script, `mnist-chainer.py`, a saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy from datastore.
-
-```Python
-CODE HERE
-```
 
 ## Next steps
 
-In this article, you trained and registered a Chainer model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained a Chainer model on Azure Machine Learning service. 
 
-> [!div class="nextstepaction"]
-> [How and where to deploy models](how-to-deploy-and-where.md)
+* To learn how to deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
+
+* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+
+* [Track run metrics during training](how-to-track-experiments.md)
