@@ -14,9 +14,6 @@
     href: apache-hadoop-linux-tutorial-get-started.md      
 - name: Tutorials
   items:
-  - name: Perform ETL operations
-    href: ../hdinsight-analyze-flight-delay-data-linux.md
-    maintainContext: true
   - name: Create on-demand clusters
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
     maintainContext: true
@@ -464,15 +461,11 @@
   - name: Resource Manager template
     displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
-- name: Related
-  items:
-  - name: Windows clusters
-    items:
-    - name: Migrate .NET solutions to Linux clusters
-      href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-      maintainContext: true
 - name: Resources
   items:
+  - name: Migrate .NET solutions to Linux clusters
+    href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
+    maintainContext: true
   - name: Release notes
     items:
     - name: Current release notes
