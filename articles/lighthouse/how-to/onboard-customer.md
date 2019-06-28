@@ -4,7 +4,7 @@ description: Learn how to onboard a customer to Azure Delegated Resource Managem
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 06/24/2019
+ms.date: 06/28/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -52,9 +52,11 @@ az account set --subscription <subscriptionId/name>
 az account show
 ```
 
-## Confirm that the customer's subscription is ready for onboarding
+## Register the customer's subscription for onboarding
 
-During the limited preview period, each subscription must be authorized for onboarding. When a subscription is authorized, the **Microsoft.ManagedServices** resource provider is registered for that subscription. You can confirm that this is the case (from within the customer's tenant) in one of the following ways.
+Each subscription must be authorized for onboarding by manually registering the Microsoft.ManagedServices resource provider. For more info, see [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
+
+You can confirm that the subscription is ready for onboarding (from within the customer's tenant) in one of the following ways.
 
 ### Azure portal
 
