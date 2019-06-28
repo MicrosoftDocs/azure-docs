@@ -49,11 +49,11 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> Deleting *by tag* shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](#manifest) and layer data remain in the registry. Only the tag reference itself is deleted.
+> Deleting *by tag* shouldn't be confused with deleting a tag (untagging). You can delete a tag with the Azure CLI command [az acr repository untag][az-acr-repository-untag]. No space is freed when you untag an image because its [manifest](container-registry-concepts.md#manifest) and layer data remain in the registry. Only the tag reference itself is deleted.
 
 ## Delete by manifest digest
 
-A [manifest digest](#manifest-digest) can be associated with one, none, or multiple tags. When you delete by digest, all tags referenced by the manifest are deleted, as is layer data for any layers unique to the image. Shared layer data is not deleted.
+A [manifest digest](container-registry-concepts.md#manifest-digest) can be associated with one, none, or multiple tags. When you delete by digest, all tags referenced by the manifest are deleted, as is layer data for any layers unique to the image. Shared layer data is not deleted.
 
 To delete by digest, first list the manifest digests for the repository containing the images you wish to delete. For example:
 
