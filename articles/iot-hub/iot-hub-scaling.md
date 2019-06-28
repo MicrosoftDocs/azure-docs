@@ -79,7 +79,7 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Send device event](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
 | Send module event | AMQP and MQTT only | AMQP and MQTT only |
 | [Update file upload status](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
-| [Bulk device operation](/rest/api/iot-dps/runbulkenrollmentgroupoperation/runbulkenrollmentgroupoperation) | Yes, except for IoT Edge capabilities | Yes |
+| [Bulk device operation](https://docs.microsoft.com/en-us/rest/api/iothub/service/bulkcreateorupdatedevices) | Yes, except for IoT Edge capabilities | Yes |
 | [Purge command queue](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Yes |
 | [Get device twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Yes |
 | [Get module twin](https://docs.microsoft.com/en-us/rest/api/iothub/service/getmoduletwin) |   | Yes |
