@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article 
-ms.date: 06/12/2019
+ms.date: 06/26/2019
 ms.author: diberry
 #
 ---
@@ -221,33 +221,14 @@ The preceding section requested an answer and any follow-up prompts to *Accounts
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Use the sign-in screen"
-                    },
-                    {
-                        "displayOrder": 1,
-                        "qnaId": 17,
-                        "qna": null,
-                        "displayText": "Use Windows Hello to sign in"
-                    },
-                    {
-                        "displayOrder": 2,
-                        "qnaId": 18,
-                        "qna": null,
-                        "displayText": "Sign out"
-                    },
-                    {
-                        "displayOrder": 0,
-                        "qnaId": 79,
-                        "qna": null,
-                        "displayText": "Create a Windows Account"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -261,15 +242,14 @@ The preceding section requested an answer and any follow-up prompts to *Accounts
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 16,
                         "qna": null,
                         "displayText": "Turn off the device"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -283,15 +263,14 @@ The preceding section requested an answer and any follow-up prompts to *Accounts
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         }
     ]
 }
 ```
 
-The `promptsToAdd` array provides text in the `displayText` property and the `qnaId` value. You can show these answers as the next displayed choices in the conversation flow, and then send the selected value to QnA Maker in the following request. 
+The `prompts` array provides text in the `displayText` property and the `qnaId` value. You can show these answers as the next displayed choices in the conversation flow and then send the selected `qnaId` back to QnA Maker in the following request. 
 
 <!--
 
@@ -337,8 +316,7 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         },
         {
@@ -352,15 +330,14 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [
+                "prompts": [
                     {
                         "displayOrder": 0,
                         "qnaId": 4,
                         "qna": null,
                         "displayText": "Ports and connectors"
                     }
-                ],
-                "promptsToDelete":[]
+                ]
             }
         },
         {
@@ -374,8 +351,7 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
             "metadata": [],
             "context": {
                 "isContextOnly": true,
-                "promptsToAdd": [],
-                "promptsToDelete":[]
+                "prompts": []
             }
         }
     ]
@@ -399,6 +375,16 @@ The [display text and display order](https://docs.microsoft.com/rest/api/cogniti
 FIX - Need to go to parent, then answer column, then edit answer. 
 
 -->
+
+## Create knowledge base with multi-turn prompts with the Create API
+
+You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array. 
+
+
+## Add or delete multi-turn prompts with the Update API
+
+You can add or delete multi-turn prompts using the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array. 
+
 
 ## Next steps
 
