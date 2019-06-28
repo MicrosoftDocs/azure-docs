@@ -79,7 +79,7 @@ To get the keys for your Cosmos account, run the following command:
 
 ```azurecli-interactive
 # List account keys
-az cosmosdb list-keys \
+az cosmosdb keys list \
    --name  mycosmosdbaccount \
    --resource-group myResourceGroup
 ```
