@@ -55,7 +55,6 @@
       href: learn/tutorial-users.md
     - name: Create custom dashboards
       href: learn/tutorial-app-dashboards.md
-    - name: Application Insights
   - name: Archive platform metric and log data 
     href: learn/tutorial-archive-data.md
   - name: Autoscale on performance and schedule
@@ -166,171 +165,7 @@
         href: platform/manage-cost-storage.md
   - name: Monitor resources
     items:
-    - name: Monitor Azure resources
-      items:
-      - name: Activity log
-        items:
-        - name: Overview
-          href: platform/activity-logs-overview.md
-        - name: View and retrieve
-          href: platform/activity-log-view.md
-        - name: Collect and analyze
-          href: platform/activity-log-collect.md
-        - name: Collect across tenants
-          href: platform/activity-log-collect-tenants.md
-        - name: Export 
-          href: platform/activity-log-export.md
-        - name: Schema
-          href: platform/activity-log-schema.md
-      - name: Diagnostic logs
-        items: 
-        - name: Overview
-          href: platform/diagnostic-logs-overview.md 
-        - name: Collect in Logs
-          href: platform/diagnostic-logs-stream-log-store.md
-        - name: Collect from Azure Storage
-          href: platform/collect-azure-metrics-logs.md
-        - name: Archive to storage
-          href: platform/archive-diagnostic-logs.md
-        - name: Stream data to Event Hubs
-          href: platform/diagnostic-logs-stream-event-hubs.md
-        - name: Enable with Resource Manager templates
-          href: platform/diagnostic-logs-stream-template.md
-        - name: Service logs and metrics
-          href: platform/azure-storage-iis-table.md
-      - name: View service notifications
-        href: platform/service-notifications.md
-      - name: Stream data to Event Hubs
-        href: platform/stream-monitoring-data-event-hubs.md   
-      - name: Key Vault Analytics
-        href: insights/azure-key-vault.md
-      - name: Service Fabric Analytics
-        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
-    - name: Monitor virtual machines
-      items: 
-      - name: Agents
-        items:
-        - name: Agents overview
-          href: platform/agents-overview.md
-        - name: Azure Diagnostics extension
-          items:
-          - name: Overview
-            href: platform/diagnostics-extension-overview.md
-          - name: Send to Azure Storage
-            href: platform/diagnostics-extension-to-storage.md
-          - name: Send to Application Insights
-            href: platform/diagnostics-extension-to-application-insights.md
-          - name: Send to Event Hubs
-            href: platform/diagnostics-extension-stream-event-hubs.md
-          - name: Troubleshooting
-            href: platform/diagnostics-extension-troubleshooting.md
-          - name: Prepare for JSON Lines diagnostic logs format
-            href: platform/diagnostic-logs-append-blobs.md
-          - name: VM guest to Metrics
-            href: platform/collect-custom-metrics-guestos-resource-manager-vm.md  
-          - name: Virtual machine scale set guest to Metrics
-            href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
-          - name: VM classic guest to Metrics
-            href: platform/collect-custom-metrics-guestos-vm-classic.md  
-          - name: Cloud service guest to Metrics
-            href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
-        - name: Log Analytics agents  
-          items:
-          - name: Overview
-            href: platform/log-analytics-agent.md
-          - name: Windows agents
-            href: platform/agent-windows.md
-          - name: VM Extension for Windows
-            href: ../virtual-machines/windows/extensions-oms.md
-          - name: VM Extension for Linux
-            href: ../virtual-machines/linux/extensions-oms.md
-          - name: Operations Manager
-            href: platform/om-agents.md
-          - name: Log Analytics gateway
-            href: platform/gateway.md
-          - name: Agent management
-            href: platform/agent-manage.md
-          - name: Agent Health
-            href: insights/solution-agenthealth.md
-        - name: Troubleshoot
-          items:
-          - name: Log Analytics VM Extension
-            href: platform/vmext-troubleshoot.md
-          - name: Log Analytics Windows agent
-            href: platform/agent-windows-troubleshoot.md
-          - name: Log Analytics Linux agent
-            href: platform/agent-linux-troubleshoot.md
-      - name: Agent data sources
-        items:
-        - name: Overview
-          href: platform/agent-data-sources.md
-        - name: Windows events
-          href: platform/data-sources-windows-events.md
-        - name: Custom JSON data
-          href: platform/data-sources-json.md
-        - name: CollectD performance data
-          href: platform/data-sources-collectd.md
-        - name: Syslog
-          href: platform/data-sources-syslog.md
-        - name: Performance counters
-          href: platform/data-sources-performance-counters.md
-        - name: Linux application performance
-          href: platform/data-sources-linux-applications.md
-        - name: IIS logs
-          href: platform/data-sources-iis-logs.md
-        - name: Custom logs
-          href: platform/data-sources-custom-logs.md
-        - name: Custom fields
-          href: platform/custom-fields.md
-      - name: Azure Monitor for VMs
-        items:
-        - name: Overview
-          href: insights/vminsights-overview.md
-        - name: Known issues
-          href: insights/vminsights-known-issues.md
-        - name: FAQ
-          href: insights/vminsights-faq.md
-        - name: Enable monitoring
-          items:
-          - name: Enable monitoring overview
-            href: insights/vminsights-enable-overview.md
-          - name: Enable for single Azure VM
-            href: insights/vminsights-enable-single-vm.md
-          - name: Enable using Azure Policy
-            href: insights/vminsights-enable-at-scale-policy.md
-          - name: Enable using Azure PowerShell
-            href: insights/vminsights-enable-at-scale-powershell.md
-          - name: Enable for Hybrid environment
-            href: insights/vminsights-enable-hybrid-cloud.md
-        - name: Monitor health
-          href: insights/vminsights-health.md
-        - name: Map dependencies
-          href: insights/vminsights-maps.md
-        - name: Monitor performance
-          href: insights/vminsights-performance.md
-        - name: Using workbooks
-          href: insights/vminsights-workbooks.md
-        - name: Analyze data with log queries
-          href: insights/vminsights-log-search.md
-        - name: Configure agent collection settings
-          href: insights/container-insights-agent-config.md
-        - name: Disable monitoring
-          href: insights/vminsights-optout.md
-      - name: Capacity and performance solution
-        href: insights/capacity-performance.md
-      - name: VMware Analytics solution
-        href: insights/vmware.md
-      - name: Wire Data solution
-        href: insights/wire-data.md
-      - name: Service Map
-        items:
-        - name: Use
-          href: insights/service-map.md
-        - name: Configure
-          href: insights/service-map-configure.md
-        - name: Integration with Operations Manager
-          href: insights/service-map-scom.md
-    - name: Monitor applications
+    - name: Applications
       items:
       - name: Application Insights overview
         href: app/app-insights-overview.md
@@ -580,7 +415,7 @@
           href: app/visual-studio-trends.md
         - name: CodeLens
           href: app/visual-studio-codelens.md
-    - name: Monitor containers
+    - name: Containers
       items:
       - name: Azure Monitor for containers 
         items:
@@ -616,15 +451,175 @@
         href: insights/containers.md
       - name: Monitor Docker applications
         href: app/docker.md
-    - name: Monitor resource groups
-      href: insights/resource-group-insights.md
-    - name: Monitor databases
+    - name: Virtual machines
+      items: 
+      - name: Agents
+        items:
+        - name: Agents overview
+          href: platform/agents-overview.md
+        - name: Azure Diagnostics extension
+          items:
+          - name: Overview
+            href: platform/diagnostics-extension-overview.md
+          - name: Send to Azure Storage
+            href: platform/diagnostics-extension-to-storage.md
+          - name: Send to Application Insights
+            href: platform/diagnostics-extension-to-application-insights.md
+          - name: Send to Event Hubs
+            href: platform/diagnostics-extension-stream-event-hubs.md
+          - name: Troubleshooting
+            href: platform/diagnostics-extension-troubleshooting.md
+          - name: Prepare for JSON Lines diagnostic logs format
+            href: platform/diagnostic-logs-append-blobs.md
+          - name: VM guest to Metrics
+            href: platform/collect-custom-metrics-guestos-resource-manager-vm.md  
+          - name: Virtual machine scale set guest to Metrics
+            href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
+          - name: VM classic guest to Metrics
+            href: platform/collect-custom-metrics-guestos-vm-classic.md  
+          - name: Cloud service guest to Metrics
+            href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md 
+        - name: Log Analytics agents  
+          items:
+          - name: Overview
+            href: platform/log-analytics-agent.md
+          - name: Windows agents
+            href: platform/agent-windows.md
+          - name: VM Extension for Windows
+            href: ../virtual-machines/windows/extensions-oms.md
+          - name: VM Extension for Linux
+            href: ../virtual-machines/linux/extensions-oms.md
+          - name: Log Analytics gateway
+            href: platform/gateway.md
+          - name: Agent management
+            href: platform/agent-manage.md
+          - name: Agent Health
+            href: insights/solution-agenthealth.md
+        - name: Troubleshoot
+          items:
+          - name: Log Analytics VM Extension
+            href: platform/vmext-troubleshoot.md
+          - name: Log Analytics Windows agent
+            href: platform/agent-windows-troubleshoot.md
+          - name: Log Analytics Linux agent
+            href: platform/agent-linux-troubleshoot.md
+      - name: Agent data sources
+        items:
+        - name: Overview
+          href: platform/agent-data-sources.md
+        - name: Windows events
+          href: platform/data-sources-windows-events.md
+        - name: Custom JSON data
+          href: platform/data-sources-json.md
+        - name: CollectD performance data
+          href: platform/data-sources-collectd.md
+        - name: Syslog
+          href: platform/data-sources-syslog.md
+        - name: Performance counters
+          href: platform/data-sources-performance-counters.md
+        - name: Linux application performance
+          href: platform/data-sources-linux-applications.md
+        - name: IIS logs
+          href: platform/data-sources-iis-logs.md
+        - name: Custom logs
+          href: platform/data-sources-custom-logs.md
+        - name: Custom fields
+          href: platform/custom-fields.md
+      - name: Azure Monitor for VMs
+        items:
+        - name: Overview
+          href: insights/vminsights-overview.md
+        - name: Known issues
+          href: insights/vminsights-known-issues.md
+        - name: FAQ
+          href: insights/vminsights-faq.md
+        - name: Enable monitoring
+          items:
+          - name: Enable monitoring overview
+            href: insights/vminsights-enable-overview.md
+          - name: Enable for single Azure VM
+            href: insights/vminsights-enable-single-vm.md
+          - name: Enable using Azure Policy
+            href: insights/vminsights-enable-at-scale-policy.md
+          - name: Enable using Azure PowerShell
+            href: insights/vminsights-enable-at-scale-powershell.md
+          - name: Enable for Hybrid environment
+            href: insights/vminsights-enable-hybrid-cloud.md
+        - name: Monitor health
+          href: insights/vminsights-health.md
+        - name: Map dependencies
+          href: insights/vminsights-maps.md
+        - name: Monitor performance
+          href: insights/vminsights-performance.md
+        - name: Using workbooks
+          href: insights/vminsights-workbooks.md
+        - name: Analyze data with log queries
+          href: insights/vminsights-log-search.md
+        - name: Configure agent collection settings
+          href: insights/container-insights-agent-config.md
+        - name: Disable monitoring
+          href: insights/vminsights-optout.md
+      - name: Capacity and performance solution
+        href: insights/capacity-performance.md
+      - name: VMware Analytics solution
+        href: insights/vmware.md
+      - name: Wire Data solution
+        href: insights/wire-data.md
+      - name: Service Map
+        items:
+        - name: Use
+          href: insights/service-map.md
+        - name: Configure
+          href: insights/service-map-configure.md
+        - name: Integration with Operations Manager
+          href: insights/service-map-scom.md
+    - name: Databases
       items:
       - name: Azure SQL
         href: insights/azure-sql.md
       - name: SQL Server
         href: insights/sql-assessment.md
-    - name: Monitor networks
+    - name: Azure resources
+      items:
+      - name: Activity log
+        items:
+        - name: Overview
+          href: platform/activity-logs-overview.md
+        - name: View and retrieve
+          href: platform/activity-log-view.md
+        - name: Collect and analyze
+          href: platform/activity-log-collect.md
+        - name: Collect across tenants
+          href: platform/activity-log-collect-tenants.md
+        - name: Export 
+          href: platform/activity-log-export.md
+        - name: Schema
+          href: platform/activity-log-schema.md
+      - name: Diagnostic logs
+        items: 
+        - name: Overview
+          href: platform/diagnostic-logs-overview.md 
+        - name: Collect in Logs
+          href: platform/diagnostic-logs-stream-log-store.md
+        - name: Collect from Azure Storage
+          href: platform/collect-azure-metrics-logs.md
+        - name: Archive to storage
+          href: platform/archive-diagnostic-logs.md
+        - name: Stream data to Event Hubs
+          href: platform/diagnostic-logs-stream-event-hubs.md
+        - name: Enable with Resource Manager templates
+          href: platform/diagnostic-logs-stream-template.md
+        - name: Service logs and metrics
+          href: platform/azure-storage-iis-table.md
+      - name: Stream data to Event Hubs
+        href: platform/stream-monitoring-data-event-hubs.md   
+      - name: Key Vault Analytics
+        href: insights/azure-key-vault.md
+      - name: Service Fabric Analytics
+        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
+      - name: Monitor resource groups
+        href: insights/resource-group-insights.md
+    - name: Networks
       items:
       - name: Networking Analytics
         href: insights/azure-networking-analytics.md
@@ -642,7 +637,7 @@
           href: insights/network-performance-monitor-pricing-faq.md
         - name: FAQ
           href: insights/network-performance-monitor-faq.md
-    - name: Monitor other resources
+    - name: Other resources
       items:
       - name: Assess AD Health
         href: insights/ad-assessment.md
@@ -652,8 +647,6 @@
         href: insights/dns-analytics.md
       - name: Office 365
         href: insights/solution-office-365.md
-      - name: Assess Operations Manager
-        href: insights/scom-assessment.md
       - name: Surface Hub
         href: insights/surface-hubs.md
     - name: Use monitoring solutions
@@ -662,8 +655,12 @@
         href: insights/solutions.md
       - name: Target solutions
         href: insights/solution-targeting.md
-    - name: System Center
+    - name: Use System Center
       items:
+      - name: Connect Operations Manager
+        href: platform/om-agents.md
+      - name: Assess Operations Manager
+        href: insights/scom-assessment.md
       - name: Configuration Manager
         href: platform/collect-sccm.md
   - name: Collect custom data 
@@ -793,7 +790,7 @@
       href: app/app-insights-dashboards.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
-    - name: Alerts
+  - name: Alerting
     items:
     - name: Application alert rules
       items:
@@ -827,8 +824,6 @@
         href: platform/alerts-activity-log.md
       - name: Migrate management events to activity log alerts
         href: platform/migrate-management-alerts.md
-      - name: Alert on service health notifications
-        href: platform/alerts-activity-log-service-notifications.md
     - name: Action groups
       items:
       - name: Create action group
@@ -879,6 +874,16 @@
         href: platform/service-notifications.md
       - name: Configure alerts on notification events
         href: platform/alerts-activity-log-service-notifications.md
+    - name: IT Service Management
+      items:
+      - name: IT Service Management Connector
+        href: platform/itsmc-overview.md
+      - name: IT Service Management connections
+        href: platform/itsmc-connections.md
+      - name: Create Service Manager web app
+        href: platform/itsmc-service-manager-script.md
+  - name: Automate 
+    items:
     - name: Autoscale
       items:
       - name: Walkthrough
@@ -899,16 +904,6 @@
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Use webhooks and email notifications
         href: platform/autoscale-webhook-email.md
-  - name: IT Service Management
-    items:
-    - name: IT Service Management Connector
-      href: platform/itsmc-overview.md
-    - name: IT Service Management connections
-      href: platform/itsmc-connections.md
-    - name: Create Service Manager web app
-      href: platform/itsmc-service-manager-script.md
-  - name: Automate 
-    items:
     - name: PowerShell
       items:  
       - name: Azure PowerShell samples
