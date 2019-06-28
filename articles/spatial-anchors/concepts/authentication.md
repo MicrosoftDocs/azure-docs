@@ -71,7 +71,7 @@ mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
 m_cloudSession->Configuration()->AccountKey("MyAccountKey");
 ```
 
-# [C++ WinRT](#tab/cpp)
+# [C++ WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
