@@ -64,17 +64,16 @@ The [Azure Search .NET SDK](https://aka.ms/search-sdk) consists of a few client 
 
 For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
-1. Install `Microsoft.Azure.Search` using the Package Manager console in Visual Studio. In **Tools** > **NuGet Package Manager**, click **Package Manager Console**. 
+1. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**. 
 
-1. Copy and run the following command: `Install-Package Microsoft.Azure.Search -Version 9.0.1`
+1. Click **Browse**.
 
-   You can get command syntax for other installation methodologies on the [Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search) NuGet package page.
+1. Search for `Microsoft.Azure.Search` and select version 9.0.1 or later.
 
-1. Install `Microsoft.Extensions.Configuration.Json`. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**. 
+1. Click **Install** on the right to add the assembly to your project and solution.
 
-1. Click **Browse** and then search for `Microsoft.Extensions.Configuration.Json`. 
+1. Repeat for `Microsoft.Extensions.Configuration.Json`, selecting version 2.2.0 or later.
 
-1. Once you've found it, select the package, select your project, confirm the version is the latest stable version, then click **Install**.
 
 ### Add Azure Search service information
 
@@ -86,7 +85,7 @@ For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package an
 
 1. Add the file to your output directory. Right-click appsettings.json and select **Properties**. In **Copy to Output Directory**, select **Copy if newer**.
 
-1. Copy the following JSON into your new JSON file. Replace the search service name (YOUR-SEARCH-SERVICE-NAME), query API key (YOUR-QUERY-API-KEY), and admin API key (YOUR-ADMIN-API-KEY) with valid values. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
+1. Copy the following JSON into your new JSON file. Replace the search service name (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY) with valid values. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
 
 ```json
 {
