@@ -46,7 +46,7 @@
   - name: Set pricing and availability
     href: set-pricing-and-availability.md
   - name: AppSource submission FAQ
-    href: office-store-submission-faq.md
+    href: appsource-submission-faq.md
   - name: Create effective AppSource listings
     items:
     - name: Overview

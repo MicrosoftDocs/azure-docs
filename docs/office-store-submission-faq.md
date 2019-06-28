@@ -136,10 +136,5 @@ Two aspects of your submission relate to supported languages:
 
 ## See also
 
-- [Upload your package to AppSource](upload-package.md)
-- [Create your AppSource listing](office-store-listing.md)
-- [Add lead management details for your Office Add-ins in the Seller Dashboard](add-lead-management-details.md)
-- [Decide on a pricing model for your AppSource submission](decide-on-a-pricing-model.md)
-- [Create or update client IDs and secrets in the Seller Dashboard](create-or-update-client-ids-and-secrets.md)
 - [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)

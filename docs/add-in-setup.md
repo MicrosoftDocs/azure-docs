@@ -6,14 +6,14 @@ localization_priority: Normal
 
 # Add-in setup
 
-On the Add-in setup page, you can indicate whether you want your add-in to be available in the Apple Store,provide authorization information, and add lead management details.
+On the Add-in setup page, you can indicate whether you want your add-in to be available in the Apple Store, provide authorization information, and add lead management details.
 
 ## Setup details
 
 If you want your add-in to be available in the Apple Store, select the **iOS** check box.
 
 > [!NOTE]
-> To make your add-in available for iOS, you must set up your Apple ID on the [Account settings](https://partner.microsoft.com/dashboard/account/management) page. If you add your ID in Account settings, remember to refresh the **Add-in setup** page.
+> To make your add-in available for iOS, you must set up your Apple ID on the [Account settings](https://partner.microsoft.com/dashboard/account/management) page. After you add your ID in Account settings, remember to refresh the **Add-in setup** page.
 
 If your add-in requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **Associated service purchase** check box.
 
