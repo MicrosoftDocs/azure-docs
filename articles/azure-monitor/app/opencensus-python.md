@@ -1,5 +1,5 @@
 ---
-title: Monitor Python application with Azure Application Insights | Microsoft Docs
+title: Monitor Python applications with Azure Application Insights | Microsoft Docs
 description: Provides instructions to wire up OpenCensus Python with Application Insights
 services: application-insights
 keywords:
@@ -28,7 +28,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create Application Insights resource
 
-First you have to create an Application Insights resource which will generate an instrumentation key(ikey). The ikey is then used to configure the local forwarder to send distributed traces from your OpenCensus instrumented application, to Application Insights.
+First you have to create an Application Insights resource which will generate an instrumentation key(ikey). The ikey is then used to configure the OpenCensus SDK to send telemetry data to Application Insights.
 
 1. Select **Create a resource** > **Developer Tools** > **Application Insights**.
 
@@ -91,14 +91,20 @@ First you have to create an Application Insights resource which will generate an
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-4. While this is helpful for demonstration purposes, ultimately we want to emit the SpanData in a way that it can be picked up by our **local forwarder service** and sent on to Application Insights. Modify your code from the previous step to the following:
+4. While this is helpful for demonstration purposes, ultimately we want to emit the SpanData to Application Insights. Modify your code from the previous step to the following:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
     from opencensus.trace.samplers import ProbabilitySampler
     from opencensus.trace.tracer import Tracer
-
-    tracer = Tracer(exporter=AzureExporter(), sampler=ProbabilitySampler(1.0))
+    
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    tracer = Tracer(
+        exporter=AzureExporter(
+            instrumentation_key='00000000-0000-0000-0000-000000000000',
+        ),
+        sampler=ProbabilitySampler(1.0),
+    )
 
     def valuePrompt():
         with tracer.span(name="test") as span:
@@ -140,16 +146,14 @@ First you have to create an Application Insights resource which will generate an
 
      ![Screenshot of end-to-end transaction interface](./media/opencensus-python/0009-end-to-end-transaction.png)
 
-## OpenCensus trace for Python
-
-We only covered the basics of wiring up OpenCensus for Python with the local forwarder and Application Insights. The official usage guidance covers more advanced topics like:
+## OpenCensus for Python
 
 * [Customization](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
 * [Flask Integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-flask)
 * [Django Integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-django)
 * [MySQL Integration](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
 * [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
-  
+
 ## Next steps
 
 * [OpenCensus Python on GitHub](https://github.com/census-instrumentation/opencensus-python)
