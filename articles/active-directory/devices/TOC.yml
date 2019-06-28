@@ -18,8 +18,14 @@
   - name: Configure Azure AD join during Windows 10 first-run experience
     href: azuread-joined-devices-frx.md
 - name: Concepts
-  expanded: false
+  expanded: true
   items:
+  - name: Azure AD registered devices
+    href: concept-azure-ad-register.md
+  - name: Azure AD joined devices
+    href: concept-azure-ad-join.md
+  - name: Hybrid Azure AD joined devices
+    href: concept-azure-ad-join-hybrid.md
   - name: SSO to on-premises resources
     href: azuread-join-sso.md
   - name: Primary Refresh Tokens
@@ -27,7 +33,7 @@
   - name: Azure managed workstations
     href: concept-azure-managed-workstation.md
 - name: How-to guides
-  expanded: true
+  expanded: false
   items:
   - name: Manage device identity
     href: device-management-azure-portal.md
