@@ -135,7 +135,7 @@ az group export --name $resourceGroupName
 
 The script displays the template on the console.  Copy the JSON, and save as a file.
 
-For more information, see [Export resource group](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+For more information, see [Single and multi-resource export to template in Azure portal](./export-template-portal.md).
 
 ## Manage access to resource groups
 
