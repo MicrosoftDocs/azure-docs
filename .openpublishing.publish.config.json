@@ -306,6 +306,12 @@
       "branch": "master",
       "branch_mapping": {}
     },
+	{
+      "path_to_root": "samples-cosmosdb-dotnet-v3",
+      "url": "https://github.com/Azure/azure-cosmos-dotnet-v3",
+      "branch": "master",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "cosmosdb-nodejs-get-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",

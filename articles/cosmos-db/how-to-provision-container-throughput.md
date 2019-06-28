@@ -64,16 +64,7 @@ await client.CreateDocumentCollectionAsync(
 ```
 
 ### .Net V3 SDK
-```csharp
-// Create a container with a partition key and provision throughput of 1000 RU/s
-string containerName = "myContainerName";
-string partitionKeyPath = "/myPartitionKey";
-
-await this.cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(
-    id: containerName,
-    partitionKeyPath: partitionKeyPath,
-    throughput: 1000);
-```
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 

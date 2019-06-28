@@ -51,12 +51,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 ```
 
 ### .Net V3 SDK
-```csharp
-//create the database with throughput
-await this.cosmosClient.CreateDatabaseIfNotExistsAsync(
-                    id : databaseName,
-                    throughput: 1000);
-```
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
 
