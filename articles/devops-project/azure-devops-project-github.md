@@ -97,7 +97,7 @@ Azure DevOps Projects automatically configures a CI/CD pipeline in Azure Pipelin
 
    ![Azure DevOps Pipeline Builds](_img/azure-devops-project-github/pipelinesbuildpage.png)
 
-3. In the upper right corner of the **Builds** page, you’ll see options to **Edit**, **Queue** a new build and the ellipsis (**&#8942;**) to open a menu with more options, select **Edit**.
+3. In the upper right corner of the **Builds** page, you’ll see options to **Edit** the current build, **Queue** to queue a new build and the ellipsis (**&#8942;**) to open a menu with more options, select **Edit**.
 
 4. The build performs various tasks, such as fetching sources from the repo, restoring dependencies, and publishing outputs for deployments. To the right under **Name**, change the build pipeline name to something more descriptive. Select **Save & Queue**, then **Save**, leave a comment and then select **Save** again.
 
