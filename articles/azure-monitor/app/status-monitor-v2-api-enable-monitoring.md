@@ -107,7 +107,7 @@ When you have a cluster of web servers, you might be using a [shared configurati
 The HttpModule can't be injected into this shared configuration.
 This script will fail with the message that extra installation steps are required.
 Use this switch to ignore this check and continue installing prerequisites. 
-For more information, see [known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot#conflict-with-iis-shared-configuration)
+For more information, see [known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
 
 ### -Verbose
 **Common parameter.** Use this switch to display detailed logs.
