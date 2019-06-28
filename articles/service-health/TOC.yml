@@ -19,9 +19,9 @@
 - name: How To
   items:
   - name: Configure alerts for service health events
-    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+    href: alerts-activity-log-service-notifications.md
   - name: View service health notifications by using the Azure portal
-    href: ../azure-monitor/platform/service-notifications.md
+    href: service-notifications.md
   - name: Send alerts to outside systems via webhook
     href: service-health-alert-webhook-guide.md
   - name: Send alerts to ServiceNow
