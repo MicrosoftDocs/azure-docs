@@ -42,11 +42,15 @@ The code in this how-to can be run in either of the following environments:
 
 ## Launch TensorBoard from run history
 
-To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance. In the following sections, we run the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, AMLCompute, and demonstrate how to 
+To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance. 
+
+In the following sections, we run the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, AMLCompute, and demonstrate how to 
 start TensorBoard against a TensorFlow experiment, that is, an experiment that natively outputs run history files that are TensorBoard consumable.
 
 ### Set experiment name and create project folder
 
+Here we name the experiment and create its folder. 
+ 
 ```python
 from os import path, makedirs
 experiment_name = 'tensorboard-demo'
@@ -57,8 +61,6 @@ exp_dir = './sample_projects/' + experiment_name
 if not path.exists(exp_dir):
     makedirs(exp_dir)
 
-# runs we started in this session, for the finale
-runs = []
 ```
 
 ### Download TensorFlow demo experiment code
