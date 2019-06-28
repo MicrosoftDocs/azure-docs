@@ -63,7 +63,7 @@ Then add the following plugin definition inside the `<build>` element of the `po
 </plugins>
 ```
 
-The deploy process to Azure App Service uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
+The deploy process to Azure App Service uses account credentials from the Azure CLI. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
 
 ```azurecli
 az login
