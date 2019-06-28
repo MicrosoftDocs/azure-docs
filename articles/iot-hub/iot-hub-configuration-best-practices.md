@@ -3,7 +3,7 @@ title: Device configuration best practices for Azure IoT Hub | Microsoft Docs
 description: Learn about best practices for configuring IoT devices at scale
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
