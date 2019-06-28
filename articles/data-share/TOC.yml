@@ -13,6 +13,10 @@
   items:
   - name: Azure Data Share Terminology 
     href: terminology.md
+- name: How-to guides
+  items:
+  - name: Troubleshoot Azure Data Share Preview
+    href: data-share-troubleshooting.md
 - name: Resources
   items:
   - name: Blog
