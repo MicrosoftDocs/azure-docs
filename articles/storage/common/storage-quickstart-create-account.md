@@ -7,7 +7,7 @@ ms.custom: mvc
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 06/28/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -137,6 +137,8 @@ To create a general-purpose v2 storage account with a different replication opti
 |Zone-redundant storage (ZRS)     |Standard_ZRS         |
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
+|Geo-zone-redundant storage (GZRS) (preview)    |Standard_GZRS         |
+|Read-access geo-zone-redundant storage (RA-GZRS) (preview)    |Standard_RAGZRS         |
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -175,6 +177,8 @@ To create a general-purpose v2 storage account with a different replication opti
 |Zone-redundant storage (ZRS)     |Standard_ZRS         |
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
+|Geo-zone-redundant storage (GZRS) (preview)    |Standard_GZRS         |
+|Read-access geo-zone-redundant storage (RA-GZRS) (preview)    |Standard_RAGZRS         |
 
 # [Template](#tab/template)
 

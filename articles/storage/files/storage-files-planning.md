@@ -156,7 +156,7 @@ New file shares start with the full number of credits in its burst bucket. Burst
 
 ## File share redundancy
 
-Azure Files standard shares supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), and geo-redundant storage (GRS).
+Azure Files standard shares supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
 
 Azure Files premium shares only supports locally redundant storage (LRS).
 
@@ -187,6 +187,7 @@ Both the primary and secondary regions manage replicas across separate fault dom
 
 Keep these points in mind when deciding which replication option to use:
 
+* Geo-zone-redundant storage (GZRS) (preview) provides high availability together with maximum durability by replicating data synchronously across three Azure availability zones and then replicating data asynchronously to the secondary region. You can also enable read access to the secondary region. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. For more information on GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](../articles/storage/common/storage-redundancy-zrs.md).
 * Zone-redundant storage (ZRS) provides highly availability with synchronous replication and may be a better choice for some scenarios than GRS. For more information on ZRS, see [ZRS](../common/storage-redundancy-zrs.md).
 * Asynchronous replication involves a delay from the time that data is written to the primary region, to when it is replicated to the secondary region. In the event of a regional disaster, changes that haven't yet been replicated to the secondary region may be lost if that data can't be recovered from the primary region.
 * With GRS, the replica isn't available for read or write access unless Microsoft initiates a failover to the secondary region. In the case of a failover, you'll have read and write access to that data after the failover has completed. For more information, please see [Disaster recovery guidance](../common/storage-disaster-recovery-guidance.md).

@@ -6,16 +6,18 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ---
 
-# Zone-redundant storage (ZRS): Highly available Azure Storage applications
+# Zone-redundant storage (ZRS) for building highly available Azure Storage applications
+
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## Support coverage and regional availability
+
 ZRS currently supports standard general-purpose v2 account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
 ZRS is available for block blobs, non-disk page blobs, files, tables, and queues.
@@ -36,6 +38,7 @@ ZRS is generally available in the following regions:
 Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about new regions.
 
 ## What happens when a zone becomes unavailable?
+
 Your data is still accessible for both read and write operations even if a zone becomes unavailable. Microsoft recommends that you continue to follow practices for transient fault handling. These practices include implementing retry policies with exponential back-off.
 
 When a zone is unavailable, Azure undertakes networking updates, such as DNS repointing. These updates may affect your application if you are accessing your data before the updates have completed.
@@ -43,6 +46,7 @@ When a zone is unavailable, Azure undertakes networking updates, such as DNS rep
 ZRS may not protect your data against a regional disaster where multiple zones are permanently affected. Instead, ZRS offers resiliency for your data if it becomes temporarily unavailable. For protection against regional disasters, Microsoft recommends using geo-redundant storage (GRS). For more information about GRS, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md).
 
 ## Converting to ZRS replication
+
 Migrating to or from LRS, GRS, and RA-GRS is straightforward. Use the Azure portal or the Storage Resource Provider API to change your account's redundancy type. Azure will then replicate your data accordingly. 
 
 Migrating data to ZRS requires a different strategy. ZRS migration involves the physical movement of data from a single storage stamp to multiple stamps within a region.

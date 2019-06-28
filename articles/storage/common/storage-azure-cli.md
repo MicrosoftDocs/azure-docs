@@ -189,6 +189,8 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+  * `Standard_GZRS` (preview)
+  * `Standard_RAGZRS` (preview)
 
 ### Set default Azure storage account environment variables
 
