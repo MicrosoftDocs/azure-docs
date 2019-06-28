@@ -40,9 +40,45 @@ Two keys are made available, which are both simultaneously valid for access to t
 
 The SDK has built-in support for authenticating with account keys; you simply need to set the AccountKey property on your cloudSession object. 
 
+
+# [C#](#tab/csharp)
+
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
+
+# [ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.accountKey = @"MyAccountKey";
+```
+
+# [Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.accountKey = "MyAccountKey"
+```
+
+# [Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+m_cloudSession->Configuration()->AccountKey("MyAccountKey");
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AccountKey(LR"(MyAccountKey)");
+```
+
+***
 
 Once that is done, the SDK will handle the exchange of the account key for an access token, and the necessary caching of tokens for your app. 
 
