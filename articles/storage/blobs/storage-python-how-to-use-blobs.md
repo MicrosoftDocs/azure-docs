@@ -1,26 +1,23 @@
 ---
-title: How to use Azure Blob storage from Python
-description: Use the Azure Storage Client Library for Python to interact with Azure Blob storage
+title: Use Python with Azure Data Lake Storage Gen2
+description: Use the Azure Storage Client Library to interact with Azure Blob storage accounts that have a hierarchical namespace
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 03/21/2019
+ms.date: 06/28/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
 ---
 
-# How to use Blob storage from Python
+# Use Python with Azure Data Lake Storage Gen2
 
-This guide shows you how to interact with blobs by using Python. It contains snippets that help you get started with common tasks such as uploading and downloading blobs. It also contains snippets that showcase common tasks with a hierarchical file system.
+This guide shows you how to use Python to interact with objects, manage directories, and set directory-level access permissions (access-control lists) in storage accounts that have a hierarchical namespace. 
 
-## Create a storage account
+To use the snippets presented in this article, you'll need to create a storage account, and then enable the hierarchical namespace feature on that account. See [Create a storage account](data-lake-storage-quickstart-create-account.md).
 
-To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-Enable a hierarchical namespace if you want to use the code snippets in this article that perform operations on a hierarchical file system.
-
-![Enabling a hierarchical namespace](media/storage-python-how-to-use-blobs/enable-hierarchical-namespace.png)
+> [!NOTE]
+> The snippets featured in this article use terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*. This article refers to other articles that contain snippets for common tasks. Because those articles apply to all blob storage accounts regardless of whether hierarchical namespaces have been enabled, they'll use the terms *container* and *blob*. To avoid confusion, this article does the same.
 
 ## Install Python and the Azure SDK for Python
 
@@ -45,126 +42,91 @@ from azure.storage.blob import BlockBlobService, PublicAccess
 > * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice?view=azure-python) module
 > * [PublicAccess](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.models.publicaccess?view=azure-python) module
 
-[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
+## Perform common blob tasks 
 
-## Create a container and set permissions
+You can use the same set of APIs to interact with your data objects regardless of whether the account has a hierarchical namespace. To find snippets that help you perform common tasks such as creating a container (file system), uploading and downloading blobs (files), and deleting blobs and containers, see [Quickstart: Upload, download, and list blobs with Python](storage-quickstart-blobs-python.md).
 
-Create an instance of the [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class by using the name of your storage account and the storage account key that you obtained the previous section.
+The rest of this article presents snippets that help you perform tasks related only to accounts that have a hierarchical namespace. 
 
-Then, create a container and set the permissions on that container.
+## Add directory to a container
 
-```python
-def create_container(storage_account_name, storage_account_key):
-    global block_blob_service
-    block_blob_service = BlockBlobService(account_name=storage_account_name, account_key=storage_account_key)
+Intro text here
 
-    global container_name
-    container_name = 'my-blob'
-    block_blob_service.create_container(container_name)
-
-    # Set the permission so the blobs are public.
-    block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
+```cs
+Snippet here
 ```
 
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
-> * [BaseBlobService.set_container_acl](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#set-container-acl-container-name--signed-identifiers-none--public-access-none--lease-id-none--if-modified-since-none--if-unmodified-since-none--timeout-none-) method
-> * [BaseBlobService.create_container](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#create-container-container-name--metadata-none--public-access-none--fail-on-exist-false--timeout-none-) method
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
 
-## Upload blobs to the container
+## Rename or move a directory
 
-Upload a file by calling the [create_blob_from_path]() method. Pass these items as parameters to the method:
+Intro text here
 
-* The name of the container.
-* The fully qualified path of your file. This path includes the file name (For example: `C:\users\contoso\myfile.txt`).
-* The name that you want to give to the file. You'll use that name to refer to the file in the storage account.
-
-```python
-def upload_blob(file_path, file_name):
-    block_blob_service.create_blob_from_path(container_name, file_path, file_name)
+```cs
+Snippet here
 ```
 
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class.
-> * [BlockBlobService.create_blob_from_path](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python#create-blob-from-path-container-name--blob-name--file-path--content-settings-none--metadata-none--validate-content-false--progress-callback-none--max-connections-2--lease-id-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-) method
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
 
-## List blobs in the container
+## Delete a directory from a container
 
-Get a list of files in the container by calling the [list_blobs](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#list-blobs-container-name--prefix-none--num-results-none--include-none--delimiter-none--marker-none--timeout-none-) method.
+Intro text here
 
-This method returns a generator object. You can iterate through the items in that object.
-
-```python
-def list_blobs():
-    print("\nList blobs in the container")
-    generator = block_blob_service.list_blobs(container_name)
-    for blob in generator:
-        print("\t Blob name: " + blob.name)
+```cs
+Snippet here
 ```
 
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
-> * [BaseBlobService.list_blobs](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#list-blobs-container-name--prefix-none--num-results-none--include-none--delimiter-none--marker-none--timeout-none-) method
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
 
-## Download blobs from the container
+## Get the ACL for a directory
 
-Download blobs to your local disk calling the [get_blob_to_path]() method. Pass these items as parameters to the method:
+Intro text here
 
-* The name of the container.
-* The name of the blob file.
-* The fully qualified path to a location on your local machine. This path includes the file name that you'd like to give the downloaded file (For example: `C:\users\contoso\myfile-downloaded.txt`).
-
-```python
-def download_blob(file_name, file_destination_path):
-    block_blob_service.get_blob_to_path(container_name, local_file_name, file_destination_path)
+```cs
+Snippet here
 ```
 
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
-> * [BaseBlobService.get_blob_to_path](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#get-blob-to-path-container-name--blob-name--file-path--open-mode--wb---snapshot-none--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--lease-id-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-) method
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
 
-## Delete blobs from the container
+## Set the ACL for a directory
 
-Delete a blob by calling the [delete_blob](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#delete-blob-container-name--blob-name--snapshot-none--lease-id-none--delete-snapshots-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-) method. Pass these items as parameters to the method:
+Intro text here
 
-* The name of the container.
-* The name of the blob file.
-
-```python
-def delete_blob(file_name):
-    block_blob_service.delete_blob(container_name, file_name)
-
+```cs
+Snippet here
 ```
 
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
-> * [BaseBlobService.delete_blob](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#delete-blob-container-name--blob-name--snapshot-none--lease-id-none--delete-snapshots-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-)
-
-## Delete the container
-
-Delete a container by calling the [delete_container](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#delete-container-container-name--fail-not-exist-false--lease-id-none--if-modified-since-none--if-unmodified-since-none--timeout-none-) method.
-
-```python
-def delete_container():
-    block_blob_service.delete_container(container_name)
-```
-
-### APIs featured in this snippet
-
-> [!div class="checklist"]
-> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
-> * [BaseBlobService.delete_container](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python#delete-container-container-name--fail-not-exist-false--lease-id-none--if-modified-since-none--if-unmodified-since-none--timeout-none-)
-
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
+> * [Type](url) method.
 ## Next steps
 
 Explore more APIs in the [blob package](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob?view=azure-python) section of the [Azure Client SDK for Python](https://docs.microsoft.com/python/api/overview/azure/storage/client?view=azure-python) docs.
