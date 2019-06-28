@@ -59,6 +59,8 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    ![Not provisioned](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)
 
+    [![Not provisioned](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png "Not provisioned")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png#lightbox)
+
    **Circuit - Provider status: Provisioned**
 
    ![Provisioned](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)
