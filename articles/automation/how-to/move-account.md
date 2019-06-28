@@ -4,11 +4,11 @@ description: This article describes how to move your Automation account to anoth
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/11/2019
 ms.topic: conceptual
-manager: carmonm 
+manager: carmonm
 ---
 # Move your Azure Automation account to another subscription
 
