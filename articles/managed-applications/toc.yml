@@ -64,7 +64,7 @@
     - name: Custom resource proxy reference
       href: custom-providers-proxy-resource-endpoint-reference.md
     - name: Custom resource cache reference
-      href: custom-providers-proxycache-resource-endpoint-reference.md
+      href: custom-providers-proxy-cache-resource-endpoint-reference.md
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell

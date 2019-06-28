@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Adding Custom Resources to Azure REST API
 
-This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implements custom resources. If you are unfamiliar with Azure Custom Resource Providers, [see the overview on custom resource providers](./custom-providers-overview.md).
+This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implements custom resources. If you are unfamiliar with Azure Custom Resource Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
 
 ## How to define a resource endpoint
 
@@ -62,7 +62,7 @@ The "`Proxy`" **routingType** proxies all request methods to the **endpoint** sp
 - Full control over the response is needed.
 - Integrating systems with existing resources.
 
-To learn more about "`Proxy`" resources, [see the custom resource proxy reference](./custom-providers-proxy-resource-endpoint-reference.md)
+To learn more about "`Proxy`" resources, see [the custom resource proxy reference](./custom-providers-proxy-resource-endpoint-reference.md)
 
 ### proxy cache routing type
 
@@ -71,7 +71,7 @@ The "`Proxy, Cache`" **routingType** proxies only `PUT` and `DELETE` request met
 - Creating a new system that has no existing resources.
 - Work with existing Azure ecosystem.
 
-To learn more about "`Proxy, Cache`" resources, [see the custom resource cache reference](./custom-providers-proxy-cache-resource-endpoint-reference.md)
+To learn more about "`Proxy, Cache`" resources, see [the custom resource cache reference](./custom-providers-proxy-cache-resource-endpoint-reference.md)
 
 ## Creating a custom resource
 

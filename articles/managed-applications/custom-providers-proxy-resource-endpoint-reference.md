@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Custom Resource Proxy Reference
 
-This article will go through the requirements for endpoints implementing proxy custom resources. If you are unfamiliar with Azure Custom Resource Providers, [see the overview on custom resource providers](./custom-providers-overview.md).
+This article will go through the requirements for endpoints implementing proxy custom resources. If you are unfamiliar with Azure Custom Resource Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
 
 ## How to define a proxy resource endpoint
 

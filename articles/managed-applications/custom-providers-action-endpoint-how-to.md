@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 # Adding Custom Actions to Azure REST API
 
-This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implement custom actions. If you are unfamiliar with Azure Custom Resource Providers, [see the overview on custom resource providers](./custom-providers-overview.md).
+This article will go through the requirements and best practices for creating Azure Custom Resource Provider endpoints that implement custom actions. If you are unfamiliar with Azure Custom Resource Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
 
 ## How to define an Action Endpoint
 
