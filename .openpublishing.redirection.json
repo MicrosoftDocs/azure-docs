@@ -36669,6 +36669,17 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-create-dataset-snapshots.md",
+      "redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/machine-learning/service/how-to-manage-dataset-definitions.md",
+      "redirect_url": "https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/governance/policy/samples/allowed-app-gate-sku.md",
       "redirect_url": "/azure/governance/policy/samples/allowed-app-gateway-sku",
       "redirect_document_id": true
@@ -37559,7 +37570,12 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-analyze-flight-delay-data.md",
-      "redirect_url": "/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux",
+      "redirect_url": "/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-analyze-flight-delay-data-linux.md",
+      "redirect_url": "/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data",
       "redirect_document_id": false
     },
     {
@@ -40015,6 +40031,11 @@
     {
       "source_path": "articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instance.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
       "redirect_document_id": false
     }
   ]
