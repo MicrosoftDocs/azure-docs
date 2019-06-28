@@ -3,13 +3,13 @@ title: Language support - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: A list of natural languages supported by the Translator Text API.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
-ms.author: v-pawal
+ms.author: swmachan
 ---
 # Language and region support for the Translator Text API
 

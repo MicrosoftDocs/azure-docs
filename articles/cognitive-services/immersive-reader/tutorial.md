@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* A subscription key for Immersive Reader. Get one by following [these instructions](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).
+* A subscription key for Immersive Reader. Get one by following [these instructions](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 * [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com)
 * An IDE such as [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -183,7 +183,7 @@ You can include math content in the Immersive Reader by using [MathML](https://d
 1. Modify _views\index.pug_ to include the following code above the call to `ImmersiveReader.launchAsync`:
 
     ```javascript
-    const mathML = '<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"> \
+    const mathML = '<math xmlns="https://www.w3.org/1998/Math/MathML" display="block"> \
       <munderover> \
         <mo>∫</mo> \
         <mn>0</mn> \

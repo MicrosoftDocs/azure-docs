@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads)
-* A subscription key for Immersive Reader. Get one by following [these instructions](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account).
+* A subscription key for Immersive Reader. Get one by following [these instructions](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
 ## Create a web app project
 
