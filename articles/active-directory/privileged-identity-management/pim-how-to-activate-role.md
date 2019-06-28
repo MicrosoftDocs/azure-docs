@@ -36,7 +36,7 @@ When you need to take on an Azure AD role, you can request activation by using t
 
 1. Click **My roles** to see a list of your eligible Azure AD roles.
 
-    ![Azure AD roles - My roles to show eligible or active roles list](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Azure AD roles - My roles showing eligible or active roles list](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Find a role that you want to activate.
 
