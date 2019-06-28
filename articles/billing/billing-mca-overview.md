@@ -14,7 +14,7 @@ ms.author: banders
 
 # Get started with your Microsoft Customer Agreement billing account
 
-A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement or Microsoft Customer Agreement. For each of these scenarios, you would have a separate billing account.
+A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access to Azure through your organization's Enterprise Agreement or Microsoft Customer Agreement. For each of these scenarios, you would have a separate billing account.
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
@@ -32,7 +32,7 @@ Roles on the billing account have the highest level of permissions. By default, 
 
 Use a billing profile to manage your invoice and payment methods. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges for all Azure subscriptions and other purchases from the previous month.
 
-A billing profile is automatically created for your billing account. It contains one invoice section by default. You may create additional sections to easily track and organize costs based on your needs whether is it per project, department or development environment. You’ll see these sections on the billing profile's invoice reflecting the usage of each subscription and purchases you’ve assigned to it.
+A billing profile is automatically created for your billing account. It contains one invoice section by default. You may create additional sections to easily track and organize costs based on your needs whether is it per project, department, or development environment. You’ll see these sections on the billing profile's invoice reflecting the usage of each subscription and purchases you’ve assigned to it.
 
 Roles on the billing profiles have permissions to view and manage invoices and payment methods. Assign these roles to users who pay invoices like members of the accounting team in your organization. For more information, see [billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 

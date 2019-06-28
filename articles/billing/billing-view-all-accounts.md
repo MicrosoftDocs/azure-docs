@@ -42,7 +42,7 @@ A scope is a node within a billing account that users use to view and manage bil
 
 |Scope  |Tasks  |
 |---------|---------|
-|Billing account     |   Represents a customer agreement for multiple Microsoft products and services. Is is structured using billing profiles and invoice section.   |
+|Billing account     |   Represents a customer agreement for multiple Microsoft products and services. IT is structured using billing profiles and invoice section.   |
 |Billing profile     |  Represents an invoice and its payment methods. Invoice is generated at this scope. It can have multiple invoice sections.      |
 |Invoice section     |   Represents a group of cost in an invoice. Subscriptions and other purchases are associated to this scope.    |
 

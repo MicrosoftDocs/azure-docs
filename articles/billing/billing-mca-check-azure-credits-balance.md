@@ -23,7 +23,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ## Check your credit balance
 
-1. Sign-in to the [Azure portal]( https://portal.azure.com).
+1. Sign in to the [Azure portal]( https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 
@@ -43,14 +43,10 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    ![Screenshot of credits lists for a Billing profile](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
 
-Here are the terms shown in the portal:
-
-
 | Term | Definition |
 |---|---|
-| Estimated balance | Estimated amount of credits you have after considering all billed and pending transactions |
-| Current balance | Amount of credits as of your last invoice. It doesn't include any pending transactions |
-| Transactions | All billing transactions that affected your Azure credit balance |
+| Estimated balance | Amount of Azure credit you have after subtracting unbilled credit eligible charges from your current balance|
+| Current balance | Amount of Azure credit you have before considering unbilled credit eligible charges. It is calculated by adding new Azure credits you've received to the credit balance at the time of your last invoice|
 | Source | The acquisition source of the credit |
 | Start date | The date when you acquired the credit |
 | Expiration date | The date when the credit expires |

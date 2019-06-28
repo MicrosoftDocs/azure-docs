@@ -65,7 +65,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
    
    ![Screenshot that shows selecting invoice sections](./media/billing-mca-request-billing-ownership/mca-select-invoice-sections.png)        
 
-4. Select an invoice section from the list. This is the invoice section for which you sent the transfer request.
+4. Select the invoice section from the list for which you sent the transfer request.
 
 5. Select **Transfer requests** from the lower-left side. The Transfer requests page displays the following information:
 
@@ -127,7 +127,7 @@ You can request billing ownership of the subscription types listed below.
 
 \* Any credit available on the subscription will not be available in the new account after the transfer.
 
-\*\* Only supported for subscriptions in accounts that are created during sign up on the Azure website.
+\*\* Only supported for subscriptions in accounts that are created during sign-up on the Azure website.
 
 
 ## Additional information
@@ -156,7 +156,7 @@ Azure Reservations don't automatically move with subscriptions. [Contact Azure s
 
 ### Access to Azure services
 
-Access for existing users, groups or service principals that was assigned using (Azure RBAC (role-based access control))[../role-based-access-control/overview.md] is not affected during the transition.
+Access for existing users, groups, or service principals that was assigned using (Azure RBAC (role-based access control))[../role-based-access-control/overview.md] is not affected during the transition.
 
 ### Azure support plan
 
