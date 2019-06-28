@@ -1,6 +1,6 @@
 ---
-title: Recommended security practices
-description: Managed services offers allow service providers to sell resource management offers to customers in Azure Marketplace.
+title: Recommended security practices for Azure delegated resource management
+description: When using Azure delegated resource management, it’s important to consider security and access control.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
