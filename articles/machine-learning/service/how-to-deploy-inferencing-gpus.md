@@ -1,7 +1,7 @@
 ---
 title: Deploy a model for inference with GPU 
 titleSuffix: Azure Machine Learning service
-description: Learn how to deploy a deep learning model as a web service that uses a GPU for inference. In this article, a Tensorflow model is deployed to an Azure Kubernetes Service cluster. The cluster uses a GPU-enabled VM to host the web service and score inference requests.
+description: This article teaches you how to use the Azure Machine Learning service to deploy a gpu-enabled Tensorflow deep learning model as a web service.service and score inference requests.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,24 +14,25 @@ ms.date: 05/02/2019
 
 # Deploy a deep learning model for inference with GPU
 
-Learn how to use GPU inference for a machine learning model deployed as a web service. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
+This article teaches you how to use the Azure Machine Learning service to deploy a gpu-enabled Tensorflow deep learning model as a web service.
 
-This article teaches you how to use the Azure Machine Learning service to deploy an example Tensorflow deep learning model to an Azure Kubernetes Service (AKS) cluster on a GPU-enabled virtual machine (VM). When requests are sent to the service, the model uses the GPU to run the inference workloads.
+Deploy your model to an Azure Kubernetes Service (AKS) cluster to do GPU-enabled inferencing. Inferencing, or model scoring, is the phase where the deployed model is used for prediction. Using GPUs instead of CPUs offer performance advantages on highly parallelizable computation.
 
-GPUs offer performance advantages over CPUs on highly parallelizable computation. Excellent use cases for GPU-enabled VMs include deep learning model training and inference, especially for large batches of requests.
+Although this sample uses a TensorFlow model, you can apply the following steps to any machine learning framework that supports GPUs by making small changes to the scoring file and the environment file. 
 
-This example demonstrates how to deploy a TensorFlow saved model to Azure Machine Learning. You take the following steps:
+In this article, you take the following steps:
 
 * Create a GPU-enabled AKS cluster
 * Deploy a Tensorflow GPU model
 
 ## Prerequisites
 
-* An Azure Machine Learning services workspace
-* A Python distro
-* A registered Tensorflow saved model. To learn how to register models, see [Deploy Models](../service/how-to-deploy-and-where.md#registermodel).
+* An Azure Machine Learning services workspace.
+* A Python distro.
+* A registered Tensorflow saved model.
+    * To learn how to register models, see [Deploy Models](../service/how-to-deploy-and-where.md#registermodel).
 
-This article is based on the Jupyter notebook, [Deploying Tensorflow Models to AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb). The Jupyter notebook uses TensorFlow saved models and deploys them to an AKS cluster. You can also apply the notebook to any machine learning framework that supports GPUs by making small changes to the scoring file and the environment file.  
+You can complete part one of this how-to series, [How to Train a TensorFlow Model](how-to-train-tensorflow.md), to fulfill the necessary prerequisites.
 
 ## Provision an AKS cluster with GPUs
 
@@ -39,16 +40,25 @@ Azure has many different GPU options. You can use any of them for inferencing. S
 
 For more information on using AKS with Azure Machine Learning service, see [How to deploy and where](../service/how-to-deploy-and-where.md#deploy-aks).
 
-```python
-# Provision AKS cluster with GPU machine
-prov_config = AksCompute.provisioning_configuration(vm_size="Standard_NC6")
+```Python
+# Choose a name for your cluster
+aks_name = "aks-gpu"
 
-# Create the cluster
-aks_target = ComputeTarget.create(
-    workspace=ws, name=aks_name, provisioning_configuration=prov_config
-)
+# Check to see if the cluster already exists
+try:
+    compute_target = ComputeTarget(workspace=ws, name=aks_name)
+    print('Found existing compute target')
+except ComputeTargetException:
+    print('Creating a new compute target...')
+    # Provision AKS cluster with GPU machine
+    prov_config = AksCompute.provisioning_configuration(vm_size="Standard_NC6")
 
-aks_target.wait_for_deployment()
+    # Create the cluster
+    aks_target = ComputeTarget.create(
+        workspace=ws, name=aks_name, provisioning_configuration=prov_config
+    )
+
+    aks_target.wait_for_completion(show_output=True)
 ```
 
 > [!IMPORTANT]
@@ -59,66 +69,49 @@ aks_target.wait_for_deployment()
 Save the following code to your working directory as `score.py`. This file scores images as they're sent to your service. It loads the TensorFlow saved model, passes the input image to the TensorFlow session on each POST request, and then returns the resulting scores. Other inferencing frameworks require different scoring files.
 
 ```python
-import tensorflow as tf
+import json
 import numpy as np
-import ujson
+import os
+import tensorflow as tf
+
 from azureml.core.model import Model
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
 
 def init():
-    global session
-    global input_name
-    global output_name
+    global X, output, sess
+    tf.reset_default_graph()
+    model_root = Model.get_model_path('tf-dnn-mnist-pl')
+    saver = tf.train.import_meta_graph(os.path.join(model_root, 'mnist-tf.model.meta'))
+    X = tf.get_default_graph().get_tensor_by_name("network/X:0")
+    output = tf.get_default_graph().get_tensor_by_name("network/output/MatMul:0")
     
-    session = tf.Session()
+    sess = tf.Session()
+    saver.restore(sess, os.path.join(model_root, 'mnist-tf.model'))
 
-    model_path = Model.get_model_path('resnet50')
-    model = tf.saved_model.loader.load(session, ['serve'], model_path)
-    if len(model.signature_def['serving_default'].inputs) > 1:
-        raise ValueError("This score.py only supports one input")
-    input_name = [tensor.name for tensor in model.signature_def['serving_default'].inputs.values()][0]
-    output_name = [tensor.name for tensor in model.signature_def['serving_default'].outputs.values()]
-    
-
-@rawhttp
-def run(request):
-    if request.method == 'POST':
-        reqBody = request.get_data(False)
-        resp = score(reqBody)
-        return AMLResponse(resp, 200)
-    if request.method == 'GET':
-        respBody = str.encode("GET is not supported")
-        return AMLResponse(respBody, 405)
-    return AMLResponse("bad request", 500)
-
-def score(data):
-    result = session.run(output_name, {input_name: [data]})
-    return ujson.dumps(result[1])
-
-if __name__ == "__main__":
-    init()
-    with open("lynx.jpg", 'rb') as f: #load file for testing locally
-        content = f.read()
-        print(score(content))
+def run(raw_data):
+    data = np.array(json.loads(raw_data)['data'])
+    # make prediction
+    out = output.eval(session=sess, feed_dict={X: data})
+    y_hat = np.argmax(out, axis=1)
+    return y_hat.tolist()
 
 ```
-
 ## Define the conda environment
 
 Create a conda environment file named `myenv.yml` to specify the dependencies for your service. It's important to specify that you're using `tensorflow-gpu` to achieve accelerated performance.
 
 ```yaml
-name: aml-accel-perf
-channels:
-  - defaults
+name: project_environment
 dependencies:
-  - tensorflow-gpu = 1.12
-  - numpy
-  - ujson
-  - pip:
-    - azureml-core
-    - azureml-contrib-services
+  # The python interpreter version.
+  # Currently Azure ML only supports 3.5.2 and later.
+- python=3.6.2
+
+- pip:
+  - azureml-defaults==1.0.43.*
+- numpy
+- tensorflow-gpu=1.12
+channels:
+- conda-forge
 ```
 
 ## Define the GPU InferenceConfig class
@@ -129,12 +122,12 @@ Create an `InferenceConfig` object that enables the GPUs and ensures that CUDA i
 from azureml.core.model import Model
 from azureml.core.model import InferenceConfig
 
-aks_service_name ='gpu-rn'
+aks_service_name ='aks-dnn-mnist'
 gpu_aks_config = AksWebservice.deploy_configuration(autoscale_enabled = False, 
                                                     num_replicas = 3, 
                                                     cpu_cores=2, 
                                                     memory_gb=4)
-model = Model(ws,"resnet50")
+model = Model(ws,"tf-dnn-mnist")
 
 inference_config = InferenceConfig(runtime= "python", 
                                    entry_script="score.py",
@@ -173,13 +166,21 @@ For more information, see [Model class](https://docs.microsoft.com/python/api/az
 Send a test query to the deployed model. When you send a jpeg image to the model, it scores the image.
 
 ```python
-scoring_url = aks_service.scoring_uri
-api_key = aks_service.get_key()(0)
-IMAGEURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Lynx_lynx_poing.jpg/220px-Lynx_lynx_poing.jpg"
+# Load test data from model training
+X_test = load_data('./data/mnist/test-images.gz', False) / 255.0
 
-headers = {'Authorization':('Bearer '+ api_key)}
-img_data = read_image_from(IMAGEURL).read()
-r = requests.post(scoring_url, data = img_data, headers=headers)
+# send a random row from the test set to score
+random_index = np.random.randint(0, len(X_test)-1)
+input_data = "{\"data\": [" + str(list(X_test[random_index])) + "]}"
+
+headers = {'Content-Type':'application/json'}
+
+resp = requests.post(service.scoring_uri, input_data, headers=headers)
+
+print("POST to url", service.scoring_uri)
+#print("input data:", input_data)
+print("label:", y_test[random_index])
+print("prediction:", resp.text)
 ```
 
 > [!IMPORTANT]
