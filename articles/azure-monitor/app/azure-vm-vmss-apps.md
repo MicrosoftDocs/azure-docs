@@ -1,6 +1,6 @@
 ---
-title: Monitor application performance hosted on Azure VM and Azure VMSS | Microsoft Docs
-description: Application performance monitoring for Azure VM and Azure VMSS. Chart load and response time, dependency information, and set alerts on performance.
+title: Monitor application performance hosted on Azure VM and Azure virtual machine scale sets | Microsoft Docs
+description: Application performance monitoring for Azure VM and Azure virtual machine scale sets. Chart load and response time, dependency information, and set alerts on performance.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -11,7 +11,7 @@ ms.date: 06/27/2019
 ms.author: mbullwin
 
 ---
-# Monitor application performance hosted on Azure VM and Azure VMSS
+# Monitor application performance hosted on Azure VM and Azure virtual machine scale sets
 
 Enabling monitoring on your .NET and .NET Core based web applications running on [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/) and [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
 
@@ -24,7 +24,7 @@ This article will walk you through enabling Application Insights monitoring usin
 
 ## Enable Application Insights
 
-There are two ways to enable application monitoring for Azure VM and Azure VMSS hosted applications:
+There are two ways to enable application monitoring for Azure VM and Azure virtual machine scale set hosted applications:
 
 * **Agent-based application monitoring** (ApplicationMonitoringWindows extension).
     * This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
@@ -65,7 +65,7 @@ $privateCfgJsonString = '{}';
 Set-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Location "South Central US" -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -SettingString $publicCfgJsonString -ProtectedSettingString $privateCfgJsonString
 ```
 
-Unistall application monitoring extension from VM
+Uninstall application monitoring extension from VM
 ```powershell
 Remove-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Name "ApplicationMonitoring"
 ```
@@ -86,9 +86,9 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions/ApplicationMonitoring
 ```
 
-## Manage agent-based monitoring for .NET applications on VMSS using powershell
+## Manage agent-based monitoring for .NET applications on Azure virtual machine scale set using powershell
 
-Install or update the application monitoring extension for VMSS
+Install or update the application monitoring extension for Azure virtual machine scale set
 ```powershell
 $publicCfgHashtable =
 @{
@@ -117,7 +117,7 @@ Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -Virtu
 # Note: depending on your update policy, you might need to run Update-AzVmssInstance for each instance
 ```
 
-Unistall application monitoring extension from VMSS
+Uninstall application monitoring extension from Azure virtual machine scale set
 ```powershell
 $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myVmssName>"
 
@@ -128,12 +128,12 @@ Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -Virtu
 # Note: depending on your update policy, you might need to run Update-AzVmssInstance for each instance
 ```
 
-Query application monitoring extension status for VMSS
+Query application monitoring extension status for Azure virtual machine scale set
 ```powershell
 # Not supported by extensions framework
 ```
 
-Get list of installed extensions for VMSS
+Get list of installed extensions for Azure virtual machine scale set
 ```powershell
 Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myResourceGroup>/providers/Microsoft.Compute/virtualMachineScaleSets/<myVmssName>/extensions
 
@@ -146,10 +146,10 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 
 ## Troubleshooting
 
-Below is our step-by-step troubleshooting guide for extension based monitoring for .NET based applications running on Azure VM and Azure VMSS.
+Below is our step-by-step troubleshooting guide for extension-based monitoring for .NET based applications running on Azure VM and Azure virtual machine scale sets.
 
 > [!NOTE]
-> .Net core, Java and Node.js applications are only supported on Azure VM and Azure VMSS via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
+> .Net core, Java and Node.js applications are only supported on Azure VM and Azure virtual machine scale sets via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
 
 Extension execution output is logged to files found in the following directories:
 ```Windows
