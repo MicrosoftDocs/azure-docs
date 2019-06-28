@@ -54,35 +54,35 @@
   - name: Manage devices
     items:
       - name: Set up a device template
-        href: ../iot-central/howto-set-up-template.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Manage your devices
-        href: ../iot-central/howto-manage-devices.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Run a job
         href: ../iot-central/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Use device sets
-        href: ../iot-central/howto-use-device-sets.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Version device template
-        href: ../iot-central/howto-version-devicetemplate.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-version-devicetemplate-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - name: Monitoring and analytics
     items:
       - name: Create telemetry rule
-        href: ../iot-central/howto-create-telemetry-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Create an event rule
-        href: ../iot-central/howto-create-event-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-create-event-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Analyze your device data
         href: ../iot-central/howto-create-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json 
   - name: Actions and extensibility
     items:
       - name: Group multiple actions on rules
-        href: ../iot-central/howto-use-action-groups.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-use-action-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Create webhook actions on rules
-        href: ../iot-central/howto-create-webhooks.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-create-webhooks-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Build workflows in Microsoft Flow
-        href: ../iot-central/howto-add-microsoft-flow.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-add-microsoft-flow-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Build workflows in Azure Logic Apps
         href: ../iot-central/howto-build-azure-logic-apps.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Trigger Azure Functions
-        href: ../iot-central/howto-trigger-azure-functions.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-trigger-azure-functions-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Export your data
         items:
         - name: Export to Event Hubs and Service Bus
@@ -107,7 +107,7 @@
       - name: Configure application dashboard
         href: ../iot-central/howto-configure-homepage.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Customize application UI
-        href: ../iot-central/howto-customize-ui.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        href: ../iot-central/howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Use application templates
         href: ../iot-central/howto-use-app-templates.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Manage from the Azure portal
