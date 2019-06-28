@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 06/28/2019
 ms.author: dapine
 ---
 
@@ -39,62 +39,6 @@ Refer to the [Speech Service container host computer](speech-container-host-comp
 |--|--|--|
 | **Speech-to-Text** | one decoder requires a minimum of 1,150 millicores<br>If the `optimizedForAudioFile` is enabled, then 1,950 millicores are required. (default: two decoders) | Required: 2 GB<br>Limited:  4 GB |
 | **Text-to-Speech** | one concurrent request requires a minimum of 500 millicores<br>If the `optimizedForTextFile` is enabled, then 1,000 millicores are required. (default: two concurrent requests) | Required: 1 GB<br> Limited: 2 GB |
-
-## Run speech services in K8s with helm
-
-There is a public 
-
-To deploy the Speech Services in a Kubernetes cluster, the following YAML file will serve as the Kubernetes package specification.
-
-```
-// TODO: instead of having the reader create the file, instead have them `git pull` on the repo with these bits.
-```
-
-Create a new text file in the working directory named `.yaml`.
-
-```yaml
-# These settings are deployment specific and users can provide customizations
-
-# speech-to-text configurations
-speechToText:
-  enabled: true
-  numberOfConcurrentRequest: 3
-  optimizeForAudioFiles: true
-  image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-speech-to-text
-    tag: latest
-    pullSecrets:
-      - containerpreview # Or an existing secret
-    args:
-      eula: accept
-      billing: #"< Your billing URL >"
-      apikey: # < Your API Key >
-
-# text-to-speech configurations
-textToSpeech:
-  enabled: true
-  numberOfConcurrentRequest: 3
-  optimizeForAudioFiles: false
-  image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-text-to-speech
-    tag: latest
-    pullSecrets:
-      - containerpreview # Or an existing secret
-    args:
-      eula: accept
-      billing: #"< Your billing URL >"
-      apikey: # < Your API Key >
-```
-
-## The K8s package / helm chart
-
-The *helm chart* contains the configuration of which docker images to pull from the `containerpreview.azurecr.io` container registry.
-
-> A [helm chart](helm-charts) is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
-
-The provided *helm charts* pull the docker images of the Speech Service, both text-to-speech and the speech-to-text services from the `containerpreview.azurecr.io` container registry.
 
 ## Request access to the container registry
 
@@ -130,6 +74,54 @@ Executing the `kubectl get secrets` prints all the configured secrets.
 NAME                  TYPE                                  DATA      AGE
 containerpreview      kubernetes.io/dockerconfigjson        1         30s
 ```
+
+## Run speech services in K8s with helm
+
+Visit the [Microsoft Helm Hub](ms-helm-hub) for all the publicly available helm charts offered by Microsoft. From the Microsoft Helm Hub, you'll find the **on-prem speech chart**. This is the chart we'll use to install, but we must first create an `override-values.yaml` file with our desired customizations.
+
+```yaml
+# These settings are deployment specific and users can provide customizations
+
+# speech-to-text configurations
+speechToText:
+  enabled: true
+  numberOfConcurrentRequest: 3
+  optimizeForAudioFiles: true
+  image:
+    registry: containerpreview.azurecr.io
+    repository: microsoft/cognitive-services-speech-to-text
+    tag: latest
+    pullSecrets:
+      - containerpreview # Or an existing secret
+    args:
+      eula: accept
+      billing: #"< Your billing URL >"
+      apikey: # < Your API Key >
+
+# text-to-speech configurations
+textToSpeech:
+  enabled: true
+  numberOfConcurrentRequest: 3
+  optimizeForAudioFiles: true
+  image:
+    registry: containerpreview.azurecr.io
+    repository: microsoft/cognitive-services-text-to-speech
+    tag: latest
+    pullSecrets:
+      - containerpreview # Or an existing secret
+    args:
+      eula: accept
+      billing: #"< Your billing URL >"
+      apikey: # < Your API Key >
+```
+
+## The K8s package / helm chart
+
+The *helm chart* contains the configuration of which docker images to pull from the `containerpreview.azurecr.io` container registry.
+
+> A [helm chart](helm-charts) is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
+
+The provided *helm charts* pull the docker images of the Speech Service, both text-to-speech and the speech-to-text services from the `containerpreview.azurecr.io` container registry.
 
 ## Install the helm chart on the host computer
 
@@ -270,6 +262,7 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [speech-preview-access]: https://aka.ms/speechcontainerspreview
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [helm-test]: https://helm.sh/docs/helm/#helm-test
+[ms-helm-hub]: https://hub.helm.sh/charts/microsoft
 
 <!-- LINKS - internal -->
 [speech-container-host-computer]: speech-container-howto.md#the-host-computer
