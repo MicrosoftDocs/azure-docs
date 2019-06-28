@@ -110,7 +110,7 @@ The response contains overall indexer status, the last (or in-progress) indexer 
         }]
     }
 
-Execution history contains up to the 50 most recent runs , which are sorted in reverse chronological order (most recent first).
+Execution history contains up to the 50 most recent runs, which are sorted in reverse chronological order (most recent first).
 
 Note there are two different status values. The top level status is for the indexer itself. A indexer status of **running** means the indexer is set up correctly and available to run, but not that it's currently running.
 
