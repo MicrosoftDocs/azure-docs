@@ -57,7 +57,7 @@ Once you create your IoT hub, you can upgrade from the basic tier to the standar
 The partition configuration remains unchanged when you migrate from basic tier to standard tier.
 
 > [!NOTE]
-> The free tier is meant for testing and evaluation and does not support upgrading to basic or standard.
+> The free tier does not support upgrading to basic or standard.
 
 ## IoT Hub REST APIs
 
