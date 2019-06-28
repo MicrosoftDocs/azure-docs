@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/27/2019
+ms.date: 06/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://CostpointURI`
+    `https://<CostpointURI>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<CostpointURI>/LoginServlet.cps`
