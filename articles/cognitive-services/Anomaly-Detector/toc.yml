@@ -21,7 +21,7 @@
         - name: Using C#
           href: quickstarts/detect-data-anomalies-csharp-sdk.md
         - name: Using Python
-          href: quickstarts/detect-data-anomalies-csharp-python.md
+          href: quickstarts/detect-data-anomalies-python-sdk.md
 - name: Tutorials
   items:
     - name: Visualize anomalies as a batch using Power BI
