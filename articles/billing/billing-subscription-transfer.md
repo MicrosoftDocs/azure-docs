@@ -64,7 +64,7 @@ An Azure Active Directory (AD) tenant is created for you when you sign up for Az
 
 When you create a new subscription, it is hosted in the Azure AD tenant of your account. If you want to provide others access to your subscription or resources, you need to invite them to your tenant. This helps you control access to your subscriptions and resources.
 
-When you transfer billing ownership of your subscription to an account in another Azure AD tenant, the subscription is moved to the new account's tenant. All users, groups or service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. To provide access to the users who originally had access, the new owner would have to [manually add these users to the subscription](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal).
+When you transfer billing ownership of your subscription to an account in another Azure AD tenant, the subscription is moved to the new account's tenant. All users, groups, or service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. To provide access to the users who originally had access, the new owner would have to [manually add these users to the subscription](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal).
 
 <a id="EA"></a>
 
@@ -72,7 +72,7 @@ When you transfer billing ownership of your subscription to an account in anothe
 
 Visual Studio, Microsoft Partner Network (MPN) and Pay as you go Dev/Test subscription require the new account to have the respective entitlements. For ex: if you are transferring a Visual Studio Enterprise subscription, the user who accepts your request should have a Visual Studio Enterprise license.
 
-Visual Studio and Microsoft Partner Network subscriptions have monthly recurring Azure credit associated with them. When you transfer these subscription, your credit is not available in the destination billing account. The subscription uses the credit in the destination billing account. For example, if Bob transfers a Visual Studio Enterprise subscription to Jane's account on 9th Sept and Jane accepts the transfer. After the transfer is completed, the subscription starts using credit in Jane's account. The credit will reset every month on 9th. 
+Visual Studio and Microsoft Partner Network subscriptions have monthly recurring Azure credit associated with them. When you transfer these subscriptions, your credit is not available in the destination billing account. The subscription uses the credit in the destination billing account. For example, if Bob transfers a Visual Studio Enterprise subscription to Jane's account on 9th Sept and Jane accepts the transfer. After the transfer is completed, the subscription starts using credit in Jane's account. The credit will reset every month on 9th. 
 
 
 ## Transfer billing ownership of Enterprise Agreement (EA) subscriptions
@@ -112,7 +112,7 @@ Subscription transfer in the Azure portal is available for the subscription type
 
 \* [Via the EA portal](#EA).
 
-\*\* Only supported for accounts that are created during sign on Azure website. 
+\*\* Only supported for accounts that are created during sign up on the Azure website. 
 
 <a id="faq"></a>
 
@@ -120,9 +120,9 @@ Subscription transfer in the Azure portal is available for the subscription type
 
 These FAQs apply to users, who are transferring the billing ownership of an Azure subscription to another account.
 
-### <a name="whoisaa"></a> Who is a billing administrators of an account?
+### <a name="whoisaa"></a> Who is a billing administrator of an account?
 
-A billing administrator is a person who has permission to manage billing for an account. They're authorized to access billing on the [Azure Portal](https://portal.azure.com) and perform various billing tasks like create subscriptions, view and pay invoices, or update payment methods.
+A billing administrator is a person who has permission to manage billing for an account. They're authorized to access billing on the [Azure portal](https://portal.azure.com) and perform various billing tasks like create subscriptions, view and pay invoices, or update payment methods.
 
 To identify subscriptions for which you're a billing administrator, use the following steps:
 
@@ -138,12 +138,12 @@ All your resources like VMs, disks, and websites transfer to the new account. Ho
 
 Unfortunately, cross country transfers can't be performed in the Azure portal. To transfer your subscription across countries, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### I am an administrator on two accounts. Can I transfer a subscriptions from one of my account to another ?
+### I am an administrator on two accounts. Can I transfer a subscription from one of my accounts to another?
 Yes, you can transfer subscription between your accounts. Your accounts are conceptually considered accounts of two different users so you can use the above steps to transfer subscriptions between your accounts.
 
 ### Does a subscription transfer result in any service downtime?
 
-If you transfer a subscription to a user in the same Azure AD tenant, there is no impact to the resources running in the subscription.  However, if you transfer the subscription to a user in another tenant, all users, groups and service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. 
+If you transfer a subscription to a user in the same Azure AD tenant, there is no impact to the resources running in the subscription.  However, if you transfer the subscription to a user in another tenant, all users, groups, and service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. 
 
 ### Does the recipient have access to usage and billing history?
 
@@ -153,7 +153,7 @@ The only information available to the recipient is the last month's cost for you
 
 If you can't transfer subscription ownership, you can manually migrate your resources. See [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
-### If I transfer a Visual Studio or Microsoft Partner Network subscription, does my credit carry forward with the subscription in the new account ?
+### If I transfer a Visual Studio or Microsoft Partner Network subscription, does my credit carry forward with the subscription in the new account?
 
 No, your credit is not available in the new account. The user who accepts the transfer request needs to have a Visual Studio license to accept the transfer request. The subscription uses the Visual Studio credit that is available in the user's account. For more information, see [Transferring Visual Studio, Microsoft Partner Network (MPN) and Pay as you go Dev/Test subscriptions](#transferring-visual-studio-microsoft-partner-network-mpn-and-pay-as-you-go-devtest-subscriptions)
 
@@ -164,28 +164,28 @@ These FAQs apply to users, who are taking over the billing ownership of an Azure
 
 ### If I take over billing ownership of a subscription from another account, do users in that account continue to have access to my resources?
 
-If the subscription is transferred to an account in the same Azure AD tenant, all users, groups and service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription retain their access. To view users who have RBAC access to the subscription, use the following steps:
+If the subscription is transferred to an account in the same Azure AD tenant, all users, groups, and service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription retain their access. To view users who have RBAC access to the subscription, use the following steps:
 
 1. Visit the [Subscription page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Select the subscription you want to check, and then select **Access control (IAM)** from the left hand pane.
+1. Select the subscription you want to check, and then select **Access control (IAM)** from the left-hand pane.
 1. Select **Role assignments** from the top of the page. The role assignments page lists all users who have RBAC access on the subscription.
 
-If the subscription is transferred to an account in another Azure AD tenant, all users, groups and service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. However, even if they don't have RBAC access anymore, they might still have access to the subscription through some security mechanisms, including:
+If the subscription is transferred to an account in another Azure AD tenant, all users, groups, and service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. However, even if they don't have RBAC access anymore, they might still have access to the subscription through some security mechanisms, including:
 
 * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../cloud-services/cloud-services-certs-create.md).
 * Access keys for services like Storage. For more information, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md).
 * Remote Access credentials for services like Azure Virtual Machines.
 
-If the recipient needs to restrict access to their resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
+If the recipient needs to restrict,  access to their resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
 
   1. Go to the [Azure portal](https://portal.azure.com).
   2. On the Hub menu, select **All resources**.
   3. Select the resource.
-  4. In the resource blade, click **Settings**. Here you can view and update existing secrets.
+  4. In the resource page, click **Settings**. Here you can view and update existing secrets.
 
 ### If I take over the billing ownership of a subscription in the middle of the billing cycle, do I have to pay for the entire billing cycle?
 
-Your account is responsible for payment for any usage that is reported from the time of transfer onwards. There may be some usage that took place before transfer but was reported afterwards. The usage is included in the your account's bill.
+Your account is responsible for payment for any usage that is reported from the time of transfer onwards. There may be some usage that took place before transfer but was reported afterwards. The usage is included in your account's bill.
 
 ### Can I use a different payment method?
 
@@ -197,11 +197,11 @@ Yes. While accepting the transfer request, you can select an existing payment me
 
 Unfortunately, the self-service subscription transfer isn't available for your billing account. Currently, we don't support transferring out the billing ownership of Enterprise Agreement (EA) account in the Azure portal. Moreover, Microsoft Customer Agreement accounts that are created while working through Microsoft sales don't support transferring the billing ownership of subscriptions. 
 
-### <a id="no-button"></a> Why doesn't my subscription type support transfer ? 
+### <a id="no-button"></a> Why doesn't my subscription type support transfer? 
 
-Unfortunately, not all type of subscriptions support billing ownership transfer. To view list of subscription types that support transfers, see [Supported subscription types](#supported-subscription-types)
+Unfortunately, not all types of subscriptions support billing ownership transfer. To view list of subscription types that support transfers, see [Supported subscription types](#supported-subscription-types)
 
-### <a id="no-button"></a> Why am I receiving an access denied error when I try to transfer billing ownership of a subscription ? 
+### <a id="no-button"></a> Why am I receiving an access denied error when I try to transfer billing ownership of a subscription? 
 
 You'll see this error if you're trying to transfer a Microsoft Azure Plan subscription and you don't have the necessary permission. To transfer a Microsoft Azure plan subscription, you need to be an owner or contributor on the invoice section to which the subscription is billed. For more information, see [Manage subscriptions for invoice section](billing-understand-mca-roles.md#manage-subscriptions-for-invoice-section).
 

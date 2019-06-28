@@ -18,7 +18,7 @@ Check the agreement type to determine the type of your billing account
  
     ![Screenshot that shows microsoft customer agreement in properties page](./media/billing-check-account-type/billing-mca-property.png)
     
-    The **Billing account type** on the properties page determines the type of your account. It can be Microsoft Online Service Program, Enterprise Agreement or Microsoft Customer Agreement. To learn more about the type of billing accounts,see [View your billing accounts in Azure portal](../articles/billing/billing-view-all-accounts.md).  
+    The **Billing account type** on the properties page determines the type of your account. It can be Microsoft Online Service Program, Enterprise Agreement, or Microsoft Customer Agreement. To learn more about the type of billing accounts, see [View your billing accounts in Azure portal](../articles/billing/billing-view-all-accounts.md).  
  
 4. If you have access to multiple billing scopes, select **Billing account** or **All billing scopes** from the left-hand side. Check the type in the **Billing account type** column.
  
