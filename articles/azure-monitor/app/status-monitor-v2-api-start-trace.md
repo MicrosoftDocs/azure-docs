@@ -25,7 +25,7 @@ This article describes a cmdlet that's a member of the [Az.ApplicationMonitor Po
 ## Description
 
 Collects [ETW Events](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) from the codeless attach runtime. 
-This is an alternative to running [PerfView](https://github.com/microsoft/perfview).
+This cmdlet is an alternative to running [PerfView](https://github.com/microsoft/perfview).
 
 Collected events will be printed to the console in real-time and saved to an ETL file. The output ETL file can be opened by [PerfView](https://github.com/microsoft/perfview) for further investigation.
 
@@ -47,7 +47,7 @@ To collect these events:
 2. Execute this cmdlet
 3. In a cmd console with admin privileges, execute `iisreset /start` To start IIS.
 4. Try to browse to your app.
-5. After your app finishes loading, you can wait for this cmdlet to timeout or manually stop it (`Ctrl + C`).
+5. After your app finishes loading, you can wait for this cmdlet to time out or manually stop it (`Ctrl + C`).
 
 ### What events to collect
 
@@ -65,7 +65,7 @@ You have three options when collecting events:
 
 ### -LogDirectory
 **Optional.** Use this switch to set the output directory of the ETL file. 
-By default, this will be created in the PowerShell Modules directory. 
+By default, this file will be created in the PowerShell Modules directory. 
 The full path will be displayed during script execution.
 
 
@@ -119,7 +119,7 @@ Additional Troubleshooting:
 
 - Review additional troubleshooting steps here: https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
 - Review the [API Reference](status-monitor-v2-overview.md#powershell-api-reference) to learn about parameters you might have missed.
-- If you need additional help you may contact us on [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
+- If you need additional help, you can contact us on [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 
 
