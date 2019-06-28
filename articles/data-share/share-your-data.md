@@ -81,10 +81,6 @@ Create an Azure Data Share resource in an Azure resource group.
 
     ![SelectDatasets](./media/select-datasets.png "Select Datasets")    
 
-1. Click **Continue**
-
-    ![DatasetsAdded](./media/datasets-added.png "Datasets added")    
-
 1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'. 
 
     ![AddRecipients](./media/add-recipient.png "Add recipients") 
