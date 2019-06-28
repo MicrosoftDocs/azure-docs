@@ -119,6 +119,11 @@ Tile size must already be set before calling Force Load Tile. For example, you c
 
 ![Screenshot of Streaming Setup options in Unreal](media/streaming-setup.png)
 
+The Load Acoustics Data blueprint function used in this example has the following parameters:
+
+* **Target:** The AcousticsSpace actor
+* **New Bake:** The acoustics data asset to be loaded. Leaving this blank/setting it to null will unload the current bake without loading a new one.
+
 ### Optionally query for surface proximity
 If you want to see how close surfaces are in a particular direction around the listener, you can use the Query Distance function. This function can be useful for driving directional delayed reflections, or for other game logic driven by surface proximity. The query is less expensive than a ray-cast because the results are pulled from the acoustics lookup table.
 
