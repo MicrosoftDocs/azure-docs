@@ -91,7 +91,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 You can view the properties of Microsoft peering by selecting the row for the peering.
 
-[![View properties](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "properties")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-configured.png)
+[![View properties](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m.png "properties")](./media/expressroute-howto-routing-portal-resource-manager/view-peering-m-lightbox.png)
 ### <a name="updatemsft"></a>To update Microsoft peering configuration
 
 You can select the row for the peering that you want to modify, then modify the peering properties and save your modifications.
