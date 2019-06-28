@@ -34,7 +34,14 @@ For example, you may want to use a structure like this:
 |VM Specialists     |User group         |\<principalId\>         |VM Contributor         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
 |Automation     |Service principal name (SPN)         |\<principalId\>         |Contributor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
+Once you’ve created these groups, you can assign users as needed. Only add the users who truly need to have access. Be sure to review group membership regularly and remove any users that are no longer appropriate or necessary to include.
+
+We also recommend using different groups for each of the customers you [onboard to Azure Delegated Resource Management by using Azure Resource Manager templates](../how-to/onboard-customer.md). Even if the groups initially have the same membership, creating separate groups let you update membership as needed to limit access to individual customers where appropriate.
+
+Keep  in mind that when you [onboard customers through a public managed service offer](../how-to/publish-managed-services-offers.md), any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you’ll need to publish a separate private plan that is exclusive to each customer, or onboard customers individually by using Azure Resource Manager templates. For example, you could publish a public plan that has very limited access, then work with the customer directly to onboard their resources for additional access using a customized Azure Resource Template granting additional access as needed.
+
+
 ## Next steps
 
-- [Deploy Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md)
+- [Deploy Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
 - Learn about the [cross-tenant management experience](cross-tenant-management-experience.md).
