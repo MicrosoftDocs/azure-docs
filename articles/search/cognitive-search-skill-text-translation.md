@@ -98,7 +98,7 @@ Parameters are case-sensitive.
       "recordId": "1",
       "data":
         {
-          "text": "What a beautiful day it is today"
+          "text": "We hold these truths to be self-evident, that all men are created equal."
         }
     },
     {
@@ -122,7 +122,7 @@ Parameters are case-sensitive.
       "recordId": "1",
       "data":
         {
-          "translatedText": "Quelle belle jour née c'est aujourd'hui",
+          "translatedText": "Nous tenons ces vérités pour évidentes, que tous les hommes sont créés égaux.",
           "translatedFromLanguageCode": "en",
           "translatedToLanguageCode": "fr"
         }
