@@ -18,9 +18,9 @@ ms.custom: H1Hack27Feb2017
 
 You might want to transfer billing ownership of your Azure subscription if you are leaving your organization, or you want your subscription to be billed to another account. Transferring billing ownership to another account provides the administrators in the new account permission to perform billing tasks such as change payment method, view charges, and cancel the subscription.
 
-If you want to keep the billing ownership but change the type of your subscription, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md). If you want to control who can manage resources in the subscription, see [Built-in roles for Azure resources](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles)
+If you want to keep the billing ownership but change the type of your subscription, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md). If you want to control who can manage resources in the subscription, see [Built-in roles for Azure resources](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles).
 
-If you're an Enterprise Agreement(EA) customer, your enterprise administrators can transfer billing ownership of your subscriptions between accounts. For more information, see [Transfer billing ownership of Enterprise Agreement (EA) subscriptions](#transfer-billing-ownership-for-enterprise-agreement-ea-customers)
+If you're an Enterprise Agreement(EA) customer, your enterprise administrators can transfer billing ownership of your subscriptions between accounts. For more information, see [Transfer billing ownership of Enterprise Agreement (EA) subscriptions](#transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions).
 
 ## Transfer billing ownership of an Azure subscription
 
