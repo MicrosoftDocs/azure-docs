@@ -26,7 +26,7 @@ You can view the current workspace access control mode on the **Overview** page 
 
 ![View workspace access control mode](media/manage-access/view-access-control-mode.png)
 
-1. Sign in to the Azure portal at [https://portal.azure.com].
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the Azure portal, select Log Analytics workspaces > your workspace.  
 
 You can change this setting on the **Properties** page for the workspace. Changing the setting will be disabled if you don't have permissions to configure the workspace.
