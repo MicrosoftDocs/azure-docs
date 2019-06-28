@@ -170,9 +170,9 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
     | Key | Value |
     |---|---|
-    | TestAppSettings:BackgroundColor | green |
-    | TestAppSettings:FontColor | lightGray |
-    | TestAppSettings:Message | Data from Azure App Configuration - now with live updates! |
+    | TestApp:Settings:BackgroundColor | green |
+    | TestApp:Settings:FontColor | lightGray |
+    | TestApp:Settings:Message | Data from Azure App Configuration - now with live updates! |
 
 6. Refresh the browser page to see the new configuration settings.
 
