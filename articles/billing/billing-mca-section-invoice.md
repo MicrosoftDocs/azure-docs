@@ -1,16 +1,14 @@
 ---
-title: Create sections on your invoice to organize your costs - Azure | Microsoft Docs
+title: Create sections on your invoice to organize your costs - Azure
 description: Learn to organize your costs with invoice sections.
-services: ''
 author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-
 ms.service: billing
 ms.topic: conceptual
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
 ---
 
@@ -26,7 +24,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Search on **Cost Management + Billing**.
+2. Search for **Cost Management + Billing**.
 
    ![Screenshot that shows Azure portal search](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
 
@@ -47,12 +45,12 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## Next steps
-
-- [Create an additional Azure subscription for Microsoft Customer Agreement](billing-mca-create-subscription.md)
-- [Give others permission to create Azure subscription](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
-- [Get billing ownership of Azure subscriptions from users in other billing accounts](billing-mca-request-billing-ownership.md)
-
 ## Need help? Contact support
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+## Next steps
+
+- [Create an additional Azure subscription for Microsoft Customer Agreement](billing-mca-create-subscription.md)
+- [Give others permission to create Azure subscription](billing-mca-create-subscription.md#give-others-permission)
+- [Get billing ownership of Azure subscriptions from users in other billing accounts](billing-mca-request-billing-ownership.md)

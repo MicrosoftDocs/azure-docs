@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create, load, and query indexes using Postman and Azure Search REST APIs - Azure Search'
+title: 'Quickstart: Create, load, and query indexes using Postman and REST APIs - Azure Search'
 description: Learn how to call the Azure Search REST APIs using Postman and sample data and definitions.
 author: HeidiSteen
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.author: heidist
 ms.custom: seodec2018
 ---
 
-# Quickstart: Explore Azure Search REST APIs using Postman
+# Quickstart: Create an Azure Search index in Postman using REST APIs
 > [!div class="op_single_selector"]
 > * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
@@ -222,7 +222,6 @@ This query searches on the term "motel" and returns a count of the documents in 
 
  ![Postman query response][11]
 
-
 ## Get index properties
 You can also query system information to get document counts and storage consumption: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
@@ -234,49 +233,9 @@ Notice that the api-version syntax differs. For this request, use `?` to append 
 
 For more information about this API, see [Get Index Statistics REST API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics).
 
+## Clean up
 
-## Use Fiddler
-
-This section is equivalent to previous sections, only with Fiddler screenshots and instructions
-
-### Connect to Azure Search
-
-Formulate a request that looks like the following screenshot. Choose **GET** as the verb. Fiddler adds `User-Agent=Fiddler`. You can paste the two additional request headers on new lines below it. Include the content type and api-key for your service, using the admin access key for your service.
-
-For the target, copy in a modified version of this URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06`
-
-![Fiddler request header][1]
-
-> [!Tip]
-> Turn off web traffic to hide extraneous, unrelated HTTP activity. In Fiddler's **File** menu, turn off **Capture Traffic**. 
-
-### 1 - Create an index
-
-Change the verb to **PUT**. Copy in a modified version of this URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`. Copy the index definition provided above to the request body. Your page should look similar to the following screenshot. Click **Execute** on the top right to send the completed request.
-
-![Fiddler request body][7]
-
-### 2 - Load documents
-
-Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the documents into the request body, similar to the following screenshot, and then execute the request.
-
-![Fiddler request payload][9]
-
-### Tips for running our sample queries in Fiddler
-
-The following example query is from the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) article. Many of the example queries in this article include spaces, which are not allowed in Fiddler. Replace each space with a + character before pasting in the query string before attempting the query in Fiddler.
-
-**Before spaces are replaced (in lastRenovationDate desc):**
-
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06
-
-**After spaces are replaced with + (in lastRenovationDate+desc):**
-
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2019-05-06
-
-### Tips for viewing index statistic in Fiddler
-
-In Fiddler, click the **Inspectors** tab, click the **Headers** tab, and then select the JSON format. You should see the document count and storage size (in KB).
+If you no longer need the search service, the fastest way to release services is by deleting the resource group containing the Azure Search service. Deleting the resource group permanently deletes everything in it, including the services and any stored content. In the portal, the resource group name is on the Overview page of each service.
 
 ## Next steps
 

@@ -24,7 +24,7 @@ If you have a [Microsoft Customer Agreement](#check-your-access-to-a-microsoft-c
 
 ## Download usage from the Account Center (.csv)
 
-1. Sign-in to the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
+1. Sign in to the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
 
 2. Select the subscription for which you want the invoice and usage information.
 
@@ -54,7 +54,7 @@ For more information about your daily usage, see [Understand your bill for Micro
 
 To view and download usage data as a EA customer, you must be an Enterprise Administrator, Account Owner, or Department Admin with the view charges policy enabled.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.
 
     ![Screenshot that shows Azure portal search](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
@@ -68,7 +68,7 @@ If you have a Microsoft Customer Agreement, you can download your Azure usage an
 
 ### Download usage for billed charges
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for *Cost Management + Billing*.
 3. Select a billing profile. Depending on your access, you might need to select a billing account first.
 4. Select **Invoices**.
@@ -85,7 +85,7 @@ If you have a Microsoft Customer Agreement, you can download your Azure usage an
 
 You can also download month-to-date usage for the current billing period. These usage charges that have not been billed yet.
 
-1. Sign-in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for *Cost Management + Billing*.
 3. Select a billing profile. Depending on your access, you might need to select a billing account first.
 4. In the **Overview** area, find the download links beneath the month-to-date charges.

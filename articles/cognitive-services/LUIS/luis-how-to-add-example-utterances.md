@@ -17,7 +17,7 @@ ms.author: diberry
 
 Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
-Usually, you add an example utterance to an intent first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
+Usually, you add an example utterance to an intent first, and then you create entities and label utterances on the **Intents** page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
 
 ## Marking entities in example utterances
 
@@ -27,7 +27,7 @@ Certain entity types, such as prebuilt entities and regular expression entities,
 
 ## Add a simple entity
 
-In the following procedure, you create and tag a custom entity within the following utterance on the intent page:
+In the following procedure, you create and tag a custom entity within the following utterance on the **Intents** page:
 
 ```text
 Are there any SQL server jobs?
@@ -130,11 +130,11 @@ You can remove machine-learned entity labels from an utterance on the Intents pa
 
 To remove a machine-learned entity label from an utterance, select the entity in the utterance. Then select **Remove Label** in the entity drop-down box that appears.
 
-### Add prebuilt entity label
+### Add a prebuilt entity label
 
 When you add the prebuilt entities to your LUIS app, you don't need to tag utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### Add regular expression entity label
+### Add a regular expression entity label
 
 If you add the regular expression entities to your LUIS app, you don't need to tag utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -144,7 +144,7 @@ If you add the regular expression entities to your LUIS app, you don't need to t
 See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### Add pattern.any entity
+### Add a pattern.any entity
 
 If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -154,4 +154,4 @@ After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [pu
 
 ## Next steps
 
-After labeling utterances in your intents, you can now create a [composite entity](luis-how-to-add-entities.md).
+After labeling utterances in your **Intents**, you can now create a [composite entity](luis-how-to-add-entities.md).

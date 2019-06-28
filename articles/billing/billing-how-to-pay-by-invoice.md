@@ -1,7 +1,6 @@
 ---
-title: Pay for Azure subscriptions by invoice | Microsoft Docs
-description: Describes how to pay for Azure subscriptions by invoice
-documentationcenter: ''
+title: Pay for Azure subscriptions by invoice
+description: Describes how to pay for Azure subscriptions by invoice.
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -10,11 +9,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: banders
 
 ---
-# Pay Azure subscription by invoice
+# Pay for your Azure subscription by invoice
 
 If you switch to pay by invoice, that means you pay your bill within 30 days of the invoice date. To become eligible to pay for your Azure subscription by invoice, submit a request to Azure support. Once your request is approved, you can switch a subscription to invoice pay in the [Azure portal](https://portal.azure.com).
 
@@ -25,7 +24,7 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
 
 ## Request to pay by invoice
 
-1. Sign into the [Azure portal](https://portal.azure.com/). Select **Help + support** > **New support request**.
+1. Sign in to the [Azure portal](https://portal.azure.com/). Select **Help + support** > **New support request**.
 
     ![Help and support link](./media/billing-how-to-pay-by-invoice/help-and-support.png)
 
@@ -69,8 +68,8 @@ If we need to run a credit check because of the amount of credit that you need, 
 
 Once you are approved to pay by invoice, you can switch your Azure subscription to the invoice payment method in the [Azure portal](https://portal.azure.com).
 
-1. Sign-in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
-1. Search on **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows search](./media/billing-how-to-pay-by-invoice/search.png)
 

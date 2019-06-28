@@ -97,7 +97,7 @@ Billing users don't have access to management groups because they don't fall exp
 
 ## Individual agreement scopes
 
-Azure subscriptions created from individual offers like Pay-As-You-Go and related types like Free Trial and dev/test offers, don't have an explicit billing account scope. Instead, each subscription has an account owner or account admin, like the EA account owner.
+Azure subscriptions created from individual offers like pay-as-you-go and related types like Free Trial and dev/test offers, don't have an explicit billing account scope. Instead, each subscription has an account owner or account admin, like the EA account owner.
 
 - [**Billing account**](../billing/billing-view-all-accounts.md) -
 Represents a single account owner for one or more Azure subscriptions. It doesn't currently support granting access to multiple people or access to aggregated cost views.
@@ -106,7 +106,7 @@ Represents a single account owner for one or more Azure subscriptions. It doesn'
 
 Individual Azure subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure Account Center](https://account.azure.com/subscriptions). However, they can't view cost data or manage resources in the Azure portal. To grant access to the account admin, use the Cost Management roles mentioned previously.
 
-Unlike EA, individual Azure subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to PAYG invoices](../billing/billing-manage-access.md#give-access-to-billing).
+Unlike EA, individual Azure subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to invoices](../billing/billing-manage-access.md#give-access-to-billing).
 
 ## Microsoft Customer Agreement scopes
 

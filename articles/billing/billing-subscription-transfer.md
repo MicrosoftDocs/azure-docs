@@ -10,7 +10,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ---
@@ -66,14 +66,13 @@ When you create a new subscription, it is hosted in the Azure AD tenant of your 
 
 When you transfer billing ownership of your subscription to an account in another Azure AD tenant, the subscription is moved to the new account's tenant. All users, groups, or service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. To provide access to the users who originally had access, the new owner would have to [manually add these users to the subscription](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal).
 
-<a id="EA"></a>
 
 ## Transferring Visual Studio, Microsoft Partner Network (MPN) and Pay as you go Dev/Test subscriptions
 
-Visual Studio, Microsoft Partner Network (MPN) and Pay as you go Dev/Test subscription require the new account to have the respective entitlements. For ex: if you are transferring a Visual Studio Enterprise subscription, the user who accepts your request should have a Visual Studio Enterprise license.
-
 Visual Studio and Microsoft Partner Network subscriptions have monthly recurring Azure credit associated with them. When you transfer these subscriptions, your credit is not available in the destination billing account. The subscription uses the credit in the destination billing account. For example, if Bob transfers a Visual Studio Enterprise subscription to Jane's account on 9th Sept and Jane accepts the transfer. After the transfer is completed, the subscription starts using credit in Jane's account. The credit will reset every month on 9th. 
 
+
+<a id="EA"></a>
 
 ## Transfer billing ownership of Enterprise Agreement (EA) subscriptions
 
@@ -135,7 +134,6 @@ To identify subscriptions for which you're a billing administrator, use the foll
 All your resources like VMs, disks, and websites transfer to the new account. However, if you transfer subscription to an account in another Azure AD tenant, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) assignments on the subscription [do not transfer](#transferring-subscription-to-an-account-in-another-azure-ad-tenant). Also, [app registrations](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) and other tenant-specific services don't transfer along with the subscription.
 
 ### Can I transfer ownership to an account in another country?
-
 Unfortunately, cross country transfers can't be performed in the Azure portal. To transfer your subscription across countries, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### I am an administrator on two accounts. Can I transfer a subscription from one of my accounts to another?
@@ -178,7 +176,7 @@ If the subscription is transferred to an account in another Azure AD tenant, all
 
 If the recipient needs to restrict,  access to their resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
 
-  1. Go to the [Azure portal](https://portal.azure.com).
+  1. Sign in to the [Azure portal](https://portal.azure.com).
   2. On the Hub menu, select **All resources**.
   3. Select the resource.
   4. In the resource page, click **Settings**. Here you can view and update existing secrets.

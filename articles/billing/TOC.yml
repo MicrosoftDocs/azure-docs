@@ -79,7 +79,7 @@
         href: billing-understand-suse-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
-    - name: Usage for Pay-As-You-Go
+    - name: Usage for individual subscriptions
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
