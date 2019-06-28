@@ -52,11 +52,11 @@ Sample JSON for view definition:
                         "chartType": "Bar",
                         "metrics": [
                             {
-                                "name": "Sample metric",
+                                "name": "Availability",
                                 "aggregationType": "avg",
-                                "namespace": "Availability",
                                 "resourceTagFilter": [ "tag1" ],
-                                "resourceType": "Microsoft.Storage/storageAccounts"
+                                "resourceType": "Microsoft.Storage/storageAccounts",
+                                "namespace": "Microsoft.Storage/storageAccounts"
                             }
                         ]
                     }
@@ -140,11 +140,11 @@ The metrics view enables you to collect and aggregate data from your managed app
                 "chartType": "Bar",
                 "metrics": [
                     {
-                        "name": "Sample metric",
+                        "name": "Availability",
                         "aggregationType": "avg",
-                        "namespace": "Availability",
                         "resourceTagFilter": [ "tag1" ],
-                        "resourceType": "Microsoft.Storage/storageAccounts"
+                        "resourceType": "Microsoft.Storage/storageAccounts",
+                        "namespace": "Microsoft.Storage/storageAccounts"
                     }
                 ]
             }
