@@ -185,23 +185,33 @@ To create a model file that specifies the interfaces your Plug and Play device i
 
 1. Save the file.
 
-### Add the files to the public model repository
+### Download the DeviceInformation interface
 
-Before you can generate code from the model, you must add the model files to the *public model repository*. The public model repository already contains the **DeviceInformation** interface.
+Before you can generate code from the model, you must create a local copy of the **DeviceInformation** from the *public model repository*. The public model repository already contains the **DeviceInformation** interface.
 
-To add the **EnvironmentalSensor.interface.json** and **EnvironmentalSensorModel.capabilitymodel.json** files to the public model repository from VS Code:
+To download the **DeviceInformation** interface from the public model repository using VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
-1. Enter **Plug and Play** and then select the **Submit files to Model Repository** command.
+1. Enter **Plug and Play**, select the **Open Model Repository** command, and then select **Open Public Model Repository**.
 
-1. Select the **EnvironmentalSensor.interface.json** and **EnvironmentalSensorModel.capabilitymodel.json** files, and then select **OK**.
+1. Select **Interfaces**, then select the device information interface with ID `http://azureiot.com/interfaces/DeviceInformation/1.0.0`, and then select **Download**.
+
+You now have the three files that make up your device capability model:
+
+* DeviceInformation.interface.json
+* EnvironmentalSensor.interface.json
+* EnvironmentalSensorModel.capabilitymodel.json
 
 ## Generate code
 
+> [!NOTE]
+> Bug bash: Skip this section - currently it's not possible to use the extension to generate code from local files.
+> Use pre-prepared code instead of generating the code. You can view the pre-prepared code at [https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview/digitaltwin_client/samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview/digitaltwin_client/samples).
+
 You can use the **Azure IoT Workbench extension for VS Code** to generate skeleton C code from your model. To generate the code in VS Code:
 
-1. Use the **Explorer** in VS Code to create a folder called **modelcode** in your workspace. You use this folder to save the C code generated from your model.
+1. Use the **Explorer** in VS Code to create a folder called `modelcode` in your workspace. You use this folder to save the C code generated from your model.
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -218,6 +228,9 @@ You can use the **Azure IoT Workbench extension for VS Code** to generate skelet
 VS Code generates the skeleton C code and saves the files in the **modelcode** folder. VS Code opens a new window that contains the generated code files.
 
 ## Update the generated code
+
+> [!NOTE]
+> Bug bash: Skip this step - the pre-prepared code already contains the implementation code.
 
 Before you can build and run the code, you need to implement the stubbed properties, telemetry, and commands.
 
@@ -241,6 +254,7 @@ Before you run the code to test your plug and play device with an Azure IoT hub,
 
     This command downloads the SDK to folder called **azure-iot-sdk-c-pnp** on your local machine.
 
+<!-- Commenting out for bugbash
 1. Copy the **modelcode** folder that contains the C files you generated in VS Code to the **azure-iot-sdk-c-pnp** folder.
 
 1. In the **azure-iot-sdk-c-pnp\modelcode** folder, create a file called **main.c**. Add the following C code to this file:
@@ -323,6 +337,8 @@ Before you run the code to test your plug and play device with an Azure IoT hub,
     add_subdirectory(modelcode)
     ```
 
+End commented section -->
+
 1. At the command prompt, navigate to the **azure-iot-sdk-c-pnp** folder. Then run the following commands to build the entire SDK folder:
 
     ```cmd
@@ -334,22 +350,36 @@ Before you run the code to test your plug and play device with an Azure IoT hub,
 
 ## Test the code
 
+> [!NOTE]
+> Bug bash: Use the provided IoT hub instances.
+
 When you run the code, it connects to IoT Hub and starts sending sample telemetry and property values. The device also responds to commands sent from IoT Hub. To verify this behavior:
 
 1. To create an IoT hub:
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
+    az group create --name environmentalsensorresources --location eastus
+    az iot hub create --name {your iot hub name} \
+      --resource-group environmentalsensorresources --sku F1
     ```
 
-1. Add a device:
+1. Add a device to your IoT hub and retrieve its connection string:
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
+    az iot hub device-identity create --hub-name {your iot hub name} --device-id MyPnPDevice
+    az iot hub device-identity show-connection-string --hub-name {your iot hub name} --device-id MyPnPDevice --output table
     ```
 
-1. Get the device's connection-string.
-1. Run the code.
+    Make a note of the connection string.
+
+1. At a command prompt, navigate to the **azure-iot-sdk-c-pnp** folder where you built the SDK and samples. Then navigate to the **cmake\\digitaltwin_client\\samples\\digitaltwin_sample_device\\Release** folder.
+
+1. Run the following command:
+
+    ```cmd
+    digitaltwin_sample_device.exe {your device connection string}
+    ```
+
 1. Use the Plug and Play Device Explorer to interact with the device.
 
 ## Next steps
