@@ -127,7 +127,7 @@ This is the default setting for all workspaces created after March 2019.
 
 ![Resource-context design example](./media/designing-workspace/workspace-design-resource-context-01.png)
 
-This scenario covers a single workspace design that is not constrained by data sovereignty or regulatory compliance, or needs to map to the regions your resources are deployed within. It allows you to leverage the improved integration with Azure access management and more secure access control.  
+This scenario covers a single workspace design that is not constrained by data sovereignty or regulatory compliance, or needs to map to the regions your resources are deployed within. It allows you to leverage the improved integration with Azure access management and more secure access control.
 
 While planning your migration to this model, consider the following:
 

@@ -16,6 +16,7 @@ ms.author: magoedte
 ---
 
 # Manage log data and workspaces in Azure Monitor
+
 Azure Monitor stores log data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
 
 This article explains how to manage access to logs and to administer the workspaces that contain them.
@@ -88,7 +89,8 @@ The following activities also require Azure permissions:
 | Viewing data in the *Backup* and *Site Recovery* solution tiles | Administrator / Co-administrator | Accesses resources deployed using the classic deployment model |
 | Creating a workspace in the Azure portal | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
-## Manage access to Log Analytics Workspace using Azure permissions 
+## Manage access to Log Analytics Workspace using Azure permissions
+
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 Azure has two built-in user roles for Log Analytics workspaces:
@@ -221,5 +223,5 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
 ## Next steps
 
 * See [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
-* See [Collect data about Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.  
 
+* See [Collect data about Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.
