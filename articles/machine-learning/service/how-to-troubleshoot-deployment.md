@@ -1,7 +1,7 @@
 ---
 title: Deployment troubleshooting guide
 titleSuffix: Azure Machine Learning service
-description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with AKS and ACI using  Azure Machine Learning service.
+description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using  Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 05/02/2018
 ms.custom: seodec18
 ---
 
-# Troubleshooting Azure Machine Learning service AKS and ACI deployments
+# Troubleshooting Azure Machine Learning service Azure Kubernetes Service and Azure Container Instances deployment
 
 Learn how to work around or solve common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning service.
 
@@ -319,7 +319,7 @@ In some cases, you may need to interactively debug the Python code contained in 
 >
 > Local web service deployments require a working Docker installation on your local system. Docker must be running before you deploy a local web service. For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
 
-### Configure development enviornment
+### Configure development environment
 
 1. To install the Python Tools for Visual Studio (PTVSD) on your local VS Code development environment, use the following command:
 
@@ -379,14 +379,14 @@ In some cases, you may need to interactively debug the Python code contained in 
 
     ```python
     import ptvsd
-    # Allows other computers to attach to ptvsd at this IP address and port.
+    # Allows other computers to attach to ptvsd on this IP address and port.
     ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
     # Pause the script until a remote debugger is attached and timeout after 30 sec
     ptvsd.wait_for_attach(timeout = 30)
     print("Debugger attached...")
     ```
 
-1. To install a text editor (vim) in the Docker image, create a new text file named `Dockerfile.steps` and use the following as the contents of the file:
+1. During debugging, you may want to make changes to the files in the image without having to recreate it. To install a text editor (vim) in the Docker image, create a new text file named `Dockerfile.steps` and use the following as the contents of the file:
 
     ```text
     RUN apt-get update && apt-get -y install vim
@@ -424,7 +424,7 @@ Once the image has been created, you can download and run it locally.
 
     ![Images within workspace on the portal](media/how-to-troubleshoot-deployment/machine-learning-images.png)
 
-    From __Details__ for the image, copy the __Location__ value. This is the path to the image. Save this value as it is used later in this section.
+    From __Details__ for the image, copy the __Location__ value. This location is the path to the image. Save this value as it is used later in this section.
 
     ![Details of one particular image within workspace on portal](media/how-to-troubleshoot-deployment/image-details.png)
 
@@ -451,7 +451,7 @@ Once the image has been created, you can download and run it locally.
 
     The time it takes to complete the download depends on the speed of your internet connection. A download status is displayed during the process. Once the download is complete, you can use the `docker images` command to verify that it has downloaded.
 
-1. To make it easier to work with the image, use the following command to add a tag to it. Replace `myimagepath` with the location value from step 2.
+1. To make it easier to work with the image, use the following command to add a tag. Replace `myimagepath` with the location value from step 2.
 
     ```bash
     docker tag myimagepath debug:1
@@ -469,23 +469,24 @@ Once the image has been created, you can download and run it locally.
 1. To start a Docker container using the image, use the following command:
 
     ```bash
-    docker run --rm --name lab -p 8000:5001 -p 5678:5678 lab:1
+    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. To attach to PTVSD inside the container, use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning service: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning service: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
+1. To attach to PTVSD inside the container open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning service: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning service: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
     ![The debug icon, start debugging button, and configuration selector](media/how-to-troubleshoot-deployment/start-debugging.png)
 
 At this point, VS Code connects to PTVSD inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
+<a id="editfiles"></a>
 ### Modify the container files
 
-To make changes to files in the container, you can connect to a bash shell inside the container and use vim to edit files.
+To make changes to files in the image, you can start a new container and then connect to a bash shell inside the container. From there, you can use vim to edit files:
 
 1. To start the container and connect to a bash shell in the container, use the following command:
 
     ```bash
-    docker run -it --rm --name lab -p 8000:5001 -p 5678:5678 lab:1 /bin/bash
+    docker run -it --rm --name debug -p 8000:5001 -p 5678:5678 debug:1 /bin/bash
     ```
 
 1. To find the files used by the service, use the following command from the bash shell in the container:
@@ -494,7 +495,69 @@ To make changes to files in the container, you can connect to a bash shell insid
     cd /var/azureml-app
     ```
 
-From here, you can use vim to edit the `score.py` file. For more information on using vim, see [Using the Vim editor](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
+    From here, you can use vim to edit the `score.py` file. For more information on using vim, see [Using the Vim editor](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
+
+1. Changes to a container are not normally persisted. To save any changes you make, use the following command:
+
+    ```bash
+    docker commit debug debug:2
+    ```
+
+    This command creates a new image named `debug:2` that contains your edits.
+
+    > [!TIP]
+    > You may need to stop the current container and start using the new version before changes take effect.
+
+### Stop the container
+
+To stop the container, use the following command:
+
+```bash
+docker stop debug
+```
+
+### Directly launching score.py
+
+Instead of allowing the container to start the web service, another approach is to start the container with a bash shell, and then manually run the `score.py` file from PTVSD. 
+
+1. Use the steps in the [Modify the container files](#editfiles) section and connect to the container, then change directories to `/var/azureml-app`.
+
+1. Use vim to make the following changes to the files:
+
+    1. Remove the section of code that imports ptvsd and waits for a connection. The following code is what this section looks like:
+
+        ```python
+        import ptvsd
+        # Allows other computers to attach to ptvsd at this IP address and port.
+        ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
+        # Pause the script until a remote debugger is attached and timeout after 30 sec
+        ptvsd.wait_for_attach(timeout = 30)
+        print("Debugger attached...")
+        ```
+
+    1. Since you are running the file directly, and not through the web service, you must provide input data. Create a new file named `score.json` and add JSON data to it that your `score.py` file expects.
+
+    1. To use the `score.json` file, add the following code to the end of the `score.py` file:
+
+        ```python
+        # this code assumes you put a file called scoring.json
+            # in the working directory of the container (/var/azureml-app)
+        # that has records to score.
+        if __name__ == "__main__":
+            init()
+            with open('scoring.json') as infile:
+                test_input_data = json.load(infile)
+            output = run(json.dumps(test_input_data))
+            print(output)
+        ```
+
+1. To start the `score.py` file using ptvsd, use the following command:
+
+    ```bash
+    python -m ptvsd --host 0.0.0.0 --port 5678 --wait score.py
+    ```
+
+    This command starts ptvsd and waits for a connection. At this point, you can use VS Code to connect and debug the `score.py` file.
 
 ## Next steps
 
