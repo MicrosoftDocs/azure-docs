@@ -205,7 +205,8 @@ Set the value of the `Content-Type` request header to `application/json`.
 
 Restore is a long running operation that may take up to 30 or more minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive '202 Accepted' status code. A response code of `200 OK` indicates successful completion of the restore operation.
 
-> [!IMPORTANT] > **The SKU** of the service being restored into **must match** the SKU of the backed-up service being restored.
+> [!IMPORTANT]
+> **The SKU** of the service being restored into **must match** the SKU of the backed-up service being restored.
 >
 > **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
 
