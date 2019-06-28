@@ -170,13 +170,31 @@ As the Run is executed, it goes through the following stages:
 
 - **Running**: All scripts in the script folder are uploaded to the compute target, data stores are mounted or copied, and the entry_script is executed. Outputs from stdout and the ./logs folder are streamed to the run history and can be used to monitor the run.
 
+- **Post-Processing**: The ./outputs folder of the run is copied over to the run history.
+
+## Save and register the model
+
+Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+
+Add the following code to your training script, **chainer_mnist.py**, to save the model. 
+
+``` Python
+    serializers.save_npz(os.path.join(args.output_dir, 'model.npz'), model)
+```
+
+Register the model to your workspace with the following code.
+
+```Python
+model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/model.npz')
+```
+
 
 
 ## Next steps
 
 In this article, you trained a Chainer model on Azure Machine Learning service. 
 
-* To learn how to register and deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
+* To learn how to deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
 
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 
