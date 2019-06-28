@@ -65,9 +65,9 @@ If we need to run a credit check because of the amount of credit that you need, 
 
 ## Switch to invoice pay (check/wire transfer)
 
-Once you are approved to pay by invoice, you can switch your Azure subscription to the invoice payment method (check/wire transfer) in the [Azure portal](https://portal.azure.com).
+Once you are approved to pay by invoice, you can switch to invoice pay (check/wire transfer) in the Azure portal.
 
-If you have a [Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement), you can switch your billing profile to check/wire transfer. Learn how to [switch your billing profile to check/wire transfer](#switch-billing-profile-to-check/wire-transfer).
+If you have a Microsoft Online Services Program account, you can switch your Azure subscription to check/wire transfer. If you have a Microsoft Customer Agreement, you can switch your billing profile to check/wire transfer. [Learn how to check your account type](#check-access-to-a-microsoft-customer-agreement).
 
 ### Switch Azure subscription to check/wire transfer
 
