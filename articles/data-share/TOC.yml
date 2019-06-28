@@ -10,16 +10,19 @@
     - name: Accept and receive data
       href: subscribe-to-data-share.md
 - name: Concepts
+  expanded: true
   items:
   - name: Azure Data Share Terminology 
     href: terminology.md
 - name: How-to guides
+  expanded: true
   items:
   - name: Configure a Dataset Mapping
     href: how-to-configure-mapping.md
   - name: Troubleshoot Azure Data Share Preview
     href: data-share-troubleshooting.md
 - name: Resources
+  expanded: true
   items:
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/data-share
