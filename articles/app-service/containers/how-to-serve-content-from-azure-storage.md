@@ -24,6 +24,8 @@ This guide shows how to serve static content in App Service on Linux by using [A
 > [!NOTE]
 > Azure Storage is non-default storage and billed separately, not included with the web app.
 >
+> Bring your own storage does not support using the Storage Firewall configuration due to infrastructure limitations.
+>
 
 Create an Azure [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
 

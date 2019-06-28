@@ -33,37 +33,37 @@ When you need to take on an Azure resource role, you can request activation by u
 
 1. Click **My roles**.
 
-    ![Azure AD roles and Azure resource roles - My roles](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![My roles page showing roles you can activate](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Click **Azure resource roles** to see a list of your eligible Azure resource roles.
 
-   ![Azure resource roles](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![My roles - Azure resource roles page](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. In the **Azure resource roles** list, find the role you want to activate.
 
-    ![Azure resource roles - My roles list](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
+    ![Azure resource roles - My eligible roles list](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
 1. Click **Activate** to open the Activate pane.
 
 1. If your role requires multi-factor authentication (MFA), click **Verify your identity before proceeding**. You only have to authenticate once per session.
 
-    ![Verify with MFA before role activation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
+    ![Verify my identity with MFA before role activation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
 1. Click **Verify my identity** and follow the instructions to provide additional security verification.
 
-    ![Additional security verification](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+    ![Screen to provide security verification such as a PIN code](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
 1. If you want to specify a reduced scope, click **Scope** to open the Resource filter pane.
 
     It's a best practice to only request access to the resources you need. On the Resource filter pane, you can specify the resource groups or resources that you need access to.
 
-    ![Activate - Resource filter](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
+    ![Activate - Resource filter pane to specify scope](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
 
 1. If necessary, specify a custom activation start time. The member would be activated after the selected time.
 
 1. In the **Reason** box, enter the reason for the activation request.
 
-    ![Completed Activate pane](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
+    ![Completed Activate pane with scope, start time, duration, and reason](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
 1. Click **Activate**.
 
@@ -71,7 +71,7 @@ When you need to take on an Azure resource role, you can request activation by u
 
     If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
-    ![Request pending notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+    ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
 ## Use a role immediately after activation
 
@@ -97,7 +97,7 @@ You can view the status of your pending requests to activate.
 
 1. Click **My requests** to see a list of your Azure AD role and Azure resource role requests.
 
-    ![Azure AD roles and Azure resource roles - My requests](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![My requests - Azure resource page showing your pending requests](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Scroll to the right to view the **Request Status** column.
 
@@ -113,7 +113,7 @@ If you do not require activation of a role that requires approval, you can cance
 
     When you click Cancel, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
 
-   ![Cancel pending request](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+   ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## Troubleshoot
 
