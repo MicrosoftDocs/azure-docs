@@ -24,7 +24,7 @@ This article provides benchmark testing recommendations for volume performance a
 
 To understand the performance characteristics of an Azure NetApp Files volume, you can use the open source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate a variety of workloads. FIO can be installed on both Linux and Windows based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
 
-### VM instance Sizing
+### VM instance sizing
 
 For best results, ensure that you are using a virtual machine (VM) instance that is appropriately sized to perform the tests. The following examples use a Standard_D32s_v3 instance. For more information about VM instance sizes, see [Sizes for Windows virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) for Windows-based VMs, and [Sizes for Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for Linux-based VMs.
 
@@ -32,7 +32,7 @@ For best results, ensure that you are using a virtual machine (VM) instance that
 
 Ensure that you choose the correct service level and volume quota size for the expected performance level. See [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md) for more information.
 
-### Virtual Network (VNet) recommendations
+### Virtual network (VNet) recommendations
 
 You should perform the benchmark testing in the same VNet as Azure NetApp Files. The example below demonstrates the recommendation:
 
