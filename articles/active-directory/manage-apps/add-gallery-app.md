@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 > [!IMPORTANT]
 > First, check for your app in the [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). You'll likely find step-by-step guidance for adding and configuring the gallery app you want to add.
 
-To add a gallery application to your Azure AD tenant:
+## Add a gallery application
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global admin for your Azure AD tenant, a cloud application admin, or an application admin.
 
@@ -44,6 +44,8 @@ To add a gallery application to your Azure AD tenant:
 1. (Optional) In the application-specific form, you can edit the name of the application to match the needs of your organization.
 
 1. Select **Add**. The application **Overview** page opens.
+
+## Configure user sign-in properties
 
 1. Select **Properties** to open the properties pane for editing.
 

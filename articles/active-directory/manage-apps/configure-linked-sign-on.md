@@ -20,7 +20,7 @@ When you add a gallery or non-gallery web application, one of the single sign-on
 
 ## Before you begin
 
-- If the application hasn't been added to your Azure AD tenant, see [Add a gallery app](add-gallery-app.md) or [Add a non-gallery app](add-non-gallery-app.md).
+If the application hasn't been added to your Azure AD tenant, see [Add a gallery app](add-gallery-app.md) or [Add a non-gallery app](add-non-gallery-app.md).
 
 ### Open the app and select linked sign-on
 
@@ -39,9 +39,6 @@ When you add a gallery or non-gallery web application, one of the single sign-on
 1. Enter the URL of the application to link to. Type the URL and select **Save**. 
  
 1. You may assign users and groups to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](end-user-experiences.md) for those users.
-
-> [!NOTE]
-> You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
 
 1. Select **Save**.
 

@@ -25,7 +25,7 @@ In addition to the choices in the [Azure AD application gallery](https://azure.m
 
 This article describes how to add a non-gallery application to Azure AD using the **Enterprise Applications** blade in the Azure portal *without writing code*. If instead you're looking for developer guidance on how to integrate custom apps with Azure AD, see [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md). When you develop an app that uses a modern protocol like [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) to authenticate users, you can register it with the Microsoft identity platform by using the [App registrations](../develop/quickstart-register-app.md) experience in the Azure portal.
 
-## To add a non-gallery application
+## Add a non-gallery application
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/) using your Microsoft identity platform administrator account.
 1. Select **Enterprise Applications** > **New application**.
@@ -34,7 +34,55 @@ This article describes how to add a non-gallery application to Azure AD using th
 
    ![Add application](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
 5. Enter the display name for your new application.
-6. Select **Add**.
+6. Select **Add**. The application **Overview** page opens.
+
+## Configure user sign-in properties
+
+1. Select **Properties** to open the properties pane for editing.
+
+    ![Edit properties pane](media/add-application-portal/edit-properties.png)
+
+1. Set the following options to determine how users who are assigned or unassigned to the application can sign into the application and if a user can see the application in the access panel.
+
+    - **Enabled for users to sign-in** determines whether users assigned to the application can sign in.
+    - **User assignment required** determines whether users who aren't assigned to the application can sign in.
+    - **Visible to user** determines whether users assigned to an app can see it in the access panel and O365 launcher.
+
+      Behavior for **assigned** users:
+
+       | Application property settings | | | Assigned-user experience | |
+       |---|---|---|---|---|
+       | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
+       | yes | yes | yes | yes | yes  |
+       | yes | yes | no  | yes | no   |
+       | yes | no  | yes | yes | yes  |
+       | yes | no  | no  | yes | no   |
+       | no  | yes | yes | no  | no   |
+       | no  | yes | no  | no  | no   |
+       | no  | no  | yes | no  | no   |
+       | no  | no  | no  | no  | no   |
+
+      Behavior for **unassigned** users:
+
+       | Application property settings | | | Unassigned-user experience | |
+       |---|---|---|---|---|
+       | Enabled for users to sign in? | User assignment required? | Visible to users? | Can unassigned users sign in? | Can unassigned users see the application?* |
+       | yes | yes | yes | no  | no   |
+       | yes | yes | no  | no  | no   |
+       | yes | no  | yes | yes | no   |
+       | yes | no  | no  | yes | no   |
+       | no  | yes | yes | no  | no   |
+       | no  | yes | no  | no  | no   |
+       | no  | no  | yes | no  | no   |
+       | no  | no  | no  | no  | no   |
+
+     *Can the user see the application in the access panel and the Office 365 app launcher?
+
+1. To use a custom logo, create a logo that is 215 by 215 pixels, and save it in PNG format. Then browse to your logo and upload it.
+
+    ![Change the logo](media/add-application-portal/change-logo.png)
+
+1. When you're finished, select **Save**.
 
 ## Next steps
 
@@ -43,47 +91,6 @@ Now that you've added the application to your Azure AD organization, [choose a s
 - [Configure SAML-based single sign-on](configure-single-sign-on-portal.md)
 - [Configure password single sign-on](configure-password-single-sign-on.md)
 - [Configure linked sign-on](configure-linked-sign-on.md)
-
-## Password single sign-on
-
-Select this option to configure [password-based single sign-on](what-is-single-sign-on.md) for a web application with an HTML sign-in page. Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts.
-
-After you select **Password-based**, you're prompted to enter the URL of the application's web-based sign-in page.
-
-![Password-based single sign-on](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
-
-Then do these steps:
-
-1. Enter the URL. This string must be the page that includes the username input field.
-2. Select **Save**. Azure AD tries to parse the sign-in page for a username input and a password input.
-3. If Azure AD's parsing attempt fails, select **Configure \<application name> Password Single Sign-on Settings** to display the **Configure sign-on** page. (If the attempt succeeds, you can disregard the rest of this procedure.)
-4. Select **Manually detect sign-in fields**. Additional instructions describing the manual detection of sign-in fields appear.
-
-   ![Manual configuration of password-based single sign-on](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. Select **Capture sign-in fields**. A capture status page opens in a new tab, showing the message **metadata capture is currently in progress**.
-6. If the **Access Panel Extension Required** box appears in a new tab, select **Install Now** to install the **My Apps Secure Sign-in Extension** browser extension. (The browser extension requires Microsoft Edge, Chrome, or Firefox.) Then install, launch, and enable the extension, and refresh the capture status page.
-
-   The browser extension then opens another tab that displays the entered URL.
-7. In the tab with the entered URL, go through the sign-in process. Fill in the username and password fields, and try to sign in. (You don't have to provide the correct password.)
-
-   A prompt asks you to save the captured sign-in fields.
-8. Select **OK**. The tab closes, the browser extension updates the capture status page with the message **Metadata has been updated for the application**, and that browser tab also closes.
-9. In the Azure AD **Configure sign-on** page, select **Ok, I was able to sign-in to the app successfully**.
-10. Select **OK**.
-
-After the capture of the sign-in page, you may assign users and groups, and you can set up credential policies just like regular [password SSO applications](what-is-single-sign-on.md).
-
-> [!NOTE]
-> You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
-
-## Existing single sign-on
-
-Select this option to add a link to the application in your organization's Azure AD Access Panel or Office 365 portal. You can use this method to add links to custom web applications that currently use Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels.
-
-After you select **Linked**, you're prompted to enter the URL of the application to link to. Type the URL and select **Save**. You may assign users and groups to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](end-user-experiences.md) for those users.
-
-> [!NOTE]
-> You can upload a tile logo for the application using the **Upload Logo** button on the **Configure** tab for the application.
 
 ## Related articles
 
