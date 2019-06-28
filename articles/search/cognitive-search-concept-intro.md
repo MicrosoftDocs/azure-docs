@@ -95,7 +95,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 + [Quickstart (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
-+ [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
++ [Example: Creating an Azure Cognitive Search custom skill (C#)](cognitive-search-create-custom-skill-example.md)
 
 We recommend the Free service for learning purposes, but be aware that the number of free transactions is limited to 20 documents per day. To run both the quickstart and tutorial in one day, use a smaller file set (10 documents) so that you can fit in both exercises.
 

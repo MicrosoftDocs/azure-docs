@@ -22,7 +22,7 @@ The following articles are the complete documentation for cognitive search.
 + [What is cognitive search?](cognitive-search-concept-intro.md)
 + [Quickstart: Try cognitive search in the portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn the cognitive search APIs](cognitive-search-tutorial-blob.md)
-+ [Example: create a custom skill](cognitive-search-create-custom-skill-example.md)
++ [Example: Creating an Azure Cognitive Search custom skill](cognitive-search-create-custom-skill-example.md)
 
 ## How-to guidance
 + [How to define a skillset](cognitive-search-defining-skillset.md)
