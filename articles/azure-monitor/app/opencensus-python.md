@@ -126,11 +126,7 @@ First you have to create an Application Insights resource which will generate an
 
    ![Screenshot of overview pane with live metric stream selected in red box](./media/opencensus-python/0005-overview-live-metrics-stream.png)
 
-2. If you run the second Python script again and start entering values, you will see live trace data as it arrives in Application Insights from the local forwarder service.
-
-   ![Screenshot of live metric stream with performance data displayed](./media/opencensus-python/0006-stream.png)
-
-3. Navigate back to the **Overview** page and select **Application Map** for a visual layout of the dependency relationships and call timing between your application components.
+2. Navigate back to the **Overview** page and select **Application Map** for a visual layout of the dependency relationships and call timing between your application components.
 
     ![Screenshot of basic application map](./media/opencensus-python/0007-application-map.png)
 
@@ -138,11 +134,11 @@ First you have to create an Application Insights resource which will generate an
 
    ![Application Map](media/opencensus-python/application-map.png)
 
-4. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
+3. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
 
     ![Screenshot of performance pane](./media/opencensus-python/0008-performance.png)
 
-5. Selecting **Samples** and then clicking on any of the samples that appear in the right-hand pane will launch the end-to-end transaction details experience. While our sample app will just show us a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
+4. Selecting **Samples** and then clicking on any of the samples that appear in the right-hand pane will launch the end-to-end transaction details experience. While our sample app will just show us a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
 
      ![Screenshot of end-to-end transaction interface](./media/opencensus-python/0009-end-to-end-transaction.png)
 
