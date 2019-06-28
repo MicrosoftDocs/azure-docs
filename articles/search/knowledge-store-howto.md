@@ -17,7 +17,7 @@ ms.author: heidist
 
 [Knowledge store](knowledge-store-concept-intro.md) saves AI enrichments created during indexing to your Azure storage account for downstream knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
 
-A knowledge store is defined by a skillset. For regular Azure Search full-text search scenarios, the purpose of a skillset is providing AI enrichments to make content more searchable. For knowledge mining scenarios, the role of a skillset is creating, populating, and storing multiple data structures for analysis or modeling in other apps and processes.
+A knowledge store is defined by a *skillset* and created by an *indexer*. The physical expression of a knowledge store is specified through *projections* that determine the data structures in storage. By the time you finish this walkthrough, you will have created all of these objects and you'll know how it all fits together.
 
 In this exercise, start with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store, with emphasis on skillset definition.
 
@@ -25,17 +25,17 @@ In this exercise, start with sample data, services, and tools to learn the basic
 
 The following services, tools, and data are used in this quickstart. 
 
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
-
 + [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data. Your knowledge store will exist in Azure storage. 
 
-+ [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) at the S0 pay-as-you-go tier for broad-spectrum access to the full range of skills used in AI enrichments. This resource and your Azure Search service are required to be in the same region.
++ [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) at the S0 pay-as-you-go tier for broad-spectrum access to the full range of skills used in AI enrichments. Cognitive Services and your Azure Search service are required to be in the same region.
 
 + [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search.
 
 + [Postman collection](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Caselaw) with prepared requests for creating a data source, index, skillset, and indexer. Several object definitions are too long to include in this article. You must get this collection to see the index and skillset definitions in their entirety.
 
 + [Caselaw sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) originating from the [Caselaw Access Project](https://case.law/bulk/download/) Public Bulk Data download page. Specifically, the exercise uses the first 10 documents of the first download (Arkansas). We uploaded a 10-document sample to GitHub for this exercise.
+
++ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
 ## Get a key and URL
 
@@ -45,7 +45,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-    ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+    ![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service.
 
@@ -64,7 +64,7 @@ All requests require an api-key on every request sent to your service.
 
 ## Set up Postman
 
-Start Postman and import the Caselaw Postman collection. Alternatively, set up a series of HTTP requests. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-fiddler.md).
+Start Postman and import the Caselaw Postman collection. Alternatively, set up a series of HTTP requests. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-get-started-postman.md).
 
 + Request method for every call in this walkthrough is **PUT** or **POST**.
 + Request headers (2) include the following: "Content-type" set to "application/json", "api-key" set to your "admin key" (the admin key is a placeholder for your search primary key) respectively. 
@@ -433,7 +433,9 @@ The endpoint of this call is `https://[service name].search.windows.net/skillset
 
 ## Create and run an indexer
 
-The [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/create-indexer) creates and immediately executes an indexer. All of the definitions you have created so far are put into motion with this step. The indexer runs immediately because it doesn't exist in the service. After it exists, a POST call to an existing indexer is an update operation.
+An indexer is the execution engine of the indexing pipeline. All of the definitions you have created so far are put into motion with this step.
+
+The [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/create-indexer) creates and immediately executes an indexer. The indexer runs immediately because it doesn't exist in the service. After it exists, a POST call to an existing indexer is an update operation.
 
 The endpoint of this call is `https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview`
 
