@@ -13,7 +13,7 @@ ms.author: mbullwin
 ---
 # Monitor application performance hosted on Azure VM and Azure virtual machine scale sets
 
-Enabling monitoring on your .NET and .NET Core based web applications running on [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/) and [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
+Enabling monitoring on your .NET based web applications running on [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/) and [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
 
 This article will walk you through enabling Application Insights monitoring using ApplicationMonitoringWindows extension as well as provide preliminary guidance for automating the process for large-scale deployments.
 
