@@ -15,9 +15,9 @@ ms.author: mbaldwin
 
 This article documents the common security attributes that are built-in to Azure SQL Database.
 
-[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
+[???!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-SQL Database offers both [single database](sql-database-single-index.yml) and [managed instance](sql-database-managed-instance.md). The following entries apply to both offerings except where otherwise noted.
+SQL Database includes both [single database](sql-database-single-index.yml) and [managed instance](sql-database-managed-instance.md). The following entries apply to both offerings except where otherwise noted.
 
 ## Preventative
 
@@ -35,7 +35,7 @@ SQL Database offers both [single database](sql-database-single-index.yml) and [m
 |---|---|--|
 | Service-endpoint support.| Yes. | Applies to [single database](sql-database-single-index.yml) only. |
 | Azure Virtual Network injection support.| Yes. | Applies to [managed instance](sql-database-managed-instance.md) only. |
-| Network-isolation and firewall support.| Yes. | Firewall at both database level and server level. Network isolation for [managed instance](sql-database-managed-instance.md) only. |
+| Network-isolation and firewall support.| Yes. | Firewall at both database level and server level. Network isolation is for [managed instance](sql-database-managed-instance.md) only. |
 | Forced-tunneling support.| Yes. | [Managed instance](sql-database-managed-instance.md) via an [ExpressRoute](../expressroute/index.yml) VPN. |
 
 ## Detection
