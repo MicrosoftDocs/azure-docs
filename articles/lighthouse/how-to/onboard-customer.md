@@ -54,7 +54,7 @@ az account show
 
 ## Register the customer's subscription for onboarding
 
-Each subscription must be authorized for onboarding by manually registering the Microsoft.ManagedServices resource provider. For more info, see [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
+Each subscription must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. For more info, see [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
 
 You can confirm that the subscription is ready for onboarding (from within the customer's tenant) in one of the following ways.
 
