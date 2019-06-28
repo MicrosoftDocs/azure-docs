@@ -58,7 +58,7 @@ If Azure AD's parsing attempt fails, you can configure sign-on manually.
 1. In the tab with the entered URL, go through the sign-in process. Fill in the username and password fields, and try to sign in. (You don't have to provide the correct password.)
 
    A prompt asks you to save the captured sign-in fields.
-8. Select **OK**. The tab closes, the browser extension updates the capture status page with the message **Metadata has been updated for the application**, and that browser tab also closes.
+8. Select **OK**. The browser extension updates the capture status page with the message **Metadata has been updated for the application**. The browser tab closes.
 9. In the Azure AD **Configure sign-on** page, select **Ok, I was able to sign-in to the app successfully**.
 10. Select **OK**.
 
