@@ -115,7 +115,6 @@ The following table lists the submission languages that AppSource is available i
 <a name="bk_addresources"> </a>
 
 - [Validation policies](validation-policies.md) 
-- [Use the Seller Dashboard to submit your solution to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)    
  
 

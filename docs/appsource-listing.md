@@ -8,6 +8,8 @@ localization_priority: Normal
 
 You enter the AppSource listing information on the Store listings page in Partner Center. For Office Add-ins, this is also the listing that appears in the in-product experience. Your AppSource listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the listing information for each language. 
 
+If you're adding AppSource listings for multiple languages, it might be convenient to use the **Export** and **Import** feature and add your store listing information in an offline .csv file. You can then make updates to multiple listings at one time.
+
 > [!NOTE]
 > We recommend that you follow the guidelines in [Create effective AppSource listings](create-effective-office-store-listings.md) when you create your AppSource listing.
 
