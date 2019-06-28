@@ -75,9 +75,11 @@ You can configure Conditional Access policies that are device-based. The objecti
 
 Your device needs to be registered to Azure AD before it can be marked as compliant. To register a device, you have three options: 
 
-- [Azure AD registered devices](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD joined devices](../devices/overview.md#azure-ad-joined-devices)  
-- [Hybrid Azure AD joined devices](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- Azure AD registered devices
+- Azure AD joined devices  
+- Hybrid Azure AD joined devices
+
+These three options are discussed in the article [What is a device identity?](../devices/overview.md)
 
 For more information, see [how to require managed devices for cloud app access with Conditional Access](require-managed-devices.md).
 
