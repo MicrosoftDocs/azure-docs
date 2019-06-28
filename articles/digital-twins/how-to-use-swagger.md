@@ -105,11 +105,11 @@ To learn more about interactively testing requests protected by OAuth 2.0, see t
 
 3. Grant permissions for your app to access Azure Digital Twins. Under **Required permissions**, enter `Azure Digital Twins` and select **Delegated Permissions**. Then select **Grant Permissions**.
 
-    ![Azure AD app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+    ![Azure AD app registrations add api](../../includes/media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
 
 4. Configure the application manifest to allow OAuth 2.0 implicit flow. Select **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
 
-    ![Azure AD implicit flow](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
+    ![Azure AD implicit flow](../../includes/media/digital-twins-permissions-legacy/aad-app-allow-implicit-flow.png)
 
 5. Copy the ID of your Azure AD app.
 
