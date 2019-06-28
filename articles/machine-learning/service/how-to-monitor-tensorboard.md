@@ -1,6 +1,6 @@
 ---
 title: How to monitor experiments with TensorBoard and Azure Machine Learning service
-description: Launch TensorBoard for viewing your experiment run histories, and identify potential areas for hyperparameter tuning and re-training.
+description: Launch TensorBoard for viewing your experiment run histories, and identify potential areas for hyperparameter tuning and retraining.
 services: machine-learning
 author: maxluk
 ms.author: maxluk
@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 06/28/2019
 
 ---
 
@@ -43,7 +43,7 @@ The code in this how-to can be run in either of the following environments:
 ## Launch TensorBoard from run history
 
 To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance. In the following sections, we run the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, AMLCompute, and demonstrate how to 
-start TensorBoard against a TensorFlow experiment, i.e. an experiment that natively outputs run history files that are TensorBoard consumable.
+start TensorBoard against a TensorFlow experiment,that is, an experiment that natively outputs run history files that are TensorBoard consumable.
 
 ### Set experiment name and create project folder
 
@@ -73,11 +73,11 @@ tf_code = requests.get("https://raw.githubusercontent.com/tensorflow/tensorflow/
 with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
     file.write(tf_code.text)
 ```
-Throughout the MNIST code file, mnist_with_summaries.py, notice that there are lines that call `tf.summary.scalar()`,  `tf.summary.histogram()`, `tf.summary.FileWriter()` etc. These methods group, log and tag key metrics of your experiments into run history. The `tf.summary.FileWriter()` is especially important as it serializes the data from your logged experiment metrics which allows for TensorBoard to generate visualizations off of them.
+Throughout the MNIST code file, mnist_with_summaries.py, notice that there are lines that call `tf.summary.scalar()`,  `tf.summary.histogram()`, `tf.summary.FileWriter()` etc. These methods group, log, and tag key metrics of your experiments into run history. The `tf.summary.FileWriter()` is especially important as it serializes the data from your logged experiment metrics, which allows for TensorBoard to generate visualizations off of them.
 
  ### Configure experiment
 
-In the following, we configure our experiment and set up directories for logs and data. These logs will be uploaded to the Artifact Service which is accessed by TensorBoard later.
+In the following, we configure our experiment and set up directories for logs and data. These logs will be uploaded to the Artifact Service, which TensorBoard accesses later.
 
 >[!Note]
 > For this TensorFlow example, you will need to install TensorFlow on your local machine. Further, the TensorBoard module (that is, the one included with TensorFlow) must be accessible to this notebook's kernel, as the local machine is what runs TensorBoard.
@@ -277,7 +277,7 @@ tb.stop()
 
 ## Next steps
 
-In this how-to you created two experiments and learned how to launch TensorBoard against their run histories to identify areas for potential tuning and re-training. 
+In this how-to you, created two experiments and learned how to launch TensorBoard against their run histories to identify areas for potential tuning and retraining. 
 
 * If you are satisfied with your model, head over to our [How to deploy a model](how-to-deploy-and-where.md) article. 
 * Learn more about [hyperparameter tuning](how-to-tune-hyperparameters.md). 
