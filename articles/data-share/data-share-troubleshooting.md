@@ -16,11 +16,9 @@ This article shows how to troubleshoot common issues for Azure Data Share Previe
 
 ## Azure Data Share Invitations 
 
-In some cases, when a new user accepts an Azure Data Share invitation, they may receive an error. For example:
+In some cases, when a new user clicks **Accept Invitation** from the e-mail invitation that was sent, they may be presented with an empty list of invitations. 
 
-**"InvitationBrowseBlade | MICROSOFT_AZURE_DATASHARE"**
-
-![Invitation error](media/invitation-blade-error.png)
+![No invitations](media/no-invites.png)
 
 The above error is a known issue with the service and is currently being addressed. As a workaround, follow the below steps. 
 
