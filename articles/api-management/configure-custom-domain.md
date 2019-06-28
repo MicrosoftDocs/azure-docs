@@ -55,7 +55,9 @@ To perform the steps described in this article, you must have:
    + In the **Certificate**, select a certificate from Key Vault. You can also upload a valid .PFX file and provide its **Password**, if the certificate is protected with a password.
 
      > [!TIP]
-     > If you use Azure Key Vault to manage the custom domain SSL certificate, make sure the certificate is inserted into Key Vault [as a *certificate*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a *secret*. If the certificate is set to autorotate, API Management will pick up the latest version automatically.
+     > We recommend using Azure Key Vault for managing certificates and setting them to autorotate.
+     >
+     > If you use Azure Key Vault to manage the custom domain SSL certificate, make sure the certificate is inserted into Key Vault [as a *certificate*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a *secret*. If the certificate is set to autorotate, API Management will pick up the latest version automatically without any downtime to the service (if your API Management tier has SLA - i. e. in all tiers except the Developer tier).
 
 1. Click Apply.
 
