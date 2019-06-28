@@ -18,7 +18,7 @@ For more information about the backup process and limitations, see [About SQL Se
 
 ## SQL Server permissions
 
-To configure protection for a SQL Server database on a virtual machine, you must install the **AzureBackupWindowsWorkload** extension on that virtual machine. If you get the error **UserErrorSQLNoSysadminMembership**, it means your SQL Server instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set permissions for non-marketplace SQL VMs](backup-azure-sql-database.md#set-vm-permissions).
+To configure protection for a SQL Server database on a virtual machine, you must install the **AzureBackupWindowsWorkload** extension on that virtual machine. If you get the error **UserErrorSQLNoSysadminMembership**, it means your SQL Server instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
 ## Error messages
 
@@ -33,14 +33,14 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model does not allow log backup.</li><li>Differential and log backups are not allowed for a master database.</li></ul>For more detail, see the [SQL Recovery models](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you have configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
-| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about backup and restore limitations](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs.](manage-monitor-sql-database-backup.md) After the conflicting operation fails, restart the operation.|
+| This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database that's using a simple recovery model does not allow log backup.</li><li>Differential and log backups are not allowed for a master database.</li></ul>For more detail, see the [SQL Server recovery models](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the database in the simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to full or bulk logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a master database and you have configured differential or log backup, use either of the following steps:<ul><li>Use the portal to change the backup policy schedule for the master database, to full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
+| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about backup and restore limitations](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs](manage-monitor-sql-database-backup.md). After the conflicting operation fails, restart the operation.|
 
 ### UserErrorSQLPODoesNotExist
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| SQL database does not exist. | The database was either deleted or renamed. | Check if the database was accidentally deleted or renamed.<br/><br/> If the database was accidentally deleted, to continue backups, restore the database to the original location.<br/><br/> If you deleted the database and don't need future backups, then in the Recovery Services vault, select **Stop backup** with **Retain Backup Data** or **Delete Backup Data**. For more information, see [Manage and monitor backed up SQL Server databases](manage-monitor-sql-database-backup.md).
+| SQL database does not exist. | The database was either deleted or renamed. | Check if the database was accidentally deleted or renamed.<br/><br/> If the database was accidentally deleted, to continue backups, restore the database to the original location.<br/><br/> If you deleted the database and don't need future backups, then in the Recovery Services vault, select **Stop backup** with **Retain Backup Data** or **Delete Backup Data**. For more information, see [Manage and monitor backed-up SQL Server databases](manage-monitor-sql-database-backup.md).
 
 ### UserErrorSQLLSNValidationFailure
 
@@ -58,25 +58,25 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| First full backup is missing for this data source. | Full backup is missing for the database. Log and differential backups are parents to a full backup, so full backups must be taken before triggering differential or log backups. | Trigger an ad hoc full backup.   |
+| First full backup is missing for this data source. | Full backup is missing for the database. Log and differential backups are parents to a full backup, so be sure to take full backups before triggering differential or log backups. | Trigger an ad hoc full backup.   |
 
 ### UserErrorBackupFailedAsTransactionLogIsFull
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Cannot take backup as transaction log for the data source is full. | The database transactional log space is full. | To fix this issue, refer to the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
+| Cannot take backup as transaction log for the data source is full. | The database transactional log space is full. | To fix this issue, refer to the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
 
 ### UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Database with same name already exists at the target location | The target restore destination already has a database with the same name.  | <ul><li>Change the target database name</li><li>Or, use the force overwrite option in the restore the page.</li> |
+| Database with same name already exists at the target location | The target restore destination already has a database with the same name.  | <ul><li>Change the target database name.</li><li>Or, use the force overwrite option on the restore page.</li> |
 
 ### UserErrorRestoreFailedDatabaseCannotBeOfflined
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Restore failed as the database could not be brought offline. | While you're doing a restore, the target database needs to be brought offline. Azure Backup can't bring this data offline. | Use the additional details on the Azure portal error menu to narrow down the root causes. For more information, see the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
+| Restore failed as the database could not be brought offline. | While you're doing a restore, the target database needs to be brought offline. Azure Backup can't bring this data offline. | Use the additional details on the Azure portal error menu to narrow down the root causes. For more information, see the [SQL Server documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
 ###  UserErrorCannotFindServerCertificateWithThumbprint
 
@@ -119,7 +119,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 Check for one or more of the following symptoms before you trigger the re-register operation:
 
-* All operations such as backup, restore, and configure backup are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* All operations (such as backup, restore, and configure backup) are failing on the VM with one of the following error codes: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
 * The **Backup Status** area for the backup item is showing **Not reachable**. Rule out all the other causes that might result in the same status:
 
   * Lack of permission to perform backup-related operations on the VM  
@@ -132,13 +132,13 @@ Check for one or more of the following symptoms before you trigger the re-regist
 
 These symptoms may arise for one or more of the following reasons:
 
-  * An extension was deleted or uninstalled from the portal. 
-  * An extension was uninstalled from **Control Panel** on the VM under **Uninstall or Change a Program**.
-  * The VM was restored back in time by using in-place disk restore.
-  * The VM was shut down for an extended period, so the extension configuration on it expired.
-  * The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
-  * One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.  <br>
-   
+* An extension was deleted or uninstalled from the portal. 
+* An extension was uninstalled from **Control Panel** on the VM under **Uninstall or Change a Program**.
+* The VM was restored back in time through in-place disk restore.
+* The VM was shut down for an extended period, so the extension configuration on it expired.
+* The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
+* One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.
+
 In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. For now, this option is available only through PowerShell.
 
 ## Size limit for files
@@ -167,7 +167,7 @@ If the string size of the content exceeds 20,000 bytes, the database files are s
 
 ### Override the default target restore file path
 
-You can override the target restore file path during the restore operation by placing a JSON file that contains the mapping of the database file to target restore path. For this, create a file `database_name.json` and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
+You can override the target restore file path during the restore operation by placing a JSON file that contains the mapping of the database file to the target restore path. Create a `database_name.json` file and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
 The content of the file should be in this format:
 ```
@@ -185,22 +185,22 @@ The content of the file should be in this format:
 ]
 ```
 
-Example:
+Here's an example:
 
-  ```
-  [
-    {
-     "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
-     "LogicalName": "testdb7",
-     "IsDir": "false"
-    },
-    {
-      "Path": "F:\\Log\\testdb2_log_1546408741449456.ldf",
-      "LogicalName": "testdb7_log",
-      "IsDir": "false"
-    },  
-  ]
-  ```
+```
+[
+  {
+   "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
+   "LogicalName": "testdb7",
+   "IsDir": "false"
+  },
+  {
+    "Path": "F:\\Log\\testdb2_log_1546408741449456.ldf",
+    "LogicalName": "testdb7_log",
+    "IsDir": "false"
+  },  
+]
+```
 
  
 In the preceding content, you can get the logical name of the database file by using the following SQL query:
