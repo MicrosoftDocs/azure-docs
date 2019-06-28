@@ -77,7 +77,10 @@ The following steps show you how to use Azure Site Recovery to copy data to the 
 1. Select **Virtual machines** and then choose the virtual machines you want to migrate. Select **OK** to save your VM selection. 
 1. Select **Settings**, and then choose your **Target location** from the drop-down. You can leave the rest of the fields default, or you can customize other settings here too, such as a different subscription, or a specific resource group. By default, a new resource group is created in the target region with `-asr` appended to your existing resource group name. 
 1. Once you have customized replication, select **Create target resources** to create the resources in the new location. 
-1. Once resource creation is complete, select **Enable replication** to start replication your SQL Server VM from the source to the target region. 
+1. Once resource creation is complete, select **Enable replication** to start replication your SQL Server VM from the source to the target region.
+1. You can check the status of replication by navigating to your recovery vault, selecting **Replicated items** and viewing the **Status** of your SQL Server VM. A status of **Protected** indicates that replication has completed. 
+
+  ![Verify replication status](media/virtual-machines-windows-sql-move-to-new-region/check-replication-status.png)
 
 ## Test the move process
 The following steps show you how to use Azure Site Recovery to test the move process. 
@@ -87,7 +90,13 @@ The following steps show you how to use Azure Site Recovery to test the move pro
 
   ![Test failover for your VM](media/virtual-machines-windows-sql-move-to-new-region/test-failover-of-replicated-vm.png)
 
+1. On the **Test Failover** page, select a recovery point to use for the failover: 
+   - **Latest processed**: Fails the VM over to the last recovery point that was processed by the Site Recovery service. The time stamp indicates the time of the last recovery point. WIth this option, no time is spent processing data, so the it provides a low Recovery TIme Objective (RTO). 
+   - **Latest app-consistent**: This option fails over all the VMs to the latest app-consistent recovery time. The time stamp indicates the latest app-consistent time. 
+   - **Custom**: Select any recovery point. 
+
 1. Select the virtual network under **Azure virtual network** and then select **OK** to test failover. 
+
 
 ## Next steps
 
