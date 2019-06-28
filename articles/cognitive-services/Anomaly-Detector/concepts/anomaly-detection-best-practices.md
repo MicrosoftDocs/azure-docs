@@ -66,7 +66,7 @@ Data points sent to the Anomaly Detector API must have a valid Coordinated Unive
 }
 ```
 
-You can specify a custom interval by adding the `customInterval` attribute in your request. For example, if your series is sampled every 5 minutes, you can add the following to your request:
+If your data is sampled at a non-standard time interval, you can specify it by adding the `customInterval` attribute in your request. For example, if your series is sampled every 5 minutes, you can add the following to your JSON request:
 
 ```json
 {
