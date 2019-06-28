@@ -42,7 +42,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 
 6. Enter the email address of the user you're requesting billing ownership from. The user must be an Account Administrator on a Microsoft Online Service Program billing account or an account owner on an Enterprise Agreement. For more information, see [view your billing accounts in Azure portal](billing-view-all-accounts.md). Select **Send transfer request**.
 
-   ![Screenshot that shows sending a transfer requests](./media/billing-mca-request-billing-ownership/mca-send-transfer-requests.png)
+   ![Screenshot that shows sending a transfer request](./media/billing-mca-request-billing-ownership/mca-send-transfer-requests.png)
 
 7. The user gets an email with instructions to review your transfer request.
 
@@ -110,11 +110,11 @@ You can request billing ownership of the subscription types listed below.
 - [Action pack](https://azure.microsoft.com/offers/ms-azr-0025p/)\* 
 - [Azure in Open Licensing](https://azure.microsoft.com/offers/ms-azr-0111p/)\*
 - [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)\*
-- [Enterprise Dev/Test](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/)
-- [Free Trial](https://azure.microsoft.com/en-us/offers/ms-azr-0044p/)\*
+- [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)\*
 - [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) 
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
-- [Microsoft Azure Plan](https://azure.microsoft.com/en-us/offers/ms-azr-0017g/)\*\*
+- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 - [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)\*

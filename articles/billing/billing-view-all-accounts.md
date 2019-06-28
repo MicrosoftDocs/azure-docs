@@ -1,9 +1,22 @@
+---
+title: View your billing accounts in Azure portal  | Microsoft Docs
+description: Learn how to view your billing accounts in Azure portal.
+services: ''
+documentationcenter: ''
+author: amberbhargava
+manager: amberb
+editor: ''
+tags: billing
+
+ms.service: billing
+ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 05/11/2018
 ms.author: banders
 ---
+
 # View billing accounts in Azure portal  
 
 A billing account is created when you sign up to use Azure. You use your billing account to manage your invoices, payments, and track costs. You can have access to multiple billing accounts. For example, you might have signed up for Azure for your personal projects. You could also have access through your organization's Enterprise Agreement or Microsoft Customer Agreement. For each of these scenarios, you would have a separate billing account.
@@ -42,9 +55,9 @@ A scope is a node within a billing account that users use to view and manage bil
 
 |Scope  |Tasks  |
 |---------|---------|
-|Billing account     |   Represents a customer agreement for multiple Microsoft products and services. IT is structured using billing profiles and invoice section.   |
+|Billing account     |   Represents a customer agreement for multiple Microsoft products and services. It is structured using billing profiles and invoice sections.   |
 |Billing profile     |  Represents an invoice and its payment methods. Invoice is generated at this scope. It can have multiple invoice sections.      |
-|Invoice section     |   Represents a group of cost in an invoice. Subscriptions and other purchases are associated to this scope.    |
+|Invoice section     |   Represents a group of costs in an invoice. Subscriptions and other purchases are associated to this scope.    |
 
 
 ## Switch billing scope in the Azure portal

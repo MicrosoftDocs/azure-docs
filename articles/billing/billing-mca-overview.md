@@ -26,7 +26,7 @@ The following diagram shows the relationship between a billing account, billing 
 
 ![Diagram showing the Microsoft Customer Agreement billing hierarchy](./media/billing-mca-overview/mca-billing-hierarchy.png)
 
-Roles on the billing account have the highest level of permissions. By default, only the user who signed up for Azure get access to the billing account. These roles should be assigned to users that need to view invoices, and track costs for your entire organization like finance or IT managers. For more information, see [billing account roles and tasks](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
+Roles on the billing account have the highest level of permissions. By default, only the user who signed up for Azure gets access to the billing account. These roles should be assigned to users that need to view invoices, and track costs for your entire organization like finance or IT managers. For more information, see [billing account roles and tasks](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
 
 ## Billing profiles
 

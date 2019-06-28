@@ -27,11 +27,9 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
 3.  Select **Azure credits** from the left-hand side. Depending on your access, you may need to select a billing account or a billing profile and then select **Azure credits**.
-
-   ![Screenshot that shows selecting Azure credits page](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
 5. The Azure credits page displays the following information:
 
