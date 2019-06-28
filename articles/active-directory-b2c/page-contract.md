@@ -1,15 +1,15 @@
 ---
-title: Select a page contract in Azure Active Directory B2C | Microsoft Docs
+title: Select a page contract - Azure Active Directory B2C | Microsoft Docs
 description: Learn about how to select a page contract in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: davidmu
+ms.date: 04/25/2019
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -17,10 +17,10 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-You can enable JavaScript client-side code in your Azure Active Directory (Azure AD) B2C policies, whether you’re using user flows or custom policies. This article discusses how to select a page contract in Azure AD B2C by configuring it in a [custom policy](active-directory-b2c-overview-custom.md). A page contract is an association of elements that Azure AD B2C provides and the content that you provide. If you intend to use [Javascript](javascript-samples.md), you need to define a page contract version for all of your content definitions in your custom policy.
+You can enable JavaScript client-side code in your Azure Active Directory (Azure AD) B2C policies, whether you’re using user flows or custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a page contract, and use [b2clogin.com](b2clogin.md) in your requests. A page contract is an association of elements that Azure AD B2C provides and the content that you provide. This article discusses how to select a page contract in Azure AD B2C by configuring it in a custom policy.
 
 > [!NOTE]
-> If you want to enable JavaScript for user flows, see [About using JavaScript and page contract versions in a user flow](user-flow-javascript-overview.md).
+> If you want to enable JavaScript for user flows, see [JavaScript and page contract versions in Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## Replace DataUri values
 

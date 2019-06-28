@@ -669,5 +669,5 @@ Consider the following tips for testing and automation:
 
 ## Next steps
 
-* [Azure Resource Manager template considerations](../azure-stack/user/azure-stack-develop-templates.md)
+* [Azure Resource Manager template considerations](/azure-stack/user/azure-stack-develop-templates)
 * [Best practices for Azure Resource Manager templates](resource-group-authoring-templates.md)

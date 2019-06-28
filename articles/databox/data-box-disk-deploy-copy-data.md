@@ -1,5 +1,5 @@
 ---
-title: Copy data to  your Microsoft Azure Data Box Disk| Microsoft Docs
+title: Tutorial to copy data to Azure Data Box Disk| Microsoft Docs
 description: Use this tutorial to learn how to copy data to your Azure Data Box Disk
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -39,7 +39,8 @@ Review the following considerations before you copy the data to the disks:
 - While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box Disk limits](data-box-disk-limits.md).
 - If data, which is being uploaded by Data Box Disk, is concurrently uploaded by other applications outside of Data Box Disk, then this could result in upload job failures and data corruption.
 
-If you specified managed disks in the order, review the following additional considerations:
+   > [!IMPORTANT]
+   >  If you specified managed disks as one of the storage destinations during order creation, the following section is applicable.
 
 - You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group. If VHDs have same names, then only one VHD is converted to managed disk with that name. The other VHDs are uploaded as page blobs into the staging storage account.
 - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
@@ -86,12 +87,12 @@ Perform the following steps to connect and copy data from your computer to the D
     |Destination       | Specifies the path to the destination directory.        |
     |/E                  | Copies subdirectories including empty directories. |
     |/MT[:N]             | Creates multi-threaded copies with N threads where N is an integer between 1 and 128. <br>The default value for N is 8.        |
-    |/R: <N>             | Specifies the number of retries on failed copies. The default value of N is 1,000,000 (one million retries).        |
-    |/W: <N>             | Specifies the wait time between retries, in seconds. The default value of N is 30 (wait time 30 seconds).        |
+    |/R: \<N>             | Specifies the number of retries on failed copies. The default value of N is 1,000,000 (one million retries).        |
+    |/W: \<N>             | Specifies the wait time between retries, in seconds. The default value of N is 30 (wait time 30 seconds).        |
     |/NFL                | Specifies that file names are not to be logged.        |
     |/NDL                | Specifies that directory names are not to be logged.        |
     |/FFT                | Assumes FAT file times (two-second precision).        |
-    |/Log:<Log File>     | Writes the status output to the log file (overwrites the existing log file).         |
+    |/Log:\<Log File>     | Writes the status output to the log file (overwrites the existing log file).         |
 
     Multiple disks can be used in parallel with multiple jobs running on each disk.
 
@@ -244,6 +245,8 @@ This optional procedure may be used when you are using multiple disks and have a
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
 
+If you see errors using the Split Copy tool, go to how to [troubleshoot Split Copy tool errors](data-box-disk-troubleshoot-data-copy.md).
+
 After the data copy is complete, you can proceed to validate your data. If you used the Split Copy tool, skip the validation (Split Copy tool validates as well) and advance to the next tutorial.
 
 
@@ -264,6 +267,8 @@ If you did not use the Split Copy tool to copy data, you will need to validate y
     > - Use option 1 if dealing with large data set containing small files (~ KBs). This option only validates the files, as checksum generation may take a very long time and the performance could be very slow.
 
 3. If using multiple disks, run the command for each disk.
+
+If you see errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
 ## Next steps
 

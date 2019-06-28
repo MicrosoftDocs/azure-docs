@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 06/06/2019
 ---
 # Quickstart: Build a .NET web app using SQL API account in Azure Cosmos DB
 
@@ -29,8 +29,8 @@ In this quickstart, you use Data Explorer in the Azure portal to create the data
 
 ## Prerequisites
 
-Visual Studio 2017 with the Azure development workflow installed
-- You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
+Visual Studio 2019 with the Azure development workflow installed
+- You can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
 
 An Azure subscription or free Azure Cosmos DB trial account
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -46,33 +46,32 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 You can use the Data Explorer in the Azure portal to create a database and collection. 
 
-1.  Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Collection**. 
+1.  Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Container**. 
     
-    You may need to scroll right to see the **Add Collection** area.
+    You may need to scroll right to see the **Add Container** window.
     
     ![The Azure portal Data Explorer, Add Collection pane](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
     
-1.  In the **Add collection** page, enter the settings for the new collection.
+1.  In the **Add container** pane, enter the settings for the new collection.
     
     |Setting|Suggested value|Description
     |---|---|---|
-    |**Database id**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.|
-    |**Collection id**|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.|
-    |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
+    |**Database ID**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
     |**Throughput**|400|Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.| 
+    |**Container ID**|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.|
+    |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
+
     
     Don't add **Unique keys** for this example. Unique keys let you add a layer of data integrity to the database by ensuring the uniqueness of one or more values per partition key. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
     
-1.  Select **OK**. 
-    Data Explorer displays the new database and collection.
+1.  Select **OK**. The Data Explorer displays the new database and the container that you created.
     
-    ![The Azure portal Data Explorer, showing the new database and collection](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 ## Add data to your database
 
 Add data to your new database using Data Explorer.
 
-1. In **Data Explorer**, the new database appears in the **Collections** pane. Expand the **ToDoList** database, expand the **Items** collection, select **Documents**, and then select **New Document**. 
+1. In **Data Explorer**, expand the **ToDoList** database, and expand the **Items** container. Next, select **Items**, and then select **New Item**. 
    
    ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
    
@@ -102,7 +101,7 @@ Add data to your new database using Data Explorer.
 
 To see how easy it is to work with your Azure Cosmos DB data programmatically, clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
 
-You could also create the database and collection by using the .NET sample code. To learn more, see [Review the .NET code](#review-the-net-code).
+You could also create the database and the container by using the .NET sample code. To learn more, see [Review the .NET code](#review-the-net-code).
 
 ### Clone the sample app
 
@@ -142,7 +141,7 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
       `<add key="authKey" value="19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==" />`
 
        
-1. Make sure the database and collection values in the *web.config* match the names you created earlier. 
+1. Make sure the database and collection (also called container) values in the *web.config* match the names you created earlier. 
 
    ```csharp
    <add key="database" value="ToDoList"/>
@@ -157,7 +156,7 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
 
 1. In the NuGet **Browse** box, type *DocumentDB*.
 
-1. From the results, install the **Microsoft.Azure.DocumentDB** library if not already installed. This installs the [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) package and all dependencies.
+1. From the results, install the **2.2.3 version** of **Microsoft.Azure.DocumentDB** library if not already installed. This installs the [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) package and all dependencies.
    
    If the NuGet Package Manager displays a message that some packages are missing from the solution, select **Restore** to install them from internal sources. 
 
@@ -171,7 +170,7 @@ You can go back to Data Explorer in the Azure portal to see, query, modify, and 
 
 ## Review the .NET code
 
-This step is optional. In this quickstart, you created a database and a collection in the Azure portal and added sample data by using the .NET sample. However, you can also create the database and the collection by using the .NET sample. Review the following snippets if you're interested in how database resources are created in the code. The snippets are all taken from the *DocumentDBRepository.cs* file in the **todo** project.
+This step is optional. In this quickstart, you created a database and a container in the Azure portal and added sample data by using the .NET sample. However, you can also create the database and the container by using the .NET sample. Review the following snippets if you're interested in how database resources are created in the code. The snippets are all taken from the *DocumentDBRepository.cs* file in the **todo** project.
 
 * This code initializes the `DocumentClient`: 
 
@@ -188,28 +187,32 @@ This step is optional. In this quickstart, you created a database and a collecti
 * The following code creates the new collection by using the `CreateDocumentCollectionAsync` method:
 
     ```csharp
-    private static async Task CreateCollectionIfNotExistsAsync()
+    private static async Task CreateCollectionIfNotExistsAsync(string partitionkey)
     {
-        try
-        {
-           await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
-        }
+       try
+       {       
+        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), new RequestOptions { PartitionKey = new PartitionKey(partitionkey) });
+       }
         catch (DocumentClientException e)
         {
            if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-           {
-              await client.CreateDocumentCollectionAsync(
-              UriFactory.CreateDatabaseUri(DatabaseId),
-              new DocumentCollection
-              {
-                  Id = CollectionId
-              },
-              new RequestOptions { OfferThroughput = 400 });
-           }
-           else
-           {
-             throw;
-           }
+            {
+                await client.CreateDocumentCollectionAsync(
+                  UriFactory.CreateDatabaseUri(DatabaseId),
+                   new DocumentCollection
+                    {
+                      Id = CollectionId,
+                      PartitionKey = new PartitionKeyDefinition
+                       {
+                           Paths = new System.Collections.ObjectModel.Collection<string>(new List<string>() { partitionkey })
+                        }
+                    },
+                      new RequestOptions { OfferThroughput = 400 });
+            }
+            else
+            {
+                throw;
+            }
         }
     }
     ```
@@ -220,7 +223,7 @@ This step is optional. In this quickstart, you created a database and a collecti
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB account, create a database and collection using the Data Explorer, and run a .NET web app to update your data. You can now import additional data to your Azure Cosmos DB account. 
+In this quickstart, you learned how to create an Azure Cosmos DB account, create a database and container using the Data Explorer, and run a .NET web app to update your data. You can now import additional data to your Azure Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)

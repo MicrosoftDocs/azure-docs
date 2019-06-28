@@ -1,12 +1,12 @@
 ---
 title: Optimize cost of Azure Cosmos DB resources with reserved capacity
 description: Learn how to buy Azure Cosmos DB reserved capacity to save on your compute costs.
-author: rimman
+author: bandersmsft
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/18/2019
-ms.author: rimman
-ms.reviewer: sngun
+ms.date: 07/01/2019
+ms.author: banders
+ms.reviewer: yahsr
 ---
 
 # Optimize cost with reserved capacity in Azure Cosmos DB
@@ -19,7 +19,7 @@ Azure Cosmos DB reserved capacity covers throughput provisioned for your resourc
 
 You can buy Azure Cosmos DB reserved capacity from the [Azure portal](https://portal.azure.com). To buy reserved capacity:
 
-* You must be in the Owner role for at least one Enterprise or Pay-As-You-Go subscription.  
+* You must be in the Owner role for at least one Enterprise or individual  subscription with pay-as-you-go rates.  
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 * For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure Cosmos DB reserved capacity.
 
@@ -48,8 +48,8 @@ The size of the reservation should be based on the total amount of throughput th
    |Field  |Description  |
    |---------|---------|
    |Name   |    Name of the reservation. This field is automatically populated with `CosmosDB_Reservation_<timeStamp>`. You can provide a different name while creating the reservation. Or you can rename it after the reservation is created.      |
-   |Subscription  |   Subscription that's used to pay for the Azure Cosmos DB reserved capacity. The payment method on the selected subscription is used in charging the upfront costs. The subscription type must be one of the following: <br/><br/>  Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P): For an Enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. <br/><br/> Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P): For a Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.    |
-   |Scope   |  	Option that controls how many subscriptions can use the billing benefit associated with the reservation. It also controls how the reservation is applied to specific subscriptions.   <br/><br/>  If you select **Single subscription**, the reservation discount is applied to Azure Cosmos DB instances in the selected subscription. <br/><br/>  If you select **Shared**, the reservation discount is applied to Azure Cosmos DB instances that run in any subscription within your billing context. The billing context is based on how you signed up for Azure. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.  <br/><br/> You can change the reservation scope after you buy the reserved capacity.  |
+   |Subscription  |   Subscription that's used to pay for the Azure Cosmos DB reserved capacity. The payment method on the selected subscription is used in charging the upfront costs. The subscription type must be one of the following: <br/><br/>  Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P): For an Enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. <br/><br/> Individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P): For an individual subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription.    |
+   |Scope   |  	Option that controls how many subscriptions can use the billing benefit associated with the reservation. It also controls how the reservation is applied to specific subscriptions.   <br/><br/>  If you select **Single subscription**, the reservation discount is applied to Azure Cosmos DB instances in the selected subscription. <br/><br/>  If you select **Shared**, the reservation discount is applied to Azure Cosmos DB instances that run in any subscription within your billing context. The billing context is based on how you signed up for Azure. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For pay-as-you-go customers, the shared scope is all individual subscriptions with pay-as-you-go rates created by the account administrator.  <br/><br/> You can change the reservation scope after you buy the reserved capacity.  |
    |Reserved capacity type   |  Throughput provisioned as request units. You can buy a reservation for the provisioned throughput for both setups - single region writes as well as multiple region writes.|
    |Reserved capacity units  |  	Amount of throughput that you want to reserve. You can calculate this value by determining the throughput needed for all your Cosmos DB resources (for example, databases or containers) per region. You then multiply it by the number of regions that you'll associate with your Cosmos DB database.  <br/><br/> For example: If you have five regions with 1 million RU/sec in every region, select 5 million RU/sec for the reservation capacity purchase.    |
    |Term  |   One year or three years.   |

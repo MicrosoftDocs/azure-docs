@@ -1,20 +1,20 @@
 ---
-title: Dynamics 365 for Operations Help Wiki | Microsoft Docs
+title: Dynamics 365 for Operations Help Wiki 
 description: Dynamics 365 for Operations Help Wiki information page
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Dynamics 365 for Operations Help Wiki

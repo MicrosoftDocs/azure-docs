@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2016
-ms.author: singhkay
+ms.date: 04/18/2019
+ms.author: kasing
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -79,6 +79,7 @@ The outline for the steps to accomplish this is as below
 > | Standard_ND6s |Standard_ND24s |
 > | Standard_NV6 |Standard_NV24 |
 > | Standard_NV6s_v2 |Standard_NV24s_v2 |
+> | Standard_NV12s_v3 |Standard_NV48s_v3 |
 
 ## Setup Azure Automation to access your Virtual Machines
 The first thing you need to do is create an Azure Automation account that will host the runbooks used to scale the VM Scale Set instances. Recently the Automation service introduced the "Run As account" feature which makes setting up the Service Principal for automatically running the runbooks on the user's behalf very easy. You can read more about this in the article below:

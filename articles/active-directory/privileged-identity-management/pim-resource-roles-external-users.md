@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -122,7 +122,7 @@ As an external user, you first need to accept the invite to your Azure AD organi
 
     ![Review permissions](./media/pim-resource-roles-external-users/invite-accept.png)
 
-1. You might be asked to accept a Terms of use and specify whether you want to stay signed in.
+1. You might be asked to accept a terms of use and specify whether you want to stay signed in.
 
     The Azure portal opens. If you are just eligible for a role, you won't have access to resources.
 

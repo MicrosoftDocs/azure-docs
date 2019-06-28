@@ -70,6 +70,8 @@ With Azure Dev Spaces, you develop, debug, and test applications directly agains
 
 This integrated development and test process with Dev Spaces reduces the need for local test environments, such as [minikube][minikube]. Instead, you develop and test against an AKS cluster. This cluster can be secured and isolated as noted in previous section on the use of namespaces to logically isolate a cluster. When your apps are ready to deploy to production, you can confidently deploy as your development was all done against a real AKS cluster.
 
+Azure Dev Spaces is intended for use with applications that run on Linux pods and nodes.
+
 ## Use the Visual Studio Code extension for Kubernetes
 
 **Best practice guidance** - Install and use the VS Code extension for Kubernetes when you write YAML manifests. You can also use the extension for integrated deployment solution, which may help application owners that infrequently interact with the AKS cluster.
@@ -83,6 +85,8 @@ The [Visual Studio Code extension for Kubernetes][vscode-kubernetes] helps you d
 **Best practice guidance** - Regularly run the latest version of `kube-advisor` open source tool to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined.
 
 The [kube-advisor][kube-advisor] tool is an associated AKS open source project that scans a Kubernetes cluster and reports on issues that it finds. One useful check is to identify pods that don't have resource requests and limits in place.
+
+The kube-advisor tool can report on resource request and limits missing in PodSpecs for Windows applications as well as Linux applications, but the kube-advisor tool itself must be scheduled on a Linux pod. You can schedule a pod to run on a node pool with a specific OS using a [node selector][k8s-node-selector] in the pod's configuration.
 
 In an AKS cluster that hosts many development teams and applications, it can be hard to track pods without these resource requests and limits set. As a best practice, regularly run `kube-advisor` on your AKS clusters.
 
@@ -106,3 +110,4 @@ To implement some of these best practices, see the following articles:
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

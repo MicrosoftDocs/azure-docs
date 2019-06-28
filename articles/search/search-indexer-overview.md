@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/02/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -20,7 +20,7 @@ Indexers are based on data source types or platforms, with individual indexers f
 
 You can use an indexer as the sole means for data ingestion, or use a combination of techniques that include the use of an indexer for loading just some of the fields in your index.
 
-You can run indexers on demand or on a recurring data refresh schedule that runs as often as every fifteen minutes. More frequent updates require a push model that simultaneously updates data in both Azure Search and your external data source.
+You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a push model that simultaneously updates data in both Azure Search and your external data source.
 
 ## Approaches for creating and managing indexers
 
@@ -74,7 +74,7 @@ The indexer definition is a construct that brings together all of the elements r
 
 While it's common to schedule indexing, an indexer can also be invoked on demand using the [Run command](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2019-05-06
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -89,7 +89,7 @@ You can monitor the indexer status in the portal or through Get Indexer Status A
 You can retrieve the status and execution history of an indexer through the [Get Indexer Status command](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
     api-key: [Search service admin key]
 
 The response contains overall indexer status, the last (or in-progress) indexer invocation, and the history of recent indexer invocations.

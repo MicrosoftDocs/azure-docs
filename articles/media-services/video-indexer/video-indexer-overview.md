@@ -7,8 +7,9 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
@@ -33,8 +34,8 @@ Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure
 
 ## Audio insights
 
-- **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Portuguese (Brazilian). Will fallback to English when the language can't be detected.
-- **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Arabic, Russian, Portuguese (Brazilian), Hindi, and Korean.
+- **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Brazilian Portuguese Will fallback to English when the language can't be detected.
+- **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Arabic, Russian, Brazilian Portuguese, Hindi, and Korean.
 - **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 - **Two channel processing**: Auto detects, separate transcript and merges to single timeline.
 - **Noise reduction**: Clears up telephony audio or noisy recordings (based on Skype filters).
@@ -43,7 +44,7 @@ Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure
 - **Speaker statistics**: Provides statistics for speakers speech ratios.
 - **Textual content moderation**: Detects explicit text in the audio transcript.
 - **Audio effects**: Identifies audio effects such as hand claps, speech, and silence.
-- **Emotion detection**: Identifies emotions based on speech and audio cues. The emotion could be: joy, sadness, anger, or fear.
+- **Emotion detection**: Identifies emotions based on speech (what is being said) and voice tonality (how it is being said).  The emotion could be: joy, sadness, anger, or fear.
 - **Translation**: Creates translations of the audio transcript to 54 different languages.
 
 ## Audio and video insights (multi channels)

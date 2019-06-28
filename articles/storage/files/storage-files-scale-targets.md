@@ -2,11 +2,11 @@
 title: Azure Files scalability and performance targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Files, including the capacity, request rate, and inbound and outbound bandwidth limits.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 7/19/2018
-ms.author: wgries
+ms.date: 5/5/2019
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -29,24 +29,32 @@ The parent resource for an Azure file share is an Azure storage account. A stora
 
 ## Azure Files scale targets
 
-### Premium files scale targets
+### Premium scale targets
 
-There are three categories of limitations to consider for premium files: storage accounts, shares, and files.
+There are three categories of limitations to consider for premium file shares: storage accounts, shares, and files.
 
 For example: A single share can achieve 100,000 IOPS and a single file can scale up to 5,000 IOPS. So, for example, if you have three files in one share, the maximum IOPS you can get from that share is 15,000.
 
-### Premium filestorage account limits
+### Premium FileStorage account limits
 
-Premium files use a unique storage account called **filestorage (preview)**, this account has slightly different scale targets than the storage account used by standard files. For the storage account scale targets, refer to the table in the [Azure storage account scale targets](#azure-storage-account-scale-targets) section.
+Premium file shares are provisioned in a special storage account called **filestorage**. This account has slightly different scale targets than the storage account used for standard file shares. For the storage account scale targets, refer to the table in the [Azure storage account scale targets](#azure-storage-account-scale-targets) section.
 
 > [!IMPORTANT]
-> Storage account limits apply to all shares. Scaling up to the max for storage accounts is only achievable if there is only one share per storage account.
+> Storage account limits apply to all shares. Scaling up to the max for FileStorage accounts is only achievable if there is only one share per FileStorage account.
+
+### File share and file scale targets
+
+> [!NOTE]
+> Standard file shares larger than 5 TiB are in preview and have certain limitations.
+> For a list of limitations and to onboard to the preview of these larger file share sizes, see the [Standard file shares](storage-files-planning.md#standard-file-shares) section of the planning guide.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+[!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
+
 ## Azure File Sync scale targets
 
-With Azure File Sync, we have tried as much as possible to design for limitless usage, however this is not always possible. The below table indicates the boundaries of our testing and which targets are actually hard limits:
+Azure File Sync has been designed with the goal of limitless usage, but limitless usage is not always possible. The following table indicates the boundaries of Microsoft's testing and also indicates which targets are hard limits:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 

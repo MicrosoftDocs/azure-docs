@@ -1,20 +1,12 @@
 ---
-title: Power BI App offer prerequisites - Azure Marketplace | Microsoft Docs
+title: Power BI App offer prerequisites | Azure Marketplace 
 description: Provides the prerequisites for publishing a Power BI app to AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Power BI App offer prerequisites
@@ -33,7 +25,7 @@ After your service application is created and tested in Power BI, you should sav
 
 The business requirements include procedural, contractual, and legal obligations.  You must:
 
-- Be a registered cloud marketplace publisher. If you're not registered, follow the steps in [Become a Cloud Marketplace Publisher](../../become-publisher.md).
+- Be a registered cloud marketplace publisher. If you're not registered, follow the steps in [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
     > [!NOTE] 
     > Use the same Microsoft Developer Center registration account to sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com). You should have only one Microsoft account for your AppSource offerings. Accounts shouldn't be specific to individual services or offers.

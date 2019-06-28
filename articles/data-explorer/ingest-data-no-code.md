@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 04/07/2019
+ms.date: 04/29/2019
 
 # Customer intent: I want to ingest data to Azure Data Explorer without one line of code, so that I can explore and analyze my data by using queries.
 ---
@@ -377,7 +377,7 @@ Now you need to create the data connections for your diagnostic logs and activit
     |---|---|---|
     | **Table** | *DiagnosticLogsRawRecords* | The table you created in the *TestDatabase* database. |
     | **Data format** | *JSON* | The format used in the table. |
-    | **Column mapping** | *DiagnosticLogsRecordsMapping* | The mapping you created in the *TestDatabase* database, which maps incoming JSON data to the column names and data types of the *DiagnosticLogsRecords* table.|
+    | **Column mapping** | *DiagnosticLogsRecordsMapping* | The mapping you created in the *TestDatabase* database, which maps incoming JSON data to the column names and data types of the *DiagnosticLogsRawRecords* table.|
     | | |
 
 1. Select **Create**.  

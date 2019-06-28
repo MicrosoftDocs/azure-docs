@@ -2,11 +2,11 @@
 title: Azure File Sync on-premises firewall and proxy settings | Microsoft Docs
 description: Azure File Sync on-premises network configuration
 services: storage
-author: fauhse
+author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 11/26/2018
-ms.author: fauhse
+ms.date: 06/24/2019
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -106,20 +106,31 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 
 | Cloud  | Region | Primary endpoint URL | Paired region | Discovery URL |
 |--------|--------|----------------------|---------------|---------------|
-| Public |Australia East | https://kailani-aue.one.microsoft.com | Australia Southeast | https://kailani-aue.one.microsoft.com |
+| Public |Australia East | https://kailani-aue.one.microsoft.com | Australia Southeast | https://tm-kailani-aue.one.microsoft.com |
 | Public |Australia Southeast | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
+| Public | Brazil South | https://brazilsouth01.afs.azure.net | South Central US | https://tm-brazilsouth01.afs.azure.net |
 | Public | Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
 | Public | Canada East | https://kailani-cae.one.microsoft.com | Canada Central | https://tm-kailani.cae.one.microsoft.com |
+| Public | Central India | https://kailani-cin.one.microsoft.com | South India | https://tm-kailani-cin.one.microsoft.com |
 | Public | Central US | https://kailani-cus.one.microsoft.com | East US 2 | https://tm-kailani-cus.one.microsoft.com |
 | Public | East Asia | https://kailani11.one.microsoft.com | Southeast Asia | https://tm-kailani11.one.microsoft.com |
 | Public | East US | https://kailani1.one.microsoft.com | West US | https://tm-kailani1.one.microsoft.com |
 | Public | East US 2 | https://kailani-ess.one.microsoft.com | Central US | https://tm-kailani-ess.one.microsoft.com |
+| Public | Japan East | https://japaneast01.afs.azure.net | Japan West | https://tm-japaneast01.afs.azure.net |
+| Public | Japan West | https://japanwest01.afs.azure.net | Japan East | https://tm-japanwest01.afs.azure.net |
+| Public | Korea Central | https://koreacentral01.afs.azure.net/ | Korea South | https://tm-koreacentral01.afs.azure.net/ |
+| Public | Korea South | https://koreasouth01.afs.azure.net/ | Korea Central | https://tm-koreasouth01.afs.azure.net/ |
+| Public | North Central US | https://northcentralus01.afs.azure.net | South Central US | https://tm-northcentralus01.afs.azure.net |
 | Public | North Europe | https://kailani7.one.microsoft.com | West Europe | https://tm-kailani7.one.microsoft.com |
+| Public | South Central US | https://southcentralus01.afs.azure.net | North Central US | https://tm-southcentralus01.afs.azure.net |
+| Public | South India | https://kailani-sin.one.microsoft.com | Central India | https://tm-kailani-sin.one.microsoft.com |
 | Public | Southeast Asia | https://kailani10.one.microsoft.com | East Asia | https://tm-kailani10.one.microsoft.com |
 | Public | UK South | https://kailani-uks.one.microsoft.com | UK West | https://tm-kailani-uks.one.microsoft.com |
 | Public | UK West | https://kailani-ukw.one.microsoft.com | UK South | https://tm-kailani-ukw.one.microsoft.com |
+| Public | West Central US | https://westcentralus01.afs.azure.net | West US 2 | https://tm-westcentralus01.afs.azure.net |
 | Public | West Europe | https://kailani6.one.microsoft.com | North Europe | https://tm-kailani6.one.microsoft.com |
 | Public | West US | https://kailani.one.microsoft.com | East US | https://tm-kailani.one.microsoft.com |
+| Public | West US 2 | https://westus201.afs.azure.net | West Central US | https://tm-westus201.afs.azure.net |
 | Government | US Gov Arizona | https://usgovarizona01.afs.azure.us | US Gov Texas | https://tm-usgovarizona01.afs.azure.us |
 | Government | US Gov Texas | https://usgovtexas01.afs.azure.us | US Gov Arizona | https://tm-usgovtexas01.afs.azure.us |
 

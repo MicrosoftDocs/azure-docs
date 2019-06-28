@@ -28,7 +28,7 @@ In this tutorial, you do the following actions:
 
 ## Use the registration link
 
-1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). 
+1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
 1. Sign in to the service using your school account to complete the registration. 
 2. Once registered, confirm that you see the virtual machine for the lab you have access to. 
 3. Wait until the virtual machine is ready, and then **start** the VM. This process takes some time.  

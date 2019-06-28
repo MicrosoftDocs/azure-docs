@@ -86,6 +86,10 @@ Note the following observations when configuring IGNORE_DUP_KEY for several type
 * You can set the IGNORE_DUP_KEY option using ALTER INDEX for a unique index, which is different from PRIMARY KEY/UNIQUE constraint and created using CREATE INDEX or INDEX definition.  
 * IGNORE_DUP_KEY doesn’t apply to column store indexes because you can’t enforce uniqueness on such indexes.  
 
+## Column names are lower-cased by Azure Stream Analytics
+When using the original compatibility level (1.0), Azure Stream Analytics used to change column names to lower case. This behavior was fixed in later compatibility levels. In order to preserve the case, we advise customers to move to the compatibility level 1.1 and later. You can find more information on [Compatibility level for Azure Stream Analytics jobs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+
+
 ## Get help
 
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

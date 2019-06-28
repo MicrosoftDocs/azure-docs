@@ -62,6 +62,38 @@ Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob
 
 In active-active configuration, both instances of a VPN gateway will establish S2S VPN tunnels to your on-premises VPN device. When a planned maintenance event or unplanned event happens to one gateway instance, traffic will be switched over to the other active IPsec tunnel automatically. Azure Advisor will identify VPN gateways that are not configured as active-active and suggest that you configure them for high availability.
 
+## Use production VPN gateways to run your production workloads
+
+Azure Advisor will check for any VPN gateways that are a Basic SKU and recommend that you use a production SKU instead. The Basic SKU is designed for development and testing purposes. Production SKUs offer a higher number of tunnels, BGP support, active-active configuration options, custom Ipsec/IKE policy, and higher stability and availability.
+
+## Repair invalid log alert rules
+
+Azure Advisor will detect alert rules that have invalid queries specified in their condition section. 
+Log alert rules are created in Azure Monitor and are used to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries may become invalid overtime due to changes in referenced resources, tables, or commands. Advisor will recommend that you correct the query in the alert rule to prevent it from getting auto-disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules](https://aka.ms/aa_logalerts_queryrepair)
+
+## Configure consistent indexing mode on your Cosmos DB collection
+
+Azure Cosmos DB containers configured with Lazy indexing mode may impact the freshness of query results. Advisor will detect containers configured this way and recommend switching to Consistent mode. [Learn more about indexing policies in Cosmos DB](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+
+## Configure your Azure Cosmos DB containers with a partition key
+
+Azure Advisor will identify Azure Cosmos DB non-partitioned collections that are approaching their provisioned storage quota. It will recommend migrating these collections to new collections with a partition key definition so that they can automatically be scaled out by the service. [Learn more about choosing a partition key](https://aka.ms/cosmosdb/choose-partitionkey)
+
+## Upgrade your Azure Cosmos DB .NET SDK to the latest version from Nuget
+
+Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the .NET SDK and recommend upgrading to the latest version from Nuget for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB .NET SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## Upgrade your Azure Cosmos DB Java SDK to the latest version from Maven
+
+Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the Java SDK and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## Upgrade your Azure Cosmos DB Spark Connector to the latest version from Maven
+
+Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the  Cosmos DB Spark connector and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Spark connector](https://aka.ms/cosmosdb/spark-connector)
+
+## Enable virtual machine replication
+Virtual machines that do not have replication enabled to another region are not resilient to regional outages. Replicating virtual machines reduces any adverse business impact during the time of an Azure region outage. Advisor will detect VMs that do not have replication enabled and recommend enabling replication so that in the event of an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+
 ## How to access High Availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).

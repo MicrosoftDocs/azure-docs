@@ -94,7 +94,7 @@ To configure alerts:
 
 8. Provide a name, description of the alert rule and choose the severity level. 
 9. Press **Create alert rule**.
-10. Now, try to call the Conference API without an API key. The alert will be triggered an email will be sent to the admins. 
+10. Now, try to call the Conference API without an API key. The alert will be triggered and email will be sent to the admins. 
 
 ## Activity Logs
 

@@ -1,7 +1,6 @@
 ---
 title: Use Apache Hadoop Hive with Curl in HDInsight - Azure 
 description: Learn how to remotely submit Apache Pig jobs to HDInsight using Curl.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -21,9 +20,6 @@ Learn how to use the WebHCat REST API to run Apache Hive queries with Apache Had
 ## Prerequisites
 
 * A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
-
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * A REST client. This document uses Windows PowerShell and [Curl](https://curl.haxx.se/) examples.
 

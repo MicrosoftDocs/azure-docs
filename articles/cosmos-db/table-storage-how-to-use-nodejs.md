@@ -360,6 +360,8 @@ dc.table.queryEntities(tableName,
 
 If you inspect the `continuationToken` object, you will find properties such as `nextPartitionKey`, `nextRowKey` and `targetLocation`, which can be used to iterate through all the results.
 
+You can also use `top` along with `continuationToken` to set the page size. 
+
 ## Work with shared access signatures
 Shared access signatures (SAS) are a secure way to provide granular access to tables without providing your Storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
 

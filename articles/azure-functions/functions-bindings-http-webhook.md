@@ -304,6 +304,7 @@ Here's the Python code:
 import logging
 import azure.functions as func
 
+
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
@@ -662,7 +663,7 @@ If your function app is using [App Service Authentication / Authorization](../ap
 
 You can also read this information from binding data. This capability is only available to the Functions 2.x runtime. It is also currently only available for .NET languages.
 
-In .NET languages, this information is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). The ClaimsPrincipal is available as part of the request context as shown in the following example:
+In .NET languages, this information is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
 
 ```csharp
 using System.Net;

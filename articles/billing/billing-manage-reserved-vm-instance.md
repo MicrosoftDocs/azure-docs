@@ -1,17 +1,15 @@
 ---
-title: Manage Azure Reservations | Microsoft Docs
+title: Manage Azure Reservations
 description: Learn how you can change subscription scope and manage access for Azure Reservations.
-services: billing
-documentationcenter: ''
-author: yashesvi
+ms.service: billing
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -23,7 +21,19 @@ If you bought Azure Reserved Virtual Machine Instances, you can change the optim
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Change the scope for a reservation
+## Reservation Order and Reservation
+
+When you purchase of a reservation, two objects are created: **Reservation Order** and **Reservation**.
+
+At the time of purchase, a Reservation Order has one Reservation under it. Actions such as split, merge, partial refund, or exchange create new reservations under the **Reservation Order**.
+
+To view a Reservation Order, go to **Reservations** > select the reservation, and then click the **Reservation order ID**.
+
+![Example of reservation order details showing Reservation order ID ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+A reservation inherits permissions from its reservation order.
+
+## Change the reservation scope
 
  Your reservation discount applies to virtual machines, SQL databases, Azure Cosmos DB, or other resources that match your reservation and run in the reservation scope. The billing context is dependent on the subscription used to buy the reservation.
 
@@ -37,13 +47,16 @@ To update the scope of a reservation:
 
 If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reservation, can be selected.
 
-The scope only applies to Pay-As-You-Go offer MS-AZR-0003P or MS-AZR-0023P, Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
+The scope only applies to individual subscriptions with pay-as-you-go rates (offers MS-AZR-0003P or MS-AZR-0023P), Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
 
 ## Add or change users who can manage a reservation
 
-You can delegate management of a reservation by adding people to roles on the reservation. By default, the person that bought the reservation and the account administrator have the Owner role on the reservation.
+You can delegate reservation management by adding people to roles on the reservation order or the reservation. By default, the person that places the reservation order and the account administrator have the Owner role on the reservation order and the reservation.
 
-You can manage access to reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation, that doesn't give them rights to manage the subscription. And if you give someone permissions to manage a subscription within the reservation's scope, that doesn't give them rights to manage the reservation.
+You can manage access to reservations orders and reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation order or the reservation, it doesn't give them permission to manage the subscription. Similarly, if you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
+
+To perform an exchange or refund, the user must have access to the reservation order. When granting someone permissions, it’s best to grant permissions to the reservation order, not the reservation.
+
 
 To delegate access management for a reservation:
 

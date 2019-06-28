@@ -17,28 +17,28 @@ ms.author: magoedte
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ## Can I onboard to an existing workspace?
-If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the supported regions listed [here](vminsights-onboard.md#prerequisites).
+If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the supported regions listed [here](vminsights-enable-overview.md#prerequisites).
 
 When onboarding, we configure performance counters for the workspace that will cause all of the VMs reporting data to the workspace to begin collecting this information for display and analysis in Azure Monitor for VMs.  As a result, you will see performance data from all of the VMs connected to the selected workspace.  The Health and Map features are only enabled for the VMs that you have specified to onboard.
 
-For more information on which performance counters are enabled, refer to our [onboarding](vminsights-onboard.md) article.
+For more information on which performance counters are enabled, refer to our [enable overview](vminsights-enable-overview.md#performance-counters-enabled) article.
 
 ## Can I onboard to a new workspace? 
-If your VMs are not currently connected to an existing Log Analytics workspace, you need to create a new workspace to store your data.  Creating a new default workspace is done automatically if you configure a single Azure VM for Azure Monitor for VMs through the Azure portal.
+If your VMs are not currently connected to an existing Log Analytics workspace, you need to create a new workspace to store your data. Creating a new default workspace is done automatically if you configure a single Azure VM for Azure Monitor for VMs through the Azure portal.
 
-If you choose to use the script-based method, these steps are covered in the [onboarding](vminsights-onboard.md) article. 
+If you choose to use the script-based method, these steps are covered in the [Enable Azure Monitor for VMs (preview) using Azure PowerShell or Resource Manager template](vminsights-enable-at-scale-powershell.md) article. 
 
 ## What do I do if my VM is already reporting to an existing workspace?
 If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable Azure Monitor for VMs to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won’t be able to onboard to Azure Monitor for VMs at this time.  We are actively working to support additional regions.
 
 >[!NOTE]
->We configure performance counters for the workspace that affects all VMs that report to the   workspace, whether or not you have chosen to onboard them to Azure Monitor for VMs. For more details on how performance counters are configured for the workspace, please refer to our [documentation](../../azure-monitor/platform/data-sources-performance-counters.md). For information about the counters configured for Azure Monitor for VMs, please refer to our [onboarding documentation](vminsights-onboard.md#performance-counters-enabled).  
+>We configure performance counters for the workspace that affects all VMs that report to the   workspace, whether or not you have chosen to onboard them to Azure Monitor for VMs. For more details on how performance counters are configured for the workspace, please refer to our [documentation](../../azure-monitor/platform/data-sources-performance-counters.md). For information about the counters configured for Azure Monitor for VMs, please refer to our [enable Azure Monitor for VMs](vminsights-enable-overview.md#performance-counters-enabled) article.  
 
 ## Why did my VM fail to onboard?
 When onboarding an Azure VM from the Azure portal, the following steps occur:
 
 * A default Log Analytics workspace is created, if that option was selected.
-* The performance counters are configured for selected workspace. If this step fails, you notice that some of the performance charts and tables aren't showing data for the VM you onboarded. You can fix this by running the PowerShell script documented [here](vminsights-onboard.md#enable-with-powershell).
+* The performance counters are configured for selected workspace. If this step fails, you notice that some of the performance charts and tables aren't showing data for the VM you onboarded. You can fix this by running the PowerShell script documented [here](vminsights-enable-at-scale-powershell.md#enable-performance-counters).
 * The Log Analytics agent is installed on Azure VMs using a VM extension, if determined it is required.  
 * The Azure Monitor for VMs Map Dependency agent is installed on Azure VMs using an extension, if determined it is required.  
 * Azure Monitor components supporting the Health feature are configured, if needed, and the VM is configured to report health data.
@@ -85,7 +85,7 @@ Thresholds for the following Linux health criteria aren’t modifiable, because 
 Alert rules that are defined for each health criterion aren't displayed in the Azure portal. You can enable or disable a health alert rule only in the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Also, you can't assign an [Azure Monitor action group](../../azure-monitor/platform/action-groups.md) for health alerts in the Azure portal. You can only use the notification setting API to configure an action group to be triggered whenever a health alert is fired. Currently, you can assign action groups against a VM so that all *health alerts* fired against the VM trigger the same action groups. Unlike traditional Azure alerts, there's no concept of a separate action group for each health alert rule. Additionally, only action groups that are configured to provide email or SMS notifications are supported when health alerts are triggered. 
 
 ## I don’t see some or any data in the performance charts for my VM
-If you don’t see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](vminsights-onboard.md#enable-with-powershell).
+If you don’t see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](vminsights-enable-at-scale-powershell.md#enable-with-powershell).
 
 ## How is Azure Monitor for VMs Map feature different from Service Map?
 The Azure Monitor for VMs Map feature is based on Service Map, but has the following differences:
@@ -96,7 +96,7 @@ The Azure Monitor for VMs Map feature is based on Service Map, but has the follo
 * Monitored VMs are now included in the client group node, and the donut chart shows the proportion of monitored vs unmonitored virtual machines in the group.  It can also be used to filter the list of machines when the group is expanded.
 * Monitored virtual machines are now included in the server port group nodes, and the donut chart shows the proportion of monitored vs unmonitored machines in the group.  It can also be used to filter the list of machines when the group is expanded.
 * The map style has been updated to be more consistent with App Map from Application insights.
-* The side panels have been updated, but do not yet have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk. 
+* The side panels have been updated, and do not have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk. 
 * The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, Azure virtual machine scale sets, and Cloud services.
 * You cannot create new Service Map machine groups in the Azure Monitor for VMs Map feature.  
 
@@ -122,10 +122,16 @@ While we have made improvements to Map to handle large and complex configuration
 
 The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM.  For the network chart on the Azure VM Overview, it only displays network traffic that will be billed.  This does not include inter-vnet traffic.  The data and charts shown for Azure Monitor for VMs is based on data from the guest VM and the network chart displays all TCP/IP traffic that is inbound and outbound to that VM, including inter-vnet.
 
+## How is response time measured for data stored in VMConnection and displayed in the connection panel and workbooks?
+
+Response time is an approximation. Since we do not instrument the code of the application, we do not really know when a request begins and when the response arrives. Instead we observe data being sent on a connection and then data coming back on that connection. Our agent keeps track of these sends and receives and attempts to pair them: a sequence of sends, followed by a sequence of receives is interpreted as a request/response pair. The timing between these operations is the response time. It will include the network latency and the server processing time.
+
+This approximation works well for protocols that are request/response based: a single request goes out on the connection, and a single response arrives. This is the case for HTTP(S) (without pipelining), but not satisfied for other protocols.
+
 ## Are their limitations if I am on the Log Analytics Free pricing plan?
 If you have configured Azure Monitor with a Log Analytics workspace using the *Free* pricing tier, Azure Monitor for VMs Map feature will only support five connected machines connected to the workspace. If you have five VMs connected to a free workspace, you disconnect one of the VMs and then later connect a new VM, the new VM is not monitored and reflected on the Map page.  
 
 Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights (preview)** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to Azure Monitor for VMs. 
 
 ## Next steps
-Review [Onboard Azure Monitor for VMs](vminsights-onboard.md) to understand requirements and methods to enable monitoring of your virtual machines.
+Review [Enable Azure Monitor for VMs](vminsights-enable-overview.md) to understand requirements and methods to enable monitoring of your virtual machines.

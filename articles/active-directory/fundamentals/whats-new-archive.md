@@ -30,6 +30,243 @@ The What's new release notes provide you with information about:
 
 ---
 
+## October 2018
+
+### Azure AD Logs now work with Azure Log Analytics (Public preview)
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+
+We're excited to announce that you can now forward your Azure AD logs to Azure Log Analytics! This top-requested feature helps give you even better access to analytics for your business, operations, and security, as well as a way to help monitor your infrastructure. For more information, see the [Azure Active Directory Activity logs in Azure Log Analytics now available](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) blog.
+
+---
+
+### New Federated Apps available in Azure AD app gallery - October 2018
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In October 2018, we've added these 14 new apps with Federation support to the app gallery:
+
+[My Award Points](https://docs.microsoft.com/azure/active-directory/saas-apps/myawardpoints-tutorial), [Vibe HCM](https://docs.microsoft.com/azure/active-directory/saas-apps/vibehcm-tutorial), ambyint, [MyWorkDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/myworkdrive-tutorial), [BorrowBox](https://docs.microsoft.com/azure/active-directory/saas-apps/borrowbox-tutorial), Dialpad, [ON24 Virtual Environment](https://docs.microsoft.com/azure/active-directory/saas-apps/on24-tutorial), [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-tutorial), [Zscaler Three](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-three-tutorial), [Phraseanet](https://docs.microsoft.com/azure/active-directory/saas-apps/phraseanet-tutorial), [Appraisd](https://docs.microsoft.com/azure/active-directory/saas-apps/appraisd-tutorial), [Workspot Control](https://docs.microsoft.com/azure/active-directory/saas-apps/workspotcontrol-tutorial), [Shuccho Navi](https://docs.microsoft.com/azure/active-directory/saas-apps/shucchonavi-tutorial), [Glassfrog](https://docs.microsoft.com/azure/active-directory/saas-apps/glassfrog-tutorial)
+
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+
+---
+
+### Azure AD Domain Services Email Notifications
+
+**Type:** New feature  
+**Service category:** Azure AD Domain Services  
+**Product capability:** Azure AD Domain Services
+
+Azure AD Domain Services provides alerts on the Azure portal about misconfigurations or problems with your managed domain. These alerts include step-by-step guides so you can try to fix the problems without having to contact support.
+
+Starting in October, you'll be able to customize the notification settings for your managed domain so when new alerts occur, an email is sent to a designated group of people, eliminating the need to constantly check the portal for updates.
+
+For more information, see [Notification settings in Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
+
+---
+
+### Azure AD portal supports using the ForceDelete domain API to delete custom domains 
+
+**Type:** Changed feature  
+**Service category:** Directory Management  
+**Product capability:** Directory
+
+We're pleased to announce that you can now use the ForceDelete domain API to delete your custom domain names by asynchronously renaming references, like users, groups, and apps from your custom domain name (contoso.com) back to the initial default domain name (contoso.onmicrosoft.com).
+
+This change helps you to more quickly delete your custom domain names if your organization no longer uses the name, or if you need to use the domain name with another Azure AD.
+
+For more information, see [Delete a custom domain name](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name).
+
+---
+
+## September 2018
+ 
+### Updated administrator role permissions for dynamic groups
+
+**Type:** Fixed  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+
+We've fixed an issue so specific administrator roles can now create and update dynamic membership rules, without needing to be the owner of the group.
+
+The roles are:
+
+- Global administrator
+
+- Intune administrator
+
+- User administrator
+
+For more information, see [Create a dynamic group and check status](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
+
+---
+
+### Simplified Single Sign-On (SSO) configuration settings for some third-party apps
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+
+We realize that setting up Single Sign-On (SSO) for Software as a Service (SaaS) apps can be challenging due to the unique nature of each apps configuration. We've built a simplified configuration experience to auto-populate the SSO configuration settings for the following third-party SaaS apps:
+
+- Zendesk
+
+- ArcGis Online
+
+- Jamf Pro
+
+To start using this one-click experience, go to the **Azure portal** > **SSO configuration** page for the app. For more information, see [SaaS application integration with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+---
+
+### Azure Active Directory - Where is your data located? page
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** GoLocal
+
+Select your company's region from the **Azure Active Directory - Where is your data located** page to view which Azure datacenter houses your Azure AD data at rest for all Azure AD services. You can filter the information by specific Azure AD services for your company's region.
+
+To access this feature and for more information, see [Azure Active Directory - Where is your data located](https://aka.ms/AADDataMap).
+
+---
+
+### New deployment plan available for the My Apps Access panel
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** SSO
+
+Check out the new deployment plan that's available for the My Apps Access panel (https://aka.ms/deploymentplans).
+The My Apps Access panel provides users with a single place to find and access their apps. This portal also provides users with self-service opportunities, such as requesting access to apps and groups, or managing access to these resources on behalf of others.
+
+For more information, see [What is the My Apps portal?](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)
+
+---
+
+### New Troubleshooting and Support tab on the Sign-ins Logs page of the Azure portal
+
+**Type:** New feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+
+The new **Troubleshooting and Support** tab on the **Sign-ins** page of the Azure portal, is intended to help admins and support engineers troubleshoot issues related to Azure AD sign-ins. This new tab provides the error code, error message, and remediation recommendations (if any) to help solve the problem. If you're unable to resolve the problem, we also give you a new way to create a support ticket using the **Copy to clipboard** experience, which populates the **Request ID** and **Date (UTC)** fields for the log file in your support ticket.  
+
+![Sign-in logs showing the new tab](media/whats-new/troubleshooting-and-support.png)
+
+---
+
+### Enhanced support for custom extension properties used to create dynamic membership rules
+
+**Type:** Changed feature  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+
+With this update, you can now click the **Get custom extension properties** link from the dynamic user group rule builder, enter your unique app ID, and receive the full list of custom extension properties to use when creating a dynamic membership rule for users. This list can also be refreshed to get any new custom extension properties for that app.
+
+For more information about using custom extension properties for dynamic membership rules, see [Extension properties and custom extension properties](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership#extension-properties-and-custom-extension-properties)
+
+---
+
+### New approved client apps for Azure AD app-based Conditional Access
+
+**Type:** Plan for change  
+**Service category:** Conditional Access  
+**Product capability:** Identity security and protection
+
+The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement):
+
+- Microsoft To-Do
+
+- Microsoft Stream
+
+For more information, see:
+
+- [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+
+---
+
+### New support for Self-Service Password Reset from the Windows 7/8/8.1 Lock screen
+
+**Type:** New feature  
+**Service category:** SSPR  
+**Product capability:** User Authentication
+
+After you set up this new feature, your users will see a link to reset their password from the **Lock** screen of a device running Windows 7, Windows 8, or Windows 8.1. By clicking that link, the user is guided through the same password reset flow as through the web browser.
+
+For more information, see [How to enable password reset from Windows 7, 8, and 8.1](https://aka.ms/ssprforwindows78)
+
+---
+
+### Change notice: Authorization codes will no longer be available for reuse 
+
+**Type:** Plan for change  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+
+Starting on November 15, 2018, Azure AD will stop accepting previously used authentication codes for apps. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
+
+If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. An app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
+
+For this and other protocols-related changes, see [the full list of what's new for authentication](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes).
+
+---
+
+### New Federated Apps available in Azure AD app gallery - September 2018
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In September 2018, we've added these 16 new apps with Federation support to the app gallery:
+
+[Uberflip](https://docs.microsoft.com/azure/active-directory/saas-apps/uberflip-tutorial), [Comeet Recruiting Software](https://docs.microsoft.com/azure/active-directory/saas-apps/comeetrecruitingsoftware-tutorial), [Workteam](https://docs.microsoft.com/azure/active-directory/saas-apps/workteam-tutorial), [ArcGIS Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/arcgisenterprise-tutorial), [Nuclino](https://docs.microsoft.com/azure/active-directory/saas-apps/nuclino-tutorial), [JDA Cloud](https://docs.microsoft.com/azure/active-directory/saas-apps/jdacloud-tutorial), [Snowflake](https://docs.microsoft.com/azure/active-directory/saas-apps/snowflake-tutorial), NavigoCloud, [Figma](https://docs.microsoft.com/azure/active-directory/saas-apps/figma-tutorial), join.me, [ZephyrSSO](https://docs.microsoft.com/azure/active-directory/saas-apps/zephyrsso-tutorial), [Silverback](https://docs.microsoft.com/azure/active-directory/saas-apps/silverback-tutorial), Riverbed Xirrus EasyPass, [Rackspace SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/rackspacesso-tutorial), Enlyft SSO for Azure, SurveyMonkey, [Convene](https://docs.microsoft.com/azure/active-directory/saas-apps/convene-tutorial), [dmarcian](https://docs.microsoft.com/azure/active-directory/saas-apps/dmarcian-tutorial)
+
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+
+---
+
+### Support for additional claims transformations methods
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+
+We've introduced new claim transformation methods, ToLower() and ToUpper(), which can be applied to SAML tokens from the SAML-based **Single Sign-On Configuration** page.
+
+For more information, see [How to customize claims issued in the SAML token for enterprise applications in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization)
+
+---
+
+### Updated SAML-based app configuration UI (preview)
+
+**Type:** Changed feature  
+**Service category:** Enterprise Apps  
+**Product capability:** SSO
+
+As part of our updated SAML-based app configuration UI, you'll get:
+
+- An updated walkthrough experience for configuring your SAML-based apps.
+
+- More visibility about what's missing or incorrect in your configuration.
+
+- The ability to add multiple email addresses for expiration certificate notification.
+
+- New claim transformation methods, ToLower() and ToUpper(), and more.
+
+- A way to upload your own token signing certificate for your enterprise apps.
+
+- A way to set the NameID Format for SAML apps, and a way to set the NameID value as Directory Extensions.
+
+To turn on this updated view, click the **Try out our new experience** link from the top of the **Single Sign-On** page. For more information, see [Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).
+
+---
+
 ## August 2018
 
 ### Changes to Azure Active Directory IP address ranges
@@ -198,7 +435,7 @@ For more information about these new capabilities, see our blog [Azure AD activi
 
 ---
 
-### Conditional access information added to the Azure AD sign-ins report
+### Conditional Access information added to the Azure AD sign-ins report
 
 **Type:** New feature  
 **Service category:** Reporting  
@@ -296,10 +533,10 @@ For more information about this update, see [Azure AD Connect: Version release h
 
 ---
 
-### Updates to the Terms of Use (ToU) end-user UI
+### Updates to the terms of use end-user UI
 
 **Type:** Changed feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
 We're updating the acceptance string in the TOU end-user UI.
@@ -454,25 +691,25 @@ For more information about Azure AD Password Protection, see [Eliminate bad pass
 
 ---
 
-### New "all guests" conditional access policy template created during Terms of Use (ToU) creation
+### New "all guests" Conditional Access policy template created during terms of use creation
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
-During the creation of your Terms of Use (ToU), a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
+During the creation of your terms of use, a new Conditional Access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
 
 For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
-### New "custom" conditional access policy template created during Terms of Use (ToU) creation
+### New "custom" Conditional Access policy template created during terms of use creation
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Governance
 
-During the creation of your Terms of Use (ToU), a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
+During the creation of your terms of use, a new “custom” Conditional Access policy template is also created. This new policy template lets you create the ToU and then immediately go to the Conditional Access policy creation blade, without needing to manually navigate through the portal.
 
 For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -539,10 +776,10 @@ If you must continue to use dedicated circuits, you'll need to talk to your Micr
 ### Microsoft Graph APIs for administrative scenarios for TOU
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Developer Experience
  
-We've added Microsoft Graph APIs for administration operation of Azure AD Terms of Use. You are able to create, update, delete the Terms of Use object.
+We've added Microsoft Graph APIs for administration operation of Azure AD terms of use. You are able to create, update, delete the terms of use object.
 
 ---
 
@@ -650,7 +887,7 @@ For more information about listing your application in the Azure AD app gallery,
 **Service category:** Other  
 **Product capability:** Directory
  
-New, step-by-step guidance about how to deploy Azure Active Directory (Azure AD), including self-service password reset (SSPR), single sign-on (SSO), conditional access (CA), App proxy, User provisioning, Active Directory Federation Services (ADFS) to Pass-through Authentication (PTA), and ADFS to Password hash sync (PHS).
+New, step-by-step guidance about how to deploy Azure Active Directory (Azure AD), including self-service password reset (SSPR), single sign-on (SSO), Conditional Access (CA), App proxy, User provisioning, Active Directory Federation Services (ADFS) to Pass-through Authentication (PTA), and ADFS to Password hash sync (PHS).
 
 To view the deployment guides, go to the [Identity Deployment Guides](https://aka.ms/DeploymentPlans) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https://aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
 
@@ -727,10 +964,10 @@ For more information, see:
 
 ---
  
-### Azure AD Terms of Use now has per user reporting
+### Azure AD terms of use now has per user reporting
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Compliance
  
 Administrators can now select a given ToU and see all the users that have consented to that ToU and what date/time it took place.
@@ -772,11 +1009,11 @@ For more information, see [Configuring single sign-on to applications that are n
 ### Azure AD Terms of use now generally available
 
 **Type:** New feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Compliance
  
 
-Azure AD Terms of Use have moved from public preview to generally available.
+Azure AD terms of use have moved from public preview to generally available.
 
 For more information, see the [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
@@ -793,7 +1030,7 @@ You can now specify which partner organizations you want to share and collaborat
 
 This helps you to control access to your resources, while enabling a smooth experience for approved users.
 
-This B2B Collaboration feature is available for all Azure Active Directory customers and can be used in conjunction with Azure AD Premium features like conditional access and identity protection for more granular control of when and how external business users sign in and gain access.
+This B2B Collaboration feature is available for all Azure Active Directory customers and can be used in conjunction with Azure AD Premium features like Conditional Access and identity protection for more granular control of when and how external business users sign in and gain access.
 
 For more information, see [Allow or block invitations to B2B users from specific organizations](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-allow-deny-list).
 
@@ -896,7 +1133,7 @@ For more information, see [What is Azure AD B2B collaboration?](https://docs.mic
  
 ---
 
-### Restrict browser access using Intune Managed Browser with Azure AD application-based conditional access for iOS and Android
+### Restrict browser access using Intune Managed Browser with Azure AD application-based Conditional Access for iOS and Android
 
 **Type:** New feature  
 **Service category:** Conditional Access  
@@ -906,13 +1143,13 @@ For more information, see [What is Azure AD B2B collaboration?](https://docs.mic
 
 **Intune Managed Browser SSO:** Your employees can use single sign-on across native clients (like Microsoft Outlook) and the Intune Managed Browser for all Azure AD-connected apps.
 
-**Intune Managed Browser Conditional Access Support:** You can now require employees to use the Intune Managed browser using application-based conditional access policies.
+**Intune Managed Browser Conditional Access Support:** You can now require employees to use the Intune Managed browser using application-based Conditional Access policies.
 
 Read more about this in our [blog post](https://cloudblogs.microsoft.com/enterprisemobility/2018/03/15/the-intune-managed-browser-now-supports-azure-ad-sso-and-conditional-access/).
 
 For more information, see:
 
-- [Setup application-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Setup application-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Configure managed browser policies](https://aka.ms/managedbrowser)  
 
@@ -1253,13 +1490,13 @@ This release has the following updates and changes:
 
 ---
  
-### Applications supporting Intune App Protection policies added for use with Azure AD application-based conditional access
+### Applications supporting Intune App Protection policies added for use with Azure AD application-based Conditional Access
 
 **Type:** Changed feature  
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
 
-We have added more applications that support application-based conditional access. Now, you can get access to Office 365 and other Azure AD-connected cloud apps using these approved client apps.
+We have added more applications that support application-based Conditional Access. Now, you can get access to Office 365 and other Azure AD-connected cloud apps using these approved client apps.
 
 The following applications will be added by the end of February:
 
@@ -1272,14 +1509,14 @@ The following applications will be added by the end of February:
 For more information, see:
 
 - [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
-### Terms of Use update to mobile experience 
+### Terms of use update to mobile experience 
 
 **Type:** Changed feature  
-**Service category:** Terms of Use  
+**Service category:** Terms of use  
 **Product capability:** Compliance
 
 When the terms of use are displayed, you can now click **Having trouble viewing? Click here**. Clicking this link opens the terms of use natively on your device. Regardless of the font size in the document or the screen size of device, you can zoom and read the document as needed. 
@@ -1538,12 +1775,12 @@ Azure Active Directory Access Control (also known as the Access Control service)
 ### Restrict browser access to the Intune Managed Browser 
 
 **Type:** Plan for change  
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection
 
 You can restrict browser access to Office 365 and other Azure AD-connected cloud apps by using the Intune Managed Browser as an approved app. 
 
-You now can configure the following condition for application-based conditional access:
+You now can configure the following condition for application-based Conditional Access:
 
 **Client apps:** Browser
 
@@ -1553,14 +1790,14 @@ Today, access is blocked when you use this condition. When the preview is availa
 
 Look for this capability and more information in upcoming blogs and release notes. 
 
-For more information, see [Conditional access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
+For more information, see [Conditional Access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal).
  
 ---
 
-### New approved client apps for Azure AD app-based conditional access
+### New approved client apps for Azure AD app-based Conditional Access
 
 **Type:** Plan for change  
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection
 
 The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
@@ -1571,7 +1808,7 @@ The following apps are on the list of [approved client apps](https://docs.micros
 For more information, see:
 
 - [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1602,17 +1839,17 @@ For more information, see [on-premises integration](https://docs.microsoft.com/a
 
 ---
 
-### Azure AD app-based conditional access 
+### Azure AD app-based Conditional Access 
  
 **Type:** New feature  
 **Service category:** Azure AD  
 **Product capability:** Identity security and protection
 
-You now can restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) that support Intune app protection policies by using [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intune app protection policies are used to configure and protect company data on these client applications.
+You now can restrict access to Office 365 and other Azure AD-connected cloud apps to [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) that support Intune app protection policies by using [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intune app protection policies are used to configure and protect company data on these client applications.
 
-By combining [app-based](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) with [device-based](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) conditional access policies, you have the flexibility to protect data for personal and company devices.
+By combining [app-based](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) with [device-based](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) Conditional Access policies, you have the flexibility to protect data for personal and company devices.
 
-The following conditions and controls are now available for use with app-based conditional access:
+The following conditions and controls are now available for use with app-based Conditional Access:
 
 **Supported platform condition**
 
@@ -1627,7 +1864,7 @@ The following conditions and controls are now available for use with app-based c
 
 - Require approved client app
 
-For more information, see [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
+For more information, see [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1639,7 +1876,7 @@ For more information, see [Azure AD app-based conditional access](https://docs.m
 
 You now can find all your devices connected to Azure AD and the device-related activities in one place. There is a new administration experience to manage all your device identities and settings in the Azure portal. In this release, you can:
 
-- View all your devices that are available for conditional access in Azure AD.
+- View all your devices that are available for Conditional Access in Azure AD.
 - View properties, which include your hybrid Azure AD-joined devices.
 - Find BitLocker keys for your Azure AD-joined devices, manage your device with Intune, and more.
 - Manage Azure AD device-related settings.
@@ -1648,22 +1885,22 @@ For more information, see [Manage devices by using the Azure portal](https://doc
 
 ---
 
-### Support for macOS as a device platform for Azure AD conditional access 
+### Support for macOS as a device platform for Azure AD Conditional Access 
 
 **Type:** New feature    
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection 
 
-You now can include (or exclude) macOS as a device platform condition in your Azure AD conditional access policy. With the addition of macOS to the supported device platforms, you can:
+You now can include (or exclude) macOS as a device platform condition in your Azure AD Conditional Access policy. With the addition of macOS to the supported device platforms, you can:
 
 - **Enroll and manage macOS devices by using Intune.** Similar to other platforms like iOS and Android, a company portal application is available for macOS to do unified enrollments. You can use the new company portal app for macOS to enroll a device with Intune and register it with Azure AD.
 - **Ensure macOS devices adhere to your organization's compliance policies defined in Intune.** In Intune on the Azure portal, you now can set up compliance policies for macOS devices. 
-- **Restrict access to applications in Azure AD to only compliant macOS devices.** Conditional access policy authoring has macOS as a separate device platform option. Now you can author macOS-specific conditional access policies for the targeted application set in Azure.
+- **Restrict access to applications in Azure AD to only compliant macOS devices.** Conditional Access policy authoring has macOS as a separate device platform option. Now you can author macOS-specific Conditional Access policies for the targeted application set in Azure.
 
 For more information, see:
 
 - [Create a device compliance policy for macOS devices with Intune](https://aka.ms/macoscompliancepolicy)
-- [Conditional access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+- [Conditional Access in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---
 
@@ -1702,10 +1939,10 @@ In the Azure AD admin center, you can now:
  
 ---
 
-### New approved client apps for Azure AD app-based conditional access
+### New approved client apps for Azure AD app-based Conditional Access
  
 **Type:** Changed feature  
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection
 
 The following apps were added to the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
@@ -1716,19 +1953,19 @@ The following apps were added to the list of [approved client apps](https://docs
 For more information, see:
 
 - [Approved client app requirement](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD app-based conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
+- [Azure AD app-based Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
-### Use "OR" between controls in a conditional access policy 
+### Use "OR" between controls in a Conditional Access policy 
 
 **Type:** Changed feature    
-**Service category:** Conditional access  
+**Service category:** Conditional Access  
 **Product capability:** Identity security and protection
  
-You now can use "OR" (require one of the selected controls) for conditional access controls. You can use this feature to create policies with "OR" between access controls. For example, you can use this feature to create a policy that requires a user to sign in by using Multi-Factor Authentication "OR" to be on a compliant device.
+You now can use "OR" (require one of the selected controls) for Conditional Access controls. You can use this feature to create policies with "OR" between access controls. For example, you can use this feature to create a policy that requires a user to sign in by using Multi-Factor Authentication "OR" to be on a compliant device.
 
-For more information, see [Controls in Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
+For more information, see [Controls in Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-controls).
  
 ---
 

@@ -1,25 +1,15 @@
 ---
-title: Cancel operation API | Microsoft Docs
+title: Cancel operation API | Azure Marketplace
 description: Cancel operations .
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
-
-Cancel operation 
-=================
+# Cancel operation 
 
 This API cancels an operation currently in progress on the offer. Use the [Retrieve operations
 API](./cloud-partner-portal-api-retrieve-operations.md) to get an

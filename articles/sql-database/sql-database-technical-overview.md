@@ -49,7 +49,7 @@ SQL Database delivers predictable performance with multiple resource types, serv
 
 ## Scalable performance and pools
 
-- With single databases, each database is isolated from each other and portable, each with its own guaranteed amount of compute, memory, and storage resources. SQL Database provides different compute, memory, and storage resources for different needs - and the ability to dynamically [scale single database resources](sql-database-single-database-scale.md) up and down. The [hyperscale service tier](sql-database-service-tier-hyperscale.md) (preview) for single database enables you to scale to 100 TB, with fast backup and restore capabilities.
+- With single databases, each database is isolated from each other and portable, each with its own guaranteed amount of compute, memory, and storage resources. SQL Database provides different compute, memory, and storage resources for different needs - and the ability to dynamically [scale single database resources](sql-database-single-database-scale.md) up and down. The [hyperscale service tier](sql-database-service-tier-hyperscale.md) for single database enables you to scale to 100 TB, with fast backup and restore capabilities.
 - With elastic pools, you can create new databases or move single databases into a resource pool to maximize the use of resources and save money - and the ability to dynamically [scale elastic pool resources](sql-database-elastic-pool-scale.md) up and down.
 - With managed instances, each managed instance is isolated from other instances with guaranteed resources. Within a managed instance, the instance databases share a set of resources - and the ability to dynamically [scale managed instance resources](sql-database-managed-instance-resource-limits.md) up and down.
 
@@ -64,8 +64,7 @@ SQL Database offers two purchasing models:
 - The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, IO resources in three service tiers to support lightweight to heavyweight database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. For more information about the Azure Hybrid Benefit, see [Frequently asked questions](#sql-database-frequently-asked-questions-faq).
 
-  > [!IMPORTANT]
-  > The [hyperscale service tier](sql-database-service-tier-hyperscale.md) for single databases is currently in public preview. We don't recommend running any production workload in hyperscale databases yet. You can't update a hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database and update the copy to hyperscale service tier.
+  
 
 ### Elastic pools to maximize resource utilization
 

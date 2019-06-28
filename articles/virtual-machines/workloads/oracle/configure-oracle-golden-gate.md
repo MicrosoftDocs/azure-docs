@@ -257,7 +257,6 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 
 ### Start Oracle listener
 ```bash
-$ sudo su - oracle
 $ lsnrctl start
 ```
 

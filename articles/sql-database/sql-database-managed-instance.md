@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/08/2019
+ms.date: 06/26/2019
 ---
 # Use SQL Database advanced data security with virtual networks and near 100% compatibility
 
@@ -72,9 +72,12 @@ The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for mana
 In vCore model, you can choose between generations of hardware.
 
 - **Gen4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7GB RAM per core, and compute sizes between 8 and 24 vCores.
-- **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 8 and 80 cores.
+- **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
 
 ## Managed instance service tiers
 
@@ -120,7 +123,7 @@ The managed instance deployment option combines advanced security features provi
 A managed instance provides additional security isolation from other tenants in the Azure cloud. Security isolation includes:
 
 - [Native virtual network implementation](sql-database-managed-instance-connectivity-architecture.md) and connectivity to your on-premises environment using Azure Express Route or VPN Gateway.
-- SQL endpoint is exposed only through a private IP address, allowing safe connectivity from private Azure or hybrid networks.
+- In a default deployment, SQL endpoint is exposed only through a private IP address, allowing safe connectivity from private Azure or hybrid networks.
 - Single-tenant with dedicated underlying infrastructure (compute, storage).
 
 The following diagram outlines various connectivity options for your applications:
@@ -234,5 +237,5 @@ The following table shows several properties, accessible through Transact SQL, t
 - For more information about VNet configuration, see [managed instance VNet configuration](sql-database-managed-instance-connectivity-architecture.md).
 - For a quickstart that creates a managed instance and restores a database from a backup file, see [create a managed instance](sql-database-managed-instance-get-started.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [managed instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
-- For advanced monitoring of managed instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Database using Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)
+- For advanced monitoring of managed instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Database using Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).
 - For pricing information, see [SQL Database managed instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).

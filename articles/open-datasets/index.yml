@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Open Datasets Preview Documentation
+metadata:
+  title: Azure Open Datasets Preview Documentation – Tutorials, API reference | Microsoft Docs
+  description: Learn how to use Azure Open Datasets, curated and cleansed data that you can use with minimal preparation. Open Datasets are public data such as weather, census, and holidays that can enrich machine learning models. Tutorials, examples, and API reference docs show you how. 
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: Learn how to use Azure Open Datasets, curated and cleansed data that you can use with minimal preparation. Open Datasets include public data such as weather, census, and holidays that can enrich machine learning models. Tutorials, examples, and API reference docs show you how. 
+  
+sections:   
+- title: Step-by-Step Tutorial
+  items:
+  - type: paragraph
+    text: <a href="tutorial-opendatasets-automl">Build a regression model with automated machine learning</a>
+
+- title: Samples
+  items:
+  - type: paragraph
+    text: <a href="samples">Notebooks for enriching datasets</a> 
+ 
+    
+- title: Reference
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://aka.ms/open-datasets-api">API reference</a>
+  

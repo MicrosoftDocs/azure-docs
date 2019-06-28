@@ -9,7 +9,7 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -18,9 +18,10 @@ ms.custom: seodec2018
 The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. 
 
 > [!NOTE]
-> Starting December 21, 2018, you can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) with an Azure Search skillset. This allows us to start charging for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
-> [Built-in cognitive skill](cognitive-search-predefined-skills.md) execution is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search charge, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400) or [How billing works](search-sku-tier.md#how-billing-works).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+
 
 ## @odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
@@ -46,56 +47,270 @@ Parameters are case-sensitive.
 
 ##	Sample definition
 ```json
-{
-    "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
-    "context": "/document/normalized_images/*",
-    "visualFeatures": [
-        "Tags",
-        "Faces",
-        "Categories",
-        "Adult",
-        "Description",
-        "ImageType",
-        "Color"
-    ],
-    "defaultLanguageCode": "en",
-    "inputs": [
         {
-            "name": "image",
-            "source": "/document/normalized_images/*"
+            "description": "Extract image analysis.",
+            "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+            "context": "/document/normalized_images/*",
+            "defaultLanguageCode": "en",
+            "visualFeatures": [
+                "Tags",
+                "Categories",
+                "Description",
+                "Faces"
+            ],
+            "inputs": [
+                {
+                    "name": "image",
+                    "source": "/document/normalized_images/*"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "categories"
+                },
+                {
+                    "name": "tags"
+                },
+                {
+                    "name": "description"
+                },
+                {
+                    "name": "faces"
+                }
+            ]
         }
-    ],
-    "outputs": [
+```
+### Sample index (for only the categories, description, faces and tags fields)
+```json
+{
+    "fields": [
         {
-            "name": "categories",
-            "targetName": "myCategories"
+            "name": "id",
+            "type": "Edm.String",
+            "key": true,
+            "searchable": true,
+            "filterable": false,
+            "facetable": false,
+            "sortable": true
         },
         {
-            "name": "tags",
-            "targetName": "myTags"
+            "name": "blob_uri",
+            "type": "Edm.String",
+            "searchable": true,
+            "filterable": false,
+            "facetable": false,
+            "sortable": true
+        },
+        {
+            "name": "content",
+            "type": "Edm.String",
+            "sortable": false,
+            "searchable": true,
+            "filterable": false,
+            "facetable": false
+        },
+        {
+            "name": "categories",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "name",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "score",
+                    "type": "Edm.Double",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "detail",
+                    "type": "Edm.ComplexType",
+                    "fields": [
+                        {
+                            "name": "celebrities",
+                            "type": "Collection(Edm.ComplexType)",
+                            "fields": [
+                                {
+                                    "name": "name",
+                                    "type": "Edm.String",
+                                    "searchable": true,
+                                    "filterable": false,
+                                    "facetable": false
+                                },
+                                {
+                                    "name": "faceBoundingBox",
+                                    "type": "Collection(Edm.ComplexType)",
+                                    "fields": [
+                                        {
+                                            "name": "x",
+                                            "type": "Edm.Int32",
+                                            "searchable": false,
+                                            "filterable": false,
+                                            "facetable": false
+                                        },
+                                        {
+                                            "name": "y",
+                                            "type": "Edm.Int32",
+                                            "searchable": false,
+                                            "filterable": false,
+                                            "facetable": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "confidence",
+                                    "type": "Edm.Double",
+                                    "searchable": false,
+                                    "filterable": false,
+                                    "facetable": false
+                                }
+                            ]
+                        },
+                        {
+                            "name": "landmarks",
+                            "type": "Collection(Edm.ComplexType)",
+                            "fields": [
+                                {
+                                    "name": "name",
+                                    "type": "Edm.String",
+                                    "searchable": true,
+                                    "filterable": false,
+                                    "facetable": false
+                                },
+                                {
+                                    "name": "confidence",
+                                    "type": "Edm.Double",
+                                    "searchable": false,
+                                    "filterable": false,
+                                    "facetable": false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
             "name": "description",
-            "targetName": "myDescription"
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "tags",
+                    "type": "Collection(Edm.String)",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "captions",
+                    "type": "Collection(Edm.ComplexType)",
+                    "fields": [
+                        {
+                            "name": "text",
+                            "type": "Edm.String",
+                            "searchable": true,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "confidence",
+                            "type": "Edm.Double",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        }
+                    ]
+                }
+            ]
         },
         {
             "name": "faces",
-            "targetName": "myFaces"
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "age",
+                    "type": "Edm.Int32",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "gender",
+                    "type": "Edm.String",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "faceBoundingBox",
+                    "type": "Collection(Edm.ComplexType)",
+                    "fields": [
+                        {
+                            "name": "x",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        },
+                        {
+                            "name": "y",
+                            "type": "Edm.Int32",
+                            "searchable": false,
+                            "filterable": false,
+                            "facetable": false
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "name": "imageType",
-            "targetName": "myImageType"
-        },
-        {
-            "name": "color",
-            "targetName": "myColor"
-        },
-        {
-            "name": "adult",
-            "targetName": "myAdultCategory"
+            "name": "tags",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [
+                {
+                    "name": "name",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": false,
+                    "facetable": false
+                },
+                {
+                    "name": "confidence",
+                    "type": "Edm.Double",
+                    "searchable": false,
+                    "filterable": false,
+                    "facetable": false
+                }
+            ]
         }
     ]
 }
+
+```
+### Sample output field mapping (for the above index)
+```json
+    "outputFieldMappings": [
+        {
+            "sourceFieldName": "/document/normalized_images/*/categories/*",
+            "targetFieldName": "categories"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/tags/*",
+            "targetFieldName": "tags"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/description",
+            "targetFieldName": "description"
+        },
+        {
+            "sourceFieldName": "/document/normalized_images/*/faces/*",
+            "targetFieldName": "faces"
+        }
 ```
 
 ##	Sample input
@@ -121,7 +336,6 @@ Parameters are case-sensitive.
 }
 ```
 
-
 ##	Sample output
 
 ```json
@@ -142,12 +356,24 @@ Parameters are case-sensitive.
                             "celebrities": [
                                 {
                                     "name": "Satya Nadella",
-                                    "faceBoundingBox": {
-                                        "left": 597,
-                                        "top": 162,
-                                        "width": 248,
-                                        "height": 248
-                                    },
+                                    "faceBoundingBox": [
+                                        {
+                                            "x": 273,
+                                            "y": 309
+                                        },
+                                        {
+                                            "x": 395,
+                                            "y": 309
+                                        },
+                                        {
+                                            "x": 395,
+                                            "y": 431
+                                        },
+                                        {
+                                            "x": 273,
+                                            "y": 431
+                                        }
+                                    ],
                                     "confidence": 0.999028444
                                 }
                             ],
@@ -209,12 +435,24 @@ Parameters are case-sensitive.
                     {
                         "age": 44,
                         "gender": "Male",
-                        "faceBoundingBox": {
-                            "left": 593,
-                            "top": 160,
-                            "width": 250,
-                            "height": 250
-                        }
+                        "faceBoundingBox": [
+                            {
+                                "x": 1601,
+                                "y": 395
+                            },
+                            {
+                                "x": 1653,
+                                "y": 395
+                            },
+                            {
+                                "x": 1653,
+                                "y": 447
+                            },
+                            {
+                                "x": 1601,
+                                "y": 447
+                            }
+                        ]
                     }
                 ],
                 "color": {

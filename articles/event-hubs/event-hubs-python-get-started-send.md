@@ -1,5 +1,5 @@
 ---
-title: Send events using Python - Azure Event Hubs | Microsoft Docs
+title: Send or receive events using Python - Azure Event Hubs | Microsoft Docs
 description: This article provides a walkthrough for creating a Python application that sends events to Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,16 +8,16 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 04/15/2019
 ms.author: shvija
 
 ---
 
-# Send events to Event Hubs using Python
+# Send events to or receive events from Event Hubs using Python
 
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-This tutorial describes how to send events to an event hub from an application written in Python. 
+This tutorial describes how to create Python applications to send events to or receive events from an event hub. 
 
 > [!NOTE]
 > You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
@@ -28,14 +28,7 @@ To complete this tutorial, you need the following prerequisites:
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - Python 3.4 or later.
-
-
-## Create an Event Hubs namespace and an event hub
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
-
-Get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the access key in the code you write later in this tutorial. The default key name is: **RootManageSharedAccessKey**.
-
-Now,  proceed with the following steps in this tutorial.
+- Use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the access key in the code you write later in this tutorial. The default key name is: **RootManageSharedAccessKey**.
 
 ## Install Python package
 
@@ -45,11 +38,13 @@ To install the Python package for Event Hubs, open a command prompt that has Pyt
 pip install azure-eventhub
 ```
 
-## Create a Python script to send events
+## Send events
+
+### Create a Python script to send events
 
 Next, create a Python application that sends events to an event hub:
 
-1. Open your favorite Python editor, such as [Visual Studio Code][Visual Studio Code].
+1. Open your favorite Python editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a script called **send.py**. This script sends 100 events to your event hub.
 3. Paste the following code into send.py, replacing the ADDRESS, USER, and KEY values with the values you obtained from the Azure portal in the previous section: 
 
@@ -99,7 +94,7 @@ except KeyboardInterrupt:
     pass
 ```
 
-## Run application to send events
+### Run application to send events
 
 To run the script, open a command prompt that has Python in its path, and then run this command:
 
@@ -108,11 +103,76 @@ start python send.py
 ```
 
 Congratulations! You have now sent messages to an event hub.
+
+## Receive events
+
+### Create a Python script to receive events
+
+Next, create a Python application that receives events from an event hub:
+
+1. Open your favorite Python editor, such as [Visual Studio Code](https://code.visualstudio.com/)
+2. Create a script called **recv.py**.
+3. Paste the following code into recv.py, replacing the ADDRESS, USER, and KEY values with the values you obtained from the Azure portal in the previous section: 
+
+```python
+import os
+import sys
+import logging
+import time
+from azure.eventhub import EventHubClient, Receiver, Offset
+
+logger = logging.getLogger("azure")
+
+# Address can be in either of these formats:
+# "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<mynamespace>.servicebus.windows.net/myeventhub"
+# "amqps://<mynamespace>.servicebus.windows.net/myeventhub"
+# For example:
+ADDRESS = "amqps://mynamespace.servicebus.windows.net/myeventhub"
+
+# SAS policy and key are not required if they are encoded in the URL
+USER = "RootManageSharedAccessKey"
+KEY = "namespaceSASKey"
+CONSUMER_GROUP = "$default"
+OFFSET = Offset("-1")
+PARTITION = "0"
+
+total = 0
+last_sn = -1
+last_offset = "-1"
+client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
+try:
+    receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+    client.run()
+    start_time = time.time()
+    for event_data in receiver.receive(timeout=100):
+        last_offset = event_data.offset
+        last_sn = event_data.sequence_number
+        print("Received: {}, {}".format(last_offset, last_sn))
+        total += 1
+
+    end_time = time.time()
+    client.stop()
+    run_time = end_time - start_time
+    print("Received {} messages in {} seconds".format(total, run_time))
+
+except KeyboardInterrupt:
+    pass
+finally:
+    client.stop()
+```
+
+### Receive events
+
+To run the script, open a command prompt that has Python in its path, and then run this command:
+
+```bash
+start python recv.py
+```
  
 ## Next steps
-In this quickstart, you have sent messages to an event hub using Python. To learn how to receive events from an event hub using Python, see [Receive events from event hub - Python](event-hubs-python-get-started-receive.md).
+Read the following articles:
 
-<!-- Links -->
-[Event Hubs overview]: event-hubs-about.md
-[Visual Studio Code]: https://code.visualstudio.com/
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+- [EventProcessorHost](event-hubs-event-processor-host.md)
+- [Features and terminology in Azure Event Hubs](event-hubs-features.md)
+- [Event Hubs FAQ](event-hubs-faq.md)
+

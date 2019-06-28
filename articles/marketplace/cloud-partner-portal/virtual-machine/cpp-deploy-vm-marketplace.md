@@ -1,20 +1,12 @@
 ---
-title: Deploy a VM from the Azure Marketplace | Microsoft Docs
+title: Deploy a VM from the Azure Marketplace 
 description: Explains how to deploy a virtual machine from an Azure Marketplace pre-configured virtual machine.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Deploy a virtual machine from the Azure Marketplace

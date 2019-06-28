@@ -3,8 +3,8 @@ title: Route network traffic - Azure CLI | Microsoft Docs
 description: In this article, learn how to route network traffic with a route table using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom:
 ---
 
@@ -204,7 +204,7 @@ Take note of the **publicIpAddress**. This address is used to access the VM from
 
 ## Route traffic through an NVA
 
-Use the following command to create an SSH session with the *myVmPrivate* VM. Replace *<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
+Use the following command to create an SSH session with the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

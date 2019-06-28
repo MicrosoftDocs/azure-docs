@@ -1,7 +1,7 @@
 ---
 title: Create, run, & track ML pipelines
 titleSuffix: Azure Machine Learning service
-description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python. You use pipelines to create and manage the workflows that stitch together machine learning (ML) phases. These phases include data preparation, model training, model deployment, and inferencing. 
+description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python. You use pipelines to create and manage the workflows that stitch together machine learning (ML) phases. These phases include data preparation, model training, model deployment, and inference/scoring. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 01/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
 
 ---
@@ -50,7 +50,7 @@ Create the resources required to run a pipeline:
 
 * Configure a `DataReference` object to point to data that lives in, or is accessible in, a datastore.
 
-* Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-target) on which your pipeline steps will run.
+* Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
 A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register additional datastores. 
@@ -248,10 +248,12 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Reuse of previous results (`allow_reuse`) is key when using pipelines in a collaborative environment since eliminating unnecessary re-runs offers agility. This is the default behavior when the script_name, inputs, and the parameters of a step remain the same. When the output of the step is reused, the job is not submitted to the compute, instead, the results from the previous run are immediately available to the next step's run. If set to false, a new run will always be generated for this step during pipeline execution. 
+
 After you define your steps, you build the pipeline by using some or all of those steps.
 
->[!NOTE]
->No file or data is uploaded to the Azure Machine Learning service when you define the steps or build the pipeline.
+> [!NOTE]
+> No file or data is uploaded to the Azure Machine Learning service when you define the steps or build the pipeline.
 
 ```python
 # list of steps to run
@@ -286,8 +288,12 @@ For more information, see the [azure-pipeline-steps package](https://docs.micros
 
 ## Submit the pipeline
 
-When you submit the pipeline, Azure Machine Learning service checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded.
+When you submit the pipeline, Azure Machine Learning service checks the dependencies for each step and uploads a snapshot of the source directory you specified. If no source directory is specified, the current local directory is uploaded. The snapshot is also stored as part of the experiment in your workspace.
 
+> [!IMPORTANT]
+> To prevent files from being included in the snapshot, create a [.gitignore](https://git-scm.com/docs/gitignore) or `.amlignore` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the [.gitignore](https://git-scm.com/docs/gitignore) file. If both files exist, the `.amlignore` file takes precedence.
+>
+> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 # Submit the pipeline to be run
@@ -307,6 +313,10 @@ When you first run a pipeline, Azure Machine Learning:
 ![Diagram of running an experiment as a pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 For more information, see the [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) reference.
+
+## GitHub tracking and integration
+
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
 
 ## Publish a pipeline
 
@@ -352,6 +362,7 @@ response = requests.post(published_pipeline1.endpoint,
     json={"ExperimentName": "My_Pipeline",
         "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
 ## View results
 
 See the list of all your pipelines and their run details:
@@ -361,6 +372,25 @@ See the list of all your pipelines and their run details:
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Select a specific pipeline to see the run results.
+
+## Caching & reuse  
+
+In order to optimize and customize the behavior of your pipelines you can do a few things around caching and reuse. For example, you can choose to:
++ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of this.
++ **Extend hashing beyond the script**, to also include an absolute path or relative paths to the source_directory to other files and directories using the `hash_paths=['<file or directory']` 
++ **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
+
+By default, `allow-reuse` for steps is enabled and only the main script file is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.  
+
+```python
+step = PythonScriptStep(name="Hello World", 
+                        script_name="hello_world.py",  
+                        compute_target=aml_compute,  
+                        source_directory= source_directory, 
+                        allow_reuse=False, 
+                        hash_paths=['hello_world.ipynb']) 
+```
+ 
 
 ## Next steps
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further.

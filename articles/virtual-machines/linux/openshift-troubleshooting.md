@@ -4,7 +4,7 @@ description: Troubleshoot OpenShift deployment in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: 
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
 ---
 
@@ -38,9 +38,9 @@ SSH to the ansible playbook host. For the OKD template (version 3.9 and earlier)
 
 ## Log files
 
-The log files (stderr and stdout) for the host preparation scripts are located in /var/lib/waagent/custom-script/download/0 on all hosts. If an error occurred during the preparation of the host, view these log files to determine the error.
+The log files (stderr and stdout) for the host preparation scripts are located in `/var/lib/waagent/custom-script/download/0` on all hosts. If an error occurred during the preparation of the host, view these log files to determine the error.
 
-If the preparation scripts ran successfully, then the log files in the /var/lib/waagent/custom-script/download/1 directory of the ansible playbook host will need to be examined. If the error occurred during the actual installation of OpenShift, the stdout file will display the error. Use this information to contact Support for further assistance.
+If the preparation scripts ran successfully, then the log files in the `/var/lib/waagent/custom-script/download/1` directory of the ansible playbook host will need to be examined. If the error occurred during the actual installation of OpenShift, the stdout file will display the error. Use this information to contact Support for further assistance.
 
 Example output
 
@@ -89,11 +89,11 @@ The most common errors during installation are:
 
 ### Private Key has a passphrase
 
-You'll see an error that permission was denied for SSH. SSH to the ansible playbook host to check for a passphrase on the private key.
+You'll see an error that permission was denied for ssh. ssh to the ansible playbook host to check for a passphrase on the private key.
 
 ### Key vault secret with private key wasn't created correctly
 
-The private key is injected into the ansible playbook host - ~/.ssh/id_rsa. Confirm this file is correct. Test by opening an SSH session to one of the cluster nodes from the ansible playbook host.
+The private key is copied into the ansible playbook host - ~/.ssh/id_rsa. Confirm this file is correct. Test by opening an SSH session to one of the cluster nodes from the ansible playbook host.
 
 ### Service principal credentials were entered incorrectly
 

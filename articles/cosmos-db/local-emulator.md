@@ -3,11 +3,11 @@ title: Develop locally with the Azure Cosmos Emulator
 description: Using the Azure Cosmos Emulator, you can develop and test your application locally for free, without creating an Azure subscription.
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-
+ms.date: 06/21/2019
 ---
+
 # Use the Azure Cosmos Emulator for local development and testing
 
 The Azure Cosmos Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos Emulator, you can switch to using an Azure Cosmos account in the cloud.
@@ -148,7 +148,7 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 
 * [Install Python 2.7](https://www.python.org/downloads/release/python-2716/)
 
-* [Install Cassandra CLI/CQLSH](http://cassandra.apache.org/download/)
+* [Install Cassandra CLI/CQLSH](https://cassandra.apache.org/download/)
 
 * Run the following commands in a regular command prompt window:
 
@@ -176,7 +176,7 @@ Start emulator from an administrator command prompt with “/EnableCassandraEndp
 
 Start emulator from an administrator command prompt with “/EnableGremlinEndpoint”. Alternatively you can also set the environment variable `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [Install apache-tinkerpop-gremlin-console-3.3.4](http://tinkerpop.apache.org/downloads.html)
+* [Install apache-tinkerpop-gremlin-console-3.3.4](https://tinkerpop.apache.org/downloads.html)
 
 * In the emulator’s Data Explorer create a database "db1" and a collection "coll1"; for the partition key, choose "/name"
 
@@ -247,7 +247,7 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 | GremlinPort | Port number to use for the Gremlin Endpoint. Default value is 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\>: Single port number |
 |TablePort | Port number to use for the Azure Table Endpoint. Default value is 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\>: Single port number|
 | KeyFile | Read authorization key from the specified file. Use the /GenKeyFile option to generate a keyfile | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Path to the file |
-| ResetDataPath | Recursively removes all the files in the specified path. If you don't specify a path, it defaults to %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<path\>: File path  |
+| ResetDataPath | Recursively removes all the files in the specified path. If you don't specify a path, it defaults to %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>: File path  |
 | StartTraces  |  Start collecting debug trace logs. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Stop collecting debug trace logs. | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | Enables Azure Table API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
@@ -409,6 +409,57 @@ To open the Data Explorer, navigate to the following URL in your browser. The em
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+## Running on Mac or Linux<a id="mac"></a>
+
+Currently the Cosmos emulator can only be run on Windows. Users running Mac or Linux can run the emulator in a Windows virtual machine hosted a hypervisor such as Parallels or VirtualBox. Below are the steps to enable this.
+
+Within the Windows VM run the command below and make note of the IPv4 address.
+
+```cmd
+ipconfig.exe
+```
+
+Within your application you need to change the URI for the DocumentClient object to use the IPv4 address returned by `ipconfig.exe`. The next step is to work around the CA validation when constructing the DocumentClient object. For this you will need to provide an HttpClientHandler to the DocumentClient constructor, which has it's own implementation for ServerCertificateCustomValidationCallback.
+
+Below is an example of what the code should look like.
+
+```csharp
+using System;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using System.Net.Http;
+
+namespace emulator
+{
+    class Program
+    {
+        static async void Main(string[] args)
+        {
+            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
+            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
+            //Work around the CA validation
+            var httpHandler = new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+            };
+
+            //Pass http handler to document client
+            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+            {
+                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
+                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
+            }
+        }
+    }
+}
+```
+
+Finally, from the within the Windows VM, launch the Cosmos emulator from the command line using the following options.
+
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
 
 ## Troubleshooting
 

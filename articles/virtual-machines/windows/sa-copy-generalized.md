@@ -26,7 +26,7 @@ This article covers using storage accounts. We recommend that you use managed di
 
 This article shows you how to use Azure PowerShell to create an image of a generalized Azure VM using a storage account. You can then use the image to create another VM. The image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create the new VM. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Generalize the VM 
 This section shows you how to generalize your Windows virtual machine for use as an image. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx).

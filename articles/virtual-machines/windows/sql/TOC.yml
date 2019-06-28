@@ -1,6 +1,6 @@
 - name: Overview
   items:
-  - name: About Windows SQL Server VMs
+  - name: What is a SQL Server VM?
     href: virtual-machines-windows-sql-server-iaas-overview.md
   - name: Release notes
     href: virtual-machines-windows-sql-server-iaas-release-notes.md
@@ -34,6 +34,10 @@
       href: virtual-machines-windows-sql-automated-backup-v2.md
   - name: Management
     items:
+    - name: With the Azure portal
+      href: virtual-machines-windows-sql-manage-portal.md
+    - name: Extend support for SQL 2008 & R2
+      href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
     - name: Connect to a VM
       href: virtual-machines-windows-sql-connect.md
     - name: Configure storage
@@ -68,9 +72,9 @@
       items:
       - name: Azure SQL VM CLI
         href: virtual-machines-windows-sql-availability-group-cli.md
-      - name: Azure Portal Template
+      - name: Azure portal template
         href: virtual-machines-windows-portal-sql-alwayson-availability-groups.md
-      - name: Azure Quickstart Templates
+      - name: Azure Quickstart templates
         href: virtual-machines-windows-sql-availability-group-quickstart-template.md
       - name: Multiple regions
         href: virtual-machines-windows-portal-sql-availability-group-dr.md

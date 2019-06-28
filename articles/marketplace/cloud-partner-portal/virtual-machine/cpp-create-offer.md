@@ -1,20 +1,12 @@
 ---
-title: Create Virtual Machine offer in Azure Marketplace| Microsoft Docs
+title: Create Virtual Machine offer in Azure Marketplace
 description: Lists the steps required to create a new virtual machine (VM) offer for the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Create Virtual Machine offer

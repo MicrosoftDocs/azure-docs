@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
 ---
 
@@ -16,6 +17,8 @@ ms.subservice: common
 The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Azure Storage copies your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. You can choose to replicate your data within the same data center, across zonal data centers within the same region, or across geographically separated regions.
 
 Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
+
+Azure Storage regularly verifies the integrity of data stored using cyclic redundancy checks (CRCs). If data corruption is detected, it is repaired using redundant data. Azure Storage also calculates checksums on all network traffic to detect corruption of data packets when storing or retrieving data.
 
 ## Choosing a redundancy option
 
@@ -47,7 +50,7 @@ For information about Azure Storage guarantees for durability and availability, 
 > Premium Storage supports only locally redundant storage (LRS).
 
 ## Changing replication strategy
-You can change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure client libraries](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
+You can change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the [Azure client libraries](https://docs.microsoft.com/azure/index#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
 
    > [!NOTE]
    > Currently, you cannot use the Portal or API to convert your account to ZRS. If you want to convert your account's replication to ZRS, see [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md) for details.

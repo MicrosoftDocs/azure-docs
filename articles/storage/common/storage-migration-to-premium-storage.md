@@ -2,13 +2,16 @@
 title: Migrating VMs to Azure Premium Storage | Microsoft Docs
 description: Migrate your existing VMs to Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 services: storage
-author: yuemlu
+author: roygara
+
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
 ---
+
 # Migrating to Azure Premium Storage (Unmanaged Disks)
 
 > [!NOTE]
@@ -249,7 +252,7 @@ Now that you have your VHD in the local directory, you can use AzCopy or AzurePo
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-An example <Uri> might be ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. An example <FileInfo> might be ***"C:\path\to\upload.vhd"***.
+An example \<Uri> might be ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. An example \<FileInfo> might be ***"C:\path\to\upload.vhd"***.
 
 ##### Option 2: Using AzCopy to upload the .vhd file
 Using AzCopy, you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details.

@@ -19,8 +19,6 @@ This article describes how to use event domains to manage the flow of custom eve
 * Partition your topics without managing each individually.
 * Avoid individually publishing to each of your topic endpoints.
 
-This feature is in preview. To use it, you must install a preview extension or module. For instructions, see [Manage topics and publish events using Event Domains](how-to-event-domains.md).
-
 ## Event domain overview
 
 An event domain is a management tool for large numbers of Event Grid topics related to the same application. You can think of it as a meta-topic that can have thousands of individual topics.
@@ -45,7 +43,7 @@ RBAC in event domains works the same way [managed access control](security-authe
 
 ### Built in roles
 
-Event Grid has two built-in role definitions to make RBAC easier for working with event domains. These roles are **EventGrid EventSubscription Contributor (Preview)** and **EventGrid EventSubscription Reader (Preview)**. You assign these roles to users who need to subscribe to topics in your event domain. You scope the role assignment to only the topic that users needs to subscribe to.
+Event Grid has two built-in role definitions to make RBAC easier for working with event domains. These roles are **EventGrid EventSubscription Contributor (Preview)** and **EventGrid EventSubscription Reader (Preview)**. You assign these roles to users who need to subscribe to topics in your event domain. You scope the role assignment to only the topic that users need to subscribe to.
 
 For information about these roles, see [Built-in roles for Event Grid](security-authentication.md#built-in-roles).
 
@@ -95,18 +93,18 @@ For example, publishing the following array of events would send event with `"id
 Event domains handle publishing to topics for you. Instead of publishing events to each topic you manage individually, you can publish all of your events to the domain's endpoint. Event Grid makes sure each event is sent to the correct topic.
 
 ## Limits and quotas
+Here are the limits and quotas related to event domains:
 
-### Control plane
+- 100,000 topics per event domain 
+- 100 event domains per Azure subscription 
+- 500 event subscriptions per topic in an event domain
+- 50 domain scope subscriptions 
+- 5,000 events per second ingestion rate (into a domain)
 
-During preview, event domains are limited to 1,000 topics within a domain, and 50 event subscriptions per topic within a domain. Event domain scope subscriptions are also limited to 50.
-
-### Data plane
-
-During preview, event throughput for an event domain will be limited to the same 5,000 events per second ingestion rate that custom topics are limited to.
+If these limits don't suit you, reach out the product team by opening a support ticket or by sending an email to [askgrid@microsoft.com](mailto:askgrid.microsoft.com). 
 
 ## Pricing
-
-During the preview, event domains use the same [operations pricing](https://azure.microsoft.com/pricing/details/event-grid/) that all other features in Event Grid use.
+Event domains use the same [operations pricing](https://azure.microsoft.com/pricing/details/event-grid/) that all other features in Event Grid use.
 
 Operations work the same in event domains as they do in custom topics. Each ingress of an event to an event domain is an operation, and each delivery attempt for an event is an operation.
 

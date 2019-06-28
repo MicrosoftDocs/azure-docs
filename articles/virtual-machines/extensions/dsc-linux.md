@@ -28,7 +28,7 @@ DSCForLinux Extension is published and supported by Microsoft. The extension ins
 - Install custom DSC modules to the Linux VM (Install ExtensionAction)
 - Remove custom DSC modules to the Linux VM (Remove ExtensionAction)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 

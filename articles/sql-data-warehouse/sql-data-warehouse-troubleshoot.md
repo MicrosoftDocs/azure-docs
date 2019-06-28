@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/04/2018
+ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -28,7 +28,7 @@ This article lists common troubleshooting question.
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio object explorer is missing AAD users           | This is a known issue.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] to learn more about using Azure Active Directory with SQL Data Warehouse. |
-| Manual scripting, using the scripting wizard, or connecting via SSMS is slow, hung, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
+| Manual scripting, using the scripting wizard, or connecting via SSMS is slow, not responding, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
 | Generate scripts fails in SSMS                             | Generating a script for SQL data warehouse fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
 
 ## Performance
@@ -52,8 +52,9 @@ This article lists common troubleshooting question.
 ## Polybase
 | Issue                                           | Resolution                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| Load fails because of large rows                | Currently large row support is not available for Polybase.  This means that if your table contains VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX), External tables cannot be used to load your data.  Loading large rows is currently only supported through Azure Data Factory (with BCP), Azure Stream Analytics, SSIS, BCP, or the .NET SQLBulkCopy class. PolyBase support for large rows will be added in a future release. |
-| bcp load of table with MAX data type is failing | There is a known issue which requires that VARCHAR(MAX), NVARCHAR(MAX) or VARBINARY(MAX) be placed at the end of the table in some scenarios.  Try moving your MAX columns to the end of the table. |
+| Exports fail with TINYINT and DATE types             | For Parquet and ORC file formats, DATE type values must be between 1970-01-01 00:00:01 UTC and 2038-01-19 03:14:07. TINYINT type values must be between 0-127.    |
+| Issue with Parquet DECIMAL type: writing from Spark type DecimalType(18,4) and importing into a column of type double or real gives “Error: java.base/java.lang.Long cannot be cast to java.base/java.lang.Float”. | You must import into bigint and divide by 10000 or use the [Databricks] SQL DW connector. |
+| Issue with Parquet DATE type: writing from Spark type Date and importing into a column of type date or datetime gives “Error: java.base/java.lang.Integer cannot be cast to parquet.io.api.Binary”. | You must use a different Spark type (int) and compute the date or use the [Databricks] SQL DW connector. |
 
 ## Differences from SQL Database
 | Issue                                 | Resolution                                                   |
@@ -106,7 +107,7 @@ For more help in finding solution to your issue, here are some other resources y
 [Poor columnstore index quality]: sql-data-warehouse-tables-index.md#causes-of-poor-columnstore-index-quality
 [Rebuild indexes to improve segment quality]: sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Workload management]: resource-classes-for-workload-management.md
-[Using CTAS to work around unsupported UPDATE and DELETE syntax]: sql-data-warehouse-develop-ctas.md#using-ctas-to-work-around-unsupported-features
+[Using CTAS to work around unsupported UPDATE and DELETE syntax]: sql-data-warehouse-develop-ctas.md
 [UPDATE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
 [DELETE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE workarounds]: sql-data-warehouse-develop-ctas.md#replace-merge-statements
@@ -127,3 +128,4 @@ For more help in finding solution to your issue, here are some other resources y
 [Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Databricks]: https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse

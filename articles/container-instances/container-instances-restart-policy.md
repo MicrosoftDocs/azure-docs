@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
 ---
 
@@ -89,98 +89,9 @@ Output:
 
 This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure file share](container-instances-mounting-azure-files-volume.md).
 
-## Manually stop and start a container group
-
-Regardless of the restart policy configured for a [container group](container-instances-container-groups.md), you might want to manually stop or start a container group.
-
-* **Stop** - You can manually stop a running container group at any time - for example, by using the [az container stop][az-container-stop] command. For certain container workloads, you might want to stop a container group after a defined period to save on costs. 
-
-  Stopping a container group terminates and recycles the containers in the group; it does not preserve container state. 
-
-* **Start** - When a container group is stopped - either because the containers terminated on their own or you manually stopped the group - you can use the [container start API](/rest/api/container-instances/containergroups/start) or Azure portal to manually start the containers in the group. If the container image for any container is updated, a new image is pulled. 
-
-  Starting a container group begins a new deployment with the same container configuration. This action can help you quickly reuse a known container group configuration that works as you expect. You don't have to create a new container group to run the same workload.
-
-* **Restart** - You can restart a container group while it is running - for example, using the [az container restart][az-container-restart] command. This action restarts all containers in the container group. If the container image for any container is updated, a new image is pulled. 
-
-  Restarting a container group is helpful when you want to troubleshoot a deployment problem. For example, if a temporary resource limitation prevents your containers from running successfully, restarting the group might solve the problem.
-
-After you manually start or restart a container group, the container group runs according to the configured restart policy.
-
-## Configure containers at runtime
-
-When you create a container instance, you can set its **environment variables**, as well as specify a custom **command line** to execute when the container is started. You can use these settings in your batch jobs to prepare each container with task-specific configuration.
-
-## Environment variables
-
-Set environment variables in your container to provide dynamic configuration of the application or script run by the container. This is similar to the `--env` command-line argument to `docker run`.
-
-For example, you can modify the behavior of the script in the example container by specifying the following environment variables when you create the container instance:
-
-*NumWords*: The number of words sent to STDOUT.
-
-*MinLength*: The minimum number of characters in a word for it to be counted. A higher number ignores common words like "of" and "the."
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer2 \
-    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
-    --restart-policy OnFailure \
-    --environment-variables NumWords=5 MinLength=8
-```
-
-By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output. Once the container status shows as *Terminated* (use `az container show` to check its status), display its logs to see the new output:
-
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name mycontainer2
-```
-
-Output:
-
-```bash
-[('CLAUDIUS', 120),
- ('POLONIUS', 113),
- ('GERTRUDE', 82),
- ('ROSENCRANTZ', 69),
- ('GUILDENSTERN', 54)]
-```
-
-
-
-## Command line override
-
-Specify a command line when you create a container instance to override the command line baked into the container image. This is similar to the `--entrypoint` command-line argument to `docker run`.
-
-For instance, you can have the example container analyze text other than *Hamlet* by specifying a different command line. The Python script executed by the container, *wordcount.py*, accepts a URL as an argument, and will process that page's content instead of the default.
-
-For example, to determine the top 3 five-letter words in *Romeo and Juliet*:
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer3 \
-    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
-    --restart-policy OnFailure \
-    --environment-variables NumWords=3 MinLength=5 \
-    --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
-```
-
-Again, once the container is *Terminated*, view the output by showing the container's logs:
-
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name mycontainer3
-```
-
-Output:
-
-```bash
-[('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]
-```
-
 ## Next steps
 
-### Persist task output
+Task-based scenarios, such as batch processing a large dataset with several containers, can take advantage of custom [environment variables](container-instances-environment-variables.md) or [command lines](container-instances-start-command.md) at runtime.
 
 For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
@@ -190,7 +101,5 @@ For details on how to persist the output of your containers that run to completi
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
 [az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
 [az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
-[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
 [azure-cli-install]: /cli/azure/install-azure-cli

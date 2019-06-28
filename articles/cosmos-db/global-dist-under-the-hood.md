@@ -4,7 +4,7 @@ description: This article provides technical details relating to global distribu
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
 
@@ -80,5 +80,5 @@ The semantics of the five consistency models in Cosmos DB are described [here](c
 Next learn how to configure global distribution by using the following articles:
 
 * [Add/remove regions from your database account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [How to configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [How to configure clients for multi-homing](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [How to create a custom conflict resolution policy](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

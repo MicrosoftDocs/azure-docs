@@ -164,7 +164,7 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 9. In the **User Settings** window, copy and paste the following at the end of the file
 
    ```json
-   "arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+   "arduino.additionalUrls": "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
    ```
 
    ![Configure Arduino package URL in VS Code](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
@@ -215,7 +215,7 @@ The sample application can simulate temperature and humidity data in case you do
 
 ### Deploy the sample application to Feather HUZZAH ESP8266
 
-1. In the Visual Studio Code, click **<Select Serial Port>** on the status bar, and then click the serial port for Feather HUZZAH ESP8266.
+1. In the Visual Studio Code, click **\<Select Serial Port>** on the status bar, and then click the serial port for Feather HUZZAH ESP8266.
 
 2. Enter `F1`, then type **Arduino** and select **Arduino: Upload** to build and deploy the sample application to Feather HUZZAH ESP8266.
 

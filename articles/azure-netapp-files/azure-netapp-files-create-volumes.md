@@ -12,8 +12,8 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
-ms.date: 3/17/2019
+ms.topic: conceptual
+ms.date: 6/6/2019
 ms.author: b-juche
 ---
 # Create a volume for Azure NetApp Files
@@ -39,7 +39,7 @@ A subnet must be delegated to Azure NetApp Files.
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        The name must be unique within a resource group. It must be at least three characters long.  You can use any alphanumeric characters.
+        A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
@@ -67,7 +67,9 @@ A subnet must be delegated to Azure NetApp Files.
 4. Click **Protocol**, then select **NFS** as the protocol type for the volume.   
     * Specify the **file path** that will be used to create the export path for the new volume. The export path is used to mount and access the volume.
 
-        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length.  
+        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length. 
+
+        The file path must be unique within each subscription and each region. 
 
     * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md)
 
@@ -83,6 +85,35 @@ A subnet must be delegated to Azure NetApp Files.
 
 Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory connections before adding an SMB volume. 
 
+### Requirements for Active Directory connections
+
+ The requirements for Active Directory connections are as follows: 
+
+* The admin account you use must be able to create machine accounts in the organizational unit (OU) path that you will specify.  
+
+* Proper ports must be open on the applicable Windows Active Directory (AD) server.  
+    The required ports are as follows: 
+
+    |     Service           |     Port     |     Protocol     |
+    |-----------------------|--------------|------------------|
+    |    AD Web Services    |    9389      |    TCP           |
+    |    DNS                |    53        |    TCP           |
+    |    DNS                |    53        |    UDP           |
+    |    ICMPv4             |    N/A       |    Echo Reply    |
+    |    Kerberos           |    464       |    TCP           |
+    |    Kerberos           |    464       |    UDP           |
+    |    Kerberos           |    88        |    TCP           |
+    |    Kerberos           |    88        |    UDP           |
+    |    LDAP               |    389       |    TCP           |
+    |    LDAP               |    389       |    UDP           |
+    |    LDAP               |    3268      |    TCP           |
+    |    NetBIOS name       |    138       |    UDP           |
+    |    SAM/LSA            |    445       |    TCP           |
+    |    SAM/LSA            |    445       |    UDP           |
+    |    Secure LDAP        |    636       |    TCP           |
+    |    Secure LDAP        |    3269      |    TCP           |
+    |    w32time            |    123       |    UDP           |
+
 ### Create an Active Directory connection
 
 1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
@@ -91,10 +122,10 @@ Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory c
 
 2. In the Join Active Directory window, provide the following information:
 
-    * **Primary DNS**   
-        This is the domain controller IP address for the preferred Active Directory Domain Services for use with Azure NetApp Files. 
-    * **Secondary DNS**  
-        This is the domain controller IP address for the secondary Active Directory Domain Services for use with Azure NetApp Files. 
+    * **Primary DNS**  
+        This is the DNS that is required for the Active Directory domain join and SMB authentication operations. 
+    * **Secondary DNS**   
+        This is the secondary DNS server for ensuring redundant name services. 
     * **Domain**  
         This is the domain name of your Active Directory Domain Services that you want to join.
     * **SMB server (computer account) prefix**  
@@ -129,12 +160,7 @@ Azure NetApp Files supports SMBv3 volumes. You need to create Active Directory c
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        The name must be unique within a resource group. It must be at least three characters long.  You can use any alphanumeric characters.
-
-    * **File path**  
-        Specify the file path that will be used to create the export path for the new volume. The export path is used to mount and access the volume.   
-     
-        The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length.  
+        A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.

@@ -165,7 +165,7 @@ This application has an option to change these values. Add the following `<div>`
                 <option value="fi-FI">Finland (Finnish)</option>
                 <option value="fr-FR">France (French)</option>
                 <option value="de-DE">Germany (German)</option>
-                <option value="zh-HK">Hong Kong (Traditional Chinese)</option>
+                <option value="zh-HK">Hong Kong SAR(Traditional Chinese)</option>
                 <option value="en-IN">India (English)</option>
                 <option value="en-ID">Indonesia (English)</option>
                 <option value="it-IT">Italy (Italian)</option>

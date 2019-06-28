@@ -30,7 +30,7 @@ This section assumes you have the following entities:
 
 - A provisioned notification hub.
 - An Azure Storage blob container.
-- References to the [Azure Storage NuGet package](https://www.nuget.org/packages/windowsazure.storage/) and [Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
+- References to the [Azure Storage NuGet package](https://www.nuget.org/packages/windowsazure.storage/) and [Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ### Create input file and store it in a blob
 An input file contains a list of registrations serialized in XML, one per row. Using the Azure SDK, the following code example shows how to serialize the registrations and upload them to blob container.
