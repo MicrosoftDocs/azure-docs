@@ -282,8 +282,10 @@
         href: platform/custom-fields.md
     - name: Configure applications
       items:
-      - name: Azure apps
+      - name: Azure-hosted apps
         items:
+        - name: Azure VM and VMSS
+          href: app/azure-vm-vmss-apps.md
         - name: Azure app service
           href: app/azure-web-apps.md
         - name: Azure Cloud Services

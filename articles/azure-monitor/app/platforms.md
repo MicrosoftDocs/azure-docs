@@ -32,15 +32,18 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [Anything else](#projects)
 
 ## Platforms and frameworks
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
+### Instrumentation for already deployed applications (codeless, agent-based)
+* [Azure VM and Azure VMSS](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - for apps that are already live](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)&#151;including both web and worker roles
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+### Instrumentation through code (SDKs)
+* [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
-* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
-* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)&#151;including both web and worker roles
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)

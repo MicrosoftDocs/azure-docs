@@ -20,9 +20,10 @@ Exceptions in your live web app are reported by [Application Insights](../../azu
 
 ## Set up exception reporting
 * To have exceptions reported from your server app:
+  * Azure web apps: Add the [Application Insights Extension](../../azure-monitor/app/azure-web-apps.md)
+  * Azure VM and Azure VMSS IIS-hosted apps: Add the [Application Monitoring Extension](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * Install [Application Insights SDK](../../azure-monitor/app/asp-net.md) in your app code, or
   * IIS web servers: Run [Application Insights Agent](../../azure-monitor/app/monitor-performance-live-website-now.md); or
-  * Azure web apps: Add the [Application Insights Extension](../../azure-monitor/app/azure-web-apps.md)
   * Java web apps: Install the [Java agent](../../azure-monitor/app/java-agent.md)
 * Install the [JavaScript snippet](../../azure-monitor/app/javascript.md) in your web pages to catch browser exceptions.
 * In some application frameworks or with some settings, you need to take some extra steps to catch more exceptions:
