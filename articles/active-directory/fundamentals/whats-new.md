@@ -45,7 +45,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 We're pleased to announce the new riskDetections API for Microsoft Graph is now in public preview. You can use this new API to view a list of your organization's Identity Protection-related user and sign-in risk detections. You can also use this API to more efficiently query your risk detections, including details about the detection type, status, level, and more.
 
-For more information, see the [Risky user API reference documentation](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta).
+For more information, see the [Risky detection API reference documentation](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta).
 
 ---
 
