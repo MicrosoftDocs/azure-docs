@@ -1,6 +1,6 @@
 ---
-title: Concept - Azure Data Share Preview Terminology 
-description: What is a Share Subscription in Azure Data Share
+title: Azure Data Share Preview Concepts 
+description: Azure Data Share Preview Concepts
 author: joannapea
 
 ms.service: data-share
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
 ---
-# Azure Data Share Preview Terminology 
+# Azure Data Share Preview Concepts 
 
 Azure Data Share Preview introduces some new concepts related to data sharing. This article explains terms that are commonly used in Azure Data Share. It introduces some concepts related to how organizations typically use Azure Data Share to meet their data sharing needs. 
 

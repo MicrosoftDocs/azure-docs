@@ -36,6 +36,8 @@ Data Providers can offer their data consumers incremental updates to the data sh
 
 ![data share flow](media/data-share-flow.png)
 
+When a data consumer accepts a data share, they are able to receive the data in a storage account of their choosing. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. 
+
 ## Key capabilities
 
 Azure Data Share enables Data Providers to:
@@ -63,6 +65,14 @@ Azure Data Share enables Data Consumers to:
 * Accept data shared with you into an Azure Blob Storage or Azure Data Lake Gen2 account
 
 All key capabilities listed above are supported through the Azure or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
+
+## Security
+
+Azure Data Share leverages the underlying security that Azure offers to protect data at rest and in transit. Data is encrypted at rest, where supported by the underlying storage mechanism. Data is also encrypted in transit. Metadata about a data share is also encrypted at rest and in transit. 
+
+Access controls can be set on the Azure Data Share resource level to ensure it is accessed by those that are authorized. 
+
+Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
 
 ## Pricing
 
