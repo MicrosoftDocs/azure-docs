@@ -62,7 +62,7 @@ $publicCfgJsonString = '
 ';
 $privateCfgJsonString = '{}';
 
-Set-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Location "South Central US" -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics.Edp" -Type "ApplicationMonitoringWindows" -SettingString $publicCfgJsonString -ProtectedSettingString $privateCfgJsonString
+Set-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" -Location "South Central US" -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -SettingString $publicCfgJsonString -ProtectedSettingString $privateCfgJsonString
 ```
 
 Unistall application monitoring extension from VM
@@ -110,9 +110,11 @@ $privateCfgHashtable = @{};
 
 $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myVmssName>"
 
-Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics.Edp" -Type "ApplicationMonitoringWindows" -TypeHandlerVersion "2.8" -Setting $publicCfgHashtable -ProtectedSetting $privateCfgHashtable
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -TypeHandlerVersion "2.8" -Setting $publicCfgHashtable -ProtectedSetting $privateCfgHashtable
 
 Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -VirtualMachineScaleSet $vmss
+
+# Note: depending on your update policy, you might need to run Update-AzVmssInstance for each instance
 ```
 
 Unistall application monitoring extension from VMSS
@@ -122,6 +124,8 @@ $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myVm
 Remove-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ApplicationMonitoring"
 
 Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -VirtualMachineScaleSet $vmss
+
+# Note: depending on your update policy, you might need to run Update-AzVmssInstance for each instance
 ```
 
 Query application monitoring extension status for VMSS
@@ -149,7 +153,7 @@ Below is our step-by-step troubleshooting guide for extension based monitoring f
 
 Extension execution output is logged to files found in the following directories:
 ```Windows
-C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.Edp.ApplicationMonitoringWindows\<version>\
+C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWindows\<version>\
 ```
 
 ## Next steps
