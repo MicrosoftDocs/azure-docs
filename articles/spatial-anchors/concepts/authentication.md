@@ -40,9 +40,45 @@ Two keys are made available, which are both simultaneously valid for access to t
 
 The SDK has built-in support for authenticating with account keys; you simply need to set the AccountKey property on your cloudSession object. 
 
+# [C#](#tab/csharp)
+
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
+
+# [ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.accountKey = @"MyAccountKey";
+```
+
+# [Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.accountKey = "MyAccountKey"
+```
+
+# [Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AccountKey(R"(MyAccountKey)");
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AccountKey(LR"(MyAccountKey)");
+```
+
+***
 
 Once that is done, the SDK will handle the exchange of the account key for an access token, and the necessary caching of tokens for your app. 
 
@@ -72,9 +108,45 @@ For applications targeting Azure Active Directory users, the recommended approac
 
 With that, your application should be able to obtain from ADAL an Azure AD token; you can set that Azure AD token as the **authenticationToken** on your cloud session config object. 
 
+# [C#](#tab/csharp)
+
 ```csharp
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
+
+# [ObjC](#tab/objc)
+
+```objc
+_cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
+```
+
+# [Swift](#tab/swift)
+
+```swift
+_cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
+```
+
+# [Java](#tab/java)
+
+```java
+mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+auto configuration = cloudSession_->Configuration();
+configuration->AuthenticationToken(R"(MyAuthenticationToken)");
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+auto configuration = m_cloudSession.Configuration();
+configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
+```
+
+***
 
 ## Azure AD service authentication
 
