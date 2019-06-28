@@ -1,6 +1,6 @@
 ---
-title: How to monitor experiments with Tensorboard and Azure Machine Learning service
-description: 
+title: How to monitor experiments with TensorBoard and Azure Machine Learning service
+description: Launch TensorBoard for viewing your experiment run histories, and identify potential areas for hyperparameter tuning and re-training.
 services: machine-learning
 author: maxluk
 ms.author: maxluk
@@ -63,7 +63,7 @@ runs = []
 
 ### Download TensorFlow demo experiment code
 
-Tensorflow's repository has an MNIST demo with extensive Tensorboard instrumentation. We do not, nor need to, alter any of this demo's code for it to work with the Azure Machine Learning service. In the following code, we download the MNIST code and save it in our newly created experiment folder.
+TensorFlow's repository has an MNIST demo with extensive TensorBoard instrumentation. We do not, nor need to, alter any of this demo's code for it to work with the Azure Machine Learning service. In the following code, we download the MNIST code and save it in our newly created experiment folder.
 
 ```python
 import requests
@@ -99,7 +99,7 @@ if not path.exists(data_dir):
 os.environ["TEST_TMPDIR"] = data_dir
 
 # Writing logs to ./logs results in their being uploaded to Artifact Service,
-# and thus, made accessible to our Tensorboard instance.
+# and thus, made accessible to our TensorBoard instance.
 arguments_list = ["--log_dir", logs_dir]
 
 # Create an experiment
@@ -107,7 +107,7 @@ exp = Experiment(ws, experiment_name)
 ```
 
 ### Create a cluster for your experiment
-We create an AmlCompute cluster for this experiment, however your experiments can created in any environment and you are still able to launch TensorBoard against the experiment run history. 
+We create an AmlCompute cluster for this experiment, however your experiments can be created in any environment and you are still able to launch TensorBoard against the experiment run history. 
 
 ```Python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -172,7 +172,7 @@ tb.stop()
 
 ## Export and convert run histories
 
-The following code sets up a sample experiment, begins the logging process using the Azure Machine Learning run history APIs, and exports the experiment logs and run history to TensorBoard for visualization. 
+The following code sets up a sample experiment, begins the logging process using the Azure Machine Learning run history APIs, and exports the experiment run history into logs consumable by TensorBoard for visualization. 
 
 ### Set up experiment
 
@@ -262,14 +262,14 @@ Once our run history for this experiment is exported, we can launch TensorBoard 
 ```Python
 from azureml.tensorboard import Tensorboard
 
-# The Tensorboard constructor takes an array of runs, so be sure and pass it in as a single-element array here
+# The TensorBoard constructor takes an array of runs, so be sure and pass it in as a single-element array here
 tb = Tensorboard([], local_root=logdir, port=6006)
 
 # If successful, start() returns a string with the URI of the instance.
 tb.start()
 ```
 
-When you're done, make sure to call the [stop()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#stop--) method of the Tensorboard object. Otherwise, TensorBoard will continue to run until you shut down the notebook kernel. 
+When you're done, make sure to call the [stop()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#stop--) method of the TensorBoard object. Otherwise, TensorBoard will continue to run until you shut down the notebook kernel. 
 
 ```python
 tb.stop()
