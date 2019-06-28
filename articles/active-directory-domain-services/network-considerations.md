@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: Networking guidelines | Microsoft Docs'
 description: Networking considerations for Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2010
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Networking considerations for Azure AD Domain Services
