@@ -3,7 +3,7 @@ title: 'Plan your network for Azure AD Domain Services | Microsoft Docs'
 description: Networking considerations for Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,8 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/8/2019
-ms.author: mstephen
-
+ms.author: iainfou
 ---
 # Plan your network for Azure AD Domain Services 
 Properly planning your subnet and virtual network ensures you can use Azure AD Domain Services a shared service for your legacy applications.
