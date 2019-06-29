@@ -849,9 +849,9 @@
       - name: Service health notifications in activity log
         items:
         - name: View service health notifications
-          href: ../../service-health/service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+          href: ../service-health/service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
         - name: Configure service health alert rule
-          href: ../../service-health/alerts-activity-log-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+          href: ../service-health/alerts-activity-log-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Use action groups
         items:
         - name: Create action group
