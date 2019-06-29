@@ -58,18 +58,13 @@ If you need to keep the backups for longer than the maximum retention period, yo
 > If you delete the Azure SQL server that hosts SQL databases, all elastic pools and databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR will not be deleted and these databases can be restored.
 
 ### Default backup retention period
+> [!NOTE]
+> Starting July 2019, the default backup retention period for DTU-based databases became **seven** days. Previously, the default retention period for DTU-based databases was dependent on service tier:
+>- Basic service tier is **one** week.
+>- Standard service tier is **five** weeks.
+>- Premium service tier is **five** weeks.
 
-#### DTU-based purchasing model
-
-The default retention period for a database created using the DTU-based purchasing model depends on the service tier:
-
-- Basic service tier is **one** week.
-- Standard service tier is **five** weeks.
-- Premium service tier is **five** weeks.
-
-#### vCore-based purchasing model
-
-If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is **seven** days (for single, pooled, and instance databases). For all Azure SQL databases (single, pooled, and instance databases, you can [change backup retention period up to 35 days](#how-to-change-the-pitr-backup-retention-period).
+The default backup retention period is **seven** days (for single, pooled, and managed instance databases). For all Azure SQL databases (single, pooled, and managed instance databases, you can [change backup retention period up to 35 days](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > If you reduce the current retention period, all existing backups older than the new retention period are no longer available. If you increase the current retention period, SQL Database will keep the existing backups until the longer retention period is reached.
