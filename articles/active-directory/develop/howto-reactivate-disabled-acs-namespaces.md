@@ -98,7 +98,7 @@ Further extensions will no longer be automatically approved. If you need additio
     | **Problem type** | `ACS to SAS Migration` |
     | **Subject** | Describe the issue |
 
-   ![New technical support request](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Shows an example of a new technical support request](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 
