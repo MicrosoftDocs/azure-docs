@@ -79,9 +79,8 @@ Standard file shares up to 5 TiB in size are available as a GA offering. While l
 
 > [!IMPORTANT]
 > - Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
-> - Are only available with LRS.
-> - Available in three regions: West US 2, West Europe, and SE Asia regions.
 > - LRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
+> - See the [Regional availability](#regional-availability) section for additional scope and restrictions of the preview, before you onboard.
 
 If you'd like to onboard to the preview of these larger file share sizes, submit this [form](https://aka.ms/azurefilesatscalesurvey). 
 
@@ -190,6 +189,10 @@ Keep these points in mind when deciding which replication option to use:
 * Zone-redundant storage (ZRS) provides highly availability with synchronous replication and may be a better choice for some scenarios than GRS. For more information on ZRS, see [ZRS](../common/storage-redundancy-zrs.md).
 * Asynchronous replication involves a delay from the time that data is written to the primary region, to when it is replicated to the secondary region. In the event of a regional disaster, changes that haven't yet been replicated to the secondary region may be lost if that data can't be recovered from the primary region.
 * With GRS, the replica isn't available for read or write access unless Microsoft initiates a failover to the secondary region. In the case of a failover, you'll have read and write access to that data after the failover has completed. For more information, please see [Disaster recovery guidance](../common/storage-disaster-recovery-guidance.md).
+
+### Regional availability
+
+
 
 ## Data growth pattern
 
