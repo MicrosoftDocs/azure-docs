@@ -47,7 +47,7 @@ sections:
   items:
   - type: paragraph
     text: |
-      You can use the Speech SDK to add the following capabilities (and more) to your apps&colon; 
+      You can use the Speech SDK (<a href="releasenotes.md">release notes</a>) to add the following capabilities (and more) to your apps&colon; 
       <div class="row"><div class="column"><ul>
       <li><b><a href="speech-to-text.md">speech-to-text</a></b> (speech-recognition/SR)</li>
       <li><b><a href="speech-devices-sdk-create-kws.md">custom wake-word</a></b> (keyword-spotter/KWS)</li>
@@ -205,7 +205,7 @@ sections:
         - href: quickstart-java-jre
         - href: quickstart-python
         - href: quickstart-objective-c-macos
-        - href: quickstart-swift-ios
+        - href: quickstart-swift-macos
         - href: quickstart-js-node
         - href:
       - title: Devices SDK (ARM32)
