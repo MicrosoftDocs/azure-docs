@@ -14,7 +14,7 @@ ms.subservice: files
 
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
-This article describes how to monitor your Azure File Sync deployment by using Azure Monitor, the Storage Sync Service and the Windows Server.
+This article describes how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service and Windows Server.
 
 The following monitoring options are currently available.
 
@@ -46,7 +46,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 
 To configure alerts in Azure Monitor, select the Storage Sync Service and then select the [Azure File Sync metric](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) to use for the alert.  
 
-The following table lists some conditions you may want to monitor and the proper metric to use for the alert:
+The following table lists some example conditions you may want to monitor and the proper metric to use for the alert:
 
 | Scenario | Metric to use for alert |
 |-|-|
@@ -54,6 +54,8 @@ The following table lists some conditions you may want to monitor and the proper
 | Files are failing to sync to a server or cloud endpoint | Files not syncing |
 | Registered server is failing to communicate with the Storage Sync Service | Server online status |
 | Cloud tiering recall size has exceeded 500GiB in a day  | Cloud tiering recall size |
+
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## Storage Sync Service
 
