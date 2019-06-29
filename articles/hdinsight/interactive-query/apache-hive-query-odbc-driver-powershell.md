@@ -13,9 +13,9 @@ ms.author: hrasheed
 
 # Tutorial: Query Apache Hive with ODBC and Powershell
 
-Microsoft ODBC drivers provide a flexible way to interact with a variety of data sources, including Apache Hive. You can write code in scripting languages like Powershell that use the ODBC drivers to open a connection to your Hive cluster, pass a query of your choosing and display the results.
+Microsoft ODBC drivers provide a flexible way to interact with different kinds of data sources, including Apache Hive. You can write code in scripting languages like Powershell that use the ODBC drivers to open a connection to your Hive cluster, pass a query of your choosing, and display the results.
 
-In this tutorial, you will do the following:
+In this tutorial, you'll do the following tasks:
 
 > [!div class="checklist"]
 > * Download and install the Microsoft Hive ODBC driver
@@ -26,9 +26,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-Before you begin this article, you must have the following items:
+Before you begin this tutorial, you must have the following items:
 
-* An Interactive Query cluster on HDInsight. To create one, see [Get started with Azure HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Select **Interactive Query** as the cluster type.
+* An Interactive Query cluster on HDInsight. To create one, see [Get started with Azure HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Select **Interactive Query** as the cluster type.
 
 ## Install Microsoft Hive ODBC driver
 
@@ -38,7 +38,7 @@ Download and install the [Microsoft Hive ODBC Driver](https://go.microsoft.com/f
 
 The following steps show you how to create an Apache Hive ODBC data source.
 
-1. From Windows, navigate to Start > Windows Administrative Tools > ODBC Data Sources (32-bit)/(64-bit).  This opens the **ODBC Data Source Administrator** window.
+1. From Windows, navigate to Start > Windows Administrative Tools > ODBC Data Sources (32-bit)/(64-bit).  An ODBC Data Source Administrator** window opens.
 
     ![OBDC data source administrator](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Configure a DSN using ODBC Data Source Administrator")
 
@@ -62,13 +62,13 @@ The following steps show you how to create an Apache Hive ODBC data source.
 
    | Parameter | Description |
    | --- | --- |
-   |  Use Native Query |When it is selected, the ODBC driver does NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked. |
+   |  Use Native Query |When it's selected, the ODBC driver does NOT try to convert TSQL into HiveQL. Use this option only if you're 100% sure that you're submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked. |
    |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
-   |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned due to loss of precision and/or truncation. |
+   |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned because of loss of precision and truncation. |
 
     ![Advanced options](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Advanced DSN configuration options")
 
-1. Select **Test** to test the data source. When the data source is configured correctly, the test result shows **SUCCESS!**.  
+1. Select **Test** to test the data source. When the data source is configured correctly, the test result shows **SUCCESS**.  
 
 1. Select **OK** to close the Test window.  
 
@@ -105,7 +105,7 @@ function Get-ODBC-Data {
 }
 ```
 
-The following code snippet uses the function above to execute a query on the Interactive Query cluster that you created at the beginning of the tutorial. Replace `DATASOURCENAME` with the **Data Source Name** that you specified on the **Microsoft Hive ODBC Driver DSN Setup** screen. When prompted for credentials enter the uesrname and password that you entered under **Cluster login username** and **Cluster login password** when you created the cluster.
+The following code snippet uses the function above to execute a query on the Interactive Query cluster that you created at the beginning of the tutorial. Replace `DATASOURCENAME` with the **Data Source Name** that you specified on the **Microsoft Hive ODBC Driver DSN Setup** screen. When prompted for credentials, enter the username and password that you entered under **Cluster login username** and **Cluster login password** when you created the cluster.
 
 ```powershell
 
@@ -118,7 +118,7 @@ Get-ODBC-Data -query $query -dsn $dsn
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, HDInsight cluster, and storage account. To do so, select the resource group where the cluster resides and click **Delete**.
+When no longer needed, delete the resource group, HDInsight cluster, and storage account. To do so, select the resource group where the cluster was created and click **Delete**.
 
 ## Next steps
 
