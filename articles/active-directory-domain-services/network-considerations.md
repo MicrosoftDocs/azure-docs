@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2010
+ms.date: 06/8/2019
 ms.author: mstephen
 
 ---
@@ -67,7 +67,7 @@ An Azure AD Domain Services instance also creates the following additional netwo
 ## User-defined routes
 Avoid making any changes to the route table, especially the 0.0.0.0 route, which can disrupt Azure AD Domain Services. A properly configured [network security group]() provides access control to inbound traffic.
 
-If you are required to use route tables, you must route inbound traffic from the IP addresses included in the respective Azure service tags to the Azure AD Domain Services subnet and from the Azure AD Domain Services subnet can flow without issue, including inbound and outbound Internet traffic. You can download the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) a list of service tags and their associated IP address from the Microsoft Download Center. IP addresses can change without notice. Ensure you have processes to validate you have the latest IP addresses.
+If you are required to use route tables, you must route inbound traffic from the IP addresses included in the respective Azure service tags to the Azure AD Domain Services subnet. You can download the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) a list of service tags and their associated IP address from the Microsoft Download Center. IP addresses can change without notice. Ensure you have processes to validate you have the latest IP addresses.
 
 > [!WARNING]
 > When you associate a misconfigured NSG or a user defined route table with the subnet in which Azure AD Domain Services is created, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an improperly configured NSGs and/or user defined route tables have been applied that blocks Azure AD Domain Services from updating and managing your domain.**
@@ -87,7 +87,8 @@ The following ports are required for Azure AD Domain Services to service and mai
 ### Port 443 (Synchronization with Azure AD)
 * It is used to synchronize your Azure AD directory with your managed domain.
 * It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain is not in sync with your Azure AD directory. Users may not be able to sign in as changes to their passwords are not synchronized to your managed domain.
-* You can restrict inbound access to this port to IP addresses using the **AzureActiveDirectoryDomainServices** service tag
+* You can restrict inbound access to this port to IP addresses using the **AzureActiveDirectoryDomainServices** service tag.
+* **Do not restrict outbound access from this port.** 
 
 ### Port 5986 (PowerShell remoting)
 * It is used to perform management tasks using PowerShell remoting on your managed domain.
