@@ -6,7 +6,7 @@ author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 06/28/2019
 ms.author: mialdrid
 ms.custom: seodec18
 
@@ -170,25 +170,6 @@ This section helps you create, get, update, and delete the Azure public peering 
 > [!Note]
 > Azure public peering is deprecated for new circuits. For more information, see [ExpressRoute peering](expressroute-circuit-peerings.md).
 >
-
-### To create Azure public peering
-
-1. Configure ExpressRoute circuit. Ensure that the circuit is fully provisioned by the connectivity provider before continuing further. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Azure public peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps.
-
-   Azure public peering appears in the Azure portal and looks similar to the graphics in the previous sections.
-
-2. Configure Azure public peering for the circuit. Make sure that you have the following items before you proceed with the next steps:
-
-   * A /30 subnet for the primary link. This must be a valid public IPv4 prefix. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router. 
-   * A /30 subnet for the secondary link. This must be a valid public IPv4 prefix. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.
-   * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID. For both Primary and Secondary links you must use the same VLAN ID.
-   * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
-   * **Optional -** An MD5 hash if you choose to use one.
-3. Select the Azure public peering row.
-
-4. Configure public peering.
-
-5. Save the configuration once you have specified all parameters.
 
 ### <a name="getpublic"></a>To view Azure public peering details
 
