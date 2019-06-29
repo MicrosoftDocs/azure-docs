@@ -46,7 +46,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 
 To configure alerts in Azure Monitor, select the Storage Sync Service and then select the [Azure File Sync metric](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) to use for the alert.  
 
-The following table lists some example conditions to monitor and the proper metric to use for the alert:
+The following table lists some example scenarios to monitor and the proper metric to use for the alert:
 
 | Scenario | Metric to use for alert |
 |-|-|
