@@ -1,12 +1,12 @@
 ---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
 description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
+ms.author: robinsh
 ---
 
 # IoT Hub query language for device and module twins, jobs, and message routing
@@ -323,8 +323,8 @@ SELECT <select_list>
 
 The **FROM <from_specification>** clause can assume only three values: **FROM devices** to query device twins, **FROM devices.modules** to query module twins, or **FROM devices.jobs** to query job per-device details.
 
-
 ## WHERE clause
+
 The **WHERE <filter_condition>** clause is optional. It specifies one or more conditions that the JSON documents in the FROM collection must satisfy to be included as part of the result. Any JSON document must evaluate the specified conditions to "true" to be included in the result.
 
 The allowed conditions are described in section [Expressions and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -361,6 +361,7 @@ SELECT [TOP <max number>] <projection list>
 Currently, selection clauses different than **SELECT*** are only supported in aggregate queries on device twins.
 
 ## GROUP BY clause
+
 The **GROUP BY <group_specification>** clause is an optional step that executes after the filter specified in the WHERE clause, and before the projection specified in the SELECT. It groups documents based on the value of an attribute. These groups are used to generate aggregated values as specified in the SELECT clause.
 
 An example of a query using GROUP BY is:
@@ -388,9 +389,9 @@ Currently, the GROUP BY clause is only supported when querying device twins.
 > [!IMPORTANT]
 > The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## Expressions and conditions
+
 At a high level, an *expression*:
 
 * Evaluates to an instance of a JSON type (such as Boolean, number, string, array, or object).
@@ -438,6 +439,7 @@ To understand what each symbol in the expressions syntax stands for, refer to th
 | string_literal |String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes or double quotes. Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
 
 ### Operators
+
 The following operators are supported:
 
 | Family | Operators |
@@ -447,6 +449,7 @@ The following operators are supported:
 | Comparison |=, !=, <, >, <=, >=, <> |
 
 ### Functions
+
 When querying twins and jobs the only supported function is:
 
 | Function | Description |

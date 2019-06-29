@@ -46,7 +46,7 @@ You access the CloudSimple portal from the Azure portal. For information on how 
 
 **How do I increase capacity for a private cloud?**
 
-You purchase nodes from the Azure portal and expand your private cloud from the CloudSimple portal. You can expand your private cloud by adding nodes to an existing vSphere cluster or by creating a new vSphere cluster. For information on the procedure, see [Expand a CloudSimple private cloud](https://docs.azure.cloudsimple.com/expand-private-cloud).
+You provision nodes from the Azure portal and expand your private cloud from the CloudSimple portal. You can expand your private cloud by adding nodes to an existing vSphere cluster or by creating a new vSphere cluster. For information on the procedure, see [Expand a CloudSimple private cloud](https://docs.azure.cloudsimple.com/expand-private-cloud).
 
 **What happens to my private cloud during maintenance?**
 
@@ -133,7 +133,7 @@ CloudSimple monitoring continuously monitors all hardware components of the priv
 
 ## VMware
 
-**How do I perform large-scale uploading and migration of applications and data from on-premises?**
+**How do I perform large scale uploading and migration of applications and data from on-premises?**
 
 CloudSimple provides a native VMware vSphere solution. Any tool used for bulk data migration can be used with a CloudSimple private cloud. Some of the options available are:
 

@@ -159,6 +159,8 @@
       href: iot-hub-devguide-glossary.md
   - name: Security
     items:
+    - name: Recommendations
+      href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
     - name: Security from the ground up
       href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
     - name: Security best practices
@@ -438,7 +440,7 @@
   - name: Azure IoT Samples for iOS Platform
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azurazureiotsolutionseiotsuite.com/
+    href: https://catalog.azureiotsolutions.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Customer data requests

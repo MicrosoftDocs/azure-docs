@@ -8,6 +8,7 @@ ms.author: glenga
 | Resource | [Consumption plan](../articles/azure-functions/functions-scale.md#consumption-plan) | [Premium plan](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service plan](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Scale out | Event driven | Event driven | [Manual/autoscale](../articles/app-service/web-sites-scale.md) | 
+| Max instances | 200 | 20 | 10-20 |
 |Default [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
 |Max [time out duration](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | unbounded | unbounded<sup>3</sup> |
 | Max outbound connections (per instance) | 600 active (1200 total) | unbounded | unbounded |
@@ -20,7 +21,7 @@ ms.author: glenga
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group |
 | Storage<sup>6</sup> |1 GB |250 GB |50-1000 GB |
 | Custom domains per app</a> |500<sup>7</sup> |500 |500 |
-| Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Not supported, wildcard certificate for *.azurewebsites.net available by default| unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | 
+| Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | 
 
 <sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup> By default, the timeout for the Functions 1.x runtime in an App Service plan is unbounded.  

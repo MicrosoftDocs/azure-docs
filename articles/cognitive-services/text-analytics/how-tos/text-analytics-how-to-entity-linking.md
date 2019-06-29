@@ -27,7 +27,7 @@ Entity linking is the ability to identify and disambiguate the identity of an en
 ### Named Entity Recognition (NER)
 Named entity recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes. The supported classes of entities are listed below.
 
-In Text Analytics [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available.
+In Text Analytics [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available for several languages. See the [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) article for more information. 
 
 ### Language support
 
@@ -101,7 +101,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 ## Step 2: Post the request
 
-Analysis is performed upon receipt of the request. The service accepts up to 100 requests per second and 1000 requests per minute. Each request can be a maximum of 1 MB.
+Analysis is performed upon receipt of the request. See the [data limits](../overview.md#data-limits) section in the overview for information on the size and number of requests you can send per minute and second.
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 
