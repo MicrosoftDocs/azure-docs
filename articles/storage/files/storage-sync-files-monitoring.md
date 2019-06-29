@@ -20,7 +20,7 @@ The following monitoring options are currently available.
 
 ## Azure Monitor
 
-Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to configure alerts and to view metrics for sync, cloud tiering, and server connectivity.  
+Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to view metrics and to configure alerts for sync, cloud tiering, and server connectivity.  
 
 Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
 
