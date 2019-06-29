@@ -19,7 +19,7 @@ The Azurite version 3 open-source emulator (preview) provides a free local envir
 
 There are four different ways to get Azurite installed on your local system:
 
-  1. [Install by using NPM](#install-azurite-by-using-npm)
+  1. [Install Azurite by using NPM](#install-azurite-by-using-npm)
   1. [Install the Azurite Docker image](#install-the-azurite-docker-image)
   1. [Install the Azurite Visual Studio Code extension](#install-the-azurite-visual-studio-code-extension)
   1. [Clone the Azurite GitHub repository](#clone-the-azurite-github-repository)
