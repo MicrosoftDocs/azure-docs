@@ -46,7 +46,7 @@ To perform the steps described in this article, you must have:
    + **SCM** (default is: `<apim-service-name>.scm.azure-api.net`).
 
      >[!NOTE]
-     > You can update all of the endpoints or some of them. Commonly, customers update **Proxy** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL). **Management** and **SCM** endpoints are used internally by APIM customers and thus are less frequently assigned a custom domain name.
+     > You can update all of the endpoints or some of them. Commonly, customers update **Proxy** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL). **Management** and **SCM** endpoints are used internally by APIM customers and thus are less frequently assigned a custom domain name. In most cases only a single custom domain name can be set for a given endpoint. However, the **Premium** tier supports setting multiple host names for the **Proxy** endpoint.  
 
 1. Select the endpoint that you want to update. 
 1. In the window on the right, click **Custom**.
@@ -55,7 +55,9 @@ To perform the steps described in this article, you must have:
    + In the **Certificate**, select a certificate from Key Vault. You can also upload a valid .PFX file and provide its **Password**, if the certificate is protected with a password.
 
      > [!TIP]
-     > If you use Azure Key Vault to manage the custom domain SSL certificate, make sure the certificate is inserted into Key Vault [as a *certificate*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a *secret*. If the certificate is set to autorotate, API Management will pick up the latest version automatically.
+     > We recommend using Azure Key Vault for managing certificates and setting them to autorotate.
+     >
+     > If you use Azure Key Vault to manage the custom domain SSL certificate, make sure the certificate is inserted into Key Vault [as a *certificate*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a *secret*. If the certificate is set to autorotate, API Management will pick up the latest version automatically without any downtime to the service (if your API Management tier has SLA - i. e. in all tiers except the Developer tier).
 
 1. Click Apply.
 

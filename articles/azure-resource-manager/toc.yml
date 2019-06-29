@@ -124,9 +124,10 @@
         href: resource-manager-powershell-sas-token.md
     - name: Deploy to multiple resource groups or subscriptions
       href: resource-manager-cross-resource-group-deployment.md
-    - name: Continuous integration with Azure DevOps Services
-      href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
-      maintainContext: true
+  - name: CI/CD
+    items:
+    - name: VS project with pipelines
+      href: vs-resource-groups-project-devops-pipelines.md
   - name: Export template
     href: export-template-portal.md
   - name: Manage
@@ -211,7 +212,7 @@
 - name: Reference
   items:
   - name: Template reference
-    href: subtoc/toc.yml
+    href: /azure/templates/
   - name: Template functions
     items:
     - name: All functions

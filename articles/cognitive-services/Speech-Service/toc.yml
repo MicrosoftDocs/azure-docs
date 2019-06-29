@@ -32,10 +32,10 @@
         displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'C# (UWP)'
         href: quickstart-csharp-uwp.md
-        displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
+        displayName: recognize speech, speech recognition, speech-to-text, stt, universal windows platform
       - name: 'C# (Unity)'
         href: quickstart-csharp-unity.md
-        displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, unity 3d, windows, android, universal windows platform, uwp'
+        displayName: recognize speech, speech recognition, speech-to-text, stt, unity 3d, windows, android, universal windows platform, uwp
       - name: 'C++ (Windows)'
         href: quickstart-cpp-windows.md
         displayName: recognize speech, speech recognition, speech-to-text, stt
@@ -59,6 +59,9 @@
       - name: 'Objective-C (iOS)'
         href: quickstart-objectivec-ios.md
         displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
+      - name: 'Swift (iOS)'
+        href: quickstart-swift-ios.md
+        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
       - name: 'Objective-C (macOS)'
         href: quickstart-objective-c-macos.md
         displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
@@ -69,20 +72,33 @@
       items:
       - name: 'C# (.NET Core Windows)'
         href: quickstart-translate-speech-dotnetcore-windows.md
+        displayName: translate speech, speech translation, translator, s2s, speech to speech
       - name: 'C# (.NET Framework Windows)'
         href: quickstart-translate-speech-dotnetframework-windows.md
+        displayName: translate speech, speech translation, translator, s2s, speech to speech
       - name: 'C# (UWP)'
         href: quickstart-translate-speech-uwp.md
-        displayName: 'recognize speech, speech recognition, speech-to-text, stt, C#, universal windows platform'
+        displayName: translate speech, speech translation, translator, s2s, speech to speech, universal windows platform
       - name: 'C++ (Windows)'
         href: quickstart-translate-speech-cpp-windows.md
+        displayName: translate speech, speech translation, translator, s2s, speech to speech
       - name: 'Java (Windows, macOS, Linux)'
         href: quickstart-translate-speech-java-jre.md
+        displayName: translate speech, speech translation, translator, s2s, speech to speech
     - name: Text-to-speech
       items:
       - name: 'C# (.NET Framework Windows)'
         href: quickstart-text-to-speech-dotnet-windows.md
         displayName: synthesize speech, speech synthesis, text-to-speech, tts
+      - name: 'C# (.NET Core Windows)'
+        href: quickstart-text-to-speech-dotnetcore.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
+      - name: 'C# (UWP)'
+        href: quickstart-text-to-speech-csharp-uwp.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, universal windows platform
+      - name: 'C# (Unity)'
+        href: quickstart-text-to-speech-csharp-unity.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, unity 3d, windows, android, universal windows platform, uwp
       - name: 'C++ (Windows)'
         href: quickstart-text-to-speech-cpp-windows.md
         displayName: synthesize speech, speech synthesis, text-to-speech, tts
@@ -93,7 +109,7 @@
       items:
       - name: 'C# (UWP)'
         href: quickstart-virtual-assistant-csharp-uwp.md
-        displayName: virtual assistant, speech-enabled bot, conversational agent
+        displayName: virtual assistant, speech-enabled bot, conversational agent, universal windows platform
       - name: 'Java (Windows, macOS, Linux)'
         href: quickstart-virtual-assistant-java-jre.md
         displayName: virtual assistant, speech-enabled bot, conversational agent
@@ -106,16 +122,21 @@
       items:
       - name: 'Node.js'
         href: quickstart-nodejs-get-text-to-speech-voices.md
+        displayName: voices, synthesize speech, speech synthesis, text-to-speech, tts, rest
       - name: 'Python'
         href: quickstart-python-get-text-to-speech-voices.md
+        displayName: voices, synthesize speech, speech synthesis, text-to-speech, tts, rest
     - name: Convert text-to-speech
       items:
       - name: 'C# (.NET Core)'
         href: quickstart-dotnet-text-to-speech.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, rest
       - name: 'Node.js'
         href: quickstart-nodejs-text-to-speech.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, rest
       - name: 'Python'
         href: quickstart-python-text-to-speech.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, rest
   - name: Speech Devices SDK
     href: speech-devices-sdk-android-quickstart.md
     displayName: roobo, speech devices sdk
@@ -254,19 +275,18 @@
     items:
     - name: Speech-to-text
       href: rest-speech-to-text.md
-      displayName: speech-to-text, speech recognition
+      displayName: recognize speech, speech recognition, speech-to-text, stt, rest
     - name: Text-to-speech
       href: rest-text-to-speech.md
-      displayName: text-to-speech, speech synthesis
+      displayName: synthesize speech, speech synthesis, text-to-speech, tts, rest
     - name: Batch transcription & customization
       href: https://westus.cris.ai/swagger/ui/index
-      displayName: Batch transcription, transcription, custom models, customization, model management
+      displayName: batch transcription, transcription, custom models, customization, model management, rest
     - name: Conversation transcription
       href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
       displayName: Conversation transcription, signature generation
     - name: Webhooks
       href: webhooks.md
-      displayName: Webhooks
   - name: Swagger documentation
     href: swagger-documentation.md
   - name: Speech Synthesis Markup Language (SSML)
@@ -295,21 +315,22 @@
     - name: Voice-first virtual assistants (Preview)
       href: faq-voice-first-virtual-assistants.md
   - name: Speech SDK licenses
-    displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
     items:
     - name: License
       href: https://aka.ms/csspeech/license201809
     - name: Third-party notices
       href: https://aka.ms/csspeech/toctpn
   - name: Speech Devices SDK
-    displayName: roobo, speech devices sdk
     items:
     - name: About
       href: speech-devices-sdk.md
+      displayName: roobo, speech devices sdk
     - name: License
       href: https://aka.ms/sdsdk-license
+      displayName: roobo, speech devices sdk
     - name: Third-party notices
       href: https://aka.ms/sdsdk-toctpn
+      displayName: roobo, speech devices sdk
   - name: Troubleshoot the Speech SDK
     href: troubleshooting.md
   - name: Troubleshoot the Speech Devices SDK

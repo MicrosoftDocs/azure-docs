@@ -110,7 +110,7 @@ All your resources like VMs, disks, and websites transfer to the new owner. Howe
 
 ### <a id="no-button"></a> Why don't I see the "Transfer subscription" button?
 
-Unfortunately, self-serve subscription transfer isn't available for your offer. View the list of supported offers in the [Supported offers](#supported-offers) section of this article. Additionally, we do not block subscription transfer for any countries. See the [full list of countries](https://azure.microsoft.com/pricing/faq/) where Azure is commercially available.  However, cross country transfer is not supported. To transfer your subscription cross country, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+Unfortunately, the self-service subscription transfer isn't available for your offer. View the list of supported offers in the [Supported offers](#supported-offers) section of this article. Additionally, we do not block subscription transfer for any countries. See the [full list of countries](https://azure.microsoft.com/pricing/faq/) where Azure is commercially available. However, the self-service subscription transfer does not support cross country transfer. To transfer your subscription cross country, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
 
 ### Can I transfer ownership to an account in another country?
