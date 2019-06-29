@@ -1375,11 +1375,8 @@
     items:
     - name: 0 - 9
       items:
-      - name: 4me
-        href: 4me-provisioning-tutorial.md
-  - name: User provisioning tutorials
-    expanded: true
-    items:
+   - name: 4me
+     href: 4me-provisioning-tutorial.md
     - name: A - L
       items:
       - name: Amazon Web Services (AWS) - Role Provisioning
