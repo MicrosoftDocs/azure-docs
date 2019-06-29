@@ -67,7 +67,7 @@ The `-v c:/azurite:/data` parameter specifies `c:/azurite` as the Azurite persis
 docker run -p 8888:8888 -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite -l /workspace -d /workspace/debug.log --blobPort 8888 --blobHost 0.0.0.0
 ```
 
-The `-p 8888:8888` parameter redirects requests from host machine's port 8888 to the Docker instance. For more information about command line parameters, see [Command-line syntax](command-line-syntax).
+The `-p 8888:8888` parameter redirects requests from host machine's port 8888 to the Docker instance. For more information about command line parameters, see [Command-line syntax](#command-line-syntax).
 
 ### Install the Azurite Visual Studio Code extension
 
