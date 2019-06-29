@@ -127,8 +127,8 @@ Keep an eye on the command's output, you'll notice several things as it progress
 Scan the console output for the *Application started* message, confirming that the `up` command has completed:
 
 ```
-Service 'webfrontend' port 80 (http) is available at http://localhost:<port number>
-Service 'webfrontend' port 'http' is available at http://default.webfrontend.<id>.<region>.azds.io/
+Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Microsoft (R) Build Engine version 15.9.20+g88f5fadfbe for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
@@ -145,15 +145,15 @@ webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
 webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Identify the public URL for the service in the output of the `up` command. It ends in `.azds.io`.
+Identify the public URL for the service in the output from the `up` command. It ends in `.azds.io`. In the above example, the public URL is `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
 
-Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the *azds trace* terminal window. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
+To see your web app, open the public URL in a browser. Also, notice `stdout` and `stderr` output is streamed to the *azds trace* terminal window as you interact with your web app. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
 
 ![azds trace terminal window](media/get-started-netcore/azds-trace.png)
 
 
 > [!Note]
-> In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in Azure. Azure Dev Spaces uses Kubernetes *port-forward* functionality to map the localhost port to the container running in AKS. This facilitates interacting with the service from your local machine.
+> In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. Azure Dev Spaces uses Kubernetes *port-forward* functionality to map the localhost port to the container running in AKS. This facilitates interacting with the service from your local machine.
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
@@ -216,7 +216,7 @@ Hit **F5** to debug your code in Kubernetes.
 As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
 
 > [!Tip]
-> The VS Code status bar will turn orange, indicating that the debugger is attached. It will also display a clickable URL, which you can use to quickly open your site.
+> The VS Code status bar will turn orange, indicating that the debugger is attached. It will also display a clickable URL, which you can use to open your site.
 
 ![](media/common/vscode-status-bar-url.png)
 

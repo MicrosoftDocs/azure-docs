@@ -128,12 +128,13 @@ Scan the console output for information about the public URL that was created by
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Identify the public URL for the service in the output of the `up` command. It ends in `.azds.io`.
+Identify the public URL for the service in the output from the `up` command. It ends in `.azds.io`. In the above example, the public URL is `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
 
-Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the *azds trace* terminal window. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
+To see your web app, open the public URL in a browser. Also, notice `stdout` and `stderr` output is streamed to the *azds trace* terminal window as you interact with your web app. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
 
 > [!Note]
 > In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in Azure. Azure Dev Spaces uses Kubernetes *port-forward* functionality to map the localhost port to the container running in AKS. This facilitates interacting with the service from your local machine.
@@ -233,7 +234,7 @@ Set a breakpoint in a server-side code file, for example within the `app.get('/a
     });
     ```
 
-Refresh the browser page, or press the 'Say It Again' button, and you should hit the breakpoint and be able to step through code.
+Refresh the browser page, or press the *Say It Again* button, and you should hit the breakpoint and be able to step through code.
 
 You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
 
