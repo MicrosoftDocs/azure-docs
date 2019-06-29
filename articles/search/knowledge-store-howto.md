@@ -15,21 +15,13 @@ ms.author: heidist
 > Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
-[Knowledge store](knowledge-store-concept-intro.md) saves AI enrichments created during indexing to your Azure storage account for downstream knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline.
+A [knowledge store](knowledge-store-concept-intro.md) saves AI-enriched documents, created during indexing, to your Azure storage account for downstream knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline. A knowledge store is defined by a *skillset* and created by an *indexer*. The physical expression of a knowledge store is specified through *projections* that determine the data structures in storage. By the time you finish this walkthrough, you will have created all of these objects and you'll know how they all fit together. 
 
-A knowledge store is defined by a *skillset* and created by an *indexer*. The physical expression of a knowledge store is specified through *projections* that determine the data structures in storage. By the time you finish this walkthrough, you will have created all of these objects and you'll know how they all fit together. 
-
-In this exercise, start with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store, with emphasis on skillset definition. 
-
-+ Sample data is public caselaw records that have been made available for data exploration and research. We'll use a subset of this data to demonstrate the workflow for n Azure Search.
-
-Knowledge mining is a new capability in Azure Search that is enabled through AI enrichment of data 
-
-
-Knowledge store is at the apex of multiple services, which include Azure Blob storage, Azure Table storage, and Cognitive Services, in addition to Azure Search. Familiarity with the architecture of knowledge store is considered a prerequisite to this walkthrough. For more informaiton, see [Knowledge store in Azure Search](knowledge-store-concept-intro.md).
-
+In this exercise, start with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store, with emphasis on skillset definition.
 
 ## Prerequisites
+
+Knowledge store is at the apex of multiple services, which includes Azure Blob storage and Azure Table storage for physical storage, and Azure Search and Cognitive Services for creation and updates. Familiarity with the basic architecture of knowledge store is considered a prerequisite to this walkthrough. For more information, see [Knowledge store in Azure Search](knowledge-store-concept-intro.md).
 
 The following services and tools are used in this quickstart. 
 
@@ -90,7 +82,7 @@ In this task, you'll create an Azure Blob container for these documents to use a
 
 ## Set up Postman
 
-Postman is the client app you'll use to send requests and JSON documents to Azure Search. Several of the requests can be formulated using just the information in this article. However, two of the largest requests (creating an index,creating a skillset) include verbose JSON that is too big to embed in an article. 
+Postman is the client app you'll use to send requests and JSON documents to Azure Search. Several of the requests can be formulated using just the information in this article. However, two of the largest requests (creating an index, creating a skillset) include verbose JSON that is too big to embed in an article. 
 
 To make all of the JSON documents and requests easily available, we created a Postman collection file. Downloading and then importing this file is your first task in setting up the client.
 
