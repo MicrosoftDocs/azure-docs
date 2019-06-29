@@ -131,7 +131,7 @@ This section helps you create, get, update, and delete the Azure private peering
    * **Optional -** An MD5 hash if you choose to use one.
 3. Select the Azure private peering row, as shown in the following example:
 
-   [![Select the private peering row](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Select the private peering row")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png#lightbox)
+   [![Select the private peering row](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "Select the private peering row")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
 4. Configure private peering. **Save** the configuration once you have specified all parameters.
 
    ![configure private peering](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
