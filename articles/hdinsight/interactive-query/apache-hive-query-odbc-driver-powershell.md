@@ -5,7 +5,7 @@ keywords: hive,hive odbc,powershell
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/27/2019
 ms.author: hrasheed
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
