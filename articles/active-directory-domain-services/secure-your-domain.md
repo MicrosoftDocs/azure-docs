@@ -54,5 +54,10 @@ $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPa
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
+> [!IMPORTANT]
+> Users (and service accounts) cannot perform LDAP simple binds if you have disabled NTLM password hash synchronization on your Azure AD Domain Services instance.  For more information on disabling NTLM password hash synchronization, read [Secure your Azure AD DOmain Services managed domain](secure-your-domain.md).
+>
+>
+
 ## Next steps
 * [Understand synchronization in Azure AD Domain Services](synchronization.md)
