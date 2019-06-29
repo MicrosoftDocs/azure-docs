@@ -22,9 +22,9 @@ The following monitoring options are currently available.
 
 Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to view metrics and to configure alerts for sync, cloud tiering, and server connectivity.  
 
-Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
-
 ### Metrics
+
+Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
 
 To view Azure File Sync metrics in Azure Monitor, select the **Storage Sync Services** resource type.
 
