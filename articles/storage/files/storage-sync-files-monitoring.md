@@ -14,48 +14,15 @@ ms.subservice: files
 
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
-This article describes how to monitor your Azure File Sync deployment by using the Azure portal and Windows Server.
+This article describes how to monitor your Azure File Sync deployment by using Azure Monitor, the Storage Sync Service and the Windows Server.
 
 The following monitoring options are currently available.
 
-## Azure portal
+## Azure Monitor
 
-In the Azure portal, you can view registered server health, server endpoint health (sync health), and metrics.
+Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to configure alerts and to view metrics for sync, cloud tiering, and server connectivity. Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
 
-### Storage Sync Service
-
-To view registered server health, server endpoint health, and metrics, go to the Storage Sync Service in the Azure portal. You can view registered server health in the **Registered servers** blade and server endpoint health in the **Sync groups** blade.
-
-Registered server health:
-
-- If the **Registered server** state is **Online**, the server is successfully communicating with the service.
-- If the **Registered server** state is **Appears Offline**, verify that the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process on the server is running. If the server is behind a firewall or proxy, see [this article](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) to configure the firewall and proxy.
-
-Server endpoint health:
-
-- The server endpoint health in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, sync might still appear healthy in the portal as long as the current sync session is making progress. Event ID 9302 is used to determine if files are being applied. For more information, see [sync health](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) and [sync progress](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
-- If the portal shows a sync error because sync is not making progress, see the [troubleshooting documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
-
-Metrics:
-
-- The following metrics are viewable in the Storage Sync Service portal:
-
-  | Metric name | Description | Blade name |
-  |-|-|-|
-  | Bytes synced | Size of data transferred (upload and download) | Sync group, Server endpoint |
-  | Cloud tiering recall | Size of data recalled | Registered servers |
-  | Files not syncing | Count of files that are failing to sync | Server endpoint |
-  | Files synced | Count of files transferred (upload and download) | Sync group, Server endpoint |
-  | Server online status | Count of heartbeats received from the server | Registered servers |
-
-- To learn more, see [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor).
-
-  > [!Note]  
-  > The charts in the Storage Sync Service portal have a time range of 24 hours. To view different time ranges or dimensions, use Azure Monitor.
-
-### Azure Monitor
-
-Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to monitor sync, cloud tiering, and server connectivity. Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
+### Metrics
 
 To view Azure File Sync metrics in Azure Monitor, select the **Storage Sync Services** resource type.
 
@@ -72,6 +39,49 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 | Files synced | Count of files transferred (upload and download).<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Server online status | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
 | Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Maximum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+
+### Alerts
+
+To configure alerts in Azure Monitor, select the Storage Sync Service and then select the Azure File Sync metric to use for the alert.  
+
+The following table lists some monitoring scenarios and the proper metric to use:
+
+| Monitor scenario | Metric to use for alert |
+|-|-|
+| Server endpoint health in the portal = Error | Sync session result |
+| Individual files are failing to sync to server or cloud endpoint | Files not syncing |
+| Registered server is failing to communicate with the Storage Sync Service | Server online status |
+
+## Storage Sync Service
+
+To view registered server health, server endpoint health, and metrics, go to the Storage Sync Service in the Azure portal. You can view registered server health in the **Registered servers** blade and server endpoint health in the **Sync groups** blade.
+
+### Registered server health
+
+- If the **Registered server** state is **Online**, the server is successfully communicating with the service.
+- If the **Registered server** state is **Appears Offline**, verify that the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process on the server is running. If the server is behind a firewall or proxy, see [this article](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) to configure the firewall and proxy.
+
+### Server endpoint health
+
+- The server endpoint health in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, sync might still appear healthy in the portal as long as the current sync session is making progress. Event ID 9302 is used to determine if files are being applied. For more information, see [sync health](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) and [sync progress](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- If the portal shows a sync error because sync is not making progress, see the [troubleshooting documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
+
+### Metrics
+
+- The following metrics are viewable in the Storage Sync Service portal:
+
+  | Metric name | Description | Blade name |
+  |-|-|-|
+  | Bytes synced | Size of data transferred (upload and download) | Sync group, Server endpoint |
+  | Cloud tiering recall | Size of data recalled | Registered servers |
+  | Files not syncing | Count of files that are failing to sync | Server endpoint |
+  | Files synced | Count of files transferred (upload and download) | Sync group, Server endpoint |
+  | Server online status | Count of heartbeats received from the server | Registered servers |
+
+- To learn more, see [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor).
+
+  > [!Note]  
+  > The charts in the Storage Sync Service portal have a time range of 24 hours. To view different time ranges or dimensions, use Azure Monitor.
 
 ## Windows Server
 
