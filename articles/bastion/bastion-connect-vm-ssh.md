@@ -40,7 +40,7 @@ In order to make a connection, the following roles are required:
 ## <a name="username"></a>Connect: Using username and password
 
 
-1. In the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Linux virtual machine when using an SSH connection.
+1.  Use [this link](https://aka.ms/BastionHost) to open the preview portal page for Azure Bastion. Navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Linux virtual machine when using an SSH connection.
 1. After you click Connect, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, see [Configure Bastion](bastion-create-host-portal.md). If you do not see **Bastion** listed, you have not opened the preview portal. Open the portal using [this link](https://aka.ms/BastionHost).
 
       ![VM connect](./media/bastion-connect-vm-ssh/bastion.png)
@@ -50,7 +50,7 @@ In order to make a connection, the following roles are required:
 
 ## <a name="privatekey"></a>Connect: Manually enter a private key
 
-1. In the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Linux virtual machine when using an SSH connection.
+1.  Use [this link](https://aka.ms/BastionHost) to open the preview portal page for Azure Bastion. Navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Linux virtual machine when using an SSH connection.
 1. After you click Connect, a side bar appears that has three tabs – RDP, SSH, and Bastion. If Bastion was provisioned for the virtual network, the Bastion tab is active by default. If you didn't provision Bastion for the virtual network, see [Configure Bastion](bastion-create-host-portal.md). If you do not see **Bastion** listed, you have not opened the preview portal. Open the portal using [this link](https://aka.ms/BastionHost).
 
       ![VM connect](./media/bastion-connect-vm-ssh/bastion.png)
@@ -61,7 +61,7 @@ In order to make a connection, the following roles are required:
 
 ## <a name="ssh"></a>Connect: Using a private key file
 
-1. In the [Azure portal](https://aka.ms/BastionHost) for the Bastion preview, navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Linux virtual machine when using an SSH connection.
+1.  Use [this link](https://aka.ms/BastionHost) to open the preview portal page for Azure Bastion. Navigate to the virtual machine that you want to connect to, then click **Connect**. The VM should be a Linux virtual machine when using an SSH connection.
 
     ![VM connect](./media/bastion-connect-vm-ssh/connect.png)
 
