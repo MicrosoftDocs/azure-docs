@@ -24,7 +24,7 @@ The [built-in monitoring and alerting article](backup-azure-monitoring-built-in-
 ## Using Log Analytics Workspace
 
 > [!NOTE]
-> Data from Azure VM backups, MAB Agent, System Center DPM (SC-DPM), SQL backups in Azure VMs  is being pumped to the Log Analytics workspace via diagnostic settings. Support for Azure File share backups, Microsoft Azure Backup Server (MABS) is coming soon.
+> Data from Azure VM backups, MAB Agent, System Center DPM (SC-DPM), SQL backups in Azure VMs, and Azure File Share backups is being pumped to the Log Analytics workspace via diagnostic settings. Support for Microsoft Azure Backup Server (MABS) is coming soon.
 
 We are leveraging the capabilities of two Azure services - **Diagnostic settings** (to send data from multiple Azure Resource Manager resources to another resource) and **Log Analytics** (LA - to generate custom alerts where you can define other notification channels using Action groups) for monitoring at scale. The following sections detail on how to use LA to monitor Azure Backup at scale.
 

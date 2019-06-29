@@ -19,6 +19,8 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 
 Azure Functions builds on top of the ASP.NET Core Dependency Injection features. Being aware of services, lifetimes, and design patterns of [ASP.NET Core dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) before using DI features in an Azure Functions app is recommended.
 
+Support for dependency injection begins with Azure Functions 2.x.
+
 ## Prerequisites
 
 Before you can use dependency injection, you must install the following NuGet packages:
@@ -27,11 +29,13 @@ Before you can use dependency injection, you must install the following NuGet pa
 
 - [Microsoft.NET.Sdk.Functions package](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) version 1.0.28 or later
 
+- Optional: [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) Only required for registering HttpClient at startup
+
 ## Register services
 
 To register services, you can create a method to configure and add components to an `IFunctionsHostBuilder` instance.  The Azure Functions host creates an instance of `IFunctionsHostBuilder` and passes it directly into your method.
 
-To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup.
+To register the method, add the `FunctionsStartup` assembly attribute that specifies the type name used during startup. Also code is referencing a prerelease of [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) on Nuget.
 
 ```csharp
 [assembly: FunctionsStartup(typeof(MyNamespace.Startup))]

@@ -9,7 +9,7 @@
   items:
   - name: Create Apache Hadoop cluster - Portal
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
-  - name: Create Apache Hadoop cluster - Resource Manager template
+  - name: Create Apache Hadoop cluster - Template
     displayName: resource manager template, arm template, resource manager group
     href: apache-hadoop-linux-tutorial-get-started.md      
 - name: Tutorials

@@ -115,6 +115,8 @@
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
+  - name: OMS portal deprecation
+    href: platform/oms-portal-transition.md
   - name: FAQ
     items:
     - name: Log Analytics

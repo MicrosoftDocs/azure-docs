@@ -165,7 +165,7 @@ or the Az cmdlets.
 > so the node is no longer connecting to the service.
 > This does not effect the configuration that is currently applied to the node.
 > To remove the current configuration, use the
-> [PowerShell](https://docs.microsoft.com/en-us/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)
+> [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)
 > or delete the local configuration file
 > (this is the only option for Linux nodes).
 
@@ -180,7 +180,7 @@ In the Node view that opens, click **Unregister**.
 
 To unregister a node from Azure Automation State Configuration service using PowerShell,
 follow the documentation for the cmdlet
-[Unregister-AzAutomationDscNode](https://docs.microsoft.com/en-us/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+[Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## Next steps
 

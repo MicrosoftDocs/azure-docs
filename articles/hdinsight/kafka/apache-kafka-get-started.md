@@ -45,7 +45,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     
    Select __Cluster Type__ to display the **Cluster configuration**.
    
-   ![Apache Kafka cluster on HDInsight basic configuration](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
+   ![Apache Kafka cluster on HDInsight basic configuration](./media/apache-kafka-get-started/custom-basics-kafka.png)
 
 4. From __Cluster configuration__, select the following values:
 

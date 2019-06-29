@@ -490,8 +490,16 @@
         href: bootstrap-kubernetes-cluster.md
   - name: How-to guides
     items:
-    - name: Manage Azure Cosmos account
+    - name: Work with Azure Cosmos account
       href: how-to-manage-database-account.md
+    - name : Work with Azure Cosmos DB resources
+      items:
+      - name: Using PowerShell 
+        href: manage-with-powershell.md
+      - name: Using Azure CLI
+        href: manage-with-cli.md
+      - name: Using Resource Manager templates
+        href: manage-sql-with-resource-manager.md
     - name: Global distribution
       items:
       - name: Configure multi-master
@@ -609,14 +617,6 @@
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
-    - name : Manage Azure Cosmos DB resources
-      items:
-      - name: Manage using PowerShell 
-        href: manage-with-powershell.md
-      - name: Manage using Azure CLI
-        href: manage-with-cli.md
-      - name: Manage using Resource Manager templates
-        href: manage-sql-with-resource-manager.md
     - name : Logging
       items:
       - name: Diagnostic logging

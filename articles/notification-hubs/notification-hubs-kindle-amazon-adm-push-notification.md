@@ -54,24 +54,35 @@ In this tutorial, you create/update code to do the following tasks:
     5. Select **Save**.
 
         ![New App Submission page](./media/notification-hubs-kindle-get-started/new-app-submission-page.png) 
-2.  At the top, switch to the **Mobile Ads** tab, and do the following steps: 
+2.  At the top, switch to the **App Services** tab.
+
+    ![App Services tab](./media/notification-hubs-kindle-get-started/app-services-tab.png)
+1. On the **App Services** tab, scroll down, and select **View Mobile Ads** in the **Mobile Ads** section. You see the **Mobile Ads** page in a new tab in the web browser. 
+
+    ![Mobile Ads section - View Mobile Ads link](./media/notification-hubs-kindle-get-started/view-mobile-ads-link.png)
+1. On the **Mobile Ads** page, do the following steps: 
     1. Specify whether your app is directed primarily at kids under 13. For this tutorial, select **No**.
-    2. Select **Submit**. 
+    1. Select **Submit**. 
 
         ![Mobile Ads page](./media/notification-hubs-kindle-get-started/mobile-ads-page.png)
     3. Copy the **application key** from the **Mobile Ads** page. 
 
         ![Application key](./media/notification-hubs-kindle-get-started/application-key.png)
-3.  Select **Apps & Services** menu at the top, and select your application in the list. 
+3.  Now, switch to the web browser's tab that has the **App Services** tab open, and do the following steps:
+    1. Scroll to the **Device Messaging** section.     
+    1. Expand **Select existing security profile or create new**, and then select **Create Security Profile**. 
 
-    ![Select your app from list](./media/notification-hubs-kindle-get-started/all-apps-select.png)
-4. Switch to the **Device Messaging** tab, and follow these steps: 
-    1. Select **Create a New Security Profile**.
-    2. Enter a **name** for your security profile. 
-    3. Enter **description** for your security profile. 
-    4. Select **Save**. 
-    5. Select **View Security Profile** on the result page. 
-5. Now, on the **Security Profile** page, do the following steps: 
+        ![Create security profile button](./media/notification-hubs-kindle-get-started/create-security-profile-button.png)
+    1. Enter a **name** for your security profile. 
+    2. Enter **description** for your security profile. 
+    3. Select **Save**. 
+
+        ![Save the security profile](./media/notification-hubs-kindle-get-started/save-security-profile.png)
+    1. Select **Enable Device Messaging** to enable device messaging on this security profile. 
+
+        ![Enable Device Messaging](./media/notification-hubs-kindle-get-started/enable-device-messaging.png)
+    1. Then, select **View Security Profile** on the result page. 
+1. Now, on the **Security Profile** page, do the following steps: 
     1. Switch to the **Web Settings** tab, and copy the **Client ID** and **Client Secret** value for later use. 
 
         ![Get client ID and secret](./media/notification-hubs-kindle-get-started/client-id-secret.png) 
@@ -310,6 +321,36 @@ In this tutorial, you create/update code to do the following tasks:
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
     ```
+## Create an ADM object
+1 In the `MainActivity.java` file, add the following import statements:
+
+    ```java
+    import android.os.AsyncTask;
+    import android.util.Log;
+    import com.amazon.device.messaging.ADM;
+    ```
+2. Add the following code at the end of the `OnCreate` method:
+
+    ```java
+    final ADM adm = new ADM(this);
+    if (adm.getRegistrationId() == null)
+    {
+        adm.startRegister();
+    } else {
+        new AsyncTask() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                    } catch (Exception e) {
+                        Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
+                        return e;
+                    }
+                    return null;
+                }
+            }.execute(null, null, null);
+    }
+    ```
+
 
 ## Add your API key to your app
 1. Follow these steps to add an assets folder to the project. 

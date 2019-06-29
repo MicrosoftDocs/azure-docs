@@ -303,6 +303,8 @@
         href: cornerstone-ondemand-tutorial.md
       - name: CorpTax
         href: corptax-tutorial.md
+      - name: Costpoint
+        href: costpoint-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
       - name: CS Stars
@@ -388,7 +390,6 @@
         href: encompass-tutorial.md
       - name: Envi MMIS
         href: envimmis-tutorial.md
-        href: envoy-tutorial.md
       - name: ePlatform
         href: eplatform-tutorial.md
       - name: EthicsPoint Incident Management (EPIM)
@@ -483,6 +484,8 @@
         href: github-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: GlobalOne
+        href: globalone-tutorial.md
       - name: GoodPractice Toolkit
         href: goodpractice-toolkit-tutorial.md
       - name: GoToMeeting
@@ -937,7 +940,7 @@
         href: promaster-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
-        name: Proxyclick
+      - name: Proxyclick
         href: proxyclick-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-tutorial.md
@@ -1351,6 +1354,7 @@
         href: zohoone-tutorial.md
         name: Zoom
         href: zoom-tutorial.md
+      - name: Zscaler
         href: zscaler-tutorial.md
       - name: Zscaler Beta
         href: zscaler-beta-tutorial.md
@@ -1415,7 +1419,9 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
-        name: Jive
+      - name: Envoy
+        href: envoy-provisioning-tutorial.md
+      - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
@@ -1467,4 +1473,5 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
-
+      - name: Zoom
+        href: zoom-provisioning-tutorial.md

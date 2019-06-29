@@ -30,7 +30,7 @@ In a mobile-first, cloud-first world, Azure Active Directory (Azure AD) enables 
 
 Through devices in Azure AD, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to manage these devices identities. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance.
 
-Device identity management is also the foundation for [device-based Conditional Access](../conditional-access/require-managed-devices.md). With device-based Conditional Access, you can ensure that access to resources in your environment is only possible with managed devices.
+Device identity management is also the foundation for [device-based conditional access](../conditional-access/require-managed-devices.md). With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices.
 
 ## Getting devices in Azure AD
 
@@ -41,7 +41,7 @@ To get a device in Azure AD, you have two options:
 
 **Registering** a device to Azure AD enables you to manage a device’s identity. When a device is registered, Azure AD device registration provides the device with an identity that is used to authenticate the device when a user signs-in to Azure AD. You can use the identity to enable or disable a device.
 
-When combined with a mobile device management(MDM) solution such as Microsoft Intune, the device attributes in Azure AD are updated with additional information about the device. This allows you to create Conditional Access rules that enforce access from devices to meet your standards for security and compliance. For more information on enrolling devices in Microsoft Intune, see [What is device enrollment?](https://docs.microsoft.com/intune/device-enrollment)
+When combined with a mobile device management(MDM) solution such as Microsoft Intune, the device attributes in Azure AD are updated with additional information about the device. This allows you to create conditional access rules that enforce access from devices to meet your standards for security and compliance. For more information on enrolling devices in Microsoft Intune, see [What is device enrollment?](https://docs.microsoft.com/intune/device-enrollment)
 
 **Joining** a device is an extension to registering a device. This means, it provides you with all the benefits of registering a device and in addition to this, it also changes the local state of a device. Changing the local state enables your users to sign-in to a device using an organizational work or school account instead of a personal account.
 
@@ -68,6 +68,7 @@ The goal of Azure AD joined devices is to simplify:
 - Windows deployments of work-owned devices
 - Access to organizational apps and resources from any Windows device
 - Cloud-based management of work-owned devices
+- Users to sign in to their devices with their Azure AD or synced Active Directory work or school accounts.
 
 ![Azure AD registered devices](./media/overview/02.png)
 
@@ -134,12 +135,10 @@ As a rule of a thumb, you should use:
 - Azure AD joined devices:
    - For devices that are owned by your organization
    - For devices that are **not** joined to an on-premises AD
-   - To manually register devices with Azure AD
    - To change the local state of a device
 - Hybrid Azure AD joined devices for devices that are joined to an on-premises AD
    - For devices that are owned by your organization
    - For devices that are joined to an on-premises AD
-   - To automatically register devices with Azure AD
    - To change the local state of a device
 
 ## License requirements
@@ -153,4 +152,4 @@ As a rule of a thumb, you should use:
    - Azure Active Directory registered Windows 10 devices, see [How to configure Azure Active Directory registered Windows 10 devices](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
    - Azure Active Directory joined devices, see [How to plan your Azure Active Directory join implementation](azureadjoin-plan.md).
    - Hybrid Azure AD joined devices, see [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
-- To learn more about device-based Conditional Access, see [Configure Azure Active Directory device-based Conditional Access policies](../conditional-access/require-managed-devices.md).
+- To learn more about device-based conditional access, see [Configure Azure Active Directory device-based conditional access policies](../conditional-access/require-managed-devices.md).

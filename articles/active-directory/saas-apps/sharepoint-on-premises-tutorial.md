@@ -53,6 +53,9 @@ To configure the integration of SharePoint on-premises into Azure AD, you need t
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
+	> [!NOTE]	
+	> If the element should not be available, it can also be opened through the fixed **All services** link at the top of the left navigation panel. In the following overview, the **Azure Active Directory** link is located in the **Identity** section or it can be searched for by using the filter text box.
+
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
 	![The Enterprise applications blade](common/enterprise-applications.png)

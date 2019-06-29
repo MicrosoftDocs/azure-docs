@@ -93,7 +93,7 @@ Create a new project and upload the files to your notebook.
 
 ## Run Azure Notebooks
 
-Now that that project is created, run the **01-turbofan\_regression.ipynb** notebook.
+Now that the project is created, run the **01-turbofan\_regression.ipynb** notebook.
 
 1. From the turbofan project page, select **01-turbofan\_regression.ipynb**.
 

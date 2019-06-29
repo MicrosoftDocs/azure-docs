@@ -268,7 +268,7 @@ principalID=$(az identity show --resource-group myResourceGroup --name myACRTask
 Run the following [az keyvault set-policy][az-keyvault-set-policy] command to set an access policy on the key vault. The following example allows the user-assigned identity to get secrets from the key vault. This access is needed later to run a multi-step task successfully.
 
 ```azurecli-interactive
- az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $spID --secret-permissions get
+ az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $principalID --secret-permissions get
 ```
 
 ### Grant identity Reader access to the resource group for registry

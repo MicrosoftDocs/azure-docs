@@ -44,6 +44,8 @@
     href: configure-vm-gpu.md
   - name: Automatically scale session hosts
     href: set-up-scaling-script.md
+  - name: Customize feed for Windows Virtual Desktop users
+    href: customize-feed-for-virtual-desktop-users.md
   - name: Customize RDP Properties
     href: customize-rdp-properties.md
 - name: Concepts
