@@ -1,0 +1,25 @@
+- name: Azure VMware Solution by Virtustream (AVS by Virtustream)
+  href: index.yml
+- name: Overview
+  items:
+  - name: About AVS by Virtustream
+    href: intro-avsv.md
+- name: Quickstarts
+  items:
+  - name: Create an AVS by Virtustream private cloud
+    expanded: true
+- name: Tutorials
+  items:
+  - name: 4 - Create an NSX-T network
+    href: tutorial-create-t1-ls.md
+- name: Concepts
+  items:
+  - name: Private clouds and clusters
+    href: concepts-private-clouds-and-clusters.md
+- name: Reference
+  items:
+- name: Resources
+  items:
+  - name: FAQ
+    href: faq.md
+  
