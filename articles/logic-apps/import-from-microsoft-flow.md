@@ -1,6 +1,6 @@
 ---
 title: Migrate from Microsoft Flow to Azure Logic Apps
-description: Import your flow into Azure Logic Apps from Microsoft Flow
+description: Export flows from Microsoft Flow and import into Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ---
 
-# Export flows from Microsoft Flow and import into Azure Logic Apps 
+# Import flows exported from Microsoft Flow into Azure Logic Apps
 
 To extend and expand the capabilities for a flow that you created with [Microsoft Flow](https://flow.microsoft.com), export that flow as an Azure Resource Manager template and open that template in Azure Logic Apps.
 
@@ -25,7 +25,7 @@ To extend and expand the capabilities for a flow that you created with [Microsof
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The flow that you want to import into Azure Logic Apps
+* The flow that you want to import into Azure Logic Apps from Microsoft Flow
 
 ## Export from Microsoft Flow
 
