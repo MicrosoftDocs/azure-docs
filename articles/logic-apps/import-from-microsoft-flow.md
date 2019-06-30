@@ -76,11 +76,19 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    1. Open the logic app that you created. On the logic app's menu, select **Logic App Designer**.
 
+      Each connection that requires authorization shows a warning icon:
+
+      ![Warning icon](./media/import-from-microsoft-flow/authorize-connections.png)
+
    1. For each step that requires an authorized connection, expand that step, and select **Add new**.
+
+      ![Add new connection](./media/import-from-microsoft-flow/add-new-connection.png)
 
    1. Sign in to each service or provide the necessary credentials to authorize the connection.
 
 1. Save your logic app. When you're ready to activate your logic app, on the logic app's menu, select **Overview**, and then select **Enable**.
+
+   ![Enable logic app](./media/import-from-microsoft-flow/enable-logic-app.png)
 
 1. To avoid running duplicate workflows, make sure that you delete your original flow.
 
