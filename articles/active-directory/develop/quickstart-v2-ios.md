@@ -62,6 +62,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >      - Enter the ***Bundle Identifier*** for your application. 
 > 1. Select `Configure` and save the ***MSAL Configuration*** details for later. 
 
+<!-- markdownlint-disable MD042 -->
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### Step 1: Configure your application

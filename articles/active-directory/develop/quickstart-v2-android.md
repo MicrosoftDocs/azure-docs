@@ -64,6 +64,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >      - Generate a Signature Hash. Refer to the portal for instructions.
 > 1. Select `Configure` and save the ***MSAL Configuration*** JSON for later. 
 
+<!-- markdownlint-disable MD042 -->
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
 > For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker. 

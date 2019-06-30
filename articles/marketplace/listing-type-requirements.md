@@ -63,7 +63,7 @@ The List listing type includes the following Offer types on the storefronts in t
 |:---        |:---        |:---     |  
 | Consulting Services | AppSource | Requirements: AppSource: List: Consulting Services |  
 | Consulting Services | Azure Marketplace | Requirements: Azure Marketplace: List: Consulting Services |  
-| Contact Me | AppSource | [](#) |  
+| Contact Me | AppSource | |  
 | Contact Me | Azure Marketplace | Requirements: AppSource: List: Contact Me |  
 
 #### Requirements: AppSource: List: Consulting service  

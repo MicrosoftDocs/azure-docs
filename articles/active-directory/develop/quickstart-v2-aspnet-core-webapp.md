@@ -59,6 +59,7 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 >    - Under **Implicit grant**, check **ID tokens**.
 >    - Select **Save**.
 
+<!-- markdownlint-disable MD042 -->
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
 > For the code sample for this quickstart to work, you need to add reply URLs as `https://localhost:44321/` and `https://localhost:44321/signin-oidc`, add the Logout URL as `https://localhost:44321/signout-oidc`, and request ID tokens to be issued by the authorization endpoint.

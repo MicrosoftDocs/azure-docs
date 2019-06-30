@@ -63,6 +63,7 @@ This quickstart requires the following setup:
 > 1. In the **Advanced settings** section, under **Implicit grant**, select the **ID tokens** and **Access tokens** check boxes. ID tokens and access tokens are required, because this app needs to sign in users and call an API.
 > 1. At the top of the pane, select **Save**.
 
+<!-- markdownlint-disable MD042 -->
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
 > For the code sample for this quickstart to work, you need to add a redirect URI as `http://localhost:30662/` and enable **Implicit grant**.

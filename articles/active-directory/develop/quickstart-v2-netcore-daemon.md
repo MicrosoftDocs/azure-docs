@@ -64,6 +64,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 > 1. Select **Application permissions**.
 > 1. Under **User** node, select **User.Read.All**, then select **Add permissions**
 
+<!-- markdownlint-disable MD042 -->
 > [!div class="sxs-lookup" renderon="portal"]
 > ### Download and configure your quickstart app
 > 
