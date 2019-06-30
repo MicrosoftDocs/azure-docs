@@ -33,7 +33,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 | Metric name | Description |
 |-|-|
 | Bytes synced | Size of data transferred (upload and download).<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
-| Cloud tiering recall | Size of data recalled.<br><br>Note: This metric will be removed in the future. Use the Cloud tiering recall size metric to monitor size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Server Name |
+| Cloud tiering recall | Size of data recalled.<br><br>**Note**: This metric will be removed in the future. Use the Cloud tiering recall size metric to monitor size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Server Name |
 | Cloud tiering recall size | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Server Name, Sync Group Name |
 | Cloud tiering recall size by application | Size of data recalled by application.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Application Name, Server Name, Sync Group Name |
 | Cloud tiering recall throughput | Size of data recall throughput.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Server Name, Sync Group Name |
@@ -61,17 +61,17 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
 
 To view registered server health, server endpoint health, and metrics, go to the Storage Sync Service in the Azure portal. You can view registered server health in the **Registered servers** blade and server endpoint health in the **Sync groups** blade.
 
-### Registered Server Health
+### Registered server health
 
 - If the **Registered server** state is **Online**, the server is successfully communicating with the service.
 - If the **Registered server** state is **Appears Offline**, verify that the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process on the server is running. If the server is behind a firewall or proxy, see [this article](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) to configure the firewall and proxy.
 
-### Server Endpoint Health
+### Server endpoint health
 
 - The server endpoint health in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, sync might still appear healthy in the portal as long as the current sync session is making progress. Event ID 9302 is used to determine if files are being applied. For more information, see [sync health](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) and [sync progress](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - If the portal shows a sync error because sync is not making progress, see the [troubleshooting documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
 
-### Metric Charts
+### Metric Ccharts
 
 - The following metric charts are viewable in the Storage Sync Service portal:
 
@@ -92,7 +92,7 @@ To view registered server health, server endpoint health, and metrics, go to the
 
 On Windows Server, you can view cloud tiering, registered server, and sync health.
 
-### Event Logs
+### Event logs
 
 Use the Telemetry event log on the server to monitor registered server, sync, and cloud tiering health. The Telemetry event log is located in Event Viewer under *Applications and Services\Microsoft\FileSync\Agent*.
 
@@ -124,7 +124,7 @@ Cloud tiering health:
   - Event ID 9009 provides recall session information for a server endpoint. For example: DurationSeconds, CountFilesRecallSucceeded, and CountFilesRecallFailed.
   - Event ID 9059 provides application recall distribution for a server endpoint. For example: ShareId, Application Name, and TotalEgressNetworkBytes.
 
-### Performance Counters
+### Performance counters
 
 Use the Azure File Sync performance counters on the server to monitor sync activity.
 
@@ -141,7 +141,7 @@ The following performance counters for Azure File Sync are available in Performa
 | AFS Sync Operations\Uploaded Sync Files/sec | Number of files uploaded per second. |
 | AFS Sync Operations\Total Sync File Operations/sec | Total number of files synced (upload and download). |
 
-## Next Steps
+## Next steps
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
 - [Consider firewall and proxy settings](storage-sync-files-firewall-and-proxy.md)
 - [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
