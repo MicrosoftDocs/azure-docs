@@ -125,4 +125,4 @@ The following JSON is with the `verbose` parameter set to `true`:
 
 ## Next steps
 
-Learn about the [OrdinalV2](luis-reference-prebuilt-ordinalV2.md), [phone number](luis-reference-prebuilt-phonenumber.md), and [temperature](luis-reference-prebuilt-temperature.md) entities. 
+Learn about the [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [phone number](luis-reference-prebuilt-phonenumber.md), and [temperature](luis-reference-prebuilt-temperature.md) entities. 

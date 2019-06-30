@@ -20,7 +20,7 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 ### June 24, 2019
 
-* [OrdinalV2 prebuilt entity](luis-reference-prebuilt-ordinalV2.md) to support ordering such as next, previous, and last. English culture only.
+* [OrdinalV2 prebuilt entity](luis-reference-prebuilt-ordinal-v2.md) to support ordering such as next, previous, and last. English culture only.
 
 ### May 6, 2019 - //Build Conference
 

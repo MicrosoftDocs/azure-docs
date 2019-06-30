@@ -1,6 +1,6 @@
 ---
-title: Ordinal V2 Prebuilt entity
-titleSuffix: Azure
+title: Ordinal V2 prebuilt entity
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: This article contains ordinal V2 prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
