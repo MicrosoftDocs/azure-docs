@@ -70,19 +70,19 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
   
    ![Specify input parameters for template](./media/import-from-microsoft-flow/template-input-parameters.png)
 
-   Azure deploys your logic apps to your specified resource group.
+   Azure deploys your logic app to your specified resource group. All logic apps created and imported from Microsoft Flow are deployed in a disabled state.
 
-1. If you created any new connections, make sure that you authorize those connections by following these steps:
+1. Before you activate your logic app, authorize any new connections by following these steps:
 
    1. Open the logic app that you created. On the logic app's menu, select **Logic App Designer**.
 
-   1. For each step that requires an authorized connection, expand that step, and select **Invalid connection**.
+   1. For each step that requires an authorized connection, expand that step, and select **Add new**.
 
    1. Sign in to each service or provide the necessary credentials to authorize the connection.
 
-1. When you're finished, save your logic app.
+1. Save your logic app. When you're ready to activate your logic app, on the logic app's menu, select **Overview**, and then select **Enable**.
 
-1. Remember to activate your logic app because all logic apps imported from Microsoft Flow are deployed in a disabled state. On the logic app's menu, select **Overview**, and then select **Enabled**.
+1. To avoid running duplicate workflows, make sure that you delete your original flow.
 
 ## Next steps
 
