@@ -154,6 +154,10 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionApp
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 #### Linux function App
@@ -167,6 +171,11 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionAppLinux
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 ## Template-based pipeline
@@ -202,9 +211,11 @@ When creating a new release pipeline, search for Azure Functions release templat
 
 ![](media/functions-how-to-azure-devops/release-template.png)
 
+Deploying to a deployment slot is not supported in the release template.
+
 ## Creating an Azure Pipeline using the Azure CLI
 
-Using the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), an Azure pipeline will get created to build and release any code changes in your repo. The command will generate a new YAML file that defines the build and release pipeline and commit it to your repo.
+Using the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create), an Azure pipeline will get created to build and release any code changes in your repo. The command will generate a new YAML file that defines the build and release pipeline and commit it to your repo. Deploying to a deployment slot is not supported by the Azure CLI command.
 The pre-requisites for this command depend on the location of your code:
 
 - If your code is in GitHub:

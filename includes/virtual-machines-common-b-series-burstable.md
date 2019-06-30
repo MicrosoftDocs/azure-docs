@@ -14,7 +14,7 @@ The B-series VM family allows you to choose which VM size provides you the neces
 
 The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts,  small databases and development build environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
 
-The B-series comes in the following six VM sizes:
+The B-series comes in the following VM sizes:
 
 | Size             | vCPU  | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked / hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS / MBps | Max NICs |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
