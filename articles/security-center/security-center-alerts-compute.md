@@ -17,13 +17,13 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-## Azure native compute alerts in Azure Security Center
+# Azure native compute alerts in Azure Security Center
 
 This topic presents the alerts available for your Azure services:
 * [Azure App Service](#app-services)
 * [Containers](#azure-containers) 
 
-### Azure App Service <a name="app-services">
+## Azure App Service <a name="app-services"></a>
 
 Security Center leverages the scale of the cloud to identify attacks targeting customers applications running over Azure App Service. With web applications being practically in any modern network attackers probe to find these and exploit weaknesses. Before being routed to specific environments, requests to applications running in Azure go through several gateways when they are inspected and logged. This data is then used to identify exploits, attackers, and to learn new patterns that will be used later.
 
