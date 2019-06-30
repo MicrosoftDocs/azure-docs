@@ -15,6 +15,9 @@ You can use tiles to customize application dashboards, device dashboards, and de
 
 ![Application dashboard](media/howto-use-tiles/image1a.png)
 
+
+The following table summarizes the usage of tiles in Azure IoT Central Application:
+
  
 | Tile | Dashboard | Description
 | ----------- | ------- | ------- |
