@@ -52,7 +52,7 @@ $publicCfgJsonString = '
           "AppFilter": ".*",
           "MachineFilter": ".*",
           "InstrumentationSettings" : {
-            "InstrumentationKey": "c65e7690-a7fa-473c-ad41-5f1a26d9c3b0"
+            "InstrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         }
       ]
