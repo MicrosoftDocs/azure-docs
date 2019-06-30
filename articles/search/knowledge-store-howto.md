@@ -14,18 +14,19 @@ ms.author: heidist
 > [!Note]
 > Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
+[Knowledge store](knowledge-store-concept-intro.md) saves AI-enriched documents created during indexing to your Azure storage account for downstream knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline. 
 
-A [knowledge store](knowledge-store-concept-intro.md) saves AI-enriched documents, created during indexing, to your Azure storage account for downstream knowledge mining in other apps. You can also use saved enrichments to understand and refine an Azure Search indexing pipeline. A knowledge store is defined by a *skillset* and created by an *indexer*. The physical expression of a knowledge store is specified through *projections* that determine the data structures in storage. By the time you finish this walkthrough, you will have created all of these objects and you'll know how they all fit together. 
+A knowledge store is defined by a *skillset* and created by an *indexer*. The physical expression of a knowledge store is specified through *projections* that determine the data structures in storage. By the time you finish this walkthrough, you will have created all of these objects and you'll know how they all fit together. 
 
 In this exercise, start with sample data, services, and tools to learn the basic workflow for creating and using your first knowledge store, with emphasis on skillset definition.
 
 ## Prerequisites
 
-Knowledge store is at the apex of multiple services, which includes Azure Blob storage and Azure Table storage for physical storage, and Azure Search and Cognitive Services for creation and updates. Familiarity with the basic architecture of knowledge store is considered a prerequisite to this walkthrough. For more information, see [Knowledge store in Azure Search](knowledge-store-concept-intro.md).
+Knowledge store is at the center of multiple services, with Azure Blob storage and Azure Table storage providing physical storage, and Azure Search and Cognitive Services for object creation and updates. Familiarity with the [basic architecture](knowledge-store-concept-intro.md) is a prerequisite to this walkthrough.
 
 The following services and tools are used in this quickstart. 
 
-+ [Postman desktop app](https://www.getpostman.com/), used for sending HTTP requests to Azure Search.
++ [Get Postman desktop app](https://www.getpostman.com/), used for sending HTTP requests to Azure Search.
 
 + [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing sample data and the knowledge store. Your knowledge store will exist in Azure storage.
 
@@ -51,20 +52,21 @@ All requests require an api-key on every request sent to your service. You'll pr
 
 ## Prepare sample data
 
-A knowledge store contains the output of an enrichment pipeline. Inputs into the pipeline consist of "unusable" data that ultimately becomes "usable". Examples of unusable data might include image files that need to be analyzed for text or image characteristics, or dense text files that can be analyzed for entities or sentiment. 
+A knowledge store contains the output of an enrichment pipeline. Inputs consist of "unusable" data that ultimately becomes "usable" as it progresses through the pipeline. Examples of unusable data might include image files that need to be analyzed for text or image characteristics, or dense text files that can be analyzed for entities, key phrases, or sentiment. 
 
-This exercise uses dense text files (caselaw information) that originates from the [Caselaw Access Project](https://case.law/bulk/download/) Public Bulk Data download page. We uploaded a 10-document sample to GitHub for this exercise. 
+This exercise uses dense text files (case law information) that originates from the [Caselaw Access Project](https://case.law/bulk/download/) Public Bulk Data download page. We uploaded a 10-document sample to GitHub for this exercise. 
 
 In this task, you'll create an Azure Blob container for these documents to use as an input to the pipeline. 
 
-1. Download and extract the [Azure Search Sample Data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) repo to get the [Caselaw data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw). 
+1. Download and extract the [Azure Search Sample Data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) repository to get the [Caselaw data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw). 
 
 1. [Sign in to the Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 
-1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. 
+1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data: 
 
-   + Name the container `caselaw-test`. 
-   + Set the Public Access Level to any of its valid values.
+   1. Name the container `caselaw-test`. 
+   
+   1. Set the Public Access Level to any of its valid values.
 
 1. After the container is created, open it and select **Upload** on the command bar.
 
@@ -74,7 +76,7 @@ In this task, you'll create an Azure Blob container for these documents to use a
 
 1. While you are in Azure storage, get the connection string and container name.  You will need both of these strings in [Create Data Source](#create-data-source):
 
-   1. In the overview page, click **Access Keys** and copy either primary or secondary *connection string*. It starts with `DefaultEndpointsProtocol=https; and conncludes with `EndpointSuffix=core.windows.net`. Your personal account name and key are in between. 
+   1. In the overview page, click **Access Keys** and copy a *connection string*. It starts with `DefaultEndpointsProtocol=https;` and concludes with `EndpointSuffix=core.windows.net`. Your account name and key are in between. 
 
    1. The container name should be `caselaw-test` or whatever name you assigned.
 
@@ -84,9 +86,9 @@ In this task, you'll create an Azure Blob container for these documents to use a
 
 Postman is the client app you'll use to send requests and JSON documents to Azure Search. Several of the requests can be formulated using just the information in this article. However, two of the largest requests (creating an index, creating a skillset) include verbose JSON that is too big to embed in an article. 
 
-To make all of the JSON documents and requests easily available, we created a Postman collection file. Downloading and then importing this file is your first task in setting up the client.
+To make all of the JSON documents and requests fully available, we created a Postman collection file. Downloading and then importing this file is your first task in setting up the client.
 
-1. Download and unzip the [Azure Search Postman samples](https://github.com/Azure-Samples/azure-search-postman-samples).
+1. Download and unzip the [Azure Search Postman samples](https://github.com/Azure-Samples/azure-search-postman-samples) repository.
 
 1. Start Postman and import the Caselaw Postman collection:
 
