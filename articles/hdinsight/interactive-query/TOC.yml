@@ -101,7 +101,7 @@
     - name: Connect Power BI to Apache Hadoop
       href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
       maintainContext: true
-    - name: Query Hive with Powershell and ODBC
+    - name: Query Hive with PowerShell and ODBC
       href: apache-hive-query-odbc-driver-powershell.md
       maintainContext: true
     - name: Connect Excel to Apache Hadoop
