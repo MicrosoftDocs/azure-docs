@@ -39,8 +39,6 @@ Azure Security Center extends its Cloud Workload Protection Platforms by integra
 
 When Windows Server Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Windows Defender ATP console to perform a detailed investigation to uncover scope of the attack. For more information about Windows Server Defender ATP, see [Onboard servers to the Windows Defender ATP service](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-In addition to Microsoft Server Defender ATP, Security Center also offers: 
-
 ### Crash Dump Analysis <a nanme="windows-dump"></a>
 
 When software crashes, a crash dump captures a portion of memory at the time of the crash.
@@ -49,7 +47,11 @@ A crash may have been caused by malware or contain malware. To avoid being detec
 
 However, this kind of attack can be detected by using memory analysis. By analyzing the memory in the crash dump, Security Center can detect the techniques the attack is using to exploit vulnerabilities in the software, access confidential data, and surreptitiously persist within a compromised machine. This is done by the Security Center back end with minimum performance impact to hosts.
 
-Several examples below: 
+|Alert|Description|
+|---|---|
+|**Code injection discovered**|Code injection is the insertion of executable modules into running processes or threads. This technique is used by malware to access data, hide or prevent its removal. <br/><br/>This alert indicates that an injected module is present in the crash dump. To differentiate between malicious and non-malicious injected modules, Security Center checks whether the injected module conforms to a profile of suspicious behavior.|
+|**Suspicious code segment discovered**|The suspicious code segment alert indicates that a code segment has been allocated using non-standard methods, such as reflective injection and process hollowing. Additional characteristics of the code segment are processed to provide context for the capabilities and behaviors of the reported code segment.|
+|**Shellcode discovered**|Shellcode is the payload that is run after malware exploits a software vulnerability. <br/><br/>This alert indicates that crash dump analysis has detected executable code that exhibits behavior commonly performed by malicious payloads. Although non-malicious software may also perform this behavior, it is not typical of normal software development practices.|
 
 ### Fileless Attack Detection <a nanme="windows-fileless"></a>
 
@@ -65,11 +67,14 @@ It finds evidence of exploitation, code injection, and execution of malicious pa
 > You can simulate Windows alerts by download [Azure Security Center Playbook](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Security Alerts and follow the provided guidelines.  
 
 
-### For additional read on Security Center findings and examples:
+|Alert|Description|
+|---|---|
+|**Fileless attack technique detected**|The memory of the process specified below contains a fileless attack toolkit: Meterpreter. Fileless attack toolkits typically do not have a presence on the filesystem, making detection by traditional anti-virus difficult.|
 
-[How Azure Security Center automates the detection of cyber attack](https://azure.microsoft.com/en-us/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
+### For more information about Security Center detection and to see examples:
 
-[How Azure Security Center detects vulnerabilities using administrative tools](https://azure.microsoft.com/en-us/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
+* [How Azure Security Center automates the detection of cyber attack](https://azure.microsoft.com/en-us/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
+* [How Azure Security Center detects vulnerabilities using administrative tools](https://azure.microsoft.com/en-us/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
 ## Linux <a name="linux-machines"></a>
 
@@ -77,9 +82,9 @@ Security Center collects audit records from Linux machines using **auditd**, one
 
 ### Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration <a name="linux-auditd"></a>
 
-The auditd system consists of a kernel-level subsystem which is responsible for monitoring system calls, filtering them by given rule set, and writing match messages to a socket. Security Center implemented functionalities from auditd package within the Microsoft Monitoring Agent (MMA) to enable auditd events collection in all supported Linux distributions without any prerequisites.  
+The auditd system consists of a kernel-level subsystem which is responsible for monitoring system calls, filtering them by a given rule set, and writing messages for them to a socket. Security Center integrates functionalities from auditd package within the Microsoft Monitoring Agent (MMA) to enable auditd events collection in all supported Linux distributions without any prerequisites.  
 
-auditd records are collected, enriched and aggregated into events using the Linux MMA agent. Security Center has applied, and constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics spans across suspicious processes, dubious login attempts, kernel module loading and other activities that could indicate that a machine is under attack or has been breached.  
+auditd records are collected, enriched and aggregated into events using the Linux MMA agent. Security Center is constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics spans across suspicious processes, dubious login attempts, kernel module loading and other activities that could indicate that a machine is under attack or has been breached.  
 
 Below are several examples of analytics, that demonstrate how we span across different stages on attack life cycle.
 

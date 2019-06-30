@@ -111,7 +111,7 @@
     items:
     - name: Security alerts overview
       href: security-center-alerts-overview.md
-    - name: IaaS VMs & Servers Alerts
+    - name: IaaS VMs & servers alerts
       href: security-center-alerts-iaas.md
     - name: Native compute alerts
       href: security-center-alerts-compute.md

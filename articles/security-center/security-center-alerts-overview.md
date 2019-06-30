@@ -42,7 +42,7 @@ The following topics guide you through the different ASC alerts according to res
 The following topics explain how Security Center leverages the different telemetry that it collects from integrating with the Azure infrastructure in order to apply additional protection layers for resources deployed on Azure:
 
 * [Service layer alerts](security-center-alerts-service-layer.md)
-* [Integration with Azure Security Products](security-center-alerts-integration)
+* [Integration with Azure Security Products](security-center-alerts-integration.md)
 * [Cloud Smart Alert Correlation](security-center-alerts-cloud-smart.md)
 * [UEBA for Azure resources and users](security-center-ueba-mcas.md)
 
