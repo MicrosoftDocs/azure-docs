@@ -34,7 +34,7 @@ The Access Panel extension is also available for [Chrome](https://go.microsoft.c
 
 First, you must place the installer package on a network location that can be accessed by the machines that you wish to remotely install the extension on. To do this, follow these steps:
 
-1. Log on to the server as an administrator
+1. Sign on to the server as an administrator.
 1. In the **Server Manager** window, go to **Files and Storage Services**.
 
     ![Open Files and Storage Services](./media/deploy-access-panel-browser-extension/files-services.png)
@@ -51,7 +51,7 @@ First, you must place the installer package on a network location that can be ac
 
 ## Step 2: Create the group policy object
 
-1. Log on to the server that hosts your Active Directory Domain Services (AD DS) installation.
+1. Sign in to the server that hosts your Active Directory Domain Services (AD DS) installation.
 1. In the Server Manager, go to **Tools** > **Group Policy Management**.
 
     ![Go to Tools > Group Policy Management](./media/deploy-access-panel-browser-extension/tools-gpm.png)
@@ -119,7 +119,7 @@ The extension should now be enabled for the machines in the selected OU. [Learn 
 
 When users sign-in to websites using the Access Panel Extension, Internet Explorer may show the following prompt asking "Would you like to store your password?"
 
-![Shows the "Would you like to store your passowrd..." prompt](./media/deploy-access-panel-browser-extension/remember-password-prompt.png)
+![Shows the "Would you like to store your password..." prompt](./media/deploy-access-panel-browser-extension/remember-password-prompt.png)
 
 If you wish to prevent your users from seeing this prompt, then follow the steps below to prevent auto-complete from remembering passwords:
 
@@ -150,7 +150,7 @@ Users will no longer be able to store their credentials or use auto-complete to 
 Follow the steps below to verify if the extension deployment was successful:
 
 1. If you deployed using **Computer Configuration**, sign into a client machine that belongs to the OU that you selected in [Step 2: Create the Group Policy Object](#step-2-create-the-group-policy-object). If you deployed using **User Configuration**, make sure to sign in as a user who belongs to that OU.
-1. It may take a couple sign ins for the group policy changes to fully update with this machine. To force the update, open a **Command Prompt** window and run the following command: `gpupdate /force`
+1. It may take a couple sign-ins for the group policy changes to fully update with this machine. To force the update, open a **Command Prompt** window and run the following command: `gpupdate /force`
 1. You must restart the machine for the installation to take place. Bootup may take significantly more time than usual while the extension installs.
 1. After restarting, open **Internet Explorer**. On the upper-right corner of the window, click **Tools** (the gear icon), and then select **Manage add-ons**.
 1. In the **Manage Add-ons** window, verify that the **Access Panel Extension** has been installed and that its **Status** has been set to **Enabled**.
