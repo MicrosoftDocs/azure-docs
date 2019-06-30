@@ -17,6 +17,8 @@
         href: quickstarts/python-train-extract.md
 - name: How-to guides
   items:
+  - name: Build a training data set
+    href: build-training-data-set.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -41,3 +43,5 @@
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
     href: https://go.microsoft.com/fwlink/?linkid=2087185
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    

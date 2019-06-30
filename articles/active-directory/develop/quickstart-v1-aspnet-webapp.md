@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: andret
 #Customer intent: As an application developer, I want to learn how to implement Microsoft sign-in with an ASP.NET solution with a browser-based app using the OpenID Connect standard.
 ms.collection: M365-identity-device-management
@@ -196,14 +196,15 @@ In Visual Studio, create a new view to display the user's claims in a web page:
 
 ### Register your application in the Azure portal, then add its information to *web.config*
 
-1. Go to the [Microsoft Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to register an application.
-2. Select **New application registration**.
-3. Enter a name for your application.
-4. Paste the Visual Studio project's *SSL URL* in **Sign-on URL**. This URL is also added automatically to the list of Reply URLs for the application you're registering.
-5. Select **Create** to register the application. This action takes you back to the list of applications.
-6. Now, search and/or select the application you just created to open its properties.
-7. Copy the GUID under **Application ID** to the clipboard.
-8. Go back to Visual Studio and, in `web.config`, replace `Enter_the_Application_Id_here` with the Application ID from the application you registered.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using either a work or school account, or a personal Microsoft account.
+2. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+3. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+4. Select **New registration**.
+5. When the **Register an application** page appears, enter a name for your application.
+6. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+7. Select the **Web** platform under the **Redirect URI** section and set the value to the Visual Studio project's *SSL URL* (the location to which Azure AD will return tokens).
+78. When finished, select **Register**. On the app **Overview** page, copy the **Application (client) ID** value.
+9. Go back to Visual Studio and, in `web.config`, replace `Enter_the_Application_Id_here` with the Application ID from the application you registered.
 
 > [!TIP]
 > If your account is configured to access to multiple directories, make sure you have selected the right directory for the organization you want the application to be registered by clicking on your account name in the top right in the Azure portal, and then verifying the selected directory as indicated:<br/>![Selecting the right directory](./media/quickstart-v1-aspnet-webapp/tenantselector.png)

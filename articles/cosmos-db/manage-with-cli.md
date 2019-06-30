@@ -4,7 +4,7 @@ description: Use Azure CLI to manage your Azure Cosmos DB account, database and 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 4/8/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
 
 ---
@@ -26,7 +26,8 @@ az cosmosdb create \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations EastUS=0 WestUS=1 \
+   --locations regionName=EastUS failoverPriority=0 isZoneRedundant=False \
+   --locations regionName=WestUS failoverPriority=1 isZoneRedundant=False \
    --enable-multiple-write-locations false
 ```
 

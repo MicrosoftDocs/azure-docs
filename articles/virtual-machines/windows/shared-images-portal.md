@@ -52,6 +52,9 @@ When working through this article, replace the resource group and VM names where
 
 Once the image version is complete, you can create one or more new VMs. 
 
+> [!IMPORTANT]
+> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the [Azure CLI](../linux/shared-images.md#create-a-vm) or [Powershell](shared-images.md#create-vms-from-an-image).
+
 This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the *East US* datacenter.
 
 1. On the page for your image version, select **Create VM** from the menu at the top of the page.
@@ -65,6 +68,7 @@ This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the
 1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
 1. When you are finished, select the **Review + create** button at the bottom of the page.
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
+
 
 
 ## Clean up resources

@@ -5,7 +5,7 @@ ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 05/07/2017
+ms.date: 05/21/2019
 ---
 
 # Common Azure Cosmos DB use cases

@@ -60,7 +60,7 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> The maximum number of Phrase Lists that the Speech Service will use to match speech is 1024.
+> The maximum number of Phrase Lists that the Speech Service will use to match speech is 1024 phrases.
 
 You can also clear the phrases associated with the `PhraseListGrammar` by calling clear().
 

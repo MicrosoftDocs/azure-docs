@@ -3,17 +3,17 @@ title: Automated SaaS app user provisioning in Azure AD | Microsoft Docs
 description: An introduction to how you can use Azure AD to automatically provision, de-provision, and continuously update user accounts across multiple third-party SaaS applications.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/02/2019
-ms.author: celested
-ms.reviewer: asmalser
+ms.date: 06/12/2019
+ms.author: mimart
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -185,46 +185,7 @@ The provisioning job will be removed from quarantine after all of the offending 
 
 ## How long will it take to provision users?
 
-Performance depends on whether your provisioning job is running an initial sync or an incremental sync.
-
-For **initial syncs**, the job time depends on many factors, including the number of users and groups in scope for provisioning, and the total number of users and group in the source system. A comprehensive list of factors that affect initial sync performance are summarized later in this section.
-
-For **incremental syncs**, the job time depends on the number of changes detected in that sync cycle. If there are fewer than 5,000 user or group membership changes, the job can finish within a single incremental sync cycle. 
-
-The following table summarizes synchronization times for common provisioning scenarios. In these scenarios, the source system is Azure AD and the target system is a SaaS application. The sync times are derived from a statistical analysis of sync jobs for the SaaS applications ServiceNow, Workplace, Salesforce, and G Suite.
-
-
-| Scope configuration | Users, groups, and members in scope | Initial sync time | Incremental sync time |
-| -------- | -------- | -------- | -------- |
-| Sync assigned users and groups only |  < 1,000 |  < 30 minutes | < 30 minutes |
-| Sync assigned users and groups only |  1,000 - 10,000 | 142 - 708 minutes | < 30 minutes |
-| Sync assigned users and groups only |   10,000 - 100,000 | 1,170 - 2,340 minutes | < 30 minutes |
-| Sync all users and groups in Azure AD |  < 1,000 | < 30 minutes  | < 30 minutes |
-| Sync all users and groups in Azure AD |  1,000 - 10,000 | < 30 - 120 minutes | < 30 minutes |
-| Sync all users and groups in Azure AD |  10,000 - 100,000  | 713 - 1,425 minutes | < 30 minutes |
-| Sync all users in Azure AD|  < 1,000  | < 30 minutes | < 30 minutes |
-| Sync all users in Azure AD | 1,000 - 10,000  | 43 - 86 minutes | < 30 minutes |
-
-
-For the configuration **Sync assigned user and groups only**, you can use the following formulas to determine the approximate minimum and maximum expected **initial sync** times:
-
-	Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-	Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-	
-Summary of factors that influence the time it takes to complete an **initial sync**:
-
-- The total number of users and groups in scope for provisioning.
-
-- The total number of users, groups, and group members present in the source system (Azure AD).
-
-- Whether users in scope for provisioning are matched to existing users in the target application, or need to be created for the first time. Sync jobs for which all users are created for the first time take about *twice as long* as sync jobs for which all users are matched to existing users.
-
-- Number of errors in the [audit logs](check-status-user-account-provisioning.md). Performance is slower if there are many errors and the provisioning service has gone into a quarantine state.	
-
-- Request rate limits and throttling implemented by the target system. Some target systems implement request rate limits and throttling, which can impact performance during large sync operations. Under these conditions, an app that receives too many requests too fast might slow its response rate or close the connection. To improve performance, the connector needs to adjust by not sending the app requests faster than the app can process them. Provisioning connectors built by Microsoft make this adjustment. 
-
-- The number and sizes of assigned groups. Syncing assigned groups takes longer than syncing users. Both the number and the sizes of the assigned groups impact performance. If an application has [mappings enabled for group object sync](customize-application-attributes.md#editing-group-attribute-mappings), group properties such as group names and memberships are synced in addition to users. These additional syncs will take longer than only syncing user objects.
-
+Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md). 
 
 ## How can I tell if users are being provisioned properly?
 
@@ -250,7 +211,7 @@ For an example step-by-step deployment plan for outbound user provisioning to an
 
 Yes, it's possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications.
 
-However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
 ### Does automatic user provisioning to SaaS apps work with dynamic groups in Azure AD?
 

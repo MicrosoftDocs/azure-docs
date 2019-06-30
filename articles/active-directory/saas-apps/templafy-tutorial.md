@@ -117,20 +117,20 @@ To configure Azure AD single sign-on with Templafy, perform the following steps:
 
 	| Name | Source Attribute| Namespace  |
 	| ---------------| --------------- | --------- |
-	| givenname | user.givenname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-	| surname | user.surname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-	| emailaddress | user.mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`
-	| streetaddress | user.streetaddress | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-	| city | user.city | `https://schemas.templafy.com/2016/06/identity/claims`|
-	| postalcode | user.postalcode | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-	| stateorprovince | user.state | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-	| country | user.country | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-	| jobtitle | user.jobtitle | `https://schemas.templafy.com/2016/06/identity/claims`|
-	| department | user.department | `https://schemas.templafy.com/2016/06/identity/claims`|
-	| phonenumber | user.telephonenumber | `https://schemas.templafy.com/2016/06/identity/claims` |
-	| facsimilenumber | user.facsimiletelephonenumber | `https://schemas.templafy.com/2016/06/identity/claims`|
-	| upn | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-	| nameidentifier | user.mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+	| givenname | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+	| surname | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+	| emailaddress | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`
+	| streetaddress | user.streetaddress | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+	| city | user.city | `http://schemas.templafy.com/2016/06/identity/claims`|
+	| postalcode | user.postalcode | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+	| stateorprovince | user.state | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+	| country | user.country | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+	| jobtitle | user.jobtitle | `http://schemas.templafy.com/2016/06/identity/claims`|
+	| department | user.department | `http://schemas.templafy.com/2016/06/identity/claims`|
+	| phonenumber | user.telephonenumber | `http://schemas.templafy.com/2016/06/identity/claims` |
+	| facsimilenumber | user.facsimiletelephonenumber | `http://schemas.templafy.com/2016/06/identity/claims`|
+	| upn | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+	| nameidentifier | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 	| | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
@@ -225,4 +225,4 @@ When you click the Templafy tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

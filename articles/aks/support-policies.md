@@ -144,7 +144,7 @@ Preview features or feature-flag features aren't meant for production. Ongoing c
 
 Features in public preview are fall under 'best effort' support as these features are in preview and not meant for production and are supported by the AKS technical support teams during business hours only. For additional information please see:
 
-* [Azure Support FAQ](https://azure.microsoft.com/en-us/support/faq/)
+* [Azure Support FAQ](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > Preview features take effect at the Azure *subscription* level. Don't install preview features on a production subscription. On a production subscription, preview features can change default API behavior and affect regular operations.

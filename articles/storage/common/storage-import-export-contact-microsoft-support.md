@@ -53,7 +53,7 @@ Perform the following steps to create a support request:
 4. In **New support request**, click **Step 3 Contact information**. In **Contact information**, do the following steps:
 
    1. In the **Contact options**, provide your preferred contact method (phone or email) and the language. The response time is automatically selected based on your subscription plan.
-   2. In the Contact information, provide your name, email, optional contact, country. Select the **Save contact changes for future support requests** checkbox.
+   2. In the Contact information, provide your name, email, optional contact, country/region. Select the **Save contact changes for future support requests** checkbox.
    3. Click **Create**.
    
        ![Contact information](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

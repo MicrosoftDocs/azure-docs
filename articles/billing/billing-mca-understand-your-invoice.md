@@ -59,7 +59,7 @@ The **Billing Summary**  shows the charges against the billing profile since the
 | Credits |Credits you received from returns |
 | Azure credits applied | Azure credits that are automatically applied to Azure charges each billing period |
 | Subtotal |The pre-tax amount due |
-| Tax |The type and amount of tax that you pay, depending on the country of your billing profile. If you don't have to pay tax, then you won't see tax on your invoice. |
+| Tax |The type and amount of tax that you pay, depending on the country/region of your billing profile. If you don't have to pay tax, then you won't see tax on your invoice. |
 | Estimated total savings |The estimated total amount you saved from effective discounts. If applicable, effective discount rates are listed beneath the purchase line items in Details by Invoice Section. |
 
 ### Invoice sections
@@ -84,7 +84,7 @@ The total amount due for each service family is calculated by subtracting *Azure
 | Qty | Quantity purchased or consumed during the billing period |
 | Charges/Credits | Net amount of charges after credits/refunds are applied |
 | Azure Credit | The amount of Azure credits applied to the Charges/Credits|
-| Tax rate | Tax rate(s) depending on country |
+| Tax rate | Tax rate(s) depending on country/region |
 | Tax amount | Amount of tax applied to purchase based on tax rate |
 | Total | The total amount due for the purchase |
 

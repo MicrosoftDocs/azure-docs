@@ -36,7 +36,7 @@ ms.custom: "include file"
 
 <sup>1</sup>A sandbox is a shared environment that can be used by multiple jobs. Jobs that use the same sandbox are bound by the resource limitations of the sandbox.
 
-#### Change tracking and inventory
+#### Change Tracking and Inventory
 
 The following table shows the tracked item limits per machine for change tracking.
 
@@ -48,3 +48,11 @@ The following table shows the tracked item limits per machine for change trackin
 |Linux packages|1,250||
 |Services|250||
 |Daemon|250||
+
+#### Update Management
+
+The following table shows the limits for Update Management.
+
+| **Resource** | **Limit**| **Notes** |
+|---|---|---|
+|Number of machines per update deployment|1000||

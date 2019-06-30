@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)'
-description: In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using .NET Standard SDK.
+title: 'Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)'
+description: In this article, you learn how to ingest (load) data into Azure Data Explorer using .NET Standard SDK.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/18/2018
+ms.topic: conceptual
+ms.date: 06/03/2019
 
 # Customer intent: As a .NET Standard SDK developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
 ---
 
-# Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)
+# Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)
 
 Azure Data Explorer (ADX) is a fast and highly scalable data exploration service for log and telemetry data. ADX provides two client libraries for .NET Standard: an [ingest library](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) and [a data library](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). 
-These libraries enable you to ingest (load) data into a cluster and query data from your code. In this quickstart, you first create a table and data mapping in a test cluster. You then queue an ingestion to the cluster and validate the results.
+These libraries enable you to ingest (load) data into a cluster and query data from your code. In this article, you first create a table and data mapping in a test cluster. You then queue an ingestion to the cluster and validate the results.
 
 ## Prerequisites
 
@@ -224,7 +224,7 @@ Run the following command to view the status of all ingestion operations in the 
 
 ## Clean up resources
 
-If you plan to follow our other quickstarts and tutorials, keep the resources you created. If not, run the following command in your database to clean up the `StormEvents` table.
+If you plan to follow our other articles, keep the resources you created. If not, run the following command in your database to clean up the `StormEvents` table.
 
 ```Kusto
 .drop table StormEvents
@@ -232,5 +232,4 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Write queries](write-queries.md)
+* [Write queries](write-queries.md)

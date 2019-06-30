@@ -5,7 +5,7 @@ author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors

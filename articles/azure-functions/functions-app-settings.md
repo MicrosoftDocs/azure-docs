@@ -28,6 +28,10 @@ The Application Insights instrumentation key if you're using Application Insight
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
 
+## AZURE_FUNCTIONS_ENVIRONMENT
+
+In version 2.x of the Functions runtime, configures app behavior based on the runtime environment. This value is [read during initialization](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). You can set `AZURE_FUNCTIONS_ENVIRONMENT` to any value, but [three values](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) are supported: [Development](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Staging](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), and [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). When `AZURE_FUNCTIONS_ENVIRONMENT` isn't set, it defaults to `Production`. This setting should be used instead of `ASPNETCORE_ENVIRONMENT` to set the runtime environment. 
+
 ## AzureWebJobsDashboard
 
 Optional storage account connection string for storing logs and displaying them in the **Monitor** tab in the portal. The storage account must be a general-purpose one that supports blobs, queues, and tables. See [Storage account](functions-infrastructure-as-code.md#storage-account) and [Storage account requirements](functions-create-function-app-portal.md#storage-account-requirements).
@@ -66,14 +70,6 @@ A comma-delimited list of beta features to enable. Beta features enabled by thes
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
-
-## AzureWebJobsScriptRoot
-
-The path to the root directory where the *host.json* file and function folders are located. In a function app, the default is `%HOME%\site\wwwroot`.
-
-|Key|Sample value|
-|---|------------|
-|AzureWebJobsScriptRoot|%HOME%\site\wwwroot|
 
 ## AzureWebJobsSecretStorageType
 
@@ -117,7 +113,7 @@ The version of the Functions runtime to use in this function app. A tilde with m
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), and `python` (Python).
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell), and `python` (Python).
 
 |Key|Sample value|
 |---|------------|

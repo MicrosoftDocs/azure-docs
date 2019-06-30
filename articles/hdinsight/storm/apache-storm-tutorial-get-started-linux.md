@@ -16,9 +16,6 @@ Learn how to use [Apache Storm](https://storm.apache.org/) in HDInsight using th
 
 Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 ## Prerequisites
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
@@ -182,7 +179,7 @@ If you run into an issue with creating HDInsight cluster, see [access control re
 
 ## <a id="next"></a>Next steps
 
-In this Apache Storm tutorial, you learned the basics of working with Storm on HDInsight. Next, learn how to [Develop Java-based topologies using Apache Maven](apache-storm-develop-java-topology.md).
+In this Apache Storm article, you learned the basics of working with Storm on HDInsight. Next, learn how to [Develop Java-based topologies using Apache Maven](apache-storm-develop-java-topology.md).
 
 If you're already familiar with developing Java-based topologies, see the [Deploy and manage Apache Storm topologies on HDInsight](apache-storm-deploy-monitor-topology-linux.md) document.
 

@@ -3,7 +3,7 @@ title: Introduction to the built-in operational analytics in Azure Cosmos DB wit
 description: Learn how you can use the built-in support for Apache Spark in Azure Cosmos DB to run operational analytics and AI
 ms.service: cosmos-db
 ms.topic: overview 
-ms.date: 05/10/2019
+ms.date: 05/23/2019
 author: rimman
 ms.author: rimman
 ---
@@ -15,7 +15,7 @@ The built-in support for Apache Spark in Azure Cosmos DB allows you to run analy
 Spark compute is automatically available in all the Azure regions associated with your Azure Cosmos account. Spark jobs use the Azure Cosmos DB's multi-master capability and they can write or query against the local replicas in each region. 
 
 > [!NOTE]
-> The built-in support for Apache Spark in Azure Cosmos DB is currently in limited preview. To sign-up for the preview, navigate to [sign-up for the preview](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB) page. 
+> The built-in support for Apache Spark in Azure Cosmos DB is currently in limited preview. To sign-up for the preview, navigate to [sign-up for the preview page](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB). 
 
 The Apache Spark support in Azure Cosmos DB offers the following benefits:
 
@@ -62,7 +62,7 @@ Unlike traditional analytical databases, with Azure Cosmos DB, data engineers, a
 
 Since the Apache Spark jobs are executed in the data partitions of your Azure Cosmos database, the queries will get the [five well-defined consistency choices](consistency-levels.md). These consistency models give the flexibility to choose strict consistency to provide the most accurate results for machine learning algorithms without compromising the latency and high availability. 
 
-### SLAs
+### Comprehensive SLAs
 
 The Apache Spark jobs will have the Azure Cosmos DB benefits such as industry leading comprehensive [SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_1/) (99.999) without any overhead of managing separate Apache Spark clusters.. These SLAs encompass throughput, latency at the 99th percentile, consistency, and high availability. 
 
@@ -72,7 +72,7 @@ The integration of Apache Spark into Azure Cosmos DB bridges the transactional a
 
 ## Built-in Jupyter notebooks support
 
-Azure Cosmos DB supports Jupyter notebooks for all APIs such as Cassandra, MongoDB, SQL, Gremlin, and table. The Jupyter notebooks run within the Azure Cosmos DB accounts and they enhance the developer experience. The built-in notebook support for all Azure Cosmos DB APIs and data models allows you to interactively run queries. You can also execute machine learning models, and analyze the data stored in your Azure Cosmos databases. By using the Jupyter notebook experience, you can analyze the stored data, build and train machine learning models, and perform inferencing on the data in the Azure portal as shown in the following image:
+Azure Cosmos DB supports built-in Jupyter notebooks for all APIs such as Cassandra, MongoDB, SQL, Gremlin, and Table. The Jupyter notebooks run within the Azure Cosmos accounts and they enhance the developer experience. The built-in notebook support for all Azure Cosmos DB APIs and data models allows you to interactively run queries. You can also execute machine learning models, and analyze the data stored in your Azure Cosmos databases. By using the Jupyter notebook experience, you can analyze the stored data, build and train machine learning models, and perform inferencing on the data in the Azure portal as shown in the following image:
 
 ![Jupyter notebooks support in Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 

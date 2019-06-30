@@ -28,7 +28,7 @@ The following table provides a comparison of ultra solid-state-drives (SSD) (pre
 
 ## Ultra SSD (preview)
 
-Azure ultra SSD (preview) deliver high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. Ultra SSD are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra SSD can only be used as data disks. We recommend using premium SSDs as OS disks.
+Azure ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. Ultra SSDs are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra SSD can only be used as data disks. We recommend using premium SSDs as OS disks.
 
 ### Performance
 
@@ -68,7 +68,8 @@ During preview, ultra SSD:
 - Are only supported on ES/DS v3 VMs
 - Are only available as data disks and only support 4k physical sector size  
 - Can only be created as empty disks  
-- Currently can only be deployed using Azure Resource Manager templates, CLI, and the python SDK.
+- Currently can only be deployed using Azure Resource Manager templates, CLI, PowerShell, and the Python SDK.
+- Cannot be deployed with the Azure portal (yet).
 - Does not yet support disk snapshots, VM images, availability sets, virtual machine scale sets, and Azure disk encryption.
 - Does not yet support integration with Azure Backup or Azure Site Recovery.
 - As with [most previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until general availability (GA).

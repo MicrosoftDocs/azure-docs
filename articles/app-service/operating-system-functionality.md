@@ -61,7 +61,7 @@ It is important to monitor your disk utilization as your application grows. If t
 
 - The app may throw an error indicating not enough space on the disk.
 - You may see disk errors when browsing to the Kudu console.
-- Deployment from VSTS or Visual Studio may fail with `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Deployment from Azure DevOps or Visual Studio may fail with `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Your app may suffer slow performance.
 
 <a id="NetworkDrives"></a>

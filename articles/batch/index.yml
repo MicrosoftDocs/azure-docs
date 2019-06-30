@@ -57,6 +57,17 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="cli-samples">Azure CLI</a>
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Microsoft Azure Batch, Getting Started
+      href: https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents
 - title: Reference
   items:
   - type: list

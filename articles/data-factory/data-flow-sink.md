@@ -16,8 +16,6 @@ After you transform your data flow, you can sink the data into a destination dat
 
 To account for schema drift and changes in incoming data, sink the output data to a folder without a defined schema in the output dataset. You can also account for column changes in your sources by selecting **Allow schema drift** in the source. Then automap all fields in the sink.
 
-You can overwrite, append, or fail the data flow when you sink it to a dataset.
-
 ![Options on the Sink tab, including the Auto Map option](media/data-flow/sink1.png "sink 1")
 
 To sink all incoming fields, turn on **Auto Map**. To choose the fields to sink to the destination, or to change the names of the fields at the destination, turn off **Auto Map**. Then open the **Mapping** tab to map output fields.
@@ -59,6 +57,7 @@ Set up file naming:
    * **Pattern**: Enter a pattern for your output files. For example, **loans[n]** will create loans1.csv, loans2.csv, and so on.
    * **Per partition**: Enter one file name per partition.
    * **As data in column**: Set the output file to the value of a column.
+   * **Output to a single file**: With this option, ADF will combine the partitioned output files into a single named file. To use this option, your dataset should resolve to a folder name. Also, please be aware that this merge operation can possibly fail based upon node size.
 
 > [!NOTE]
 > File operations start only when you're running the Execute Data Flow activity. They don't start in Data Flow Debug mode.

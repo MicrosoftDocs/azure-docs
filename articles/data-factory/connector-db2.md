@@ -32,6 +32,7 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 
 * IBM DB2 for z/OS 11.1
 * IBM DB2 for z/OS 10.1
+* IBM DB2 for i 7.3
 * IBM DB2 for i 7.2
 * IBM DB2 for i 7.1
 * IBM DB2 for LUW 11

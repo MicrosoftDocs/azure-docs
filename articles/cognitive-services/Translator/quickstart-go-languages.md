@@ -3,13 +3,13 @@ title: "Quickstart: Get supported languages, Go - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with Go.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/21/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to get a list of supported languages using Go
@@ -103,6 +103,8 @@ if err != nil {
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Handle and print the response
 
 Add this code to the `getLanguages` function to decode the JSON response, and then format and print the result.
@@ -130,7 +132,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Sample response
 
-Find the country abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 A successful response is returned in JSON as shown in the following example:
 

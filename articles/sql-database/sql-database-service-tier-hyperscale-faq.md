@@ -7,8 +7,8 @@ ms.subservice:
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
 manager: craigg
 ms.date: 05/06/2019
@@ -73,7 +73,7 @@ The Azure SQL Database Hyperscale tier is currently available in the regions lis
 
 Yes. For more information and limits on the number of Hyperscale databases per logical server, see [SQL Database resource limits for single and pooled databases on a logical server](sql-database-resource-limits-logical-server.md).
 
-### What are the performance characteristic of a Hyperscale database
+### What are the performance characteristics of a Hyperscale database
 
 The SQL Database Hyperscale architecture provides high performance and throughput while supporting large database sizes. 
 
@@ -88,7 +88,7 @@ SQL Database Hyperscale provides rapid scalability based on your workload demand
 
   With Hyperscale, you also get the ability to provision one or more additional compute nodes that you can use to serve your read requests. This means that you can use these additional compute nodes as read-only nodes to offload your read workload from the primary compute. In addition to read-only, these nodes also serve as hot-standby’s in the event of a fail over from the primary.
 
-  Provisioning of each of these additional compute nodes can be done in constant time and is an online operation. You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `read_only`. Any connections marked with `read-only` are automatically routed to one of the additional read-only compute nodes.
+  Provisioning of each of these additional compute nodes can be done in constant time and is an online operation. You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.
 
 ## Deep dive questions
 
@@ -134,7 +134,7 @@ No.
 
 ### How many read-scale replicas are supported
 
-The Hyperscale databases are created with one read-scale replica (two replicas in total) by default. You can scale the number of read-only replicas between 0 and 4 using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)..
+The Hyperscale databases are created with one read-scale replica (two replicas in total) by default. You can scale the number of read-only replicas between 0 and 4 using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### For high availability, do I need to provision additional compute nodes
 
@@ -355,7 +355,7 @@ We create 2 replicas for Hyperscale databases by default. If you want to adjust 
 
 ### How do I connect to these secondary compute nodes
 
-You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `read_only`. Any connections marked with `read-only` are automatically routed to one of the additional read-only compute nodes.  
+You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.  
 
 ### Can I create a dedicated endpoint for the read-scale replica
 

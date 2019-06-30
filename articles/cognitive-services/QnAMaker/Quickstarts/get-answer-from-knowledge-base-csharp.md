@@ -33,7 +33,7 @@ The code for this quickstart is in the [https://github.com/Azure-Samples/cogniti
 
 ## Create a knowledge base project
 
-1. Open Visual Studio 2017 Community edition.
+1. Open Visual Studio 2019 Community edition.
 1. Create a new Console App (.NET Core) project and name the project QnaMakerQuickstart. Accept the defaults for the remaining settings.
 
 ## Add the required dependencies
@@ -69,4 +69,4 @@ Build and run the program from Visual Studio. It will automatically send the req
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -8,7 +8,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 05/06/2019
+ms.date: 06/19/2019
 ---
 
 # Reference for trigger and action types in Workflow Definition Language for Azure Logic Apps
@@ -2645,6 +2645,7 @@ properties in the trigger or action definition.
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of workflow instances that can wait to run when your workflow is already running the maximum concurrent instances. You can change the concurrency limit in the `concurrency.runs` property. <p>To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | All triggers | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Change the [*default limit*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) on the number of "for each" loop iterations that can run at the same time, or in parallel. <p>Setting the `repetitions` property to `1` works the same way as setting the `operationOptions` property to `SingleInstance`. You can set either property, but not both. <p>To change the default limit, see [Change "for each" concurrency](#change-for-each-concurrency) or [Run "for each" loops sequentially](#sequential-for-each). | Action: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | For specific actions that support and have pagination turned on, this value specifies the *minimum* number of results to retrieve. <p>To turn on pagination, see [Get bulk data, items, or results by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action: Varied |
+| `runtimeConfiguration.staticResult` | JSON Object | For actions that support and have the [static result](../logic-apps/test-logic-apps-mock-data-static-results.md) setting turned on, the `staticResult` object has these attributes: <p>- `name`, which references the current action's static result definition name, which appears inside the `staticResults` attribute in your logic app workflow's `definition` attribute. For more information, see [Static results - Schema reference for Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, which specifies whether static results are `Enabled` or not for the current action. <p>To turn on static results, see [Test logic apps with mock data by setting up static results](../logic-apps/test-logic-apps-mock-data-static-results.md) | Action: Varied |
 ||||| 
 
 <a name="operation-options"></a>
@@ -2958,7 +2959,7 @@ the action's inputs.
 
 ### Run in high throughput mode
 
-For a single logic app run, the number of actions that execute every 5 minutes has a 
+For a single logic app definition, the number of actions that execute every 5 minutes has a 
 [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). 
 To raise this limit to the [maximum](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) 
 possible, set the `operationOptions` property to `OptimizedForHighThroughput`. 

@@ -80,6 +80,15 @@ az sql server ad-admin create --resource-group myResourceGroup --server-name <se
 
 The managed identity now has access to your Azure SQL Database server.
 
+> [!IMPORTANT]
+> For simplicity, this step configures the Azure AD managed identity as the SQL Database administrator. The method has the following limitations:
+>
+> - The app's administrative access doesn't follow security best practices.
+> - Since the managed identity is app specific, you can't use the same managed identity to connect to SQL Database from another app.
+> - The managed identity can't sign in to the SQL Database interactively, so it's impossible to grant access to managed identities of additional apps. 
+>
+> To improve security and to administrate Azure AD accounts in SQL Database, follow the steps at [Grant minimal privileges to identity](#grant-minimal-privileges-to-identity).
+
 ## Modify connection string
 
 Modify the connection you set previously for your app, using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. In the following command, replace *\<app name>* with the name of your app, and replace *\<server_name>* and *\<db_name>* with the ones for your SQL Database.

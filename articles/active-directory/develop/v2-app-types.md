@@ -47,7 +47,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## Single-page apps (JavaScript)
 
-Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like AngularJS, Ember.js, or Durandal.js. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
+Many modern apps have a single-page app front end that primarily is written in JavaScript. Often, it's written by using a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 implicit flow](v2-oauth2-implicit-grant-flow.md).
 
 In this flow, the app receives tokens directly from the Microsoft identity platform authorize endpoint, without any server-to-server exchanges. All authentication logic and session handling takes place entirely in the JavaScript client, without extra page redirects.
 

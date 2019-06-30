@@ -5,7 +5,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.author: dacoulte
 ---
 # Azure Blueprints samples
@@ -19,6 +19,9 @@ quality and ready to deploy today to assist you in meeting your various complian
 |---------|---------|
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards ISO 27001 attestation. |
 | [ISO 27001 App Service Environment/SQL Database workload](./iso27001-ase-sql-workload/index.md) | Provides additional infrastructure to the [ISO 27001 Shared Services](./iso27001-shared/index.md) blueprint sample. |
+| [NIST SP 800-53 R4](./nist-sp-800-53-rev4/control-mapping.md) | Provides guardrails for compliance to NIST SP 800-53 R4. |
+| [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Provides a set of policies to aide in PCI-DSS v3.2.1 compliance. |
+| [UK OFFICIAL and UK NHS Governance](./ukofficial/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards UK OFFICIAL and UK NHS attestation. |
 
 ## Next steps
 

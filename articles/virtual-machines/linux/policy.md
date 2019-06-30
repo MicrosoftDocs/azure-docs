@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: singhkay
+ms.author: kasing
 
 ---
 # Apply policies to Linux VMs with Azure Resource Manager

@@ -8,7 +8,7 @@ ms.workload: azure-vs
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
-ms.topic: "tutorial"
+ms.topic: tutorial
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
@@ -30,7 +30,7 @@ In this guide, you will learn how to:
 1. Sign in to the Azure portal at https://portal.azure.com.
 1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
 
-   Complete the following steps under each heading of the *Create Kubernetes cluster* form and verify your selected [region supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+   Complete the following steps under each heading of the *Create Kubernetes cluster* form and verify your selected [region supports Azure Dev Spaces][supported-regions].
 
    - **PROJECT DETAILS**: select an Azure subscription and a new or existing Azure resource group.
    - **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
@@ -48,10 +48,7 @@ In this guide, you will learn how to:
 1. Select **Review + create** and then **Create** when complete.
 
 ## Get the Visual Studio tools
-1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
-1. In the Visual Studio installer make sure the following Workload is selected:
-    * ASP.NET and web development
-1. Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)
+Install the latest version of [Visual Studio](https://www.visualstudio.com/vs/). For Visual Studio 2019 on Windows you need to install the Azure Development workload. For Visual Studio 2017 on Windows you need to install the ASP.NET and web development workload as well as [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## Create a web app running in a container
 
@@ -59,7 +56,7 @@ In this section, you'll create an ASP.NET Core web app and get it running in a c
 
 ### Create an ASP.NET web app
 
-From within Visual Studio 2017, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
+From within Visual Studio, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -144,3 +141,6 @@ Refresh the web app in the browser, and go to the About page. You should see you
 
 > [!div class="nextstepaction"]
 > [Learn about multi-service development](multi-service-netcore-visualstudio.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

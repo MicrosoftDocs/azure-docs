@@ -2,21 +2,20 @@
   href: /azure/hdinsight
 - name: Overview
   items:
-  - name: Apache Hadoop components on HDInsight
-    href: ../hdinsight-component-versioning.md
+  - name: What is Interactive Query in HDInsight?
+    href: ./apache-interactive-query-get-started.md
     maintainContext: true
-  - name: HDInsight 4.0
-    href: ../hdinsight-version-release.md
-    maintainContext: true 
 - name: Quickstarts
+  expanded: true
   items:
   - name: Execute Apache Hive queries - Apache Zeppelin
-    href: ../hdinsight-connect-hive-zeppelin.md
-    maintainContext: true
-- name: Get started
+    href: ./hdinsight-connect-hive-zeppelin.md
+- name: Tutorials
   items:
-  - name: Start with Interactive Query
-    href: ./apache-interactive-query-get-started.md
+  - name: Analyze data with Interactive Query
+    href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Concepts
+  items:
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
@@ -111,9 +110,6 @@
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
@@ -182,7 +178,7 @@
       - name: Use cURL and the Azure REST API
         href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
         maintainContext: true      
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: Create on-demand clusters
@@ -206,7 +202,7 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure Classic CLI
+      - name: Use the Azure CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Apache Ambari web UI
@@ -251,9 +247,6 @@
       maintainContext: true
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
-      maintainContext: true
-    - name: Migrate Hive workloads to HDInsight 4.0
-      href: apache-hive-migrate-workloads.md
       maintainContext: true
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md
@@ -321,12 +314,14 @@
     maintainContext: true
   - name: Network access
     items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+    - name: Use firewall to restrict outbound traffic
+      href: ../hdinsight-restrict-outbound-traffic.md
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
-      maintainContext: true
   - name: Monitoring using Azure Monitor logs
     items:
     - name: Use Azure Monitor logs
@@ -338,6 +333,11 @@
     - name: Monitor cluster performance
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true 
+- name: How to
+  items:
+  - name: Migrate Hive workloads to HDInsight 4.0
+    href: apache-hive-migrate-workloads.md
+    maintainContext: true
 - name: Reference
   items:
   - name: Code samples

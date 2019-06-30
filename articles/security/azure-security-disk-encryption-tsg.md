@@ -146,7 +146,9 @@ If the expected encryption state does not match what is being reported in the po
 
 The portal may display a disk as encrypted even after it has been unencrypted within the VM.  This can occur when low-level commands are used to directly unencrypt the disk from within the VM, instead of using the higher level Azure Disk Encryption management commands.  The higher level commands not only unencrypt the disk from within the VM, but outside of the VM they also update important platform level encryption settings and extension settings associated with the VM.  If these are not kept in alignment, the platform will not be able to report encryption status or provision the VM properly.   
 
-To properly disable Azure Disk Encryption, start from a known good state with encryption enabled, and then use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) and [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell commands, or the [az vm encryption disable](/cli/azure/vm/encryption) CLI command. 
+To disable Azure Disk Encryption with PowerShell, use [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) followed by [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension). Running Remove-AzVMDiskEncryptionExtension before the encryption is disabled will fail.
+
+To disable Azure Disk Encryption with CLI, use [az vm encryption disable](/cli/azure/vm/encryption). 
 
 ## Next steps
 

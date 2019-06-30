@@ -343,7 +343,7 @@ In this tutorial, you learned how to:
 > * Understand how client code maps to the application
 > * Configure client code for the real device
 
-Now that you've connected a real device to your Azure IoT Central application, here are the suggested next steps:
+Now that you've connected a real device to your Azure IoT Central application, here are some suggested next steps.
 
 As an operator, you can learn how to:
 
