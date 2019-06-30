@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/04/2019
 ---
 
 # Import flows into Azure Logic Apps from Microsoft Flow
@@ -74,7 +74,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
 1. Before you activate your logic app, authorize any new connections by following these steps:
 
-   1. Open the logic app that you created. On the logic app's menu, select **Logic App Designer**.
+   1. Open the logic app that you created. On the logic app's menu, select **Logic app designer**.
 
       Each connection that requires authorization shows a warning icon:
 
@@ -94,4 +94,5 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
 ## Next steps
 
+* Learn more about [Connectors for Azure Logic Apps](../connectors/apis-list.md)
 * Learn more about [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
