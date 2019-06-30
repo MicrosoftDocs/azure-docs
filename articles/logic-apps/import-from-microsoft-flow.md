@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 07/04/2019
 ---
 
-# Import flows into Azure Logic Apps from Microsoft Flow
+# Export flows from Microsoft Flow and import into Azure Logic Apps 
 
 To extend and expand the capabilities for a flow that you created with [Microsoft Flow](https://flow.microsoft.com), export that flow as a Azure Resource Manager template and open that template in Azure Logic Apps.
 
