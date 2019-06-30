@@ -19,26 +19,20 @@ ms.author: monhaber
 ---
 # IaaS VM and server alerts in Azure Security Center
 
-This topics presents the different types of detection methods and alerts available for VMs and Servers.
+This topic presents the different types of detection methods and alerts available for VMs and Servers on the following operation systems.
 
-* [Windows-based machines](#windows-machines) are monitored using the following services:
-  * [Microsoft Server Defender ATP](#windows-atp)
-  * [Crash Dump Analysis](#windows-dump)
-  * [Fileless Attack Detection](#windows-fileless)
-* [Linux-based machines](#linux-machines)
-  * [Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration](#linux-auditd)
+* [Windows](#windows-machines)
+* [Linux](#linux-machines)
 
-For a list of supported versions, click [here](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage).
+For a list of supported versions, see [Platforms and features supported by Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage).
 
-## Windows-based machines <a name="windows-machines"></a>
+## Windows <a name="windows-machines"></a>
 
 Security Center integrates with Azure services to monitor and protect your Windows-based machines.  Security Center presents the alerts and remediation suggestions from all of these services in an easy-to-use format.
 
 ### Microsoft Server Defender ATP <a nanme="windows-atp"></a>
 
 Azure Security Center extends its Cloud Workload Protection Platforms by integrating with Windows Defender Advanced Threat Protection (ATP). This provides comprehensive Endpoint Detection and Response (EDR) capabilities.
-
-With Windows Defender ATP integration, you can spot abnormalities, and detect and respond to sophisticated attacks on server endpoints monitored by Azure Security Center.
 
 > [!NOTE]
 > Windows Server Defender ATP sensor is automatically enabled on Windows Servers that are onboarded to Azure Security Center.
@@ -65,7 +59,7 @@ To avoid detection, fileless attacks inject malicious payloads into memory. Atta
 
 With Fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime and extracts insights directly from the memory of security-critical processes.
 
-It finds evidence of exploitation, code injection, and execution of malicious payloads. Fileless Attack Detection generates detailed security alerts to accelerate alert triage, correlation, and downstream response time. This approach complements event based EDR solutions providing greater detection coverage.
+It finds evidence of exploitation, code injection, and execution of malicious payloads. Fileless Attack Detection generates detailed security alerts to accelerate alert triage, correlation, and downstream response time. This approach complements event-based EDR solutions providing greater detection coverage.
 
 > [!NOTE]
 > You can simulate Windows alerts by download [Azure Security Center Playbook](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Security Alerts and follow the provided guidelines.  
@@ -77,9 +71,9 @@ It finds evidence of exploitation, code injection, and execution of malicious pa
 
 [How Azure Security Center detects vulnerabilities using administrative tools](https://azure.microsoft.com/en-us/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
-## Linux-based machines <a name="linux-machines"></a>
+## Linux <a name="linux-machines"></a>
 
-Security Center collects audit records from Linux machines using auditd, one of the most common Linux auditing frameworks. auditd has the advantage of having been around for a long time and living in the mainline kernel. 
+Security Center collects audit records from Linux machines using **auditd**, one of the most common Linux auditing frameworks. auditd has the advantage of having been around for a long time and living in the mainline kernel. 
 
 ### Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration <a name="linux-auditd"></a>
 
@@ -87,12 +81,12 @@ The auditd system consists of a kernel-level subsystem which is responsible for 
 
 auditd records are collected, enriched and aggregated into events using the Linux MMA agent. Security Center has applied, and constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics spans across suspicious processes, dubious login attempts, kernel module loading and other activities that could indicate that a machine is under attack or has been breached.  
 
-Below are several examples of analytics, that demonstrate how we spans across different stages on attack life cycle.
+Below are several examples of analytics, that demonstrate how we span across different stages on attack life cycle.
 
 |Alert|Description|
 |---|---|
 |**Process seen accessing the SSH authorized keys file in an unusual way**|An SSH authorized keys file was accessed in a method similar to known malware campaigns. This access could signify that an actor is attempting to gain persistent access to a machine|
-|**Detected Persistence Attempt**|Analysis of host data detected installation of a startup script for single-user mode. It is extremely rare than any legitimate process has any requirement to execute in that mode so may indicate an attacker has added a malicious process to every run-level to guarantee persistence|
+|**Detected Persistence Attempt**|Analysis of host data detected installation of a startup script for single-user mode. It is extremely rare that any legitimate process has any requirement to execute in that mode so may indicate an attacker has added a malicious process to every run-level to guarantee persistence|
 |**Manipulation of scheduled tasks detected**|Analysis of host data detected possible manipulation of scheduled tasks. Attackers will often add scheduled tasks to machines they have compromised to gain persistence|
 |**Suspicious file timestamp modification**|Analysis of host data on detected a suspicious timestamp modification. Attackers will often copy timestamps from existing legitimate files to new tools to avoid detection of these newly dropped files|
 |**A new user was added to the sudoers group**|Analysis of host data indicates that a user was added to the sudoers group, which enables its members to run commands with high privileges|

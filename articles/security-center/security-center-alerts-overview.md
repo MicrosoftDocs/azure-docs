@@ -23,11 +23,11 @@ This article presents the different types of security alerts available in Azure 
 
 ## What are security alerts?
 
-Alerts are the notifications that Security Center generates when it detects threats to your resources. It prioritizes and lists the alerts along with the information needed for you to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
+Alerts are the notifications that Security Center generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed for you to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
 
 ## How does Security Center detect threats?
 
-To detect real threats and reduce false positives, Security Center collects, analyzes,and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions. Security Center analyzes this information, often correlating information from multiple sources, to identify threats.
+To detect real threats and reduce false positives, Security Center collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions. Security Center analyzes this information, often correlating information from multiple sources, to identify threats.
 
 ASC monitors the resources whether deployed on Azure or deployed on other on-premises and hybrid cloud environments. To learn more on detecting and responding to threats, see [How Security Center detects and responds to threats](security-center-detection-capabilities.md#asc-detects).
 
@@ -35,21 +35,24 @@ ASC monitors the resources whether deployed on Azure or deployed on other on-pre
 
 The following topics guide you through the different ASC alerts according to resource types:
 
-* [IaaS VMs & Servers Alerts](security-center-alerts-iaas.md)
+* [IaaS VMs & Servers alerts](security-center-alerts-iaas.md)
 * [Native compute alerts](security-center-alerts-compute.md)
 * [Data services alerts](security-center-alerts-data-services.md)
+
+The following topics explain how Security Center leverages the different telemetry that it collects from integrating with the Azure infrastructure in order to apply additional protection layers for resources deployed on Azure:
+
 * [Service layer alerts](security-center-alerts-service-layer.md)
+* [Integration with Azure Security Products](security-center-alerts-integration)
+* [Cloud Smart Alert Correlation](security-center-alerts-cloud-smart.md)
+* [UEBA for Azure resources and users](security-center-ueba-mcas)
 
 ## Get started with alerts
 
 See the following topics, to understand more about the resources monitored by ASC, and for guidelines on how to respond to the alerts presented by ASC.
 
 * To see which platforms and features are protected by ASC, see [Platforms and features supported by Azure Security Center](security-center-os-coverage.md).  
-
 * To understand what are security incidents and how ASC responds to them, see [How to handle Security Incidents in Azure Security Center](security-center-incident.md). 
-
-* To learn how to manage the alerts you receive, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).  
-
+* To learn how to manage the alerts you receive, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 * For information on to how validate Security Center is properly configured and to stimulate a test alert, see [Alerts Validation in Azure Security Center](security-center-alert-validation.md).  
 
 
@@ -64,13 +67,8 @@ To set up advanced detections, upgrade to Azure Security Center Standard.
 
 ## Next steps
 
-In this article, you learned about the different types of security alerts in Security Center. To learn more about Security Center, see the following:
-
-* [Handling security incident in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-incident)
-
-* [Azure Security Center detection capabilities](https://docs.microsoft.com/en-us/azure/security-center/security-center-detection-capabilities)
+In this article, you learned about the different types of security alerts in Security Center. For more information, see the following topics:
 
 * [Azure Security Center planning and operations guide](https://docs.microsoft.com/en-us/azure/security-center/security-center-planning-and-operations-guide)
-
 * [Azure Security Center FAQ](https://docs.microsoft.com/en-us/azure/security-center/security-center-faq): Find frequently asked questions about using the service.
 

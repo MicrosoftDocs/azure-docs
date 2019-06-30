@@ -109,26 +109,27 @@
       href: security-center-incident.md
     - name: Understanding security alerts
       href: security-center-alerts-type.md
-    - name: Security alerts
+    - name: Security alerts overview
       href: security-center-alerts-overview.md
-    - name: IaaS VMs & Servers Alerts
-      href: security-center-alerts-iaas.md
-    - name: Native compute alerts
-      href: security-center-alerts-compute.md
-    - name: Data service alerts
-      href: security-center-alerts-data-services.md
-    - name: Service layer alerts
-      href: security-center-alerts-service-layer.md   
-    - name: Security Center Integration with Azure Security Products
-      href: security-center-alerts-integration.md
-    - name: Cloud Smart Alert correlation
-      href: security-center-alerts-cloud-smart.md 
-    - name: Alert validation
-      href: security-center-alert-validation.md
-    - name: UEBA for Azure resources and users
-      href: security-center-ueba-mcas.md
-   
-  - name: Archive
+      items:
+        - name: IaaS VMs & Servers Alerts
+          href: security-center-alerts-iaas.md
+        - name: Native compute alerts
+          href: security-center-alerts-compute.md
+        - name: Data service alerts
+          href: security-center-alerts-data-services.md
+        - name: Service layer alerts
+          href: security-center-alerts-service-layer.md   
+        - name: Security Center Integration with Azure Security Products
+          href: security-center-alerts-integration.md
+        - name: Cloud Smart Alert correlation
+          href: security-center-alerts-cloud-smart.md 
+        - name: Alert validation
+          href: security-center-alert-validation.md
+        - name: UEBA for Azure resources and users
+          href: security-center-ueba-mcas.md
+      
+      - name: Archive
     items:
     - name: Apply disk encryption
       href: security-center-apply-disk-encryption.md
