@@ -156,7 +156,7 @@ The configuration implements the following structure:
 
 | Color | Description |
 | ---   | ---         |
-| Blue  | Applications explicitly published and visible in the Azure Portal. |
+| Blue  | Applications explicitly published and visible in the Azure portal. |
 | Gray  | Applications you can accessible through the parent application. |
 
 ## Scenario 2: General wildcard application with exception
