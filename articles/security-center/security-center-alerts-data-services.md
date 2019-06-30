@@ -46,9 +46,7 @@ For more information about SQL threat detection alerts visit [Azure SQL Database
 
 Advanced Threat Protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without the need to be a security expert, and manage security monitoring systems.
 
-Security Center analyzes logs of read, write, and delete requests to Blob storage to detect threats, and it triggers alerts when anomalies in activity occur.
-
-To investigate the Advanced Threat Protection alerts, you see related storage activity using Storage Analytics Logging. See how to [configure Storage Analytics logging](https://docs.microsoft.com/en-us/azure/storage/common/storage-monitor-storage-account#configure-logging) for more information.
+Security Center analyzes diagnostic logs of read, write, and delete requests to Blob storage to detect threats, and it triggers alerts when anomalies in activity occur. For more information, see to [configure Storage Analytics logging](https://docs.microsoft.com/en-us/azure/storage/common/storage-monitor-storage-account#configure-logging) for more information.
 
 
 |Alert|Description|

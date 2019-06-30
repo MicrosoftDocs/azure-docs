@@ -30,7 +30,7 @@ This topics presents the different types of detection methods and alerts availab
 
 See here for a list of supported versions.
 
-## Windows-based machines<a name="windows-machines"></a>
+## Windows-based machines <a name="windows-machines"></a>
 
 Security Center integrates with Azure services to monitor and protect your Windows-based machines.  Security Center presents the alerts and remediation suggestions from all of these services in an easy-to-use format.
 
@@ -38,7 +38,7 @@ Security Center integrates with Azure services to monitor and protect your Windo
 
 Azure Security Center extends its Cloud Workload Protection Platforms by integrating with Windows Defender Advanced Threat Protection (ATP). This provides comprehensive Endpoint Detection and Response (EDR) capabilities.
 
-With Windows Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Azure Security Center.
+With Windows Defender ATP integration, you can spot abnormalities, and detect and respond to sophisticated attacks on server endpoints monitored by Azure Security Center.
 
 > [!NOTE]
 > Windows Server Defender ATP sensor is automatically enabled on Windows Servers that are onboarded to Azure Security Center.

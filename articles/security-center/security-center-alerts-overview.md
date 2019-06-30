@@ -19,7 +19,7 @@ ms.author: monhaber
 ---
 # Security Alerts in Azure Security Center
 
-This article presents the different kinds of alerts available in Azure Security Center (ASC).
+This article presents the different types of security alerts available in Azure Security Center (ASC). There are a variety of alerts for the many different resource types. ASC generates alerts for both resources deployed on Azure, and resources deployed on on-premises and hybrid cloud environments. 
 
 ## What are security alerts?
 
