@@ -102,6 +102,8 @@
         href: howto-prepare-images.md
       - name: Configure application dashboard
         href: howto-configure-homepage.md
+      - name: How to use tiles
+        href: howto-use-tiles.md
       - name: Customize application UI
         href: howto-customize-ui.md
       - name: Manage from the Azure portal
