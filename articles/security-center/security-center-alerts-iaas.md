@@ -90,21 +90,21 @@ Below are several examples of analytics, that demonstrate how we span across dif
 
 |Alert|Description|
 |---|---|
-|**Process seen accessing the SSH authorized keys file in an unusual way**|An SSH authorized keys file was accessed in a method similar to known malware campaigns. This access could signify that an actor is attempting to gain persistent access to a machine|
-|**Detected Persistence Attempt**|Analysis of host data detected installation of a startup script for single-user mode. It is extremely rare that any legitimate process has any requirement to execute in that mode so may indicate an attacker has added a malicious process to every run-level to guarantee persistence|
-|**Manipulation of scheduled tasks detected**|Analysis of host data detected possible manipulation of scheduled tasks. Attackers will often add scheduled tasks to machines they have compromised to gain persistence|
-|**Suspicious file timestamp modification**|Analysis of host data on detected a suspicious timestamp modification. Attackers will often copy timestamps from existing legitimate files to new tools to avoid detection of these newly dropped files|
-|**A new user was added to the sudoers group**|Analysis of host data indicates that a user was added to the sudoers group, which enables its members to run commands with high privileges|
-|**Likely exploit of DynoRoot vulnerability in dhcp client**|Analysis of host data detected the execution of an unusual command with parent process of dhclient script|
-|**Suspicious kernel module detected**|Analysis of host data detected a shared object file being loaded as a kernel module. This could be legitimate activity, or an indication that one of your machines has been compromised|
-|**Process associated with digital currency mining detected**|Analysis of host data detected the execution of a process normally associated with digital currency mining|
-|**Potential port forwarding to external IP address**|Analysis of host data detected the initiation of port forwarding to an external IP address|
+|**Process seen accessing the SSH authorized keys file in an unusual way**|An SSH authorized keys file has been accessed in a method similar to known malware campaigns. This access could indicate that an attacker is attempting to gain persistent access to a machine|
+|**Detected Persistence Attempt**|Analyzing host data detected that a startup script for single-user mode has been installed. <br/><br/>Since it is extremely rare that any legitimate process has would be required to execute in that mode, this may indicate that an attacker has added a malicious process to every run-level to guarantee persistence.|
+|**Manipulation of scheduled tasks detected**|Host data analysis has detected possible manipulation of scheduled tasks. Attackers often add scheduled tasks to machines they have compromised to gain persistence.|
+|**Suspicious file timestamp modification**|Host data analysis has detected a suspicious timestamp modification. Attackers often copy timestamps from existing legitimate files to new tools to avoid detection of these newly dropped files|
+|**A new user was added to the sudoers group**|Host data analysis has detected that a user was added to the sudoers group, which enables its members to run commands with high privileges.|
+|**Likely exploit of DynoRoot vulnerability in dhcp client**|Host data analysis has detected the execution of an unusual command with parent process of dhclient script.|
+|**Suspicious kernel module detected**|Analysis of host data detected a shared object file being loaded as a kernel module. This could be legitimate activity, or an indication that one of your machines has been compromised.|
+|**Process associated with digital currency mining detected**|Host data analysis has detected the execution of a process normally associated with digital currency mining|
+|**Potential port forwarding to external IP address**|Analysis of host data detected the initiation of port forwarding to an external IP address.|
 
 > [!NOTE]
 > You can simulate Windows alerts by downloading [Azure Security Center Playbook: Security Alerts](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef) and follow the provided guidelines.
 
 
-For additional read on Security Center findings and examples:  
+For additional information, see these articles:  
 
 * [Leverage Azure Security Center to detect when compromised Linux machines attack](https://azure.microsoft.com/en-us/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
 
