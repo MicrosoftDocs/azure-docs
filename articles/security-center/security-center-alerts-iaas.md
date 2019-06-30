@@ -28,7 +28,7 @@ This topics presents the different types of detection methods and alerts availab
 * [Linux-based machines](#linux-machines)
   * [Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration](#linux-auditd)
 
-See here for a list of supported versions.
+For a list of supported versions, click [here](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage).
 
 ## Windows-based machines <a name="windows-machines"></a>
 

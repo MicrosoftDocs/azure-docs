@@ -36,13 +36,13 @@ ASC monitors the resources whether deployed on Azure or deployed on other on-pre
 The following topics guide you through the different ASC alerts according to resource types:
 
 * [IaaS VMs & Servers Alerts](security-center-alerts-iaas.md)
-* [Native computer alerts](security-center-alerts-compute.md)
+* [Native compute alerts](security-center-alerts-compute.md)
 * [Data services alerts](security-center-alerts-data-services.md)
 * [Service layer alerts](security-center-alerts-service-layer.md)
 
-## Alerts management
+## Get started with alerts
 
-See the following topics, for further information about managing alerts.
+See the following topics, to understand more about the resources monitored by ASC, and for guidelines on how to respond to the alerts presented by ASC.
 
 * To see which platforms and features are protected by ASC, see [Platforms and features supported by Azure Security Center](security-center-os-coverage.md).  
 
