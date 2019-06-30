@@ -38,7 +38,7 @@ Download and install the [Microsoft Hive ODBC Driver](https://go.microsoft.com/f
 
 The following steps show you how to create an Apache Hive ODBC data source.
 
-1. From Windows, navigate to Start > Windows Administrative Tools > ODBC Data Sources (32-bit)/(64-bit).  An ODBC Data Source Administrator** window opens.
+1. From Windows, navigate to **Start** > **Windows Administrative Tools** > **ODBC Data Sources (32-bit)/(64-bit)**.  An **ODBC Data Source Administrator** window opens.
 
     ![OBDC data source administrator](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Configure a DSN using ODBC Data Source Administrator")
 
@@ -58,7 +58,7 @@ The following steps show you how to create an Apache Hive ODBC data source.
    |  User Name |Enter HDInsight cluster HTTP user username. The default username is **admin**. |
    |  Password |Enter HDInsight cluster user password. Select the checkbox **Save Password (Encrypted)**.|
 
-1. Optional: Select **Advanced Options...**  
+1. Optional: Select **Advanced Options**.  
 
    | Parameter | Description |
    | --- | --- |
