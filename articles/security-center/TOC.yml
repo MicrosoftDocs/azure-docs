@@ -103,12 +103,6 @@
   - name: Detect threats
     href: security-center-detection-capabilities.md
     items:
-    - name: Security alerts
-      href: security-center-managing-and-responding-alerts.md
-    - name: Security incidents
-      href: security-center-incident.md
-    - name: Understanding security alerts
-      href: security-center-alerts-type.md
     - name: Security alerts overview
       href: security-center-alerts-overview.md
       items:
@@ -124,10 +118,14 @@
           href: security-center-alerts-integration.md
         - name: Cloud Smart Alert correlation
           href: security-center-alerts-cloud-smart.md 
-        - name: Alert validation
-          href: security-center-alert-validation.md
         - name: UEBA for Azure resources and users
           href: security-center-ueba-mcas.md
+    - name: Manage Security alerts
+      href: security-center-managing-and-responding-alerts.md
+    - name: Security incidents
+      href: security-center-incident.md
+    - name: Alert validation
+      href: security-center-alert-validation.md
       
   - name: Archive
     items:
@@ -187,6 +185,8 @@
       href: security-center-search.md    
     - name: Planning and operations
       href: security-center-planning-and-operations-guide.md
+    - name: Understanding security alerts
+      href: security-center-alerts-type.md
 
 - name: Reference
   items:

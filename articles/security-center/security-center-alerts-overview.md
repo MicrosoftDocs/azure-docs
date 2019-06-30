@@ -44,7 +44,7 @@ The following topics explain how Security Center leverages the different telemet
 * [Service layer alerts](security-center-alerts-service-layer.md)
 * [Integration with Azure Security Products](security-center-alerts-integration)
 * [Cloud Smart Alert Correlation](security-center-alerts-cloud-smart.md)
-* [UEBA for Azure resources and users](security-center-ueba-mcas)
+* [UEBA for Azure resources and users](security-center-ueba-mcas.md)
 
 ## Get started with alerts
 
