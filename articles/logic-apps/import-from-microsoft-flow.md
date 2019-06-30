@@ -15,6 +15,12 @@ ms.date: 07/04/2019
 
 To extend and expand the capabilities for a flow that you created with [Microsoft Flow](https://flow.microsoft.com), export that flow as a Azure Resource Manager template and open that template in Azure Logic Apps.
 
+> [!NOTE]
+> Not all Microsoft Flow connectors are available in Azure Logic Apps. 
+> You can import flows that have equivalent connectors in Azure Logic Apps. 
+> For example, logic apps don't support the Button trigger, and the 
+> Approval and Notification connectors are specific to Microsoft Flow. 
+
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
