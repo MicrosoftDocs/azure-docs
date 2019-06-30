@@ -40,6 +40,10 @@
     href: security-center-using-recommendations.md
   - name: Detect threats
     href: security-center-detection-capabilities.md
+  - name: Manage Security alerts
+    href: security-center-managing-and-responding-alerts.md
+  - name: Security incidents
+    href: security-center-incident.md
   - name: Incident response
     href: security-center-incident-response.md  
 
@@ -103,30 +107,24 @@
       href: security-center-file-integrity-monitoring.md
     - name: Adaptive network hardening
       href: security-center-adaptive-network-hardening.md
-  - name: Detect threats with alerts  
+  - name: Threat detection alerts
     items:
     - name: Security alerts overview
       href: security-center-alerts-overview.md
-    - name: Alert types
-      items:
-      - name: IaaS VMs & Servers Alerts
-        href: security-center-alerts-iaas.md
-      - name: Native compute alerts
-        href: security-center-alerts-compute.md
-      - name: Data service alerts
-        href: security-center-alerts-data-services.md
-      - name: Service layer alerts
-        href: security-center-alerts-service-layer.md   
-      - name: Security Center Integration with Azure Security Products
-        href: security-center-alerts-integration.md
-      - name: Cloud Smart Alert correlation
-        href: security-center-alerts-cloud-smart.md 
-      - name: UEBA for Azure resources and users
-        href: security-center-ueba-mcas.md
-    - name: Manage Security alerts
-      href: security-center-managing-and-responding-alerts.md
-    - name: Security incidents
-      href: security-center-incident.md
+    - name: IaaS VMs & Servers Alerts
+      href: security-center-alerts-iaas.md
+    - name: Native compute alerts
+      href: security-center-alerts-compute.md
+    - name: Data service alerts
+      href: security-center-alerts-data-services.md
+    - name: Service layer alerts
+      href: security-center-alerts-service-layer.md   
+    - name: Security Center Integration with Azure Security Products
+      href: security-center-alerts-integration.md
+    - name: Cloud Smart Alert correlation
+      href: security-center-alerts-cloud-smart.md 
+    - name: UEBA for Azure resources and users
+      href: security-center-ueba-mcas.md
     - name: Alert validation
       href: security-center-alert-validation.md
       
