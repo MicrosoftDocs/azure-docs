@@ -119,7 +119,7 @@
       href: security-center-alerts-data-services.md
     - name: Service layer alerts
       href: security-center-alerts-service-layer.md   
-    - name: Security Center Integration with Azure Security Products
+    - name: Integration with Azure Security Products
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation
       href: security-center-alerts-cloud-smart.md 
