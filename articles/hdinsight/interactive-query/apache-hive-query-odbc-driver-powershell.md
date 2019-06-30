@@ -1,6 +1,6 @@
 ---
-title: Query Apache Hive with ODBC Driver and Powershell
-description: Use the Microsoft Hive ODBC driver and Powershell to query Apache Hive clusters on Azure HDInsight.
+title: Query Apache Hive with ODBC Driver and PowerShell - Azure HDInsight
+description: Use the Microsoft Hive ODBC driver and PowerShell to query Apache Hive clusters on Azure HDInsight.
 keywords: hive,hive odbc,powershell
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -11,16 +11,16 @@ ms.author: hrasheed
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
 ---
 
-# Tutorial: Query Apache Hive with ODBC and Powershell
+# Tutorial: Query Apache Hive with ODBC and PowerShell
 
-Microsoft ODBC drivers provide a flexible way to interact with different kinds of data sources, including Apache Hive. You can write code in scripting languages like Powershell that use the ODBC drivers to open a connection to your Hive cluster, pass a query of your choosing, and display the results.
+Microsoft ODBC drivers provide a flexible way to interact with different kinds of data sources, including Apache Hive. You can write code in scripting languages like PowerShell that use the ODBC drivers to open a connection to your Hive cluster, pass a query of your choosing, and display the results.
 
 In this tutorial, you'll do the following tasks:
 
 > [!div class="checklist"]
 > * Download and install the Microsoft Hive ODBC driver
 > * Create an Apache Hive ODBC data source linked to your cluster
-> * Query sample information from your cluster using Powershell
+> * Query sample information from your cluster using PowerShell
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -76,9 +76,9 @@ The following steps show you how to create an Apache Hive ODBC data source.
 
 1. Select **OK** to close the **ODBC Data Source Administrator** window.  
 
-## Query data with Powershell
+## Query data with PowerShell
 
-The following powershell script is a function that ODBC to query a Hive cluster.
+The following PowerShell script is a function that ODBC to query a Hive cluster.
 
 ```powershell
 function Get-ODBC-Data {
@@ -122,7 +122,7 @@ When no longer needed, delete the resource group, HDInsight cluster, and storage
 
 ## Next steps
 
-In this tutorial, you learned how to use the Microsoft Hive ODBC driver and Powershell to retrieve data from your Azure HDInsight Interactive Query cluster.
+In this tutorial, you learned how to use the Microsoft Hive ODBC driver and PowerShell to retrieve data from your Azure HDInsight Interactive Query cluster.
 
 > [!div class="nextstepaction"]
 > [Connect Excel to Apache Hive using ODBC](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
