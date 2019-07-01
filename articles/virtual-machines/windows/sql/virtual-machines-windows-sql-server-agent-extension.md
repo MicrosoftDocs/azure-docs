@@ -110,6 +110,11 @@ If you need to reinstall the extension manually on one of these SQL Server VMs, 
 ```powershell
 Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
+
+> [!WARNING]
+> - If the extension is not already installed, installing the **full** extension restarts the SQL Server service. Use **lightweight** mode to avoid restarting the SQL Server service. 
+> - Updating the SQL IaaS extension does not restart the SQL Server service. 
+
 ### Lightweight mode
 
 Install SQL IaaS agent with lightweight mode using PowerShell:
@@ -125,8 +130,6 @@ Install SQL IaaS agent with lightweight mode using PowerShell:
   
   ```
 
-> [!WARNING]
-> If the extension is not already installed, installing the **Full** extension restarts the SQL Server service. However, using the **Lightweight** mode, and updating the SQL IaaS extension does not restart the SQL Server service. 
 
 > [!NOTE]
 > While it is possible to install the SQL Server IaaS Agent extension to custom SQL Server images, the functionality is currently limited to [changing the license type](virtual-machines-windows-sql-ahb.md). Other features provided by the SQL IaaS extension will only work on [SQL Server VM gallery images](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license).

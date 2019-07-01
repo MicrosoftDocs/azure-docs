@@ -72,6 +72,7 @@ The following PowerShell code snippet will register the SQL VM resource provider
 # Register the new SQL VM resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
+---
 
 ## Register SQL Server VM with SQL VM resource provider
 Once the SQL VM resource provider has been registered to your subscription, you can then register your SQL Server VM with the resource provider using PowerShell. If the SQL IaaS extension has not already been installed to your SQL Server VM, registering will install the SQL IaaS installation in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#modes), which will not restart your SQL Server service. 
