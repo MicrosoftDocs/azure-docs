@@ -1,17 +1,16 @@
 ---
 title: Multi-turn conversations
 titleSuffix: Azure Cognitive Services
-description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back and forth conversation where the previous question's context influences the next question and answer.
+description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back-and-forth conversation where the previous question's context influences the next question and answer.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article 
+ms.topic: article
 ms.date: 06/26/2019
 ms.author: diberry
-#
 ---
 
 # Use follow-up prompts to create multiple turns of a conversation
@@ -63,7 +62,7 @@ When you import the PDF document, QnA Maker determines follow-up prompts from th
 1. Create or use an existing QnA Maker service. In the preceding Microsoft Surface example, because the PDF file is too large for a smaller tier, use a QnA Maker service with a **Search service** of **B** (15 indexes) or greater.
 1. Enter a name for your knowledge base, such as **Surface manual**.
 1. Select the **Enable multi-turn extraction from URLs, .pdf or .docx files** check box. 
-1. Select the Surface manual URL, **`https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf`**.
+1. Select the Surface manual URL, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf**.
 
 1. Select the **Create your KB** button. 
 
@@ -85,7 +84,7 @@ In the preceding image, **#1** indicates bold text in the column, which signifie
 
 ## Add an existing question-and-answer pair as a follow-up prompt
 
-The original question, *My account*, has follow-up prompts, such as *Accounts and signing in*. 
+The original question, **My account**, has follow-up prompts, such as **Accounts and signing in**. 
 
 ![The "Accounts and signing in" answers and follow-up prompts](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
@@ -142,7 +141,7 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 
 1. Select **Save and train**. 
 
-    When you send the question *Give feedback* with the metadata filter *Feature* with a value of *all*, only the question-and-answer pair with that metadata is returned. QnA Maker doesn't return both question-and-answer pairs, because both don't match the filter. 
+    When you send the question **Give feedback** with the metadata filter **Feature** with a value of **all**, only the question-and-answer pair with that metadata is returned. QnA Maker doesn't return both question-and-answer pairs, because both don't match the filter. 
 
 -->
 
@@ -205,7 +204,7 @@ Use the empty `context` object to request the answer to the user's question and 
 
 ## A JSON response to return an initial answer and follow-up prompts
 
-The preceding section requested an answer and any follow-up prompts to *Accounts and signing in*. The response includes the prompt information, which is located at *answers[0].context*, and the text to display to the user. 
+The preceding section requested an answer and any follow-up prompts to **Accounts and signing in**. The response includes the prompt information, which is located at *answers[0].context*, and the text to display to the user. 
 
 ```JSON
 {
