@@ -163,6 +163,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "samples-anomaly-detector",
+      "url": "https://github.com/Azure-Samples/anomalydetector",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "api-management-policy-samples",
       "url": "https://github.com/Azure/api-management-policy-snippets",
       "branch": "master",

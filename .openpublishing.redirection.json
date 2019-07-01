@@ -25740,6 +25740,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/storm/apache-storm-tutorial-get-started-linux.md",
+      "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-apache-spark-resource-manager.md",
       "redirect_url": "/azure/hdinsight/spark/apache-spark-resource-manager",
       "redirect_document_id": true
@@ -25761,8 +25766,8 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux.md",
-      "redirect_url": "/azure/hdinsight/storm/apache-storm-tutorial-get-started-linux",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md",
@@ -40034,11 +40039,17 @@
       "redirect_url": "/azure/backup/backup-create-rs-vault",
       "redirect_document_id": true
     },
-    {
+    {	    
       "source_path": "articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instance.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/azure-monitor/insights/container-overview.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
