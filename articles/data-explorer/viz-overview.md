@@ -18,7 +18,7 @@ Data visualization and reporting is a critical step in the data analytics proces
 
 ## Kusto query language visualizations
 
-Using Kusto query language the [`render operator`](/azure/kusto/query/renderoperator) offers various visualizations such as tables, pie charts, and bar charts to depict query results. Query visualizations are helpful in anomaly detection and forecasting, machine learning, and more.
+The Kusto query language [`render operator`](/azure/kusto/query/renderoperator) offers various visualizations such as tables, pie charts, and bar charts to depict query results. Query visualizations are helpful in anomaly detection and forecasting, machine learning, and more.
 
 ## Power BI
 
