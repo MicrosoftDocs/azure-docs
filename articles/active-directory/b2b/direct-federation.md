@@ -36,7 +36,7 @@ After you set up direct federation with an organization, any new guest users you
 In any of these scenarios, you can update a guest user’s authentication method by deleting the guest user account from your directory and reinviting them.
 
 ## End-user experience 
-With direct federation, guest users sign into your Azure AD tenant using their own organizational account. When they are accessing shared resources and are prompted for sign-in, direct federation users are redirected to their identity provider. After successful sign-in, they are returned to Azure AD to access resources. Direct federation users’ refresh tokens are valid for 12 hours, the [default length for passthrough refresh token](../develop/active-directory-configurable-token-lifetimes#exceptions) in Azure AD. If the federated identity provider has SSO enabled, the user will experience SSO and will not see any sign-in prompt after initial authentication.
+With direct federation, guest users sign into your Azure AD tenant using their own organizational account. When they are accessing shared resources and are prompted for sign-in, direct federation users are redirected to their identity provider. After successful sign-in, they are returned to Azure AD to access resources. Direct federation users’ refresh tokens are valid for 12 hours, the [default length for passthrough refresh token](../develop/active-directory-configurable-token-lifetimes.md#exceptions) in Azure AD. If the federated identity provider has SSO enabled, the user will experience SSO and will not see any sign-in prompt after initial authentication.
 
 ## Limitations
 
@@ -58,7 +58,7 @@ For example, when setting up direct federation for **fabrikam.com**, the authent
 If you specify the metadata URL in the identity provider settings, Azure AD will automatically renew the signing certificate when it expires. However, if the certificate is rotated for any reason before the expiration time or if you don't provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
 ## Frequently asked questions
 ### Can I set up direct federation with an unmanaged (e-mail verified) tenant? 
-Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../users-groups-roles/domains-admin-takeover), you can set up direct federation. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up direct federation with these domains.
+Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../users-groups-roles/domains-admin-takeover.md), you can set up direct federation. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up direct federation with these domains.
 ### If direct federation and email one-time passcode authentication are both enabled, which method takes precedence?
 When direct federation is established with a partner organization, it takes precedence over email one-time passcode authentication for new guest users from that organization. If a guest user redeemed an invitation using one-time passcode authentication before you set up direct federation, they'll continue to use one-time passcode authentication. 
 ### Does direct federation address sign-in issues due to a partially synced tenancy?
