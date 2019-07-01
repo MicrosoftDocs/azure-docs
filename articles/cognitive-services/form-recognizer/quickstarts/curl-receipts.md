@@ -60,7 +60,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/op
 
 ### Examine the response
 
-You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is complete, the `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the receipt.
+You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is complete, the `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the receipt. If the operation is not complete, the value of `"status"` will be `"Running"` or `"NotStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
 See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
 
