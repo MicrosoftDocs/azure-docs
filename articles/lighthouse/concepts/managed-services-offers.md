@@ -31,7 +31,7 @@ Keep in mind that once a plan has been published as public, you can't change it 
 
 If appropriate, you can include both public and private plans in the same offer.
 
-## Publish your managed service offer
+## Publish managed service offers
 
 To learn how to publish a managed services offer, see [Publish a Managed Services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md). For general info about publishing to Azure Marketplace using the Cloud Partner Portal, see [Azure Marketplace and AppSource Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Manage Azure and AppSource Marketplace offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers).
 

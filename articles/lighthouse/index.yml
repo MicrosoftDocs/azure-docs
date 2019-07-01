@@ -26,7 +26,7 @@ sections:
     - html: <a href="concepts/cross-tenant-management-experience">Cross-tenant management experiences</a>
     - html: <a href="concepts/managed-services-offers">Managed Services offers in Azure Marketplace</a>
     - html: <a href="concepts/recommended-security-practices.md">Recommended security practices</a>
-    - html: <a href="concepts/cloud-solution-provider.md">Azure Lighthouse and the Cloud Solution Provider Program</a>
+    - html: <a href="concepts/cloud-solution-provider.md">Cloud Solution Provider program considerations</a>
 - title: How-to guides
   items:
   - type: paragraph
