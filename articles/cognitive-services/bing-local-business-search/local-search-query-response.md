@@ -17,8 +17,6 @@ You can get local results from the Bing Local Business Search API by sending a s
 
 ## Creating a request
 
-[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
-
 To send a request to the Bing Local Business Search API, append a search term to the `q=` parameter before adding it to the API endpoint, and including the `Ocp-Apim-Subscription-Key` header. For example:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
@@ -34,6 +32,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localC
 ## Using responses
 
 JSON responses from the Bing Local Business Search API contain a `SearchResponse` object. The API will return relevant search results in the `places` field. if no results are found, the `places` field will not be included in the response.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ```
 {

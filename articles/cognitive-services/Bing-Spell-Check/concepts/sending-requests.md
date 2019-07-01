@@ -15,8 +15,6 @@ ms.author: aahi
 
 # Sending requests to the Bing Spell Check API
 
-[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
-
 To check a text string for spelling and grammar errors, you'd send a GET request to the following endpoint:  
 
 ```
@@ -70,6 +68,8 @@ The following shows a request that includes all the suggested query parameters a
 > ```  
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

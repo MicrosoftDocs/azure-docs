@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 4/03/2019
+ms.date: 7/01/2019
 ms.author: aahi
 ---
 
@@ -24,8 +24,6 @@ You can get insights about an image in three ways:
 - Uploading an image (in binary format).
 
 ## Bing Visual Search requests
-
-[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 If you send Visual Search an image token or URL, the following snippet shows the JSON object that you must include in the body of the POST:
 
@@ -190,6 +188,9 @@ Content-Disposition: form-data; name="knowledgeRequest"
 ```
 
 ## Bing Visual Search responses
+
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 If there are insights available for the image, the response contains one or more `tags` that contain the insights. The `image` field contains the insights token for the input image:
 

@@ -21,8 +21,6 @@ The Bing News Search API enables you to search the web for relevant news items. 
 
 ## Sending a request
 
-[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
-
 To get news-only search results, you'd send a GET request to the following endpoint:
 
 ```http
@@ -62,7 +60,9 @@ Host: api.cognitive.microsoft.com
 
 The following shows the response to the previous request. The example also shows the response headers.
 
-```
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
+```json
 BingAPIs-TraceId: 994974CC8D994C95A5C31387296A510A
 X-MSEdge-ClientID: 3358F499A06F6A562B88F8F4A1236BC0
 BingAPIs-Market: en-US

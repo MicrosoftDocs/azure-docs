@@ -41,7 +41,6 @@ For examples of basic requests using the Autosuggest API, see [Autosuggest Quick
 
 > [!NOTE]
 > * Requests to the Bing Autosuggest API must use the HTTPS protocol.
-> * Because URL formats and parameters are subject to change without notice, use all URLs as-is. You should not take dependencies on the URL format or parameters except where noted.
 
 We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity malicious third-party access. Additionally, making calls from a server provides a single upgrade point for future updates.
 
@@ -97,6 +96,8 @@ The following web suggestion group is a response to the above request. The group
 The `displayText` field contains the suggested query that you'd use to populate your search box's drop-down list. You must display all suggestions that the response includes, and in the given order.  
 
 If the user selects a query from the drop-down list, you can use it to call the one of the [Bing Search APIs](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) and display the results yourself, or send the user to the Bing results page using the returned `url` field.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

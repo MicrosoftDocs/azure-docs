@@ -1,5 +1,5 @@
 ---
-title: Send image queries - Bing Image Search API
+title: Customize and suggest image search queries - Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: Learn about customizing the search queries you send to the Bing Image Search API.
 services: cognitive-services
@@ -13,13 +13,11 @@ ms.date: 06/27/2019
 ms.author: aahi
 ---
 
-# Send queries to the Bing Image Search API
+# Customize and suggest image search queries
 
-The Bing Image Search API provides an experience similar to Bing.com/Images. You can use it to send a search query to Bing and get back a list of relevant images. 
+Use this article to learn how to customize queries and suggest search terms to send to the Bing Image Search API.
 
-## Use and suggest search terms
-
-After a search term is entered, URL-encode the term before you set the [**q**](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) query parameter. For example, if you enter *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
+## Suggest search terms
 
 If your app has a search box where search terms are entered, you can use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API can display suggested search terms in real time. The API returns suggested query strings based on partial search terms and Cognitive Services.
 

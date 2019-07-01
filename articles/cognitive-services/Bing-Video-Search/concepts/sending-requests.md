@@ -16,8 +16,6 @@ ms.author: aahill
 
 This article describes the parameters and attributes of requests sent to the Bing Video Search API, as well as the JSON response object it returns. 
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
-
 ## Suggest search terms with the Bing Autosuggest API
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
@@ -69,6 +67,8 @@ Host: api.cognitive.microsoft.com
 ## Example JSON response
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
+
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
