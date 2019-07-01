@@ -52,7 +52,7 @@ In the example configurations, installation commands etc. ASCS instance is numbe
 
 The database layer isn't covered in detail in this article.  
 
-Read the following SAP Notes and papers first
+Read the following SAP Notes and papers first:
 
 * [Azure NetApp Files documentation][anf-azure-doc] 
 * SAP Note [1928533], which has:
@@ -408,7 +408,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
    sudo firewall-cmd --zone=public  --add-port=4237/tcp
    
-   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
+   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
    If the installation fails to create a subfolder in /usr/sap/**QAS**/ASCS**00**, try setting the owner and group of the ASCS**00** folder and retry.
@@ -467,7 +467,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
    sudo firewall-cmd --zone=public  --add-port=4237/tcp
 
-   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
+   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
    ```
 
    If the installation fails to create a subfolder in /usr/sap/**QAS**/ERS**01**, try setting the owner and group of the ERS**01** folder and retry.
@@ -683,7 +683,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Add mount entries  
 
-   ```sudo vi /etc/fstab
+   ```
+   sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=3
@@ -757,7 +758,7 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
    ```
-   sudo <swpm>;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
+   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
    ```
 
 ## SAP NetWeaver application server installation
@@ -775,7 +776,7 @@ Follow these steps to install an SAP application server.
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
    ```
-   sudo <swpm>;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
+   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
    ```
 
 1. Update SAP HANA secure store
