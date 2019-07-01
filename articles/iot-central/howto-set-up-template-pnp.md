@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Set up a device template
+# Set up a device template (Plug and Play)
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 

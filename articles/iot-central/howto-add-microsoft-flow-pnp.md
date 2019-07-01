@@ -10,7 +10,7 @@ ms.service: iot-central
 manager: hegate
 ---
 
-# Build workflows with the IoT Central connector in Microsoft Flow
+# Build workflows with the IoT Central connector in Microsoft Flow (Plug and Play)
 
 *This topic applies to builders and administrators.*
 

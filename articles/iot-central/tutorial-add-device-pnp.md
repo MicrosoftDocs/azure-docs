@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Tutorial: Add a real device to your Azure IoT Central application
+# Tutorial: Add a real device to your Azure IoT Central application (Plug and Play)
 
 This tutorial shows you how to add and configure a real device to your Microsoft Azure IoT Central application.
 

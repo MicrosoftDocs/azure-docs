@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Create webhook actions on rules in Azure IoT Central
+# Create webhook actions on rules in Azure IoT Central (Plug and Play)
 
 *This topic applies to builders and administrators.*
 

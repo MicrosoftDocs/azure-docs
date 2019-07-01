@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Tutorial: Configure rules and actions for your device in Azure IoT Central
+# Tutorial: Configure rules and actions for your device in Azure IoT Central (Plug and Play)
 
 *This article applies to operators, builders, and administrators.*
 

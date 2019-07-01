@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Create an Azure IoT Central application
+# Create an Azure IoT Central application (Plug and Play)
 
 As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure IoT Central application. This quickstart shows you how to create an Azure IoT Central application that contains a sample _device template_ and simulated _devices_.
 

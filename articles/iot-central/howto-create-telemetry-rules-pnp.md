@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Create a telemetry rule and set up notifications in your Azure IoT Central application
+# Create a telemetry rule and set up notifications in your Azure IoT Central application (Plug and Play)
 
 *This article applies to operators, builders, and administrators.*
 

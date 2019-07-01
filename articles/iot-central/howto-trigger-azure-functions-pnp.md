@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Trigger Azure Functions using webhooks in Azure IoT Central
+# Trigger Azure Functions using webhooks in Azure IoT Central (Plug and Play)
 
 *This topic applies to builders and administrators.*
 

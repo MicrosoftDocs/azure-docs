@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpfr
 ---
 
-# Use device sets in your Azure IoT Central application
+# Use device sets in your Azure IoT Central application (Plug and Play)
 
 This article describes how, as an operator, to use device sets in your Azure IoT Central application.
 

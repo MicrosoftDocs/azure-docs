@@ -10,7 +10,7 @@ ms.service: iot-central
 manager: philmea
 ---
 
-# Group multiple actions to run from one or more rules
+# Group multiple actions to run from one or more rules (Plug and Play)
 
 *This article applies to builders and administrators.*
 

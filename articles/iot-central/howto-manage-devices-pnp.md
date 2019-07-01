@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Manage devices in your Azure IoT Central application
+# Manage devices in your Azure IoT Central application (Plug and Play)
 
 This article describes how, as an operator, to manage devices in your Azure IoT Central application. As an operator, you can:
 

@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Take a tour of the Azure IoT Central UI
+# Take a tour of the Azure IoT Central UI (Plug and Play)
 
 This article introduces you to the Microsoft Azure IoT Central UI. You can use the UI to create, manage, and use an Azure IoT Central solution and its connected devices.
 
