@@ -11,7 +11,7 @@ keywords: prometheus, aro, openshift, metrics, red hat
 
 # Deploy a standalone Prometheus in an Azure Red Hat OpenShift cluster
 
-This article describes how to configure a standalone Prometheus instance with service discovery in an Azure Red Hat OpenShift cluster. Note that customer admin access to the cluster isn't needed.
+This article describes how to configure a standalone Prometheus instance with service discovery in an Azure Red Hat OpenShift cluster. Note that customer admin access to the cluster isn't required.
 
 Target setup:
 
@@ -40,7 +40,7 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> You can either use the `-n` or `--namespace` parameter or select an active project with the `oc project` command
+> You can either use the `-n` or `--namespace` parameter, or you can select an active project with the `oc project` command.
 
 ## Step 3: Prepare Prometheus config
 Create a prometheus.yml file with the following content:
@@ -170,37 +170,38 @@ Apply the template to all projects where you would like to allow service discove
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 ```
-If you want Prometheus to gather metrics from itself, apply the permissions in prometheus-project.
+To have Prometheus to gather metrics from itself, apply the permissions in prometheus-project.
 
 > [!NOTE]
 > You can verify if Role and RoleBinding were created correctly with the `oc get role` and `oc get rolebinding` commands, respectively.
 
 ## Optional: Deploy example application
-Everything is working, but there are no metrics sources. Go to the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/), which can be found with the following command.
+Everything is working, but there are no metrics sources. See the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/), which can be found by using the following command:
 ```
 oc get route prom -n prometheus-project
 ```
-Remember to prefix the hostname with https://.
+> [!IMPORTANT]
+> Remember to prefix the hostname with https://.
 
 The **Status > Service Discovery** page will show 0/0 active targets.
 
-To deploy an example application, which exposes basic python metrics under the /metrics endpoint run the following commands.
+To deploy an example application, which exposes basic Python metrics under the /metrics endpoint, run the following commands:
 ```
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example1 -n app-project1
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example2 -n app-project2
 ```
-The new applications will appear as valid targets on the Service Discovery page within 30s after deployment. You can get more details on the **Status > Targets** page.
+The new applications will appear as valid targets on the Service Discovery page within 30 seconds after deployment. For more details, select **Status** > **Targets**.
 
 > [!NOTE]
-> For every successfully scraped target Prometheus adds a datapoint in the "up" metric. Click **Prometheus** in the top left corner and enter "up" as the expression and click **Execute**.
+> For every successfully scraped target, Prometheus adds a datapoint in the up metric. Select **Prometheus** in the upper-left corner, and then enter **up** as the expression. Select **Execute**.
 
 ## Next steps
 
-You can add custom Prometheus instrumentation to your applications.
+You can add custom Prometheus instrumentation to your applications. The Prometheus Client library, which simplifies Prometheus metrics preparation, is ready for different programming languages.
 
-The Prometheus Client library, which simplifies preparing Prometheus metrics, is ready for different programming languages.
+For more information, see the following libraries:
 
- - Java https://github.com/prometheus/client_java
- - Python https://github.com/prometheus/client_python
- - Go https://github.com/prometheus/client_golang
- - Ruby https://github.com/prometheus/client_ruby
+ - Java: https://github.com/prometheus/client_java
+ - Python: https://github.com/prometheus/client_python
+ - Go: https://github.com/prometheus/client_golang
+ - Ruby: https://github.com/prometheus/client_ruby
