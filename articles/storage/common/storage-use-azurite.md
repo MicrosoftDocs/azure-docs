@@ -13,20 +13,16 @@ ms.subservice: common
 
 # Use the Azurite open-source emulator for blob storage development and testing (preview)
 
-The Azurite version 3 open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications. When you're satisfied with how your application is working, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
+The Azurite version 3 open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
 
-## Install Azurite
+There are several different ways to install and run Azurite on your local system:
 
-There are four different ways to get Azurite installed on your local system:
+  1. [Install and run Azurite by using NPM](#install-azurite-by-using-npm)
+  1. [Install and run the Azurite Docker image](#install-the-azurite-docker-image)
+  1. [Install and run the Azurite Visual Studio Code extension](#install-the-azurite-visual-studio-code-extension)
+  1. [Clone, build, and run Azurite from the GitHub repository](#clone-the-azurite-github-repository)
 
-  1. [Install Azurite by using NPM](#install-azurite-by-using-npm)
-  1. [Install the Azurite Docker image](#install-the-azurite-docker-image)
-  1. [Install the Azurite Visual Studio Code extension](#install-the-azurite-visual-studio-code-extension)
-  1. [Clone the Azurite GitHub repository](#clone-the-azurite-github-repository)
-
-Select the method below that works best for you.
-
-### Install Azurite by using NPM
+## Install and run Azurite by using NPM
 
 This installation method requires that you have [Node.js version 8.0 or later](https://nodejs.org) installed. **npm** is the package management tool included with every Node.js installation. After installing Node.js, execute the following **npm** command to install Azurite.
 
@@ -34,15 +30,16 @@ This installation method requires that you have [Node.js version 8.0 or later](h
 npm install -g azurite
 ```
 
-### Install the Azurite Docker image
+After installing Azurite, see [Run Azurite from a command-line](run-azurite-from-a-command-line).
 
-Use [DockerHub](https://hub.docker.com/) to install the latest Azurite image with the following command:
+## Install and run the Azurite Docker image
+
+Use [DockerHub](https://hub.docker.com/) to pull the [latest Azurite image](https://hub.docker.com/_/microsoft-azure-storage-azurite) with the following command:
 
 ```console
 docker pull mcr.microsoft.com/azure-storage/azurite
 ```
 
-<!-- Move all this into a new section on running Azurite using the various platforms -->
 **Run the Azurite Docker image**:
 
 The following command runs the Azurite Docker image:
@@ -67,15 +64,32 @@ The `-v c:/azurite:/data` parameter specifies `c:/azurite` as the Azurite persis
 docker run -p 8888:8888 -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite -l /workspace -d /workspace/debug.log --blobPort 8888 --blobHost 0.0.0.0
 ```
 
-The `-p 8888:8888` parameter redirects requests from host machine's port 8888 to the Docker instance. For more information about command line parameters, see [Command-line syntax](#command-line-syntax).
+The `-p 8888:8888` parameter redirects requests from host machine's port 8888 to the Docker instance. See [Command-line options](#command-line-options) for more information about configuring Azurite at start-up.
 
-### Install the Azurite Visual Studio Code extension
+## Install and run the Azurite Visual Studio Code extension
 
-Search for Azurite in the **EXTENSIONS:MARKETPLACE** inside Visual Studio Code.
+Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurite* in the **EXTENSIONS:MARKETPLACE**. Alternatively, install the Azurite extension from the [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite).
 
-Alternatively, install the Azurite extension from the [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite).
+You can quickly start or close Azurite by clicking on **Azurite Blob Service** in the VS Code status bar or issuing the following commands.
 
-### Clone the Azurite GitHub repository
+The extension supports the following Visual Studio Code commands:
+
+   * **Azurite: Start** - Start all Azurite services
+   * **Azurite: Close** - Close all Azurite services
+   * **Azurite: Clean** - Reset all Azurite services persistency data
+   * **Azurite: Start** - Blob Start blob service
+   * **Azurite: Close** - Blob Close blob service
+   * **Azurite: Clean** - Blob Clean blob service
+
+To configure Azurite within Visual Studio Code, select the extensions pane and right-click on Azurite. Select **Configure Extension Settings**. The following settings are supported:
+
+   * **azurite.blobHost** - Blob service listening endpoint, by default 127.0.0.1
+   * **azurite.blobPort** - Blob service listening port, by default 10000
+   * **azurite.location** - Workspace location path, by default existing Visual Studio Code opened folder
+   * **azurite.silent** - Silent mode to disable access log in Visual Studio channel, by default false
+   * **azurite.debug** - Output debug log into Azurite channel, by default false
+
+## Clone, build, and run Azurite from the GitHub repository
 
 This installation method requires that you have [Git](https://git-scm.com/) installed. You'll also want to have a [GitHub account](https://github.com).
 
@@ -85,7 +99,7 @@ Clone the GitHub repository for the project by using the following console comma
 git clone https://github.com/Azure/Azurite.git
 ```
 
-After cloning the source code, execute following commands from the root of the cloned repo to install Azurite.
+After cloning the source code, execute following commands from the root of the cloned repo to build and install Azurite.
 
 ```console
 npm install
@@ -93,7 +107,21 @@ npm run build
 npm install -g
 ```
 
-## Command-line syntax
+After installing and building Azurite, see [Run Azurite from a command-line](run-azurite-from-a-command-line).
+
+## Run Azurite from a command-line
+
+To get started immediately, create a directory called c:\azurite, then launch Azurite by issuing the following command:
+
+```console
+azurite --silent --location c:\azurite --debug c:\azurite\debug.log
+```
+
+This command tells Azurite to store all data in a particular directory, **c:\azurite**. If the **--location** option is omitted, it will use the current working directory.
+
+## Command-line options
+
+This section details the command-line switches available when launching Azurite. All command-line switches are optional.
 
 ```console
 azurite [--blobHost <IP address>] [--blobPort <port address>] [-l | --location <workspace path>] [-s | --silent] [-d | --debug <log file path>]
@@ -101,11 +129,7 @@ azurite [--blobHost <IP address>] [--blobPort <port address>] [-l | --location <
 
 The **-l** switch is a shortcut for **--location**, **-s** is a shortcut for **--silent**, and **-d** is a shortcut for **--debug**.
 
-### Supported command-line options
-
-This section details the command line switches available when launching Azurite. All command-line switches are optional.
-
-#### Listening host
+### Listening host
 
 **Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the **--blobHost** switch to set the address to your requirements.
 
@@ -121,7 +145,7 @@ Allow remote requests (may be unsafe):
 azurite --blobHost 0.0.0.0
 ```
 
-#### Listening port configuration
+### Listening port configuration
 
 **Optional** By default, Azurite will listen for the Blob service on port 10000. Use the **--blobPort** switch to specify the listening port that you require.
 
@@ -143,7 +167,7 @@ azurite --blobPort 0
 > [!NOTE]
 > The port in use is displayed during Azurite startup.
 
-#### Workspace path
+### Workspace path
 
 **Optional** Azurite stores data to the local disk during execution. Use the **--location** switch to specify a path as the workspace location. By default, the current process working directory will be used.
 
@@ -155,7 +179,7 @@ azurite -l c:\azurite
 azurite --location c:\azurite
 ```
 
-#### Access log
+### Access log
 
 **Optional** By default, the access log is displayed in the console window. Disable the display of the access log by using the **--silent** switch.
 
@@ -167,7 +191,7 @@ azurite -s
 azurite --silent
 ```
 
-#### Debug log
+### Debug log
 
 **Optional** The debug log includes detailed information on every request and exception stack trace. Enable the debug log by providing a valid local file path to the **--debug** switch.
 
@@ -178,16 +202,6 @@ azurite -d path/debug.log
 ```console
 azurite --debug path/debug.log
 ```
-
-## Run Azurite
-
-Start Azurite by using the following command:
-
-```console
-azurite --silent --location c:\azurite --debug c:\azurite\debug.log
-```
-
-This command tells Azurite to store all data in a particular directory, **c:\azurite**. If the **--location** option is omitted, it will use the current working directory.
 
 ## Authentication for tools and SDKs
 
