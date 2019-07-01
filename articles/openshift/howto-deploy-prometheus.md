@@ -18,14 +18,11 @@ Target setup:
 - One project (prometheus-project), which contains Prometheus and Alertmanager
 - Two projects (app-project1 and app-project2), which contain the applications to monitor
 
-Some Prometheus configuration files are prepared locally. Create a new folder to store them.
-These config files are stored in the cluster as Secrets, in case secret tokens are added later to the cluster.
+Some Prometheus configuration files are prepared locally. To store configuration files, create a new folder. These config files are stored in the cluster as Secrets, in case Secret tokens are added later to the cluster.
 
 ## Step 1: Sign in to the cluster using the OC tool
 
-Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
-Sign in with your Azure credentials.
-Select your username in top right, and then select **Copy Login Command**. Paste your username into the terminal you'll use.
+Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io). Sign in with your Azure credentials. Next, select your username found in the top-right corner, and then select **Copy Login Command**. Paste your username into the terminal you'll use.
 
 You can see if you're signed in to the correct cluster by entering the `oc whoami -c` command.
 
@@ -194,7 +191,9 @@ To deploy an example application, which exposes basic Python metrics under the /
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example1 -n app-project1
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example2 -n app-project2
 ```
-The new applications should appear as valid targets on the Service Discovery page within 30 seconds after deployment. For more details, select **Status** > **Targets**.
+The new applications should appear as valid targets on the Service Discovery page within 30 seconds after deployment.
+
+For more details, select **Status** > **Targets**.
 
 > [!NOTE]
 > For every successfully scraped target, Prometheus adds a data point in the up metric. Select **Prometheus** in the upper-left corner, and then enter **up** as the expression. Select **Execute**.
