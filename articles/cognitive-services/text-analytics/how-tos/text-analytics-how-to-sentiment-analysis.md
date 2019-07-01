@@ -143,9 +143,9 @@ The [next version of Sentiment Analysis (needs updated link)](https://westcentra
 
 ### Sentiment labeling
 
-Sentiment analysis V3 can returns scores and labels (`positive`, `negative`, and `neutral`) at a sentence and document level. At the document level the `mixed` sentiment label (not score) can also be returned. The sentiment of the document is determined by its sentences in the following way:
+Sentiment analysis V3 can return scores and labels (`positive`, `negative`, and `neutral`) at a sentence and document level. At the document level the `mixed` sentiment label (not score) can also be returned. The sentiment of the document is determined by aggregating its sentences' scores.
 
-| Sentence sentiment                                                        | Document label |
+| Sentence sentiment                                                        | Returned document label |
 |---------------------------------------------------------------------------|----------------|
 | At least one positive sentence and the rest of the sentences are neutral. | `positive`     |
 | At least one negative sentence and the rest of the sentences are neutral.  | `negative`     |
