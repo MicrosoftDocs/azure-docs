@@ -22,7 +22,7 @@
   items:
   - name: IoT Plug and Play glossary
     href: iot-plug-and-play-glossary.md
-  name: How-to guides
+- name: How-to guides
   items:
   - name: Onboard to the IoT portal
     href: howto-onboard-portal.md
