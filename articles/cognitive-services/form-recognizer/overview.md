@@ -55,7 +55,9 @@ We recommend that you use the free service when you're learning the technology. 
 
 You use the following APIs to train and extract structured data from forms.
 
-| Train Model| Train	a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
+|||
+|---|---|
+| Train Model| Train a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
 | Analyze Form |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
 | Analyze Receipt |Analyze a single receipt document to extract key information and other receipt text.|
 
