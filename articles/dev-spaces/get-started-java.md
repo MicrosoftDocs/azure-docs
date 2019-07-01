@@ -142,8 +142,8 @@ To see your web app, open the public URL in a browser. Also, notice `stdout` and
 > [!Note]
 > In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. Azure Dev Spaces uses Kubernetes *port-forward* functionality to map the localhost port to the container running in AKS. This facilitates interacting with the service from your local machine.
 
-> ### Update a content file
-> Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
+### Update a content file
+Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
 1. In the terminal window, press `Ctrl+C` (to stop `azds up`).
 1. Open `src/main/java/com/ms/sample/webfrontend/Application.java`, and edit the greeting message on [line 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
