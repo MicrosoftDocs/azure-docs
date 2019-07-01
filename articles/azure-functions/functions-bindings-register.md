@@ -4,7 +4,7 @@ description: Learn to register an Azure Functions binding extension based on you
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
 ms.devlang: multiple
