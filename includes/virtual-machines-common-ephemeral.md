@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/28/2019
+ ms.date: 07/01/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -73,6 +73,14 @@ az vm create \
 ```
 
 For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az-vmss-create) and set the `--os-disk-caching` parameter to `ReadOnly`.
+
+## Portal	
+
+In the Azure portal, you can choose to use epehmeral disks when deploying a VM by opening the **Advanced** section of the **Disks** tab. For **Use ephemeral OS disk** select **Yes**.
+
+![Screenshot showing the radio button for choosing to use an ephemeral OS disk](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
+
+If the option for using an ephemeral disk is greyed out, you might have selected a VM size that does not have a cache size larger than the OS image or that doesn't support Premium storage. Go back to the **Basics** page and try choosing another VM size.
 
 ## Scale set template deployment  
 The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 
@@ -169,7 +177,7 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **Q: What is the size of the local OS Disks?**
 
-A: For preview, we will support platform and/or images up to the VM cache size, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. 
+A: We will support platform and custom images, up to the VM cache size, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. 
 
 **Q: Can the ephemeral OS disk be resized?**
 

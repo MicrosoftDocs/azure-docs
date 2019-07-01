@@ -9,11 +9,11 @@ ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 07/01/2019
 ms.author: cynthn
 ms.subservice: disks
 ---
-# Preview: Ephemeral OS disks for VM instances
+# Ephemeral OS disks for VM instances
 
 [!INCLUDE [virtual-machines-common-ephemeral](../../includes/virtual-machines-common-ephemeral.md)]
  
