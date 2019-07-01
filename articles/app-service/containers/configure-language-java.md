@@ -586,7 +586,7 @@ The following steps explain the requirements for connecting your existing App Se
 
 7. In the Azure portal, navigate to your App Service and find the **Configuration** > **General settings** page. Set the **Startup Script** field to the name and location of your startup script, for example */home/startup.sh*.
 
-The next time your App Service restarts, it will run the startup script and perform the necessary configuration steps. To test that this configuration occurs correctly, you can access your App Service using SSH and then run the startup script yourself from the Bash prompt. For more info about using SSH, see [SSH console access](#ssh-console-access).
+The next time your App Service restarts, it will run the startup script and perform the necessary configuration steps. To test that this configuration occurs correctly, you can access your App Service using SSH and then run the startup script yourself from the Bash prompt. You can also examine the App Service logs. For more info about these options, see [Logging and debugging apps](#logging-and-debugging-apps).
 
 Next, you will need to update the Wildfly configuration for your app and redeploy it. Use the following steps:
 
