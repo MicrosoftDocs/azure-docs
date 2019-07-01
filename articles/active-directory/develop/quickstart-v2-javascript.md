@@ -103,6 +103,11 @@ var msalConfig = {
 };
 
 ```
+> [!div renderon="portal"]
+> [!NOTE]
+> This quickstart supports Enter_the_Supported_Account_Info_Here.
+
+
 > [!div renderon="docs"]
 >
 > Where:

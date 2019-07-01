@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -52,7 +52,7 @@ Data Box Edge has the following capabilities:
 |Capability |Description  |
 |---------|---------|
 |High performance     | Fully automated and highly optimized data transfer and bandwidth.|
-|Supported protocols     | Support for standard SMB and NFS protocols for data ingestion. <br> For more information on supported versions, go to [Data Box Edge system requirements](https://aka.ms/dbe-docs).|
+|Supported protocols     | Support for standard SMB and NFS protocols for data ingestion. <br> For more information on supported versions, go to [Data Box Edge system requirements](data-box-edge-system-requirements.md).|
 |Computing       |Allows analysis, processing, filtering of data.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud.|
 |Fast access     | Local cache on the device for fast access of most recently used files.|
@@ -72,13 +72,13 @@ The Data Box Edge solution comprises of Data Box Edge resource, Data Box Edge ph
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    For more information, go to [Use the Data Box Edge service to administer your Data Box Edge device](https://aka.ms/dbe-docs).
+    For more information, go to [Create an order for your Data Box Edge device](data-box-edge-deploy-prep.md#create-a-new-resource).
 
 * **Data Box local web UI** - Use the local web UI to run diagnostics, shut down and restart the Data Box Edge device, view copy logs, and contact Microsoft Support to file a service request.
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](https://aka.ms/dbe-docs).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-edge-manage-access-power-connectivity-mode.md).
 
 
 ## Region availability
