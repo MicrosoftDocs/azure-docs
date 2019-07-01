@@ -137,8 +137,11 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Allowed locations|Policy assignment |Allowed locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Syntax: `["locationA", "locationB"]`|
-|Allowed resource types|Policy assignment |Allowed resource types |List of resource types allowed to be deployed. This list is composed of all the resource types deployed. Syntax: `["resource type", "resource type"]`|
+|List Of Resource Types With Diagnostic Logs Enabled|Resource Group|List of resource types that should have diagnostic logs enabled | Default value is [All]| 
+|Allowed locations|Policy Assignment|List Of Allowed Locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Syntax: `["locationA", "locationB"]`| 
+|Allowed resource types|Resource Group |Allowed resource types |List of resource types allowed to be deployed. This list is composed of all the resource types deployed. Syntax: `["resource type", "resource type"]`| 
+|Retention Days|Policy Assignment|Retention days|(Optional) 180 set by default, PCI requires 365| 
+|Storage Accounts Resource Group|Resource Group|Resource group name for storage account|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region).| 
 
 ## Next steps
 
