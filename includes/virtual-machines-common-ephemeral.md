@@ -76,7 +76,7 @@ For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vm
 
 ## Portal	
 
-In the Azure portal, you can choose to use epehmeral disks when deploying a VM by opening the **Advanced** section of the **Disks** tab. For **Use ephemeral OS disk** select **Yes**.
+In the Azure portal, you can choose to use ephemeral disks when deploying a VM by opening the **Advanced** section of the **Disks** tab. For **Use ephemeral OS disk** select **Yes**.
 
 ![Screenshot showing the radio button for choosing to use an ephemeral OS disk](./media/virtual-machines-common-ephemeral/ephemeral-portal.png)
 
