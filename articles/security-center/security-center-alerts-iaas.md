@@ -49,9 +49,9 @@ However, this kind of attack can be detected by using memory analysis. By analyz
 
 |Alert|Description|
 |---|---|
-|**Code injection discovered**|Code injection is the insertion of executable modules into running processes or threads. This technique is used by malware to access data, while successfully hiding itself to prevent being found and removed. <br/><br/>This alert indicates that an injected module is present in the crash dump. To differentiate between malicious and non-malicious injected modules, Security Center checks whether the injected module conforms to a profile of suspicious behavior.|
+|**Code injection discovered**|Code injection is the insertion of executable modules into running processes or threads. This technique is used by malware to access data, while successfully hiding itself to prevent being found and removed. <br/>This alert indicates that an injected module is present in the crash dump. To differentiate between malicious and non-malicious injected modules, Security Center checks whether the injected module conforms to a profile of suspicious behavior.|
 |**Suspicious code segment discovered**|Indicates that a code segment has been allocated using non-standard methods, such as reflective injection and process hollowing. The alert provides additional characteristics of the code segment that have been processed to provide context for the capabilities and behaviors of the reported code segment.|
-|**Shellcode discovered**|Shellcode is the payload that is run after malware exploits a software vulnerability. <br/><br/>This alert indicates that crash dump analysis has detected executable code that exhibits behavior commonly performed by malicious payloads. Although non-malicious software may also perform this behavior, it is not typical of normal software development practices.|
+|**Shellcode discovered**|Shellcode is the payload that is run after malware exploits a software vulnerability.<br/>This alert indicates that crash dump analysis has detected executable code that exhibits behavior commonly performed by malicious payloads. Although non-malicious software may also perform this behavior, it is not typical of normal software development practices.|
 
 ### Fileless Attack Detection <a nanme="windows-fileless"></a>
 
@@ -86,19 +86,19 @@ The auditd system consists of a kernel-level subsystem which is responsible for 
 
 auditd records are collected, enriched and aggregated into events using the Linux MMA agent. Security Center is constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics spans across suspicious processes, dubious login attempts, kernel module loading, and other activities that could indicate that a machine is under attack or has been breached.  
 
-Below are several examples of analytics, that demonstrate how we span across different stages on attack life cycle.
+Below are several examples of analytics, that demonstrate how we span across different stages of the attack life cycle.
 
 |Alert|Description|
 |---|---|
 |**Process seen accessing the SSH authorized keys file in an unusual way**|An SSH authorized keys file has been accessed in a method similar to known malware campaigns. This access could indicate that an attacker is attempting to gain persistent access to a machine|
-|**Detected Persistence Attempt**|Analyzing host data detected that a startup script for single-user mode has been installed. <br/><br/>Since it is extremely rare that any legitimate process has would be required to execute in that mode, this may indicate that an attacker has added a malicious process to every run-level to guarantee persistence.|
+|**Detected Persistence Attempt**|Host data analysis has detected that a startup script for single-user mode has been installed. <br/><br/>Since it is extremely rare that any legitimate process has would be required to execute in that mode, this may indicate that an attacker has added a malicious process to every run-level to guarantee persistence.|
 |**Manipulation of scheduled tasks detected**|Host data analysis has detected possible manipulation of scheduled tasks. Attackers often add scheduled tasks to machines they have compromised to gain persistence.|
-|**Suspicious file timestamp modification**|Host data analysis has detected a suspicious timestamp modification. Attackers often copy timestamps from existing legitimate files to new tools to avoid detection of these newly dropped files|
-|**A new user was added to the sudoers group**|Host data analysis has detected that a user was added to the sudoers group, which enables its members to run commands with high privileges.|
-|**Likely exploit of DynoRoot vulnerability in dhcp client**|Host data analysis has detected the execution of an unusual command with parent process of dhclient script.|
-|**Suspicious kernel module detected**|Analysis of host data detected a shared object file being loaded as a kernel module. This could be legitimate activity, or an indication that one of your machines has been compromised.|
-|**Process associated with digital currency mining detected**|Host data analysis has detected the execution of a process normally associated with digital currency mining|
-|**Potential port forwarding to external IP address**|Analysis of host data detected the initiation of port forwarding to an external IP address.|
+|**Suspicious file timestamp modification**|Host data analysis detected a suspicious timestamp modification. Attackers often copy timestamps from existing legitimate files to new tools to avoid detection of these newly dropped files|
+|**A new user was added to the sudoers group**|Host data analysis detected that a user was added to the sudoers group, which enables its members to run commands with high privileges.|
+|**Likely exploit of DynoRoot vulnerability in dhcp client**|Host data analysis detected the execution of an unusual command with parent process of dhclient script.|
+|**Suspicious kernel module detected**|Host data analysis detected a shared object file being loaded as a kernel module. This could be legitimate activity, or an indication that one of your machines has been compromised.|
+|**Process associated with digital currency mining detected**|Host data analysis detected the execution of a process normally associated with digital currency mining|
+|**Potential port forwarding to external IP address**|Host data analysis detected the initiation of port forwarding to an external IP address.|
 
 > [!NOTE]
 > You can simulate Windows alerts by downloading [Azure Security Center Playbook: Security Alerts](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef) and follow the provided guidelines.
