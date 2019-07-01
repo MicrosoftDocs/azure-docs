@@ -50,7 +50,7 @@ ms.author: radeltch
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available SAP NetWeaver 7.50 system, using [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).
 In the example configurations, installation commands etc. ASCS instance is number 00, the ERS instance is number 01, Primary Application instance (PAS) is 02 and the Application instance (AAS) is 03. SAP System ID QAS is used. 
 
-This article explains how to achieve high availability for SAP NetWeaver application with Azure NetApp Files. The database layer isn't covered in detail in this article.
+The database layer isn't covered in detail in this article.  
 
 Read the following SAP Notes and papers first
 
@@ -243,14 +243,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment
 
     ```
-    `# IP address of cluster node 1`
-    **`192.168.14.5    anftstsapcl1`**
+    # IP address of cluster node 1
+    192.168.14.5    anftstsapcl1
     # IP address of cluster node 2
-    192.168.14.6     anftstsapcl2**
+    192.168.14.6     anftstsapcl2
     # IP address of the load balancer frontend configuration for SAP Netweaver ASCS
-    **192.168.14.9    anftstsapvh**
+    192.168.14.9    anftstsapvh
     # IP address of the load balancer frontend configuration for SAP Netweaver ERS
-    **192.168.14.10    anftstsapers**
+    192.168.14.10    anftstsapers
     ```
 
 1. **[1]** Create SAP directories in the Azure NetApp Files volume.  
@@ -275,7 +275,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Create the shared directories
 
-   ```sudo mkdir -p /sapmnt/QAS
+   ```
+   sudo mkdir -p /sapmnt/QAS
    sudo mkdir -p /usr/sap/trans
    sudo mkdir -p /usr/sap/QAS/SYS
    sudo mkdir -p /usr/sap/QAS/ASCS00
@@ -290,21 +291,23 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Install NFS client and other requirements
 
-   ```sudo yum -y install nfs-utils resource-agents resource-agents-sap
+   ```
+   sudo yum -y install nfs-utils resource-agents resource-agents-sap
    ```
 
 1. **[A]** Check version of resource-agents-sap
 
    Make sure that the version of the installed resource-agents-sap package is at least 3.9.5-124.el7
-   ```sudo yum info resource-agents-sap
+   ```
+   sudo yum info resource-agents-sap
    
    # Loaded plugins: langpacks, product-id, search-disabled-repos
    # Repodata is over 2 weeks old. Install yum-cron? Or run: yum makecache fast
    # Installed Packages
    # Name        : resource-agents-sap
    # Arch        : x86_64
-   # Version     : <b>3.9.5</b>
-   # Release     : <b>124.el7</b>
+   # Version     : 3.9.5
+   # Release     : 124.el7
    # Size        : 100 k
    # Repo        : installed
    # From repo   : rhel-sap-for-rhel-7-server-rpms
@@ -319,7 +322,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Add mount entries
 
-   ```sudo vi /etc/fstab
+   ```
+   sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
     192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=3
@@ -329,12 +333,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Mount the new shares
 
-   ```sudo mount -a
+   ```
+   sudo mount -a  
    ```
 
 1. **[A]** Configure SWAP file
 
-   ```sudo vi /etc/waagent.conf
+   ```
+   sudo vi /etc/waagent.conf
    
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
@@ -348,7 +354,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Restart the Agent to activate the change
 
-   ```sudo service waagent restart
+   ```
+   sudo service waagent restart
    ```
 
 1. **[A]** RHEL configuration
@@ -359,7 +366,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
-   ```sudo pcs node standby <b>anftstsapcl2</b>
+   ```
+   sudo pcs node standby anftstsapcl2
    
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
      directory='/usr/sap/QAS/ASCS00' fstype='nfs' \
@@ -375,7 +383,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   ```sudo pcs status
+   ```
+   sudo pcs status
    
    # Node anftstsapcl2: standby
    # Online: [ anftstsapcl1 ]
@@ -395,21 +404,24 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   ```# Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
+   ```
+   # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
    sudo firewall-cmd --zone=public  --add-port=4237/tcp
    
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
+   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
    ```
 
    If the installation fails to create a subfolder in /usr/sap/**QAS**/ASCS**00**, try setting the owner and group of the ASCS**00** folder and retry.
 
-   ```sudo chown qasadm /usr/sap/QAS/ASCS00
+   ```
+   sudo chown qasadm /usr/sap/QAS/ASCS00
    sudo chgrp sapsys /usr/sap/QAS/ASCS00
    ```
 
 1. **[1]** Create a virtual IP resource and health-probe for the ERS instance
 
-   ```sudo pcs node unstandby anftstsapcl2
+   ```
+   sudo pcs node unstandby anftstsapcl2
    sudo pcs node standby anftstsapcl1
    
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
@@ -426,7 +438,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
  
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   ```sudo pcs status
+   ```
+   sudo pcs status
    
    # Node anftstsapcl1: standby
    # Online: [ anftstsapcl2 ]
@@ -450,15 +463,17 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   ```# Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
+   ```
+   # Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
    sudo firewall-cmd --zone=public  --add-port=4237/tcp
 
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
+   sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
    ```
 
    If the installation fails to create a subfolder in /usr/sap/**QAS**/ERS**01**, try setting the owner and group of the ERS**01** folder and retry.
 
-   ```sudo chown qaadm /usr/sap/QAS/ERS01
+   ```
+   sudo chown qaadm /usr/sap/QAS/ERS01
    sudo chgrp sapsys /usr/sap/QAS/ERS01
    ```
 
@@ -466,7 +481,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    * ASCS/SCS profile
 
-   ```sudo vi /sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh
+   ```
+   sudo vi /sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh
    
    # Change the restart command to a start command
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
@@ -478,7 +494,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    * ERS profile
 
-   ```sudo vi /sapmnt/QAS/profile/QAS_ERS01_anftstsapers
+   ```
+   sudo vi /sapmnt/QAS/profile/QAS_ERS01_anftstsapers
    
    # Change the restart command to a start command
    #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
@@ -495,7 +512,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
 
-   ```# Change the Linux system configuration
+   ```
+   # Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    ```
 
@@ -517,7 +535,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
-   ```sudo pcs property set maintenance-mode=true
+   ```
+   sudo pcs property set maintenance-mode=true
    
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
@@ -541,7 +560,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as follows:
 
-    ```sudo pcs property set maintenance-mode=true
+    ```
+    sudo pcs property set maintenance-mode=true
     
     sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
     InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
@@ -565,7 +585,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-    ```sudo pcs status
+    ```
+    sudo pcs status
     
     # Online: [ anftstsapcl1 anftstsapcl2 ]
     #
@@ -586,7 +607,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Add firewall rules for ASCS and ERS on both nodes
    Add the firewall rules for ASCS and ERS on both nodes.
-   ```# Probe Port of ASCS
+   ```
+   # Probe Port of ASCS
    sudo firewall-cmd --zone=public --add-port=62000/tcp --permanent
    sudo firewall-cmd --zone=public --add-port=62000/tcp
    sudo firewall-cmd --zone=public --add-port=3200/tcp --permanent
@@ -628,12 +650,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands:  
 
-   ```sudo vi /etc/hosts
+   ```
+   sudo vi /etc/hosts
    ```
 
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment.
 
-   ```# IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
+   ```
+   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
    192.168.14.9 anftstsapvh
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
    192.168.14.10 anftstsapers
@@ -643,7 +667,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Create the sapmnt directory
    Create the sapmnt directory.
-   ```sudo mkdir -p /sapmnt/QAS
+   ```
+   sudo mkdir -p /sapmnt/QAS
    sudo mkdir -p /usr/sap/trans
 
    sudo chattr +i /sapmnt/QAS
@@ -652,7 +677,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Install NFS client and other requirements  
 
-   ```sudo yum -y install nfs-utils uuidd
+   ```
+   sudo yum -y install nfs-utils uuidd
    ```
 
 1. **[A]** Add mount entries  
@@ -666,7 +692,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Mount the new shares
 
-   ```sudo mount -a
+   ```
+   sudo mount -a
    ```
 
 1. **[P]** Create and mount the PAS directory  
@@ -730,7 +757,7 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
    ```
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
+   sudo <swpm>;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
    ```
 
 ## SAP NetWeaver application server installation
@@ -748,7 +775,7 @@ Follow these steps to install an SAP application server.
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
    ```
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
+   sudo <swpm>;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
    ```
 
 1. Update SAP HANA secure store
@@ -757,7 +784,8 @@ Follow these steps to install an SAP application server.
 
    Run the following command to list the entries as \<sapsid>adm
 
-   ```hdbuserstore List
+   ```
+   hdbuserstore List
    ```
 
    This should list all entries and should look similar to
@@ -773,8 +801,9 @@ Follow these steps to install an SAP application server.
 
    The output shows that the IP address of the default entry is pointing to the virtual machine and not to the load balancer's IP address. This entry needs to be changed to point to the virtual hostname of the load balancer. Make sure to use the same port (**30313** in the output above) and database name (**QAS** in the output above)!
 
-   ```su - qasadm
-   hdbuserstore SET DEFAULT qasdb:30313@QAS SAPABAP1 &lt;password of ABAP schema&gt;
+   ```
+   su - qasadm
+   hdbuserstore SET DEFAULT qasdb:30313@QAS SAPABAP1 <password of ABAP schema>
    ```
 
 ## Test the cluster setup
@@ -783,7 +812,8 @@ Follow these steps to install an SAP application server.
 
    Resource state before starting the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+    rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -798,7 +828,8 @@ Follow these steps to install an SAP application server.
 
    Run the following commands as root to migrate the ASCS instance.
 
-   ```[root@anftstsapcl1 ~]# pcs resource move rsc_sap_QAS_ASCS00
+   ```
+   [root@anftstsapcl1 ~]# pcs resource move rsc_sap_QAS_ASCS00
    
    [root@anftstsapcl1 ~]# pcs resource clear rsc_sap_QAS_ASCS00
    
@@ -808,7 +839,8 @@ Follow these steps to install an SAP application server.
 
    Resource state after the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
@@ -825,7 +857,8 @@ Follow these steps to install an SAP application server.
 
    Resource state before starting the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
@@ -840,12 +873,14 @@ Follow these steps to install an SAP application server.
 
    Run the following command as root on the node where the ASCS instance is running
 
-   ```[root@anftstsapcl2 ~]# echo b > /proc/sysrq-trigger
+   ```
+   [root@anftstsapcl2 ~]# echo b > /proc/sysrq-trigger
    ```
 
    The status after the node is started again should look like this.
 
-   ```Online: [ anftstsapcl1 anftstsapcl2 ]
+   ```
+   Online: [ anftstsapcl1 anftstsapcl2 ]
    
    Full list of resources:
    
@@ -867,12 +902,14 @@ Follow these steps to install an SAP application server.
 
    Use the following command to clean the failed resources.
 
-   ```[root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
+   ```
+   [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
    ```
 
    Resource state after the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -889,7 +926,8 @@ Follow these steps to install an SAP application server.
 
    Resource state before starting the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -904,18 +942,21 @@ Follow these steps to install an SAP application server.
    
    Run the following commands as root to identify the process of the message server and kill it.
 
-   ```[root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
+   ```
+   [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
    ```
 
    If you only kill the message server once, it will be restarted by `sapstart`. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
-   ```[root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
+   ```
+   [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
    ```
 
    Resource state after the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
@@ -932,7 +973,8 @@ Follow these steps to install an SAP application server.
 
    Resource state before starting the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
@@ -947,18 +989,21 @@ Follow these steps to install an SAP application server.
 
    Run the following commands as root on the node where the ASCS instance is running to kill the enqueue server.
 
-   ```[root@anftstsapcl2 ~]# pgrep en.sapQAS | xargs kill -9
+   ```
+   [root@anftstsapcl2 ~]# pgrep en.sapQAS | xargs kill -9
    ```
 
    The ASCS instance should immediately fail over to the other node. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
-   ```[root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
+   ```
+   [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
    ```
 
    Resource state after the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -975,7 +1020,8 @@ Follow these steps to install an SAP application server.
 
    Resource state before starting the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -990,17 +1036,20 @@ Follow these steps to install an SAP application server.
 
    Run the following command as root on the node where the ERS instance is running to kill the enqueue replication server process.
 
-   ```[root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
+   ```
+   [root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
    ```
 
    If you only run the command once, `sapstart` will restart the process. If you run it often enough, `sapstart` will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
 
-   ```[root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
+   ```
+   [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
    ```
 
    Resource state after the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -1017,7 +1066,8 @@ Follow these steps to install an SAP application server.
 
    Resource state before starting the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -1032,7 +1082,8 @@ Follow these steps to install an SAP application server.
 
    Run the following commands as root on the node where the ASCS is running.
 
-   ```[root@anftstsapcl1 ~]# pgrep -fl ASCS00.*sapstartsrv
+   ```
+   [root@anftstsapcl1 ~]# pgrep -fl ASCS00.*sapstartsrv
    # 59545 sapstartsrv
    
    [root@anftstsapcl1 ~]# kill -9 59545
@@ -1040,7 +1091,8 @@ Follow these steps to install an SAP application server.
 
    The sapstartsrv process should always be restarted by the Pacemaker resource agent as part of the monitoring. Resource state after the test:
 
-   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```
+   rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
