@@ -160,7 +160,7 @@ This sample shows how to use a dataset in a ZIP file as an input to the **Execut
 
 1. Create the data file in CSV format, and name it “mydatafile.csv”.
 1. Create a ZIP file and add the CSV file to the archive.
-1. Upload the zipped file to your Azure Machine Learning workspace using the steps shown in [Unpack Zipped Datasets](unpack-zipped-datasets.md). 
+1. Upload the zipped file to your Azure Machine Learning workspace. 
 1. Connect the resulting dataset to the **ScriptBundle** input of your **Execute R Script** module.
 1. Using the following code to read the CSV data from the zipped file.
 
