@@ -154,6 +154,10 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionApp
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 #### Linux function app
@@ -167,6 +171,11 @@ steps:
     azureSubscription: '<Azure service connection>'
     appType: functionAppLinux
     appName: '<Name of function app>'
+    #Uncomment the next lines to deploy to a deployment slot
+    #Note that deployment slots is not supported for Linux Dynamic SKU
+    #deployToSlotOrASE: true
+    #resourceGroupName: '<Resource Group Name>'
+    #slotName: '<Slot name>'
 ```
 
 ## Template-based pipeline
@@ -193,13 +202,15 @@ In some cases, build artifacts have a specific folder structure. You might need 
 
 If your JavaScript app has a dependency on Windows native modules, you must update the agent pool version to **Hosted VS2017**.
 
-  ![Update the agent pool version](media/functions-how-to-azure-devops/change-agent.png)
+![Update the agent pool version](media/functions-how-to-azure-devops/change-agent.png)
 
 ### Deploy your app
 
 When you create a new release pipeline, search for the Azure Functions release template.
 
 ![Search for the Azure Functions release template](media/functions-how-to-azure-devops/release-template.png)
+
+Deploying to a deployment slot is not supported in the release template.
 
 ## Create a build pipeline by using the Azure CLI
 

@@ -97,6 +97,8 @@ You can register an externally created model by providing a **local path** to th
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
+For more information on working with models trained outside Azure Machine Learning service, see [How to deploy an existing model](how-to-deploy-existing-model.md).
+
 <a name="target"></a>
 
 ## Choose a compute target
