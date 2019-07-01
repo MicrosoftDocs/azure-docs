@@ -4,25 +4,25 @@ description: Managed services offers allow service providers to sell resource ma
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 06/26/2019
+ms.date: 07/01/2019
 ms.topic: overview
 manager: carmonm
 ---
 
 # Azure Delegated Resource Management
 
-Azure Delegated Resource Management is one of the key components of Azure Lighthouse. With Azure Delegated Resource Management, service providers can  simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision.
+Azure Delegated Resource Management is one of the key components of Azure Lighthouse. With Azure Delegated Resource Management, service providers can simplify customer engagement and onboarding experiences, while managing delegated resources at scale with agility and precision.
 
 ## What is Azure Delegated Resource Management?
 
 Azure Delegated Resource Management lets authorized users in one Azure Active Directory (Azure AD) tenant perform management operations across different Azure AD tenants belonging to their customers. Service providers can sign in to their own Azure AD tenant and have authorization to work in delegated customer subscriptions and resource groups. This lets them perform management operations on behalf of their customers, without having to sign in to each individual customer tenant.
 
 > [!NOTE]
-> Azure Delegated Resource Management can also be used within an enterprise which has multiple Azure AD tenants of its own to simplify cross-tenant administration.
+> Azure Delegated Resource Management can also be used within an enterprise which has multiple Azure AD tenants of its own to simplify cross-tenant management.
 
-With Azure Delegated Resource Management, authorized users can work directly in the context of a customer subscription without needing an account in that customer's tenant. They can also [view and manage all delegated customer subscriptions in the new **My customers** page](../how-to/view-manage-customers.md) in the Azure portal.
+With Azure Delegated Resource Management, authorized users can work directly in the context of a customer subscription without having an account in that customer's tenant or being a co-owner of the customer's tenant. They can also [view and manage all delegated customer subscriptions in the new **My customers** page](../how-to/view-manage-customers.md) in the Azure portal.
 
-The [cross-tenant management experience](cross-tenant-management-experience.md) helps you work more efficiently with Azure management services like Azure Policy, Azure Security Center, and more. All service provider activity is tracked in the activity log, which is stored in the customer's tenant. This means that both the customer and service provider can easily identify the user associated with any changes.
+The [cross-tenant management experience](cross-tenant-management-experience.md) helps you work more efficiently with Azure management services like Azure Policy, Azure Security Center, and more. All service provider activity is tracked in the activity log, which is stored in both the service provider's and the customer's tenants. This means that both the customer and service provider can easily identify the user associated with any changes.
 
 When you onboard a customer to Azure Delegated Resource Management, they’ll have access to the new **Service providers** page in the Azure portal, where they can [confirm and manage their offers, service providers, and delegated resources](../how-to/view-manage-service-providers.md). If the customer ever wants to revoke access for a service provider, they can do so here at any time.
 
@@ -44,5 +44,5 @@ If you need help related to Azure Delegated Resource Management, you can open a 
 
 ## Next steps
 
-- Learn about the [cross-tenant management experience](cross-tenant-management-experience.md).
+- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
 - Learn about [managed services offers in Azure Marketplace](managed-services-offers.md).

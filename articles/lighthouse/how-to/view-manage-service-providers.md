@@ -4,7 +4,7 @@ description: As a service provider using Azure Delegated Resource Management, yo
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 06/24/2019
+ms.date: 07/01/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -53,5 +53,5 @@ Filters at the top of the page let you sort and group your access assignment inf
 
 ## Next steps
 
-- Learn about the [cross-tenant management experience](../concepts/cross-tenant-management-experience.md).
-- [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
+- Learn more about [Azure Lighthouse](../concepts/overview.md).
+- Learn how service providers can [view and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.

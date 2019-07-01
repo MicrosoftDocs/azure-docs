@@ -4,7 +4,7 @@ description: Learn how to onboard a customer to Azure Delegated Resource Managem
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 06/28/2019
+ms.date: 07/01/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -292,5 +292,5 @@ az account list
 
 ## Next steps
 
-- Learn about the [cross-tenant management experience](../concepts/cross-tenant-management-experience.md).
+- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.

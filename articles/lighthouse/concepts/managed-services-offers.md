@@ -4,7 +4,7 @@ description: Managed services offers allow service providers to sell resource ma
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 06/26/2019
+ms.date: 07/01/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -23,5 +23,5 @@ To learn how to publish a managed services offer, see [Publish a Managed Service
 
 ## Next steps
 
-- Learn about [Azure Delegated Resource Management](azure-delegated-resource-management.md) and the [cross-tenant management experience](cross-tenant-management-experience.md).
+- Learn about [Azure Delegated Resource Management](azure-delegated-resource-management.md) and [cross-tenant management experiences](cross-tenant-management-experience.md).
 - [Publish managed services offers](../how-to/publish-managed-services-offers.md) to Azure Marketplace.

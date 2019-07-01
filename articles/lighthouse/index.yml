@@ -23,8 +23,9 @@ sections:
     style: unordered
     items:
     - html: <a href="concepts/azure-delegated-resource-management">Azure Delegated Resource Management</a>
-    - html: <a href="concepts/cross-tenant-management-experience">Cross-tenant management experience</a>
+    - html: <a href="concepts/cross-tenant-management-experience">Cross-tenant management experiences</a>
     - html: <a href="concepts/managed-services-offers">Managed Services offers in Azure Marketplace</a>
+    - html: <a href="concepts/recommended-security-practices.md">Recommended security practices</a>
 - title: How-to guides
   items:
   - type: paragraph

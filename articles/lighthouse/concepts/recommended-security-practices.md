@@ -4,7 +4,7 @@ description: When using Azure delegated resource management, it’s important to
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 06/28/2019
+ms.date: 07/01/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -44,4 +44,4 @@ Keep  in mind that when you [onboard customers through a public managed service 
 ## Next steps
 
 - [Deploy Azure Multi-Factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
-- Learn about the [cross-tenant management experience](cross-tenant-management-experience.md).
+- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).

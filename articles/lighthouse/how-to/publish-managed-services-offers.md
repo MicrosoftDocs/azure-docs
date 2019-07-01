@@ -4,7 +4,7 @@ description: Learn how to publish a managed service offer that onboards customer
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 06/24/2019
+ms.date: 07/01/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -123,5 +123,5 @@ Once you're happy with all of the info you've provided, your next step is to pub
 
 ## Next steps
 
-- Learn about the [cross-tenant management experience](../concepts/cross-tenant-management-experience.md).
+- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
