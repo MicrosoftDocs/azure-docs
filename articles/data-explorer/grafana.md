@@ -16,7 +16,7 @@ Grafana is an analytics platform that enables you to query and visualize data, t
 > [!NOTE]
 > Using the following video, you can learn to use Grafana's Azure Data Explorer plugin, set up Azure Data Explorer as a data source for Grafana, and then visualize data. 
 
-> [!VIDEO https://www.youtube.com/embed?v=fSR_qCIFZSA]
+> [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
 Alternatively you can [configure the data source](#configure-the-data-source) and [visualize data](#visualize-data) as detailed in the article below.
 

@@ -20,7 +20,7 @@ In this article, you learn how to use the SQL Server ODBC driver, so you can con
 > [!NOTE]
 > You can learn to create an ODBC connection using the following video. Alternatively you can [configure the ODBC data source](#configure-the-odbc-data-source) as detailed below.
 
-> [!VIDEO https://www.youtube.com/embed?v=qA5wxhrOwog]
+> [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
 
 ## Prerequisites
 
