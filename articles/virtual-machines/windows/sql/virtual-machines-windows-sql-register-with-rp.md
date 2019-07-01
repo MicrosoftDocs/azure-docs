@@ -125,9 +125,9 @@ To register your Windows Server 2008 image, user PowerShell:
   ```
 
 ## Verify registration status
-You can verify if your SQL Server has already been registered with the SQL VM resource provider using Azure CLI or PowerShell. 
+You can verify if your SQL Server has already been registered with the SQL VM resource provider using the Azure portal, Azure CLI or PowerShell. 
 
-### Azure Portal
+# [Azure Portal](#tab/azure-portal)
 To verify the status of registration using the Azure portal, do the following.
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
