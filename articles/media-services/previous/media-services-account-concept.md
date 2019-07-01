@@ -50,13 +50,11 @@ If a Media Services account or an associated Azure Storage account become "disco
 
 ### Tenants
 
-> [!NOTE]
-> Media Services v2 does not support multi-tenancy model.
+Media Services v2 does not support multi-tenancy model. If you need to move a Media Services account to a subscription in a new tenant, create a new Azure Active Directory (Azure AD)  application in the new tenant. Then move your account to the subscription in the new tenant. After the tenant move completes, you can begin using an Azure AD application from the new tenant to access the Media Services account using the v2 APIs. 
 
-If you need to move a Media Services account to a subscription in a new tenant, create a new Azure Active Directory (Azure AD)  application in the new tenant. Then move your account to the subscription in the new tenant. After the tenant move completes, you can begin using an Azure AD application from the new tenant to access the Media Services account using the v2 APIs. 
-
-You need to reset the [Azure AD authentication](media-services-portal-get-started-with-aad.md) info to access Media Services v2 API.  
+> [!IMPORTANT]
+> You need to reset the [Azure AD authentication](media-services-portal-get-started-with-aad.md) info to access Media Services v2 API.  
  
 ## Next steps
 
-[Create an account](media-services-portal-create-account.md).
+[Create an account](media-services-portal-create-account.md)
