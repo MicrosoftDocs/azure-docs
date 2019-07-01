@@ -168,21 +168,18 @@ Next, you'll configure federation with the identity provider configured in step 
    ```
 
 ## Step 3: Test direct federation in Azure AD
-Now test your direct federation setup by inviting a new B2B guest user. You can test it by adding a new guest user in the Azure portal. 
-Or, to test federation using Visual Studio, use the following steps.
-1. Create a new visualstudio.com collection.
-    - Navigate to https://www.visualstudio.com.
-    - Sign in with your tenant local admin account. 
-    - Click **Sign-up**.
-    - Create a new collection, for example “Building28”. 
-2. Invite a user from Visual Studio (screenshot below).
-    - Click the **Settings** (gear) icon, and then choose **Users**.
-    - Enter a user from the federated tenant. 
-    - Choose a project contributor. 
-    - Click **Send**.
-
-    ![Screenshot showing a New project page for Google](media/direct-federation/invite-visual-studio.png)
+Now test your direct federation setup by inviting a new B2B guest user. For details, see [Add Azure AD B2B collaboration users in the Azure portal](add-users-administrator.md).
  
+## How do I edit a direct federation relationship?
+
+1. Go to the [Azure portal](https://portal.azure.com/). In the left pane, select **Azure Active Directory**. 
+2. Select **Organizational Relationships**.
+3. Select **Identity providers**
+4. Under **SAML/WS-Fed identity providers**, select the provider.
+5. In the identity provider details pane, update the values.
+6. Select **Save**.
+
+
 ## How do I remove direct federation?
 You can remove your direct federation setup. If you do, direct federation guest users who have already redeemed their invitations won't be able to sign in. But you can give them access to your resources again by deleting them from the directory and reinviting them. 
 To remove direct federation with an identity provider in the Azure AD portal:
