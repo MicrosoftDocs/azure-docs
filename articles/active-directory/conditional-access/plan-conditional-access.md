@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Plan your Conditional Access deployment in Azure Active Directory
 
-Planning your Conditional Access deployment is critical to make sure you achieve the required access strategy for apps and resources in your organization. You should spend most of your time during the planning phase of your deployment to design the various policies you require to grant or block access to your users under the conditions you choose. This document explains the steps you should take to implement secure and effective Conditional Access policies. Before you begin, make sure you understand how [Conditional Access](overview.md) works and when you should use it.
+Planning your Conditional Access deployment is critical to make sure you achieve the required access strategy for apps and resources in your organization. Spend most of your time during the planning phase of your deployment to design the various policies you require to grant or block access to your users under the conditions you choose. This document explains the steps you should take to implement secure and effective Conditional Access policies. Before you begin, make sure you understand how [Conditional Access](overview.md) works and when you should use it.
 
 ## What you should know
 
@@ -60,7 +60,7 @@ The combination of conditions with your access controls represents a Conditional
 
 For more information, see [what's required to make a policy work](best-practices.md#whats-required-to-make-a-policy-work).
 
-At this point, it's a good time to decide on a naming standard for your policies. The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. You should name your policy to show:
+At this point, it's a good time to decide on a naming standard for your policies. The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. Name your policy to show:
 
 - A sequence number
 - The cloud app it applies to
@@ -82,7 +82,7 @@ In addition to your active policies, it is advisable to also implement disabled 
 - The name of disruption it should apply to.
 - An ordering sequence number to help the administrator to know in which order policies should be enabled. 
 
-For example, the following name indicates that this policy is the first policy out of four you should enable in the case of MFA disruption:
+For example, the following name indicates that this policy is the first policy out of four you should enable if there is an MFA disruption:
 
 `EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
 
@@ -187,7 +187,7 @@ Now that you have configured your Conditional Access policy, you probably want t
 
 Run test cases according to your test plan. In this step, you run through an end-to-end test of each policy for your test users to make sure each policy behaves correctly. Use the scenarios created above to execute each test.
 
-It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that requires MFA. You should therefore test if the excluded users are prompted for MFA, because the combination of other policies might require MFA for those users.
+It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that requires MFA. Test if the excluded users are prompted for MFA, because the combination of other policies might require MFA for those users.
 
 ### Cleanup
 
@@ -199,7 +199,7 @@ The cleanup procedure consists of the following steps:
 
 ## Move to production
 
-When new policies are ready for your environment, deploy them in phases::
+When new policies are ready for your environment, deploy them in phases:
 
 - Provide internal change communication to end users.
 - Start with a small set of users and verify that the policy behaves as expected.

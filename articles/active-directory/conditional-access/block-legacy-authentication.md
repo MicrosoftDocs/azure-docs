@@ -39,7 +39,7 @@ Single factor authentication (for example, username and password) is not enough 
 
 How can you prevent apps using legacy authentication from accessing your tenant's resources? The recommendation is to just block them with a Conditional Access policy. If necessary, you allow only certain users and specific network locations to use apps that are based on legacy authentication.
 
-Conditional Access policies are enforced after the first-factor authentication has been completed. Therefore, Conditional Access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (e.g. the sign-in risk level, location of the request, and so on) to determine access.
+Conditional Access policies are enforced after the first-factor authentication has been completed. Therefore, Conditional Access is not intended as a first line defense for scenarios like denial-of-service (DoS) attacks, but can utilize signals from these events (for example, the sign-in risk level, location of the request, and so on) to determine access.
 
 ## Implementation
 
@@ -104,9 +104,9 @@ Configuring a policy for **Other clients** blocks the entire organization from c
 
 It can take up to 24 hours for the policy to go into effect.
 
-You can select all available grant controls for the other clients condition; however, the end-user experience is always the same - blocked access.
+You can select all available grant controls for the **Other clients** condition; however, the end-user experience is always the same - blocked access.
 
-If you block legacy authentication using the other clients condition, you can also set the device platform and location condition. For example, if you only want to block legacy authentication for mobile devices, set the **device platforms** condition by selecting:
+If you block legacy authentication using the **Other clients** condition, you can also set the device platform and location condition. For example, if you only want to block legacy authentication for mobile devices, set the **device platforms** condition by selecting:
 
 - Android
 - iOS

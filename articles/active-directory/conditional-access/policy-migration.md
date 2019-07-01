@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 [Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active directory (Azure AD) that enables you to control how authorized users access your cloud apps. While the purpose is still the same, the release of the new Azure portal has introduced significant improvements to how Conditional Access works.
 
-You should consider migrating the policies you have not created in the Azure portal because:
+Consider migrating the policies you have not created in the Azure portal because:
 
 - You can now address scenarios you could not handle before.
 - You can reduce the number of policies you have to manage by consolidating them.   
@@ -31,7 +31,7 @@ This article explains what you need to know to migrate your existing Conditional
  
 ## Classic policies
 
-In the [Azure portal](https://portal.azure.com), the [Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page is your entry point to your Conditional Access polices. However, in your environment, you might also have Conditional Access policies you have not created using this page. These policies are known as *classic policies*. Classic policies are Conditional Access policies, you have created in:
+In the [Azure portal](https://portal.azure.com), the [Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) page is your entry point to your Conditional Access policies. However, in your environment, you might also have Conditional Access policies you have not created using this page. These policies are known as *classic policies*. Classic policies are Conditional Access policies, you have created in:
 
 - The Azure classic portal
 - The Intune classic portal
@@ -51,7 +51,7 @@ The **Classic policies** view provides you with an option to:
 
    ![Azure Active Directory](./media/policy-migration/73.png)
    
-- Review the settings of a classic policies (and to disable it).
+- Review the settings of a classic policy (and to disable it).
 
    ![Azure Active Directory](./media/policy-migration/74.png)
 
@@ -63,7 +63,7 @@ By either changing the selected groups or by excluding specific groups, you can 
 
 ## Azure AD Conditional Access policies
 
-With Conditional Access in the Azure portal, you can manage all your policies in one central location. Because the implementation of how Conditional Access has significantly changed, you should familiarize yourself with the basic concepts before migrating your classic policies.
+With Conditional Access in the Azure portal, you can manage all your policies in one central location. Because the implementation of how Conditional Access has changed, you should familiarize yourself with the basic concepts before migrating your classic policies.
 
 See:
 

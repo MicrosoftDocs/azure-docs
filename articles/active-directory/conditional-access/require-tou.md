@@ -150,7 +150,7 @@ In your policy, set:
 
 Now that you have configured your Conditional Access policy, you probably want to know whether it works as expected. As a first step, use the Conditional Access what if policy tool to simulate a sign-in of your test user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report.  
 
-To initialize the what if policy evaluation tool, set:
+To initialize the **What If** policy evaluation tool, set:
 
 - **Isabella Simonsen** as user
 - **Microsoft Azure Management** as cloud app

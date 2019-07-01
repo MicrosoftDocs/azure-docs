@@ -78,7 +78,7 @@ This scenario assumes that a user:
 - Receives an email that indicates that access is available only by using the Outlook app.
 - Downloads the application with the link.
 - Opens the Outlook application and signs in with Azure AD credentials.
-- Is prompted to install either Microsoft Authenticator for iOS use or Intune Company Portal for Android use to continue.
+- Is prompted to install either the **Microsoft Authenticator app** or the **Intune Company Portal** to continue.
 - Installs the application and returns to the Outlook app to continue.
 - Is prompted to register a device.
 - Can receive an Intune app protection policy.

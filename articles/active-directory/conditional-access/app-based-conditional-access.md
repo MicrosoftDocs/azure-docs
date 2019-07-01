@@ -29,7 +29,7 @@ With [Azure AD Conditional Access](overview.md), you can fine-tune how authorize
 
 You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data. Intune app protection policies don't require mobile-device management (MDM) solution, which enables you to protect your company’s data with or without enrolling devices in a device management solution.
 
-Azure Active Directory Conditional Access enables you limit access to your cloud apps to client apps that support Intune app protection policies. For example, you can restrict access to Exchange Online to the Outlook app.
+Azure Active Directory Conditional Access enables you to limit access to your cloud apps to client apps that support Intune app protection policies. For example, you can restrict access to Exchange Online to the Outlook app.
 
 In the Conditional Access terminology, these client apps are known as **approved client apps**.  
 
@@ -136,7 +136,7 @@ This scenario consists of a Conditional Access with mobile app management policy
 This scenario assumes that a user:
 
 - Tries to use the SharePoint app to connect and also to view their corporate sites
-- Attempt to sign-in with the same credentials as the Outlook app credentials
+- Attempts to sign in with the same credentials as the Outlook app credentials
 - Does not have to re-register and can get access to the resources
 
 ### Configuration
@@ -202,7 +202,7 @@ This scenario consists of an app-based or compliant device Conditional Access po
 
 This scenario assumes that:
  
-- Some user are already enrolled (with or without corporate devices)
+- Some users are already enrolled (with or without corporate devices)
 - Users who are not enrolled and registered with Azure AD using an app protected application need to register a device to access resources
 - Enrolled users using the app protected application don't have to re-register the device
 

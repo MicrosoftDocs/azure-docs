@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 With Conditional Access policies, you can specify access requirements to websites and services. For example, your access requirements can include requiring multi-factor authentication (MFA) or [managed devices](require-managed-devices.md). 
 
-When you access a site or service directly, the impact of a related policy is typically easy to assess. For example, if you have a policy that requires MFA for SharePoint Online configured, MFA is enforced for each sign-in to the SharePoint web portal. However, it is not always straight-forward to assess the impact of a policy because there are cloud apps with dependencies to other cloud apps. For example, Microsoft Teams leverages SharePoint online. So, when you access Microsoft Teams in our current scenario, you are also subject to the SharePoint MFA policy.   
+When you access a site or service directly, the impact of a related policy is typically easy to assess. For example, if you have a policy that requires MFA for SharePoint Online configured, MFA is enforced for each sign-in to the SharePoint web portal. However, it is not always straight-forward to assess the impact of a policy because there are cloud apps with dependencies to other cloud apps. For example, Microsoft Teams can provide access to resources in SharePoint Online. So, when you access Microsoft Teams in our current scenario, you are also subject to the SharePoint MFA policy.   
 
 ## Policy enforcement 
 
@@ -33,7 +33,7 @@ The diagram below illustrates MS Teams service dependencies. Solid arrows indica
 
 ![MS Teams service dependencies](./media/service-dependencies/01.png)
 
-As a best practice, you should set common policies across related apps and services whenever possible. Having a consistent security posture provides you with the best user experience. For example, setting a common policy across Exchange Online, SharePoint Online, MS Teams and Skype for business significantly reduces unexpected prompts that may arise from different policies being applied to downstream services. 
+As a best practice, you should set common policies across related apps and services whenever possible. Having a consistent security posture provides you with the best user experience. For example, setting a common policy across Exchange Online, SharePoint Online, Microsoft Teams, and Skype for business significantly reduces unexpected prompts that may arise from different policies being applied to downstream services. 
 
 The below table lists additional service dependencies, where the client apps must satisfy  
 

@@ -1,5 +1,5 @@
 ---
-title: What is the what if tool in Azure Active Directory Conditional Access?
+title: What is the What If tool in Azure Active Directory Conditional Access?
 description: Learn how you can understand the impact of your Conditional Access policies on your environment.
 
 services: active-directory
@@ -16,21 +16,21 @@ ms.reviewer: nigu
 #Customer intent: As an IT admin, I want to know how to use the What If tool for my existing Conditional Access policies, so that I can understand the impact they have on my environment. 
 ms.collection: M365-identity-device-management
 ---
-# What is the what if tool in Azure Active Directory Conditional Access?
+# What is the What If tool in Azure Active Directory Conditional Access?
 
-[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect form the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access what if tool**.
+[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
 
 This article explains how you can use this tool to test your Conditional Access policies.
 
 ## What it is
 
-The **Conditional Access what if policy tool** allows you to understand the impact of your Conditional Access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
+The **Conditional Access What If policy tool** allows you to understand the impact of your Conditional Access policies on your environment. Instead of test driving your policies by performing multiple sign-ins manually, this tool enables you to evaluate a simulated sign-in of a user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
 
-The what if tools also provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.	
+The **What If** tool provides a way to quickly determine the policies that apply to a specific user. You can use the information, for example, if you need to troubleshoot an issue.	
 
 ## How it works
 
-In the **Conditional Access what if tool**, you first need to configure the settings of the sign-in scenario you want to simulate. These settings include:
+In the **Conditional Access What If tool**, you first need to configure the settings of the sign-in scenario you want to simulate. These settings include:
 
 - The user you want to test 
 - The cloud apps the user would attempt to access
@@ -42,11 +42,11 @@ When the evaluation has finished, the tool generates a report of the affected po
 
 ## Running the tool
 
-You can find the **what if** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
+You can find the **What If** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
 
-To start the tool, in the toolbar on top of the list of policies, click **What if**.
+To start the tool, in the toolbar on top of the list of policies, click **What If**.
 
-![What if](./media/what-if-tool/01.png)
+![What If](./media/what-if-tool/01.png)
 
 Before you can run an evaluation, you must configure the settings.
 
@@ -54,7 +54,7 @@ Before you can run an evaluation, you must configure the settings.
 
 This section provides you with information about the settings of simulation run.
 
-![What if](./media/what-if-tool/02.png)
+![What If](./media/what-if-tool/02.png)
 
 ### User
 
@@ -71,6 +71,7 @@ The IP address is a single IPv4 address to mimic the [location condition](locati
 ### Device platforms
 
 This setting mimics the [device platforms condition](conditions.md#device-platforms) and represents the equivalent of **All platforms (including unsupported)**. 
+
 ### Client apps
 
 This setting mimics the [client apps condition](conditions.md#client-apps).
@@ -85,9 +86,9 @@ This setting mimics the [sign-in risk condition](conditions.md#sign-in-risk).
 
 ## Evaluation 
 
-You start an evaluation by clicking **What if**. The evaluation result provides you with a report that consists of: 
+You start an evaluation by clicking **What If**. The evaluation result provides you with a report that consists of: 
 
-![What if](./media/what-if-tool/03.png)
+![What If](./media/what-if-tool/03.png)
 
 - An indicator whether classic policies exist in your environment
 - Policies that apply to your user

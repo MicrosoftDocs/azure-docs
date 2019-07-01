@@ -47,11 +47,11 @@ More than one Conditional Access policy may apply when you access a cloud app. I
 All policies are enforced in two phases:
 
 - In the **first** phase, all policies are evaluated and all access controls that aren't satisfied are collected. 
-- In the **second** phase, you are prompted to satisfy the requirements you haven't met. If one of the policies blocks access, you are blocked and not prompted to satisfy other policy controls. If none of the policies blocks you, you are prompted to satisfy other policy controls in the following order:
+- In the **second** phase, you are prompted to satisfy the requirements you haven't met. If any one of the policies block access, you are blocked and not prompted to satisfy other policy controls. If policies block you, you are prompted to satisfy other policy controls in the following order:
 
-    ![Order](./media/best-practices/06.png)
+   ![Order](./media/best-practices/06.png)
     
-    External MFA providers and terms of use come next.
+   External MFA providers and terms of use come next.
 
 ### How are assignments evaluated?
 
