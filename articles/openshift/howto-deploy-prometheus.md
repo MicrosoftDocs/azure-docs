@@ -11,7 +11,7 @@ keywords: prometheus, aro, openshift, metrics, red hat
 
 # Deploy a standalone Prometheus in an Azure Red Hat OpenShift cluster
 
-This article describes how to configure a standalone Prometheus instance that has service discovery in an Azure Red Hat OpenShift cluster. Customer admin access to the cluster isn't required.
+This article describes how to configure a standalone Prometheus instance that uses Service Discovery in an Azure Red Hat OpenShift cluster. Customer admin access to the cluster isn't required.
 
 Target setup:
 
@@ -20,13 +20,13 @@ Target setup:
 
 Some Prometheus configuration files are prepared locally. To store configuration files, create a new folder. These config files are stored in the cluster as Secrets, in case Secret tokens are added later to the cluster.
 
-## Step 1: Sign in to the cluster using the OC tool
+## 1. Sign in to the cluster by using the OC tool
 
 Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io). Sign in with your Azure credentials. Next, select your username found in the top-right corner, and then select **Copy Login Command**. Paste your username into the terminal you'll use.
 
 You can see if you're signed in to the correct cluster by entering the `oc whoami -c` command.
 
-## Step 2: Prepare the projects
+## 2. Prepare the projects
 
 Create projects:
 ```
@@ -39,8 +39,8 @@ oc new-project app-project2
 > [!NOTE]
 > You can either use the `-n` or `--namespace` parameter, or you can select an active project by using the `oc project` command.
 
-## Step 3: Prepare Prometheus config
-Create a prometheus.yml file by using the following content:
+## 3. Prepare the Prometheus config
+Create a prometheus.yml file by entering the following content:
 ```
 global:
   scrape_interval: 30s
@@ -73,7 +73,7 @@ In this example, the auto discovered endpoints are scraped over HTTP without aut
 For more information about scraping endpoints, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config.
 
 
-## Step 4: Prepare Alertmanager config
+## 4. Prepare the Alertmanager config
 Create a alertmanager.yml file by entering the following content:
 ```
 global:
@@ -102,7 +102,7 @@ The alertmanager.yml is the Alert Manager configuration file.
 > [!NOTE]
 > You can verify the two previous steps by using `oc get secret -n prometheus-project`
 
-## Step 5: Start Prometheus and Alertmanager
+## 5. Start Prometheus and Alertmanager
 Download the [prometheus-standalone.yaml](
 https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml)
 template from the [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus),
@@ -118,7 +118,7 @@ The prometheus-standalone.yml file also creates an Alertmanager instance, secure
 > [!NOTE]
 > You can verify if the prom StatefulSet has equal DESIRED and CURRENT number replicas by using the `oc get statefulset -n prometheus-project` command. You can also check all resources in the project by using `oc get all -n prometheus-project`.
 
-## Step 6: Add permissions to allow Service Discovery
+## 6. Add permissions to allow Service Discovery
 
 Create prometheus-sdrole.yml by entering the following content:
 ```
