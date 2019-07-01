@@ -121,10 +121,10 @@ An * means required field.
 | Unsubscribe URI* |uri |HTTP URI to use for unsubscribe request |
 | Subscribe Body |body |HTTP request body for subscribe |
 | Subscribe Headers |headers |HTTP request headers for subscribe |
-| Subscribe Authentication |authentication |HTTP authentication to use for subscribe. [See HTTP connector](connectors-native-http.md#authentication) for details |
+| Subscribe Authentication |authentication |HTTP authentication to use for subscribe. For more information about authentication types available for HTTP, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication). |
 | Unsubscribe Body |body |HTTP request body for unsubscribe |
 | Unsubscribe Headers |headers |HTTP request headers for unsubscribe |
-| Unsubscribe Authentication |authentication |HTTP authentication to use for unsubscribe. [See HTTP connector](connectors-native-http.md#authentication) for details |
+| Unsubscribe Authentication |authentication |HTTP authentication to use for unsubscribe. For more information about authentication types available for HTTP, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication). |
 
 **Output Details**
 
