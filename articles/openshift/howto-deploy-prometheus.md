@@ -25,7 +25,7 @@ These config files are stored in the cluster as Secrets, in case secret tokens a
 
 Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
 Sign in with your Azure credentials.
-Select your user name in top right and select **Copy Login Command**. Paste it into the terminal you'll use.
+Select your username in top right, and then select **Copy Login Command**. Paste your username into the terminal you'll use.
 
 You can see if you're signed in to the correct cluster by entering the `oc whoami -c` command.
 
@@ -64,7 +64,7 @@ scrape_configs:
           - app-project1
           - app-project2
 ```
-Create a Secret called prom by using the following configuration:
+Create a Secret called prom by entering the following configuration:
 ```
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
@@ -77,7 +77,7 @@ For more information about scraping endpoints, see https://prometheus.io/docs/pr
 
 
 ## Step 4: Prepare Alertmanager config
-Create a alertmanager.yml file with the following content:
+Create a alertmanager.yml file by entering the following content:
 ```
 global:
   resolve_timeout: 5m
@@ -95,7 +95,7 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-Create a Secret named prom-alerts by using the following configuration:
+Create a Secret that's named prom-alerts by entering the following configuration:
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
@@ -113,14 +113,17 @@ and then apply the template to prometheus-project:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
-The prometheus-standalone.yaml file is an OpenShift Template, which creates a Prometheus instance
-that has an oauth-proxy in front of it. It also creates an Alertmanager instance, secured with oauth-proxy. In this template, oauth-proxy is configured to allow any user who can get the prometheus-project namespace (see the `-openshift-sar` flag).
+The prometheus-standalone.yml file is an OpenShift Template, which creates a Prometheus instance
+that begins with oauth-proxy.
+
+The prometheus-standalone.yml file also creates an Alertmanager instance, secured with oauth-proxy. In this template, oauth-proxy is configured to allow any user who can get the prometheus-project namespace (see the `-openshift-sar` flag).
 
 > [!NOTE]
 > You can verify if the prom StatefulSet has equal DESIRED and CURRENT number replicas by using the `oc get statefulset -n prometheus-project` command. You can also check all resources in the project by using `oc get all -n prometheus-project`.
 
 ## Step 6: Add permissions to allow Service Discovery
-Create prometheus-sdrole.yml by using the following content:
+
+Create prometheus-sdrole.yml by entering the following content:
 ```
 apiVersion: template.openshift.io/v1
 kind: Template
@@ -173,15 +176,16 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 To have Prometheus to gather metrics from itself, apply the permissions in prometheus-project.
 
 > [!NOTE]
-> You can verify if Role and RoleBinding were created correctly with the `oc get role` and `oc get rolebinding` commands, respectively.
+> You can verify if Role and RoleBinding were created correctly by using the `oc get role` and `oc get rolebinding` commands, respectively.
 
 ## Optional: Deploy example application
-Everything is working, but there are no metrics sources. See the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/), which can be found by using the following command:
+
+If all is working but there aren't any metrics sources, see the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/). You can open the Prometheus URL by using the following command:
 ```
 oc get route prom -n prometheus-project
 ```
 > [!IMPORTANT]
-> Remember to prefix the hostname by using https://.
+> Remember to add the https:// prefix to beginning of the hostname.
 
 The **Status > Service Discovery** page will show 0/0 active targets.
 
@@ -190,10 +194,10 @@ To deploy an example application, which exposes basic Python metrics under the /
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example1 -n app-project1
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example2 -n app-project2
 ```
-The new applications will appear as valid targets on the Service Discovery page within 30 seconds after deployment. For more details, select **Status** > **Targets**.
+The new applications should appear as valid targets on the Service Discovery page within 30 seconds after deployment. For more details, select **Status** > **Targets**.
 
 > [!NOTE]
-> For every successfully scraped target, Prometheus adds a datapoint in the up metric. Select **Prometheus** in the upper-left corner, and then enter **up** as the expression. Select **Execute**.
+> For every successfully scraped target, Prometheus adds a data point in the up metric. Select **Prometheus** in the upper-left corner, and then enter **up** as the expression. Select **Execute**.
 
 ## Next steps
 
