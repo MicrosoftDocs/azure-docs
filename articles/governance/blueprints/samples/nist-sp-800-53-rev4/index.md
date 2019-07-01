@@ -10,14 +10,17 @@ manager: carmonm
 ---
 # Overview of the NIST SP 800-53 R4 blueprint sample
 
-The NIST SP 800-53 R4 blueprint sample provides a set of compliant infrastructure patterns and
-policy guard-rails that help towards NIST SP 800-53 R4 attestation. This blueprint sample helps
-customers govern cloud-based architectures that offer solutions to scenarios that have accreditation
-or compliance requirements.
+The NIST SP 800-53 R4 blueprint sample provides governance guard-rails using [Azure Policy](../../../policy/overview.md)
+that help you assess specific NIST SP 800-53 R4 controls. This blueprint helps customers deploy a 
+core set of policies for any Azure-deployed architecure that must implement NIST SP 800-53 R4 
+controls.
 
-## Architecture
+## Control mapping
 
-Need content here
+The control mapping section provides details on policies included within this blueprint and how 
+these policies address various controls in NIST SP 800-53 R4. When assigned to an architecture, 
+resources are evaluated by Azure Policy for non-compliance with assigned policies. For more 
+information, see [Azure Policy](../../../policy/overview.md).
 
 ## Next steps
 
