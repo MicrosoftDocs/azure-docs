@@ -1,17 +1,17 @@
 ---
-title: Onboard a customer to Azure Delegated Resource Management
-description: Learn how to onboard a customer to Azure Delegated Resource Management, allowing their resources to be accessed and managed through your own tenant. 
+title: Onboard a customer to Azure delegated resource management - Azure Lighthouse
+description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant. 
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 06/28/2019
+ms.date: 07/01/2019
 ms.topic: overview
 manager: carmonm
 ---
 
-# Onboard a customer to Azure Delegated Resource Management
+# Onboard a customer to Azure delegated resource management
 
-This article explains how you, as a service provider, can onboard a customer to Azure Delegated Resource Management, allowing their delegated resources (subscriptions and/or resource groups) to be accessed and managed through your own Azure Active Directory (Azure AD) tenant. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
+This article explains how you, as a service provider, can onboard a customer to Azure delegated resource management, allowing their delegated resources (subscriptions and/or resource groups) to be accessed and managed through your own Azure Active Directory (Azure AD) tenant. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
 You can repeat this process if you are managing resources for multiple customers. Then, when an authorized user signs in to your tenant, that user can be authorized across customer tenancy scopes to perform management operations without having to sign in to every individual customer tenant.
 
@@ -23,7 +23,7 @@ You can associate your Microsoft Partner Network (MPN) ID with your onboarded su
 The onboarding process requires actions to be taken from within both the service provider's tenant and from the customer's tenant. All of these steps are described in this article.
 
 > [!IMPORTANT]
-> You can’t onboard a subscription or resource group for Azure Delegated Resource Management if that scope has any resource locks. For example, Azure managed applications and Azure Databricks automatically create resource locks on resources in the solution.
+> You can’t onboard a subscription or resource group for Azure delegated resource management if that scope has any resource locks. For example, Azure managed applications and Azure Databricks automatically create resource locks on resources in the solution.
 
 ## Gather tenant and subscription details
 
@@ -210,7 +210,7 @@ The following example shows a modified **resourceProjection.parameters.json** fi
 
 ## Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, you must deploy the Resource Management template in the customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure Delegated Resource Management (or for each subscription that contains resource groups that you want to onboard).
+Once you have updated your parameter file, you must deploy the Resource Management template in the customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
 
 > [!IMPORTANT]
 > The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). 
@@ -255,7 +255,7 @@ az deployment create –-name <deploymentName \
 
 ## Confirm successful onboarding
 
-When a customer subscription has successfully been onboarded to Azure Delegated Resource Management, users in the service provider's tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.  
+When a customer subscription has successfully been onboarded to Azure delegated resource management, users in the service provider's tenant will be able to see the subscription and its resources (if they have been granted access to it through the process above, either individually or as a member of an Azure AD group with the appropriate permissions). To confirm this, check to make sure the subscription appears in one of the following ways.  
 
 ### Azure portal
 
@@ -292,5 +292,5 @@ az account list
 
 ## Next steps
 
-- Learn about the [cross-tenant management experience](../concepts/cross-tenant-management-experience.md).
+- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.

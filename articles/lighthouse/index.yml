@@ -13,7 +13,7 @@ metadata:
   ms.date: 06/26/2019
   ms.author: jenhayes
 abstract:
-  description: Azure Lighthouse lets you manage resources at scale on behalf of your customers.
+  description: Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale and enhanced governance. 
 sections:
 - title: Concepts
   items:
@@ -22,17 +22,19 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="concepts/azure-delegated-resource-management">Azure Delegated Resource Management</a>
-    - html: <a href="concepts/cross-tenant-management-experience">Cross-tenant management experience</a>
+    - html: <a href="concepts/azure-delegated-resource-management">Azure delegated resource management</a>
+    - html: <a href="concepts/cross-tenant-management-experience">Cross-tenant management experiences</a>
     - html: <a href="concepts/managed-services-offers">Managed Services offers in Azure Marketplace</a>
+    - html: <a href="concepts/recommended-security-practices.md">Recommended security practices</a>
+    - html: <a href="concepts/cloud-solution-provider.md">Cloud Solution Provider program considerations</a>
 - title: How-to guides
   items:
   - type: paragraph
-    text: Learn how to onboard customers for Azure Delegated Resource Management and how to manage their resources.
+    text: Learn how to onboard customers for Azure delegated resource management and how to manage their resources.
   - type: list
     style: unordered
     items:
-    - html: <a href="how-to/onboard-customer">Onboard a customer to Azure Delegated Resource Management</a>
+    - html: <a href="how-to/onboard-customer">Onboard a customer to Azure delegated resource management</a>
     - html: <a href="how-to/publish-managed-services-offers">Publish Managed Services offers to Azure Marketplace</a>
     - html: <a href="how-to/view-manage-customers">View and manage customers and delegated resources</a>
     - html: <a href="how-to/view-manage-service-providers">View and manage service providers</a>

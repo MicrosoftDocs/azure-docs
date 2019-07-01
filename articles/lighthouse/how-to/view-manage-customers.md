@@ -1,17 +1,17 @@
 ---
 title: View and manage customers and delegated resources in the Azure portal
-description: As a service provider using Azure Delegated Resource Management, you can view all of your delegated customer resources and subscriptions by going to My customers in the Azure portal. 
+description: As a service provider using Azure delegated resource management, you can view all of your delegated customer resources and subscriptions by going to My customers in the Azure portal. 
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 06/24/2019
+ms.date: 07/01/2019
 ms.topic: overview
 manager: carmonm
 ---
 
 # View and manage customers and delegated resources
 
-In this article, you'll learn how, as a service provider using [Azure Delegated Resource Management](../concepts/azure-delegated-resource-management.md), you can view all of your delegated customer resources and subscriptions by going to **My customers** in the [Azure portal](https://portal.azure.com). While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
+In this article, you'll learn how, as a service provider using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), you can view all of your delegated customer resources and subscriptions by going to **My customers** in the [Azure portal](https://portal.azure.com). While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
 To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
 
@@ -57,5 +57,6 @@ If you then access a service which supports [cross-tenant management experiences
 You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within that service.
 
 ## Next steps
-- Learn about the [cross-tenant management experience](../concepts/cross-tenant-management-experience.md).
+
+- Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - Learn how your customers can [view and manage service providers](view-manage-service-providers.md) by going to **Service providers** in the Azure portal.

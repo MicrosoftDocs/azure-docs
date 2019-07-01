@@ -7,21 +7,24 @@
     href: overview.md
 - name: Concepts
   items:
-  - name: Azure Delegated Resource Management
+  - name: Azure delegated resource management
     displayName: delegation
     href: ./concepts/azure-delegated-resource-management.md
-  - name: Cross-tenant management experience
+  - name: Cross-tenant management experiences
     displayName: scenarios
     href: ./concepts/cross-tenant-management-experience.md
   - name: Managed services offers in Azure Marketplace
     displayName: managed services offer, azure marketplace
     href: ./concepts/managed-services-offers.md
   - name: Recommended security practices
-    displayName: managed services offer, azure marketplace
+    displayName: mfa, authentication, secure, group
     href: ./concepts/recommended-security-practices.md
+  - name: Cloud Solution Provider program considerations
+    displayName: csp, aobo, partner
+    href: ./concepts/cloud-solution-provider.md
 - name: How-to guides
   items:
-  - name: Onboard a customer to Azure Delegated Resource Management
+  - name: Onboard a customer to Azure delegated resource management
     displayName: resource management
     href: ./how-to/onboard-customer.md
   - name: Publish Managed Services offers to Azure Marketplace 
