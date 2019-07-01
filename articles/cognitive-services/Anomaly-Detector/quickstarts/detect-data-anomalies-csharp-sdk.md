@@ -5,11 +5,10 @@ description: Start detecting anomalies in your time series data with the Anomaly
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/11/2019
+ms.date: 07/01/2019
 ms.author: aahi
 ---
 
