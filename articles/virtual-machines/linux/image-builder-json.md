@@ -329,6 +329,8 @@ This is supported by Windows directories and Linux paths, but there are some dif
  
 If there is an error trying to download the file, or put it in a specified directory, the customize step will fail, and this will be in the customization.log.
 
+>> Note! The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a Script or Inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
+
 Files in the File customizer can be downloaded from Azure Storage using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### Generalize 
