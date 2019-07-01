@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 06/05/2019
 ---
 
-# How to Purchase Software on AppSource
+# How to Purchase Software on Microsoft AppSource
 
-[AppSource](https://appsource.microsoft.com/) now enables customers to subscribe to web applications that are offered by Microsoft partners. Customers can find certified web applications on the store and can manage the charges, upgrades, downgrades, and cancellations in a single place using Microsoft’s Admin Center. This article describes how you can purchase an app from the store.
+Microsoft [AppSource](https://appsource.microsoft.com/) now enables customers to subscribe to SaaS applications that are offered by Microsoft partners. Customers can find certified web applications on the store and can manage the charges, upgrades, downgrades, and cancellations in a single place using Microsoft’s Admin Center. This article describes how you can purchase an app from the store.
 
 ## Requirements
 
