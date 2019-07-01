@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 06/24/2019
 ms.author: tomfitz
 
 ---
@@ -44,6 +44,7 @@ The following list provides a general summary of Azure services that can be move
 * API Management
 * App Service apps (web apps) - see [App Service limitations](#app-service-limitations)
 * App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
+* App Service Domain
 * Automation - Runbooks must exist in the same resource group as the Automation Account.
 * Azure Active Directory B2C
 * Azure Cache for Redis - if the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
@@ -74,7 +75,6 @@ The following list provides a general summary of Azure services that can be move
 * DNS
 * Event Grid
 * Event Hubs
-* Front Door
 * HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
@@ -84,14 +84,14 @@ The following list provides a general summary of Azure services that can be move
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
 * Managed Disks - Managed Disks in Availability Zones can't be moved to a different subscription
 * Media Services
-* Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#monitor-limits)
+* Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits)
 * Notification Hubs
 * Operational Insights
 * Operations Management
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - Basic SKU Public IP can be moved. Standard SKU Public IP can't be moved.
-* Recovery Services vault - enroll in a [preview](#recovery-services-limitations).
+* Recovery Services vault - see [limitations](#recovery-services-limitations).
 * SAP HANA on Azure
 * Scheduler
 * Search - You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
@@ -99,7 +99,7 @@ The following list provides a general summary of Azure services that can be move
 * Service Fabric
 * Service Fabric Mesh
 * SignalR Service
-* Storage - storage accounts in different regions can't be moved in the same operation. Instead, use separate operations for each region.
+* Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Storage Sync Service
 * Stream Analytics - Stream Analytics jobs can't be moved when in running state.
@@ -133,6 +133,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
+* Front Door
 * Lab Services - Classroom Labs can't be moved to a new resource group or subscription. DevTest Labs can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Managed Applications
 * Managed Identity - user-assigned

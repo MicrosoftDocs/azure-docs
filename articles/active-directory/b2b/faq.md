@@ -39,7 +39,7 @@ Yes. Guest users can reset their multi-factor authentication method the same way
 The inviting organization performs multi-factor authentication. The inviting organization must make sure that the organization has enough licenses for their B2B users who are using multi-factor authentication.
 
 ### What if a partner organization already has multi-factor authentication set up? Can we trust their multi-factor authentication, and not use our own multi-factor authentication?
-This feature is planned for a future release, so that then you can select specific partners to exclude from your (the inviting organization's) multi-factor authentication.
+This feature is currently not supported. If access to your organization's resources requires multi-factor authentication, the partner organization will need to register for multi-factor authentication in your (the inviting) organization.
 
 ### How can I use delayed invitations?
 An organization might want to add B2B collaboration users, provision them to applications as needed, and then send invitations. You can use the B2B collaboration invitation API to customize the onboarding workflow.

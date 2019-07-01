@@ -29,6 +29,17 @@ Azure Site Recovery publishes service updates on a regular basis - including the
 > [!IMPORTANT]
 > The official support for upgrades is from > N-4 to N version (N being the latest version). If you are on N-6, you need to first upgrade to N-4, and then upgrade to N.
 
+## Expiry of components
+Site Recovery notifies customers of components nearing expiry or already expired via email notifications (if you have subscribed to them) or on the vault dashboard in the portal. The vault dashboard notifications aren't available if you are protecting a hYpe-rV VM as of now. Also, if you navigate to the corresponding infrastructure view for your scenario, there will be an 'update available' button next to the component, which will redirect you to the links to downloads the latest versions.
+
+Below is the frequency of email notifications when a components is nearing expiry.
+- 60 days before the component is about to expire : bi-weekly once
+- Next 53 days : weekly once
+- Last 7 days : Daily once
+- After its expired : bi-weekly once
+
+
+
 ### Upgrading when the difference between current version and latest released version is greater than 4
 
 1. As a first step, upgrade the currently installed component from version say N to N+4, and then move to the next compatible version. Let's say the current version is 9.24, and you are on 9.16, first upgrade to 9.20 and then to 9.24.
