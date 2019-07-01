@@ -68,7 +68,7 @@ The GenerateAnswer URL has the following format:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Remember to set the HTTP header property of `Authorization` with a value of the string `EndpointKey ` with a trailing space then the endpoint key found on the **Settings** page.
+Remember to set the HTTP header property of `Authorization` with a value of the string `EndpointKey` with a trailing space then the endpoint key found on the **Settings** page.
 
 An example JSON body looks like:
 
