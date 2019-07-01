@@ -27,7 +27,7 @@ ___
 | `AADB2C90005` | The redirect URI '{0}' has an invalid format. Specify an absolute URI such as 'https://example.com/return'. |
 | [AADB2C90006](error-handling.md#aadb2c90006) | The redirect URI '{0}' provided in the request is not registered for the client id '{1}'. |
 | `AADB2C90007` | The application associated with client id '{0}' has no registered redirect URIs. |
-| `AADB2C90008` | The request does not contain a client id parameter. |
+| [AADB2C90008](error-handling.md#aadb2c90008) | The request does not contain a client id parameter. |
 | `AADB2C90009` | The request does not contain a nonce. A nonce is required when using the '{0}' algorithm. |
 | `AADB2C90010` | The request does not contain a scope parameter. |
 | `AADB2C90011` | The client id '{0}' provided in the request does not match client id '{1}' registered in policy. |
@@ -360,6 +360,7 @@ ___
 | `AADB2C90288` | UserJourney with id '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
 | `AADB2C90289` | We encountered an error connecting to the identity provider. Please try again later. |
 | `AADB2C90290` | The application cannot be updated because its keys are managed elsewhere. |
+| `AADB2C90291` | Technical profile '{0}' contains {1} claim with id '{2}' that has an unsupported data type. The data types supported for this provider are '{3}' |
 | `AADB2C99003` | One of the properties provided for the application '{0}' has invalid value. |
 | `AADB2C99004` | One of the properties provided for the application '{0}' has invalid value. Property: '{1}', Error: '{2}'. |
 | `AADB2C99005` | The request contains an invalid scope parameter which includes an illegal character '{0}'. |
@@ -380,3 +381,4 @@ ___
 | `AADB2C99020` | The {0} input claims selected for the restful provider are not valid. Please check that the claims are selected in the user flow. |
 | `AADB2C99021` | Please add at least one user attribute in order to enable restful provider in your user flow |
 | `AADB2C99022` | Please remove duplicated claim '{0}' from restful options. |
+| `AADB2C99023` | Your tenant has reached maximum number of policies allowed. |
