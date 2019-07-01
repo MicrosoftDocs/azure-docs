@@ -59,7 +59,7 @@ The size of the reservation should be based on the total amount of throughput th
 
 6. In the **Purchase reservations** pane, review the discount and the price of the reservation. This reservation price applies to Azure Cosmos DB resources with throughput provisioned across all regions.  
 
-   ![Reserved capacity summary](./media/cosmos-db-reserved-capacity/reserved_capacity_summary.png)
+   ![Reserved capacity summary](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
 
 7. Select **Review + buy** and then **buy now**. You see the following page when the purchase is successful:
 
