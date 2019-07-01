@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 07/01/2019
 ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a pre-built Form Recognizer model to extract my receipt data.
 ---
