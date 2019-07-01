@@ -398,7 +398,7 @@ Package the following managed application artifacts to zip archive and upload it
 
 All files must be at root level. The package with artifacts can be stored in any storage, for example Github blob or Azure storage account blob. Here is a script to upload the application package to storage account: 
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 ```powershell
 $resourceGroup="appResourcesGroup"
@@ -431,7 +431,7 @@ $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $c
 
 The steps below show how to deploy a Service Catalog managed application definition:
 
-# [Azure CLI](#tab/azurecli-interactive)
+# [Azure CLI](#tab/sc-azurecli-interactive)
 
 ```azurecli-interactive
 resourceGroup="appResourcesGroup"
@@ -456,7 +456,7 @@ az managedapp definition create \
   --package-file-uri "path to your app.zip package"
 ```
 
-# [Portal](#tab/azure-portal)
+# [Portal](#tab/sc-azure-portal)
 
 1. In the Azure portal, select **All services**. In the list of resources, type and select **Managed Applications Center**.
 2. On the **Managed Applications Center**, choose **Service Catalog application definition** and click **Add**. 
@@ -487,7 +487,7 @@ az managedapp definition create \
 
 Once the Service Catalog managed application definition is deployed, follow the steps below to deploy your managed application instance with custom provider:
 
-# [Azure CLI](#tab/azurecli-interactive)
+# [Azure CLI](#tab/ma-azurecli-interactive)
 
 ```azurecli-interactive
 appResourcesGroup="appResourcesGroup"
@@ -510,7 +510,7 @@ az managedapp create \
   --parameters "{\"funcname\": {\"value\": \"managedusersappfunction\"}, \"storageName\": {\"value\": \"managedusersappstorage\"}}"
 ```
 
-# [Portal](#tab/azure-portal)
+# [Portal](#tab/ma-azure-portal)
 
 1. In the Azure portal, select **All services**. In the list of resources, type and select **Managed Applications Center**.
 2. On the **Managed Applications Center**, choose **Service Catalog applications** and click **Add**. 
@@ -546,7 +546,7 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
 ## Next Steps
 
