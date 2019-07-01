@@ -19,7 +19,7 @@ ms.author: monhaber
 ---
 # IaaS VM and server alerts in Azure Security Center
 
-This topic presents the different types of detection methods and alerts available for VMs and Servers on the following operation systems.
+This topic presents the different types of detection methods and alerts available for VMs and Servers with the following operation systems.
 
 * [Windows](#windows-machines)
 * [Linux](#linux-machines)
@@ -37,7 +37,7 @@ Azure Security Center extends its Cloud Workload Protection Platforms by integra
 > [!NOTE]
 > Windows Server Defender ATP sensor is automatically enabled on Windows Servers that are onboarded to Azure Security Center.
 
-When Windows Server Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Windows Defender ATP console to perform a detailed investigation to uncover scope of the attack. For more information about Windows Server Defender ATP, see [Onboard servers to the Windows Defender ATP service](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+When Windows Server Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Windows Defender ATP console to perform a detailed investigation to uncover the scope of the attack. For more information about Windows Server Defender ATP, see [Onboard servers to the Windows Defender ATP service](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 ### Crash Dump Analysis <a nanme="windows-dump"></a>
 
@@ -49,8 +49,8 @@ However, this kind of attack can be detected by using memory analysis. By analyz
 
 |Alert|Description|
 |---|---|
-|**Code injection discovered**|Code injection is the insertion of executable modules into running processes or threads. This technique is used by malware to access data, hide or prevent its removal. <br/><br/>This alert indicates that an injected module is present in the crash dump. To differentiate between malicious and non-malicious injected modules, Security Center checks whether the injected module conforms to a profile of suspicious behavior.|
-|**Suspicious code segment discovered**|The suspicious code segment alert indicates that a code segment has been allocated using non-standard methods, such as reflective injection and process hollowing. Additional characteristics of the code segment are processed to provide context for the capabilities and behaviors of the reported code segment.|
+|**Code injection discovered**|Code injection is the insertion of executable modules into running processes or threads. This technique is used by malware to access data, while successfully hiding itself to prevent being found and removed. <br/><br/>This alert indicates that an injected module is present in the crash dump. To differentiate between malicious and non-malicious injected modules, Security Center checks whether the injected module conforms to a profile of suspicious behavior.|
+|**Suspicious code segment discovered**|Indicates that a code segment has been allocated using non-standard methods, such as reflective injection and process hollowing. The alert provides additional characteristics of the code segment that have been processed to provide context for the capabilities and behaviors of the reported code segment.|
 |**Shellcode discovered**|Shellcode is the payload that is run after malware exploits a software vulnerability. <br/><br/>This alert indicates that crash dump analysis has detected executable code that exhibits behavior commonly performed by malicious payloads. Although non-malicious software may also perform this behavior, it is not typical of normal software development practices.|
 
 ### Fileless Attack Detection <a nanme="windows-fileless"></a>
@@ -59,7 +59,7 @@ In Azure, we regularly see fileless attacks targeting our customers’ endpoints
 
 To avoid detection, fileless attacks inject malicious payloads into memory. Attacker payloads persist within the memory of compromised processes and perform a wide range of malicious activities.
 
-With Fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime and extracts insights directly from the memory of security-critical processes.
+With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime and extracts insights directly from the memory of security-critical processes.
 
 It finds evidence of exploitation, code injection, and execution of malicious payloads. Fileless Attack Detection generates detailed security alerts to accelerate alert triage, correlation, and downstream response time. This approach complements event-based EDR solutions providing greater detection coverage.
 
@@ -69,7 +69,7 @@ It finds evidence of exploitation, code injection, and execution of malicious pa
 
 |Alert|Description|
 |---|---|
-|**Fileless attack technique detected**|The memory of the process specified below contains a fileless attack toolkit: Meterpreter. Fileless attack toolkits typically do not have a presence on the filesystem, making detection by traditional anti-virus difficult.|
+|**Fileless attack technique detected**|The memory of the process specified below contains a fileless attack toolkit: Meterpreter. Fileless attack toolkits typically do not have a presence on the file system, making detection by traditional anti-virus difficult.|
 
 ### For more information about Security Center detection and to see examples:
 
@@ -82,9 +82,9 @@ Security Center collects audit records from Linux machines using **auditd**, one
 
 ### Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration <a name="linux-auditd"></a>
 
-The auditd system consists of a kernel-level subsystem which is responsible for monitoring system calls, filtering them by a given rule set, and writing messages for them to a socket. Security Center integrates functionalities from auditd package within the Microsoft Monitoring Agent (MMA) to enable auditd events collection in all supported Linux distributions without any prerequisites.  
+The auditd system consists of a kernel-level subsystem which is responsible for monitoring system calls, filtering them by a given rule set, and writing messages for them to a socket. Security Center integrates functionalities from the auditd package within the Microsoft Monitoring Agent (MMA). This integration enables auditd events collection in all supported Linux distributions without any prerequisites.  
 
-auditd records are collected, enriched and aggregated into events using the Linux MMA agent. Security Center is constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics spans across suspicious processes, dubious login attempts, kernel module loading and other activities that could indicate that a machine is under attack or has been breached.  
+auditd records are collected, enriched and aggregated into events using the Linux MMA agent. Security Center is constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics spans across suspicious processes, dubious login attempts, kernel module loading, and other activities that could indicate that a machine is under attack or has been breached.  
 
 Below are several examples of analytics, that demonstrate how we span across different stages on attack life cycle.
 

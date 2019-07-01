@@ -53,7 +53,7 @@ See the following topics, to understand more about the resources monitored by AS
 * To see which platforms and features are protected by ASC, see [Platforms and features supported by Azure Security Center](security-center-os-coverage.md).  
 * To understand what are security incidents and how ASC responds to them, see [How to handle Security Incidents in Azure Security Center](security-center-incident.md). 
 * To learn how to manage the alerts you receive, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
-* For information on to how validate Security Center is properly configured and to stimulate a test alert, see [Alerts Validation in Azure Security Center](security-center-alert-validation.md).  
+* For information on to how validate that Security Center is properly configured and to stimulate a test alert, see [Alerts Validation in Azure Security Center](security-center-alert-validation.md).  
 
 
 ## Upgrade to Standard for advanced detections
@@ -67,7 +67,7 @@ To set up advanced detections, upgrade to Azure Security Center Standard.
 
 ## Next steps
 
-In this article, you learned about the different types of security alerts in Security Center. For more information, see the following topics:
+In this article, you learned what are security alerts and the different types of alerts available in Security Center. For more information, see the following topics:
 
 * [Azure Security Center planning and operations guide](https://docs.microsoft.com/en-us/azure/security-center/security-center-planning-and-operations-guide)
 * [Azure Security Center FAQ](https://docs.microsoft.com/en-us/azure/security-center/security-center-faq): Find frequently asked questions about using the service.
