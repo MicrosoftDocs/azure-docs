@@ -27,7 +27,7 @@ This article describes how you can add authorization to your web API. This prote
 - Applications on behalf of users who have the right scopes.
 - Daemon apps that have the right application roles.
 
-To protect an ASP.NET / ASP.NET Core web API, you'll need to add the `[Authorize]` attribute on one of these:
+To protect an ASP.NET/ASP.NET Core web API, you'll need to add the `[Authorize]` attribute on one of these:
 
 - The controller itself, if you want all the actions of the controller to be protected
 - The individual controller action for your API
@@ -40,7 +40,7 @@ To protect an ASP.NET / ASP.NET Core web API, you'll need to add the `[Authorize
     }
 ```
 
-But this protection isn't enough. It guarantees only that ASP.NET / ASP.NET Core will validate the token. Your API needs to verify that the token used to call your web API was requested with the claims it expects, in particular:
+But this protection isn't enough. It guarantees only that ASP.NET/ASP.NET Core will validate the token. Your API needs to verify that the token used to call your web API was requested with the claims it expects, in particular:
 
 - The *scopes*, if the API is called on behalf of a user.
 - The *app roles*, if the API can be called from a daemon app.
