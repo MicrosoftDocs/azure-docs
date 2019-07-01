@@ -84,19 +84,14 @@ The migration process consist of the following steps:
    ![Conditional Access](./media/policy-migration/37.png)
 
 1. On the **New** page, to open the **Cloud apps** page, in the **Assignment** section, click **Cloud apps**.
-
 1. On the **Cloud apps** page, perform the following steps:
 
    ![Conditional Access](./media/policy-migration/08.png)
 
    1. Click **Select apps**.
-
    1. Click **Select**.
-
    1. On the **Select** page, select your cloud app, and then click **Select**.
-
    1. On the **Cloud apps** page, click **Done**.
-
 1. If you have **Require multi-factor authentication** selected:
 
    ![Conditional Access](./media/policy-migration/26.png)
@@ -106,9 +101,7 @@ The migration process consist of the following steps:
    ![Conditional Access](./media/policy-migration/27.png)
 
    1. On the **Grant** page, click **Grant access**, and then click **Require multi-factor authentication**.
-
    1. Click **Select**.
-
 1. Click **On** to enable your policy.
 
    ![Conditional Access](./media/policy-migration/30.png)

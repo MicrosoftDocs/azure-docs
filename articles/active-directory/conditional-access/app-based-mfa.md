@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
+
 #Customer intent: As an IT admin, I want to configure MFA on a per app basis, so that my users have a convenient sign-on experience and our mission critical apps are protected with strong authentication.
 ms.collection: M365-identity-device-management
 ---
@@ -30,7 +31,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete the scenario in this quickstart, you need:
 
 - **Access to an Azure AD Premium edition** - Azure AD Conditional Access is an Azure AD Premium capability.
-
 - **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 The scenario in this quickstart requires that per user MFA is not enabled for your test account. For more information, see [How to require two-step verification for a user](../authentication/howto-mfa-userstates.md).
@@ -64,7 +64,6 @@ In your policy, set:
 **To configure your Conditional Access policy:**
 
 1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
-
 1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
@@ -90,11 +89,8 @@ In your policy, set:
    ![Users and groups](./media/app-based-mfa/24.png)
 
    1. Click **Select users and groups**, and then select **Users and groups**.
-
    1. Click **Select**.
-
    1. On the **Select** page, select **Isabella Simonsen**, and then click **Select**.
-
    1. On the **Users and groups** page, click **Done**.
 
 1. Click **Cloud apps**.
@@ -106,11 +102,8 @@ In your policy, set:
    ![Select cloud apps](./media/app-based-mfa/26.png)
 
    1. Click **Select apps**.
-
    1. Click **Select**.
-
    1. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
-
    1. On the **Cloud apps** page, click **Done**.
 
 1. In the **Access controls** section, click **Grant**.
@@ -122,9 +115,7 @@ In your policy, set:
    ![Grant](./media/app-based-mfa/11.png)
 
    1. Select **Grant access**.
-
    1. Select **Require multi-factor authentication**.
-
    1. Click **Select**.
 
 1. In the **Enable policy** section, click **On**.
@@ -164,13 +155,9 @@ Clicking **What If** creates a simulation report that shows:
    ![Cloud apps](./media/app-based-mfa/16.png)
 
    1. Click **Cloud apps**.
-
    1. On the **Cloud apps page**, click **Select apps**.
-
    1. Click **Select**.
-
    1. On the **Select** page, select **Microsoft Azure Management**, and then click **Select**.
-
    1. On the cloud apps page, click **Done**.
 
 1. Click **What If**.

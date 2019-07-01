@@ -31,11 +31,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete the scenario in this tutorial, you need:
 
 - **Access to an Azure AD Premium P2 edition** - While Conditional Access is an Azure AD Premium P1 capability, you need a P2 edition because the scenario in this quickstart requires Identity Protection.
-
 - **Identity Protection** - The scenario in this quickstart requires Identity Protection to be enabled. If you don't know how to enable Identity Protection, see [Enabling Azure Active Directory Identity Protection](../identity-protection/enable.md).
-
 - **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as **sign-ins from anonymous IP addresses**, which has a medium risk level. For more information, see [Azure Active Directory risk events](../reports-monitoring/concept-risk-events.md).  
-
 - **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## Test your sign-in
@@ -65,7 +62,6 @@ This section shows how to create the required Conditional Access policy. In your
 **To configure your Conditional Access policy:**
 
 1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
-
 1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-sign-in-risk/02.png)
@@ -91,13 +87,9 @@ This section shows how to create the required Conditional Access policy. In your
    ![Conditional Access](./media/app-sign-in-risk/107.png)
 
    1. Click **Select users and groups**, and then select **Users and groups**.
-
    1. Click **Select**.
-
    1. On the **Select** page, select **Alain Charon**, and then click **Select**.
-
    1. On the **Users and groups** page, click **Done**.
-
 1. Click **Cloud apps**.
 
    ![Cloud apps](./media/app-sign-in-risk/08.png)
@@ -107,9 +99,7 @@ This section shows how to create the required Conditional Access policy. In your
    ![Conditional Access](./media/app-sign-in-risk/109.png)
 
    1. Click **All cloud apps**.
-
    1. Click **Done**.
-
 1. Click **Conditions**.
 
    ![Access controls](./media/app-sign-in-risk/19.png)
@@ -119,15 +109,10 @@ This section shows how to create the required Conditional Access policy. In your
    ![Sign-in risk level](./media/app-sign-in-risk/21.png)
 
    1. Click **Sign-in risk**.
-
    1. As **Configure**, click **Yes**.
-
    1. As sign-in risk level, select **Medium**.
-
    1. Click **Select**.
-
    1. On the **Conditions** page, click **Done**.
-
 1. In the **Access controls** section, click **Grant**.
 
    ![Access controls](./media/app-sign-in-risk/10.png)
@@ -137,9 +122,7 @@ This section shows how to create the required Conditional Access policy. In your
    ![Conditional Access](./media/app-sign-in-risk/105.png)
 
    1. Select **Block access**.
-
    1. Click **Select**.
-
 1. In the **Enable policy** section, click **On**.
 
    ![Enable policy](./media/app-sign-in-risk/18.png)
@@ -183,7 +166,6 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 When no longer needed, delete the test user, the Tor Browser and the Conditional Access policy:
 
 - If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
    ![Multi-factor authentication](./media/app-sign-in-risk/33.png)
