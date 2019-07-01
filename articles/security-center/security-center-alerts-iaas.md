@@ -7,7 +7,7 @@ author: monhaber
 manager: rkarlin
 editor: ''
 
-ms.assetid: 
+ms.assetid: dd2eb069-4c76-4154-96bb-6e6ae553ef46
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual

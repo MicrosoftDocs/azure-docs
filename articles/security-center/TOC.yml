@@ -121,7 +121,7 @@
       href: security-center-alerts-service-layer.md   
     - name: Integration with Azure Security Products
       href: security-center-alerts-integration.md
-    - name: Cloud Smart Alert correlation
+    - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md 
     - name: UEBA for Azure resources and users
       href: security-center-ueba-mcas.md

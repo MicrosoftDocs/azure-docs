@@ -1,5 +1,5 @@
 ---
-title: Cloud Smart Alert Correlation | Microsoft Docs
+title: Cloud smart alert correlation (incidents) | Microsoft Docs
 description: Azure policy definitions monitored in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -7,7 +7,7 @@ author: monhaber
 manager: rkarlin
 editor: ''
 
-ms.assetid: 
+ms.assetid: e9d5a771-bfbe-458c-9a9b-a10ece895ec1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
@@ -17,7 +17,7 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-# Cloud Smart Alert Correlation in Azure Security Center
+# Cloud smart alert  correlation in Azure Security Center (incidents)
 
 Security Center continuously analyzes the hybrid cloud workloads using advanced analytics and threat intelligence to alert you about malicious activity.
 
@@ -27,7 +27,9 @@ Fusion is the technology and analytic back end that powers Security Center incid
 
 Fusion analytics combine security domain knowledge with AI to analyze alerts, discovering new attack patterns as they occur. 
 
-Security Center leverages MITRE Attack Matrix to associate alerts with their perceived intent, helping formalize security domain knowledge. In addition, by using the information gathered for each step of an attack, Security Center can rule out activity that appear to be steps of an attack, but is not.  <br/>As attacks often occur across different tenants, this helps Security Center to combine AI algorithms to analyze attack sequences that are reported on each subscription to identify them as prevalent alert patterns instead of just being incidentally associated with each other.
+Security Center leverages MITRE Attack Matrix to associate alerts with their perceived intent, helping formalize security domain knowledge. In addition, by using the information gathered for each step of an attack, Security Center can rule out activity that appear to be steps of an attack, but is not.  
+
+As attacks often occur across different tenants, this helps Security Center to combine AI algorithms to analyze attack sequences that are reported on each subscription to identify them as prevalent alert patterns instead of just being incidentally associated with each other.
 
 During an investigation of an incident, analysts often need extra context to reach a verdict about the nature of the threat and how to mitigate it. For example, even when a network anomaly is detected,  without understanding what else is happening on the network or with regard to the targeted resource it is difficult to understand what actions to take next. To help, a security incident can include artifacts, related events, and information. The additional information available for security incidents varies depending on the type of threat detected and the configuration of your environment. 
 

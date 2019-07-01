@@ -7,7 +7,7 @@ author: monhaber
 manager: rkarlin
 editor: ''
 
-ms.assetid: 
+ms.assetid: da960861-0b6c-4d80-932d-898cdebb4f83
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
@@ -35,7 +35,7 @@ SQL threat detection detects anomalous activities indicating unusual and potenti
 |**Access from unusual location**|There has been a change in the access pattern to SQL server, where someone has logged on to the SQL server from an unusual geographical location. In some cases, the alert detects a legitimate action (a new application or developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).|
 |**Access from unfamiliar principal**|There has been a change in the access pattern to the the SQL server - someone has logged on to the SQL server using an unusual principal (SQL user). In some cases, the alert detects a legitimate action (new application, developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).|
 |**Access from a potentially harmful application**|A potentially harmful application has been used to access the database. In some cases, the alert detects penetration testing in action. In other cases, the alert detects an attack using common attack tools.|
-|**Brute force SQL credentials**|An unusual high number of failed logins with different credentials have occurred. In some cases, the alert detects penetration testing in action. In other cases, the alert detects brute force attack.|
+|**Brute force SQL credentials**|An abnormal high number of failed logins with different credentials have occurred. In some cases, the alert detects penetration testing in action. In other cases, the alert detects brute force attack.|
 
 For more information about SQL threat detection alerts see,[Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview), and review the threat detection alerts section. Also see [How Azure Security Center helps reveal a Cyberattack](https://azure.microsoft.com/is-is/blog/how-azure-security-center-helps-reveal-a-cyberattack/) to view an example of how Security Center used malicious SQL activity detection to discover an attack.
 
@@ -59,7 +59,7 @@ Security Center analyzes diagnostic logs of read, write, and delete requests to 
 |**Upload Azure Cloud Service package**|Indicates that an Azure Cloud Service package (.cspkg file) has been uploaded to a storage account in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has been preparing to deploy malicious code from your storage account to an Azure cloud service.|
 |**Permission access anomaly**|Indicates that the access permissions of this storage container have been changed in an unusual way. Potential cause is that an attacker has changed container permissions to weaken its security posture or to gain persistence.|
 |**Inspection access anomaly**|Indicates that the access permissions of a storage account have been inspected in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|
-|**Data Exploration anomaly**|Indicates that blobs or containers in a storage account have been enumerated in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|
+|**Data Exploration anomaly**|Indicates that blobs or containers in a storage account have been enumerated in an abnormal way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|
 
 >[!NOTE]
 >Advanced Threat Protection for Azure Storage is currently not available in Azure government and sovereign cloud regions.
