@@ -385,7 +385,7 @@ This creates a basic class based on TableEntity, which is used to store data.
 
 #### Add custom resource RESTful methods
 
-# [Create custom resource](#tabs/function-create-resource)
+# [Create custom resource](#tab/function-create-resource)
 
 Once we have the data partition and schema setup, we can add the method `CreateCustomResource` to create new resources:
 
@@ -425,7 +425,7 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 
 The `CreateCustomResource` method updates the incoming request to include the Azure specific fields: `id`, `name`, and `type`. It then saves the result to storage using the partition and row keys.
 
-# [Retrieve custom resource](#tabs/function-retrieve-resource)
+# [Retrieve custom resource](#tab/function-retrieve-resource)
 
 Now that we have create custom resource set up, we can add the method `RetrieveCustomResource` to retrieve the existing resource.
 
@@ -456,7 +456,7 @@ public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequest
 
 In this case, we construct the partition and row key the same as the create request. This is done to ensure that the request that created a resource can also be used to retrieve the same resource back.
 
-# [Remove custom resource](#tabs/function-remove-resource)
+# [Remove custom resource](#tab/function-remove-resource)
 
 Removing an existing resource also becomes simple. Add the method `RemoveCustomResource` to delete.
 
@@ -485,7 +485,7 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 }
 ```
 
-# [List all custom resources](#tabs/function-list-resource)
+# [List all custom resources](#tab/function-list-resource)
 
 Finally, we can enumerate all existing resources. For this, add the method `EnumerateAllCustomResources` to the function.
 
@@ -527,6 +527,8 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 > The row key greater than and less than is Azure Table syntax to perform a query "startswith" for strings. 
 
 For listing all existing resources, we generate a Azure Table query that ensures that the resources exist under our custom resource provider partition. The query then checks that the row key starts with the same `{myResourceType}`.
+
+---
 
 #### Enable custom resource
 
@@ -973,6 +975,8 @@ None.
 
 None.
 
+---
+
 ### Custom resources
 
 # [Azure CLI](#tab/azure-cli)
@@ -1048,6 +1052,8 @@ customResourceName | *yes* | The custom resource name.
 # [Portal](#tab/azure-portal)
 
 None.
+
+---
 
 ## Next steps
 
