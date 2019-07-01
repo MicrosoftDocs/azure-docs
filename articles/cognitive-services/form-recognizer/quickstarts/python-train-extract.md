@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Train a model and extract form data by using the REST API with Python - Form Recognizer"
+title: "Quickstart: Train a model and extract form data using the REST API with Python - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll use the Form Recognizer REST API with Python to train a model and extract data from forms.
 author: PatrickFarley
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample dataset](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the data to the root of an Azure Blob Storage account.
+- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the data to the root of an Azure Blob Storage account.
 
 ## Create a Form Recognizer resource
 
