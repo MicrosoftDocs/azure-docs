@@ -65,29 +65,26 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in an FCI. The features supported by the extension are not available to the SQL VMs after the agent is uninstalled.
 
 ## Modes
 There are three mode types for the SQL IaaS extension: **Full**, **Lightweight**, and **NoAgent**. 
 
-- **Full** mode delivers all functionality, but requires a restart of the SQL Server and SA permissions. This is the option that is installed by default.
-- **Lightweight** does not require the restart of SQL Server, but only supports changing the license type and edition of SQL Server. 
+- **Full** mode delivers all functionality, but requires a restart of the SQL Server and SA permissions. This is the option that is installed by default and should be used for managing a SQL Server VM with a single instance. 
+- **Lightweight** does not require the restart of SQL Server, but only supports changing the license type and edition of SQL Server. This option should be used for SQL Server VMs with multiple instances, or participating in a failover cluster instance (FCI). 
 - **NoAgent** is dedicated for SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008 images. For information on utilizing `NoAgent` mode for your Windows Server 2008 image, see [Windows Server 2008 registration](virtual-machines-windows-sql-register-with-rp.md#register-windows-server-2008-images). 
 
-
-It is possible to upgrade from **NoAgent** and **Lightweight** to **Full**, but it is not possible to downgrade. To downgrade, you will need to completely uninstall the SQL IaaS extension and install it again. Upgrading to **Full** mode will restart the SQL Server service. 
-
-You can view the current mode of your SQL IaaS agent from the Azure portal, or by using PowerShell: 
+You can view the current mode of your SQL IaaS agent by using PowerShell: 
 
 
   ```powershell-interactive
      //Get the SqlVirtualMachine
      $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
-     $sqlvm.Properties 
+     $sqlvm.Properties.sqlManagement
   ```
 
-For SQL Server VMs that have the *NoAgent* or *lightweight* IaaS extension installed, you can upgrade the mode to *full* using the Azure portal. To do so, do the following: 
+For SQL Server VMs that have the *NoAgent* or *lightweight* IaaS extension installed, you can upgrade the mode to *full* using the Azure portal. It is not possible to downgrade - to do so, you will need to completely uninstall the SQL IaaS extension and install it again. 
+
+To upgrade agent mode to *full*, do the following: 
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Navigate to your [SQL virtual machines](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource) resource. 
@@ -101,9 +98,14 @@ For SQL Server VMs that have the *NoAgent* or *lightweight* IaaS extension insta
     ![Enable full management for IaaS extension](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
 
 ## Installation
-The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images. The SQL IaaS extension offers manageability for a single instance on the SQL Server VM. If there is a default instance, then the extension will work with the default instance, and it will not support managing other instances. If there is no default instance but only one named instance, then it will manage the named instance. If there is no default instance and there are multiple named instances, then the extension will fail to install. 
+The *full* SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images. This happens automatically when you provision one of the SQL Server VM gallery images from the Azure portal. 
+
+You can install the SQL IaaS extension manually. The SQL IaaS extension is also installed when you register your SQL Server VM with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#register-sql-server-vm-with-sql-vm-resource-provider). 
 
 ### Full mode
+The *full* SQL IaaS extension offers manageability for a single instance on the SQL Server VM. If there is a default instance, then the extension will work with the default instance, and it will not support managing other instances. If there is no default instance but only one named instance, then it will manage the named instance. If there is no default instance and there are multiple named instances, then the extension will fail to install. 
+
+Installing the *full* mode of the SQL IaaS will restart the SQL Server service. To avoid restarting the SQL Server service, install the *lightweight* mode with limited manageability instead. 
 
 If you need to reinstall the extension manually on one of these SQL Server VMs, use the following PowerShell command:
 
@@ -115,26 +117,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
 > - If the extension is not already installed, installing the **full** extension restarts the SQL Server service. Use **lightweight** mode to avoid restarting the SQL Server service. 
 > - Updating the SQL IaaS extension does not restart the SQL Server service. 
 
-### Lightweight mode
-
-Install SQL IaaS agent with lightweight mode using PowerShell:
-
-  ```powershell-interactive
-     // Get the existing  Compute VM
-     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-          
-     // Create a new SQL VM with the 'Lightweight' SQL IaaS agent
-     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-        -Properties @{virtualMachineResourceId=$vm.Id;sqlManagement='LightWeight'} -Force 
-  
-  ```
-
-
-> [!NOTE]
-> While it is possible to install the SQL Server IaaS Agent extension to custom SQL Server images, the functionality is currently limited to [changing the license type](virtual-machines-windows-sql-ahb.md). Other features provided by the SQL IaaS extension will only work on [SQL Server VM gallery images](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license).
-
-### Use a single named instance
+#### Use a single named instance
 The SQL IaaS extension will work with a named instance on a SQL Server image if the default instance is uninstalled properly, and if the IaaS extension is reinstalled.
 
 To use a named instance of SQL Server, do the following:
@@ -143,6 +126,33 @@ To use a named instance of SQL Server, do the following:
    1. Uninstall SQL Server completely within the SQL Server VM.
    1. Install SQL Server with a named instance within the SQL Server VM. 
    1. Install the IaaS extension from within the Azure portal.  
+
+
+### Lightweight mode
+Lightweight mode will not restart your SQL Server service, but it offers limited functionality. 
+
+| Parameter | Acceptable values                        |
+| :------------------| :-------------------------------|
+| **sqlLicenseType** | `'AHUB'`, or `'PAYG'`           |
+| &nbsp;             | &nbsp;                          |
+
+Install SQL IaaS agent with lightweight mode using PowerShell:
+
+
+  ```powershell-interactive
+     // Get the existing  Compute VM
+     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+     // Register SQL VM with 'Lightweight' SQL IaaS agent
+     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlLicenseType='AHUB';sqlManagement='LightWeight'}  
+  
+  ```
+
+> [!NOTE]
+> While it is possible to install the SQL Server IaaS Agent extension to custom SQL Server images, the functionality is currently limited to [changing the license type](virtual-machines-windows-sql-ahb.md). Other features provided by the SQL IaaS extension will only work on [SQL Server VM gallery images](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license).
+
 
 ## Status
 One way to verify that the extension is installed is to view the agent status in the Azure portal. Select **All settings** in the virtual machine window, and then click on **Extensions**. You should see the **SqlIaasExtension** extension listed.
