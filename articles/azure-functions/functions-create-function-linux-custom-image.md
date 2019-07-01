@@ -253,17 +253,6 @@ Copy the deployment URL and browse to your DockerHub repo, choose the **Webhooks
 
 With the webhook set, any updates to the linked image in DockerHub result in the function app downloading and installing the latest image.
 
-
-<!-- Steps to rebuild the docker image with the file changes and publish again to DockerHub-->
-
-Again, you can use cURL or a browser to test the deployed function. As before append the query string `&name=<yourname>` to the URL, as in the following example:
-
-```bash
-curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-```
-
-You can [Examine the Storage queue message](#query-the-storage-queue) to verify that the output binding again generates a new message in the queue.
-
 ## Enable Application Insights
 
 The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app by using the Azure CLI, the integration in your function app in Azure isn't done.
