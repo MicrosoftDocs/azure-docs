@@ -1,5 +1,5 @@
 ---
-title: 'Graph Data Modeling for Azure Cosmos DB Gremlin API'
+title: 'Graph data modeling for Azure Cosmos DB Gremlin API'
 description: Learn how to model a graph database using Cosmos DB Gremlin API.
 author: LuisBosquez
 ms.service: cosmos-db
@@ -9,11 +9,11 @@ ms.date: 06/24/2019
 ms.author: lbosq
 ---
 
-# Graph Database Modeling using Cosmos DB Gremlin API
+# Graph data modeling for Azure Cosmos DB Gremlin API
 
 The following document is designed to provide graph data modeling recommendations. This step is vital in order to ensure the scalability and performance of a graph database system as the data evolves. An efficient data model is especially important with large-scale graphs.
 
-### Requirements
+## Requirements
 
 The process outlined in this guide is based on the following assumptions:
  * The **entities** in the problem-space are identified. These entities are meant to be consumed _atomically_ for each request. In other words, the database system isn't designed to retrieve a single entity's data in multiple query requests.
@@ -32,13 +32,13 @@ A graph database solution can be optimally applied if the entities and relations
 
 If the above criteria is satisfied, it's likely that a graph database approach will provide advantages for **query complexity**, **data model scalability**, and **query performance**.
 
-The next step is to determine if the graph is going to be used for analytic or transactional purposes. If the graph is intended to be used for heavy computation and data processing workloads, it would be worth to explore the [Cosmos DB Spark connector](https://docs.microsoft.com/en-us/azure/cosmos-db/spark-connector) and the use of the [GraphX library](https://spark.apache.org/graphx/). 
+The next step is to determine if the graph is going to be used for analytic or transactional purposes. If the graph is intended to be used for heavy computation and data processing workloads, it would be worth to explore the [Cosmos DB Spark connector](https://docs.microsoft.com/azure/cosmos-db/spark-connector) and the use of the [GraphX library](https://spark.apache.org/graphx/). 
 
 ## How to use graph objects
 
 The [Apache Tinkerpop property graph standard](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) defines two types of objects **Vertices** and **Edges**. 
 
-The following are the best practices for the properties in these objects:
+The following are the best practices for the properties in the graph objects:
 
 | Object | Property | Type | Notes |
 | --- | --- | --- |  --- |
@@ -106,6 +106,6 @@ The more specific the label that the traverser will use to filter the edges, the
 
 
 ## Next steps: 
-* Check out the list of supported [Gremlin steps](#gremlin-support).
-* Learn about [graph database partitioning](#graph-partitioning) to deal with large-scale graphs.
+* Check out the list of supported [Gremlin steps](gremlin-support.md).
+* Learn about [graph database partitioning](graph-partitioning.md) to deal with large-scale graphs.
 * Evaluate your Gremlin queries using the [Execution Profile step](graph-execution-profile.md).
