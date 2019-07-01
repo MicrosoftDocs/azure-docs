@@ -31,6 +31,8 @@ By leveraging the visibility that Azure has as a cloud provider, Security Center
 
 Security Center also has access to the underlying sandboxes and VMs. Together with memory forensics, the infrastructure can tell the story, from a new attack circulating in the wild to compromises in customer machines. Therefore, Security Center can detect attacks against web applications long after being exploited.
 
+> [!div class="mx-tableFixed"]
+
 |Alert|Description|
 |---|---|
 |**Suspicious WordPress theme invocation detected**|The Azure App Service activity log indicates a possible code injection activity on your App Service resource.<br/> This suspicious activity resembles activity which manipulates a WordPress theme to support server-side execution of code, followed by a direct web request to invoke the manipulated theme file. This type of activity has been seen in the past as part of an attack campaign over WordPress.|

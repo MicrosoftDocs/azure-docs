@@ -40,7 +40,6 @@ Azure DDoS protection, combined with application design best practices, provide 
 
 DDoS Protection Standard can mitigate the following types of attacks:
 
-
 > [!div class="mx-tableFixed"]
 
 |Alert|Description|

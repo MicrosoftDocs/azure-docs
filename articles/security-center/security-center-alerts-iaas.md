@@ -47,6 +47,8 @@ A crash may have been caused by malware or contain malware. To avoid being detec
 
 However, this kind of attack can be detected by using memory analysis. By analyzing the memory in the crash dump, Security Center can detect the techniques the attack is using to exploit vulnerabilities in the software, access confidential data, and surreptitiously persist within a compromised machine. This is done by the Security Center back end with minimum performance impact to hosts.
 
+> [!div class="mx-tableFixed"]
+
 |Alert|Description|
 |---|---|
 |**Code injection discovered**|Code injection is the insertion of executable modules into running processes or threads. This technique is used by malware to access data, while successfully hiding itself to prevent being found and removed. <br/>This alert indicates that an injected module is present in the crash dump. To differentiate between malicious and non-malicious injected modules, Security Center checks whether the injected module conforms to a profile of suspicious behavior.|
@@ -66,6 +68,7 @@ It finds evidence of exploitation, code injection, and execution of malicious pa
 > [!NOTE]
 > You can simulate Windows alerts by download [Azure Security Center Playbook](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Security Alerts and follow the provided guidelines.  
 
+> [!div class="mx-tableFixed"]
 
 |Alert|Description|
 |---|---|

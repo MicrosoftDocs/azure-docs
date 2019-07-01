@@ -48,6 +48,7 @@ Advanced Threat Protection for Azure Storage provides an additional layer of sec
 
 Security Center analyzes diagnostic logs of read, write, and delete requests to Blob storage to detect threats, and it triggers alerts when anomalies in activity occur. For more information, see to [configure Storage Analytics logging](https://docs.microsoft.com/en-us/azure/storage/common/storage-monitor-storage-account#configure-logging) for more information.
 
+> [!div class="mx-tableFixed"]
 
 |Alert|Description|
 |---|---|
