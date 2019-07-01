@@ -26,7 +26,7 @@ Azure Data Share can be used in a number of different industries. For example, a
 
 Azure Data Share can also be used to establish a data marketplace for a specific industry. For example, a government or a research institution that regularly shares anonymized data about population growth with third parties. 
 
-Another interesting use case for Azure Data Share is establishing a data consortium. For example, a number of different research institutions can share data with a single trusted body. Data is analayzed, aggregated or processed using Azure analytics tools and then shared with interested parties. 
+Another interesting use case for Azure Data Share is establishing a data consortium. For example, a number of different research institutions can share data with a single trusted body. Data is analyzed, aggregated or processed using Azure analytics tools and then shared with interested parties. 
 
 ## How it works
 
@@ -72,7 +72,7 @@ Azure Data Share leverages the underlying security that Azure offers to protect 
 
 Access controls can be set on the Azure Data Share resource level to ensure it is accessed by those that are authorized. 
 
-Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
+Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
 
 ## Pricing
 

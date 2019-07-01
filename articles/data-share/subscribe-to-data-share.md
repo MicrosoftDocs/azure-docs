@@ -33,7 +33,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 Check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Take note of the share name to ensure you're accepting the correct share if there are multiple invitations. 
 
-Click on **View invitation** to see your invitation in Azure. This takes you to your Received Shares view.
+Select on **View invitation** to see your invitation in Azure. This takes you to your Received Shares view.
 
 ![Invitations](./media/invitations.png "List of invitations") 
 
@@ -52,13 +52,13 @@ For the *Received Share Name* field, you may leave the default specified by the 
 
 ![Target data share account](./media/target-data-share.png "Target data share account") 
 
-Once you've agreed to the terms of use and specified a location for your share, click on *Accept and Configure*. If you chose this option, a share subscription will be created and the next screen will ask you to select a target storage account for your data to be copied into. 
+Once you've agreed to the terms of use and specified a location for your share, Select on *Accept and Configure*. If you chose this option, a share subscription will be created and the next screen will ask you to select a target storage account for your data to be copied into. 
 
 ![Accept options](./media/accept-options.png "Accept options") 
 
-If you prefer to accept the invitation now but configure your storage at a later time, click *Accept and Configure later*. This option allows you to configure your target storage account later. To continue configuring your storage later, see [how to configure your storage account](how-to-configure-mapping.md) page for detailed steps on how to resume your data share configuration. 
+If you prefer to accept the invitation now but configure your storage at a later time, Select *Accept and Configure later*. This option allows you to configure your target storage account later. To continue configuring your storage later, see [how to configure your storage account](how-to-configure-mapping.md) page for detailed steps on how to resume your data share configuration. 
 
-If you don't want to accept the invitation, click *Reject*. 
+If you don't want to accept the invitation, Select *Reject*. 
 
 ## Configure target storage for your Data Share
 Under *Target Storage Settings*, select the Subscription, Resource group, and storage account that you'd like to receive your data into. 
@@ -69,7 +69,7 @@ To receive regular refreshes of your data, make sure you enable the snapshot set
 
 ![Snapshot settings](./media/snapshot-settings.png "Snapshot settings") 
 
-Click *Save*. 
+Select *Save*. 
 
 ## Trigger a snapshot
 
@@ -79,7 +79,7 @@ You can trigger a snapshot in the Received Shares -> Details tab by selecting **
 
 When the last run status is *successful*, open the storage account to view the received data. 
 
-To check which storage account you used, click on **Datasets**. 
+To check which storage account you used, Select on **Datasets**. 
 
 ![Consumer datasets](./media/consumer-datasets.png "Consumer dataset mapping") 
 

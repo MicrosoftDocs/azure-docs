@@ -1,4 +1,5 @@
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Data Share Preview?
     href: overview.md
@@ -17,7 +18,7 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Configure a Dataset Mapping
+  - name: Configure a dataset mapping
     href: how-to-configure-mapping.md
   - name: Troubleshoot Azure Data Share Preview
     href: data-share-troubleshooting.md
