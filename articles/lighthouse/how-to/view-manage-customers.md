@@ -57,5 +57,6 @@ If you then access a service which supports [cross-tenant management experiences
 You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within that service.
 
 ## Next steps
+
 - Learn about [cross-tenant management experiences](../concepts/cross-tenant-management-experience.md).
 - Learn how your customers can [view and manage service providers](view-manage-service-providers.md) by going to **Service providers** in the Azure portal.
