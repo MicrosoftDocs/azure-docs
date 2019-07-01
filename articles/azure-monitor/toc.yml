@@ -711,6 +711,8 @@
         href: platform/metrics-charts.md
       - name: Examples of metric charts
         href: platform/metric-chart-samples.md
+        name: Log-based metrics
+        href: platform/app-insights-metrics.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
     - name: Logs
