@@ -51,7 +51,8 @@
   items:
   - name: Manage
     items:
-    - name: accounts
+    - name: Accounts
+      displayName: subscription
       href: media-services-account-concept.md
     - name: Entities
       items:
