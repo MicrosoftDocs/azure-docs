@@ -230,7 +230,7 @@ Run an assessment as follows:
 
     ![Assess](./media/tutorial-assess-hyper-v/assess.png)
 
-3. In **Assess Servers**, specify a name for the asssessment.
+3. In **Assess Servers**, specify a name for the assessment.
 4. Click **View all** to review the assessment properties.
 
     ![Assessment properties](./media/tutorial-assess-hyper-v/assessment-properties.png)
