@@ -17,6 +17,8 @@ manager: philmea
 
 *This article applies to administrators.*
 
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
 IoT Central lets you customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. The following screenshot shows a page using the standard theme:
 
 ![Standard IoT Central theme](./media/howto-customize-ui-pnp/standard-ui.png)

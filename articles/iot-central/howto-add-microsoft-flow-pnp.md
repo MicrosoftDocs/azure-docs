@@ -14,6 +14,8 @@ manager: hegate
 
 *This topic applies to builders and administrators.*
 
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
 Use Microsoft Flow to automate workflows across the many applications and services that business users rely on. Using the IoT Central connector in Microsoft Flow, you can trigger workflows when a rule is triggered in IoT Central. In a workflow triggered by IoT Central or any other application, you can use the actions in the IoT Central connector to:
 - Create a device
 - Get device information

@@ -12,6 +12,8 @@ manager: peterpr
 
 # Manage devices in your Azure IoT Central application (Plug and Play)
 
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
 This article describes how, as an operator, to manage devices in your Azure IoT Central application. As an operator, you can:
 
 - Use the **Device Explorer** page to view, add, and delete devices connected to your Azure IoT Central application.

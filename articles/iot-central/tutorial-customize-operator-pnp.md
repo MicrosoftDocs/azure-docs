@@ -12,6 +12,8 @@ ms.custom: mvc
 
 # Tutorial: Customize the Azure IoT Central operator's view (Plug and Play)
 
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial shows you, as a builder, how to customize the operator's view of your application. When you make a change to the application as a builder, you can preview the operator's view in the Microsoft Azure IoT Central application.
 
 In this tutorial, you customize the application to display relevant information about the connected air conditioner device to an operator. Your customizations enable the operator to manage the air conditioner devices connected to the application.

@@ -14,7 +14,9 @@ manager: philmea
 
 *This article applies to builders and administrators.*
 
-In Azure IoT Central, you create rules to run actions when a condition is met. Rules are based on device telemetry or events. For example, you can notify an operator when the temperature in a device exceeds a threshold. This article describes how to use [Azure Monitor](../azure-monitor/overview.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](../azure-monitor/platform/action-groups.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) is a collection of notification preferences defined by the owner of an Azure subscription.
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
+In Azure IoT Central, you create rules to run actions when a condition is met. Rules are based on device telemetry or events. For example, you can notify an operator when the temperature in a device exceeds a threshold. This article describes how to use [Azure Monitor](../azure-monitor/overview.md) *action groups* to attach multiple actions to an IoT Central rule. You can attach an action group to multiple rules. An [action group](../azure-monitor/platform/action-groups.md) is a collection of notification preferences defined by the owner of an Azure subscription.
 
 ## Prerequisites
 

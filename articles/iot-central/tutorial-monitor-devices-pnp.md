@@ -13,6 +13,8 @@ manager: philmea
 
 # Tutorial: Use Azure IoT Central to monitor your devices (Plug and Play)
 
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
 This tutorial shows you, as an operator, how to use your Microsoft Azure IoT Central application to monitor your devices and change settings.
 
 In this tutorial, you learn how to:
