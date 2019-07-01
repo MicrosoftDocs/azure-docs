@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Manage devices in your Azure IoT Central application
+# Manage devices in your Azure IoT Central application (Plug and Play)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
@@ -25,7 +25,7 @@ This article describes how, as an operator, to manage devices in your Azure IoT 
 
 To view an individual device:
 
-1. Choose **Device Explorer** on the left navigation menu. Here you see a list of your [device templates](howto-set-up-template.md).
+1. Choose **Device Explorer** on the left navigation menu. Here you see a list of your [device templates](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 1. Choose a device template in the **Templates** list.
 
@@ -129,7 +129,7 @@ To bulk export devices from your application:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-See [Device connectivity in Azure IoT Central](concepts-connectivity.md), for more information about connection strings and connecting real devices to your IoT Central application.
+See [Device connectivity in Azure IoT Central](concepts-connectivity.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), for more information about connection strings and connecting real devices to your IoT Central application.
 
 ## Delete a device
 
@@ -177,6 +177,6 @@ Properties are the device metadata associated with the device, such as city and 
 Now that you've learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to use device sets](howto-use-device-sets.md)
+> [How to use device sets](howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 <!-- Next how-tos in the sequence -->

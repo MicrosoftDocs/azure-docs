@@ -10,7 +10,7 @@ ms.service: iot-central
 manager: hegate
 ---
 
-# Build workflows with the IoT Central connector in Microsoft Flow
+# Build workflows with the IoT Central connector in Microsoft Flow (Plug and Play)
 
 *This topic applies to builders and administrators.*
 
@@ -34,7 +34,7 @@ Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplate
 
 This section shows you how to trigger a mobile notification in the Flow mobile app when a rule triggers in IoT Central. You can build this entire workflow within your IoT Central app using the embedded Microsoft Flow designer.
 
-1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, select the **Microsoft Flow action** as a new action. A dialog window will open for you to configure your workflow. The IoT Central user account you are signed into will be used to sign into Microsoft Flow.
+1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json). After you save the rule conditions, select the **Microsoft Flow action** as a new action. A dialog window will open for you to configure your workflow. The IoT Central user account you are signed into will be used to sign into Microsoft Flow.
 
     ![Create a new Microsoft Flow action](media/howto-add-microsoft-flow-pnp/createflowaction.png)
 
@@ -164,5 +164,5 @@ If you are having trouble creating a connection to the Azure IoT Central connect
 
 ## Next steps
 
-Now that you've learned how to use Microsoft Flow to build workflows, the suggested next step is to [manage devices](howto-manage-devices.md).
+Now that you've learned how to use Microsoft Flow to build workflows, the suggested next step is to [manage devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 

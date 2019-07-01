@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Tutorial: Add a real device to your Azure IoT Central application
+# Tutorial: Add a real device to your Azure IoT Central application (Plug and Play)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
@@ -35,15 +35,15 @@ In this tutorial, you learn how to:
 
 Before you begin, the builder should complete at least the first builder tutorial to create the Azure IoT Central application:
 
-* [Define a new device type](tutorial-define-device-type.md) (Required)
-* [Configure rules and actions for your device](tutorial-configure-rules.md) (Optional)
-* [Customize the operator's views](tutorial-customize-operator.md) (Optional)
+* [Define a new device type](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) (Required)
+* [Configure rules and actions for your device](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) (Optional)
+* [Customize the operator's views](tutorial-customize-operator-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) (Optional)
 
 Install [Node.js](https://nodejs.org/) version 8.0.0 or later on your development machine. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
 ## Add a real device
 
-To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type.md) tutorial.
+To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
 
 1. To add a new device as an operator choose **Device Explorer** in the left navigation menu:
 
@@ -87,7 +87,7 @@ The example code in this article is written in [Node.js](https://nodejs.org/) an
 * Respond to an operator who uses the **Set Temperature** setting.
 * Handle the Echo command from your Azure IoT Central application.
 
-The articles listed in the [Next Steps](#next-steps) section include more complete samples and show other programming languages. For more information about how devices connect to Azure IoT Central, see the [Device connectivity](concepts-connectivity.md) article.
+The articles listed in the [Next Steps](#next-steps) section include more complete samples and show other programming languages. For more information about how devices connect to Azure IoT Central, see the [Device connectivity](concepts-connectivity.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 The following steps show how to prepare the [Node.js](https://nodejs.org/) sample:
 
@@ -349,14 +349,14 @@ Now that you've connected a real device to your Azure IoT Central application, h
 
 As an operator, you can learn how to:
 
-* [Manage your devices](howto-manage-devices.md)
-* [Use device sets](howto-use-device-sets.md)
-* [Create custom analytics](howto-use-device-sets.md)
+* [Manage your devices](howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+* [Use device sets](howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+* [Create custom analytics](howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 As a device developer, you can learn how to:
 
-* [Prepare and connect a DevKit device (C)](howto-connect-devkit.md)
-* [Prepare and connect a Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
-* [Prepare and connect a Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
-* [Prepare and connect a Windows 10 IoT core device (C#)](howto-connect-windowsiotcore.md)
-* [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs.md)
+* [Prepare and connect a DevKit device (C)](howto-connect-devkit.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+* [Prepare and connect a Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+* [Prepare and connect a Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+* [Prepare and connect a Windows 10 IoT core device (C#)](howto-connect-windowsiotcore.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+* [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
