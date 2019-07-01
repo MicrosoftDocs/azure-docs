@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Domain Services: Networking guidelines | Microsoft Docs'
+title: 'Plan your network for Azure AD Domain Services | Microsoft Docs'
 description: Networking considerations for Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -14,123 +14,130 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2010
+ms.date: 06/8/2019
 ms.author: iainfou
-
 ---
-# Networking considerations for Azure AD Domain Services
-## How to select an Azure virtual network
-The following guidelines help you select a virtual network to use with Azure AD Domain Services.
+# Plan your network for Azure AD Domain Services 
+Properly planning your subnet and virtual network ensures you can use Azure AD Domain Services a shared service for your legacy applications.
 
-### Type of Azure virtual network
-* **Resource Manager virtual networks**: Azure AD Domain Services can be enabled in virtual networks created using Azure Resource Manager.
-* You cannot enable Azure AD Domain Services in a classic Azure virtual network.
-* You can connect other virtual networks to the virtual network in which Azure AD Domain Services is enabled. For more information, see the [Network connectivity](network-considerations.md#network-connectivity) section.
+The ideal design is to host Azure AD Domain Services in its own virtual network. However, you may include a workload subnet in the same virtual network to host your management virtual machine or light application workloads. Consider using a separate virtual network for larger or complex application workloads that need legacy authentication and peer those virtual networks with the Azure AD Domain Services virtual network. Read [Connect to the Azure AD Domain Services virtual network for more information](#connect-to-the-azure-ad-domain-services-virtual-network).
 
-### Azure region for the virtual network
-* Your Azure AD Domain Services managed domain is deployed in the same Azure region as the virtual network you choose to enable the service in.
-* Select a virtual network in an Azure region supported by Azure AD Domain Services.
-* See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
+> [!NOTE]
+> You may only create Azure AD Domain services using Azure Resource Manager virtual networks. New instances on classic virtual networks is no longer supported.
+>
 
-### Requirements for the virtual network
-* **Proximity to your Azure workloads**: Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services. If your workloads are deployed in a different virtual network than the managed domain, you may also choose to connect the virtual networks.
-* **Custom/bring-your-own DNS servers**: Ensure that there are no custom DNS servers configured for the virtual network. An example of a custom DNS server is an instance of Windows Server DNS running on a Windows Server VM that you have deployed in the virtual network. Azure AD Domain Services does not integrate with any custom DNS servers deployed within the virtual network.
-* **Existing domains with the same domain name**: Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Later, you try to enable an Azure AD Domain Services managed domain with the same domain name (that is 'contoso.com') on that virtual network. You encounter a failure when trying to enable Azure AD Domain Services. This failure is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
+## The virtual network
+Design the virtual network hosting Azure AD Domain Services with the following considerations:
+* Azure AD Domain Services is deployed in the same Azure region as the selected virtual network. Ensure you select a virtual network that is in an Azure region that supports [Azure AD Domain Services](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=active-directory-ds&regions=all).
+* Consider the proximity of the Azure regions and the virtual networks that host your application workloads when choosing a virtual network.
+* The virtual network cannot rely on DNS services other than the services provided by Azure AD Domain Services. This configuration includes custom DNS server settings to other DNS servers, including virtual machines. Name resolution for additional namespaces can be accomplished using conditional forwarders.
 
-> [!WARNING]
+> [!IMPORTANT]
 > You cannot move Domain Services to a different virtual network after you have enabled the service.
 >
 >
 
-
-## Guidelines for choosing a subnet
+## The subnet
 
 ![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-* Deploy Azure AD Domain Services to a **separate dedicated subnet** within your Azure virtual network.
-* Do not apply NSGs to the dedicated subnet for your managed domain. If you must apply NSGs to the dedicated subnet, ensure you **do not block the ports required to service and manage your domain**.
-* Do not overly restrict the number of IP addresses available within the dedicated subnet for your managed domain. This restriction prevents the service from making two domain controllers available for your managed domain.
-* **Do not enable Azure AD Domain Services in the gateway subnet** of your virtual network.
+Design the subnet hosting Azure AD Domain Services with the following considerations: 
+* Deploy Azure AD Domain Services in its own subnet (required).
+* Use the default Network Security Group (NSG) provided during the creation of your Azure AD Domain Service instance to ensure you have the proper network configuration.
+* Provide an adequate number of available IP addresses to the subnet (between five and seven IP addresses). Restricting the available IP addresses can prevent Azure AD Domain Services from maintaining two domain controllers.
+* **Do not create Azure AD Domain Services in a gateway subnet.**
+
+## Additional network components
+An Azure AD Domain Services instance also creates the following additional networking components, which are needed for successful operation and management of the managed domain service.
+
+| Component | Description |
+|:---|:---|
+| Network Interface| Azure AD Domain Services hosts the domain on two domain controllers. Each virtualized domain controller has a virtualized network interface connected to the selected virtual network. Two network interfaces are attached to the subnet where Azure AD Domain Services is created. |
+| Dynamic Basic Public IP Address | Azure AD Domain Services communicates with the synchronization and management service using a public IP address. For more information about public IP addresses, read [IP address types and allocation methods in Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses). |
+| Azure Basic Public Load Balancer | Azure AD Domain Services uses the load balancer for network address translation and load balancing (when used with secure LDAP). For more information about Azure Load Balancers, read [What is Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). |
+| Network Address Translation Rules | Azure AD Domain Services uses three network addresses translation rules: one rule for secure HTTP traffic and two rules for secure PowerShell remoting. |
+| Load Balancer Rules | Azure AD Domain Services creates load-balancing rules only when a managed domain is configured for secure LDAP (TCP port 636) |
+
+> [!IMPORTANT]
+> Do not delete any of the networking components created by Azure AD Domain Services. Deleting any of the networking components results in a service outage.
+>
+>
+
+## User-defined routes
+Avoid making any changes to the route table, especially the 0.0.0.0 route, which can disrupt Azure AD Domain Services. A properly configured [network security group]() provides access control to inbound traffic.
+
+If you are required to use route tables, you must route inbound traffic from the IP addresses included in the respective Azure service tags to the Azure AD Domain Services subnet. You can download the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) a list of service tags and their associated IP address from the Microsoft Download Center. IP addresses can change without notice. Ensure you have processes to validate you have the latest IP addresses.
 
 > [!WARNING]
-> When you associate an NSG with a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an NSG has been applied that blocks Azure AD Domain Services from updating and managing your domain.**
+> When you associate a misconfigured NSG or a user defined route table with the subnet in which Azure AD Domain Services is created, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an improperly configured NSGs and/or user defined route tables have been applied that blocks Azure AD Domain Services from updating and managing your domain.**
 >
 >
 
 ## Ports required for Azure AD Domain Services
 The following ports are required for Azure AD Domain Services to service and maintain your managed domain. Ensure that these ports are not blocked for the subnet in which you have enabled your managed domain.
 
-| Port number | Required? | Purpose |
-| --- | --- | --- |
-| 443 | Mandatory |Synchronization with your Azure AD tenant |
-| 5986 | Mandatory | Management of your domain |
-| 3389 | Mandatory | Management of your domain |
-| 636 | Optional | Secure LDAP (LDAPS) access to your managed domain |
+| Port number | Required | Purpose |
+|:---:|:---:|:--- |
+| 443 | Yes |Synchronization with your Azure AD tenant |
+| 5986 | Yes | Management of your domain |
+| 3389 | Yes | Management of your domain |
+| 636 | No | Secure LDAP (LDAPS) access to your managed domain |
 
-**Port 443 (Synchronization with Azure AD)**
+### Port 443 (Synchronization with Azure AD)
 * It is used to synchronize your Azure AD directory with your managed domain.
 * It is mandatory to allow access to this port in your NSG. Without access to this port, your managed domain is not in sync with your Azure AD directory. Users may not be able to sign in as changes to their passwords are not synchronized to your managed domain.
-* You can restrict inbound access to this port to IP addresses belonging to the Azure IP address range. Note that the Azure IP address range is a different range than the PowerShell range shown in the rule below.
+* You can restrict inbound access to this port to IP addresses using the **AzureActiveDirectoryDomainServices** service tag.
+* **Do not restrict outbound access from this port.** 
 
-**Port 5986 (PowerShell remoting)**
+### Port 5986 (PowerShell remoting)
 * It is used to perform management tasks using PowerShell remoting on your managed domain.
 * It is mandatory to allow access through this port in your NSG. Without access to this port, your managed domain cannot be updated, configured, backed-up, or monitored.
-* For any new domains or domains with an Azure Resource Manager virtual network, you can restrict inbound access to this port to the following source IP addresses: 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
-* For domains with a classic virtual network, you can restrict inbound access to this port to the following source IP addresses: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209
-* The domain controllers for your managed domain do not usually listen on this port. The service opens this port on managed domain controllers only when a management or maintenance operation needs to be performed for the managed domain. As soon as the operation completes, the service shuts down this port on the managed domain controllers.
+* For any new domains or domains with an Azure Resource Manager virtual network, you can restrict inbound access to this port to the **AzureActiveDirectoryDomainServices** service tag.
+* For existing domains using a classic virtual network, you can restrict inbound access to this port to the following source IP addresses: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209
 
-**Port 3389 (Remote desktop)**
+### Port 3389 (Remote desktop)
 * It is used for remote desktop connections to domain controllers for your managed domain.
-* You can restrict inbound access to the following source IP addresses: 207.68.190.32/27, 13.106.78.32/27, 13.106.174.32/27, 13.106.4.96/27
+* You can restrict inbound access to the following source IP addresses: 207.68.190.32/27, 13.106.78.32/27, 13.106.174.32/27, 13.106.4.96/27. The default network security group uses the **CorpNetSaw** service tag, which includes these IP addresses.
 * This port also remains largely turned off on your managed domain. This mechanism is not used on an ongoing basis since management and monitoring tasks are performed using PowerShell remoting. This port is used only in the rare event that Microsoft needs to connect remotely to your managed domain for advanced troubleshooting. The port is closed as soon as the troubleshooting operation is complete.
 
-**Port 636 (Secure LDAP)**
-* It is used to enable secure LDAP access to your managed domain over the internet.
-* Opening this port through your NSG is optional. Open the port only if you have secure LDAP access over the internet enabled.
-* You can restrict inbound access to this port to the source IP addresses from which you expect to connect over secure LDAP.
+> [!NOTE]
+> You cannot manually select the CorpNetSaw service tag from the portal. You must use PowerShell or CLI to manually create a rule using the CorpNetSaw service tag.
+>
+>
+
+## Network security groups
+A [Network Security Group (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
+
+### Default network service group
+The following table illustrates a sample NSG you can configure for a virtual network hosting Azure AD Domain Services. These rules allow inbound traffic over the required ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
+
+Additionally, the NSG illustrates how to lock down secure LDAP access over the internet, which you can skip if you have not enabled secure LDAP access to your managed domain over the internet. The NSG contains a rule (priority 320) that allows inbound LDAPS access over TCP port 636 only from a specified IP address, which has a higher priority than the DenyAll NSG rule. For more information, read [Create a Network Security Group for more information](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group).
 
 
-## Network Security Groups
-A [Network Security Group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
+![Sample NSG Rule](./media/active-directory-domain-services-alerts/default-nsg.png)
 
-### Sample NSG for virtual networks with Azure AD Domain Services
-The following table illustrates a sample NSG you can configure for a virtual network with an Azure AD Domain Services managed domain. This rule allows inbound traffic over the required ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
+## Connect to the Azure AD Domain Services virtual network
 
-Additionally, the NSG also illustrates how to lock down secure LDAP access over the internet. Skip this rule if you have not enabled secure LDAP access to your managed domain over the internet. The NSG contains a set of rules that allow inbound LDAPS access over TCP port 636 only from a specified set of IP addresses. The NSG rule to allow LDAPS access over the internet from specified IP addresses has a higher priority than the DenyAll NSG rule.
+You can only create an Azure AD Domain Services managed domain in a single virtual network in Azure and only one managed domain is possible for each Azure tenant. Based on this architecture, you may need to connect one or more virtual networks (hosting your application workloads) to your Azure AD Domain Services virtual network.
 
-![Sample NSG to secure LDAPS access over the internet](./media/active-directory-domain-services-alerts/default-nsg.png)
+You can connect application workloads hosted in other Azure virtual networks using:
+* Virtual Network Peering
+* Virtual Private Networking (VPN)
 
-**More information** - [Create a Network Security Group](../virtual-network/manage-network-security-group.md).
+### Virtual Network Peering
 
+Virtual network peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses. This peered connection enables you to use the managed domain with your workloads deployed in other virtual networks. For more information, read [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
 
-## Network connectivity
-An Azure AD Domain Services managed domain can be enabled only within a single virtual network in Azure.
+![Virtual network connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
-### Scenarios for connecting Azure networks
-Connect Azure virtual networks to use the managed domain in any of the following deployment scenarios:
+### Virtual Private Networking 
+Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
 
-#### Use the managed domain in more than one Azure virtual network
-You can connect other Azure virtual networks to the Azure virtual network in which you have enabled Azure AD Domain Services. This VPN/VNet peering connection enables you to use the managed domain with your workloads deployed in other virtual networks.
+![Virtual network connectivity using VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
-![Classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
+## Name Resolution when connecting virtual networks
+Virtual networks connected to the Azure AD Domain Services virtual network have their own DNS settings. It is important to know that connecting the virtual networks does not automatically configure name resolution for Azure AD Domain Services. Name resolution on individual virtual networks must be configured to enable workloads to locate Azure AD Domain Services. Enabling name resolution can be accomplished using conditional DNS forwarders or by using the same DNS IP addresses from the Azure AD Domain Service virtual network.
 
-#### Use the managed domain in a Resource Manager-based virtual network
-You can connect a Resource Manager-based virtual network to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in the Resource Manager-based virtual network.
-
-![Resource Manager to classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
-
-### Network connection options
-* **VNet-to-VNet connections using virtual network peering**: Virtual network peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
-
-    ![Virtual network connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
-
-    [More information - virtual network peering](../virtual-network/virtual-network-peering-overview.md)
-
-* **VNet-to-VNet connections using site-to-site VPN connections**: Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE.
-
-    ![Virtual network connectivity using VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
-
-    [More information - connect virtual networks using VPN gateway](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 <br>
 
