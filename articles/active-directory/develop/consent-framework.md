@@ -46,7 +46,7 @@ The following steps show you how the consent experience works for both the appli
 
 1. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD prompts the user for consent and displays the required permissions it needs to function. The set of permissions that are displayed in the consent dialog match the ones selected in the **Delegated permissions** in the Azure portal.
 
-    ![User consent experience](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Shows an example of permissions displayed in the consent dialog](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. After the user grants consent, an authorization code is returned to your application, which is redeemed to acquire an access token and refresh token. For more information about this flow, see [Web API app type](web-api.md).
 
