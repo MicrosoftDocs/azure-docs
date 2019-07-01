@@ -78,9 +78,7 @@ Standard file shares are backed by hard disk drives (HDDs). Standard file shares
 Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.
 
 > [!IMPORTANT]
-> - Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
-> - LRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
-> - See the [Regional availability](#regional-availability) section for additional scope and restrictions of the preview, before you onboard.
+> - See the [Onboard to larger file shares (standard tier)](#onboard-to-larger-file-shares-standard-tier) section for additional scope and restrictions of the preview, before you onboard.
 
 ### Premium file shares
 
@@ -188,35 +186,47 @@ Keep these points in mind when deciding which replication option to use:
 * Asynchronous replication involves a delay from the time that data is written to the primary region, to when it is replicated to the secondary region. In the event of a regional disaster, changes that haven't yet been replicated to the secondary region may be lost if that data can't be recovered from the primary region.
 * With GRS, the replica isn't available for read or write access unless Microsoft initiates a failover to the secondary region. In the case of a failover, you'll have read and write access to that data after the failover has completed. For more information, please see [Disaster recovery guidance](../common/storage-disaster-recovery-guidance.md).
 
+## Onboard to larger file shares (standard tier)
+
+This section only applies to the standard file shares. All premium file shares are available with 100 TiB as a GA offering.
+
+### Restrictions
+
+- Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
+- LRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
+
 ### Regional availability
 
-- For premium fileshares availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure.
-- Standard fileshares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
+Standard file shares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
 
-|Region  |Supported redundancy  |Requires a new storage account  |
+|Region  |Supported redundancy  |Supports existing storage accounts  |
 |---------|---------|---------|
-|SouthEast Asia     |LRS|Yes         |
-|West Europe     |LRS|Yes         |
-|West US 2     |LRS, ZRS|Yes         |
+|SouthEast Asia     |LRS|No         |
+|West Europe     |LRS|No         |
+|West US 2     |LRS, ZRS|No         |
 
 
-### Onboarding to the larger fileshares for standard fileshares preview
+### Steps to onboard
 
-To enroll your subscription to the standard large file shares preview, run the following PowerShell commands:
+To enroll your subscription to the larger file shares preview, run the following PowerShell commands:
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
-Your subscription is automatically approved once the Register-AzResourceProvider command is run.
+Your subscription is automatically approved once both commands are run.
 
-To verify your registration status, run the following command:
+To verify your registration status, you can run the following command:
 
 ```powershell
 Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 ```
 
 It may take up to 15 minutes for your status to update to "registered" however, you should be able to use the feature despite that.
+
+### Use larger file shares
+
+To begin using larger file shares, create a new general purpose v2 storage account and a new file share.
 
 ## Data growth pattern
 
