@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
 
 This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -62,9 +62,9 @@ In this example:
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
 	@(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-	  @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'},
-	  @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'},
-	  @{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'})
+	  @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+	  @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+	  @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 
 ```
 
@@ -82,7 +82,7 @@ You can create a single installation script for several computers by setting `Ma
 > Apps will match against rules in the order that the rules are provided. So you should specify the most specific rules first and the most generic rules last.
 
 #### Schema
-`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
+`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** is a required C# regex of the computer or VM name.
 	- '.*' will match all
@@ -101,6 +101,13 @@ The instrumentation engine adds overhead and is off by default.
 
 ### -AcceptLicense
 **Optional.** Use this switch to accept the license and privacy statement in headless installations.
+
+### -IgnoreSharedConfig
+When you have a cluster of web servers, you might be using a [shared configuration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+The HttpModule can't be injected into this shared configuration.
+This script will fail with the message that extra installation steps are required.
+Use this switch to ignore this check and continue installing prerequisites. 
+For more information, see [known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
 
 ### -Verbose
 **Common parameter.** Use this switch to display detailed logs.

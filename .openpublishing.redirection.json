@@ -25735,6 +25735,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/storm/apache-storm-tutorial-get-started-linux.md",
+      "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-apache-spark-resource-manager.md",
       "redirect_url": "/azure/hdinsight/spark/apache-spark-resource-manager",
       "redirect_document_id": true
@@ -25756,8 +25761,8 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-apache-storm-tutorial-get-started-linux.md",
-      "redirect_url": "/azure/hdinsight/storm/apache-storm-tutorial-get-started-linux",
-      "redirect_document_id": true
+      "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/hdinsight-connect-excel-hive-odbc-driver.md",

@@ -4,8 +4,8 @@ description: This article describes how to migrate your existing OMS Update depl
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
