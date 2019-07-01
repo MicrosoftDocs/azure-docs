@@ -163,7 +163,7 @@ The protected member status is now changed to **Inactive replica available**.
     ![Remove replicas on disk and online](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
 Now that you have deleted the backup items from on-premises, complete the below steps from the portal:
-- For MABS and DPM follow the steps in [Remove Azure Backup management servers](#remove-azure-backup-management-servers)
+- For MABS and DPM follow the steps in [Remove Azure Backup management servers](#remove-azure-backup-management-servers).
 
 
 ### Remove Azure Backup management servers
