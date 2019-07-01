@@ -1,5 +1,5 @@
 ---
-title: Azure delegated resource management
+title: Azure delegated resource management - Azure Lighthouse
 description: Managed services offers allow service providers to sell resource management offers to customers in Azure Marketplace.
 author: JnHs
 ms.service: lighthouse
