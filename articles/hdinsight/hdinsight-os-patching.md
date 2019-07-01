@@ -6,7 +6,7 @@ ms.author: omidm
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 07/01/2019
 ---
 # OS patching for HDInsight 
 
