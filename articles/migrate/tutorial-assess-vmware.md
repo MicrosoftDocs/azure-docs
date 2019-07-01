@@ -242,8 +242,7 @@ An assessment describes:
 
 ### Review Azure readiness
 
-In **Azure readiness**, verify whether VMs are ready for migration to Azure.
-
+1. In **Azure readiness**, verify whether VMs are ready for migration to Azure.
 2. Review the VM status:
     - **Ready for Azure**: Azure Migrate recommends a VM size and cost estimates for VMs in the assessment.
     - **Ready with conditions**: Shows issues and suggested remediation.
