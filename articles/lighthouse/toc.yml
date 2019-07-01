@@ -17,8 +17,11 @@
     displayName: managed services offer, azure marketplace
     href: ./concepts/managed-services-offers.md
   - name: Recommended security practices
-    displayName: managed services offer, azure marketplace
+    displayName: mfa, authentication, secure, group
     href: ./concepts/recommended-security-practices.md
+  - name: Azure Lighthouse and the CLoud Solution Provider program
+    displayName: csp, aobo, partner
+    href: ./concepts/cloud-solution-provider.md
 - name: How-to guides
   items:
   - name: Onboard a customer to Azure delegated resource management

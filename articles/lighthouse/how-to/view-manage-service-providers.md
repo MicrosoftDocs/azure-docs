@@ -53,5 +53,5 @@ Filters at the top of the page let you sort and group your access assignment inf
 
 ## Next steps
 
-- Learn more about [Azure Lighthouse](../concepts/overview.md).
+- Learn more about [Azure Lighthouse](../overview.md).
 - Learn how service providers can [view and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
