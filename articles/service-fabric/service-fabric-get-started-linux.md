@@ -105,7 +105,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
 
     ```bash
     curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
-    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. Refresh your package lists based on the newly added repositories.
@@ -214,7 +214,7 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 1. Install Node.js and npm on your machine.
 
     ```bash
-    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
     sudo apt-get update
     sudo apt-get install nodejs
     ```
