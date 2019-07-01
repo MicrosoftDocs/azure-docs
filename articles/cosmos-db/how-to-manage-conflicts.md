@@ -198,7 +198,7 @@ Container container = await createClient.GetDatabase(this.databaseName)
         ConflictResolutionPolicy = new ConflictResolutionPolicy()
         {
             Mode = ConflictResolutionMode.Custom,
-            ResolutionProcedure = "resolver"
+            ResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver")
         }
     });
 
