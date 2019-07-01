@@ -29,7 +29,9 @@ It's important to use a data set that's optimized for training. Use the followin
 
 ## General input requirements
 
-Make sure your training data set also follows the input requirements for all Form Recognizer content. [!INCLUDE [input requirements](./includes/input-requirements.md)]
+Make sure your training data set also follows the input requirements for all Form Recognizer content. 
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## Upload your training data
 
