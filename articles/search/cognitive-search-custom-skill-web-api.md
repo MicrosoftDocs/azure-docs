@@ -201,4 +201,4 @@ For cases when the Web API is unavailable or returns a HTTP error, a friendly er
 
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Add custom skill to cognitive search](cognitive-search-custom-skill-interface.md)
-+ [Example: Creating an Azure Cognitive Search custom skill](cognitive-search-create-custom-skill-example.md)
++ [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
