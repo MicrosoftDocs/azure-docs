@@ -14,7 +14,7 @@ ms.custom: mvc
 
 This article describes how to prepare for assessment and migration of on-premises Hyper-V VMs to Azure with [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate from on-premises to Azure, using Azure services and third-party tools. [Learn more](migrate-architecture.md) about assessment and migration.
+[Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
 This tutorial is the first in a series that shows you how to assess and migrate Hyper-V VMs to Azure. In this tutorial, you learn how to:
 

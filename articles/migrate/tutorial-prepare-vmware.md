@@ -13,7 +13,7 @@ ms.custom: mvc
 
 This article describes how to prepare for assessment and migration of on-premises VMware VMs to Azure, using [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate from on-premises to Azure, using Azure services and third-party tools. [Learn more](migrate-architecture.md) about assessment and migration.
+[Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
 
 This tutorial is the first in a series that shows you how to assess and migrate VMware VMs. In this tutorial, you learn how to:
@@ -109,8 +109,9 @@ To prepare for VMware VM assessment, you need to verify Hyper-V host and VM sett
 
 Azure Migrate needs to access the vCenter Server to discover VMs for assessment and agentless migration. For assessment only, you need a read-only account for the vCenter Server.
 
-. If you're using a URL-based firewall.proxy, allow access to the required [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
-3. Make sure that the proxy resolves any CNAME records received while looking up the URLs.
+If you're using a URL-based firewall.proxy, allow access to the required [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+
+Make sure that the proxy resolves any CNAME records received while looking up the URLs.
 
 
 ### Verify appliance settings for assessment
