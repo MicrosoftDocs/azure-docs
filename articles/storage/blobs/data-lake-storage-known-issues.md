@@ -58,7 +58,6 @@ The following table lists all other features and tools that are not yet supporte
 | **Blob container ACLs** |Not yet supported|
 | **Blobfuse** |Not yet supported|
 | **Custom domains** |Not yet supported|
-| **Diagnostic logs** |Not yet supported|
 | **File System Explorer** | Limited support |
 | **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) state.|
 | **Object-level tiers** |Not yet supported <br><br>For example: Premium, Hot, Cold, and Archive tiers.|
