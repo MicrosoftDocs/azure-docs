@@ -81,7 +81,7 @@ The `VerifyUserHasAnyAcceptedScope` method would do something like the following
     /// When applied to a <see cref="HttpContext"/>, verifies that the user authenticated in the 
     /// web API has any of the accepted scopes.
     /// If the authenticated user doesn't have any of these <paramref name="acceptedScopes"/>, the
-    /// method throws an HTTP Unauthorized with a message noting which scopes are expected in the token.
+    /// method throws an HTTP Unauthorized error with a message noting which scopes are expected in the token.
     /// </summary>
     /// <param name="acceptedScopes">Scopes accepted by this API</param>
     /// <exception cref="HttpRequestException"/> with a <see cref="HttpResponse.StatusCode"/> set to 
@@ -108,7 +108,7 @@ This sample code is for ASP.NET Core. For ASP.NET, just replace `HttpContext.Use
 
 ## Verifying app roles in APIs called by daemon apps
 
-If your web API is called by a [daemon app](scenario-daemon-overview.md), that app should require an application permission to your web API. We've seen in [How to expose application permissions (app roles)](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-registration#how-to-expose-application-permissions-app-roles) that your API exposes such permissions (for example, as the `access_as_application` app role).
+If your web API is called by a [daemon app](scenario-daemon-overview.md), that app should require an application permission to your web API. We've seen in [Exposing application permissions (app roles)](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) that your API exposes such permissions (for example, the `access_as_application` app role).
 You now need to have your APIs verify that the token it received contains the `roles` claim and
 that this claim has the value it expects. The code doing this verification is similar to the code that verifies delegated permissions, except that, instead of testing for `scopes`, your controller action will test for `roles`:
 
@@ -150,7 +150,7 @@ This sample code is for ASP.NET. For ASP.NET Core, just replace `ClaimsPrincipal
 
 The `roles` claim is also used for users in user assignment patterns. (See [How to: Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md).) So just checking roles will allow apps to sign in as users and the other way around, if the roles are assignable to both. We recommend that you declare different roles for users and apps to prevent this confusion.
 
-If you want to only allow daemon applications to call your web API, you'll want to add a condition, when you validate the app role, that the token is an app-only token:
+If you want to allow only daemon apps to call your web API, add a condition, when you validate the app role, that the token is an app-only token:
 
 ```CSharp
 string oid = ClaimsPrincipal.Current.FindFirst("oid");

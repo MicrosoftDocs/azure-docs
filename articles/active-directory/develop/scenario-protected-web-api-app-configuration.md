@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Protected web API: code configuration
+# Protected web API: Code configuration
 
 To configure the code for your protected web API, you need to understand what defines APIs as protected, how to configure a bearer token, and how to validate the token.
 
@@ -37,7 +37,7 @@ Consider the following questions:
 
 The information about the identity of the app, and about the user (unless the web app accepts service-to-service calls from a daemon app), is held in the bearer token that's set in the header when the app is called.
 
-Here's a C# code example that shows a client calling the API after acquiring a token with Microsoft Authentication Library for .NET (MSAL.NET):
+Here's a C# code example that shows a client calling the API after it acquires a token with Microsoft Authentication Library for .NET (MSAL.NET):
 
 ```CSharp
 var scopes = new[] {$"api://.../access_as_user}";
@@ -52,11 +52,11 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> The bearer token was requested by a client application to the Microsoft identity platform endpoint *for the web API*. The web API is the only application that should verify the token and view the claims it contains. Client apps should never view the claims in the tokens. (The web API could require, in the future, that the token be encrypted. This requirement would prevent access for client apps that can view access tokens.)
+> The bearer token was requested by a client application to the Microsoft identity platform endpoint *for the web API*. The web API is the only application that should verify the token and view the claims it contains. Client apps should never view the claims in tokens. (The web API could require, in the future, that the token be encrypted. This requirement would prevent access for client apps that can view access tokens.)
 
 ## JwtBearer configuration
 
-This section describes how to configure the bearer token.
+This section describes how to configure a bearer token.
 
 ### Config file
 
@@ -88,7 +88,7 @@ This section describes how to configure the bearer token.
 
 ### Code initialization
 
-When an app is called on a controller action holding an `[Authorize]` attribute, ASP.NET/ASP.NET Core looks at the bearer token in the Authorization header of the calling request and extracts the access token. The token is then forwarded to the JwtBearer middleware, which calls Microsoft IdentityModel Extensions for .NET.
+When an app is called on a controller action that holds an `[Authorize]` attribute, ASP.NET/ASP.NET Core looks at the bearer token in the Authorization header of the calling request and extracts the access token. The token is then forwarded to the JwtBearer middleware, which calls Microsoft IdentityModel Extensions for .NET.
 
 In ASP.NET Core, this middleware is initialized in the Startup.cs file:
 
@@ -134,11 +134,11 @@ The JwtBearer middleware, like the OpenID Connect middleware in web apps, is dir
 - Its lifetime is in range (expiry).
 - It wasn't tampered with (signature).
 
-There can also be special validations. For instance, it's possible to validate that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. Finally, some protocols require specific validations.
+There can also be special validations. For example, it's possible to validate that signing keys (when embedded in a token) are trusted and that the token isn't being replayed. Finally, some protocols require specific validations.
 
 ### Validators
 
-The validation steps are captured in validators, which are all in the [Microsoft IdentityModel Extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) open-source library, in one source file: [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs)
+The validation steps are captured in validators, which are all in the [Microsoft IdentityModel Extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) open-source library, in one source file: [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
 
 The validators are described in this table:
 
@@ -146,10 +146,10 @@ The validators are described in this table:
 |---------|---------|
 | `ValidateAudience` | Ensures the token is for the application that validates the token (for me). |
 | `ValidateIssuer` | Ensures the token was issued by a trusted STS (from someone I trust). |
-| `ValidateIssuerSigningKey` | Ensures the application validating the token trusts the key that was used to sign the token. (This is a special case where the key is embedded in the token. It's not usually required.) |
+| `ValidateIssuerSigningKey` | Ensures the application validating the token trusts the key that was used to sign the token. (Special case where the key is embedded in the token. Not usually required.) |
 | `ValidateLifetime` | Ensures the token is still (or already) valid. The validator checks if the lifetime of the token (`notbefore` and `expires` claims) is in range. |
 | `ValidateSignature` | Ensures the token hasn't been tampered with. |
-| `ValidateTokenReplay` | Ensures the token isn't replayed. (This is a special case for some onetime use protocols.) |
+| `ValidateTokenReplay` | Ensures the token isn't replayed. (Special case for some onetime use protocols.) |
 
 The validators are all associated with properties of the `TokenValidationParameters` class, themselves initialized from the ASP.NET/ASP.NET Core configuration. In most cases, you won't have to change the parameters. There's one exception, for apps that aren't single tenants. (That is, web apps that accept users from any organization or from personal Microsoft accounts.) In this case, the issuer must be validated.
 

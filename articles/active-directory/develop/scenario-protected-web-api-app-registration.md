@@ -28,7 +28,7 @@ See [Quickstart: Register an application with the Microsoft identity platform](q
 
 ## Accepted token version
 
-The Microsoft identity platform endpoint can issue two types of tokens: v1.0 tokens and v2.0 tokens. You can learn more about these tokens in [Access tokens](access-tokens.md). The accepted token version depends on the **Supported account types** you chose when you created your application:
+The Microsoft identity platform endpoint can issue two types of tokens: v1.0 tokens and v2.0 tokens. For more information about these tokens, see [Access tokens](access-tokens.md). The accepted token version depends on the **Supported account types** you chose when you created your application:
 
 - If the value of **Supported account types** is **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**, the accepted token version will be v2.0.
 - Otherwise, the accepted token version will be v1.0.
@@ -60,7 +60,7 @@ During app registration, you'll need to define these parameters:
 - One or more *scopes*. (To client applications, they'll show up as *delegated permissions* for your web API.)
 - One or more *app roles*. (To client applications, they'll show up as *application permissions* for your web API.)
 
-The scopes are also displayed on the consent screen that's presented to end users of your application. So you'll need to provide the corresponding strings that describe the scope:
+The scopes are also displayed on the consent screen that's presented to end users of your app. So you'll need to provide the corresponding strings that describe the scope:
 
 - As seen by the end user.
 - As seen by the tenant admin, who can grant admin consent.
@@ -114,9 +114,9 @@ The following sample shows the contents of `appRoles`. (The `id` can be any uniq
 
 #### Ensuring that Azure AD issues tokens for your web API to only allowed clients
 
-The web API checks for the app role. (That's the developer way of exposing application permissions.) But you can also configure Azure AD to issue a token for your web API only to applications that are approved by the tenant admin to access your API. To add this increased security:
+The web API checks for the app role. (That's the developer way to expose application permissions.) But you can also configure Azure AD to issue a token for your web API only to apps that are approved by the tenant admin to access your API. To add this increased security:
 
-1. On the app **Overview** page for your app registration, select the link with the name of your application under **Managed application in local directory**. The title for this field might be truncated. You might, for example, see **Managed application in ...**
+1. On the app **Overview** page for your app registration, select the link with the name of your app under **Managed application in local directory**. The title for this field might be truncated. You might, for example, see **Managed application in ...**
 
    > [!NOTE]
    >
@@ -129,7 +129,7 @@ The web API checks for the app role. (That's the developer way of exposing appli
    >
    > If you set **User assignment required?** to **Yes**, Azure AD will check the app role assignments of clients when they request an access token for the web API. If the client isn't assigned to any app roles, Azure AD will return the error `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`.
    >
-   > If you keep **User assignment required?** set to **No**, *Azure AD won’t check the app role assignments when a client requests an access token for your web API*. Any daemon client (that is, any client using the client credentials flow) will be able to obtain an access token for the API just by specifying its audience. Any application will be able to access the API without having to request permissions for it. But your web API can always, as explained in the previous section, verify that the application has the right role (which was authorized by the tenant admin). The API performs this verification by validating that the access token has a roles claim and that the value for this claim is correct. (In our case, the value is `access_as_application`.)
+   > If you keep **User assignment required?** set to **No**, *Azure AD won’t check the app role assignments when a client requests an access token for your web API*. Any daemon client (that is, any client using the client credentials flow) will be able to obtain an access token for the API just by specifying its audience. Any application will be able to access the API without having to request permissions for it. But your web API can always, as explained in the previous section, verify that the application has the right role (which is authorized by the tenant admin). The API performs this verification by validating that the access token has a roles claim and that the value for this claim is correct. (In our case, the value is `access_as_application`.)
 
 1. Select **Save**
 
