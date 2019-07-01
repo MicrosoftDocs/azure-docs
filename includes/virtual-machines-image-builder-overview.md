@@ -46,6 +46,12 @@ AIB will support Azure Marketplace base OS images:
 - Windows 2016
 - Windows 2019
 
+AIB will support RHEL ISO's, as a source for:
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+RHEL 7.6 is not supported, but being tested.
 
 ## How it works
 
