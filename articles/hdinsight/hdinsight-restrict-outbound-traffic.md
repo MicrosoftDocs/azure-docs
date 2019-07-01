@@ -83,7 +83,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
    | **Name** | **Protocol** | **Source Address** | **Service Tags** | **Destination Port** | **Notes** |
    | --- | --- | --- | --- | --- | --- |
-   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet which will bypass the firewall. |
+   | Rule_7 | TCP | * | SQL | `1433` | Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic, unless you configured Service Endpoints for SQL Server on the HDInsight subnet which will bypass the firewall. |
 
 1. Click **Add** to complete creation of your network rule collection.
 
