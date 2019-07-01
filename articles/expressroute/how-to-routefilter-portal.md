@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: expressroute
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 07/01/2019
 ms.author: ganesr
 ms.custom: seodec18
 
@@ -75,7 +75,7 @@ BGP community values associated with services accessible through Microsoft peeri
 
 ### 2. Make a list of the values that you want to use
 
-Make a list of BGP community values you want to use in the route filter. As an example, the BGP community value for Dynamics 365 services is 12076:5040.
+Make a list of BGP community values you want to use in the route filter.
 
 ## <a name="filter"></a>Step 2: Create a route filter and a filter rule
 
