@@ -25,7 +25,7 @@ ms.author: jowargo
 
 This tutorial shows you how to use Azure Notification Hubs and Firebase Cloud Messaging (FCM) to push notifications to an Android application. In this tutorial, you create a blank Android app that receives push notifications by using Firebase Cloud Messaging (FCM).
 
-The completed code for this tutorial can be downloaded [from GitHub.](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp)
+The completed code for this tutorial can be downloaded [from GitHub](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp).
 
 In this tutorial, you take the following steps:
 
@@ -393,7 +393,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
     }
     ```
 
-10. The `ToastNotify` method uses the *"Hello World"* `TextView` control to report status and notifications persistently in the app. In your **res** -> **layout** -> **activity_main.xml** layout, add the following ID for that control.
+10. The `ToastNotify` method uses the *"Hello World"* `TextView` control to report status and notifications persistently in the app. In your **res** > **layout** > **activity_main.xml** layout, add the following ID for that control.
 
     ```java
     android:id="@+id/text_hello"

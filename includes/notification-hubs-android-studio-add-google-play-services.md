@@ -27,7 +27,7 @@
     ```gradle
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
-5. Select **Sync Now** icon in the tool bar.
+5. Select **Sync Now** icon in the toolbar.
 
     ![Sync with Gradle](./media/notification-hubs-android-studio-add-google-play-services/gradle-sync.png)
 1. Open the AndroidManifest.xml file, and then add the following tag to the *application* tag.
