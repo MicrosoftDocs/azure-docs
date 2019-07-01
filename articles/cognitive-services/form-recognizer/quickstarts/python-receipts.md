@@ -50,12 +50,9 @@ To start analyzing a receipt, you call the **Analyze Receipt** API using the Pyt
         'Ocp-Apim-Subscription-Key': '<subscription key>',
     }
 
-    params = urllib.parse.urlencode({
-    })
-
     try:
         conn = http.client.HTTPSConnection('<Endpoint>')
-        conn.request("POST", "/formrecognizer/v1.0-preview/prebuilt/receipt/asyncBatchAnalyze?%s" % params, body, headers)
+        conn.request("POST", "/formrecognizer/v1.0-preview/prebuilt/receipt/asyncBatchAnalyze", body, headers)
         response = conn.getresponse()
         data = response.read()
         operationURL = "" + response.getheader("Operation-Location")
@@ -86,7 +83,7 @@ operationId = operationURL.split("operations/")[1]
 conn = http.client.HTTPSConnection('<Endpoint>')
 while True:
     try:
-        conn.request("GET", f"/formrecognizer/v1.0-preview/prebuilt/receipt/operations/{operationId}?%s" % params, "", headers)
+        conn.request("GET", f"/formrecognizer/v1.0-preview/prebuilt/receipt/operations/{operationId}", "", headers)
         responseString = conn.getresponse().read().decode('utf-8')
         responseDict = json.loads(responseString)
         conn.close()
