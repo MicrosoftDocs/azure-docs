@@ -10,8 +10,8 @@ manager: carmonm
 ---
 # Deploy the NIST SP 800-53 R4 blueprint sample
 
-To deploy the Azure Blueprints NIST SP 800-53 R4 blueprint sample, the following steps must be
-taken:
+To deploy the Azure Blueprints NIST SP 800-53 R4 blueprint sample, the following steps must
+be taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
@@ -32,12 +32,13 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **NIST SP 800-53 R4** blueprint sample under _Other Samples_ and select **Use this
-   sample**.
+1. Find the **NIST SP 800-53 R4** blueprint sample under _Other Samples_ and select **Use
+   this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
 
-   - **Blueprint name**: Provide a name for your copy of the NIST SP 800-53 R4 blueprint sample.
+   - **Blueprint name**: Provide a name for your copy of the NIST SP 800-53 R4 blueprint
+     sample.
    - **Definition location**: Use the ellipsis and select the management group to save your copy of
      the sample to.
 
@@ -52,8 +53,8 @@ sample as a starter.
 
 Your copy of the blueprint sample has now been created in your environment. It's created in
 **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the
-blueprint sample can be customized to your environment and needs, but that modification may move it
-away from the NIST SP 800-53 R4 standard.
+blueprint sample can be customized to your environment and needs, but that modification may move
+it away from alignment with NIST SP 800-53 controls.
 
 1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
    page, select **Blueprints**.
@@ -63,7 +64,7 @@ away from the NIST SP 800-53 R4 standard.
 
 1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a
    **Version** for your copy of the blueprint sample. This property is useful for if you make a
-   modification later. Provide **Change notes** such as "First version published from the NIST SP
+   modification later. Provide **Change notes** such as "First version published from the NIST SP 
    800-53 R4 blueprint sample." Then select **Publish** at the bottom of the page.
 
 ## Assign the sample copy
@@ -103,24 +104,6 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
      Leave the default _system assigned_ managed identity option.
 
-   - Blueprint parameters
-
-     The parameters defined in this section are used by many of the artifacts in the blueprint
-     definition to provide consistency.
-
-     - **Organization name**: Enter a short-name for your organization. This property is primarily
-       used for naming resources.
-     - **Shared services subnet address prefix**: Provide the CIDR notation value for networking the
-       deployed resources together.
-     - **Shared services location**: Determines what location the artifacts are deployed to. Not all
-       services are available in all locations. Artifacts deploying such services provide a
-       parameter option for the location to deploy that artifact to.
-     - **Allowed location (Policy: Blueprint initiative for NIST SP 800-53 R4)**: Value that
-       indicates the allowed locations for resource groups and resources.
-     - **Log Analytics workspace for VM agents (Policy: Blueprint initiative for NIST SP 800-53
-       R4)**: Specifies the Resource ID of a workspace. This parameter uses a `concat` function to
-       construct the Resource ID.
-
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
@@ -143,12 +126,28 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|\[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)|Policy assignment|Optional: List of VM images that have supported Linux OS to add to scope|(Optional) Default value is _["none"]_.|
+|\[Preview\]: Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements|Policy assignment|Log Analytics workspace ID that VMs should be configured for|This is the ID (GUID) of the Log Analytics workspace that the VMs should be configured for.|
+|\[Preview\]: Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of resource types that should have diagnostic logs enabled|List of resource types to audit if diagnostic log setting is not enabled. Acceptable values can be found at [Azure Monitor diagnostic logs schemas](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Preview\]: Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of users that should be excluded from Windows VM Administrators group|A semicolon-separated list of members that should be excluded in the Administrators local group. Ex: Administrator; myUser1; myUser2|
+|\[Preview\]: Audit NIST SP 800-53 R4 controls and deploy specific VM Extensions to support audit requirements|Policy assignment|List of users that should be included in Windows VM Administrators group|A semicolon-separated list of members that should be included in the Administrators local group. Ex: Administrator; myUser1; myUser2|
+|\[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)|Policy assignment|Log Analytics workspace for Linux VM Scale Sets (VMSS)|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
+|\[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS)|Policy assignment|Optional: List of VM images that have supported Linux OS to add to scope|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
+|\[Preview\]: Deploy Log Analytics Agent for Linux VMs|Policy assignment|Log Analytics workspace for Linux VMs|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
+|\[Preview\]: Deploy Log Analytics Agent for Linux VMs|Policy assignment|Optional: List of VM images that have supported Linux OS to add to scope|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
+|\[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)|Policy assignment|Log Analytics workspace for Windows VM Scale Sets (VMSS)|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
+|\[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
+|\[Preview\]: Deploy Log Analytics Agent for Windows VMs|Policy assignment|Log Analytics workspace for Windows VMs|If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID.|
+|\[Preview\]: Deploy Log Analytics Agent for Windows VMs|Policy assignment|Optional: List of VM images that have supported Windows OS to add to scope|Example value: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage'|
+|Deploy Advanced Threat Protection on Storage Accounts|Policy assignment|Effect|Information about policy effects can be found at [Understand Azure Policy Effects](../../../policy/concepts/effects)|
+|Deploy Auditing on SQL servers|Policy assignment|The value in days of the retention period (0 indicates unlimited retention)|Retention days (optional, 180 days if unspecified)|
+|Deploy Auditing on SQL servers|Policy assignment|Resource group name for storage account for SQL server auditing|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region). Important - for proper operation of Auditing do not delete or rename the resource group or the storage accounts.|
+|Deploy diagnostic settings for Network Security Groups|Policy assignment|Storage account prefix for network security group diagnostics|This prefix will be combined with the network security group location to form the created storage account name.|
+|Deploy diagnostic settings for Network Security Groups|Policy assignment|Resource group name for storage account for network security group diagnostics (must exist)|The resource group that the storage account will be created in. This resource group must already exist.|
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the NIST SP 800-53 R4 blueprint sample, visit the
-following articles to learn about the architecture and control mapping:
+Now that you've reviewed the steps to deploy the NIST SP 800-53 R4 blueprint sample, visit
+the following articles to learn about the architecture and control mapping:
 
 > [!div class="nextstepaction"]
 > [NIST SP 800-53 R4 blueprint - Overview](./index.md)
