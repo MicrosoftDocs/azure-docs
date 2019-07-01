@@ -484,7 +484,7 @@ The following steps explain the requirements for connecting your existing App Se
 
 1. Download the JDBC driver for [PostgreSQL](https://jdbc.postgresql.org/download.html), [MySQL](https://dev.mysql.com/downloads/connector/j/), or [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server). Unpack the downloaded archive to get the driver .jar file.
 
-2. Create a file with a name like *module.xml* and add the following markup. Replace the `<module name>` placeholder (including the angle brackets) with `org.postgres` for PostgreSQL, `com.mysql` for MySQL, or `com.microsoft` for SQL Server. Replace `<JDBC .jar file path>` with the name of the .jar file from the previous step, including the full path to the location you will place the file in your App Service instance. This can be any location under the */home* directory, for example */home/site/deployments/tools*.
+2. Create a file with a name like *module.xml* and add the following markup. Replace the `<module name>` placeholder (including the angle brackets) with `org.postgres` for PostgreSQL, `com.mysql` for MySQL, or `com.microsoft` for SQL Server. Replace `<JDBC .jar file path>` with the name of the .jar file from the previous step, including the full path to the location you will place the file in your App Service instance. This can be any location under the */home* directory.
 
     ```xml
     <?xml version="1.0" ?>
@@ -499,7 +499,7 @@ The following steps explain the requirements for connecting your existing App Se
     </module>
     ```
 
-3. Create a file with a name like *datasource-commands.cli* and add the following code. Replace `<JDBC .jar file path>` with the value you used in the previous step. Replace `<module file path>` with the file name and App Service path from the previous step, for example */home/site/deployments/tools/module.xml*.
+3. Create a file with a name like *datasource-commands.cli* and add the following code. Replace `<JDBC .jar file path>` with the value you used in the previous step. Replace `<module file path>` with the file name and App Service path from the previous step, for example */home/module.xml*.
 
     **PostgreSQL**
 
@@ -539,30 +539,54 @@ The following steps explain the requirements for connecting your existing App Se
 
     This file is run by the startup script described in the next step. It installs the JDBC driver as a Wildfly module, creates the corresponding Wildfly data source, and reloads the server to ensure the changes will take effect.
 
-4. Create a file with a name like *startup.sh* and add the following code. Replace `<JBoss CLI script>` with the name of the file you created in the previous step. Be sure to include the full path to the location you will place the file in your App Service instance, for example */home/site/deployments/tools/datasource-commands.cli*.
+4. Create a file with a name like *startup.sh* and add the following code. Replace `<JBoss CLI script>` with the name of the file you created in the previous step. Be sure to include the full path to the location you will place the file in your App Service instance, for example */home/datasource-commands.cli*.
 
     ```bash
     #!/usr/bin/env bash
     /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=<JBoss CLI script>
     ```
 
-5. Use FTP to upload the JDBC .jar file, the module XML file, the JBoss CLI script, and the startup script to your App Service instance. Put these files in the location you specified in the previous steps, such as */home/site/deployments/tools*. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+5. Use FTP to upload the JDBC .jar file, the module XML file, the JBoss CLI script, and the startup script to your App Service instance. Put these files in the location you specified in the previous steps, such as */home*. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
-6. Use the Azure CLI to add settings to your App Service that hold your database connection info. Replace `<resource group>` and `<webapp name>` with the values your App Service uses. Replace `<connection URL>`, `<admin name>`, and `<admin password>` with your connection info. You can get your App Service and database info from the Azure portal.
+6. Use the Azure CLI to add settings to your App Service that hold your database connection info. Replace `<resource group>` and `<webapp name>` with the values your App Service uses. Replace `<database server name>`, `<database name>`, `<admin name>`, and `<admin password>` with your database connection info. You can get your App Service and database info from the Azure portal.
+
+    **PostgreSQL:**
 
     ```bash
     az webapp config appsettings set \
         --resource-group <resource group> \
         --name <webapp name> \
         --settings \
-            DATABASE_CONNECTION_URL=<connection URL> \
+            DATABASE_CONNECTION_URL=jdbc:postgresql://<database server name>:5432/<database name>?ssl=true \
             DATABASE_SERVER_ADMIN_FULL_NAME=<admin name> \
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-7. In the Azure portal, navigate to your App Service and find the **Configuration** > **General settings** page. Set the **Startup Script** field to the name and location of your startup script, for example */home/site/deployments/tools/startup.sh*.
+    **MySQL:**
 
-8. Restart your App Service instance by pressing the **Restart** button in the **Overview** section of the Azure portal or by using the Azure CLI.
+    ```bash
+    az webapp config appsettings set \
+        --resource-group <resource group> \
+        --name <webapp name> \
+        --settings \
+            DATABASE_CONNECTION_URL=jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT \
+            DATABASE_SERVER_ADMIN_FULL_NAME=<admin name> \
+            DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
+    ```
+
+    **SQL Server:**
+
+    ```bash
+    az webapp config appsettings set \
+        --resource-group <resource group> \
+        --name <webapp name> \
+        --settings \
+            DATABASE_CONNECTION_URL=jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+    ```
+
+7. In the Azure portal, navigate to your App Service and find the **Configuration** > **General settings** page. Set the **Startup Script** field to the name and location of your startup script, for example */home/startup.sh*.
+
+The next time your App Service restarts, it will run the startup script and perform the necessary configuration steps. To test that this configuration occurs correctly, you can access your App Service using SSH and then run the startup script yourself from the Bash prompt. For more info about using SSH, see [SSH console access](#ssh-console-access).
 
 Next, you will need to update the Wildfly configuration for your app and redeploy it. Use the following steps:
 
@@ -591,6 +615,8 @@ Next, you will need to update the Wildfly configuration for your app and redeplo
     ```bash
     mvn package -DskipTests azure-webapp:deploy
     ```
+
+3. Restart your App Service instance by pressing the **Restart** button in the **Overview** section of the Azure portal or by using the Azure CLI.
 
 Your App Service instance is now configured to access your database.
 
