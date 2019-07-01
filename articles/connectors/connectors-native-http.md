@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 07/05/2019
 tags: connectors
 ---
 
@@ -16,7 +16,7 @@ tags: connectors
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the Hypertext Transfer Protocol (HTTP) connector, you can automate workflows that can call any HTTP or HTTPS endpoint by building logic apps. For example, you can monitor the service endpoint for your website. When an event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the specified actions.
 
-You can use the HTTP trigger as the first step in your workflow for checking or *polling* an endpoint on a regular schedule. On each check, the trigger sends a call or *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes along any content from the response to the actions in your logic app.
+To check or *poll* an endpoint on a regular schedule, you can use the HTTP trigger as the first step in your workflow. On each check, the trigger sends a call or *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes along any content from the response to the actions in your logic app.
 
 You can use the HTTP action as any other step in your workflow for calling the endpoint when you want. The endpoint's response determines how your workflow's remaining actions run.
 
@@ -36,7 +36,7 @@ Based the target endpoint's capability, the HTTP connector supports Transport La
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Open your blank logic app in Logic App Designer.
 
-1. In the search box, enter "http" as your filter. From the **Triggers** list, select the **HTTP** trigger.
+1. On the designer, in the search box, enter "http" as your filter. From the **Triggers** list, select the **HTTP** trigger.
 
    ![Select HTTP trigger](./media/connectors-native-http/select-http-trigger.png)
 
@@ -64,7 +64,7 @@ Based the target endpoint's capability, the HTTP connector supports Transport La
 
    For this example, the logic app starts with the HTTP trigger as the first step.
 
-1. In the search box, enter "http" as your filter. From the **Actions** list, select the **HTTP** action.
+1. On the designer, in the search box, enter "http" as your filter. From the **Actions** list, select the **HTTP** action.
 
    ![Select HTTP action](./media/connectors-native-http/select-http-action.png)
 
