@@ -50,9 +50,11 @@ Switching between the two license models incurs **no downtime**, does not restar
 The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - [Software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
-- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) with the [SQL IaaS extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) installed. 
+- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md) installed. 
 
-## With the Azure portal
+## Change listening type 
+
+# [Azure Portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -66,7 +68,7 @@ You can modify the licensing model directly from the portal.
 ![AHB in Portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-## With Azure CLI
+# [AZ CLI](#tab/bash)
 
 You can use Azure CLI to change your licensing model.  
 
@@ -88,7 +90,7 @@ The following code snippet switches your bring-your-own-license model to pay-as-
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-## With PowerShell
+# [PowerShell](#tab/powershell)
 You can use PowerShell to change your licensing model.
 
 The following code snippet switches your pay-as-you-go license model to BYOL (or using Azure Hybrid Benefit):
