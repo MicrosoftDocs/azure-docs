@@ -134,13 +134,25 @@ The [next version of Sentiment Analysis (needs updated link)](https://westcentra
 > * At this time, sentiment analysis V3 currently only supports the English language.  Additional languages will be available in subsequent releases.
 > * The sentiment analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
 
-
 |Feature |Description  |
 |---------|---------|
 |Improved accuracy     | Significant improvement in detecting positive, neutral, negative, and mixed sentiment in text documents over previous versions.           |
 |Document and Sentence-level Sentiment Score     | Detect the sentiment of both a document and its individual sentences. If the document includes multiple sentences, each sentence is also assigned a sentiment score.         |
 |Sentiment category and score     | The API now returns sentiment categories (`positive`, `negative`, `neutral` and `mixed`) for text, in addition to a sentiment score.        |
 | Improved output | Sentiment analysis now returns information for both an entire text document, and its individual sentences. |
+
+### Sentiment labeling
+
+Sentiment analysis V3 can returns scores and labels (`positive`, `negative`, and `neutral`) at a sentence and document level. At the document level the `mixed` sentiment label (not score) can also be returned. The sentiment of the document is determined by its sentences in the following way:
+
+
+| Sentence sentiment | Document label |
+|---------|---------|
+|At least one positive sentence and the rest of the sentences is neutral.     | `positive`        |
+|At least one negative sentence and the rest of the sentences is neutral     |  `negative`       |
+|At least one negative sentence and at least one positive sentence     | `mixed`        |
+|All sentences are neutral     | `neutral`        |
+
 
 ### Sentiment analysis V3 example request
 
