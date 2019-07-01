@@ -43,7 +43,7 @@ The size of the reservation should be based on the total amount of throughput th
 
 4. Fill in the required fields as described in the following table:
 
-   ![Fill the reserved capacity form](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png)
+   ![Fill the reserved capacity form](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
 
    |Field  |Description  |
    |---------|---------|
