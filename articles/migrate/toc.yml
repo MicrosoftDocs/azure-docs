@@ -33,18 +33,22 @@
       href: tutorial-migrate-hyper-v.md
 - name: Concepts
   items:
-  - name: Support matrix for Azure Migrate
-    href: migrate-support-matrix.md
-  - name: Support matrix for VMware assessment and migration
-    href: migrate-support-matrix-vmware.md
-  - name: Support matrix for Hyper-V assessment and migration
-    href: migrate-support-matrix-hyper-v.md
+  - name: Support matrices
+    items:
+    - name: Support matrix for Azure Migrate
+      href: migrate-support-matrix.md
+    - name: Support matrix for VMware assessment and migration
+      href: migrate-support-matrix-vmware.md
+    - name: Support matrix for Hyper-V assessment and migration
+      href: migrate-support-matrix-hyper-v.md
   - name: Azure Migrate architecture
     href: migrate-architecture.md
-  - name: About the collector
+  - name: Azure Migrate appliance architecture
     href: concepts-collector.md
   - name: Collector version upgrades
     href: concepts-collector-upgrade.md
+  - name: Best practices for assessments
+    href: best-practices-assessments.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
   - name: About dependency visualization
