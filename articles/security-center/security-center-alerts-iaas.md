@@ -66,7 +66,7 @@ With fileless attack detection, automated memory forensic techniques identify fi
 It finds evidence of exploitation, code injection, and execution of malicious payloads. Fileless Attack Detection generates detailed security alerts to accelerate alert triage, correlation, and downstream response time. This approach complements event-based EDR solutions providing greater detection coverage.
 
 > [!NOTE]
-> You can simulate Windows alerts by download [Azure Security Center Playbook](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Security Alerts and follow the provided guidelines.  
+> You can simulate Windows alerts by download [Azure Security Center Playbook](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Security Alerts and follow the provided guidelines
 
 > [!div class="mx-tableFixed"]
 
@@ -92,6 +92,8 @@ The auditd system consists of a kernel-level subsystem, which is responsible for
 auditd records are collected, enriched, and aggregated into events using the Linux MMA agent. Security Center is constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics span across suspicious processes, dubious login attempts, kernel module loading, and other activities which indicate a machine is under attack, or has been breached.  
 
 Below are several examples of analytics, that demonstrate how we span across different stages of the attack life cycle.
+
+> [!div class="mx-tableFixed"]
 
 |Alert|Description|
 |---|---|
