@@ -33,7 +33,7 @@ When you're replicating VMware virtual machines, keep this information in mind:
 
 Before you follow the steps in this section, note the following information:
 * Azure Site Recovery now replicates directly to managed disks for all new replications. The process server writes replication logs to a cache storage account in the target region. These logs are used to create recovery points in replica managed disks that have naming convention of asrseeddisk.
-* Powershell support for replicating to managed disks is available from [Az module version 2.0 onwards](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
+* Powershell support for replicating to managed disks is available from [Az.RecoveryServices module version 2.0.0 onwards](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * At the time of failover, the recovery point that you select is used to create the target-managed disk.
 * VMs that were previously configured to replicate to target storage accounts aren't affected.
 * Replication to storage accounts for a new virtual machine is only available via a Representational State Transfer (REST) API and Powershell. Use Azure REST API version 2016-08-10 or 2018-01-10 for replicating to storage accounts.

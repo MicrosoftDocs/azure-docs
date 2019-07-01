@@ -80,6 +80,10 @@ For a detailed estimate of costs, run the deployment planner tool for [VMware](h
 
 Managed disks are charged slightly differently from storage accounts. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/) about managed-disk pricing.
 
+### Is there any difference in cost when replicating to General Purpose v2 storage account?
+
+You will typically see an increase in the transactions cost incurred on GPv2 storage accounts since Azure Site Recovery is transactions heavy. [Read more](../storage/common/storage-account-upgrade.md#pricing-and-billing) to estimate the change.
+
 ## Mobility service
 
 ### Where can I find the Mobility service installers?
@@ -287,7 +291,7 @@ Updates in versions 9.24 and later now display the [health of the process server
 
 ### How do I update the process server to version 9.24 or later for accurate health information?
 
-Beginning with [version 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups), more alerts have been added to indicate the health of the process server. [Update your Site Recovery components to version 9.24 or later] (service-updates-how-to.md#links-to-currently-supported-update-rollups) so that all alerts are generated.
+Beginning with [version 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups), more alerts have been added to indicate the health of the process server. [Update your Site Recovery components to version 9.24 or later](service-updates-how-to.md#links-to-currently-supported-update-rollups) so that all alerts are generated.
 
 ## Failover and failback
 

@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
 
 ---
@@ -65,9 +65,9 @@ Virtual machines/physical servers protected using Site Recovery also support **P
 
 > [!NOTE]
 > During failover of Hyper-v virtual machines from one on-premises site to another on-premises site, to come back to the primary on-premises site you have to first **reverse-replicate** the virtual machine back to primary site and then trigger a failover. If the primary virtual machine is not available, then before starting to **reverse-replicate** you have to restore the virtual machine from a backup.   
-> 
-> 
-> ## Failover job
+ 
+ 
+## Failover job
 
 ![Failover](./media/site-recovery-failover/FailoverJob.png)
 

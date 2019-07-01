@@ -22,13 +22,6 @@ An ExpressRoute circuit represents a logical connection between your on-premises
 
 An ExpressRoute circuit has multiple routing domains associated with it. Learn more about and compare ExpressRoute routing domains [here](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
-<!--
--	[Azure Private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) - Azure compute services, namely virtual machines (IaaS), and cloud services (PaaS) that are deployed within a virtual network can be connected through the private peering domain. The private peering domain is considered a trusted extension of your core network into Microsoft Azure.
--	[Azure Public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) - Services such as Azure Storage, SQL databases, and Websites are offered on public IP addresses. You can privately connect to services hosted on public IP addresses, including VIPs of your cloud services, through the public peering routing domain. Public peering has been deprecated for new creations and Microsoft Peering should be used instead for Azure PaaS services.
--	[Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) - Connectivity to Microsoft online services (Office 365, Dynamics 365, and Azure PaaS services) is through the Microsoft peering. Microsoft peering is the recommended routing domain to connect to Azure PaaS services.
--->
-
-
 ## On-premises to Azure replication with ExpressRoute
 
 Azure Site Recovery enables disaster recovery and migration to Azure for on-premises [Hyper-V virtual machines](hyper-v-azure-architecture.md), [VMware virtual machines](vmware-azure-architecture.md), and [physical servers](physical-azure-architecture.md). For all on-premises to Azure scenarios, replication data is sent to and stored in an Azure Storage account. During replication, you don't pay any virtual machine charges. When you run a failover to Azure, Site Recovery automatically creates Azure IaaS virtual machines.
