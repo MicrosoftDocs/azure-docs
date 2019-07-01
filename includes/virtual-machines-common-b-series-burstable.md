@@ -104,7 +104,7 @@ If I take the 120 credits I earned off-peak and subtract the 96 credits I used f
 
 (Base CPU perf of VM - CPU Usage) / 100 = Credits bank or use per minute
 
-e.g in above instance your baeline is 20% and and if you use 10% of the CPU you are accumalting (20%-10%)/100 = 0.1 credit per minute.
+e.g in above instance your baseline is 20% and if you use 10% of the CPU you are accumulating (20%-10%)/100 = 0.1 credit per minute.
 
 ### Q: Does the B-Series support Premium Storage data disks?
 **A**: Yes, all B-Series sizes support Premium Storage data disks.   
