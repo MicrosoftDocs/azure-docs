@@ -66,16 +66,14 @@ Security Center offers an additional layer of protection by leveraging Azure Res
 |**Activity from anonymous IP addresses**|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected. <br/>These proxies are used by people who want to hide their device’s IP address, and may be used for malicious intent. This detection leverages a machine learning algorithm that reduces "false positives", such as mis-tagged IP addresses that are widely used by users in the organization.|
 |**Impossible travel detected**|Two user activities (is a single or multiple sessions) have occurred, originating from geographically distant locations within a time period shorter than the time it would have taken the user to travel from the first location to the second. This indicates that a different user is using the same credentials. <br/>This detection leverages a machine learning algorithm that ignores obvious "false positives" contributing to the impossible travel conditions, such as VPNs and locations regularly used by other users in the organization. The detection has an initial learning period of seven days during which it learns a new user’s activity pattern.|
 
->[!NOTE]
+>[!NOTE] Several of the analytics above are powered by Microsoft Cloud App Security (MCAS). *To benefit from these analytics, an activated MCAS license is required.* If you have a MCAS license, then these alerts are enabled by default. To disable them:
 >
->* Several of the analytics above are powered by Microsoft Cloud App Security (MCAS). To benefit from these analytics, an activated MCAS license is required. If you have a MCAS license, then these alerts are enabled by default. To disable them:
+> 1. In the Security Center blade, select **Security policy**. For the subscription you want to change, click **Edit settings**.
+> 2. Click **Threat detection**.
+> 3. Under **Enable integrations**, uncheck **Allow Microsoft Cloud App Security to access my data**, and click **Save**.
 >
->    1. In the Security Center blade, select **Security policy**. For the subscription you want to change, click **Edit settings**.
->    2. Click **Threat detection**.
->    3. Under **Enable integrations**, uncheck **Allow Microsoft Cloud App Security to access my data**, and click **Save**.
+> When MCAS is enabled, Azure Security Center stores a copy of security-related customer data, collected from or associated with a customer resource (e.g. virtual machine or Azure Active Directory tenant). The information is stored in the same geo as the resource, except in the following circumstances:
 >
-> * Azure Security Center, stores a copy of security-related customer data, collected from or associated with a customer resource (e.g. virtual machine or Azure Active Directory tenant). The information is stored in the same geo as the resource, except in the following circumstances:
->
->   * If Microsoft has not yet deployed Azure Security Center in the resource's geo, then a copy of the data is stored in the United States.
->   * If Azure Security Center is using another Microsoft Online Service to process the data, then it may store the data in accordance with the geo rules of the other Online Service.
+>* If Microsoft has not yet deployed Azure Security Center in the resource's geo, then a copy of the data is stored in the United States.
+>* If Azure Security Center is using another Microsoft Online Service to process the data, then it may store the data in accordance with the geolocation rules of the other Online Service.
 
