@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Set up a device template
+# Set up a device template (Plug and Play)
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 
@@ -266,7 +266,7 @@ After you select **Save**, the **Echo** command appears as a tile and is ready t
 
 Rules enable operators to monitor devices in near real time. Rules automatically invoke actions such as sending an email when the rule is triggered. One type of rule is available today:
 
-- **Telemetry rule**, which is triggered when the selected device telemetry crosses a specified threshold. [Learn more about telemetry rules](howto-create-telemetry-rules.md).
+- **Telemetry rule**, which is triggered when the selected device telemetry crosses a specified threshold. [Learn more about telemetry rules](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Dashboard
 
@@ -299,6 +299,6 @@ You can resize the map tile. When an operator views the dashboard in the **Devic
 Now that you've learned how to set up a device template in your Azure IoT Central application, you can:
 
 > [!div class="nextstepaction"]
-> [Create a new device template version](howto-version-devicetemplate.md)
-> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md)
-> [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md)
+> [Create a new device template version](howto-version-devicetemplate.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

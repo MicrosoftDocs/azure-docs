@@ -10,7 +10,7 @@ services: iot-central
 ms.custom: mvc
 ---
 
-# Tutorial: Customize the Azure IoT Central operator's view
+# Tutorial: Customize the Azure IoT Central operator's view (Plug and Play)
 
 This tutorial shows you, as a builder, how to customize the operator's view of your application. When you make a change to the application as a builder, you can preview the operator's view in the Microsoft Azure IoT Central application.
 
@@ -30,18 +30,18 @@ In this tutorial, you learn how to:
 
 Before you begin, you should complete the two previous tutorials:
 
-* [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md).
-* [Configure rules and actions for your device](tutorial-configure-rules.md).
+* [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* [Configure rules and actions for your device](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Configure your device dashboard
 
-As a builder, you can define what information displays on a device dashboard. In the [Define a new device type in your application](tutorial-define-device-type.md) tutorial, you added a line-chart and other information to the **Connected Air Conditioner** dashboard.
+As a builder, you can define what information displays on a device dashboard. In the [Define a new device type in your application](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial, you added a line-chart and other information to the **Connected Air Conditioner** dashboard.
 
 1. To edit the **Connected Air Conditioner** device template, choose **Device Templates** on the left navigation menu:
 
     ![Device Templates page](media/tutorial-customize-operator-pnp/devicetemplates.png)
 
-2. To customize your device dashboard, select the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type.md) tutorial.
+2. To customize your device dashboard, select the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
 
 3. To edit the dashboard, select the **Dashboard** tab.
 
@@ -130,7 +130,7 @@ When a builder or operator signs in to an Azure IoT Central application, they se
 
     ![Add an image to the dashboard](media/tutorial-customize-operator-pnp/addimage.png)
 
-    To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images.md).
+    To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Preview the dashboard
 
@@ -155,5 +155,5 @@ In this tutorial, you learned how to customize the operator's view of the applic
 
 Now that you have learned how to customize the operator's view of the application, the suggested next steps are:
 
-* [Monitor your devices (as an operator)](tutorial-monitor-devices.md)
-* [Add a new device to your application (as an operator and device developer)](tutorial-add-device.md)
+* [Monitor your devices (as an operator)](tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+* [Add a new device to your application (as an operator and device developer)](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

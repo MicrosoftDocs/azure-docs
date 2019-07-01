@@ -10,14 +10,14 @@ services: iot-central
 manager: peterpr
 ---
 
-# Create a new device template version
+# Create a new device template version (Plug and Play)
 
 Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting measurements, settings, or properties. Some of these changes could be intrusive for the currently connected devices. Azure IoT Central identifies these breaking changes and provides a way to safely deploy these updates to the devices.
 
 A device template has a version number when you create it. By default, the version number is 1.0.0. If you edit a device template, and if that change could impact live connected devices, Azure IoT Central prompts you to create a new device template version.
 
 > [!NOTE]
-> To learn more about how to create a device template see [Set up a device template](howto-set-up-template.md)
+> To learn more about how to create a device template see [Set up a device template](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 ## Changes that prompt a version change
 
@@ -63,4 +63,4 @@ You can create multiple versions of the device template. Over time, you will hav
 Now that you have learned how to use device template versions in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to create telemetry rules](howto-create-telemetry-rules.md)
+> [How to create telemetry rules](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Trigger Azure Functions using webhooks in Azure IoT Central
+# Trigger Azure Functions using webhooks in Azure IoT Central (Plug and Play)
 
 *This topic applies to builders and administrators.*
 
@@ -51,4 +51,4 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 For more information, visit the Azure Functions article about [creating a function triggered by a generic webhook](https://docs.microsoft.com/azure/azure-functions/functions-create-generic-webhook-triggered-function).
 
 ## Next steps
-Now that you have learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow.md).
+Now that you have learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).

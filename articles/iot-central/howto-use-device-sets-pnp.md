@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpfr
 ---
 
-# Use device sets in your Azure IoT Central application
+# Use device sets in your Azure IoT Central application (Plug and Play)
 
 This article describes how, as an operator, to use device sets in your Azure IoT Central application.
 
@@ -51,7 +51,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
     ![Design Mode on](media/howto-use-device-sets-pnp/image3.png)
 
-1. For information about adding an image, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images.md).
+1. For information about adding an image, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 1. Add a link tile:
     1. Choose **Link** on the right pane.
@@ -84,7 +84,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
 You can add a map to visualize location of the devices in your device set.
 
-To add a map to your device sets dashboard, you must have configured a location measurement or location property in your device template. To learn more, see [Create a Location Measurement](howto-set-up-template.md) or [Create a Location Property](howto-set-up-template.md).
+To add a map to your device sets dashboard, you must have configured a location measurement or location property in your device template. To learn more, see [Create a Location Measurement](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) or [Create a Location Property](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 1. On your device set **Dashboard**, select **Map** from the library.
 2. Add a title and choose the location measurement or property you configured previously.
@@ -113,11 +113,11 @@ After you create your device set, you can configure the **List**. The **List** s
 
 ## Analytics
 
-The analytics in device sets is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-use-device-sets.md).
+The analytics in device sets is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Next steps
 
 Now that you have learned how to use device sets in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to create telemetry rules](howto-create-telemetry-rules.md)
+> [How to create telemetry rules](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
