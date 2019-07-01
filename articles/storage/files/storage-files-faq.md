@@ -68,7 +68,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="tier-options"></a>
   **What storage tiers are supported in Azure Files?**  
-    Currently, Azure Files supports only the standard storage tier. We don't have timelines to share for premium storage and cool storage support at this time. 
+    Currently, Azure Files supports standard and premium storage tiers. We don't have timelines to share for cool storage support at this time. 
     
     > [!NOTE]
     > You cannot create Azure file shares from blob-only storage accounts or from premium storage accounts.
