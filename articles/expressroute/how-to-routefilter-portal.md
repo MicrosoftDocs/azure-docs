@@ -75,7 +75,7 @@ BGP community values associated with services accessible through Microsoft peeri
 
 ### 2. Make a list of the values that you want to use
 
-Make a list of BGP community values you want to use in the route filter.
+Make a list of [BGP community values](expressroute-routing.md#bgp) you want to use in the route filter. 
 
 ## <a name="filter"></a>Step 2: Create a route filter and a filter rule
 
@@ -146,4 +146,6 @@ You can delete a route filter by selecting the delete button.
 
 ## Next Steps
 
-For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
+* For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
+
+* For information about router configuration samples, see [Router configuration samples to set up and manage routing](expressroute-config-samples-routing.md). 
