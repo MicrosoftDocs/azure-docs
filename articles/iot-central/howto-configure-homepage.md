@@ -37,7 +37,7 @@ Now when an operator views the default application dashboard, they see the new t
 
 You can explore other tile types in the library to discover how to further customize the default application dashboard.
 
-To learn more about how to use tiles in Azure IoT Central, see [Use Dashboard Tiles](howto-use-tiles.md).
+To learn more about how to use tiles in Azure IoT Central, see [Use dashboard tiles](howto-use-tiles.md).
 
 ## Next steps
 

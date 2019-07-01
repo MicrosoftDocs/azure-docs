@@ -80,7 +80,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
   
     1. Select **Done**.
 
-To learn more about how to use tiles in Azure IoT Central, see [Use Dashboard Tiles](howto-use-tiles.md).
+To learn more about how to use tiles in Azure IoT Central, see [Use dashboard tiles](howto-use-tiles.md).
 
 ### Configure a location map in your device sets dashboard
 

@@ -34,7 +34,7 @@ Now when you view your personal dashboard, you see the new tile with the **Fan s
 
 You can explore other tile types in the library to discover how to further customize your personal dashboards.
 
-To learn more about how to use tiles in Azure IoT Central, see [Use Dashboard Tiles](howto-use-tiles.md).
+To learn more about how to use tiles in Azure IoT Central, see [Use dashboard tiles](howto-use-tiles.md).
 
 ## Manage dashboards
 
