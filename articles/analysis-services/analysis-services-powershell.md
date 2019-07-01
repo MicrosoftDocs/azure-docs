@@ -28,7 +28,7 @@ For server operations using Azure PowerShell cmdlets, your account or the accoun
 ## Resource and server operations 
 
 Install module - [Az.AnalysisServices](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
-Documentation - [Az.AnalysisServices reference](powershell/module/az.analysisservices)
+Documentation - [Az.AnalysisServices reference](/powershell/module/az.analysisservices)
 
 ## Database operations
 
