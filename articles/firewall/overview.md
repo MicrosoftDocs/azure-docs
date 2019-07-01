@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/26/2019
+ms.date: 7/10/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -25,7 +25,7 @@ Azure Firewall offers the following features:
 
 High availability is built in, so no additional load balancers are required and there's nothing you need to configure.
 
-## Availability Zones (public preview)
+## Availability Zones
 
 Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability. With Availability Zones, your availability increases to 99.99% uptime. For more information, see the Azure Firewall [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). The 99.99% uptime SLA is offered when two or more Availability Zones are selected.
 
@@ -72,7 +72,11 @@ All outbound virtual network traffic IP addresses are translated to the Azure Fi
 
 Inbound network traffic to your firewall public IP address is translated (Destination Network Address Translation) and filtered to the private IP addresses on your virtual networks.
 
-## Multiple public IPs (public preview)
+## Multiple public IPs
+
+> [!IMPORTANT]
+> Azure Firewall with multiple public IP addresses and the associated portal user interface is being added to regions incrementally, and will be available in all regions when the rollout completes.
+
 
 You can associate multiple public IP addresses (up to 100) with your firewall.
 
