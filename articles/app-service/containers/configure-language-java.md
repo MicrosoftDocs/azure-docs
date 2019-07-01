@@ -468,7 +468,7 @@ To install modules and their dependencies into the Wildfly classpath via the JBo
 
 Once you have the files and content for your module, follow the steps below to add the module to the Wildfly application server.
 
-1. Use FTP to upload your files to a location in your App Service instance under your */home* directory, such as */home/site/deployments/tools*. For more info, see [Deploy your app to Azure App Service using FTP/S](../app-service/deploy-ftp.md).
+1. Use FTP to upload your files to a location in your App Service instance under your */home* directory, such as */home/site/deployments/tools*. For more info, see [Deploy your app to Azure App Service using FTP/S](../deploy-ftp.md).
 2. In the **Configuration** > **General settings** page of the Azure portal, set the **Startup Script** field to the location of your startup shell script, for example */home/site/deployments/tools/startup.sh*.
 3. Restart your App Service instance by pressing the **Restart** button in the **Overview** section of the portal or using the Azure CLI.
 
