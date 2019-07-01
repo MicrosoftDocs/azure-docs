@@ -236,7 +236,7 @@ Settings, properties, and commands are different values defined in a device temp
 
   * You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only. In this scenario of a connected air conditioner, the firmware version and device serial number are device properties reported by the device.
     
-    For more information, see [Properties](howto-set-up-template-pnp.md#properties?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in the how-to guide on setting up a device template.
+    For more information, see [Properties](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#properties) in the how-to guide on setting up a device template.
 
 * You use _commands_ to remotely manage your device from your application. You can directly run commands on the device from the cloud to control the devices. For example, an operator can run commands such as reboot, to instantly reboot the device.
 

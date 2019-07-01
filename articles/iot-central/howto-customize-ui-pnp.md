@@ -37,7 +37,7 @@ On this page, you can customize the following aspects of your application:
 
 A PNG image, no larger than 1 MB, with a transparent background. This logo displays to the left on the IoT Central application title bar.
 
-If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage application settings](./howto-administer.md#manage-application-settings?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage application settings](./howto-administer.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json#manage-application-settings).
 
 ### Browser icon (favicon)
 
