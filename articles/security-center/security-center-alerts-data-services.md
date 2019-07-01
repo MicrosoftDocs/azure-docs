@@ -64,4 +64,4 @@ Security Center analyzes diagnostic logs of read, write, and delete requests to 
 >[!NOTE]
 >Advanced Threat Protection for Azure Storage is currently not available in Azure government and sovereign cloud regions.
 
-For more information about the alerts for storage, see [Advanced Threat Protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) article, and review the Protection Alerts section.
+For more information about the alerts for storage, see the [Advanced Threat Protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) article, and review the Protection Alerts section.

@@ -71,7 +71,9 @@ It finds evidence of exploitation, code injection, and execution of malicious pa
 |---|---|
 |**Fileless attack technique detected**|The memory of the process specified below contains a fileless attack toolkit: Meterpreter. Fileless attack toolkits typically do not have a presence on the file system, making detection by traditional anti-virus difficult.|
 
-### For more information about Security Center detection and to see examples:
+### Further reading
+
+For examples and more information about Security Center detection:
 
 * [How Azure Security Center automates the detection of cyber attack](https://azure.microsoft.com/en-us/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
 * [How Azure Security Center detects vulnerabilities using administrative tools](https://azure.microsoft.com/en-us/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
@@ -82,17 +84,17 @@ Security Center collects audit records from Linux machines using **auditd**, one
 
 ### Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration <a name="linux-auditd"></a>
 
-The auditd system consists of a kernel-level subsystem which is responsible for monitoring system calls, filtering them by a given rule set, and writing messages for them to a socket. Security Center integrates functionalities from the auditd package within the Microsoft Monitoring Agent (MMA). This integration enables auditd events collection in all supported Linux distributions without any prerequisites.  
+The auditd system consists of a kernel-level subsystem, which is responsible for monitoring system calls, filtering them by a given rule set, and writing messages for them to a socket. Security Center integrates functionalities from the auditd package within the Microsoft Monitoring Agent (MMA). This integration enables auditd events collection in all supported Linux distributions without any prerequisites.  
 
-auditd records are collected, enriched and aggregated into events using the Linux MMA agent. Security Center is constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics spans across suspicious processes, dubious login attempts, kernel module loading, and other activities that could indicate that a machine is under attack or has been breached.  
+auditd records are collected, enriched, and aggregated into events using the Linux MMA agent. Security Center is constantly working on adding new analytics, that leverage Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics span across suspicious processes, dubious login attempts, kernel module loading, and other activities which indicate a machine is under attack, or has been breached.  
 
 Below are several examples of analytics, that demonstrate how we span across different stages of the attack life cycle.
 
 |Alert|Description|
 |---|---|
 |**Process seen accessing the SSH authorized keys file in an unusual way**|An SSH authorized keys file has been accessed in a method similar to known malware campaigns. This access could indicate that an attacker is attempting to gain persistent access to a machine|
-|**Detected Persistence Attempt**|Host data analysis has detected that a startup script for single-user mode has been installed. <br/><br/>Since it is extremely rare that any legitimate process has would be required to execute in that mode, this may indicate that an attacker has added a malicious process to every run-level to guarantee persistence.|
-|**Manipulation of scheduled tasks detected**|Host data analysis has detected possible manipulation of scheduled tasks. Attackers often add scheduled tasks to machines they have compromised to gain persistence.|
+|**Detected Persistence Attempt**|Host data analysis has detected that a startup script for single-user mode has been installed. <br/>Since it's extremely rare that any legitimate process would be required to execute in that mode, this may indicate that an attacker has added a malicious process to every run-level to guarantee persistence.|
+|**Manipulation of scheduled tasks detected**|Host data analysis has detected possible manipulation of scheduled tasks. Attackers often add scheduled tasks to machines they've compromised to gain persistence.|
 |**Suspicious file timestamp modification**|Host data analysis detected a suspicious timestamp modification. Attackers often copy timestamps from existing legitimate files to new tools to avoid detection of these newly dropped files|
 |**A new user was added to the sudoers group**|Host data analysis detected that a user was added to the sudoers group, which enables its members to run commands with high privileges.|
 |**Likely exploit of DynoRoot vulnerability in dhcp client**|Host data analysis detected the execution of an unusual command with parent process of dhclient script.|

@@ -74,7 +74,7 @@ Security Center offers an additional layer of protection by leveraging Azure Res
 >    2. Click **Threat detection**.
 >    3. Under **Enable integrations**, uncheck **Allow Microsoft Cloud App Security to access my data**, and click **Save**.
 >
-> * Azure Security Center, stores a copy of security-related customer data, collected from or associated with a customer resource (e.g. virtual machine or Azure Active Directory tenant). The information is stored in the same Geo as the resource, except in the following circumstances:
+> * Azure Security Center, stores a copy of security-related customer data, collected from or associated with a customer resource (e.g. virtual machine or Azure Active Directory tenant). The information is stored in the same geo as the resource, except in the following circumstances:
 >
 >   * If Microsoft has not yet deployed Azure Security Center in the resource's geo, then a copy of the data is stored in the United States.
 >   * If Azure Security Center is using another Microsoft Online Service to process the data, then it may store the data in accordance with the geolocation rules of the other Online Service.
