@@ -262,12 +262,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 192.168.24.5:/sapQAS /saptmp
      # create the SAP directories
      sudo cd /saptmp
-     sudo mkdir -p sapmnt**QAS**
-     sudo mkdir -p usrsap**QAS**ascs
-     sudo mkdir -p usrsap**QAS**ers
-     sudo mkdir -p usrsap**QAS**sys
-     sudo mkdir -p usrsap**QAS**pas
-     sudo mkdir -p usrsap**QAS**aas
+     sudo mkdir -p sapmntQAS
+     sudo mkdir -p usrsapQASascs
+     sudo mkdir -p usrsapQASers
+     sudo mkdir -p usrsapQASsys
+     sudo mkdir -p usrsapQASpas
+     sudo mkdir -p usrsapQASaas
      # unmount the volume and delete the temporary directory
      sudo cd ..
      sudo umount /saptmp
@@ -275,28 +275,28 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Create the shared directories
 
-   <pre><code>sudo mkdir -p /sapmnt/<b>QAS</b>
+   ```sudo mkdir -p /sapmnt/QAS
    sudo mkdir -p /usr/sap/trans
-   sudo mkdir -p /usr/sap/<b>QAS</b>/SYS
-   sudo mkdir -p /usr/sap/<b>QAS</b>/ASCS<b>00</b>
-   sudo mkdir -p /usr/sap/<b>QAS</b>/ERS<b>01</b>
+   sudo mkdir -p /usr/sap/QAS/SYS
+   sudo mkdir -p /usr/sap/QAS/ASCS00
+   sudo mkdir -p /usr/sap/QAS/ERS01
    
-   sudo chattr +i /sapmnt/<b>QAS</b>
+   sudo chattr +i /sapmnt/QAS
    sudo chattr +i /usr/sap/trans
-   sudo chattr +i /usr/sap/<b>QAS</b>/SYS
-   sudo chattr +i /usr/sap/<b>QAS</b>/ASCS<b>00</b>
-   sudo chattr +i /usr/sap/<b>QAS</b>/ERS<b>01</b>
-   </code></pre>
+   sudo chattr +i /usr/sap/QAS/SYS
+   sudo chattr +i /usr/sap/QAS/ASCS00
+   sudo chattr +i /usr/sap/QAS/ERS01
+   ```
 
 1. **[A]** Install NFS client and other requirements
 
-   <pre><code>sudo yum -y install nfs-utils resource-agents resource-agents-sap
-   </code></pre>
+   ```sudo yum -y install nfs-utils resource-agents resource-agents-sap
+   ```
 
 1. **[A]** Check version of resource-agents-sap
 
    Make sure that the version of the installed resource-agents-sap package is at least 3.9.5-124.el7
-   <pre><code>sudo yum info resource-agents-sap
+   ```sudo yum info resource-agents-sap
    
    # Loaded plugins: langpacks, product-id, search-disabled-repos
    # Repodata is over 2 weeks old. Install yum-cron? Or run: yum makecache fast
@@ -314,42 +314,42 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Description : The SAP resource agents and connector script interface with
    #          : Pacemaker to allow SAP instances to be managed in a cluster
    #          : environment.
-   </code></pre>
+   ```
 
 
 1. **[A]** Add mount entries
 
-   <pre><code>sudo vi /etc/fstab
+   ```sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
-    <b>192.168.24.5</b>:/sap<b>QAS</b>/sapmnt<b>QAS</b> /sapmnt/<b>QAS</b> nfs rw,hard,rsize=65536,wsize=65536,vers=3
-    <b>192.168.24.5</b>:/sap<b>QAS</b>/usrsap<b>QAS</b>sys /usr/sap/<b>QAS</b>/SYS nfs rw,hard,rsize=65536,wsize=65536,vers=3
-    <b>192.168.24.4</b>:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
-   </code></pre>
+    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=3
+    192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,vers=3
+    192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   ```
 
    Mount the new shares
 
-   <pre><code>sudo mount -a
-   </code></pre>
+   ```sudo mount -a
+   ```
 
 1. **[A]** Configure SWAP file
 
-   <pre><code>sudo vi /etc/waagent.conf
+   ```sudo vi /etc/waagent.conf
    
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
-   ResourceDisk.EnableSwap=<b>y</b>
+   ResourceDisk.EnableSwap=y
    
    # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
    # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
    # Size of the swapfile.
-   ResourceDisk.SwapSizeMB=<b>2000</b>
-   </code></pre>
+   ResourceDisk.SwapSizeMB=2000
+   ```
 
    Restart the Agent to activate the change
 
-   <pre><code>sudo service waagent restart
-   </code></pre>
+   ```sudo service waagent restart
+   ```
 
 1. **[A]** RHEL configuration
 
@@ -359,35 +359,35 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
-   <pre><code>sudo pcs node standby <b>anftstsapcl2</b>
+   ```sudo pcs node standby <b>anftstsapcl2</b>
    
-   sudo pcs resource create fs_<b>QAS</b>_ASCS Filesystem device='<b>192.168.24.5</b>:/sap<b>QAS</b>/usrsap<b>QAS</b>ascs' \
-     directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' \
-     --group g-<b>QAS</b>_ASCS
+   sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' \
+     --group g-QAS_ASCS
    
-   sudo pcs resource create vip_<b>QAS</b>_ASCS IPaddr2 \
-     ip=<b>192.168.14.9</b> cidr_netmask=24 \
-     --group g-<b>QAS</b>_ASCS
+   sudo pcs resource create vip_QAS_ASCS IPaddr2 \
+     ip=192.168.14.9 cidr_netmask=24 \
+     --group g-QAS_ASCS
    
-   sudo pcs resource create nc_<b>QAS</b>_ASCS azure-lb port=620<b>00</b> \
-     --group g-<b>QAS</b>_ASCS
-   </code></pre>
+   sudo pcs resource create nc_QAS_ASCS azure-lb port=62000 \
+     --group g-QAS_ASCS
+   ```
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   <pre><code>sudo pcs status
+   ```sudo pcs status
    
-   # Node <b>anftstsapcl2</b>: standby
-   # Online: [ <b>anftstsapcl1</b> ]
+   # Node anftstsapcl2: standby
+   # Online: [ anftstsapcl1 ]
    #
    # Full list of resources:
    #
-   # rsc_st_azure    (stonith:fence_azure_arm):      Started <b>anftstsapcl1</b>
-   #  Resource Group: g-<b>QAS</b>_ASCS
-   #      fs_<b>QAS</b>_ASCS        (ocf::heartbeat:Filesystem):    Started <b>anftstsapcl1</b>
-   #      nc_<b>QAS</b>_ASCS        (ocf::heartbeat:azure-lb):      Started <b>anftstsapcl1</b>
-   #      vip_<b>QAS</b>_ASCS       (ocf::heartbeat:IPaddr2):       Started <b>anftstsapcl1</b>
-   </code></pre>
+   # rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   #  Resource Group: g-QAS_ASCS
+   #      fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
+   #      nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
+   #      vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
+   ```
 
 1. **[1]** Install SAP NetWeaver ASCS  
 
@@ -395,54 +395,54 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code># Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
+   ```# Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
    sudo firewall-cmd --zone=public  --add-port=4237/tcp
    
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
-   </code></pre>
+   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
+   ```
 
    If the installation fails to create a subfolder in /usr/sap/**QAS**/ASCS**00**, try setting the owner and group of the ASCS**00** folder and retry.
 
-   <pre><code>sudo chown qasadm /usr/sap/<b>QAS</b>/ASCS<b>00</b>
-   sudo chgrp sapsys /usr/sap/<b>QAS</b>/ASCS<b>00</b>
-   </code></pre>
+   ```sudo chown qasadm /usr/sap/QAS/ASCS00
+   sudo chgrp sapsys /usr/sap/QAS/ASCS00
+   ```
 
 1. **[1]** Create a virtual IP resource and health-probe for the ERS instance
 
-   <pre><code>sudo pcs node unstandby <b>anftstsapcl2</b>
-   sudo pcs node standby <b>anftstsapcl1</b>
+   ```sudo pcs node unstandby anftstsapcl2
+   sudo pcs node standby anftstsapcl1
    
-   sudo pcs resource create fs_<b>QAS</b>_AERS Filesystem device='<b>192.168.24.5</b>:/sap<b>QAS</b>/usrsap<b>QAS</b>ers' \
-     directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' \
-    --group g-<b>QAS</b>_AERS
+   sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' \
+    --group g-QAS_AERS
 
-   sudo pcs resource create vip_<b>QAS</b>_AERS IPaddr2 \
-     ip=<b>192.168.14.10</b> cidr_netmask=<b>24</b> \
-    --group g-<b>QAS</b>_AERS
+   sudo pcs resource create vip_QAS_AERS IPaddr2 \
+     ip=192.168.14.10 cidr_netmask=24 \
+    --group g-QAS_AERS
    
-   sudo pcs resource create nc_<b>QAS</b>_AERS azure-lb port=621<b>01</b> \
-    --group g-<b>QAS</b>_AERS
-   </code></pre>
+   sudo pcs resource create nc_QAS_AERS azure-lb port=62101 \
+    --group g-QAS_AERS
+   ```
  
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-   <pre><code>sudo pcs status
+   ```sudo pcs status
    
-   # Node <b>anftstsapcl1</b>: standby
-   # Online: [ <b>anftstsapcl2</b> ]
+   # Node anftstsapcl1: standby
+   # Online: [ anftstsapcl2 ]
    #
    # Full list of resources:
    #
-   # rsc_st_azure    (stonith:fence_azure_arm):      Started <b>anftstsapcl2</b>
-   #  Resource Group: g-<b>QAS</b>_ASCS
-   #      fs_<b>QAS</b>_ASCS        (ocf::heartbeat:Filesystem):    Started <b>anftstsapcl2</b>
-   #      nc_<b>QAS</b>_ASCS        (ocf::heartbeat:azure-lb):      Started <b>anftstsapcl2</b>
-   #      vip_<b>QAS</b>_ASCS       (ocf::heartbeat:IPaddr2):       Started <b>anftstsapcl2</b>
-   #  Resource Group: g-<b>QAS</b>_AERS
-   #      fs_<b>QAS</b>_AERS        (ocf::heartbeat:Filesystem):    Started <b>anftstsapcl2</b>
-   #      nc_<b>QAS</b>_AERS        (ocf::heartbeat:azure-lb):      Started <b>anftstsapcl2</b>
-   #      vip_<b>QAS</b>_AERS       (ocf::heartbeat:IPaddr2):       Started <b>anftstsapcl2</b>
-   </code></pre>
+   # rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl2
+   #  Resource Group: g-QAS_ASCS
+   #      fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
+   #      nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2<
+   #      vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
+   #  Resource Group: g-QAS_AERS
+   #      fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
+   #      nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
+   #      vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
+   ```
 
 1. **[2]** Install SAP NetWeaver ERS  
 
@@ -450,23 +450,23 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code># Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
+   ```# Allow access to SWPM. This rule is not permanent. If you reboot the machine, you have to run the command again.
    sudo firewall-cmd --zone=public  --add-port=4237/tcp
 
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
-   </code></pre>
+   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
+   ```
 
    If the installation fails to create a subfolder in /usr/sap/**QAS**/ERS**01**, try setting the owner and group of the ERS**01** folder and retry.
 
-   <pre><code>sudo chown qaadm /usr/sap/<b>QAS</b>/ERS<b>01</b>
-   sudo chgrp sapsys /usr/sap/<b>QAS</b>/ERS<b>01</b>
-   </code></pre>
+   ```sudo chown qaadm /usr/sap/QAS/ERS01
+   sudo chgrp sapsys /usr/sap/QAS/ERS01
+   ```
 
 1. **[1]** Adapt the ASCS/SCS and ERS instance profiles
 
    * ASCS/SCS profile
 
-   <pre><code>sudo vi /sapmnt/<b>QAS</b>/profile/<b>QAS</b>_<b>ASCS00</b>_<b>anftstsapvh</b>
+   ```sudo vi /sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh
    
    # Change the restart command to a start command
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
@@ -474,11 +474,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    # Add the keep alive parameter
    enque/encni/set_so_keepalive = true
-   </code></pre>
+   ```
 
    * ERS profile
 
-   <pre><code>sudo vi /sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>
+   ```sudo vi /sapmnt/QAS/profile/QAS_ERS01_anftstsapers
    
    # Change the restart command to a start command
    #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
@@ -486,7 +486,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    
    # remove Autostart from ERS profile
    # Autostart = 1
-   </code></pre>
+   ```
 
 
 1. **[A]** Configure Keep Alive
@@ -495,126 +495,126 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
 
-   <pre><code># Change the Linux system configuration
+   ```# Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120
-   </code></pre>
+   ```
 
 1. **[A]** Update the /usr/sap/sapservices file
 
    To prevent the start of the instances by the sapinit startup script, all instances managed by Pacemaker must be commented out from /usr/sap/sapservices file. Do not comment out the SAP HANA instance if it will be used with HANA SR.
 
-   <pre><code>
+   ```
    sudo vi /usr/sap/sapservices
    
    # On the node where you installed the ASCS, comment out the following line
-   # LD_LIBRARY_PATH=/usr/sap/<b>QAS</b>/ASCS<b>00</b>/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/<b>QAS</b>/ASCS<b>00</b>/exe/sapstartsrv pf=/usr/sap/<b>QAS</b>/SYS/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> -D -u <b>qas</b>adm
+   # LD_LIBRARY_PATH=/usr/sap/QAS/ASCS00/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/QAS/ASCS00/exe/sapstartsrv pf=/usr/sap/QAS/SYS/profile/QAS_ASCS00_anftstsapvh -D -u qasadm
    
    # On the node where you installed the ERS, comment out the following line
-   # LD_LIBRARY_PATH=/usr/sap/<b>QAS</b>/ERS<b>01</b>/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/<b>QAS</b>/ERS<b>01</b>/exe/sapstartsrv pf=/usr/sap/<b>QAS</b>/ERS<b>01</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> -D -u <b>qas</b>adm
-   </code></pre>
+   # LD_LIBRARY_PATH=/usr/sap/QAS/ERS01/exe:$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; /usr/sap/QAS/ERS01/exe/sapstartsrv pf=/usr/sap/QAS/ERS01/profile/QAS_ERS01_anftstsapers -D -u qasadm
+   ```
 
 1. **[1]** Create the SAP cluster resources
 
    If using enqueue server 1 architecture (ENSA1), define the resources as follows:
 
-   <pre><code>sudo pcs property set maintenance-mode=true
+   ```sudo pcs property set maintenance-mode=true
    
-    sudo pcs resource create rsc_sap_<b>QAS</b>_ASCS00 SAPInstance \
-    InstanceName=<b>QAS</b>_ASCS00_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS00_<b>anftstsapvh</b>" \
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 \
-    --group g-<b>QAS</b>_ASCS
+    --group g-QAS_ASCS
    
-    sudo pcs resource create rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
-    InstanceName=<b>QAS</b>_ERS01_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS0q_<b>anftstsapers</b>" \
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    --group g-<b>QAS</b>_AERS
+    --group g-QAS_AERS
       
-    sudo pcs constraint colocation add g-<b>QAS</b>_AERS with g-<b>QAS</b>_ASCS -5000
-    sudo pcs constraint location rsc_sap_<b>QAS</b>_ASCS<b>00</b> rule score=2000 runs_ers_<b>QAS</b> eq 1
-    sudo pcs constraint order g-<b>QAS</b>_ASCS then g-<b>QAS</b>_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
+    sudo pcs constraint location rsc_sap_QAS_ASCS00 rule score=2000 runs_ers_QAS eq 1
+    sudo pcs constraint order g-QAS_ASCS then g-QAS_AERS kind=Optional symmetrical=false
     
-    sudo pcs node unstandby <b>anftstsapcl1</b>
+    sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
-    </code></pre>
+    ```
 
    SAP introduced support for enqueue server 2, including replication, as of SAP NW 7.52. Starting with ABAP Platform 1809, enqueue server 2 is installed by default. See SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) for enqueue server 2 support.
    If using enqueue server 2 architecture ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), install resource agent resource-agents-sap-4.1.1-12.el7.x86_64 or newer and define the resources as follows:
 
-    <pre><code>sudo pcs property set maintenance-mode=true
+    ```sudo pcs property set maintenance-mode=true
     
-    sudo pcs resource create rsc_sap_<b>QAS</b>_ASCS00 SAPInstance \
-    InstanceName=<b>QAS</b>_ASCS00_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS00_<b>anftstsapvh</b>" \
+    sudo pcs resource create rsc_sap_QAS_ASCS00 SAPInstance \
+    InstanceName=QAS_ASCS00_anftstsapvh START_PROFILE="/sapmnt/QAS/profile/QAS_ASCS00_anftstsapvh" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
-    --group g-<b>QAS</b>_ASCS
+    --group g-QAS_ASCS
    
-    sudo pcs resource create rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
-    InstanceName=<b>QAS</b>_ERS01_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS01_<b>anftstsapers</b>" \
+    sudo pcs resource create rsc_sap_QAS_ERS01 SAPInstance \
+    InstanceName=QAS_ERS01_anftstsapers START_PROFILE="/sapmnt/QAS/profile/QAS_ERS01_anftstsapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    --group g-<b>QAS</b>_AERS
+    --group g-QAS_AERS
       
-    sudo pcs constraint colocation add g-<b>QAS</b>_AERS with g-<b>QAS</b>_ASCS -5000
-    sudo pcs constraint order g-<b>QAS</b>_ASCS then g-<b>QAS</b>_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
+    sudo pcs constraint order g-QAS_ASCS then g-QAS_AERS kind=Optional symmetrical=false
    
-    sudo pcs node unstandby <b>anftstsapcl1</b>
+    sudo pcs node unstandby anftstsapcl1
     sudo pcs property set maintenance-mode=false
-    </code></pre>
+    ```
 
    If you are upgrading from an older version and switching to enqueue server 2, see SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Make sure that the cluster status is ok and that all resources are started. It is not important on which node the resources are running.
 
-    <pre><code>sudo pcs status
+    ```sudo pcs status
     
-    # Online: [ <b>anftstsapcl1</b> <b>anftstsapcl2</b> ]
+    # Online: [ anftstsapcl1 anftstsapcl2 ]
     #
     # Full list of resources:
     #
-    # rsc_st_azure    (stonith:fence_azure_arm):      Started <b>anftstsapcl2</b>
-    #  Resource Group: g-<b>QAS</b>_ASCS
-    #      fs_<b>QAS</b>_ASCS        (ocf::heartbeat:Filesystem):    Started <b>anftstsapcl2</b>
-    #      nc_<b>QAS</b>_ASCS        (ocf::heartbeat:azure-lb):      Started <b>anftstsapcl2</b>
-    #      vip_<b>QAS</b>_ASCS       (ocf::heartbeat:IPaddr2):       Started <b>anftstsapcl2</b>
-    #      rsc_sap_<b>QAS</b>_ASCS00 (ocf::heartbeat:SAPInstance):   Started <b>anftstsapcl2</b>
-    #  Resource Group: g-<b>QAS</b>_AERS
-    #      fs_<b>QAS</b>_AERS        (ocf::heartbeat:Filesystem):    Started <b>anftstsapcl1</b>
-    #      nc_<b>QAS</b>_AERS        (ocf::heartbeat:azure-lb):      Started <b>anftstsapcl1</b>
-    #      vip_<b>QAS</b>_AERS       (ocf::heartbeat:IPaddr2):       Started <b>anftstsapcl1</b>
-    #      rsc_sap_<b>QAS</b>_ERS01  (ocf::heartbeat:SAPInstance):   Started <b>anftstsapcl1</b>
-   </code></pre>
+    # rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl2
+    #  Resource Group: g-QAS_ASCS
+    #      fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
+    #      nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
+    #      vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
+    #      rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
+    #  Resource Group: g-QAS_AERS
+    #      fs_QAS_AERS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
+    #      nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
+    #      vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
+    #      rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
+   ```
 
 1. **[A]** Add firewall rules for ASCS and ERS on both nodes
    Add the firewall rules for ASCS and ERS on both nodes.
-   <pre><code># Probe Port of ASCS
-   sudo firewall-cmd --zone=public --add-port=620<b>00</b>/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=620<b>00</b>/tcp
-   sudo firewall-cmd --zone=public --add-port=32<b>00</b>/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=32<b>00</b>/tcp
-   sudo firewall-cmd --zone=public --add-port=36<b>00</b>/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=36<b>00</b>/tcp
-   sudo firewall-cmd --zone=public --add-port=39<b>00</b>/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=39<b>00</b>/tcp
-   sudo firewall-cmd --zone=public --add-port=81<b>00</b>/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=81<b>00</b>/tcp
-   sudo firewall-cmd --zone=public --add-port=5<b>00</b>13/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=5<b>00</b>13/tcp
-   sudo firewall-cmd --zone=public --add-port=5<b>00</b>14/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=5<b>00</b>14/tcp
-   sudo firewall-cmd --zone=public --add-port=5<b>00</b>16/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=5<b>00</b>16/tcp
+   ```# Probe Port of ASCS
+   sudo firewall-cmd --zone=public --add-port=62000/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=62000/tcp
+   sudo firewall-cmd --zone=public --add-port=3200/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=3200/tcp
+   sudo firewall-cmd --zone=public --add-port=3600/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=3600/tcp
+   sudo firewall-cmd --zone=public --add-port=3900/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=3900/tcp
+   sudo firewall-cmd --zone=public --add-port=8100/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=8100/tcp
+   sudo firewall-cmd --zone=public --add-port=50013/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=50013/tcp
+   sudo firewall-cmd --zone=public --add-port=50014/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=50014/tcp
+   sudo firewall-cmd --zone=public --add-port=50016/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=50016/tcp
    # Probe Port of ERS
-   sudo firewall-cmd --zone=public --add-port=621<b>01</b>/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=621<b>01</b>/tcp
-   sudo firewall-cmd --zone=public --add-port=33<b>01</b>/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=33<b>01</b>/tcp
-   sudo firewall-cmd --zone=public --add-port=5<b>01</b>13/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=5<b>01</b>13/tcp
-   sudo firewall-cmd --zone=public --add-port=5<b>01</b>14/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=5<b>01</b>14/tcp
-   sudo firewall-cmd --zone=public --add-port=5<b>01</b>16/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=5<b>01</b>16/tcp
-   </code></pre>
+   sudo firewall-cmd --zone=public --add-port=62101/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=62101/tcp
+   sudo firewall-cmd --zone=public --add-port=3301/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=3301/tcp
+   sudo firewall-cmd --zone=public --add-port=50113/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=50113/tcp
+   sudo firewall-cmd --zone=public --add-port=50114/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=50114/tcp
+   sudo firewall-cmd --zone=public --add-port=50116/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=50116/tcp
+   ```
 
 ## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>SAP NetWeaver application server preparation
 
@@ -628,96 +628,96 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
    Replace the IP address and the hostname in the following commands:  
 
-   <pre><code>sudo vi /etc/hosts
-   </code></pre>
+   ```sudo vi /etc/hosts
+   ```
 
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment.
 
-   <pre><code># IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>192.168.14.9 anftstsapvh</b>
+   ```# IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
+   192.168.14.9 anftstsapvh
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>192.168.14.10 anftstsapers</b>
-   <b>192.168.14.7 anftstsapa01</b>
-   <b>192.168.14.8 anftstsapa02</b>
-   </code></pre>
+   192.168.14.10 anftstsapers
+   192.168.14.7 anftstsapa01
+   192.168.14.8 anftstsapa02
+   ```
 
 1. **[A]** Create the sapmnt directory
    Create the sapmnt directory.
-   <pre><code>sudo mkdir -p /sapmnt/<b>QAS</b>
+   ```sudo mkdir -p /sapmnt/QAS
    sudo mkdir -p /usr/sap/trans
 
-   sudo chattr +i /sapmnt/<b>QAS</b>
+   sudo chattr +i /sapmnt/QAS
    sudo chattr +i /usr/sap/trans
-   </code></pre>
+   ```
 
 1. **[A]** Install NFS client and other requirements  
 
-   <pre><code>sudo yum -y install nfs-utils uuidd
-   </code></pre>
+   ```sudo yum -y install nfs-utils uuidd
+   ```
 
 1. **[A]** Add mount entries  
 
-   <pre><code>sudo vi /etc/fstab
+   ```sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
-   <b>192.168.24.5</b>:/sap<b>QAS</b>/sapmnt<b>QAS</b> /sapmnt/<b>QAS</b> nfs rw,hard,rsize=65536,wsize=65536,vers=3
-   <b>192.168.24.4</b>:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
-   </code></pre>
+   192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   ```
 
    Mount the new shares
 
-   <pre><code>sudo mount -a
-   </code></pre>
+   ```sudo mount -a
+   ```
 
 1. **[P]** Create and mount the PAS directory  
 
-   <pre><code>
-   sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>02</b>
-   sudo chattr +i /usr/sap/<b>QAS</b>/D<b>02</b>
+   ```
+   sudo mkdir -p /usr/sap/QAS/D02
+   sudo chattr +i /usr/sap/QAS/D02
    
    sudo vi /etc/fstab
    # Add the following line to fstab
-   <b>92.168.24.5</b>:/sapQAS/usrsapQASpas /usr/sap/<b>QAS</b>/D<b>02</b> nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   92.168.24.5:/sapQAS/usrsapQASpas /usr/sap/QAS/D02 nfs rw,hard,rsize=65536,wsize=65536,vers=3
    
    # Mount
    sudo mount -a
-   </code></pre>
+   ```
 
 1. **[S]** Create and mount the AAS directory  
 
-   <pre><code>
-   sudo mkdir -p /usr/sap/<b>QAS</b>/D<b>03</b>
-   sudo chattr +i /usr/sap/<b>QAS</b>/D<b>03</b>
+   ```
+   sudo mkdir -p /usr/sap/QAS/D03
+   sudo chattr +i /usr/sap/QAS/D03
    
    sudo vi /etc/fstab
    # Add the following line to fstab
-   <b>92.168.24.5</b>:/sapQAS/usrsapQASaas /usr/sap/<b>QAS</b>/D<b>03</b> nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   92.168.24.5:/sapQAS/usrsapQASaas /usr/sap/QAS/D03 nfs rw,hard,rsize=65536,wsize=65536,vers=3
    
    # Mount
    sudo mount -a
-   </code></pre>
+   ```
 
 
 1. **[A]** Configure SWAP file
  
-   <pre><code>
+   ```
    sudo vi /etc/waagent.conf
    
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
-   ResourceDisk.EnableSwap=<b>y</b>
+   ResourceDisk.EnableSwap=y
    
    # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
    # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
    # Size of the swapfile.
-   ResourceDisk.SwapSizeMB=<b>2000</b>
-   </code></pre>
+   ResourceDisk.SwapSizeMB=2000
+   ```
 
    Restart the Agent to activate the change
 
-   <pre><code>
+   ```
    sudo service waagent restart
-   </code></pre>
+   ```
 
 ## Install database
 
@@ -729,9 +729,9 @@ In this example, SAP NetWeaver is installed on SAP HANA. You can use every suppo
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
-   </code></pre>
+   ```
+   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
+   ```
 
 ## SAP NetWeaver application server installation
 
@@ -747,9 +747,9 @@ Follow these steps to install an SAP application server.
 
    You can use the sapinst parameter SAPINST_REMOTE_ACCESS_USER to allow a non-root user to connect to sapinst.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
-   </code></pre>
+   ```
+   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin
+   ```
 
 1. Update SAP HANA secure store
 
@@ -757,25 +757,25 @@ Follow these steps to install an SAP application server.
 
    Run the following command to list the entries as \<sapsid>adm
 
-   <pre><code>hdbuserstore List
-   </code></pre>
+   ```hdbuserstore List
+   ```
 
    This should list all entries and should look similar to
-   <pre><code>
+   ```
    DATA FILE       : /home/qasadm/.hdb/anftstsapa01/SSFS_HDB.DAT
    KEY FILE        : /home/qasadm/.hdb/anftstsapa01/SSFS_HDB.KEY
    
    KEY DEFAULT
-     ENV : 192.168.14.4:<b>30313</b>
-     USER: <b>SAPABAP1</b>
-     DATABASE: <b>QAS</b>
-   </code></pre>
+     ENV : 192.168.14.4:30313
+     USER: SAPABAP1
+     DATABASE: QAS
+   ```
 
    The output shows that the IP address of the default entry is pointing to the virtual machine and not to the load balancer's IP address. This entry needs to be changed to point to the virtual hostname of the load balancer. Make sure to use the same port (**30313** in the output above) and database name (**QAS** in the output above)!
 
-   <pre><code>su - <b>qas</b>adm
-   hdbuserstore SET DEFAULT <b>qasdb</b>:<b>30313@QAS</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
-   </code></pre>
+   ```su - qasadm
+   hdbuserstore SET DEFAULT qasdb:30313@QAS SAPABAP1 &lt;password of ABAP schema&gt;
+   ```
 
 ## Test the cluster setup
 
@@ -783,7 +783,7 @@ Follow these steps to install an SAP application server.
 
    Resource state before starting the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -794,21 +794,21 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   </code></pre>
+   ```
 
    Run the following commands as root to migrate the ASCS instance.
 
-   <pre><code>[root@anftstsapcl1 ~]# pcs resource move rsc_sap_QAS_ASCS00
+   ```[root@anftstsapcl1 ~]# pcs resource move rsc_sap_QAS_ASCS00
    
    [root@anftstsapcl1 ~]# pcs resource clear rsc_sap_QAS_ASCS00
    
    # Remove failed actions for the ERS that occurred as part of the migration
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   </code></pre>
+   ```
 
    Resource state after the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
@@ -819,13 +819,13 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   </code></pre>
+   ```
 
 1. Simulate node crash
 
    Resource state before starting the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
@@ -836,16 +836,16 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   </code></pre>
+   ```
 
    Run the following command as root on the node where the ASCS instance is running
 
-   <pre><code>[root@anftstsapcl2 ~]# echo b > /proc/sysrq-trigger
-   </code></pre>
+   ```[root@anftstsapcl2 ~]# echo b > /proc/sysrq-trigger
+   ```
 
    The status after the node is started again should look like this.
 
-   <pre><code>Online: [ anftstsapcl1 anftstsapcl2 ]
+   ```Online: [ anftstsapcl1 anftstsapcl2 ]
    
    Full list of resources:
    
@@ -863,16 +863,16 @@ Follow these steps to install an SAP application server.
    
    Failed Actions:
    * rsc_sap_QAS_ERS01_monitor_11000 on anftstsapcl1 'not running' (7): call=45, status=complete, exitreason='',
-   </code></pre>
+   ```
 
    Use the following command to clean the failed resources.
 
-   <pre><code>[root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   </code></pre>
+   ```[root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
+   ```
 
    Resource state after the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -883,13 +883,13 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   </code></pre>
+   ```
 
 1. Kill message server process
 
    Resource state before starting the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -900,22 +900,22 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   </code></pre>
+   ```
    
    Run the following commands as root to identify the process of the message server and kill it.
 
-   <pre><code>[root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
-   </code></pre>
+   ```[root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
+   ```
 
    If you only kill the message server once, it will be restarted by `sapstart`. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
-   <pre><code>[root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
+   ```[root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   </code></pre>
+   ```
 
    Resource state after the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
@@ -926,13 +926,13 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   </code></pre>
+   ```
 
 1. Kill enqueue server process
 
    Resource state before starting the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl2
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
@@ -943,22 +943,22 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl1
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
-   </code></pre>
+   ```
 
    Run the following commands as root on the node where the ASCS instance is running to kill the enqueue server.
 
-   <pre><code>[root@anftstsapcl2 ~]# pgrep en.sapQAS | xargs kill -9
-   </code></pre>
+   ```[root@anftstsapcl2 ~]# pgrep en.sapQAS | xargs kill -9
+   ```
 
    The ASCS instance should immediately fail over to the other node. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
-   <pre><code>[root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
+   ```[root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   </code></pre>
+   ```
 
    Resource state after the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -969,13 +969,13 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   </code></pre>
+   ```
 
 1. Kill enqueue replication server process
 
    Resource state before starting the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -986,21 +986,21 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   </code></pre>
+   ```
 
    Run the following command as root on the node where the ERS instance is running to kill the enqueue replication server process.
 
-   <pre><code>[root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
-   </code></pre>
+   ```[root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
+   ```
 
    If you only run the command once, `sapstart` will restart the process. If you run it often enough, `sapstart` will not restart the process and the resource will be in a stopped state. Run the following commands as root to clean up the resource state of the ERS instance after the test.
 
-   <pre><code>[root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
-   </code></pre>
+   ```[root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
+   ```
 
    Resource state after the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -1011,13 +1011,13 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   </code></pre>
+   ```
 
 1. Kill enqueue sapstartsrv process
 
    Resource state before starting the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -1028,19 +1028,19 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   </code></pre>
+   ```
 
    Run the following commands as root on the node where the ASCS is running.
 
-   <pre><code>[root@anftstsapcl1 ~]# pgrep -fl ASCS00.*sapstartsrv
+   ```[root@anftstsapcl1 ~]# pgrep -fl ASCS00.*sapstartsrv
    # 59545 sapstartsrv
    
    [root@anftstsapcl1 ~]# kill -9 59545
-   </code></pre>
+   ```
 
    The sapstartsrv process should always be restarted by the Pacemaker resource agent as part of the monitoring. Resource state after the test:
 
-   <pre><code>rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
+   ```rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
     Resource Group: g-QAS_ASCS
         fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    Started anftstsapcl1
         nc_QAS_ASCS        (ocf::heartbeat:azure-lb):      Started anftstsapcl1
@@ -1051,7 +1051,7 @@ Follow these steps to install an SAP application server.
         nc_QAS_AERS        (ocf::heartbeat:azure-lb):      Started anftstsapcl2
         vip_QAS_AERS       (ocf::heartbeat:IPaddr2):       Started anftstsapcl2
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
-   </code></pre>
+   ```
 
 ## Next steps
 
