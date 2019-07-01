@@ -78,7 +78,7 @@ Standard file shares are backed by hard disk drives (HDDs). Standard file shares
 Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.
 
 > [!IMPORTANT]
-> - See the [Onboard to larger file shares (standard tier)](#onboard-to-larger-file-shares-standard-tier) section for additional scope and restrictions of the preview, before you onboard.
+> See the [Onboard to larger file shares (standard tier)](#onboard-to-larger-file-shares-standard-tier) section for steps to onboard, as well as the scope and restrictions of the preview.
 
 ### Premium file shares
 
