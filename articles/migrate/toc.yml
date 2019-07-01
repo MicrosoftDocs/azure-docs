@@ -48,7 +48,7 @@
   - name: Collector version upgrades
     href: concepts-collector-upgrade.md
   - name: Best practices for assessments
-    href: best-practices-assessments.md
+    href: best-practices-assessment.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
   - name: About dependency visualization
