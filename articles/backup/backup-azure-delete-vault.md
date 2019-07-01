@@ -134,7 +134,7 @@ Now that you have deleted the backup items from on-premises, complete the below 
 
 ### For MABS agent
 
-There are different methods to stop/delete online protection, perform any one of the below methods
+There are different methods to stop/delete online protection, perform any one of the below methods:
 
 **Method 1**
 
