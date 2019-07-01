@@ -36,7 +36,13 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 5. FlowStartTime_t field indicates the first occurrence of such an aggregated flow (same four-tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”.
 6. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but in Log Anlaytics user will see only the single, reduced record. To see all the flows, use the blob_id field,  which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
 
-For viewing a specific record, we can use the following Azure Data Explorer query
+The below query helps you looks at all flow logs from on-premise in the last 30 days.
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
+| project Subnet_s  
+```
+To view the blob path for the flows in the above mentioned query, use the query below:
 
 ```
 let TableWithBlobId =
@@ -62,7 +68,10 @@ let TableWithBlobId =
                         "/m=00/macAddress=", replace(@"-", "", MACAddress_s),
                         "/PT1H.json")
 | project-away nsgId, saName, binTime, blobTime, nsgComponents, dateTimeComponents;
+
 TableWithBlobId
+| where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
+| project Subnet_s , BlobPath
 ```
 
 The above query constructs a URL to access the blob directly. The URL with place-holders is below:
