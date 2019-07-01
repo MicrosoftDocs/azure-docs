@@ -306,7 +306,7 @@ For applications already instrumented at compile time:
 
 ## <a name="download"></a>Download Status Monitor
 
-- Use the new [PowerShell Module](https://docs.microsoft.com/en-us/azure/azure-monitor/app/status-monitor-v2-overview)
+- Use the new [PowerShell Module](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview)
 - Download and run the [Status Monitor installer](https://go.microsoft.com/fwlink/?LinkId=506648)
 - Or run [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) and search in it for Application Insights Status Monitor.
 
