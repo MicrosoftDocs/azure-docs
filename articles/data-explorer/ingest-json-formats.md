@@ -76,10 +76,13 @@ In this example the data manipulation, using queries and update policy, is done 
 
 1. Ingest data into the `RawEvents` table.
 
-    // TODO: Remove the following note + ingest command, replace it with code sample (C# + Python + KQL with comment) - all places. In this case - ingestion is via DM and has ~5 minutes latency
+    // TODO: Remove the following note + ingest command, replace it with code sample (C# + Python + KQL with comment) - all places. 
 
-    >[!NOTE]
-    >This article shows the control commands executed directly to the engine endpoint. In production scenarios, ingestion is executed to the Data Management service using the [Kusto Client Library](../api/netfx/about-kusto-data.md) NuGet package.
+    > [!NOTE]
+    > Ingestion is via DM and has ~5 minutes latency
+
+    > [!NOTE]
+    > This article shows the control commands executed directly to the engine endpoint. In production scenarios, ingestion is executed to the Data Management service using the [Kusto Client Library](../api/netfx/about-kusto-data.md) NuGet package.
 
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
