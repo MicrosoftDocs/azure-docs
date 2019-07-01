@@ -137,7 +137,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
-    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at `/etc/ansible/ansible.cfg`.
+    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`.
 
     ```bash
     host_key_checking = False
