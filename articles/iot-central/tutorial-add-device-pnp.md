@@ -103,7 +103,7 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
 ### Generate the connection string
 
-[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)]
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
 ### Prepare the Node.js project
 
