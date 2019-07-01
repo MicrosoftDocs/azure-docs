@@ -12,7 +12,7 @@ ms.custom: mvc
 
 # Tutorial: Customize the Azure IoT Central operator's view
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp.md)]
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This tutorial shows you, as a builder, how to customize the operator's view of your application. When you make a change to the application as a builder, you can preview the operator's view in the Microsoft Azure IoT Central application.
 

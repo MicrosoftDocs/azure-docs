@@ -12,7 +12,7 @@ manager: peterpr
 
 # Manage devices in your Azure IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original.md)]
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 This article describes how, as an operator, to manage devices in your Azure IoT Central application. As an operator, you can:
 

@@ -12,7 +12,7 @@ manager: peterpfr
 
 # Use device sets in your Azure IoT Central application
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp.md)]
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This article describes how, as an operator, to use device sets in your Azure IoT Central application.
 

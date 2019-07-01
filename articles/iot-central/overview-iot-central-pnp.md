@@ -20,7 +20,7 @@ Purpose of an Overview article:
 
 # What is Azure IoT Central (Plug and Play)?
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original.md)]
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 Azure IoT Central is a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds. You can bring your connected product vision to life by:
 

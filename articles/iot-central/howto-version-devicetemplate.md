@@ -12,7 +12,7 @@ manager: peterpr
 
 # Create a new device template version
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp.md)]
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting measurements, settings, or properties. Some of these changes could be intrusive for the currently connected devices. Azure IoT Central identifies these breaking changes and provides a way to safely deploy these updates to the devices.
 

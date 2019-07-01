@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial: Add a real device to your Azure IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original.md)]
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 This tutorial shows you how to add and configure a real device to your Microsoft Azure IoT Central application.
 
