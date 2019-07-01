@@ -11,7 +11,7 @@ keywords: prometheus, aro, openshift, metrics, red hat
 
 # Deploy a standalone Prometheus in an Azure Red Hat OpenShift cluster
 
-This guide will describe how to configure a standalone Prometheus with service discovery in an Azure Red Hat OpenShift cluster.  “Customer admin” access to the cluster is NOT needed.
+This article describes how to configure a standalone Prometheus with service discovery in an Azure Red Hat OpenShift cluster. Customer admin access to the cluster isn't needed.
 
 The target setup is as follows:
 
