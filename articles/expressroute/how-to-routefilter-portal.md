@@ -133,7 +133,7 @@ You can update the list of BGP community values attached to a circuit by selecti
 
 ### <a name="detach"></a>To detach a route filter from an ExpressRoute circuit
 
-To detach a circuit from the route filter, right click on the circuit and click on "disassociate".
+To detach a circuit from the route filter, right-click on the circuit and click on "disassociate".
 
 ![Create a route filter](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
