@@ -11,20 +11,21 @@ keywords: prometheus, aro, openshift, metrics, red hat
 
 # Deploy a standalone Prometheus in an Azure Red Hat OpenShift cluster
 
-This article describes how to configure a standalone Prometheus with service discovery in an Azure Red Hat OpenShift cluster. Customer admin access to the cluster isn't needed.
+This article describes how to configure a standalone Prometheus instance with service discovery in an Azure Red Hat OpenShift cluster. Note that customer admin access to the cluster isn't needed.
 
-The target setup is as follows:
+Target setup:
 
-- one project (prometheus-project), which contains Prometheus and Alertmanager
-- two projects (app-project1 and app-project2), which contain the applications to monitor
+- One project (prometheus-project), which contains Prometheus and Alertmanager
+- Two projects (app-project1 and app-project2), which contain the applications to monitor
 
-You'll prepare some Prometheus configuration files locally. Create a new folder to store them.
-These config files will be stored in the cluster as Secrets in case secret tokens are added to them later.
+Some Prometheus configuration files are prepared locally. Create a new folder to store them.
+These config files are stored in the cluster as Secrets, in case secret tokens are added later to the cluster.
 
-## Step 1: Sign in to the cluster using the `oc` tool
-Using a web browser, navigate to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
+## Step 1: Sign in to the cluster using the OC tool
+
+Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
 Sign in with your Azure credentials.
-Click your username in top right and select "Copy Login Command". Paste it into the terminal you'll use.
+Select your user name in top right and select **Copy Login Command**. Paste it into the terminal you'll use.
 
 You can verify if you're signed in to the correct cluster with the `oc whoami -c` command.
 
@@ -171,7 +172,7 @@ Apply the template to all projects where you would like to allow service discove
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 ```
-If you'd also like Prometheus to be able to gather metrics from itself, remember to apply the permissions in prometheus-project too.
+If you'd also like Prometheus to gather metrics from itself, apply the permissions in prometheus-project.
 
 > [!NOTE]
 > You can verify if the Role and RoleBinding were created correctly with the `oc get role` and `oc get rolebinding` commands respectively
