@@ -21,7 +21,7 @@ This tutorial is broken into the following steps:
 
 This tutorial will build on the following tutorials:
 
-- see [creating your first Azure Function through the Azure portal](../azure-functions/functions-create-first-azure-function.md)
+- [creating your first Azure Function through the Azure portal](../azure-functions/functions-create-first-azure-function.md)
 
 ## Modeling custom actions and custom resources
 
@@ -224,6 +224,10 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 
 Now all that's left is to update the references. After following through this part the Azure Function trigger should look like:
 
+<details>
+<summary>show code</summary>
+<p>
+
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.WindowsAzure.Storage"
@@ -295,6 +299,9 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 }
 ```
 
+</p>
+</details>
+
 ### Working with custom resources
 
 > [!NOTE]
@@ -315,6 +322,10 @@ var rowKey = $"{azureResourceId.FullResourceType.Replace('/', ':')}:{azureResour
 ```
 
 Run Method:
+
+<details>
+<summary>show code</summary>
+<p>
 
 ``` csharp
 /// <summary>
@@ -363,6 +374,9 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
     }
 }
 ```
+
+</p>
+</details>
 
 This creates two new variables: partitionKey and rowKey.
 
@@ -534,6 +548,10 @@ For listing all existing resources, we generate a Azure Table query that ensures
 
 Once all the RESTful methods are added to the function, we can update the main `Run` method to call the functions to handle the different REST requests.
 
+<details>
+<summary>show code</summary>
+<p>
+
 ```csharp
 /// <summary>
 /// Entry point for the Azure Function webhook and acts as the service behind a custom resource provider.
@@ -615,11 +633,16 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 }
 ``` 
 
+</p>
+</details>
+
 #### Final code sample
 
-The final function should look something along the lines of:
+The Azure Function should not support the Azure RESTful API operations for both custom resources and custom actions.
 
-Sample run.csx file:
+<details>
+<summary>show code</summary>
+<p>
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -853,6 +876,8 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
         existingCustomResource != null ? HttpStatusCode.OK : HttpStatusCode.NoContent);
 }
 ```
+</p>
+</details>
 
 When you have finished the Azure Function, grab the trigger function URL. This URL will act as our endpoint.
 
