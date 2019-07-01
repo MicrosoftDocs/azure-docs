@@ -27,7 +27,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 | --- | --- |
 | **New SQL IaaS installation modes** | It's now possible to install the SQL IaaS extension in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#modes) to avoid restarting SQL Server service.  |
 | **SQL Server edition modification** | You can now change the [edition metadata](virtual-machines-windows-sql-change-edition.md) for your SQL Server VM. |
-| **SQL VM RP changes** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#sql-iaas-lightweight-agent-option) - even Windows 2008 images - using the new SQL IaaS modes. |
+| **SQL VM RP changes** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#register-sql-server-vm-with-sql-vm-resource-provider) - even [Windows 2008 images](virtual-machines-windows-sql-register-with-rp.md#register-windows-server-2008-images) - using the new SQL IaaS modes. |
 | **BYOL images using AHUB** | BYOL images deployed from the marketplace can now switch their [license type to 'PAYG'](virtual-machines-windows-sql-ahb.md#remarks), though they'll need to register as 'AHUB' initially. | 
 | &nbsp; | &nbsp; |
 
@@ -66,7 +66,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **Custom image supportability** | You can now install the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md#installation) to custom OS and SQL images, which offers the limited functionality of [flexible licensing](virtual-machines-windows-sql-ahb.md). When registering your custom image with the SQL resource provider, specify the license type as 'AHUB' as otherwise the registration will fail.  | 
+| **Custom image supportability** | You can now install the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md#installation) to custom OS and SQL images, which offers the limited functionality of [flexible licensing](virtual-machines-windows-sql-ahb.md). When registering your custom image with the SQL resource provider, specify the license type as 'AHUB' as otherwise the registration will fail. | 
 | **Named instance supportability** | You can now utilize the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md#installation) with a named instance, if the default instance has been uninstalled properly. | 
 | **Portal enhancement** | The Azure portal experience for deploying a SQL Server VM has been revamped to improve usability. For more information, see the brief [Quickstart](quickstart-sql-vm-create-portal.md) and more thorough [How-to](virtual-machines-windows-portal-sql-server-provision.md) guide to deploying a SQL Server VM.|
 | &nbsp; | &nbsp; |
@@ -76,7 +76,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **Portal improvement** | It is now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license using the [Azure portal](virtual-machines-windows-sql-ahb.md#with-the-azure-portal)|
+| **Portal improvement** | It is now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license using the [Azure portal](virtual-machines-windows-sql-ahb.md#change-listening-type)|
 |**AG deployment simplification with Azure SQL VM CLI** | It is now easier than ever to deploy an availability group to a SQL Server VM in Azure. [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) allows you to create the WSFC, ILB and AG listener all from the command line, and in record time! For more information, see [Use Azure SQL VM CLI to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 
