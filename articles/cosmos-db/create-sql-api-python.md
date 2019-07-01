@@ -179,13 +179,13 @@ The following snippets are all taken from the `CosmosGetStarted.py` file.
 
 4. In the integrated terminal window, ensure you are in the azure-cosmos-db-python-getting-started folder. If not, run the following command to switch to the sample folder. 
 
-    ```
+    ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. Run the following command to install the azure-cosmos package. 
 
-    ```
+    ```python
     pip3 install azure-cosmos
     ```
 
@@ -193,7 +193,7 @@ The following snippets are all taken from the `CosmosGetStarted.py` file.
 
 6. Run the following command to run the sample and create and store new documents in Azure Cosmos dB.
 
-    ```
+    ```python
     python CosmosGetStarted.py
     ```
 
