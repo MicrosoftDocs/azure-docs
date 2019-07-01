@@ -29,7 +29,7 @@ Before you get started, here's a list of prerequisites:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.5.1`.
+The current version of the Cognitive Services Speech SDK is `1.6.0`.
 
 The Cognitive Services Speech SDK for Mac is distributed as a framework bundle.
 It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded from https://aka.ms/csspeech/macosbinary and linked manually. This guide uses a CocoaPod.
