@@ -1,5 +1,5 @@
 ---
-title: Deploy ml models to Azure App Service
+title: Deploy ml models to Azure App Service (preview)
 titleSuffix: Azure Machine Learning service
 description: Learn how to use the Azure Machine Learning service to deploy a model to a Web App in Azure App Service.
 services: machine-learning
@@ -17,6 +17,9 @@ ms.date: 07/01/2019
 # Deploy a machine learning model to Azure App Service (preview)
 
 Learn how to deploy a model from the Azure Machine Learning service as a web app in Azure App Service.
+
+> [!IMPORTANT]
+> While both Azure Machine Learning service and Azure App Service are generally available, the ability to deploy a model from the Machine Learning service to App Service is in preview.
 
 With Azure Machine Learning service, you can create Docker images from trained machine learning models. This image contains a web service that receives data, submits it to the model, and then returns the response. Azure App Service can be used to deploy the image, and provides the following features:
 
@@ -46,7 +49,7 @@ With Azure Machine Learning service, you can create Docker images from trained m
 
 ## Use the Web App
 
-From the [Azure portal](https://portal.azure.com), select the Web App created in the previous steps. From the __Overview__ section, copy the __URL__. This is the __base URL__ of the service.
+From the [Azure portal](https://portal.azure.com), select the Web App created in the previous steps. From the __Overview__ section, copy the __URL__. This value is the __base URL__ of the service.
 
 ![Screenshot of the overview for the web app](media/how-to-deploy-app-service/web-app-overview.png)
 
