@@ -51,6 +51,8 @@
   items:
   - name: Manage
     items:
+    - name: accounts
+      href: media-services-account-concept.md
     - name: Entities
       items:
       - name: .NET

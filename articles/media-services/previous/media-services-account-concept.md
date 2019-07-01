@@ -17,14 +17,14 @@ ms.author: juliako
 
 # Azure Media Services accounts
 
-To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. The Media Services account and all associated storage accounts must be in the same Azure subscription. For more information, see [Cloud upload and storage](storage-account-concept.md).
+To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. The Media Services account and all associated storage accounts must be in the same Azure subscription.  
 
 ## Moving a Media Services account between subscriptions 
 
 If you need to move a Media Services account to a new subscription, you need to first move the entire resource group that contains the Media Services account to the new subscription. You must move all attached resources: Azure Storage accounts, Azure CDN profiles, etc. 
 
 > [!NOTE]
-> Media Services v3 supports multi-tenancy model.
+> Media Services v2 does not support multi-tenancy model.
 
 You can do the move using the Azure portal or scripts:
 
@@ -32,7 +32,7 @@ You can do the move using the Azure portal or scripts:
 
     In your Media Services account, select Overview > Subscription name (change)
 
-    ![Subscription](./media/accounts/subscription.png)
+    ![Subscription](../latest/media/accounts/subscription.png)
 * Scripts 
 
     For more information, see [Move resources to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). 
@@ -53,4 +53,4 @@ If a Media Services account or an associated Azure Storage account become "disco
 
 ## Next steps
 
-[Create an account](create-account-cli-quickstart.md).
+[Create an account](media-services-portal-create-account.md).
