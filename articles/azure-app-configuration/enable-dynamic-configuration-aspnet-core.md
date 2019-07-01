@@ -111,9 +111,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
     }
     ```
     
-    The middleware uses the refresh configuration specified in the `AddAzureAppConfiguration` method in `Program.cs` to trigger a refresh for each request received by the ASP.NET Core web app. The ASP.NET client library maintains a cached value for each configuration setting registered for refresh.
-    
-    For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration settings have expired. For the cached values that have expired, the values for the settings are updated with the app configuration store, and the remaining values remain unchanged.
+    The middleware uses the refresh configuration specified in the `AddAzureAppConfiguration` method in `Program.cs` to trigger a refresh for each request received by the ASP.NET Core web app. For each request, a refresh operation is triggered and the client library checks if the cached value for the registered configuration settings have expired. For the cached values that have expired, the values for the settings are updated with the app configuration store, and the remaining values remain unchanged.
     
     > [!NOTE]
     > The default cache expiration time for a configuration setting is 30 seconds, but can be overridden by calling the `SetCacheExpiration` method on the options initializer passed as an argument to the `ConfigureRefresh` method.

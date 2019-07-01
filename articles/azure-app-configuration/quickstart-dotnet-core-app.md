@@ -50,7 +50,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
+2. In the new folder, run the following command to create a new ASP.NET Core console app project:
 
         dotnet new console
 
