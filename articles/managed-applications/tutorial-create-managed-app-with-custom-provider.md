@@ -483,6 +483,8 @@ az managedapp definition create \
 
    ![Create managed application definition](./media/managed-application-with-custom-providers/create-service-catalog-definition.png)
 
+---
+
 ## Deploying an instance of managed application
 
 Once the Service Catalog managed application definition is deployed, follow the steps below to deploy your managed application instance with custom provider:
@@ -531,6 +533,8 @@ az managedapp create \
 5. When validation passed, click **OK** to deploy an instance of a managed application. 
     
     ![Deploy managed application](./media/managed-application-with-custom-providers/deploy-managed-application.png)
+
+---
 
 After the service catalog application instance has been deployed, you have two new resource groups. One resource group `applicationGroup` contains an instance of the managed application, while the other resource group `managedResourceGroup` holds the resources for the managed application, including **custom provider**.
 
