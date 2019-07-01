@@ -239,7 +239,7 @@ If you want to get access to the resources, which do not exist in your subscript
 
 [How to get a SAS for a blob container in Storage Explorer](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
 
-# Search for storage accounts
+## Search for storage accounts
 
 If you need to find a storage resource and do not know where it is, you can use the search box at the top of the left pane to search for the resource.
 
