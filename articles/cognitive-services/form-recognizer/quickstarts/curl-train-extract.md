@@ -31,7 +31,7 @@ To complete this quickstart, you must have:
 
 ## Train a Form Recognizer model
 
-First, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty."
+First, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data.
 
 To train a Form Recognizer model with the documents in your Azure blob container, call the **Train** API by running the following cURL command. Before you run the command, make these changes:
 
