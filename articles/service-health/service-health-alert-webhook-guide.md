@@ -33,7 +33,7 @@ To set up your own custom webhook integration, you need to parse the JSON payloa
 
 See [an example](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` webhook payload.
 
-You can confirm that it's a service health alert by looking at `context.eventSource == "ServiceHealth"`. These properties are the most relevant:
+You can confirm that it's a service health alert by looking at `context.eventSource == "ServiceHealth"`. The following properties are the most relevant:
 - **data.context.activityLog.status**
 - **data.context.activityLog.level**
 - **data.context.activityLog.subscriptionId**
