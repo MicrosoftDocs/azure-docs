@@ -30,6 +30,9 @@ ms.custom: seodec18
     * All existing Direct Line Speech clients continue to be supported after the rename
 * Update TTS REST adapter to support proxy, persistent connection
 * Improve error message when an invalid region is passed
+* Swift/Objective-C:
+    * Improved error reporting: Methods that can result in an error are now present in two versions: One that exposes an `NSError` object for error handling, and one that raises an exception. The former are exposed to Swift. This change requires adaptations to existing Swift code.
+    * Improved event handling
 
 **Bug fixes**
 *	Fix for TTS: where SpeakTextAsync future returned without waiting until audio has completed rendering
@@ -38,6 +41,8 @@ ms.custom: seodec18
 *	Fix for occasional issues to deploy native libraries to the output folder in samples
 *	Fix for web socket closing reliably
 *	Fix for possible crash while opening a connection under very heavy load on Linux
+*	Fix for missing metadata in the framework bundle for macOS
+*	Fix for problems with `pip install --user` on Windows
 
 
 ## Speech SDK 1.5.1
