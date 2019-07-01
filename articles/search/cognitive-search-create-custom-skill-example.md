@@ -50,7 +50,10 @@ Now, replace all of the content of the file *Function1.cs* with the following co
 
 ```csharp
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -58,9 +61,6 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading;
 
 namespace SampleSkills
 {
@@ -81,16 +81,16 @@ namespace SampleSkills
         {
             public class InputRecordData
             {
-                public string name;
+                public string Name { get; set; }
             }
 
-            public string recordId { get; set; }
-            public InputRecordData data { get; set; }
+            public string RecordId { get; set; }
+            public InputRecordData Data { get; set; }
         }
 
         private class WebApiRequest
         {
-            public List<InputRecord> values { get; set; }
+            public List<InputRecord> Values { get; set; }
         }
         #endregion
 
@@ -100,12 +100,12 @@ namespace SampleSkills
         {
             public class OutputRecordData
             {
-                public string Name;
-                public string Description;
-                public string ImageUrl;
-                public string Url;
-                public string LicenseAttribution;
-                public Entities Entities { get; set; }
+                public string Name { get; set; }
+                public string Description { get; set; }
+                public string Source { get; set; }
+                public string SourceUrl { get; set; }
+                public string LicenseAttribution { get; set; }
+                public string LicenseUrl { get; set; }
             }
 
             public class OutputRecordMessage
@@ -121,66 +121,44 @@ namespace SampleSkills
 
         private class WebApiResponse
         {
-            public List<OutputRecord> values { get; set; }
+            public List<OutputRecord> Values { get; set; }
         }
         #endregion
 
         #region Classes used to interact with the Bing API
-        private class Entities
+        private class BingResponse
         {
-            public BingEntity[] value { get; set; }
+            public BingEntities Entities { get; set; }
+        }
+        private class BingEntities
+        {
+            public BingEntity[] Value { get; set; }
         }
 
         private class BingEntity
         {
             public class Entitypresentationinfo
             {
-                public string EntityScenario { get; set; }
                 public string[] EntityTypeHints { get; set; }
-                public object EntityTypeDisplayHint { get; set; }
             }
 
             public class License
             {
-                public string Name { get; set; }
                 public string Url { get; set; }
             }
 
             public class Contractualrule
             {
                 public string _type { get; set; }
-                public string TargetPropertyName { get; set; }
-                public bool MustBeCloseToContent { get; set; }
                 public License License { get; set; }
                 public string LicenseNotice { get; set; }
                 public string Text { get; set; }
                 public string Url { get; set; }
             }
 
-            public class Provider
-            {
-                public string _type { get; set; }
-                public string Url { get; set; }
-            }
-
-
-            public class ImageClass
-            {
-                public string Name { get; set; }
-                public string ThumbnailUrl { get; set; }
-                public Provider[] Provider { get; set; }
-                public string HostPageUrl { get; set; }
-                public int Width { get; set; }
-                public int Height { get; set; }
-            }
-
-            public Contractualrule[] contractualRules { get; set; }
-            public ImageClass Image { get; set; }
+            public Contractualrule[] ContractualRules { get; set; }
             public string Description { get; set; }
-            public string BingId { get; set; }
-            public string WebSearchUrl { get; set; }
             public string Name { get; set; }
-            public string Url { get; set; }
             public Entitypresentationinfo EntityPresentationInfo { get; set; }
         }
         #endregion
@@ -195,7 +173,7 @@ namespace SampleSkills
             log.LogInformation("Entity Search function: C# HTTP trigger function processed a request.");
 
             var response = new WebApiResponse();
-            response.values = new List<OutputRecord>();
+            response.Values = new List<OutputRecord>();
 
             string requestBody = new StreamReader(req.Body).ReadToEnd();
             var data = JsonConvert.DeserializeObject<WebApiRequest>(requestBody);
@@ -205,22 +183,22 @@ namespace SampleSkills
             {
                 return new BadRequestObjectResult("The request schema does not match expected schema.");
             }
-            if (data.values == null)
+            if (data.Values == null)
             {
                 return new BadRequestObjectResult("The request schema does not match expected schema. Could not find values array.");
             }
 
             // Calculate the response for each value.
-            foreach (var record in data.values)
+            foreach (var record in data.Values)
             {
-                if (record == null || record.recordId == null) continue;
+                if (record == null || record.RecordId == null) continue;
 
                 OutputRecord responseRecord = new OutputRecord();
-                responseRecord.RecordId = record.recordId;
+                responseRecord.RecordId = record.RecordId;
 
                 try
                 {
-                    string nameName = record.data.name;
+                    string nameName = record.Data.Name;
                     responseRecord.Data = GetEntityMetadata(nameName).Result;
                 }
                 catch (Exception e)
@@ -236,7 +214,7 @@ namespace SampleSkills
                 }
                 finally
                 {
-                    response.values.Add(responseRecord);
+                    response.Values.Add(responseRecord);
                 }
             }
 
@@ -246,60 +224,17 @@ namespace SampleSkills
         #endregion
 
         #region Methods to call the Bing API
-        public class RetryHandler : DelegatingHandler
-        {
-            // Strongly consider limiting the number of retries - "retry forever" is
-            // probably not the most user friendly way you could respond to "the
-            // network cable got pulled out."
-            private const int MaxRetries = 10;
-
-            public RetryHandler(HttpMessageHandler innerHandler)
-                : base(innerHandler)
-            { }
-
-            protected override async Task<HttpResponseMessage> SendAsync(
-                HttpRequestMessage request,
-                CancellationToken cancellationToken)
-            {
-                HttpResponseMessage response = null;
-                for (int i = 0; i < MaxRetries; i++)
-                {
-                    response = await base.SendAsync(request, cancellationToken);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return response;
-                    }
-
-                    //Log.Info("Retrying " + request.RequestUri.ToString());
-                    Thread.Sleep(1000);
-                }
-
-                return response;
-            }
-        }
-
-        /// <summary>
-        /// Helper function that replaces nulls for empty strings.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static String EmptyOrValue(String value)
-        {
-            if (value == null) return "";
-            return value;
-        }
-
         /// <summary>
         /// Gets metadata for a particular entity based on its name using Bing Entity Search
         /// </summary>
         /// <param name="nameName">The image to extract objects for.</param>
         /// <returns>Asynchronous task that returns objects identified in the image. </returns>
-        async static Task<OutputRecord.OutputRecordData> GetEntityMetadata(string nameName)
+        private async static Task<OutputRecord.OutputRecordData> GetEntityMetadata(string nameName)
         {
             var uri = bingApiEndpoint + "?q=" + nameName + "&mkt=en-us&count=10&offset=0&safesearch=Moderate";
             var result = new OutputRecord.OutputRecordData();
 
-            using (var client = new HttpClient(new RetryHandler(new HttpClientHandler())))
+            using (var client = new HttpClient())
             using (var request = new HttpRequestMessage())
             {
                 request.Method = HttpMethod.Get;
@@ -309,91 +244,66 @@ namespace SampleSkills
                 var response = await client.SendAsync(request);
                 var responseBody = await response.Content.ReadAsStringAsync();
 
-                result = JsonConvert.DeserializeObject<OutputRecord.OutputRecordData>(responseBody);
+                BingResponse bingResult = JsonConvert.DeserializeObject<BingResponse>(responseBody);
 
                 // In addition to the list of entities that could match the name, for simplicity let's return information
                 // for the top match as additional metadata at the root object.
-                result = AddTopEntityMetadata(result);
+                result = AddTopEntityMetadata(bingResult.Entities.Value);
 
                 // Do some cleanup on the returned result.
-                result.ImageUrl = EmptyOrValue(result.ImageUrl);
-                result.Description = EmptyOrValue(result.Description);
-                if (result.Name == null) { result.Name = EmptyOrValue(nameName); }
-                result.Url = EmptyOrValue(result.Url);
-                result.LicenseAttribution = EmptyOrValue(result.LicenseAttribution);
+                result.Description = result.Description ?? "";
+                result.Name = nameName ?? "";
+                result.LicenseAttribution = result.LicenseAttribution ?? "";
             }
 
             return result;
         }
 
-        public class CoreData
+        private static OutputRecord.OutputRecordData AddTopEntityMetadata(BingEntity[] entities)
         {
-            public string description;
-            public string name;
-            public string imageUrl;
-            public string url;
-            public string licenseAttribution;
-        }
-
-        static OutputRecord.OutputRecordData AddTopEntityMetadata(OutputRecord.OutputRecordData rootObject)
-        {
-
-            CoreData coreData = new CoreData();
-
-            if (rootObject.Entities != null)
+            if (entities != null)
             {
-                foreach (BingEntity entity in rootObject.Entities.value)
+                foreach (BingEntity entity in entities.Where(
+                    entity => entity.EntityPresentationInfo != null
+                        && entity.EntityPresentationInfo.EntityTypeHints != null
+                        && (entity.EntityPresentationInfo.EntityTypeHints[0] == "Person"
+                            || entity.EntityPresentationInfo.EntityTypeHints[0] == "Organization"
+                            || entity.EntityPresentationInfo.EntityTypeHints[0] == "Location")
+                        && !String.IsNullOrEmpty(entity.Description)))
                 {
-                    if (entity.EntityPresentationInfo != null)
+                    var rootObject = new OutputRecord.OutputRecordData
                     {
-                        if (entity.EntityPresentationInfo.EntityTypeHints != null)
-                        {
-                            if (entity.EntityPresentationInfo.EntityTypeHints[0] != "Person" &&
-                                entity.EntityPresentationInfo.EntityTypeHints[0] != "Organization" &&
-                                entity.EntityPresentationInfo.EntityTypeHints[0] != "Location"
-                                )
-                            {
-                                continue;
-                            }
-                        }
-                    }
+                        Description = entity.Description,
+                        Name = entity.Name
+                    };
 
-                    if (entity.Description != null && entity.Description != "")
+                    if (entity.ContractualRules != null)
                     {
-                        rootObject.Description = entity.Description;
-                        rootObject.Name = entity.Name;
-                        if (entity.Image != null)
+                        foreach (var rule in entity.ContractualRules)
                         {
-                            rootObject.ImageUrl = entity.Image.ThumbnailUrl;
-                        }
-
-                        if (entity.contractualRules != null)
-                        {
-                            foreach (var rule in entity.contractualRules)
+                            switch (rule._type)
                             {
-                                if (rule.TargetPropertyName == "description")
-                                {
-                                    rootObject.Url = rule.Url;
-                                }
-
-                                if (rule._type == "ContractualRules/LicenseAttribution")
-                                {
+                                case "ContractualRules/LicenseAttribution":
                                     rootObject.LicenseAttribution = rule.LicenseNotice;
-                                }
+                                    rootObject.LicenseUrl = rule.License.Url;
+                                    break;
+                                case "ContractualRules/LinkAttribution":
+                                    rootObject.Source = rule.Text;
+                                    rootObject.SourceUrl = rule.Url;
+                                    break;
                             }
                         }
-
-                        return rootObject;
                     }
+
+                    return rootObject;
                 }
             }
 
-            return rootObject;
+            return new OutputRecord.OutputRecordData();
         }
         #endregion
     }
-}
-```
+}```
 
 Make sure to enter your own *key* value in the *TranslateText* method based on the key you got when signing up for the Translate Text API.
 
