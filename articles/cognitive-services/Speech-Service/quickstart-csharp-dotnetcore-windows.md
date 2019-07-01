@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Recognize speech, C# (.NET Core Windows) - Speech Services'
+title: 'Quickstart: Recognize speech, C# (.NET Core) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C# under .NET Core on Windows by using the Speech SDK
+description: Learn how to recognize speech in C# under .NET Core on Windows or macOS by using the Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -14,9 +14,12 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech with the Speech SDK for .NET Core
 
+Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-dotnetcore.md) and [speech-translation](quickstart-translate-speech-dotnetcore-windows.md).
+
+If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a C# console application for .NET Core on Windows by using the Cognitive Services [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
+In this article, you create a C# console application for .NET Core on Windows or macOS by using the Cognitive Services [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 
 > [!NOTE]
 > .NET Core is an open-source, cross-platform .NET platform that implements the [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specification.

@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.author: apimpm
 ---
 
@@ -20,7 +20,7 @@ ms.author: apimpm
 
 Azure API Management supports multi-region deployment, which enables API publishers to distribute a single Azure API management service across any number of desired Azure regions. This helps reduce request latency perceived by geographically distributed API consumers and also improves service availability if one region goes offline.
 
-A new Azure API Management service initially contains only one [unit][unit] in a single Azure region, the Primary Region. Additional regions can be easily added through the Azure portal. An API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway. If a region goes offline, the traffic is automatically redirected to the next closest gateway.
+A new Azure API Management service initially contains only one [unit][unit] in a single Azure region, the Primary Region. Additional regions can be easily added through the Azure portal. An API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway in terms of latency. If a region goes offline, the traffic is automatically redirected to the next closest gateway.
 
 > [!NOTE]
 > Azure API Management replicates only the API gateway component across regions. The service management component is hosted only in the Primary Region. In case of an outage in the Primary Region, applying configuration changes to an Azure API Management service instance is not possible - including settings or policies updates.
@@ -101,6 +101,20 @@ To fully leverage geographical distribution of your system, you should have back
         </on-error>
     </policies>
     ```
+
+> [!TIP]
+> You may also front your backend services with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), direct the API calls to the Traffic Manager, and let it resolve the routing automatically.
+
+## <a name="custom-routing"> </a>Use custom routing to API Management regional gateways
+
+API Management routes the requests to a regional *gateway* based on [the lowest latency](../traffic-manager/traffic-manager-routing-methods.md#performance). Although it is not possible to override this setting in API Management, you can use your own Traffic Manager with custom routing rules.
+
+1. Create your own [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
+1. If you are using a custom domain, [use it with the Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) instead of the API Management service.
+1. [Configure the API Management regional endpoints in Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). The regional endpoints follow the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net`, for example `https://contoso-westus2-01.regional.azure-api.net`.
+1. [Configure the API Management regional status endpoints in Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). The regional status endpoints follow the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, for example `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
+1. Specify [the routing method](../traffic-manager/traffic-manager-routing-methods.md) of the Traffic Manager.
+
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 

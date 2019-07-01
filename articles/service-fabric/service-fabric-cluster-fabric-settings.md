@@ -4,7 +4,7 @@ description: This article describes the fabric settings and the fabric upgrade p
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2018
+ms.date: 06/12/2019
 ms.author: aljo
 
 ---
@@ -37,7 +37,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |CrlCheckingFlag|uint, default is 0x40000000 |Dynamic| Flags for application/service certificate chain validation; e.g. CRL checking 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Setting to 0 disables CRL checking Full list of supported values is documented by dwFlags of CertGetCertificateChain: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Time in seconds. default is 120 |Dynamic|Specify timespan in seconds.  Gives the default request timeout for the http requests being processed in the http app gateway. |
 |ForwardClientCertificate|bool, default is FALSE|Dynamic|When set to false, reverse proxy will not request for the client certificate.When set to true, reverse proxy will request for the client certificate during the SSL handshake and forward the base64 encoded PEM format string to the service in a header named X-Client-Certificate.The service can fail the request with appropriate status code after inspecting the certificate data. If this is true and client does not present a certificate, reverse proxy will forward an empty header and let the service handle the case. Reverse proxy will act as a transparent layer. To learn more, see [Set up client certificate authentication](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
-|GatewayAuthCredentialType |string, default is "None" |Static| Indicates the type of security credentials to use at the http app gateway endpoint Valid values are "None/X509. |
+|GatewayAuthCredentialType |string, default is "None" |Static| Indicates the type of security credentials to use at the http app gateway endpoint Valid values are None/X509. |
 |GatewayX509CertificateFindType |string, default is "FindByThumbprint" |Dynamic| Indicates how to search for certificate in the store specified by GatewayX509CertificateStoreName Supported value: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, default is "" |Dynamic| Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that does not exist; FindValueSecondary is looked up. |
 |GatewayX509CertificateFindValueSecondary | string, default is "" |Dynamic|Search filter value used to locate the http app gateway certificate. This certificate is configured on the https endpoint and can also be used to verify the identity of the app if needed by the services. FindValue is looked up first; and if that does not exist; FindValueSecondary is looked up.|
@@ -83,7 +83,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |MaxDataMigrationTimeout |Time in seconds, default is 600 |Dynamic|Specify timespan in seconds. The maximum timeout for data migration recovery operations after a Fabric upgrade has taken place. |
 |MaxOperationRetryDelay |Time in seconds, default is 5|Dynamic| Specify timespan in seconds. The maximum delay for internal retries when failures are encountered. |
 |MaxOperationTimeout |Time in seconds, default is MaxValue |Dynamic| Specify timespan in seconds. The maximum global timeout for internally processing operations on ClusterManager. |
-|MaxTimeoutRetryBuffer | Time in seconds, default is 600 |Dynamic|Specify timespan in seconds. The maximum operation timeout when internally retrying due to timeouts is <Original Time out> + <MaxTimeoutRetryBuffer>. Additional timeout is added in increments of MinOperationTimeout. |
+|MaxTimeoutRetryBuffer | Time in seconds, default is 600 |Dynamic|Specify timespan in seconds. The maximum operation timeout when internally retrying due to timeouts is `<Original Time out> + <MaxTimeoutRetryBuffer>`. Additional timeout is added in increments of MinOperationTimeout. |
 |MinOperationTimeout | Time in seconds, default is 60 |Dynamic|Specify timespan in seconds. The minimum global timeout for internally processing operations on ClusterManager. |
 |MinReplicaSetSize |Int, default is 3 |Not Allowed|The MinReplicaSetSize for ClusterManager. |
 |PlacementConstraints | string, default is "" |Not Allowed|The PlacementConstraints for ClusterManager. |
@@ -121,14 +121,19 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
+|AdminOnlyHttpAudit |Bool, default is true | Dynamic | Exclude HTTP requests which do not impact the state of the cluster from auditing. Currently; only requests of "GET" type are excluded; but this is subject to change. |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, default is true | Dynamic |Whether or not impersonation is required when accessing diagnostic stores on behalf of the application. |
 |AppEtwTraceDeletionAgeInDays |Int, default is 3 | Dynamic |Number of days after which we delete old ETL files containing application ETW traces. |
 |ApplicationLogsFormatVersion |Int, default is 0 | Dynamic |Version for application logs format. Supported values are 0 and 1. Version 1 includes more fields from the ETW event record than version 0. |
+|AuditHttpRequests |Bool, default is false | Dynamic | Turn HTTP auditing on or off. The purpose of auditing is to see the activities that have been performed against the cluster; including who initiated the request. Note that this is a best attempt logging; and trace loss may occur. HTTP requests with "User" authentication is not recorded. |
+|CaptureHttpTelemetry|Bool, default is false | Dynamic | Turn HTTP telemetry on or off. The purpose of telemetry is for Service Fabric to be able to capture telemetry data to help plan future work and identify problem areas. Telemetry does not record any personal data or the request body. Telemetry captures all HTTP requests unless otherwise configured. |
 |ClusterId |String | Dynamic |The unique id of the cluster. This is generated when the cluster is created. |
 |ConsumerInstances |String | Dynamic |The list of DCA consumer instances. |
 |DiskFullSafetySpaceInMB |Int, default is 1024 | Dynamic |Remaining disk space in MB to protect from use by DCA. |
 |EnableCircularTraceSession |Bool, default is false | Static |Flag indicates whether circular trace sessions should be used. |
 |EnableTelemetry |Bool, default is true | Dynamic |This is going to enable or disable telemetry. |
+|FailuresOnlyHttpTelemetry | Bool, default is true | Dynamic | If HTTP telemetry capture is enabled; capture only failed requests. This is to help cut down on the number of events generated for telemetry. |
+|HttpTelemetryCapturePercentage | int, default is 50 | Dynamic | If HTTP telemetry capture is enabled; capture only a random percentage of requests. This is to help cut down on the number of events generated for telemetry. |
 |MaxDiskQuotaInMB |Int, default is 65536 | Dynamic |Disk quota in MB for Windows Fabric log files. |
 |ProducerInstances |String | Dynamic |The list of DCA producer instances. |
 
@@ -141,7 +146,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |PartitionPrefix|string, default is "--"|Static|Controls the partition prefix string value in DNS queries for partitioned services. The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>Cannot be an empty string.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md).|
 |PartitionSuffix|string, default is ""|Static|Controls the partition suffix string value in DNS queries for partitioned services.The value : <ul><li>Should be RFC-compliant as it will be part of a DNS query.</li><li>Should not contain a dot, '.', as dot interferes with DNS suffix behavior.</li><li>Should not be longer than 5 characters.</li><li>If the PartitionPrefix setting is overridden, then PartitionSuffix must be overridden, and vice-versa.</li></ul>For more information, see [Service Fabric DNS Service.](service-fabric-dnsservice.md). |
 
-## EventStore
+## EventStoreService
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
@@ -155,7 +160,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |Time in seconds, default is 2 |Dynamic|Specify timespan in seconds. Connection timeout interval for each time client tries to open a connection to the gateway.|
 |HealthOperationTimeout |Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. The timeout for a report message sent to Health Manager. |
-|HealthReportRetrySendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which reporting component re-sends accumulated health reports to Health Manager. |
+|HealthReportRetrySendInterval |Time in seconds, default is 30, minimum is 1 |Dynamic|Specify timespan in seconds. The interval at which the reporting component resends accumulated health reports to Health Manager. |
 |HealthReportSendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which reporting component sends accumulated health reports to Health Manager. |
 |KeepAliveIntervalInSeconds |Int, default is 20 |Static|The interval at which the FabricClient transport sends keep-alive messages to the gateway. For 0; keepAlive is disabled. Must be a positive value. |
 |MaxFileSenderThreads |Uint, default is 10 |Static|The max number of files that are transferred in parallel. |
@@ -399,15 +404,19 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
+|AutomaticUnprovisionInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(5)|Dynamic|Specify timespan in seconds. The cleanup interval for allowed for unregister application type during automatic application type cleanup.|
 |AzureStorageMaxConnections | Int, default is 5000 |Dynamic|The maximum number of concurrent connections to azure storage. |
 |AzureStorageMaxWorkerThreads | Int, default is 25 |Dynamic|The maximum number of worker threads in parallel. |
 |AzureStorageOperationTimeout | Time in seconds, default is 6000 |Dynamic|Specify timespan in seconds. Time out for xstore operation to complete. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, default is FALSE |Dynamic|This configuration enables or disables the automatic cleanup of application package on successful provision. |
+|CleanupApplicationPackageOnProvisionSuccess|bool, default is FALSE |Dynamic|Enables or disables the automatic cleanup of application package on successful provision. |
+|CleanupUnusedApplicationTypes|Bool, default is FALSE |Dynamic|This configuration if enabled, allows to automatically unregister unused application type versions skipping the latest three unused versions, thereby trimming the disk space occupied by image store. The automatic cleanup will be triggered at the end of successful provision for that specific app type and also runs periodically once a day for all the application types. Number of unused versions to skip is configurable using parameter "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, default is false |Static| This configuration allows us to enable or disable checksum validation during application provisioning. |
 |DisableServerSideCopy | Bool, default is false |Static|This configuration enables or disables server-side copy of application package on the ImageStore during application provisioning. |
 |ImageCachingEnabled | Bool, default is true |Static|This configuration allows us to enable or disable caching. |
 |ImageStoreConnectionString |SecureString |Static|Connection string to the Root for ImageStore. |
 |ImageStoreMinimumTransferBPS | Int, default is 1024 |Dynamic|The minimum transfer rate between the cluster and ImageStore. This value is used to determine the timeout when accessing the external ImageStore. Change this value only if the latency between the cluster and ImageStore is high to allow more time for the cluster to download from the external ImageStore. |
+|MaxUnusedAppTypeVersionsToKeep | Int, default is 3 |Dynamic|This configuration defines the number of unused application type versions to be skipped for cleanup. This parameter is applicable only if parameter CleanupUnusedApplicationTypes is enabled. |
+
 
 ## MetricActivityThresholds
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |

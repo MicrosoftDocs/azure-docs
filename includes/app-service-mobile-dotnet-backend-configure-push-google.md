@@ -75,7 +75,7 @@ Use the procedure that matches your back-end project type&mdash;either [.NET bac
 
     table.insert(function (context) {
     // For more information about the Notification Hubs JavaScript SDK,
-    // see http://aka.ms/nodejshubs
+    // see https://aka.ms/nodejshubs
     logger.info('Running TodoItem.insert');
 
     // Define the GCM payload.

@@ -3,13 +3,13 @@ title: Create knowledge base
 titleSuffix: QnA Maker API - Azure Cognitive Services
 description: Use the QnA Maker API service portal, to add create a knowledge base with chit-chat. This makes your app engaging. Add a pre-populated set of the top chit-chat into your KB as a starting point for your bot's chit-chat and save you the time and cost of writing them from scratch.     
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/11/2019
-ms.author: tulasim
+ms.date: 05/10/2019
+ms.author: diberry
 ms.custom: seodec18
 ---
 
@@ -45,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     - Upload files for data you want extracted. See the [pricing information](https://aka.ms/qnamaker-pricing) to see how many documents you can add.
     - If you want to manually add QnAs, you can skip **Step 4** shown in the preceding image.
 
-1. Add **Chit-chat** to your KB. Choose to add chit-chat support for your bot, by choosing from one of the 3  personalities. 
+1. Add **Chit-chat** to your KB. Choose to add chit-chat support for your bot, by choosing from one of the  personalities. 
 
     ![Add chit-chat to KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
@@ -64,6 +64,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 When you are done with the knowledge base, remove it in the QnA Maker portal.
 
 ## Next steps
+
+For cost savings measures, you can [share](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
 
 > [!div class="nextstepaction"]
 > [Add chit-chat personal](./chit-chat-knowledge-base.md)

@@ -2,7 +2,6 @@
 title: Submit Apache Hadoop jobs in HDInsight 
 description: Learn how to submit Apache Hadoop jobs in Azure HDInsight.
 ms.reviewer: jasonh
-services: hdinsight
 ms.author: hrasheed
 author: hrasheed-msft
 ms.service: hdinsight

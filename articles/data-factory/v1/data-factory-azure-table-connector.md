@@ -30,6 +30,8 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 
 You can copy data from any supported source data store to Azure Table Storage or from Azure Table Storage to any supported sink data store. For a list of data stores supported as sources or sinks by the copy activity, see the [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Getting started
 You can create a pipeline with a copy activity that moves data to/from an Azure Table Storage by using different tools/APIs.
 

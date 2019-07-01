@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/31/2019
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -106,7 +106,7 @@ The connectivity check is validated by connecting to a list of URLs.
 --- | --- | ---
 *.portal.azure.com | Applicable to Azure Global. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
 *.portal.azure.us | Applicable only to Azure Government. Checks connectivity with the Azure service, and time synchronization. | Access to URL required.<br/><br/> Prerequisites check fails if there's no connectivity.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Used to download the PowerShell vCenter PowerCLI module. | Access to URLs is required.<br/><br/> Prerequisites check won't fail.<br/><br/> Automatic module installation on the Collector VM will fail. You'll need to install the module manually in a machine that has internet connectivity and then copy the modules to the appliance. [Learn more by going to Step#4 in this troubleshooting guide](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
+*.oneget.org:443<br/><br/> *.github.com/oneget/oneget<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.azure.microsoft.com<br/><br/> *.azure.microsoft.com/en-us<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443<br/><br/> *.visualstudio.microsoft.com | Used to download the PowerShell vCenter PowerCLI module. | Access to URLs is required.<br/><br/> Prerequisites check won't fail.<br/><br/> Automatic module installation on the Collector VM will fail. You'll need to install the module manually in a machine that has internet connectivity and then copy the modules to the appliance. [Learn more by going to Step#4 in this troubleshooting guide](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### Install VMware PowerCLI module manually
@@ -145,6 +145,9 @@ vCenter Server | TCP 443 | The Collector must be able to communicate with the vC
 RDP | TCP 3389 |
 
 ## Collected metadata
+
+> [!NOTE]
+> Metadata discovered by the Azure Migrate collector appliance is used to help you right-size your applications as you migrate them to Azure, perform Azure suitability analysis, application dependency analysis, and cost planning. Microsoft does not use this data in relation to any license compliance audit.
 
 The collector appliance discovers the following configuration metadata for each VM. The configuration data for the VMs is available an hour after you start discovery.
 
@@ -230,7 +233,7 @@ We recommend the following steps to secure the Collector appliance:
 
 ## OS license in the collector VM
 
-The collector comes with a Windows Server 2012 R2 evaluation license which is valid for 180 days. If the evaluation period is expiring for your collector VM, it is recommended to download a new OVA and create a new appliance.
+The collector comes with a Windows Server 2016 evaluation license which is valid for 180 days. If the evaluation period is expiring for your collector VM, it is recommended to download a new OVA and create a new appliance.
 
 ## Updating the OS of the Collector VM
 

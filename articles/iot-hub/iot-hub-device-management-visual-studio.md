@@ -11,7 +11,7 @@ ms.author: xshi
 
 # Use Cloud Explorer for Visual Studio for Azure IoT Hub device management
 
-![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
+![End-to-end diagram](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) is a useful Visual Studio extension that enables you to view your Azure resources, inspect their properties and perform key developer actions from within Visual Studio. It comes with management options that you can use to perform various tasks.
 
@@ -30,7 +30,7 @@ Device twins are JSON documents that store device state information (metadata, c
 
 ## What you learn
 
-You learn using Cloud Explorer for Visual Studio with various management options on your development machine.
+You learn how to use the Cloud Explorer for Visual Studio with various management options on your development machine.
 
 ## What you do
 
@@ -38,8 +38,8 @@ Run Cloud Explorer for Visual Studio with various management options.
 
 ## What you need
 
-- An active Azure subscription.
-- An Azure IoT Hub under your subscription.
+- An active Azure subscription
+- An Azure IoT Hub under your subscription
 - Microsoft Visual Studio 2017 Update 8 or later
 - Cloud Explorer component from Visual Studio Installer (selected by default with Azure Workload)
 

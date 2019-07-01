@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 06/27/2019
 ms.author: kgremban
 ---
 
@@ -18,12 +18,16 @@ The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The r
 
 To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-This article lists the steps to install the Azure IoT Edge runtime on a Linux ARM32v7/armhf IoT Edge device. For example, these steps would work for Raspberry Pi devices. For a list of supported ARM32 operating systems, see [Azure IoT Edge support](support.md#operating-systems). 
+This article lists the steps to install the Azure IoT Edge runtime on a Linux ARM32v7/armhf IoT Edge device. For example, these steps would work for Raspberry Pi devices. For a list of supported ARM32 operating systems, see [Azure IoT Edge supported systems](support.md#operating-systems). 
 
 >[!NOTE]
 >Packages in the Linux software repositories are subject to the license terms located in each package (/usr/share/doc/*package-name*). Read the license terms prior to using the package. Your installation and use of the package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the package.
 
-## Install the container runtime
+## Install the latest version
+
+Use the following sections to install the most recent version of the Azure IoT Edge service onto your Linux ARM devices. 
+
+### Install the container runtime
 
 Azure IoT Edge relies on an [OCI-compatible](https://www.opencontainers.org/) container runtime. For production scenarios, it is highly recommended you use the [Moby-based](https://mobyproject.org/) engine provided below. It is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby-based runtime.
 
@@ -43,7 +47,7 @@ curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./m
 sudo apt-get install -f
 ```
 
-## Install the IoT Edge Security Daemon
+### Install the IoT Edge Security Daemon
 
 The **IoT Edge security daemon** provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime. 
 
@@ -62,7 +66,17 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## Connect your device to an IoT hub 
+Once IoT Edge is successfully installed, the output will prompt you to update the configuration file. Follow the steps in the [Configure the Azure IoT Edge security daemon](#configure-the-azure-iot-edge-security-daemon) section to finish provisioning your device. 
+
+## Install a specific version
+
+If you want to install a specific version of Azure IoT Edge, you can target the component files directly from the IoT Edge GitHub repository. Use the same `curl` commands listed in the previous sections to get all of the IoT Edge components onto your device: the Moby engine and CLI, the libiothsm, and finally the IoT Edge security daemon. The only difference is that you replace the **aka.ms** URLs with links directly pointing to the version of each component that you want to use.
+
+Navigate to the [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases), and find the release version that you want to target. Expand the **Assets** section for the version, and choose the files that match your IoT Edge device's architecture. Every IoT Edge release contains **iotedge** and **libiothsm** files. Not all releases include **moby-engine** or **moby-cli**. If you don't already have the Moby container engine installed, look through the older releases until you find one that includes the Moby components. 
+
+Once IoT Edge is successfully installed, the output will prompt you to update the configuration file. Follow the steps in the next section to finish provisioning your device. 
+
+## Configure the Azure IoT Edge security daemon
 
 Configure the IoT Edge runtime to link your physical device with a device identity that exists in an Azure IoT hub. 
 

@@ -3,8 +3,8 @@ title: List your application in the Azure Active Directory application gallery |
 description: Learn how to list an application that supports single sign-on in the Azure Active Directory app gallery
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2019
-ms.author: celested
+ms.date: 04/08/2019
+ms.author: ryanwi
 ms.reviewer: elisol, bryanla
-ms.custom: aaddev
+ms.custom: "aaddev, seoapril2019"
 
 ms.collection: M365-identity-device-management
 ---
 
 # How to: List your application in the Azure Active Directory application gallery
+
+This article shows how to list an application in the Azure AD application gallery, implement single sign-on (SSO), and manage the listing.
 
 ## What is the Azure AD application gallery?
 
@@ -112,21 +114,21 @@ To update or remove an existing application in the Azure AD app gallery, you fir
 
 Customers can submit the request of listing an application by clicking **App requests by Customers** -> **Submit new request**.
 
-![Customer requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Shows the customer requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Below is the flow of customer requested applications-
 
-![Customer requested apps flow](./media/howto-app-gallery-listing/customer-request.png)
+![Shows the customer requested apps flow](./media/howto-app-gallery-listing/customer-request.png)
 
 ## Timelines
 
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7-10 business days.
 
-   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/timeline.png)
+   ![TimeLine of listing SAML application into the gallery](./media/howto-app-gallery-listing/timeline.png)
 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2-5 business days.
 
-   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/timeline2.png)
+   ![TimeLine of listing SAML application into the gallery](./media/howto-app-gallery-listing/timeline2.png)
 
 ## Escalations
 

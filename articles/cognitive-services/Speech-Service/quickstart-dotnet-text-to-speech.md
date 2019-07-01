@@ -7,7 +7,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
 ---
@@ -43,7 +43,7 @@ This quickstart requires C# 7.1 or later. There are a few ways to change the C# 
 
 Open your project, then open `tts-sample.csproj`. Make sure that `LangVersion` is set to 7.1 or later. If there isn't a property group for the language version, add these lines:
 
-```csharp
+```xml
 <PropertyGroup>
    <LangVersion>7.1</LangVersion>
 </PropertyGroup>
@@ -231,6 +231,6 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-* [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Creating custom voice fonts](how-to-customize-voice-font.md)
 * [Record voice samples to create a custom voice](record-custom-voice-samples.md)

@@ -28,10 +28,13 @@ Running an existing application in a Windows container on a Service Fabric clust
 > [!NOTE]
 > This article applies to a Windows development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Windows containers on a Linux cluster.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 * A development computer running:
-  * Visual Studio 2015 or Visual Studio 2017.
+  * Visual Studio 2015 or Visual Studio 2019.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
   *  Docker for Windows. [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
 
@@ -168,9 +171,9 @@ docker rm my-web-site
 
 After you verify that the container runs on your development machine, push the image to your registry in Azure Container Registry.
 
-Run ``docker login`` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+Run ``docker login`` to sign in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could log in using your registry username and password.
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could sign in using your registry username and password.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -289,9 +292,9 @@ $clustername = "mycluster"
 
 $subscriptionId = "subscription ID"
 
-Login-AzureRmAccount
+Login-AzAccount
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Create a self signed cert, export to PFX file.
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
@@ -300,10 +303,8 @@ New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEnciphermen
 # Import the certificate to an existing key vault. The key vault must be enabled for deployment.
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
-
-# Add the certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
 ```
 Encrypt the password using the [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet.
 
@@ -356,10 +357,12 @@ Service Fabric then uses the default repository credentials which you can specif
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (string) --- Supported starting with the 6.4 runtime
 
-Here is an example of what you can add inside the `Hosting` section in the ClusterManifestTemplate.json file. For more information, see [Change Azure Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) and [Manage Azure Service Fabric application secrets](service-fabric-application-secret-management.md)
+Here is an example of what you can add inside the `Hosting` section in the ClusterManifestTemplate.json file. The `Hosting` section can be added at cluster creation or later in a configuration upgrade. For more information, see [Change Azure Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) and [Manage Azure Service Fabric application secrets](service-fabric-application-secret-management.md)
 
 ```json
-      {
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -384,6 +387,7 @@ Here is an example of what you can add inside the `Hosting` section in the Clust
           }
         ]
       },
+]
 ```
 
 ## Configure isolation mode
@@ -411,7 +415,11 @@ Windows supports two isolation modes for containers: process and Hyper-V. With t
 ```
 ## Configure docker HEALTHCHECK 
 
-Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image. 
+Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. 
+
+Starting with the latest refresh release of v6.4, you have the option to specify that docker HEALTHCHECK evaluations should be reported as an error. If this option is enabled, an **OK** health report will appear when *health_status* is *healthy* and **ERROR** will appear when *health_status* is *unhealthy*.
+
+The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
 
 ![HealthCheckHealthy][3]
 
@@ -426,12 +434,18 @@ You can configure **HEALTHCHECK**  behavior for each container by specifying **H
     <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+		      RestartContainerOnUnhealthyDockerHealthStatus="false" 
+		      TreatContainerUnhealthyStatusAsError="false" />
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
 ```
-By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true** and *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**. If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
+By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true**, *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**, and *TreatContainerUnhealthyStatusAsError* is set to **false**. 
+
+If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
+
+If *TreatContainerUnhealthyStatusAsError* is set to **true**, **ERROR** health reports will appear when the container's *health_status* is *unhealthy*.
 
 If you want to the disable the **HEALTHCHECK** integration for the entire Service Fabric cluster, you will need to set [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) to **false**.
 
@@ -466,7 +480,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Windows Server containers are not compatible across all versions of a host OS. For example:
  
 - Windows Server containers built using Windows Server version 1709 do not work on a host running Windows Server version 2016. 
-- Windows Server containers built using Windows Server 2016 work in hyperv isolation mode only on a host running Windows Server version 1709. 
+- Windows Server containers built using Windows Server 2016 work in Hyper-V isolation mode only on a host running Windows Server version 1709. 
 - With Windows Server containers built using Windows Server 2016, it might be necessary to ensure that the revision of the container OS and host OS are the same when running in process isolation mode on a host running Windows Server 2016.
  
 To learn more, see [Windows Container Version Compatibility](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
@@ -616,10 +630,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## Configure time interval before container is force terminated
 
-You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.  For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The following cluster manifest snippet shows how to set the wait interval:
+You can configure a time interval for the runtime to wait before the container is removed after the service deletion (or a move to another node) has started. Configuring the time interval sends the `docker stop <time in seconds>` command to the container.  For more detail, see [docker stop](https://docs.docker.com/engine/reference/commandline/stop/). The time interval to wait is specified under the `Hosting` section. The `Hosting` section can be added at cluster creation or later in a configuration upgrade. The following cluster manifest snippet shows how to set the wait interval:
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -628,7 +644,8 @@ You can configure a time interval for the runtime to wait before the container i
           },
 	      ...
         ]
-}
+	}
+]
 ```
 The default time interval is set to 10 seconds. Since this configuration is dynamic, a config only upgrade on the cluster updates the timeout. 
 
@@ -639,7 +656,9 @@ You can configure the Service Fabric cluster to remove unused container images f
 
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -653,7 +672,8 @@ You can configure the Service Fabric cluster to remove unused container images f
           ...
           }
         ]
-} 
+	} 
+]
 ```
 
 For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter.  
@@ -664,7 +684,9 @@ For images that shouldn't be deleted, you can specify them under the `ContainerI
 The Service Fabric runtime allocates 20 minutes to download and extract container images, which work for the majority of container images. For large images, or when the network connection is slow, it might be necessary to increase the time to wait before aborting the image download and extraction. This time out is set using the **ContainerImageDownloadTimeout** attribute in the **Hosting** section of the cluster manifest as shown in the following snippet:
 
 ```json
-{
+"fabricSettings": [
+	...,
+	{
         "name": "Hosting",
         "parameters": [
           {
@@ -672,7 +694,8 @@ The Service Fabric runtime allocates 20 minutes to download and extract containe
               "value": "1200"
           }
         ]
-}
+	}
+]
 ```
 
 
@@ -693,7 +716,9 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
  
 
 ```json
-{ 
+"fabricSettings": [
+	...,
+	{ 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -701,8 +726,8 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+	} 
+]
 ```
 
 ## Next steps

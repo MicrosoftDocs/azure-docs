@@ -82,6 +82,9 @@ As mentioned in the [strategy for personal data handling](#strategy-for-personal
 
 For both view and export data requests, the [Log Analytics query API](https://dev.loganalytics.io/) or the  [Application Insights query API](https://dev.applicationinsights.io/quickstart) should be used. Logic to convert the shape of the data to an appropriate one to deliver to your users will be up to you to implement. [Azure Functions](https://azure.microsoft.com/services/functions/) makes a great place to host such logic.
 
+> [!IMPORTANT]
+>  While the vast majority of purge operations may complete much quicker than the SLA, **the formal SLA for the completion of purge operations is set at 30 days** due to their heavy impact on the data platform used. This is an automated process; there is no way to request that an operation be handled faster.
+
 ### Delete
 
 > [!WARNING]

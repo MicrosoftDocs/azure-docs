@@ -17,7 +17,7 @@ The time required to complete a restart depends on the MariaDB recovery process.
 
 ## Prerequisites
 To complete this how-to guide, you need:
-- An [Azure Database for MariaDB server and database](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- An [Azure Database for MariaDB server](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## Perform server restart
 

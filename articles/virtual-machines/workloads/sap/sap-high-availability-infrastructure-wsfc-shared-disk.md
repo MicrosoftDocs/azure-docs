@@ -30,7 +30,7 @@ ms.custom: H1Hack27Feb2017
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -232,15 +232,15 @@ For production SAP systems, deploy Azure virtual machines with [corporate networ
 2. In the **SUBNETID** box, add the full string of your prepared Azure network subnet ID where you plan to deploy your Azure virtual machines.
 3. To get a list of all Azure network subnets, run this PowerShell command:
 
-   ```PowerShell
-   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
+   ```powershell
+   (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    The **ID** field shows the value for the subnet ID.
 4. To get a list of all subnet ID values, run this PowerShell command:
 
-   ```PowerShell
-   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
+   ```powershell
+   (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 
    The subnet ID looks like this:
@@ -736,8 +736,9 @@ Configuring a cluster file share witness involves these tasks:
 
 After you successfully install the Windows failover cluster, you need to change some thresholds so they adapt failover detection to conditions in Azure. The parameters to be changed are documented in [Tuning failover cluster network thresholds][tuning-failover-cluster-network-thresholds]. Assuming that your two VMs that make up the Windows cluster configuration for ASCS/SCS are in the same subnet, change the following parameters to these values:
 
-- SameSubNetDelay = 2
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
 
 These settings were tested with customers, and offer a good compromise. They are resilient enough, but they also provide failover that is fast enough in real error conditions on an SAP software or in a node or VM failure.
 

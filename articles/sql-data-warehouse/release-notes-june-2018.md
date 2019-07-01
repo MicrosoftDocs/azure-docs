@@ -2,14 +2,14 @@
 title: Azure SQL Data Warehouse Release Notes June 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: 
 ms.date: 07/23/2018
-ms.author: twounder
-ms.reviewer: twounder
+ms.author: anjangsh
+ms.reviewer: jrasnick
 ---
 
 # What's new in Azure SQL Data Warehouse? June 2018
@@ -22,7 +22,7 @@ SQL Data Warehouse automatically takes snapshots of your data warehouse every 8 
 
 SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
 
-```PowerShell
+```powershell
 New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName

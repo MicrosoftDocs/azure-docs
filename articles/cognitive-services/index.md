@@ -7,13 +7,103 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/21/2019
+ms.date: 06/20/2019
 ms.topic: hub-page
 ---
 
 <div id="main" class="v2">
 <h1>Azure Cognitive Services Documentation</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.</p>
+
+
+<h2>Cognitive Services APIs</h2>
+<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Vision API</h3>
+                        <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
+                        <p><a href="/azure/cognitive-services/face/">Face API</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Form Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Ink Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Speech API</h3>
+						<p><a href="/azure/cognitive-services/speech-service">Speech Services</a></p>
+                        <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/speech/home"><span>Bing Speech API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/translator-speech/"><span>Translator Speech&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Language API</h3>
+                        <p><a href="/azure/cognitive-services/immersive-reader"><span>Immersive Reader&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
+                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
+                        <p><a href="/azure/cognitive-services/text-analytics/">Text Analytics</a></p>
+                        <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Search API</h3>
+                        <p><a href="/azure/cognitive-services/bing-news-search/">Bing News Search</a></p>
+                        <p><a href="/azure/cognitive-services/Bing-Video-Search/">Bing Video Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/">Bing Web Search</a></p>
+                        <p><a href="/azure/cognitive-services/Bing-Autosuggest">Bing Autosuggest</a></p>
+                        <p><a href="/azure/cognitive-services/bing-custom-search">Bing Custom Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-entities-search/">Bing Entity Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search">Bing Image Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search">Bing Visual Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing Spell Check</a></p>
+                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing Local Business Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Decision API</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Anomaly Detector&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</div>
+
+<h2>Getting started</h2>
 <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
         <li>
             <a href="/azure/cognitive-services/welcome/">
@@ -281,109 +371,4 @@ ms.topic: hub-page
     </li>
 </ul>
 
-<h2>Cognitive Services APIs</h2>
-<ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Vision API</h3>
-                        <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/face/">Face API</a></p>
-                        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Speech API</h3>
-						<p><a href="/azure/cognitive-services/speech-service">Speech Service API</a></p>
-                        <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/speech/home"><span>Bing Speech API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/translator-speech/"><span>Translator Speech&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
-                     </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Language API</h3>
-                        <p><a href="/azure/cognitive-services/bing-spell-check/">Bing Spell Check</a></p>
-                        <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
-                        <p><a href="/azure/cognitive-services/text-analytics/">Text Analytics</a></p>
-                        <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Knowledge API</h3>
-                            <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Search API</h3>
-                        <p><a href="/azure/cognitive-services/bing-news-search/">Bing News Search</a></p>
-                        <p><a href="/azure/cognitive-services/Bing-Video-Search/">Bing Video Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-web-search/">Bing Web Search</a></p>
-                        <p><a href="/azure/cognitive-services/Bing-Autosuggest">Bing Autosuggest</a></p>
-                        <p><a href="/azure/cognitive-services/bing-custom-search">Bing Custom Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-entities-search/">Bing Entity Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-image-search">Bing Image Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-visual-search">Bing Visual Search</a></p>
-                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing Local Business Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Labs</h3>
-                        <p><a href="https://docs.microsoft.com/gestures/">Project Gesture</a></p>
-                        <p><a href="/azure/cognitive-services/project-personality-chat/overview">Project Personality Chat</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview">Project Event Tracking</a></p>
-                        <p><a href="/azure/cognitive-services/academic-knowledge/home">Project Academic Knowledge</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation">Project Local Insights</a></p>
-                        <p><a href="/azure/cognitive-services/kes/overview">Project Knowledge Exploration Service</a></p>
-                        <p><a href="/azure/cognitive-services/entitylinking/home">Project Entity Linking</a></p>
-                        <p><a href="/azure/cognitive-services/labs/url-preview/overview">Project URL Preview</a></p>
-                        <p><a href="/azure/cognitive-services/labs/answer-search/overview">Project Answer Search</a></p>
-                        <p><a href="/azure/cognitive-services/labs/anomaly-finder/overview">Project Anomaly Finder</a></p>
-                        <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">Project Conversation Learner</a></p>
-                        <p><a href="/azure/cognitive-services/acoustics/what-is-acoustics">Project Acoustics</a></p>
-                        <p><a href="/azure/cognitive-services/custom-decision-service/"><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-</div>
+

@@ -1,7 +1,6 @@
 ---
 title: Author policies for array properties on Azure resources
 description: Learn to create array parameters, create rules for array language expressions, evaluate the [*] alias, and to append elements to an existing array with Azure Policy definition rules.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/06/2019
@@ -236,9 +235,9 @@ For more information, see the [append examples](../concepts/effects.md#append-ex
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md)
-- Review the [Policy definition structure](../concepts/definition-structure.md)
-- Review [Understanding policy effects](../concepts/effects.md)
-- Understand how to [programmatically create policies](programmatically-create.md)
-- Learn how to [remediate non-compliant resources](remediate-resources.md)
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md)
+- Review examples at [Azure Policy samples](../samples/index.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
+- Review [Understanding policy effects](../concepts/effects.md).
+- Understand how to [programmatically create policies](programmatically-create.md).
+- Learn how to [remediate non-compliant resources](remediate-resources.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

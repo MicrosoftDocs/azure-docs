@@ -7,14 +7,14 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Troubleshoot common issues in Azure Container Instances
 
-This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances.
+This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances. See also [Frequently asked questions](container-instances-faq.md).
 
 ## Naming conventions
 
@@ -42,11 +42,7 @@ If you specify an image that Azure Container Instances doesn't support, an `OsVe
 }
 ```
 
-This error is most often encountered when deploying Windows images that are based on a Semi-Annual Channel (SAC) release. For example, Windows versions 1709 and 1803 are SAC releases, and generate this error upon deployment.
-
-Azure Container Instances currently supports Windows images based only on the **Windows Server 2016 Long-Term Servicing Channel (LTSC)** release. To mitigate this issue when deploying Windows containers, always deploy Windows Server 2016 (LTSC)-based images. Images based on Windows Server 2019 (LTSC) are not supported.
-
-For details about the LTSC and SAC versions of Windows, see [Windows Server Semi-Annual Channel overview][windows-sac-overview].
+This error is most often encountered when deploying Windows images that are based on Semi-Annual Channel release 1709 or 1803, which are not supported. For supported Windows images in Azure Container Instances, see [Frequently asked questions](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## Unable to pull image
 
@@ -62,7 +58,7 @@ If the image can't be pulled, events like the following are shown in the output 
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-helloworld\"",
+    "message": "pulling image \"mcr.microsoft.com/azuredocs/aci-hellowrld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -70,7 +66,7 @@ If the image can't be pulled, events like the following are shown in the output 
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"mcr.microsoft.com/azuredocs/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -78,7 +74,7 @@ If the image can't be pulled, events like the following are shown in the output 
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
+    "message": "Back-off pulling image \"mcr.microsoft.com/azuredocs/aci-hellowrld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -98,7 +94,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -152,7 +148,7 @@ The two primary factors that contribute to container startup time in Azure Conta
 * [Image size](#image-size)
 * [Image location](#image-location)
 
-Windows images have [additional considerations](#cached-windows-images).
+Windows images have [additional considerations](#cached-images).
 
 ### Image size
 
@@ -162,8 +158,8 @@ You can view the size of your container image by using the `docker images` comma
 
 ```console
 $ docker images
-REPOSITORY                  TAG       IMAGE ID        CREATED        SIZE
-microsoft/aci-helloworld    latest    7f78509b568e    13 days ago    68.1MB
+REPOSITORY                                    TAG       IMAGE ID        CREATED          SIZE
+mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 months ago    67.6MB
 ```
 
 The key to keeping image sizes small is ensuring that your final image does not contain anything that is not required at runtime. One way to do this is with [multi-stage builds][docker-multi-stage-builds]. Multi-stage builds make it easy to ensure that the final image contains only the artifacts you need for your application, and not any of the extra content that was required at build time.
@@ -172,14 +168,12 @@ The key to keeping image sizes small is ensuring that your final image does not 
 
 Another way to reduce the impact of the image pull on your container's startup time is to host the container image in [Azure Container Registry](/azure/container-registry/) in the same region where you intend to deploy container instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
 
-### Cached Windows images
+### Cached images
 
-Azure Container Instances uses a caching mechanism to help speed container startup time for images based on common Windows and Linux images. For a detailed list of cached images and tags, use the [List Cached Images][list-cached-images] API.
+Azure Container Instances uses a caching mechanism to help speed container startup time for images built on common [Windows base images](container-instances-faq.md#what-windows-base-os-images-are-supported), including `nanoserver:1809`, `servercore:ltsc2019`, and `servercore:1809`. Commonly used Linux images such as `ubuntu:1604` and `alpine:3.6` are also cached. For an up-to-date list of cached images and tags, use the [List Cached Images][list-cached-images] API.
 
-To ensure the fastest Windows container startup time, use one of the **three most recent** versions of the following **two images** as the base image:
-
-* [Windows Server Core 2016][docker-hub-windows-core] (LTSC only)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> Use of Windows Server 2019-based images in Azure Container Instances is in preview.
 
 ### Windows containers slow network readiness
 
@@ -214,8 +208,8 @@ Learn how to [retrieve container logs and events](container-instances-get-logs.m
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
-[docker-hub-windows-core]: https://hub.docker.com/r/microsoft/windowsservercore/
-[docker-hub-windows-nano]: https://hub.docker.com/r/microsoft/nanoserver/
+[docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
+[docker-hub-windows-nano]: https://hub.docker.com/_/microsoft-windows-nanoserver
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show

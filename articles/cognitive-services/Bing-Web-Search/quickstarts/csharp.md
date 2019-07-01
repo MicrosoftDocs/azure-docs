@@ -22,7 +22,7 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 Here are a few things that you'll need before running this quickstart:
 
-* Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* Windows: [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
 * Linux/macOS: [Mono](https://www.mono-project.com/)  
 * A subscription key
 

@@ -7,17 +7,23 @@ author: anikaz
 manager: johndeu
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 05/15/2019
 ms.author: anzaman
 ---
 
 # Customize a Person model in Video Indexer
 
+Video Indexer supports celebrity recognition in your videos. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that are not recognized by Video Indexer are still detected but are left unnamed. Customers can build custom Person models and enable Video Indexer to recognize faces that are not recognized by default. Customers can build these Person models by pairing a person's name with image files of the person's face.  
 
-Video Indexer supports face detection and celebrity recognition for video content. The celebrity recognition feature covers approximately 1,000,000 faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. Faces that are not recognized by the celebrity recognition feature are detected; however, they are left unnamed. After you upload your video to Video Indexer and get results back, you can go back and name the faces that were not recognized. Once you label a face with a name, the face and name get added to your account's Person model. Video Indexer will then recognize this face in your future videos and past videos.
+If your account caters to different use-cases, you can benefit from being able to create multiple Person models per account. For example, if the content in your account is meant to be sorted into different channels, you might want to create a separate Person model for each channel. 
 
-You can use the Video Indexer website or API to edit faces that were detected in a video in your account, as described in the following topics:
+> [!NOTE]
+> Each Person model supports up to 1 million people and each account has a limit of 50 Person models. 
 
-- [Customize Person model using APIs](customize-person-model-with-api.md)
-- [Customize Person model using the website](customize-person-model-with-website.md)
+Once a model is created, you can use it by providing the model ID of a specific Person model when uploading/indexing or reindexing a video. Training a new face for a video, updates the specific custom model that the video was associated with. 
+
+If you do not need the multiple Person model support, do not assign a Person model ID to your video when uploading/indexing or reindexing. In this case, Video Indexer will use the default Person model in your account. 
+
+You can use the Video Indexer website to edit faces that were detected in a video and to manage multiple custom Person models in your account, as described in the [Customize a Person model using a website](customize-person-model-with-website.md) topic. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).

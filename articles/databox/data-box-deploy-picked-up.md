@@ -1,5 +1,5 @@
 ---
-title: Ship Microsoft Azure Data Box back| Microsoft Docs
+title: Tutorial to ship Azure Data Box back| Microsoft Docs
 description: Learn how to ship your Azure Data Box to Microsoft
 services: databox
 author: alkohli
@@ -42,7 +42,7 @@ Before you begin, make sure:
 2. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, contact Microsoft Support. If the Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device. 
 3. Schedule a pickup with UPS if returning the device. To schedule a pickup:
 
-    - Call the local UPS (country-specific toll free number).
+    - Call the local UPS (country/region-specific toll free number).
     - In your call, quote the reverse shipment tracking number as shown in the E-ink display or your printed label.
     - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
 

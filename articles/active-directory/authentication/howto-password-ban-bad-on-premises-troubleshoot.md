@@ -41,7 +41,13 @@ The main symptom of this problem is 30018 events in the DC agent Admin event log
 
 ## The Proxy service can receive calls from DC agents in the domain but is unable to communicate with Azure
 
-Ensure the proxy machine has connectivity to the endpoints listed in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
+1. Ensure the proxy machine has connectivity to the endpoints listed in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
+
+1. Ensure that the forest and all proxy servers are registered against the same Azure tenant.
+
+   You can check this by running the  `Get-AzureADPasswordProtectionProxy` and `Get-AzureADPasswordProtectionDCAgent` PowerShell cmdlets, then compare the `AzureTenant` property of each returned item. For correct operation these must be the same within a forest, across all DC agents and proxy servers.
+
+   If an Azure tenant registration mismatch condition does exist, this can be repaired by running the `Register-AzureADPasswordProtectionProxy` and/or `Register-AzureADPasswordProtectionForest` PowerShell cmdlets as needed, making sure to use credentials from the same Azure tenant for all registrations.
 
 ## The DC agent is unable to encrypt or decrypt password policy files and other state
 
@@ -102,7 +108,7 @@ If it is decided to uninstall the Azure AD password protection software and clea
 2. Uninstall the DC Agent software from all domain controllers. This step **requires** a reboot.
 3. Manually remove all Proxy service connection points in each domain naming context. The location of these objects may be discovered with the following Active Directory PowerShell command:
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -114,7 +120,7 @@ If it is decided to uninstall the Azure AD password protection software and clea
 
 4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the software was deployed. The location of that object may be discovered with the following Active Directory PowerShell command:
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -126,7 +132,7 @@ If it is decided to uninstall the Azure AD password protection software and clea
 
 5. Manually remove the forest-level configuration state. The forest configuration state is maintained in a container in the Active Directory configuration naming context. It can be discovered and deleted as follows:
 
-   ```PowerShell
+   ```powershell
    $passwordProtectionConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject -Recursive $passwordProtectionConfigContainer
    ```

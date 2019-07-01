@@ -68,7 +68,7 @@ DevTest Labs lets you better manage the costs in  your lab by setting a spending
    - Specify a **Target cost**. For example, how much you plan to spend on this lab in the time period you defined.
    - Select to enable or disable any threshold you want reported – in increments of 25% – up to 125% of your specified **Target cost**.
       - **Notify**: When this threshold is met, you are notified by a webhook URL you specify.
-      - **Plot on chart**: When this threshold is met, the results are plotted on the cost trend graph that you can view, as described in [Viewing the Monthly Estimated Cost Trend chart](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Plot on chart**: When this threshold is met, the results are plotted on the cost trend graph that you can view, as described in Viewing the Monthly Estimated Cost Trend chart.
    - If you choose to **Notify** when the threshold is met, you must specify a webhook URL. In the Cost integrations area, select **Click here to add an integration**. Enter a **Webhook URL** in the Configure notification pane and then select **OK**.
 
        ![Configure notification pane](./media/devtest-lab-configure-cost-management/configure-notification.png)

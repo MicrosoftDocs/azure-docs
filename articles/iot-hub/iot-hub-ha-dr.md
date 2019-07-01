@@ -27,7 +27,7 @@ Depending on the uptime goals you define for your IoT solutions, you should dete
 
 ## Intra-region HA
 
-The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No additional work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premise solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](iot-hub-reliability-features-in-sdks.md) must be built in to the components interacting with a cloud application to deal with transient failures.
+The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No additional work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premises solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](iot-hub-reliability-features-in-sdks.md) must be built in to the components interacting with a cloud application to deal with transient failures.
 
 > [!NOTE]
 > Some Azure services also provide additional layers of availability within a region by integrating with [Availability Zones (AZs)](../availability-zones/az-overview.md). AZs are currently not supported by the IoT Hub service.
@@ -77,8 +77,6 @@ The manual failover option is always available for use irrespective of whether t
 > - Test drills should not be performed on IoT hubs that are being used in your production environments.
 >
 > - Manual failover should not be used as a mechanism to permanently migrate your hub between the Azure geo paired regions. Doing so would cause an increased latency for the operations being performed against the hub from devices homed in the old primary region.
->
-> - Manual failover is currently in preview and is not available in the following Azure regions. East US, West US, North Europe, West Europe, Brazil South, South Central US.
 
 ### Failback
 

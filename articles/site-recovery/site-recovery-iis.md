@@ -104,7 +104,7 @@ If the connection string refers to the database virtual machine by using an IP a
 		</connectionStrings>
 		</configuration>
 
-To update the connection string in the web tier, add an [IIS connection update script](https://aka.ms/asr-update-webtier-script-classic) after Group 3 in the recovery plan.
+To update the connection string in the web tier, add an [IIS connection update script](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc) after Group 3 in the recovery plan.
 
 #### Site bindings for the application
 Every site consists of binding information. The binding information includes the type of binding, the IP address at which the IIS server listens to the requests for the site, the port number, and the host names for the site. During the failover, you might need to update these bindings if there's a change in the IP address that's associated with them.

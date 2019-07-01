@@ -1,7 +1,6 @@
 - name: Azure Blueprints documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: Overview of Azure Blueprints
     displayName: templates, policy, definition, assignment, rbac
@@ -16,7 +15,6 @@
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Create from a blueprint sample
     displayName: template, resource group, rbac, role assignment
@@ -25,7 +23,6 @@
     displayName: read only, do not delete, lock assignment
     href: ./tutorials/protect-new-resources.md
 - name: Samples
-  expanded: true
   items:
   - name: Index
     displayName: list, examples
@@ -52,8 +49,34 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
+  - name: NIST SP 800-53 Rev 4
+    items:
+    - name: Control mapping
+      displayName: standards, nist, 800-53
+      href: ./samples/nist-sp-800-53-rev4/control-mapping.md
+  - name: PCI-DSS v3.2.1
+    items:
+    - name: Overview
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/index.md
+    - name: Control mapping
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/deploy.md
+  - name: UK OFFICIAL and UK NHS
+    items:
+    - name: Overview
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/index.md
+    - name: Control mapping
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/deploy.md
 - name: Concepts
-  expanded: true
   items:
   - name: Lifecycle of a blueprint
     displayName: publish, edit, delete, assignments
@@ -71,7 +94,6 @@
     displayName: mode, state, read only, edit, denyAssignments
     href: ./concepts/resource-locking.md
 - name: How-to guides
-  expanded: true
   items:
   - name: Manage assignments with PowerShell
     displayName: create, update, remove
@@ -79,12 +101,15 @@
   - name: Update existing assignments from the portal
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
+  - name: Manage Blueprints as Code (community)
+    href: https://github.com/Azure/azure-blueprints/blob/master/README.md
 - name: Troubleshoot
   displayName: errors, violation
   href: ./troubleshoot/general.md
 - name: References
-  expanded: true
   items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.blueprint/#blueprint
   - name: Azure SDK for .NET
     href: /dotnet/api/overview/azure/blueprints/management
   - name: REST
@@ -93,8 +118,12 @@
     href: https://www.powershellgallery.com/packages/Az.Blueprint
   - name: PSGallery (community module)
     href: https://www.powershellgallery.com/packages/Manage-AzureRMBlueprint
+  - name: Blueprint functions
+    href: ./reference/blueprint-functions.md
 - name: Resources
   items:
+  - name: GitHub - Azure Blueprints samples
+    href: https://github.com/Azure/azure-blueprints
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator

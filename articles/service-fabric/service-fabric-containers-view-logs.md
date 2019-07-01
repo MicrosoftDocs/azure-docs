@@ -4,7 +4,7 @@ description: Describes how to view container logs for a running Service Fabric c
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 

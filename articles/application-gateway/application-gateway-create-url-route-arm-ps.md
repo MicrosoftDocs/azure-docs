@@ -30,9 +30,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. To find the version, run ` Get-Module -ListAvailable AzureRM` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module. To find the version, run `Get-Module -ListAvailable Az` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -93,7 +93,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### Create the default pool and settings
 
-Create the default backend pool named *appGatewayBackendPool* for the application gateway using [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure the settings for the backend pool using [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
+Create the default backend pool named *appGatewayBackendPool* for the application gateway using [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure the settings for the backend pool using [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -351,11 +351,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Test base URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest.png)
 
-Change the URL to http://<ip-address>:8080/video/test.htm, substituting your IP address for <ip-address>, and you should see something like the following example:
+Change the URL to `http://<ip-address>:8080/video/test.htm`, substituting your IP address for `<ip-address>`, and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-images.png)
 
-Change the URL to http://<ip-address>:8080/video/test.htm and you should see something like the following example:
+Change the URL to `http://<ip-address>:8080/video/test.htm` and you should see something like the following example:
 
 ![Test video URL in application gateway](./media/application-gateway-create-url-route-arm-ps/application-gateway-iistest-video.png)
 

@@ -71,8 +71,8 @@ Add this Managed Service Identity (MSI) extension to the template at the top of 
 // Add this code directly below.
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "WADExtensionSetup",
-        "apiVersion": "2015-05-01-preview",
+        "name": "[concat(variables('vmName'), '/', 'WADExtensionSetup')]",
+        "apiVersion": "2017-12-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" ],
@@ -142,7 +142,7 @@ Add the following configuration to enable the Diagnostics extension on a Windows
 {
             "type": "extensions",
             "name": "Microsoft.Insights.VMDiagnosticsSettings",
-            "apiVersion": "2015-05-01-preview",
+            "apiVersion": "2017-12-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -238,12 +238,12 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
 1. Get your list of subscriptions by using `Get-AzSubscription`.
 1. Set the subscription that you're using to create/update the virtual machine in:
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. To create a new resource group for the VM that's being deployed, run the following command:
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
@@ -253,7 +253,7 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
    > [!NOTE]
    > If you wish to update an existing VM, simply add *-Mode Incremental* to the end of the following command.
 
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 

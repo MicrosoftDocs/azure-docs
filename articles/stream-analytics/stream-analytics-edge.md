@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 4/2/2019
 ms.custom: seodec18
 ---
 
@@ -107,7 +107,8 @@ These steps are described in the IoT Edge documentation for [Windows](https://do
 
 > [!Note]
 > During this step, ASA creates a folder named "EdgeJobs" in the storage container (if it does not exist already). For each  deployment, a new subfolder is created in the "EdgeJobs" folder.
-> In order to deploy your job to edge devices, ASA creates a shared access signature (SAS) for the job definition file. The SAS key is securely transmitted to the IoT Edge devices using device twin. The expiration of this key is three years from the day of its creation.
+> When you deploy your job to IoT Edge devices, ASA creates a shared access signature (SAS) for the job definition file. The SAS key is securely transmitted to the IoT Edge devices using device twin. The expiration of this key is three years from the day of its creation. 
+> When you update an IoT Edge job, the SAS will change, but the image version will not change. Once you **Update**, follow the deployment workflow, and an update notification is logged on the device.
 
 
 For more information about IoT Edge deployments, see to [this page](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -140,7 +141,7 @@ This example defines the following routes:
 
 ## Technical information
 ### Current limitations for IoT Edge jobs compared to cloud jobs
-The goal is to have parity between IoT Edge jobs and cloud jobs. Most SQL query language features are already supported.
+The goal is to have parity between IoT Edge jobs and cloud jobs. Most SQL query language features are supported, enabling to run the same logic on both cloud and IoT Edge.
 However the following features are not yet supported for edge jobs:
 * User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
 * User-defined aggregates (UDA).
@@ -148,14 +149,6 @@ However the following features are not yet supported for edge jobs:
 * Using more than 14 aggregates in a single step.
 * AVRO format for input/output. At this time, only CSV and JSON are supported.
 * The following  SQL operators:
-    * Geospatial operators:
-        * CreatePoint
-        * CreatePolygon
-        * CreateLineString
-        * ST_DISTANCE
-        * ST_WITHIN
-        * ST_OVERLAPS
-        * ST_INTERSECTS
     * PARTITION BY
     * GetMetadataPropertyValue
 

@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/18/2019
 ms.author: mbullwin
 ---
 # Explore Java trace logs in Application Insights
@@ -110,6 +110,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
     <appender name="aiAppender" 
       class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
+        <instrumentationKey>[APPLICATION_INSIGHTS_KEY]</instrumentationKey>
     </appender>
     <root level="trace">
       <appender-ref ref="aiAppender" />
@@ -122,7 +123,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
     <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
-        <ApplicationInsightsAppender name="aiAppender" />
+        <ApplicationInsightsAppender name="aiAppender" instrumentationKey="[APPLICATION_INSIGHTS_KEY]" />
       </Appenders>
       <Loggers>
         <Root level="trace">
@@ -138,6 +139,7 @@ To start getting traces, merge the relevant snippet of code to the Log4J or Logb
 
     <appender name="aiAppender" 
          class="com.microsoft.applicationinsights.log4j.v1_2.ApplicationInsightsAppender">
+        <param name="instrumentationKey" value="[APPLICATION_INSIGHTS_KEY]" />
     </appender>
     <root>
       <priority value ="trace" />

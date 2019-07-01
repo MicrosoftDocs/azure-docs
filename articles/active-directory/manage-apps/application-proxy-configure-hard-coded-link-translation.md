@@ -3,8 +3,8 @@ title: Translate links and URLs Azure AD App Proxy | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -55,13 +55,14 @@ With the MyApps Browser Extension, all internal URLs published with Application 
 
 To use this feature, the user needs to download the extension and be logged in. There is no other configuration needed for admins or the users. 
 
- 
+To learn more, including how to configure this option, please see the [MyApps Browser Extension](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
 
 ### Option 3: Link Translation Setting 
 
-When link translation is enabled, the Application Proxy service searches through HTML and CSS for published internal links and translates them so that your users get an uninterrupted experience. 
+When link translation is enabled, the Application Proxy service searches through HTML and CSS for published internal links and translates them so that your users get an uninterrupted experience. Using the MyApps Browser Extension is preferred to the Link Translation Setting since it gives a more performant experience to users.
 
-
+> [!NOTE]
+> If you are using option 2 or 3, only one of these should be enabled at a time.
 
 ## How link translation works
 
@@ -77,6 +78,31 @@ There are two common types of internal links in on-premises applications:
 
 - **Relative internal links** that point to a shared resource in a local file structure like `/claims/claims.html`. These links automatically work in apps that are published through Application Proxy, and continue to work with or without link translation. 
 - **Hardcoded internal links** to other on-premises apps like `http://expenses` or published files like `http://expenses/logo.jpg`. The link translation feature works on hardcoded internal links, and changes them to point to the external URLs that remote users need to go through.
+
+The complete list of HTML code tags that Application Proxy supports link translation for include:
+* a
+* audio
+* base
+* button
+* div
+* embed
+* form
+* frame
+* head
+* html
+* iframe
+* img
+* input
+* link
+* menuitem
+* meta
+* object
+* script
+* source
+* track
+* video
+
+Additionally, within CSS the URL attribute is also translated.
 
 ### How do apps link to each other?
 

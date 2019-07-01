@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/21/2019
 ms.author: apimpm
 ---
 
@@ -85,6 +85,9 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 >
 > [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
 
+> [!CAUTION]
+> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
+
 ### Policy statement
 
 ```xml
@@ -141,6 +144,9 @@ This policy can be used in the following policy [sections](https://azure.microso
 The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this policy is triggered the caller receives a `429 Too Many Requests` response status code.
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+
+> [!CAUTION]
+> Due to the distributed nature of throttling architecture, rate limiting is never completely accurate. The difference between configured and the real number of allowed requests vary based on request volume and rate, backend latency, and other factors.
 
 ### Policy statement
 
@@ -209,10 +215,12 @@ The `ip-filter` policy filters (allows/denies) calls from specific IP addresses 
 
 ### Example
 
+In the following example, the policy only allows requests coming either from the single IP address or range of IP addresses specified
+
 ```xml
-<ip-filter action="allow | forbid">
-    <address>address</address>
-    <address-range from="address" to="address" />
+<ip-filter action="allow">
+    <address>13.66.201.169</address>
+    <address-range from="13.66.140.128" to="13.66.140.143" />
 </ip-filter>
 ```
 
@@ -304,8 +312,6 @@ The `quota-by-key` policy enforces a renewable or lifetime call volume and/or ba
 
 For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
 
-> [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.
-
 ### Policy statement
 
 ```xml
@@ -378,7 +384,8 @@ The `validate-jwt` policy enforces existence and validity of a JWT extracted fro
     require-expiration-time="true|false"
     require-scheme="scheme"
     require-signed-tokens="true|false"
-    clock-skew="allowed clock skew in seconds">
+    clock-skew="allowed clock skew in seconds"
+    output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
   <issuer-signing-keys>
     <key>base64 encoded signing key</key>
     <!-- if there are multiple keys, then add additional key elements -->
@@ -460,43 +467,32 @@ The `validate-jwt` policy enforces existence and validity of a JWT extracted fro
 
 #### Authorize access to operations based on token claims
 
-This example shows how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize access to operations based on token claims. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 13:50. Fast forward to 15:00 to see the policies configured in the policy editor and then to 18:50 for a demonstration of calling an operation from the developer portal both with and without the required authorization token.
+This example shows how to use the [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to authorize access to operations based on token claims value.
 
 ```xml
-<!-- Copy the following snippet into the inbound section at the api (or higher) level to pre-authorize access to operations based on token claims -->
-<set-variable name="signingKey" value="insert signing key here" />
+<validate-jwt header-name="Authorization" require-scheme="Bearer" output-token-variable-name="jwt">
+    <issuer-signing-keys>
+        <key>{{jwt-signing-key}}</key> <!-- signing key is stored in a named value -->
+    </issuer-signing-keys>
+    <audiences>
+        <audience>@(context.Request.OriginalUrl.Host)</audience>
+    </audiences>
+    <issuers>
+        <issuer>contoso.com</issuer>
+    </issuers>
+    <required-claims>
+        <claim name="group" match="any">
+            <value>finance</value>
+            <value>logistics</value>
+        </claim>
+    </required-claims>
+</validate-jwt>
 <choose>
-  <when condition="@(context.Request.Method.Equals("patch",StringComparison.OrdinalIgnoreCase))">
-    <validate-jwt header-name="Authorization">
-      <issuer-signing-keys>
-        <key>@((string)context.Variables["signingKey"])</key>
-      </issuer-signing-keys>
-      <required-claims>
-        <claim name="edit">
-          <value>true</value>
-        </claim>
-      </required-claims>
-    </validate-jwt>
-  </when>
-  <when condition="@(new [] {"post", "put"}.Contains(context.Request.Method,StringComparer.OrdinalIgnoreCase))">
-    <validate-jwt header-name="Authorization">
-      <issuer-signing-keys>
-        <key>@((string)context.Variables["signingKey"])</key>
-      </issuer-signing-keys>
-      <required-claims>
-        <claim name="create">
-          <value>true</value>
-        </claim>
-      </required-claims>
-    </validate-jwt>
-  </when>
-  <otherwise>
-    <validate-jwt header-name="Authorization">
-      <issuer-signing-keys>
-        <key>@((string)context.Variables["signingKey"])</key>
-      </issuer-signing-keys>
-    </validate-jwt>
-  </otherwise>
+    <when condition="@(context.Request.Method == "POST" && !((Jwt)context.Variables["jwt"]).Claims["group"].Contains("finance"))">
+        <return-response>
+            <set-status code="403" reason="Forbidden" />
+        </return-response>
+    </when>
 </choose>
 ```
 
@@ -546,6 +542,7 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | require-signed-tokens           | Boolean. Specifies whether a token is required to be signed.                                                                                                                                                                                                                                                                                                                                                                                           | No                                                                               | true                                                                              |
 | separator                       | String. Specifies a separator (e.g. ",") to be used for extracting a set of values from a multi-valued claim.                                                                                                                                                                                                                                                                                                                                          | No                                                                               | N/A                                                                               |
 | url                             | Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. The response should be according to specs as defined at URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`. | Yes                                                                              | N/A                                                                               |
+output-token-variable-name|String. Name of context variable that will receive token value as an object of type [`Jwt`](api-management-policy-expressions.md) upon successful token validation|No|N/A
 
 ### Usage
 

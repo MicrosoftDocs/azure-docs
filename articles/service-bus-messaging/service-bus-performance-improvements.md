@@ -91,6 +91,15 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 Batching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol using the [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) library. The HTTP protocol does not support batching.
 
+> [!NOTE]
+> Setting BatchFlushInterval ensures that the batching is implicit from the application's perspective. i.e. The application makes SendAsync() and CompleteAsync() calls and does not make specific Batch calls.
+>
+> Explicit client side batching can be implemented by utilizing the below method call - 
+> ```csharp
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
+> ```
+> Here the combined size of the messages must be less than the maximum size supported by the pricing tier.
+
 ## Batching store access
 
 To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. If enabled on a queue or topic, writing messages into the store will be batched. If enabled on a queue or subscription, deleting messages from the store will be batched. If batched store access is enabled for an entity, Service Bus delays a store write operation regarding that entity by up to 20 ms. 
@@ -123,6 +132,19 @@ Prefetching messages increases the overall throughput for a queue or subscriptio
 The time-to-live (TTL) property of a message is checked by the server at the time the server sends the message to the client. The client does not check the message’s TTL property when the message is received. Instead, the message can be received even if the message’s TTL has passed while the message was cached by the client.
 
 Prefetching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
+
+## Prefetching and ReceiveBatch
+
+While the concepts of prefetching multiple messages together have similar semantics to processing messages in a batch (ReceiveBatch), there are some minor differences that must be kept in mind when leveraging these together.
+
+Prefetch is a configuration (or mode) on the client (QueueClient and SubscriptionClient) and ReceiveBatch is an operation (that has request-response semantics).
+
+While using these together, consider the following cases -
+
+* Prefetch should be greater than or equal to the number of messages you are expecting to receive from ReceiveBatch.
+* Prefetch can be up to n/3 times the number of messages processed per second, where n is the default lock duration.
+
+There are some challenges with having a greedy approach(i.e. keeping the prefetch count very high), because it implies that the message is locked to a particular receiver. The recommendation is to try out prefetch values between the thresholds mentioned above and empirically identify what fits.
 
 ## Multiple queues
 

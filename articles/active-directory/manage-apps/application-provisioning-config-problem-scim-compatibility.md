@@ -3,8 +3,8 @@ title: Known issues and resolutions with SCIM 2.0 protocol compliance of the Azu
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 documentationcenter: ''
-author: asmalser
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -81,13 +82,13 @@ Yes. If you are already using this application instance for single sign-on, and 
 
 10. Run the command below to create a new provisioning job that has the latest service fixes.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
-    `{   templateId: "scim"   } `
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+ `{   templateId: "scim"   }`
    
 11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, re-apply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you just copied, and entering the JSON output from step #7 as the request body.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
-    `{   <your-schema-json-here>   }`
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `{   <your-schema-json-here>   }`
 
 12. Return to the first web browser window, and select the **Provisioning** tab for your application.
 13. Verify your configuration, and then start the provisioning job. 

@@ -18,6 +18,10 @@
     href: advisor-performance-recommendations.md
   - name: Reduce service costs
     href: advisor-cost-recommendations.md
+  - name: Configure recommendations
+    href: view-recommendations.md
+  - name: Permissions and blocked actions
+    href: permissions.md
 - name: Reference
   items:
   - name: Security Center

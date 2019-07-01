@@ -3,7 +3,7 @@ title: FAQs and known issues with managed identities for Azure resources
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -76,6 +76,11 @@ No. If you move a subscription to another directory, you will have to manually r
 ### Can I use a managed identity to access a resource in a different directory/tenant?
 
 No. Managed identities do not currently support cross-directory scenarios. 
+
+### What Azure RBAC permissions are required to managed identity on a resource? 
+
+- System-assigned managed identity: You need write permissions over the resource. For exampl, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignment over the managed identity.
 
 ### How do you restart the managed identities for Azure resources extension?
 On Windows and certain versions of Linux, if the extension stops, the following cmdlet may be used to manually restart it:

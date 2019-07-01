@@ -34,7 +34,7 @@ And for the network rule log data:
 
 ![Network rule log data]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure Firewall logs data below AzureDiagnostics with Category as either **AzureFirewallApplicationRule** or **AzureFirewallApplicationRule**. The data containing the details is stored in the msg_s field. Using the [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator we can extract the various interesting properties from the msg_s field. The queries below extract the information for both categories.
+Azure Firewall logs data below AzureDiagnostics with Category as either **AzureFirewallApplicationRule** or **AzureFirewallNetworkRule**. The data containing the details is stored in the msg_s field. Using the [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator we can extract the various interesting properties from the msg_s field. The queries below extract the information for both categories.
 
 ## Application rules log data query
 

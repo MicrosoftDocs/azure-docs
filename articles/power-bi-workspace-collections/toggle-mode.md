@@ -1,15 +1,15 @@
 ---
 title: Toggle between view and edit mode for reports in Power BI Workspace Collections | Microsoft Docs
 description: Learn how to toggle between view and edit mode for your reports within Power BI Workspace Collections.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Toggle between view and edit mode for reports in Power BI Workspace Collections
 
 Learn how to toggle between view and edit mode for your reports within Power BI Workspace Collections.

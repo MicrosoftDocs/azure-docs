@@ -91,6 +91,8 @@ An availability set is a logical grouping of VMs within a datacenter that allows
 
 An availability set is composed of two additional groupings that protect against hardware failures and allow updates to safely be applied - fault domains (FDs) and update domains (UDs). You can read more about how to manage the availability of [Linux VMs](../articles/virtual-machines/linux/manage-availability.md) or [Windows VMs](../articles/virtual-machines/windows/manage-availability.md).
 
+When allocating multiple compute resources which do not use the high availability constructs of fault domains there is a high probability of anti-affinity, however this anti-affinity is not guaranteed.
+
 ### Fault domains
 A fault domain is a logical group of underlying hardware that share a common power source and network switch, similar to a rack within an on-premises datacenter. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains. This approach limits the impact of potential physical hardware failures, network outages, or power interruptions.
 

@@ -3,13 +3,13 @@ title: Data sources supported - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker automatically extracts question-answer pairs from  semi-structured content such as FAQs, product manuals, guidelines, support documents, and policies stored as web pages, PDF files, or MS Word doc files. Content can also be added to the knowledge base from structured QnA content files. 
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
-ms.author: tulasim
+ms.date: 03/26/2019
+ms.author: diberry
 ---
 
 # Data sources for QnA Maker content
@@ -27,7 +27,11 @@ The table below summarizes the types of content and file formats that are suppor
 
 ## Data source locations
 
-Only public URLs are valid for all data sources. Don't submit data sources that require authentication. You can download the file from the authenticated site, then use the file-upload option to extract questions and answers.
+Most data source locations need to provide public URLs or files, which do not require authentication. 
+
+[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated files. Sharepoint resources must be files, not web pages. 
+
+If you have an authenticated file or URL, an alternative option is to download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base. 
 
 ## FAQ URLs
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deployment issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
 description: This article lists the frequently asked questions about deployment for Microsoft Azure Cloud Services.
 services: cloud-services
@@ -66,7 +66,7 @@ Since the Cloud Service is a Classic resource which is not directly compatible w
  
 - Deploying through REST API.
 
-    When you deploy through Service Management REST API, you could get around the limitation by specifying a SAS URL to the blob storage, which will work with both Classic and Azure Resource Manager Storage account. Read more about the 'PackageUrl' property [here](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+    When you deploy through Service Management REST API, you could get around the limitation by specifying a SAS URL to the blob storage, which will work with both Classic and Azure Resource Manager Storage account. Read more about the 'PackageUrl' property [here](/previous-versions/azure/reference/ee460813(v=azure.100)).
   
 - Deploying through [Azure portal](https://portal.azure.com).
 

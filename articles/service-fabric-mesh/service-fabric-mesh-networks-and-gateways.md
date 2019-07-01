@@ -3,7 +3,7 @@ title: Introduction to Azure Service Fabric networking | Microsoft Docs
 description: Learn about networks, gateways, and intelligent traffic routing in Service Fabric Mesh.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/26/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter 
 
 ---

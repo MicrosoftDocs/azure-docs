@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
 ---
 
@@ -59,11 +59,11 @@ If you are unable to export the assessment report from the portal, try using the
    a.    In an administrator Windows PowerShell window, run the following command:
      ```armclient login```
 
-   This opens the Azure login pop-up where you need to logon to Azure.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
 
-      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
       Sample request and output:
 
@@ -100,6 +100,9 @@ You can go to the **Essentials** section in the **Overview** page of the project
    - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
 4. If the deployment still fails, contact Azure Migrate support.
 
+### Unable to select the Azure cloud in the appliance, fails with error "Azure cloud selection failed"
+
+This is a known issue and a fix is available for the issue. Please download the [latest upgrade bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) for the appliance and update the appliance to apply the fix.
 
 ### Collector is not able to connect to the internet
 
@@ -329,4 +332,4 @@ To collect Event Tracing for Windows, do the following:
 | 802       | TimeSyncError                  | Time is not in sync with the internet time server.                            | Time is not in sync with the internet time server.                                                    | Ensure that the time on the machine is accurately set for the machine's time zone and retry the operation.                                 |
 | 702       | OMSInvalidProjectKey           | Invalid project key specified.                                                | Invalid project key specified.                                                                        | Retry the operation with correct project key.                                                                                              |
 | 703       | OMSHttpRequestException        | Error while sending request. Message %Message;                                | Check project ID and key and ensure that endpoint is reachable.                                       | Retry the operation. If the issue persists, contact Microsoft Support.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | HTTP request timed out. Message %Message;                                     | Check project id and key and ensure that endpoint is reachable.                                       | Retry the operation. If the issue persists, contact Microsoft Support.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP request timed out. Message %Message;                                     | Check project ID and key and ensure that endpoint is reachable.                                       | Retry the operation. If the issue persists, contact Microsoft Support.                                                                     |

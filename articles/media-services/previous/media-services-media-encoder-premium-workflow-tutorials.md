@@ -758,7 +758,7 @@ This was done through normal string manipulation operations. The resulting modif
 
 *Logging the resulting clip list*
 
-Do a test-run to see how the video and audio streams have been clipped. As you'll do more than one test-run with different values for the trimming points, you'll notice that those will not be taken into account however! The reason for this is that the designer, unlike the Azure runtime, does NOT override the cliplist xml every run. This means that only the first time you have set the in and out points, will cause the xml to transform, all the other times, our guard clause (if(clipListXML.indexOf("<trim>") == -1)) will prevent the workflow from adding another trim element when there's already one present.
+Do a test-run to see how the video and audio streams have been clipped. As you'll do more than one test-run with different values for the trimming points, you'll notice that those will not be taken into account however! The reason for this is that the designer, unlike the Azure runtime, does NOT override the cliplist xml every run. This means that only the first time you have set the in and out points, will cause the xml to transform, all the other times, our guard clause (if(`clipListXML.indexOf("<trim>") == -1`)) will prevent the workflow from adding another trim element when there's already one present.
 
 To make our workflow convenient to test locally, we best add some house-keeping code that inspects if a trim element was already present. If so, we can remove it before continuing by modifying the xml with the new values. Rather than using plain string manipulations, it's probably safer to do this through real xml object model parsing.
 

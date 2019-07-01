@@ -1,10 +1,10 @@
 ---
-title: Register an app with the Microsoft identity platform (Preview) | Azure
+title: Register an app with the Microsoft identity platform - Microsoft identity platform
 description: Learn how to add and register an application with the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -13,29 +13,25 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
-ms.author: celested
+ms.date: 05/09/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Microsoft identity platform.
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Register an application with the Microsoft identity platform (Preview)
+# Quickstart: Register an application with the Microsoft identity platform
 
 Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line-of-business applications that can be integrated with Microsoft identity platform to provide secure sign-in and authorization for their services.
 
-This quickstart shows you how to add and register an application using the **App registrations (Preview)** experience in the Azure portal so that your app can be integrated with the Microsoft identity platform. To learn more about the new features and improvements in the new app registrations experience, see [this blog post](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
-
-## Prerequisite
-
-To get started, you need to opt-in to the Preview experience for app registrations in the Azure portal. The steps in this quickstart correspond to the new UI and only work if you opted-in to the Preview experience.
+This quickstart shows you how to add and register an application using the **App registrations** experience in the Azure portal so that your app can be integrated with the Microsoft identity platform. To learn more about the new features and improvements in the new app registrations experience, see [this blog post](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## Register a new application using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the Azure AD tenant that you want.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations > New registration**.
 1. When the **Register an application** page appears, enter your application's registration information:
 
    - **Name** - Enter a meaningful application name that will be displayed to users of the app.
@@ -55,11 +51,11 @@ To get started, you need to opt-in to the Preview experience for app registratio
 
 1. When finished, select **Register**.
 
-    [![Register a new application in the Azure portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![Shows the screen to register a new application in the Azure portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 Azure AD assigns a unique application (client) ID to your app, and you're taken to your application's **Overview** page. To add additional capabilities to your application, you can select other configuration options including branding, certificates and secrets, API permissions, and more.
 
-[![Newly registered app's overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![Example of a newly registered app's overview page](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## Next steps
 

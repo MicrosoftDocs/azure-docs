@@ -1,20 +1,20 @@
 ---
-title: Seller Insights FAQ | Microsoft Docs
+title: Seller Insights FAQ 
 description: Frequently Asked Questions about the Seller Insights feature of the Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: v-miclar
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 Seller Insights FAQ

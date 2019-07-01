@@ -48,17 +48,19 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
     - **Review the groups you own.** View information about any groups you own within your organization from the **Groups I own** area. Selecting a specific group name provides you with more details about the group, including the group type, the number of members, the join policy, and the active members list.
 
-    - **Create a new group.** Create a new group with you as the owner from the **Groups I own** area. For specific steps, see [Create a new group](#create-a-new-group) section of this article.
+    - **Create a new group.** Create a new group with you as the owner from the **Groups I own** area. For specific steps, see the [Create a new group](#create-a-new-group) section of this article.
 
-    - **Edit an existing group.** Edit the details for any of your own groups. For specific steps, see [Edit an existing group](#edit-an-existing-group) section of this article.
+    - **Edit an existing group.** Edit the details for any of your own groups. For specific steps, see the [Edit an existing group](#edit-an-existing-group) section of this article.
 
-    - **Add or remove members.** Add or remove members for groups that you own. For specific steps, see [Add or remove a member](#add-or-remove-a-member) section of this article.
+    - **Add or remove members.** Add or remove members for groups that you own. For specific steps, see the [Add or remove a member](#add-or-remove-a-member) section of this article.
 
-    - **Delete a group.** Delete any groups that you own. For specific steps, see [Delete a group](#delete-a-group) section of this article.
+    - **Renew an Office 365 group.** If your organization allows it, you can renew your Office 365 groups. For specific steps, see the [Renew an Office 365 group](#renew-an-office-365-group) section of this article. 
+
+    - **Delete a group.** Delete any groups that you own. For specific steps, see the [Delete a group](#delete-a-group) section of this article.
 
     - **Review the groups you're a part of.** View the names of any groups to which you're a member from the **Groups I'm in** area. Selecting a specific group name provides you with more details about the group, including the group type, the number of members, the join policy, and the active members list.
 
-    - **Join a group.** Join an existing group, for which you're not already a member, from the **Groups I'm in** area. For specific steps, see [Join an existing group](#join-an-existing-group).
+    - **Join a group.** Join an existing group, for which you're not already a member, from the **Groups I'm in** area. For specific steps, see the [Join an existing group](#join-an-existing-group).
 
 ## Create a new group
 1. On the **Groups** page, select **Create a group** from the **Groups I own** area.
@@ -112,6 +114,18 @@ You can add or remove members for any of your own groups.
 3. If you added a member by mistake, or if a member has left your organization, you can remove the member by selecting **Remove member** next to the member's name on the *&lt;group_name&gt;* page.
 
     ![Remove a member, with the removal link highlighted](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## Renew an Office 365 group
+If your organization allows it, you can renew an Office 365 group, extending your expiration date.
+
+### To renew a group
+1. Select the Office 365 group you want to renew, and then select **Renew group**.
+
+    ![Renew an Office 365 group, extending the expiration date](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. Click **OK** to close the confirmation message.
+
+    After you refresh the page, you'll see your updated **Last Renewed** and **Group expiration** dates.
 
 ## Delete a group
 You can delete any of your own groups at any time. However, if you delete a group by mistake you'll have to create it and add members again.

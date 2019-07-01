@@ -169,19 +169,19 @@ To configure Azure AD single sign-on with NetSuite, perform the following steps:
 
 1. Open a new tab in your browser, and sign into your NetSuite company site as an administrator.
 
-2. In the toolbar at the top of the page, click **Setup**, then navigate to **Company** and click **Enable Features**.
+2. In the toolbar at the top of the page, click **Setup**, then navigate to **Company** and click **Enable Features**.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. In the toolbar at the middle of the page, click **SuiteCloud**.
+3. In the toolbar at the middle of the page, click **SuiteCloud**.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. Under **Manage Authentication** section, select **SAML SINGLE SIGN-ON** to enable the SAML SINGLE SIGN-ON option in NetSuite.
+4. Under **Manage Authentication** section, select **SAML SINGLE SIGN-ON** to enable the SAML SINGLE SIGN-ON option in NetSuite.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. In the toolbar at the top of the page, click **Setup**.
+5. In the toolbar at the top of the page, click **Setup**.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
 
@@ -324,7 +324,7 @@ When you click the NetSuite tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configure User Provisioning](NetSuite-provisioning-tutorial.md)
 

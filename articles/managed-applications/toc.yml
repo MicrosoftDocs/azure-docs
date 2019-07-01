@@ -17,6 +17,8 @@
     href: publish-service-catalog-app.md
   - name: Publish marketplace application 
     href: publish-marketplace-app.md 
+  - name: Create custom resource provider
+    href: create-custom-provider.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -25,26 +27,50 @@
     href: powershell-samples.md
   - name: Managed application solutions
     href: sample-projects.md
+- name: Concepts
+  items:
+  - name: Azure custom resource providers
+    href: custom-providers-overview.md
+  - name: View definition artifact
+    href: concepts-view-definition.md
 - name: How-to guides
   items:
+  - name: Custom resource providers
+    items:
+    - name: Add custom actions to Azure
+      href: custom-providers-action-endpoint-how-to.md
+    - name: Add custom resources to Azure
+      href: custom-providers-resources-endpoint-how-to.md
   - name: Publishers
     items:
     - name: Create portal interface
       href: create-uidefinition-overview.md
     - name: Test portal interface
       href: test-createuidefinition.md
+    - name: Request just-in-time access
+      href: request-just-in-time-access.md
     - name: Update managed resources
       href: update-managed-resources.md
     - name: Use portal to publish application definition
       href: publish-portal.md
     - name: Use secret from Key Vault
       href: key-vault-access.md
+    - name: Deploy with Managed Identity
+      href: publish-managed-identity.md
   - name: Consumers
     items:
     - name: Monitor managed application
       href: monitor-managed-application-portal.md
+    - name: Approve just-in-time access
+      href: approve-just-in-time-access.md
 - name: Reference
   items:
+  - name: Custom resource providers
+    items:
+    - name: Custom resource proxy reference
+      href: custom-providers-proxy-resource-endpoint-reference.md
+    - name: Custom resource cache reference
+      href: custom-providers-proxy-cache-resource-endpoint-reference.md
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell
@@ -102,5 +128,7 @@
     href: https://azure.microsoft.com/pricing/details/managed-applications/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+  - name: Resource Manager template best practices
+    href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-managedapps

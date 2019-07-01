@@ -20,8 +20,6 @@
   - name: Create multiple instances
     displayName: iteration,copy
     href: resource-manager-tutorial-create-multiple-instances.md
-  - name: Move resources
-    href: resource-manager-tutorial-move-resources.md
   - name: Set resource deployment order
     displayName: dependent resources, dependency
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
@@ -39,9 +37,15 @@
     href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
   - name: Secure artifacts
     href: resource-manager-tutorial-secure-artifacts.md
+  - name: Continuous integration with Azure Pipelines
+    displayName: DevOps
+    href: resource-manager-tutorial-use-azure-pipelines.md
   - name: Use safe deployment practices
-    displayName: azure deployment manager
+    displayName: adm
     href: deployment-manager-tutorial.md
+  - name: Use health check in Deployment Manager
+    displayName: adm
+    href: deployment-manager-tutorial-health-check.md
   - name: Troubleshoot template deployment
     href: resource-manager-tutorial-troubleshoot.md
 - name: Samples
@@ -53,7 +57,7 @@
 - name: Concepts
   items:
   - name: Template file structure
-    displayName: parameters,variables,resources,outputs
+    displayName: parameters,variables,resources,outputs,condition
     href: resource-group-authoring-templates.md
   - name: Template best practices
     href: template-best-practices.md
@@ -61,16 +65,20 @@
     href: templates-cloud-consistency.md
   - name: Resource providers and types
     href: resource-manager-supported-services.md
-  - name: Management groups
-    href: management-groups-overview.md
   - name: Deployment Manager
+    displayName: adm
     href: deployment-manager-overview.md
+  - name: Deployment Manager health check
+    displayName: adm
+    href: deployment-manager-health-check.md
   - name: Deployment modes
     href: deployment-modes.md
   - name: Resource deletion
     href: resource-group-delete.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
+  - name: Azure common security attributes
+    href: azure-resource-manager-security-attributes.md
 - name: How to
   items:
   - name: Create templates
@@ -78,6 +86,7 @@
     - name: Create template
       href: how-to-create-template.md
     - name: Create resource groups and resources at subscription
+      displayName: subscription level deployment
       href: deploy-to-subscription.md
     - name: Define resource dependencies
       href: resource-group-define-dependencies.md
@@ -96,12 +105,16 @@
   - name: Deploy templates
     items:
     - name: Deploy - portal
+      displayName: deployment
       href: resource-group-template-deploy-portal.md
     - name: Deploy - CLI
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-cli.md
     - name: Deploy - PowerShell
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy.md
     - name: Deploy - REST API
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
     - name: Secure templates with SAS token
       items:
@@ -111,9 +124,12 @@
         href: resource-manager-powershell-sas-token.md
     - name: Deploy to multiple resource groups or subscriptions
       href: resource-manager-cross-resource-group-deployment.md
-    - name: Continuous integration with Azure DevOps Services
-      href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
-      maintainContext: true
+  - name: CI/CD
+    items:
+    - name: VS project with pipelines
+      href: vs-resource-groups-project-devops-pipelines.md
+  - name: Export template
+    href: export-template-portal.md
   - name: Manage
     items:
     - name: Manage resource groups
@@ -153,7 +169,7 @@
       href: grant-access-to-create-subscription.md
     - name: Authenticate across tenants
       href: authenticate-multi-tenant.md
-  - name: Audit deployments
+  - name: Audit changes
     items:
     - name: View activity logs
       href: resource-group-audit.md
@@ -196,10 +212,11 @@
 - name: Reference
   items:
   - name: Template reference
-    href: subtoc/toc.yml
+    href: /azure/templates/
   - name: Template functions
-    href: resource-group-template-functions.md
     items:
+    - name: All functions
+      href: resource-group-template-functions.md
     - name: Array and object functions
       href: resource-group-template-functions-array.md
     - name: Comparison functions
@@ -222,12 +239,14 @@
       href: move-support-resources.md
     - name: Tag support
       href: tag-support.md
+  - name: Resource providers by service
+    href: azure-services-resource-providers.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager
     href: /rest/api/deploymentmanager/
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.resources
+    href: /powershell/module/az.resources
   - name: Azure CLI
     href: /cli/azure/resource
   - name: .NET

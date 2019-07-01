@@ -1,7 +1,6 @@
 ---
 title: Apache Storm topologies with Visual Studio and C# - Azure HDInsight 
 description: Learn how to create Storm topologies in C#. Create a simple word count topology in Visual Studio by using the Hadoop tools for Visual Studio.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -554,7 +553,7 @@ For Linux-based HDInsight clusters, make sure that your project uses binaries co
 
 ### Test a topology locally
 
-Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this tutorial locally in your development environment.
+Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this article locally in your development environment.
 
 > [!WARNING]  
 > Local testing only works for basic, C#-only topologies. You cannot use local testing for hybrid topologies or topologies that use multiple streams.

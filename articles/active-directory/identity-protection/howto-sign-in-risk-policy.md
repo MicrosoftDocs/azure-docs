@@ -4,7 +4,7 @@ description: Learn how to configure the Azure AD Identity Protection sign-in ris
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---

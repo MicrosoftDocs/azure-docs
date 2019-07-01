@@ -124,7 +124,7 @@ To configure Azure AD single sign-on with Netop Portal, perform the following st
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. Leave the **Namespace** blank.
+	c. In the **Namespace** textbox, type https:\//secure.netop.com.
 
 	d. Select Source as **Attribute**.
 
@@ -150,7 +150,7 @@ To configure Azure AD single sign-on with Netop Portal, perform the following st
 
 ### Configure Netop Portal Single Sign-On
 
-To configure single sign-on on **Netop Portal** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Netop Portal support team](mailto:casemanager@netop.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Netop Portal** side, you need to the downloaded **Federation Metadata XML** and the Login URL from Azure portal. Follow the instructions in Step 3 of the documentation [here](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) to configure NetOp Portal for Azure AD authentication.
 
 ### Create an Azure AD test user
 
@@ -215,8 +215,8 @@ When you click the Netop Portal tile in the Access Panel, you should be automati
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/21/2019
 ms.author: pafarley
 ---
 
@@ -25,7 +25,7 @@ The following is a general pattern to help you build a more accurate classifier:
 1. Use new image(s) to test prediction
 1. Modify existing training data according to prediction results
 
-## Overfitting
+## Prevent overfitting
 
 Sometimes, a classifier will learn to make predictions based on arbitrary characteristics that your images have in common. For example, if you are creating a classifier for apples vs. citrus, and you've used images of apples in hands and of citrus on white plates, the classifier may give undue importance to hands vs. plates, rather than apples vs. citrus.
 
@@ -68,6 +68,15 @@ To correct this problem, include a variety of images to ensure that your classif
 * __Style:__ Provide images of different styles of the same class (for example, different varieties of the same fruit). However, if you have objects of drastically different styles (such as Mickey Mouse vs. a real-life mouse), we recommend you label them as separate classes to better represent their distinct features.
 
     ![Image of style samples](./media/getting-started-improving-your-classifier/style.png)
+
+## Negative images
+
+At some point in your project, you may need to add _negative samples_ to help make your classifier more accurate. Negative samples are those which do not match any of the other tags. When you upload these images, apply the special **Negative** label to them.
+
+> [!NOTE]
+> The Custom Vision Service supports some automatic negative image handling. For example, if you are building a grape vs. banana classifier and submit an image of a shoe for prediction, the classifier should score that image as close to 0% for both grape and banana.
+> 
+> On the other hand, in cases where the negative images are just a variation of the images used in training, it is likely that the model will classify the negative images as a labeled class due to the great similarities. For example, if you have an orange vs. grapefruit classifier, and you feed in an image of a clementine, it may score the clementine as an orange because many features of the clementine resemble those of oranges. If your negative images are of this nature, we recommend you create one or more additional tags (such as **Other**) and label the negative images with this tag during training to allow the model to better differentiate between these classes.
 
 ## Use prediction images for further training
 

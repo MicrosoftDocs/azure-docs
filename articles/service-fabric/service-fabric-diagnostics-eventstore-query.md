@@ -4,7 +4,7 @@ description: Learn how to use the Azure Service Fabric EventStore APIs to query 
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -120,7 +120,7 @@ Here we can see that between `2018-04-03T18:00:00Z` and `2018-04-04T18:00:00Z`, 
 You can also query the EventStore programmatically, via the [Service Fabric client library](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
 
 Once you have your Service Fabric Client set up, you can query for events by accessing the EventStore like this:
-` sfhttpClient.EventStore.<request>`
+`sfhttpClient.EventStore.<request>`
 
 Here is an example request for all cluster events between `2018-04-03T18:00:00Z` and `2018-04-04T18:00:00Z`, via the `GetClusterEventListAsync` function.
 

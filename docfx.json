@@ -216,12 +216,12 @@
         "articles/blockchain/**/*.md": "https://feedback.azure.com/forums/586780-blockchain",
         "articles/cdn/**/*.md": "https://feedback.azure.com/forums/169397-cdn",
         "articles/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/china/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/cloud-partner-portal/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/cloud-services/**/*.md": "https://feedback.azure.com/forums/169386-cloud-services-web-and-worker-role",
         "articles/cloud-shell/**/*.md": "https://feedback.azure.com/forums/598699-azure-cloud-shell",
         "articles/cloudfoundry/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/cognitive-services/Academic-Knowledge/**/*.md": "https://cognitive.uservoice.com/forums/555931-academic-knowledge",
+        "articles/cognitive-services/Anomaly-Detector/**/*.md": "https://cognitive.uservoice.com/forums/912196-anomaly-detector",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "https://cognitive.uservoice.com/forums/598198-bing-autosuggest",
         "articles/cognitive-services/Bing-Custom-Search**/*.md": "https://cognitive.uservoice.com/forums/598147-bing-custom-search",
         "articles/cognitive-services/Bing-Entities-Search/**/*.md": "https://cognitive.uservoice.com/forums/601036-bing-entity-search",
@@ -273,6 +273,7 @@
         "articles/event-grid/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/event-hubs/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/expressroute/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=86745",
+        "articles/frontdoor/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345025",
         "articles/genomics/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/governance/**/*.md": "https://feedback.azure.com/forums/915958-azure-governance",
         "articles/germany/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
@@ -377,6 +378,15 @@
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"
+        ],
+        "articles/active-directory-b2c/**/*.md": [
+          "show_star_rating"
+        ],
+        "articles/active-directory-domain-services/**/*.md": [
+          "show_star_rating"
+        ],
+        "articles/active-directory/**/*.md": [
+          "show_star_rating"
         ]
       },
       "learn_banner_products": {

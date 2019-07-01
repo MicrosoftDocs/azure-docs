@@ -15,11 +15,11 @@ ms.date: 02/21/2019
 ms.author: magoedte
 ---
 
-# Manage Log Analytics using Azure Resource Manager templates
+# Manage Log Analytics workspace using Azure Resource Manager templates
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
+You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces in Azure Monitor. Examples of the tasks you can perform with templates include:
 
 * Create a workspace including setting pricing tier 
 * Add a solution
@@ -155,7 +155,7 @@ The following template sample illustrates how to:
     "workspaceName": {
       "type": "string",
       "metadata": {
-        "description": "workspaceName"
+        "description": "Workspace name"
       }
     },
     "serviceTier": {
@@ -166,8 +166,9 @@ The following template sample illustrates how to:
         "PerNode",
         "PerGB2018"
       ],
+      "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
     }
       },
     "dataRetention": {
@@ -176,9 +177,16 @@ The following template sample illustrates how to:
       "minValue": 7,
       "maxValue": 730,
       "metadata": {
-        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and Log Analytics plans include 30 days for free"
+        "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
       }
     },
+	{
+	"immediatePurgeDataOn30Days": {
+	  "type": "bool",
+	  "metadata": {
+	    "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
+	  }
+	},
     "location": {
       "type": "string",
       "allowedValues": [
@@ -521,4 +529,3 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 ## Next steps
 * [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
 * [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
-

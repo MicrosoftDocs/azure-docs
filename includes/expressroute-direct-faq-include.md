@@ -22,17 +22,22 @@ Customers will need to work with their local carriers and co-location providers 
 The available ports will be dynamic and will be available by PowerShell to view the capacity. Locations include and *are subject to change based on availability*:
 
 * Amsterdam
-* Canberra
 * Chicago
 * Washington DC
 * Dallas 
-* Hong Kong
+* Hong Kong SAR
+* London
 * Los Angeles
 * New York City
 * Paris
+* Perth
+* Toronto
 * San Antonio
+* Seattle
+* Seoul
 * Silicon Valley
 * Singapore 
+* Sydney
 
 ### What is the SLA for ExpressRoute Direct?
 
@@ -46,6 +51,6 @@ ExpressRoute Direct provides customers with direct 100 Gbps port pairs into the 
 
 ExpressRoute Direct will be billed for the port pair at a fixed amount. Standard circuits will be included at no additional hours and premium will have a slight add-on charge. Egress will be billed on a per circuit basis based on the zone of the peering location.
 
-### When does billing state for the ExpressRoute Direct port pairs?
+### When does billing start for the ExpressRoute Direct port pairs?
 
 ExpressRoute Direct's port pairs are billed 45 days into the creation of the ExpressRoute Direct resource or when 1 or both of the links are enabled, whichever comes first. The 45-day grace period is granted to allow customers to complete the cross-connection process with the colocation provider.

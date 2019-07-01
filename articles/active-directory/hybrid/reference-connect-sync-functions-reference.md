@@ -60,7 +60,7 @@ The functions with the types **mvbin**, **mvstr**, and **mvref** can only work o
 | **Conversion** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **Date / Time** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Now](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
@@ -85,7 +85,7 @@ The functions with the types **mvbin**, **mvstr**, and **mvref** can only work o
 | [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
-- - -
+---
 ### BitAnd
 **Description:**  
 The BitAnd function sets specified bits on a value.
@@ -107,7 +107,7 @@ In other words, it returns 0 in all cases except when the corresponding bits of 
 `BitAnd(&HF, &HF7)`  
 Returns 7 because hexadecimal "F" AND "F7" evaluate to this value.
 
-- - -
+---
 ### BitOr
 **Description:**  
 The BitOr function sets specified bits on a value.
@@ -120,7 +120,7 @@ The BitOr function sets specified bits on a value.
 **Remarks:**  
 This function converts both parameters to the binary representation and sets a bit to 1 if one or both of the corresponding bits in mask and flag are 1, and to 0 if both of the corresponding bits are 0. In other words, it returns 1 in all cases except where the corresponding bits of both parameters are 0.
 
-- - -
+---
 ### CBool
 **Description:**  
 The CBool function returns a Boolean based on the evaluated expression
@@ -136,7 +136,7 @@ If the expression evaluates to a nonzero value, then CBool returns True, else it
 
 Returns True if both attributes have the same value.
 
-- - -
+---
 ### CDate
 **Description:**  
 The CDate function returns a UTC DateTime from a string. DateTime is not a native attribute type in Sync but is used by some functions.
@@ -157,7 +157,7 @@ Returns a DateTime based on the employee’s start time
 Returns a DateTime representing "2013-01-11 12:00 AM"
 
 
-- - -
+---
 ### CertExtensionOids
 **Description:**  
 Returns the Oid values of all the critical extensions of a certificate object.
@@ -166,7 +166,7 @@ Returns the Oid values of all the critical extensions of a certificate object.
 `mvstr CertExtensionOids(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertFormat
 **Description:**  
 Returns the name of the format of this X.509v3 certificate.
@@ -175,7 +175,7 @@ Returns the name of the format of this X.509v3 certificate.
 `str CertFormat(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertFriendlyName
 **Description:**  
 Returns the associated alias for a certificate.
@@ -184,7 +184,7 @@ Returns the associated alias for a certificate.
 `str CertFriendlyName(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertHashString
 **Description:**  
 Returns the SHA1 hash value for the X.509v3 certificate as a hexadecimal string.
@@ -193,7 +193,7 @@ Returns the SHA1 hash value for the X.509v3 certificate as a hexadecimal string.
 `str CertHashString(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertIssuer
 **Description:**  
 Returns the name of the certificate authority that issued the X.509v3 certificate.
@@ -202,7 +202,7 @@ Returns the name of the certificate authority that issued the X.509v3 certificat
 `str CertIssuer(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertIssuerDN
 **Description:**  
 Returns the distinguished name of the certificate issuer.
@@ -211,7 +211,7 @@ Returns the distinguished name of the certificate issuer.
 `str CertIssuerDN(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertIssuerOid
 **Description:**  
 Returns the Oid of the certificate issuer.
@@ -220,7 +220,7 @@ Returns the Oid of the certificate issuer.
 `str CertIssuerOid(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertKeyAlgorithm
 **Description:**  
 Returns the key algorithm information for this X.509v3 certificate as a string.
@@ -229,7 +229,7 @@ Returns the key algorithm information for this X.509v3 certificate as a string.
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertKeyAlgorithmParams
 **Description:**  
 Returns the key algorithm parameters for the X.509v3 certificate as a hexadecimal string.
@@ -238,7 +238,7 @@ Returns the key algorithm parameters for the X.509v3 certificate as a hexadecima
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertNameInfo
 **Description:**  
 Returns the subject and issuer names from a certificate.
@@ -249,7 +249,7 @@ Returns the subject and issuer names from a certificate.
 *	X509NameType: The X509NameType value for the subject.
 *	includesIssuerName: true to include the issuer name; otherwise, false.
 
-- - -
+---
 ### CertNotAfter
 **Description:**  
 Returns the date in local time after which a certificate is no longer valid.
@@ -258,7 +258,7 @@ Returns the date in local time after which a certificate is no longer valid.
 `dt CertNotAfter(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertNotBefore
 **Description:**  
 Returns the date in local time on which a certificate becomes valid.
@@ -267,7 +267,7 @@ Returns the date in local time on which a certificate becomes valid.
 `dt CertNotBefore(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertPublicKeyOid
 **Description:**  
 Returns the Oid of the public key for the X.509v3 certificate.
@@ -276,7 +276,7 @@ Returns the Oid of the public key for the X.509v3 certificate.
 `str CertKeyAlgorithm(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertPublicKeyParametersOid
 **Description:**  
 Returns the Oid of the public key parameters for the X.509v3 certificate.
@@ -285,7 +285,7 @@ Returns the Oid of the public key parameters for the X.509v3 certificate.
 `str CertPublicKeyParametersOid(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertSerialNumber
 **Description:**  
 Returns the serial number of the X.509v3 certificate.
@@ -294,7 +294,7 @@ Returns the serial number of the X.509v3 certificate.
 `str CertSerialNumber(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertSignatureAlgorithmOid
 **Description:**  
 Returns the Oid of the algorithm used to create the signature of a certificate.
@@ -303,7 +303,7 @@ Returns the Oid of the algorithm used to create the signature of a certificate.
 `str CertSignatureAlgorithmOid(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertSubject
 **Description:**  
 Gets the subject distinguished name from a certificate.
@@ -312,7 +312,7 @@ Gets the subject distinguished name from a certificate.
 `str CertSubject(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertSubjectNameDN
 **Description:**  
 Returns the subject distinguished name from a certificate.
@@ -321,7 +321,7 @@ Returns the subject distinguished name from a certificate.
 `str CertSubjectNameDN(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertSubjectNameOid
 **Description:**  
 Returns the Oid of the subject name from a certificate.
@@ -330,7 +330,7 @@ Returns the Oid of the subject name from a certificate.
 `str CertSubjectNameOid(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertThumbprint
 **Description:**  
 Returns the thumbprint of a certificate.
@@ -339,7 +339,7 @@ Returns the thumbprint of a certificate.
 `str CertThumbprint(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CertVersion
 **Description:**  
 Returns the X.509 format version of a certificate.
@@ -348,7 +348,7 @@ Returns the X.509 format version of a certificate.
 `str CertThumbprint(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
 
-- - -
+---
 ### CGuid
 **Description:**  
 The CGuid function converts the string representation of a GUID to its binary representation.
@@ -358,7 +358,7 @@ The CGuid function converts the string representation of a GUID to its binary re
 
 * A String formatted in this pattern: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx or {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
-- - -
+---
 ### Contains
 **Description:**  
 The Contains function finds a string inside a multi-valued attribute
@@ -382,7 +382,7 @@ For reference attributes, the searched string must exactly match the value to be
 `IIF(Contains([proxyAddresses],"SMTP:")>0,[proxyAddresses],Error("No primary SMTP address found."))`  
 If the proxyAddresses attribute has a primary email address (indicated by uppercase "SMTP:"), then return the proxyAddress attribute, else return an error.
 
-- - -
+---
 ### ConvertFromBase64
 **Description:**  
 The ConvertFromBase64 function converts the specified base64 encoded value to a regular string.
@@ -400,7 +400,7 @@ The ConvertFromBase64 function converts the specified base64 encoded value to a 
 
 Both examples return "*Hello world!*"
 
-- - -
+---
 ### ConvertFromUTF8Hex
 **Description:**  
 The ConvertFromUTF8Hex function converts the specified UTF8 Hex encoded value to a string.
@@ -418,7 +418,7 @@ This format is used by Azure Active Directory as DN.
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
 Returns "*Hello world!*"
 
-- - -
+---
 ### ConvertToBase64
 **Description:**  
 The ConvertToBase64 function converts a string to a Unicode base64 string.  
@@ -431,7 +431,7 @@ Converts the value of an array of integers to its equivalent string representati
 `ConvertToBase64("Hello world!")`  
 Returns "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
-- - -
+---
 ### ConvertToUTF8Hex
 **Description:**  
 The ConvertToUTF8Hex function converts a string to a UTF8 Hex encoded value.
@@ -446,7 +446,7 @@ The output format of this function is used by Azure Active Directory as DN attri
 `ConvertToUTF8Hex("Hello world!")`  
 Returns 48656C6C6F20776F726C6421
 
-- - -
+---
 ### Count
 **Description:**  
 The Count function returns the number of elements in a multi-valued attribute
@@ -454,7 +454,7 @@ The Count function returns the number of elements in a multi-valued attribute
 **Syntax:**  
 `num Count(mvstr attribute)`
 
-- - -
+---
 ### CNum
 **Description:**  
 The CNum function takes a string and returns a numeric data type.
@@ -462,7 +462,7 @@ The CNum function takes a string and returns a numeric data type.
 **Syntax:**  
 `num CNum(str value)`
 
-- - -
+---
 ### CRef
 **Description:**  
 Converts a string to a reference attribute
@@ -473,7 +473,7 @@ Converts a string to a reference attribute
 **Example:**  
 `CRef("CN=LC Services,CN=Microsoft,CN=lcspool01,CN=Pools,CN=RTC Service," & %Forest.LDAP%)`
 
-- - -
+---
 ### CStr
 **Description:**  
 The CStr function converts to a string data type.
@@ -489,7 +489,7 @@ The CStr function converts to a string data type.
 `CStr([dn])`  
 Could return "cn=Joe,dc=contoso,dc=com"
 
-- - -
+---
 ### DateAdd
 **Description:**  
 Returns a Date containing a date to which a specified time interval has been added.
@@ -515,7 +515,7 @@ Returns a Date containing a date to which a specified time interval has been add
 `DateAdd("m", 3, CDate("2001-01-01"))`  
 Adds 3 months and returns a DateTime representing "2001-04-01".
 
-- - -
+---
 ### DateFromNum
 **Description:**  
 The DateFromNum function converts a value in AD’s date format to a DateTime type.
@@ -528,7 +528,7 @@ The DateFromNum function converts a value in AD’s date format to a DateTime ty
 `DateFromNum(129699324000000000)`  
 Returns a DateTime representing 2012-01-01 23:00:00
 
-- - -
+---
 ### DNComponent
 **Description:**  
 The DNComponent function returns the value of a specified DN component going from left.
@@ -543,7 +543,7 @@ The DNComponent function returns the value of a specified DN component going fro
 `DNComponent(CRef([dn]),1)`  
 If dn is "cn=Joe,ou=…," it returns Joe
 
-- - -
+---
 ### DNComponentRev
 **Description:**  
 The DNComponentRev function returns the value of a specified DN component going from right (the end).
@@ -562,7 +562,7 @@ If dn is "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" then
 `DNComponentRev(CRef([dn]),1,"DC")`  
 Both return US.
 
-- - -
+---
 ### Error
 **Description:**  
 The Error function is used to return a custom error.
@@ -574,7 +574,7 @@ The Error function is used to return a custom error.
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 If the attribute accountName is not present, throw an error on the object.
 
-- - -
+---
 ### EscapeDNComponent
 **Description:**  
 The EscapeDNComponent function takes one component of a DN and escapes it so it can be represented in LDAP.
@@ -586,7 +586,7 @@ The EscapeDNComponent function takes one component of a DN and escapes it so it 
 `EscapeDNComponent("cn=" & [displayName]) & "," & %ForestLDAP%)`  
 Makes sure the object can be created in an LDAP directory even if the displayName attribute has characters that must be escaped in LDAP.
 
-- - -
+---
 ### FormatDateTime
 **Description:**  
 The FormatDateTime function is used to format a DateTime to a string with a specified format
@@ -608,7 +608,7 @@ Results in "2007-12-25".
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
 Can result in "20140905081453.0Z"
 
-- - -
+---
 ### Guid
 **Description:**  
 The function Guid generates a new random GUID
@@ -616,7 +616,7 @@ The function Guid generates a new random GUID
 **Syntax:**  
 `str Guid()`
 
-- - -
+---
 ### IIF
 **Description:**  
 The IIF function returns one of a set of possible values based on a specified condition.
@@ -632,7 +632,7 @@ The IIF function returns one of a set of possible values based on a specified co
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
  If the user is an intern, returns the alias of a user with "t-" added to the beginning of it, else returns the user’s alias as is.
 
-- - -
+---
 ### InStr
 **Description:**  
 The InStr function finds the first occurrence of a substring in a string
@@ -658,7 +658,7 @@ Evalues to 5
 `InStr("repEated","e",3,vbBinaryCompare)`  
 Evaluates to 7
 
-- - -
+---
 ### InStrRev
 **Description:**  
 The InStrRev function finds the last occurrence of a substring in a string
@@ -680,7 +680,7 @@ Returns the position where the substring was found or 0 if not found.
 `InStrRev("abbcdbbbef","bb")`  
 Returns 7
 
-- - -
+---
 ### IsBitSet
 **Description:**  
 The function IsBitSet Tests if a bit is set or not
@@ -694,7 +694,7 @@ The function IsBitSet Tests if a bit is set or not
 `IsBitSet(&HF,4)`  
 Returns True because bit "4" is set in the hexadecimal value "F"
 
-- - -
+---
 ### IsDate
 **Description:**  
 If the expression can be evaluates as a DateTime type, then the IsDate function evaluates to True.
@@ -705,7 +705,7 @@ If the expression can be evaluates as a DateTime type, then the IsDate function 
 **Remarks:**  
 Used to determine if CDate() can be successful.
 
-- - -
+---
 ### IsCert
 **Description:**  
 Returns true if the raw data can be serialized into .NET X509Certificate2 certificate object.
@@ -713,7 +713,7 @@ Returns true if the raw data can be serialized into .NET X509Certificate2 certif
 **Syntax:**  
 `bool CertThumbprint(binary certificateRawData)`  
 *	certificateRawData: Byte array representation of an X.509 certificate. The byte array can be binary (DER) encoded or Base64-encoded X.509 data.
-- - -
+---
 ### IsEmpty
 **Description:**  
 If the attribute is present in the CS or MV but evaluates to an empty string, then the IsEmpty function evaluates to True.
@@ -721,7 +721,7 @@ If the attribute is present in the CS or MV but evaluates to an empty string, th
 **Syntax:**  
 `bool IsEmpty(var Expression)`
 
-- - -
+---
 ### IsGuid
 **Description:**  
 If the string could be converted to a GUID, then the IsGuid function evaluated to true.
@@ -738,7 +738,7 @@ Used to determine if CGuid() can be successful.
 `IIF(IsGuid([strAttribute]),CGuid([strAttribute]),NULL)`  
 If the StrAttribute has a GUID format, return a binary representation, otherwise return a Null.
 
-- - -
+---
 ### IsNull
 **Description:**  
 If the expression evaluates to Null, then the IsNull function returns true.
@@ -753,7 +753,7 @@ For an attribute, a Null is expressed by the absence of the attribute.
 `IsNull([displayName])`  
 Returns True if the attribute is not present in the CS or MV.
 
-- - -
+---
 ### IsNullOrEmpty
 **Description:**  
 If the expression is null or an empty string, then the IsNullOrEmpty function returns true.
@@ -769,7 +769,7 @@ The inverse of this function is named IsPresent.
 `IsNullOrEmpty([displayName])`  
 Returns True if the attribute is not present or is an empty string in the CS or MV.
 
-- - -
+---
 ### IsNumeric
 **Description:**  
 The IsNumeric function returns a Boolean value indicating whether an expression can be evaluated as a number type.
@@ -780,7 +780,7 @@ The IsNumeric function returns a Boolean value indicating whether an expression 
 **Remarks:**  
 Used to determine if CNum() can be successful to parse the expression.
 
-- - -
+---
 ### IsString
 **Description:**  
 If the expression can be evaluated to a string type, then the IsString function evaluates to True.
@@ -791,7 +791,7 @@ If the expression can be evaluated to a string type, then the IsString function 
 **Remarks:**  
 Used to determine if CStr() can be successful to parse the expression.
 
-- - -
+---
 ### IsPresent
 **Description:**  
 If the expression evaluates to a string that is not Null and is not empty, then the IsPresent function returns true.
@@ -805,7 +805,7 @@ The inverse of this function is named IsNullOrEmpty.
 **Example:**  
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
-- - -
+---
 ### Item
 **Description:**  
 The Item function returns one item from a multi-valued string/attribute.
@@ -825,7 +825,7 @@ Throws an error if index is out of bounds.
 `Mid(Item([proxyAddresses],Contains([proxyAddresses], "SMTP:")),6)`  
 Returns the primary email address.
 
-- - -
+---
 ### ItemOrNull
 **Description:**  
 The ItemOrNull function returns one item from a multi-valued string/attribute.
@@ -841,7 +841,7 @@ The ItemOrNull function is useful together with the Contains function since the 
 
 If index is out of bounds, then returns a Null value.
 
-- - -
+---
 ### Join
 **Description:**  
 The Join function takes a multi-valued string and returns a single-valued string with specified separator inserted between each item.
@@ -860,7 +860,7 @@ There is parity between the Join and Split functions. The Join function takes an
 `Join([proxyAddresses],",")`  
 Could return: "SMTP:john.doe@contoso.com,smtp:jd@contoso.com"
 
-- - -
+---
 ### LCase
 **Description:**  
 The LCase function converts all characters in a string to lower case.
@@ -872,7 +872,7 @@ The LCase function converts all characters in a string to lower case.
 `LCase("TeSt")`  
 Returns "test".
 
-- - -
+---
 ### Left
 **Description:**  
 The Left function returns a specified number of characters from the left of a string.
@@ -896,7 +896,7 @@ If string contains fewer characters than the number specified in numChars, a str
 `Left("John Doe", 3)`  
 Returns "Joh".
 
-- - -
+---
 ### Len
 **Description:**  
 The Len function returns number of characters in a string.
@@ -908,7 +908,7 @@ The Len function returns number of characters in a string.
 `Len("John Doe")`  
 Returns 8
 
-- - -
+---
 ### LTrim
 **Description:**  
 The LTrim function removes leading white spaces from a string.
@@ -920,7 +920,7 @@ The LTrim function removes leading white spaces from a string.
 `LTrim(" Test ")`  
 Returns "Test "
 
-- - -
+---
 ### Mid
 **Description:**  
 The Mid function returns a specified number of characters from a specified position in a string.
@@ -951,7 +951,7 @@ Returns "hn Do".
 `Mid("John Doe", 6, 999)`  
 Returns "Doe"
 
-- - -
+---
 ### Now
 **Description:**  
 The Now function returns a DateTime specifying the current date and time, according to your computer's system date and time.
@@ -959,7 +959,7 @@ The Now function returns a DateTime specifying the current date and time, accord
 **Syntax:**  
 `dt Now()`
 
-- - -
+---
 ### NumFromDate
 **Description:**  
 The NumFromDate function returns a date in AD’s date format.
@@ -971,7 +971,7 @@ The NumFromDate function returns a date in AD’s date format.
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
 Returns 129699324000000000
 
-- - -
+---
 ### PadLeft
 **Description:**  
 The PadLeft function left-pads a string to a specified length using a provided padding character.
@@ -996,7 +996,7 @@ The PadLeft function left-pads a string to a specified length using a provided p
 `PadLeft("User", 10, "0")`  
 Returns "000000User".
 
-- - -
+---
 ### PadRight
 **Description:**  
 The PadRight function right-pads a string to a specified length using a provided padding character.
@@ -1021,7 +1021,7 @@ The PadRight function right-pads a string to a specified length using a provided
 `PadRight("User", 10, "0")`  
 Returns "User000000".
 
-- - -
+---
 ### PCase
 **Description:**  
 The PCase function converts the first character of each space delimited word in a string to upper case, and all other characters are converted to lower case.
@@ -1040,7 +1040,7 @@ Returns "Test".
 `PCase(LCase("TEST"))`  
 Returns "Test"
 
-- - -
+---
 ### RandomNum
 **Description:**  
 The RandomNum function returns a random number between a specified interval.
@@ -1055,7 +1055,7 @@ The RandomNum function returns a random number between a specified interval.
 `Random(100,999)`  
 Can return 734.
 
-- - -
+---
 ### RemoveDuplicates
 **Description:**  
 The RemoveDuplicates function takes a multi-valued string and make sure each value is unique.
@@ -1067,7 +1067,7 @@ The RemoveDuplicates function takes a multi-valued string and make sure each val
 `RemoveDuplicates([proxyAddresses])`  
 Returns a sanitized proxyAddress attribute where all duplicate values have been removed.
 
-- - -
+---
 ### Replace
 **Description:**  
 The Replace function replaces all occurrences of a string to another string.
@@ -1090,7 +1090,7 @@ The function recognizes the following special monikers:
 `Replace([address],"\r\n",", ")`  
 Replaces CRLF with a comma and space, and could lead to "One Microsoft Way, Redmond, WA, USA"
 
-- - -
+---
 ### ReplaceChars
 **Description:**  
 The ReplaceChars function replaces all occurrences of characters found in the ReplacePattern string.
@@ -1123,7 +1123,7 @@ Returns Raksmorgas
 `ReplaceChars("O’Neil",%ReplaceString%)`  
 Returns "ONeil", the single tick is defined to be removed.
 
-- - -
+---
 ### Right
 **Description:**  
 The Right function returns a specified number of characters from the right (end) of a string.
@@ -1149,7 +1149,7 @@ If string contains fewer characters than the number specified in NumChars, a str
 `Right("John Doe", 3)`  
 Returns "Doe".
 
-- - -
+---
 ### RTrim
 **Description:**  
 The RTrim function removes trailing white spaces from a string.
@@ -1161,7 +1161,7 @@ The RTrim function removes trailing white spaces from a string.
 `RTrim(" Test ")`  
 Returns " Test".
 
-- - -
+---
 ### Select
 **Description:**  
 Process all values in a multi-valued attribute (or output of an expression) based on function specified.
@@ -1179,7 +1179,7 @@ Process all values in a multi-valued attribute (or output of an expression) base
 `Select($item,[otherPhone],Replace($item,"-",""))`  
 Return all the values in the multi-valued attribute otherPhone after hyphens (-) have been removed.
 
-- - -
+---
 ### Split
 **Description:**  
 The Split function takes a string separated with a delimiter and makes it a multi-valued string.
@@ -1196,7 +1196,7 @@ The Split function takes a string separated with a delimiter and makes it a mult
 `Split("SMTP:john.doe@contoso.com,smtp:jd@contoso.com",",")`  
 Returns a multi-valued string with 2 elements useful for the proxyAddress attribute.
 
-- - -
+---
 ### StringFromGuid
 **Description:**  
 The StringFromGuid function takes a binary GUID and converts it to a string
@@ -1204,7 +1204,7 @@ The StringFromGuid function takes a binary GUID and converts it to a string
 **Syntax:**  
 `str StringFromGuid(bin GUID)`
 
-- - -
+---
 ### StringFromSid
 **Description:**  
 The StringFromSid function converts a byte array containing a security identifier to a string.
@@ -1212,7 +1212,7 @@ The StringFromSid function converts a byte array containing a security identifie
 **Syntax:**  
 `str StringFromSid(bin ObjectSID)`  
 
-- - -
+---
 ### Switch
 **Description:**  
 The Switch function is used to return a single value based on evaluated conditions.
@@ -1241,7 +1241,7 @@ Value can also be the Error function, which would return a custom string.
 `Switch([city] = "London", "English", [city] = "Rome", "Italian", [city] = "Paris", "French", True, Error("Unknown city"))`  
 Returns the language spoken in some major cities, otherwise returns an Error.
 
-- - -
+---
 ### Trim
 **Description:**  
 The Trim function removes leading and trailing white spaces from a string.
@@ -1256,7 +1256,7 @@ Returns "Test".
 `Trim([proxyAddresses])`  
 Removes leading and trailing spaces for each value in the proxyAddress attribute.
 
-- - -
+---
 ### UCase
 **Description:**  
 The UCase function converts all characters in a string to upper case.
@@ -1268,7 +1268,7 @@ The UCase function converts all characters in a string to upper case.
 `UCase("TeSt")`  
 Returns "TEST".
 
-- - -
+---
 ### Where
 
 **Description:**  
@@ -1286,7 +1286,7 @@ Returns a subset of values from a multi-valued attribute (or output of an expres
 `Where($item,[userCertificate],CertNotAfter($item)>Now())`  
 Return the certificate values in the multi-valued attribute userCertificate which aren’t expired.
 
-- - -
+---
 ### With
 **Description:**  
 The With function provides a way to simplify a complex expression by using a variable to represent a subexpression which appears one or more times in the complex expression.
@@ -1304,7 +1304,7 @@ Is functionally equivalent to:
 Which returns only unexpired certificate values in the userCertificate attribute.
 
 
-- - -
+---
 ### Word
 **Description:**  
 The Word function returns a word contained within a string, based on parameters describing the delimiters to use and the word number to return.

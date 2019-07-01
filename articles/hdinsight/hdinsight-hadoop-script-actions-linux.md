@@ -1,23 +1,17 @@
 ---
-title: Script action development with Linux-based HDInsight - Azure 
-description: 'Learn how to use Bash scripts to customize Linux-based HDInsight clusters. The script action feature of HDInsight allows you to run scripts during or after cluster creation. Scripts can be used to change cluster configuration settings or install additional software.'
-services: hdinsight
+title: Develop script actions to customize Azure HDInsight clusters
+description: Learn how to use Bash scripts to customize HDInsight clusters. Script actions allow you to run scripts during or after cluster creation to change cluster configuration settings or install additional software.
 author: hrasheed-msft
-ms.reviewer: jasonh
-
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 02/15/2019
 ms.author: hrasheed
-
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 04/22/2019
 ---
+
 # Script action development with HDInsight
 
 Learn how to customize your HDInsight cluster using Bash scripts. Script actions are a way to customize HDInsight during or after cluster creation.
-
-> [!IMPORTANT]  
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## What are script actions
 
@@ -57,13 +51,28 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 
 Different versions of HDInsight have different versions of Hadoop services and components installed. If your script expects a specific version of a service or component, you should only use the script with the version of HDInsight that includes the required components. You can find information on component versions included with HDInsight using the [HDInsight component versioning](hdinsight-component-versioning.md) document.
 
-### <a name="bps10"></a> Target the OS version
+### Checking the operating system version
+
+Different versions of HDInsight rely on specific versions of Ubuntu. There may be differences between OS versions that you must check for in your script. For example, you may need to install a binary that is tied to the version of Ubuntu.
+
+To check the OS version, use `lsb_release`. For example, the following script demonstrates how to reference a specific tar file depending on the OS version:
+
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
+
+### <a name="bps10"></a> Target the operating system version
 
 Linux-based HDInsight is based on the Ubuntu Linux distribution. Different versions of HDInsight rely on different versions of Ubuntu, which may change how your script behaves. For example, HDInsight 3.4 and earlier are based on Ubuntu versions that use Upstart. Versions 3.5 and greater are based on Ubuntu 16.04, which uses Systemd. Systemd and Upstart rely on different commands, so your script should be written to work with both.
 
-Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8.
-
-You can check the OS version by using `lsb_release`. The following code demonstrates how to determine if the script is running on Ubuntu 14 or 16:
+Another important difference between HDInsight 3.4 and 3.5 is that `JAVA_HOME` now points to Java 8. The following code demonstrates how to determine if the script is running on Ubuntu 14 or 16:
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -132,10 +141,10 @@ Linux-based HDInsight clusters provide two head nodes that are active within the
 
 Components that you install on the cluster might have a default configuration that uses Apache Hadoop Distributed File System (HDFS) storage. HDInsight uses either Azure Storage or Data Lake Storage as the default storage. Both provide an HDFS compatible file system that persists data even if the cluster is deleted. You may need to configure components you install to use WASB or ADL instead of HDFS.
 
-For most operations, you do not need to specify the file system. For example, the following copies the giraph-examples.jar file from the local file system to cluster storage:
+For most operations, you do not need to specify the file system. For example, the following copies the hadoop-common.jar file from the local file system to cluster storage:
 
 ```bash
-hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 ```
 
 In this example, the `hdfs` command transparently uses the default cluster storage. For some operations, you may need to specify the URI. For example, `adl:///example/jars` for Azure Data Lake Storage Gen1, `abfs:///example/jars` for Data Lake Storage Gen2 or `wasb:///example/jars` for Azure Storage.
@@ -286,23 +295,6 @@ Storing the files in an Azure Storage account or Azure Data Lake Storage provide
 > [!NOTE]  
 > The URI format used to reference the script differs depending on the service being used. For storage accounts associated with the HDInsight cluster, use `wasb://` or `wasbs://`. For publicly readable URIs, use `http://` or `https://`. For Data Lake Storage, use `adl://`.
 
-### Checking the operating system version
-
-Different versions of HDInsight rely on specific versions of Ubuntu. There may be differences between OS versions that you must check for in your script. For example, you may need to install a binary that is tied to the version of Ubuntu.
-
-To check the OS version, use `lsb_release`. For example, the following script demonstrates how to reference a specific tar file depending on the OS version:
-
-```bash
-OS_VERSION=$(lsb_release -sr)
-if [[ $OS_VERSION == 14* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
-    HUE_TARFILE=hue-binaries-14-04.tgz
-elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
-    HUE_TARFILE=hue-binaries-16-04.tgz
-fi
-```
-
 ## <a name="deployScript"></a>Checklist for deploying a script action
 
 Here are the steps take when preparing to deploy a script:
@@ -329,7 +321,6 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 
 * [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
 * [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
-* [Install or upgrade Mono on HDInsight clusters](hdinsight-hadoop-install-mono.md)
 
 ## Troubleshooting
 

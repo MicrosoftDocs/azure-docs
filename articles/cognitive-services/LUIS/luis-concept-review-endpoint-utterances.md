@@ -16,7 +16,7 @@ ms.author: diberry
 Active learning is one of three strategies to improve prediction accuracy and the easiest to implement. With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
 
 ## What is active learning
-Active learning is a two-step process. First, LUIS selects utterances it receives at the app's endpoint that need validation. The second step is performed by the app owner or collaborator to validate the selected utterances for [review](luis-how-to-review-endoint-utt.md), including the correct intent and any entities within the intent. After reviewing the utterances, train and publish the app again. 
+Active learning is a two-step process. First, LUIS selects utterances it receives at the app's endpoint that need validation. The second step is performed by the app owner or collaborator to validate the selected utterances for [review](luis-how-to-review-endpoint-utterances.md), including the correct intent and any entities within the intent. After reviewing the utterances, train and publish the app again. 
 
 ## Which utterances are on the review list
 LUIS adds utterances to the review list when the top firing intent has a low score or the top two intents' scores are too close. 
@@ -35,4 +35,4 @@ Use the **[delete unlabelled utterances](https://westus.dev.cognitive.microsoft.
 
 ## Next steps
 
-* Learn how to [review](luis-how-to-review-endoint-utt.md) endpoint utterances
+* Learn how to [review](luis-how-to-review-endpoint-utterances.md) endpoint utterances

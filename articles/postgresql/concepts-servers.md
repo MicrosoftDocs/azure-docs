@@ -1,17 +1,17 @@
 ---
-title: Server concepts in Azure Database for PostgreSQL
-description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL servers.
+title: Server concepts in Azure Database for PostgreSQL - Single Server
+description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 5/6/2019
 ---
-# Azure Database for PostgreSQL servers
-This article provides considerations and guidelines for working with Azure Database for PostgreSQL servers.
+# Azure Database for PostgreSQL - Single Server
+This article provides considerations and guidelines for working with Azure Database for PostgreSQL - Single Server.
 
 ## What is an Azure Database for PostgreSQL server?
-An Azure Database for PostgreSQL server is a central administrative point for multiple databases. It is the same PostgreSQL server construct that you may be familiar with in the on-premises world. Specifically, the PostgreSQL service is managed, provides performance guarantees, exposes access and features at the server-level.
+A server in the Azure Database for PostgreSQL - Single Server deployment option is a central administrative point for multiple databases. It is the same PostgreSQL server construct that you may be familiar with in the on-premises world. Specifically, the PostgreSQL service is managed, provides performance guarantees, exposes access and features at the server-level.
 
 An Azure Database for PostgreSQL server:
 

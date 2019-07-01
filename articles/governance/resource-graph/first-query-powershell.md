@@ -1,7 +1,6 @@
 ---
 title: Run your first query using Azure PowerShell
 description: This article walks you through the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -10,7 +9,7 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ---
-# Run your first Resource Graph query using Azure PowerShell
+# Quickstart: Run your first Resource Graph query using Azure PowerShell
 
 The first step to using Azure Resource Graph is to check that the module for Azure PowerShell is
 installed. This quickstart walks you through the process of adding the module to your Azure
@@ -98,12 +97,20 @@ When the final query is run several times, assuming that nothing in your environ
 the results returned will be consistent and as expected -- ordered by the **Name** property, but
 still limited to the top five results.
 
-## Cleanup
+> [!NOTE]
+> If the query does not return results from a subscription you already have access to, then note that
+> `Search-AzGraph` cmdlet defaults to subscriptions in the default context. To see the list of subscription ids
+> which are part of the default context run this `(Get-AzContext).Account.ExtendedProperties.Subscriptions`
+> If you wish to search across all the subscriptions you have access to, one can set the PSDefaultParameterValues for
+> `Search-AzGraph` cmdlet by running 
+> `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID }`
+   
+## Clean up resources
 
 If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do
 so by using the following command:
 
-```powershell
+```azurepowershell-interactive
 # Remove the Resource Graph module from the Azure PowerShell environment
 Remove-Module -Name 'Az.ResourceGraph'
 ```

@@ -1,11 +1,11 @@
 ---
 title: Forward Azure Automation job data to Azure Monitor logs
-description: This article demonstrates how to send job status and runbook job streams to Azure Azure Monitor logs to deliver additional insight and management.
+description: This article demonstrates how to send job status and runbook job streams to Azure Monitor logs to deliver additional insight and management.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
@@ -27,7 +27,7 @@ Automation can send runbook job status and job streams to your Log Analytics wor
 
 To start sending your Automation logs to Azure Monitor logs, you need:
 
-* The November 2016 or later release of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
+* The latest release of [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/).
 * A Log Analytics workspace. For more information, see [Get started with Azure Monitor logs](../log-analytics/log-analytics-get-started.md). 
 * The ResourceId for your Azure Automation account.
 
@@ -35,14 +35,14 @@ To find the ResourceId for your Azure Automation account:
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 To find the ResourceId for your Log Analytics workspace, run the following PowerShell:
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 If you have more than one Automation accounts, or workspaces, in the output of the preceding commands, find the *Name* you need to configure and copy the value for *ResourceId*.
@@ -58,7 +58,7 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 After running this script, it may take an hour before you start to see records in Azure Monitor logs of new JobLogs or JobStreams being written.
@@ -71,7 +71,7 @@ To see the logs, run the following query in log analytics log search:
 To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are correctly configured on the Automation account by using the following PowerShell:
 
 ```powershell-interactive
-Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 In the output ensure that:
@@ -92,7 +92,7 @@ Diagnostics from Azure Automation creates two types of records in Azure Monitor 
 | Caller_s |Who initiated the operation. Possible values are either an email address or system for scheduled jobs. |
 | Tenant_g | GUID that identifies the tenant for the Caller. |
 | JobId_g |GUID that is the Id of the runbook job. |
-| ResultType |The status of the runbook job. Possible values are:<br>- New<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
+| ResultType |The status of the runbook job. Possible values are:<br>- New<br>- Created<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
 | Category | Classification of the type of data. For Automation, the value is JobLogs. |
 | OperationName | Specifies the type of operation performed in Azure. For Automation, the value is Job. |
 | Resource | Name of the Automation account |
@@ -170,7 +170,7 @@ To remove the diagnostic setting from the Automation Account, run the following 
 ```powershell-interactive
 $automationAccountId = "[resource id of your automation account]"
 
-Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 ## Summary

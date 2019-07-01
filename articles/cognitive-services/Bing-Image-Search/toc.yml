@@ -67,9 +67,9 @@
 - name: Reference
   items:
   - name: Bing Image Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference
   - name: Bing Image Search API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference
   - name: Azure PowerShell reference
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI reference
@@ -115,3 +115,5 @@
     href: language-support.md
   - name: Analytics for Bing Image Search API
     href: bing-image-stats.md
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

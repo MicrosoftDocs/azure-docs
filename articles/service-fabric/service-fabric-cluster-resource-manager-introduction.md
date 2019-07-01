@@ -4,7 +4,7 @@ description: An introduction to the Service Fabric Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64

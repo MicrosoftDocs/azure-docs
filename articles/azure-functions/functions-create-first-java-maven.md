@@ -17,7 +17,7 @@ ms.custom: mvc, devcenter
 
 # Create your first function with Java and Maven
 
-This article guides you through using the Maven command line tool to build and publish a Java function to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
+This article guides you through using the Maven command-line tool to build and publish a Java function to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,10 +25,10 @@ This article guides you through using the Maven command line tool to build and p
 
 To develop functions using Java, you must have the following installed:
 
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
-- [Apache Maven](https://maven.apache.org), version 3.0 or above.
+- [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+- [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Azure Functions Core Tools](functions-run-local.md#v2) (requires **.NET Core 2.x SDK**)
+- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
@@ -45,6 +45,9 @@ mvn archetype:generate \
 	-DarchetypeArtifactId=azure-functions-archetype 
 ```
 
+> [!NOTE]
+> If you're experiencing issues with running the command, take a look at what `maven-archetype-plugin` version is used. Because you are running the command in an empty directory with no `.pom` file, it might be attempting to use a plugin of the older version from `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` if you upgraded your Maven from an older version. If so, try deleting the `maven-archetype-plugin` directory and re-running the command.
+
 ### Windows
 
 ```powershell
@@ -55,8 +58,8 @@ mvn archetype:generate `
 
 ```cmd
 mvn archetype:generate ^
-	-DarchetypeGroupId=com.microsoft.azure ^
-	-DarchetypeArtifactId=azure-functions-archetype
+	"-DarchetypeGroupId=com.microsoft.azure" ^
+	"-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
 Maven will ask you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.
@@ -72,7 +75,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven creates the project files in a new folder with a name of _artifactId_, in this example `fabrikam-functions`. The ready to run generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
+Maven creates the project files in a new folder with a name of _artifactId_, in this example `fabrikam-functions`. The ready to run generated code in the project is an [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
 
 ```java
 public class Function {
@@ -82,8 +85,8 @@ public class Function {
      * 2. curl {your host}/api/hello?name=HTTP%20Query
      */
     @FunctionName("hello")
-    public HttpResponseMessage<String> hello(
-            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -92,14 +95,18 @@ public class Function {
         String name = request.getBody().orElse(query);
 
         if (name == null) {
-            return request.createResponse(400, "Please pass a name on the query string or in the request body");
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST).body("Please pass a name on the query string or in the request body").build();
         } else {
-            return request.createResponse(200, "Hello, " + name);
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
         }
     }
 }
 
 ```
+
+## Enable extension bundles
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ## Run the function locally
 
@@ -128,7 +135,7 @@ Http Functions:
 Trigger the function from the command line using curl in a new terminal window:
 
 ```
-curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
+curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
 ```Output
@@ -139,13 +146,16 @@ Use `Ctrl-C` in the terminal to stop the function code.
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Log in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
 
 ```azurecli
 az login
 ```
 
-Deploy your code into a new Function app using the `azure-functions:deploy` Maven target.
+Deploy your code into a new Function app using the `azure-functions:deploy` Maven target. This performs a [Zip Deploy with Run From Package](functions-deployment-technologies.md#zip-deploy) mode enabled.
+
+> [!NOTE]
+> When you use Visual Studio Code to deploy your Function app, remember to choose a non-free subscription, or you will get an error. You can watch your subscription on the left side of the IDE.
 
 ```
 mvn azure-functions:deploy
@@ -167,7 +177,7 @@ Test the function app running on Azure using `cURL`. You'll need to change the U
 > Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) in requests to access your function endpoint.
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
 ```Output
@@ -188,7 +198,7 @@ To the following:
 return request.createResponse(200, "Hi, " + name);
 ```
 
-Save the changes and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
+Save the changes. Run mvn clean package and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
 
 ```bash
 curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java

@@ -36,7 +36,7 @@ See the relevant cmdlet specs:
 
 *PowerShell Script*  
 
-```PowerShell
+```powershell
 
 
 ###########################################

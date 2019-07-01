@@ -1,15 +1,14 @@
 ---
 title: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/30/2019
 ms.author: hrasheed
-
 ---
+
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 
 Azure Data Lake Storage Gen2 is a cloud storage service dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 combines the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. The resulting service offers features from Azure Data Lake Storage Gen1, such as file system semantics, directory-level and file-level security, and scalability, along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
@@ -18,18 +17,18 @@ Azure Data Lake Storage Gen2 is a cloud storage service dedicated to big data an
 
 Data Lake Storage Gen2 is available as a storage option for almost all Azure HDInsight cluster types as both a default and an additional storage account. HBase, however, can have only one Data Lake Storage Gen2 account.
 
-> [!Note] 
+> [!Note]  
 > After you select Data Lake Storage Gen2 as your **primary storage type**, you cannot select a Data Lake Storage Gen1 account as additional storage.
 
 ## Create a cluster with Data Lake Storage Gen2 through the Azure portal
 
 To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, follow these steps to configure a Data Lake Storage Gen2 account.
 
-### Create a user managed identity
+### Create a user-assigned managed identity
 
 Create a user-assigned managed identity, if you don’t already have one. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity). For more information on how managed identities work in Azure HDInsight, see [Managed identities in Azure HDInsight](hdinsight-managed-identities.md).
 
-![Create a user-assigned managed identity](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
+![Create a user-assigned managed identity](./media/hdinsight-hadoop-use-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
 ### Create a Data Lake Storage Gen2 account
 
@@ -37,9 +36,9 @@ Create an Azure Data Lake Storage Gen2 storage account. Make sure that the **Hie
 
 ![Screenshot showing storage account creation in the Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
-### Setup permissions for the managed identity on the Data Lake Storage Gen2 account
+### Set up permissions for the managed identity on the Data Lake Storage Gen2 account
 
-Assign the managed identity to the **Storage Blob Data Owner (Preview)** role on the storage account. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](../storage/common/storage-auth-aad-rbac.md).
+Assign the managed identity to the **Storage Blob Data Owner** role on the storage account. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](../storage/common/storage-auth-aad-rbac.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to your storage account.
 1. Select your storage account, then select **Access control (IAM)** to display the access control settings for the account. Select the **Role assignments** tab to see the list of role assignments.
@@ -47,11 +46,11 @@ Assign the managed identity to the **Storage Blob Data Owner (Preview)** role on
     ![Screenshot showing storage access control settings](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
 1. Select the **+ Add role assignment** button to add a new role.
-1. In the **Add role assignment** window, select the **Storage Blob Data Owner (Preview)** role. Then, select the subscription that has the managed identity and storage account. Next, search to locate the user-assigned managed identity that you created previously. Finally, select the managed identity, and it will be listed under **Selected members**.
+1. In the **Add role assignment** window, select the **Storage Blob Data Owner** role. Then, select the subscription that has the managed identity and storage account. Next, search to locate the user-assigned managed identity that you created previously. Finally, select the managed identity, and it will be listed under **Selected members**.
     
     ![Screenshot showing how to assign an RBAC role](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
-1. Select **Save**. The user-assigned identity that you selected is now listed under the **Contributor** role.
+1. Select **Save**. The user-assigned identity that you selected is now listed under the selected role.
 1. After this initial setup is complete, you can create a cluster through the portal. The cluster must be in the same Azure region as the storage account. In the **Storage** section of the cluster creation menu, select the following options:
         
     * For **Primary storage type**, select **Azure Data Lake Storage Gen2**.
@@ -62,6 +61,9 @@ Assign the managed identity to the **Storage Blob Data Owner (Preview)** role on
     * Under **Identity**, select the correct subscription and the newly created user-assigned managed identity.
         
         ![Identity settings for using Data Lake Storage Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+        
+> [!Note]
+> To add a secondary Data Lake Storage Gen2 account, at the storage account level, simply assign the managed identity created earlier to the new Data Lake Storage Gen2 storage account that you wish to add.Please be advised that adding a secondary Data Lake Storage Gen2 account via the "Additional storage accounts" blade on HDInsight is not supported. 
 
 ## Create a cluster with Data Lake Storage Gen2 through the Azure CLI
 
@@ -94,7 +96,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Next, sign in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor (Preview)** role on the storage account, as described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Next, sign in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor** role on the storage account, as described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 After you've assigned the role for the user-assigned managed identity, deploy the template by using the following code snippet.
 
@@ -131,6 +133,5 @@ To set permissions for users to query data, use Azure AD security groups as the 
 
 ## Next steps
 
-* [Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters](../storage/blobs/data-lake-storage-use-hdi-cluster.md)
 * [Azure HDInsight integration with Data Lake Storage Gen2 preview - ACL and security update](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
-* [Introduction to Azure Data Lake Storage Gen2 Preview](../storage/blobs/data-lake-storage-introduction.md)
+* [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)

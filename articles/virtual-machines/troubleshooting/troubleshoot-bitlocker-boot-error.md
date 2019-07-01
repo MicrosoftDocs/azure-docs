@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/31/2018
+ms.date: 03/25/2019
 ms.author: genli
 ---
 
@@ -20,7 +20,7 @@ ms.author: genli
 
  This article describes BitLocker errors that you may experience when you start a Windows virtual machine (VM) in Microsoft Azure.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Symptom
 
@@ -44,7 +44,7 @@ To resolve this problem, stop and deallocate the VM, and then restart it. This o
 If this method does not the resolve the problem, follow these steps to restore the BEK file manually:
 
 1. Take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
-2. [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md) that is encrypted by BitLocker. This is required to run the [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command that is available only on the BitLocker-encrypted VM.
+2. [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md). To run the [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command in the step 7, the **BitLocker Drive Encryption** feature must be enabled in the recovery VM.
 
     When you attach a managed disk, you might receive a "contains encryption settings and therefore cannot be used as a data disk” error message. In this situation, run the following script to try again to attach the disk:
 
@@ -102,7 +102,7 @@ If this method does not the resolve the problem, follow these steps to restore t
 
     If the **Content Type** value is **Wrapped BEK**, go to the [Key Encryption Key (KEK) scenarios](#key-encryption-key-scenario).
 
-    Now that you have the name of the BEK file for the drive, you have to create the secret-file-name.BEK file to unlock the drive. 
+    Now that you have the name of the BEK file for the drive, you have to create the secret-file-name.BEK file to unlock the drive.
 
 6.	Download the BEK file to the recovery disk. The following sample saves the BEK file to the C:\BEK folder. Make sure that the `C:\BEK\` path exists before you run the scripts.
 
@@ -116,14 +116,14 @@ If this method does not the resolve the problem, follow these steps to restore t
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.	To unlock the attached disk by using the BEK file, run the following command:
+7.	To unlock the attached disk by using the BEK file, run the following command.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
-    - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
+    - If the disk was successfully unlocked by using the BEK key. we can consider the BitLocker problem to be resolved. 
 
     - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
     
@@ -163,9 +163,9 @@ For a Key Encryption Key scenario, follow these steps:
             [string] 
             $adTenant
             )
-    # Load ADAL Assemblies
-    $adal = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
+    # Load ADAL Assemblies. The following script assumes that the Azure PowerShell version you installed is 1.0.0. 
+    $adal = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
+    $adalforms = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
     [System.Reflection.Assembly]::LoadFrom($adal)
     [System.Reflection.Assembly]::LoadFrom($adalforms)
 
@@ -180,7 +180,7 @@ For a Key Encryption Key scenario, follow these steps:
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $authResult = $authContext.AcquireToken($resourceAppIdURI, $clientId, $redirectUri, "Auto")
+    $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI, $clientId, $redirectUri, $platformParameters).result
     # Generate auth header 
     $authHeader = $authResult.CreateAuthorizationHeader()
     # Set HTTP request headers to include Authorization header
@@ -233,8 +233,8 @@ For a Key Encryption Key scenario, follow these steps:
 
         GAC    Version        Location                                                                              
         ---    -------        --------                                                                              
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\AzureRM.profile\4.0.0\Microsoft.Identity...
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\AzureRM.profile\4.0.0\Microsoft.Identity...
+        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
 
     When the script finishes, you see the following output:
 
@@ -250,7 +250,7 @@ For a Key Encryption Key scenario, follow these steps:
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
-    - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
+    - If the disk was successfully unlocked by using the BEK key. we can consider the BitLocker problem to be resolved. 
 
     - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
     

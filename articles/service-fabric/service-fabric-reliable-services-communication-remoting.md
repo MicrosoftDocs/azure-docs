@@ -4,7 +4,7 @@ description: Service Fabric remoting allows clients and services to communicate 
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: BharatNarasimman
 
 ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b

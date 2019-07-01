@@ -1,17 +1,15 @@
 ---
 title: Create a blueprint with REST API
 description: Use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
 ms.custom: seodec18
 ---
-# Define and Assign an Azure Blueprint with REST API
+# Quickstart: Define and Assign an Azure Blueprint with REST API
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
 reusable and rapidly deployable configurations based on Resource Manager templates, policy,
@@ -27,6 +25,8 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 > - Remove a blueprint that has been assigned to a subscription
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Getting started with REST API
 
@@ -45,10 +45,10 @@ instructions. Following is a sample header for authenticating with Azure. Genera
 authentication header, sometimes called a **Bearer token**, and provide the REST API URI to connect
 to with any parameters or a **Request Body**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)

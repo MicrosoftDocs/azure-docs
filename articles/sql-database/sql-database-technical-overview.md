@@ -8,14 +8,14 @@ ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer:
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 04/08/2019
 ---
 
-# What is Azure SQL Database service?
+# What is Azure SQL Database service
 
 SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database delivers dynamically scalable performance within two different purchasing models: a vCore-based purchasing model and a DTU-based purchasing model. SQL Database also provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
 
@@ -49,7 +49,7 @@ SQL Database delivers predictable performance with multiple resource types, serv
 
 ## Scalable performance and pools
 
-- With single databases, each database is isolated from each other and portable, each with its own guaranteed amount of compute, memory, and storage resources. SQL Database provides different compute, memory, and storage resources for different needs - and the ability to dynamically [scale single database resources](sql-database-single-database-scale.md) up and down. The [hyperscale service tier](sql-database-service-tier-hyperscale.md) (preview) for single database enables you to scale to 100 TB, with fast backup and restore capabilities.
+- With single databases, each database is isolated from each other and portable, each with its own guaranteed amount of compute, memory, and storage resources. SQL Database provides different compute, memory, and storage resources for different needs - and the ability to dynamically [scale single database resources](sql-database-single-database-scale.md) up and down. The [hyperscale service tier](sql-database-service-tier-hyperscale.md) for single database enables you to scale to 100 TB, with fast backup and restore capabilities.
 - With elastic pools, you can create new databases or move single databases into a resource pool to maximize the use of resources and save money - and the ability to dynamically [scale elastic pool resources](sql-database-elastic-pool-scale.md) up and down.
 - With managed instances, each managed instance is isolated from other instances with guaranteed resources. Within a managed instance, the instance databases share a set of resources - and the ability to dynamically [scale managed instance resources](sql-database-managed-instance-resource-limits.md) up and down.
 
@@ -64,8 +64,7 @@ SQL Database offers two purchasing models:
 - The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, IO resources in three service tiers to support lightweight to heavyweight database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. For more information about the Azure Hybrid Benefit, see [Frequently asked questions](#sql-database-frequently-asked-questions-faq).
 
-  > [!IMPORTANT]
-  > The [hyperscale service tier](sql-database-service-tier-hyperscale.md) for single databases is currently in public preview. We don't recommend running any production workload in hyperscale databases yet. You can't update a hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database and update the copy to hyperscale service tier.
+  
 
 ### Elastic pools to maximize resource utilization
 
@@ -97,12 +96,12 @@ You use the [built-in performance monitoring](sql-database-performance.md) and [
 ## Availability capabilities
 
 In a traditional SQL Server environment, you would generally have (at least) 2 machines locally set up with exact (synchronously maintained) copies of the data (using features like AlwaysOn availability groups or Failover Cluster Instances) to protect against a failure of a single machine/component.  This provides high availability but does not protect against a natural disaster destroying your data center.
- 
+
 Disaster recovery assumes that a catastrophic event will be geographically localized enough to have another machine/set of machines with a copy of your data far away.  In SQL Server, you could use Always On Availability Groups running in async mode to get this capability.  The speed of light issues usually means that people do not want to wait for replication to happen that far away before committing a transaction, so there is potential for data loss when you do unplanned failovers.
 
 Databases in the premium and business critical service tiers already [do something very similar](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) to the synchronization of an availability group. Databases in lower service tiers provide redundancy through storage using a [different but equivalent mechanism](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). There is logic that protects against a single machine failure.  The active geo-replication feature gives you the ability to protect against disaster where a whole region is destroyed.
 
-Azure Availability Zones is a play on the high availability problem.  It tries to protect against the outage of a single data center building within a single region.  So, it wants to protect against the loss of power or network to a building. In SQL Azure, this will work by placing the different replicas in different availability zones (different buildings, effectively) and otherwise working as before. 
+Azure Availability Zones is a play on the high availability problem.  It tries to protect against the outage of a single data center building within a single region.  So, it wants to protect against the loss of power or network to a building. In SQL Azure, this will work by placing the different replicas in different availability zones (different buildings, effectively) and otherwise working as before.
 
 In fact, Azure's industry leading 99.99% availability service level agreement [(SLA)](https://azure.microsoft.com/support/legal/sla/), powered by a global network of Microsoft-managed datacenters, helps keep your app running 24/7. The Azure platform fully manages every database and guarantees no data loss and high percentage of data availability. Azure automatically handles patching, backups, replication, failure detection, underlying potential hardware, software or network failures, deploying bug fixes, failovers, database upgrades and other maintenance tasks. Standard availability is achieved by a separation of compute and storage layers. Premium availability is achieved by integrating compute and storage on a single node for performance and then implementing technology similar to Always On Availability Groups under the covers. For a full discussion of the high availability capabilities of Azure SQL Database, see [SQL Database availability](sql-database-high-availability.md). In addition, SQL Database provides built-in [business continuity and global scalability](sql-database-business-continuity.md) features, including:
 
@@ -150,6 +149,9 @@ We are also adding the [adaptive query processing](/sql/relational-databases/per
 
 SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements.
 
+> [!IMPORTANT]
+> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
+
 ### Advance Threat Protection
 
 Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
@@ -178,7 +180,7 @@ SQL Database enables you to centrally manage identities of database user and oth
 
 ### Compliance certification
 
-SQL Database participates in regular audits and has been certified against several compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
+SQL Database participates in regular audits and has been certified against several compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 ## Easy-to-use tools
 
@@ -232,7 +234,6 @@ SQL Database customers will have the following rights associated with Azure Hybr
 |SQL Server Enterprise Edition core customers with SA|<li>Can pay Base Rate on either General Purpose or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
 |SQL Server Standard Edition core customers with SA|<li>Can pay Base Rate on General Purpose SKU only</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
 |||
-
 
 ## Engage with the SQL Server engineering team
 

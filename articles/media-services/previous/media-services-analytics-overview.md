@@ -36,8 +36,6 @@ Media Analytics media processors produce MP4 files or JSON files. If a media pro
 
 ### Indexer
 With Azure Media Indexer, you can make content searchable and generate closed-captioning tracks. Compared to the previous version, Azure Media Indexer 2 Preview has faster indexing and broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese, Portuguese, and Arabic. For detailed information and examples, see [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
-### Hyperlapse
-Microsoft Hyperlapse combines video stabilization and time-lapse capability to create quick, consumable videos from your long-form content. Besides creating time-lapse video, you can use Hyperlapse to create stable videos from shaky videos captured via cell phones and camcorders. For detailed information and examples, see [Hyperlapse media files with Azure Media Hyperlapse](media-services-hyperlapse-content.md).
 ### Motion Detector
 You can use Motion Detector to detect motion in a video with stationary backgrounds. This makes it possible to check for false positives on motion events detected by surveillance cameras. For detailed information and examples, see [Motion detection for Azure Media Analytics](media-services-motion-detection.md).
 ### Face Detector
@@ -56,7 +54,6 @@ Media Analytics can help organizations and enterprises glean new insights from v
 
 * **Call centers**. Even with the advent of social media, customer call centers still facilitate a large percentage of customer-service transactions. Encoded in this audio data is a large amount of customer information that can be analyzed to achieve higher customer satisfaction. By using Media Indexer, organizations can extract text and build search indexes and dashboards. Then they can extract intelligence around common complaints, sources of complaints, and other relevant data.
 * **User-generated content moderation**. From news media outlets to police departments, many organizations have public-facing portals that accept user-generated media such as videos and images. The volume of content can spike due to unexpected events. In these scenarios, it is difficult to conduct effective manual reviews of content for appropriateness. Customers can rely on the content-moderation service to focus on content that is appropriate.
-* **Surveillance**. With the growth in use of IP cameras comes a growing inventory of surveillance video. Manually reviewing surveillance video is time intensive and prone to human error. Media Analytics provides services such as motion detection, face detection, and Hyperlapse to make the process of reviewing, managing, and creating derivatives easier.
 
 ## Media Analytics media processors
 This section lists the Media Analytics media processors and shows how to use .NET or REST to get a media processor (MP) object.
@@ -64,7 +61,6 @@ This section lists the Media Analytics media processors and shows how to use .NE
 ### MP names
 * Azure Media Indexer 2 Preview
 * Azure Media Indexer
-* Azure Media Hyperlapse
 * Azure Media Face Detector
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails

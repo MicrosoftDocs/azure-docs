@@ -3,13 +3,13 @@ title: Control a device from Azure IoT Hub quickstart (.NET) | Microsoft Docs
 description: In this quickstart, you run two sample C# applications. One application is a back-end application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
+ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
@@ -41,6 +41,12 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 If you haven't already done so, download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
@@ -55,14 +61,13 @@ If you completed the previous [Quickstart: Send telemetry from a device to an Io
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity.
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
    **MyDotnetDevice**: The name of the device you're registering. Use **MyDotnetDevice** as shown. If you choose a different name for your device, you need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
@@ -74,7 +79,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
       --hub-name YourIoTHubName \
-      --device-id MyDotnetDevice 
+      --device-id MyDotnetDevice \
       --output table
     ```
 
@@ -89,12 +94,12 @@ A device must be registered with your IoT hub before it can connect. In this qui
 You also need your IoT hub _service connection string_ to enable the back-end application to connect to the hub and retrieve the messages. The following command retrieves the service connection string for your IoT hub:
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
 ```
 
 Make a note of the service connection string, which looks like:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
 You use this value later in the quickstart. The service connection string is different from the device connection string.  
 

@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
 
 ---
@@ -126,7 +126,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 ### Enable logging through the Azure portal
 
-1. In the Azure portal, find your resource and click **Diagnostic logs**.
+1. In the Azure portal, find your resource and select **Diagnostic settings**.
 
    For Application Gateway, three logs are available:
 
@@ -134,21 +134,15 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
    * Performance log
    * Firewall log
 
-2. To start collecting data, click **Turn on diagnostics**.
+2. To start collecting data, select **Turn on diagnostics**.
 
    ![Turning on diagnostics][1]
 
-3. The **Diagnostics settings** blade provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. Click **Configure** under **Log Analytics** to configure your workspace. You can also use event hubs and a storage account to save the diagnostic logs.
+3. The **Diagnostics settings** page provides the settings for the diagnostic logs. In this example, Log Analytics stores the logs. You can also use event hubs and a storage account to save the diagnostic logs.
 
    ![Starting the configuration process][2]
 
-4. Choose an existing Log Analytics workspace or create a new one. This example uses an existing one.
-
-   ![Options for Log Analytics workspaces][3]
-
-5. Confirm the settings and click **Save**.
-
-   ![Diagnostics settings blade with selections][4]
+5. Type a name for the settings, confirm the settings, and select **Save**.
 
 ### Activity log
 
@@ -156,8 +150,7 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 
 ### Access log
 
-The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as shown in the following example:
-
+The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as shown in the following example for v1:
 
 |Value  |Description  |
 |---------|---------|
@@ -194,6 +187,58 @@ The access log is generated only if you've enabled it on each Application Gatewa
         "sentBytes": 553,
         "timeTaken": 205,
         "sslEnabled": "off"
+    }
+}
+```
+For Application Gateway and WAF v2, the logs show a little more information:
+
+|Value  |Description  |
+|---------|---------|
+|instanceId     | Application Gateway instance that served the request.        |
+|clientIP     | Originating IP for the request.        |
+|clientPort     | Originating port for the request.       |
+|httpMethod     | HTTP method used by the request.       |
+|requestUri     | URI of the received request.        |
+|RequestQuery     | **Server-Routed**: Back-end pool instance that was sent the request.</br>**X-AzureApplicationGateway-LOG-ID**: Correlation ID used for the request. It can be used to troubleshoot traffic issues on the back-end servers. </br>**SERVER-STATUS**: HTTP response code that Application Gateway received from the back end.       |
+|UserAgent     | User agent from the HTTP request header.        |
+|httpStatus     | HTTP status code returned to the client from Application Gateway.       |
+|httpVersion     | HTTP version of the request.        |
+|receivedBytes     | Size of packet received, in bytes.        |
+|sentBytes| Size of packet sent, in bytes.|
+|timeTaken| Length of time (in milliseconds) that it takes for a request to be processed and its response to be sent. This is calculated as the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes. It's important to note that the Time-Taken field usually includes the time that the request and response packets are traveling over the network. |
+|sslEnabled| Whether communication to the back-end pools used SSL. Valid values are on and off.|
+|sslCipher| Cipher suite being used for SSL communication (if SSL is enabled).|
+|sslProtocol| SSL protocol being used (if SSL is enabled).|
+|serverRouted| The backend server that application gateway routes the request to.|
+|serverStatus| HTTP status code of the backend server.|
+|serverResponseLatency| Latency of the response from the backend server.|
+|host| Address listed in the host header of the request.|
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
+    "operationName": "ApplicationGatewayAccess",
+    "time": "2017-04-26T19:27:38Z",
+    "category": "ApplicationGatewayAccessLog",
+    "properties": {
+        "instanceId": "ApplicationGatewayRole_IN_0",
+        "clientIP": "191.96.249.97",
+        "clientPort": 46886,
+        "httpMethod": "GET",
+        "requestUri": "/phpmyadmin/scripts/setup.php",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "userAgent": "-",
+        "httpStatus": 404,
+        "httpVersion": "HTTP/1.0",
+        "receivedBytes": 65,
+        "sentBytes": 553,
+        "timeTaken": 205,
+        "sslEnabled": "off"
+        "sslCipher": "",
+        "sslProtocol": "",
+        "serverRouted": "104.41.114.59:80",
+        "serverStatus": "200",
+        "serverResponseLatency": "0.023",
+        "host": "52.231.230.101"
     }
 }
 ```
@@ -329,7 +374,7 @@ Metrics are a feature for certain Azure resources where you can view performance
 
    You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
 
-Browse to an application gateway, under **Monitoring** click **Metrics**. To view the available values, select the **METRIC** drop-down list.
+Browse to an application gateway, under **Monitoring** select **Metrics**. To view the available values, select the **METRIC** drop-down list.
 
 In the following image, you see an example with three metrics displayed for the last 30 minutes:
 
@@ -343,11 +388,11 @@ You can start alert rules based on metrics for a resource. For example, an alert
 
 The following example walks you through creating an alert rule that sends an email to an administrator after throughput breaches a threshold:
 
-1. Click **Add metric alert** to open the **Add rule** blade. You can also reach this blade from the metrics blade.
+1. select **Add metric alert** to open the **Add rule** page. You can also reach this page from the metrics page.
 
    !["Add metric alert" button][6]
 
-2. On the **Add rule** blade, fill out the name, condition, and notify sections, and click **OK**.
+2. On the **Add rule** page, fill out the name, condition, and notify sections, and select **OK**.
 
    * In the **Condition** selector, select one of the four values: **Greater than**, **Greater than or equal**, **Less than**, or **Less than or equal to**.
 
@@ -355,7 +400,7 @@ The following example walks you through creating an alert rule that sends an ema
 
    * If you select **Email owners, contributors, and readers**, the email can be dynamic based on the users who have access to that resource. Otherwise, you can provide a comma-separated list of users in the **Additional administrator email(s)** box.
 
-   ![Add rule blade][7]
+   ![Add rule page][7]
 
 If the threshold is breached, an email that's similar to the one in the following image arrives:
 

@@ -7,9 +7,6 @@ author: mumian
 
 
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
@@ -22,7 +19,7 @@ Learn how to use Azure CLI with [Azure Resource Manager](resource-group-overview
 Other articles about managing resources:
 
 - [Manage Azure resources by using the Azure portal](./manage-resources-portal.md)
-- [Manage Azure resources by using Azure CLI](./manage-resources-cli.md)
+- [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md)
 
 ## Deploy resources to an existing resource group
 

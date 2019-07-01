@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
 
-You create a web service when you deploy an image to Azure Container Instances, Azure Kubernetes Service, or Project Brainwave (field programmable gate arrays). You create images from registered models and scoring files. You retrieve the URI used to access a web service by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk). If authentication is enabled, you can also use the SDK to get the authentication keys.
+You create a web service when you deploy an image to Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA). You create images from registered models and scoring files. You retrieve the URI used to access a web service by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk). If authentication is enabled, you can also use the SDK to get the authentication keys.
 
 The general workflow for creating a client that uses a machine learning web service is:
 
@@ -484,3 +484,11 @@ The results returned are similar to the following JSON document:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
+
+## Consume the service from Power BI
+
+Power BI supports consumption of Azure Machine Learning web services to enrich the data in Power BI with predictions. 
+
+To generate a web service that's supported for consumption in Power BI, the schema must support the format that's required by Power BI. [Learn how to create a Power BI-supported schema](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#Example-script-with-dictionary-input-Support-consumption-from-Power-BI).
+
+Once the web service is deployed, it's consumable from Power BI dataflows. [Learn how to consume an Azure Machine Learning web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).

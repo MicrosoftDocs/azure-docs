@@ -90,11 +90,10 @@ Create a Basic internal load balancer by using the portal. The name and IP addre
     | Resource group         | Select **Create new** and type *MyResourceGroupLB* in the text box.|
     | Name                   | *myLoadBalancer*                                   |
     | Region         | Select **West Europe**.                                        |
-    | Type          | Select **Public**.                                        |
+    | Type          | Select **Internal**.                                        |
     | SKU           | Select **Basic**.                          |
     | Virtual network           | Select *MyVNet*.                          |    
-| Public IP address | Select **Create new**. |
-    | Public IP address assignment              | Select **Static**.   |
+    | IP address assignment              | Select **Static**.   |
     | Private IP address|Type an address that is in the address space of your virtual network and subnet, for example *10.3.0.7*.  |
 
 3. In the **Review + create** tab, click **Create**. 

@@ -69,7 +69,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+      html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/az.containerregistry">PowerShell</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/java/api/overview/azure/containerregistry">Java</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
     - title: REST

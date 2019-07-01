@@ -264,7 +264,7 @@ publish the public key to `authorized_keys` on the remote machine, such as `/hom
 
 ### Using SSH
 
-Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using AzureRM cmdlets.
+Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) to create a new VM configuration using Azure PowerShell cmdlets.
 Before calling into `New-AzVM` to kick off the deployment, add SSH public key to the VM configuration.
 The newly created VM will contain the public key in the `~\.ssh\authorized_keys` location, thereby enabling credential-free SSH session to the VM.
 
@@ -289,7 +289,7 @@ ssh azureuser@MyVM.Domain.Com
 
 Under `Azure` drive, type `Get-AzCommand` to get context-specific Azure commands.
 
-Alternatively, you can always use `Get-Command *azurerm* -Module AzureRM.*` to find out the available Azure commands.
+Alternatively, you can always use `Get-Command *az* -Module Az.*` to find out the available Azure commands.
 
 ## Install custom modules
 

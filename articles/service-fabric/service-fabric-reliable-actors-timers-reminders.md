@@ -4,7 +4,7 @@ description: Introduction to timers and reminders for Service Fabric Reliable Ac
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 
 ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f

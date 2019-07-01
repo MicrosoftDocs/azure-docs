@@ -5,7 +5,7 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/29/2019
+ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -20,8 +20,8 @@ This article shows you how to create and manage action groups in the Azure porta
 Each action is made up of the following properties:
 
 * **Name**: A unique identifier within the action group.  
-* **Action type**: The action performed. Examples include sending a voice call, SMS, email; or triggering various types of automated actions. See types later in this article. 
-* **Details**: The corresponding details that vary by *action type*. 
+* **Action type**: The action performed. Examples include sending a voice call, SMS, email; or triggering various types of automated actions. See types later in this article.
+* **Details**: The corresponding details that vary by *action type*.
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
@@ -29,9 +29,9 @@ For information on how to use Azure Resource Manager templates to configure acti
 1. In the [portal](https://portal.azure.com), select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 
     ![The "Monitor" service](./media/action-groups/home-monitor.png)
-1. Select **Alerts** then select **Manage action groups**.
+1. Select **Alerts** then select **Manage actions**.
 
-    ![Manage Action Groups button](./media/action-groups/manage-action-groups.png)
+    ![Manage Actions button](./media/action-groups/manage-action-groups.png)
 1. Select **Add action group**, and fill in the fields.
 
     ![The "Add action group" command](./media/action-groups/add-action-group.png)
@@ -50,6 +50,8 @@ For information on how to use Azure Resource Manager templates to configure acti
     b. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
     c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
+    
+    d. **Common alert schema**: You can choose to enable the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
 
 1. Select **OK** to create the action group.
 
@@ -63,7 +65,7 @@ After you create an action group, it's visible in the **Action groups** section 
 > [!NOTE]
 > See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) for numeric limits on each of the items below.  
 
-**Azure app Push** - You can have a limited number of Azure app actions in an Action Group. At this time, the Azure app action only supports ServiceHealth alerts. Any other alert type will be ignored. See [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Azure app Push** - You may have a limited number of Azure app actions in an Action Group.
 
 **Email** - Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
 - azure-noreply@microsoft.com
@@ -72,7 +74,7 @@ After you create an action group, it's visible in the **Action groups** section 
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article
 
-**ITSM** - You may have a limited number limited number of ITSM actions in an Action Group. ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** - You may have a limited number of ITSM actions in an Action Group. ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
 
 **Logic App** - You may have a limited number of Logic App actions in an Action Group.
 
@@ -95,16 +97,19 @@ Source IP address ranges
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
+ - 51.4.138.199
+ - 51.5.148.86
+ - 51.5.149.19
 
-To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert, which monitors for Informational notifications about the Action Groups service.
-
+To receive updates about changes to these IP addresses, we recommend you configure a Service Health alert, which monitors for Informational notifications about the Action Groups service.
 
 ## Next steps ##
-
 * Learn more about [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md)
 * Learn more about [rate limiting](../../azure-monitor/platform/alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](../../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-

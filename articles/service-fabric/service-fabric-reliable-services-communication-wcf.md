@@ -4,7 +4,7 @@ description: The built-in WCF communication stack in Service Fabric provides cli
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2

@@ -38,7 +38,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 
     ![Select schedule under build it](./media/automate-with-flow/2schedule.png)
 
-1. In the the **Interval** box, enter **1**, and in the **Frequency** box, select **Day**.
+1. In the **Interval** box, enter **1**, and in the **Frequency** box, select **Day**.
 2. Click **New step**
 
     ![Set up schedule recurrence with entering frequency and interval](./media/automate-with-flow/3schedulerecurrence.png)

@@ -1,15 +1,15 @@
 ---
 title: Migrate knowledge bases - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Move a knowledge base created with QnA Maker into a new knowledge base.
+description: Migrating a knowledge base requires exporting from one knowledge base, then importing into another. 
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
-ms.author: tulasim
+ms.date: 04/08/2019
+ms.author: diberry
 ms.custom: seodec18
 ---
 # Migrate a knowledge base using export-import
@@ -42,15 +42,15 @@ Migrating a knowledge base requires exporting from one knowledge base, then impo
    ![Import knowledge base](../media/qnamaker-how-to-migrate-kb/Import.png)
 
 1. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](../How-To/test-knowledge-base.md).
-1. **Publish** the knowledge base. Learn how to [publish your knowledge base](../How-To/publish-knowledge-base.md).
+1. **Publish** the knowledge base. Learn how to [publish your knowledge base](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 1. Use the endpoint in your application or bot code. See here how to [create a QnA bot](../Tutorials/create-qna-bot.md).
 
-    ![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+    ![QnA Maker values](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
 
     At this point, all the knowledge base content - questions, answers and metadata, along with the names of the source files and the URLs, are imported to the new knowledge base. 
 
 ## Chat logs and alterations
-Case-insensitive alterations (synonyms) are not imported automatically. Use the [V2 APIs](https://aka.ms/qnamaker-v2-apis) to export the alterations from the old knowledge and the [V4 APIs](https://aka.ms/qnamaker-v4-apis) to move the alterations in the new knowledge base.
+Case-insensitive alterations (synonyms) are not imported automatically. Use the [V4 APIs](https://go.microsoft.com/fwlink/?linkid=2092179) to move the alterations in the new knowledge base.
 
 There is no way to migrate chat logs, since the new knowledge base uses Application Insights for storing chat logs. 
 

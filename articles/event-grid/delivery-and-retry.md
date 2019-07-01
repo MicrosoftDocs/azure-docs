@@ -6,7 +6,7 @@ author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
 ---
 
@@ -20,16 +20,18 @@ Currently, Event Grid sends each event individually to subscribers. The subscrib
 
 ## Retry schedule and duration
 
-Event Grid uses an exponential backoff retry policy for event delivery. If an endpoint doesn't respond or returns a failure code, Event Grid retries delivery on the following schedule on a best effort basis:
+Event Grid waits 30 seconds for a response after delivering a message. After 30 seconds, if the endpoint hasn’t responded, the message is queued for retry. Event Grid uses an exponential backoff retry policy for event delivery. Event Grid retries delivery on the following schedule on a best effort basis:
 
-1. 10 seconds
-1. 30 seconds
-1. 1 minute
-1. 5 minutes
-1. 10 minutes
-1. 30 minutes
-1. 1 hour
-1. Hourly for up to 24 hours
+- 10 seconds
+- 30 seconds
+- 1 minute
+- 5 minutes
+- 10 minutes
+- 30 minutes
+- 1 hour
+- Hourly for up to 24 hours
+
+If the endpoint responds within 3 minutes, Event Grid will attempt to remove the event from the retry queue on a best effort basis but duplicates may still be received.
 
 Event Grid adds a small randomization to all retry steps and may opportunistically skip certain retries if an endpoint is consistently unhealthy, down for a long period, or appears to be overwhelmed.
 
