@@ -13,7 +13,7 @@ metadata:
   ms.date: 06/26/2019
   ms.author: jenhayes
 abstract:
-  description: Azure Lighthouse lets you manage resources at scale on behalf of your customers.
+  description: Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale and enhanced governance. 
 sections:
 - title: Concepts
   items:

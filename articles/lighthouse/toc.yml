@@ -19,7 +19,7 @@
   - name: Recommended security practices
     displayName: mfa, authentication, secure, group
     href: ./concepts/recommended-security-practices.md
-  - name: Azure Lighthouse and the CLoud Solution Provider program
+  - name: Cloud Solution Provider program considerations
     displayName: csp, aobo, partner
     href: ./concepts/cloud-solution-provider.md
 - name: How-to guides
