@@ -86,14 +86,13 @@ For the Conditional Access policy in this step, you need to configure the follow
    ![Conditional Access](./media/app-based-conditional-access/07.png)
 
 1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**:
-
    1. As **Device platforms**, select **Android** and **iOS**.
 
-   ![Conditional Access](./media/app-based-conditional-access/03.png)
+      ![Conditional Access](./media/app-based-conditional-access/03.png)
 
    1. As **Client apps (preview)**, select **Mobile apps and desktop apps** and **Modern authentication clients**.
 
-   ![Conditional Access](./media/app-based-conditional-access/91.png)
+      ![Conditional Access](./media/app-based-conditional-access/91.png)
 
 1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
@@ -112,14 +111,13 @@ For the Conditional Access policy in this step, you need to configure the follow
    ![Conditional Access](./media/app-based-conditional-access/07.png)
 
 1. **Conditions:** As **Conditions**, you need to configure **Client apps (preview)**. 
-
    1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
 
-   ![Conditional Access](./media/app-based-conditional-access/92.png)
+      ![Conditional Access](./media/app-based-conditional-access/92.png)
 
    1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
-   ![Conditional Access](./media/app-based-conditional-access/05.png)
+      ![Conditional Access](./media/app-based-conditional-access/05.png)
 
 **Step 3 - Configure Intune app protection policy for iOS and Android client applications**
 
@@ -154,14 +152,13 @@ For the Conditional Access policy in this step, you need to configure the follow
    ![Conditional Access](./media/app-based-conditional-access/02.png)
 
 1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**:
-
    1. As **Device platforms**, select **Android** and **iOS**.
 
-   ![Conditional Access](./media/app-based-conditional-access/03.png)
+      ![Conditional Access](./media/app-based-conditional-access/03.png)
 
    1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Modern authentication clients**.
 
-   ![Conditional Access](./media/app-based-conditional-access/91.png)
+      ![Conditional Access](./media/app-based-conditional-access/91.png)
 
 1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
@@ -182,11 +179,11 @@ For the Conditional Access policy in this step, you need to configure the follow
 1. **Conditions:** As **Conditions**, you need to configure **Client apps**:
    1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Exchange ActiveSync clients**.
 
-   ![Conditional Access](./media/app-based-conditional-access/92.png)
+      ![Conditional Access](./media/app-based-conditional-access/92.png)
 
    1. As **Access controls**, you need to have **Require approved client app (preview)** selected.
 
-   ![Conditional Access](./media/app-based-conditional-access/05.png)
+      ![Conditional Access](./media/app-based-conditional-access/05.png)
 
 **Step 3 - Configure Intune app protection policy for iOS and Android client applications**
 
@@ -223,18 +220,18 @@ For the Conditional Access policy in this step, you need to configure the follow
 1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**. 
    1. As **Device platforms**, select **Android** and **iOS**.
 
-   ![Conditional Access](./media/app-based-conditional-access/03.png)
+      ![Conditional Access](./media/app-based-conditional-access/03.png)
 
    1. As **Client apps (preview)**, select **Mobile apps and desktop clients** and **Modern authentication clients**.
 
-   ![Conditional Access](./media/app-based-conditional-access/91.png)
+      ![Conditional Access](./media/app-based-conditional-access/91.png)
 
 1. As **Access controls**, you need to have the following selected:
    - **Require device to be marked as compliant**
    - **Require approved client app (preview)**
    - **Require one of the selected controls**   
  
-   ![Conditional Access](./media/app-based-conditional-access/11.png)
+      ![Conditional Access](./media/app-based-conditional-access/11.png)
 
 **Step 2 - Configure an Azure AD Conditional Access policy for Exchange Online with Active Sync (EAS)**
 
@@ -299,18 +296,18 @@ For the Conditional Access policy in this step, you need to configure the follow
 1. **Conditions:** As **Conditions**, you need to configure **Device platforms** and **Client apps**. 
    1. As **Device platforms**, select **Android** and **iOS**.
 
-   ![Conditional Access](./media/app-based-conditional-access/03.png)
+      ![Conditional Access](./media/app-based-conditional-access/03.png)
 
    1. As **Client apps (preview)**, select **Mobile apps and desktop apps** and **Modern authentication clients**.
 
-   ![Conditional Access](./media/app-based-conditional-access/91.png)
+      ![Conditional Access](./media/app-based-conditional-access/91.png)
 
 1. As **Access controls**, you need to have the following selected:
    - **Require device to be marked as compliant**
    - **Require approved client app (preview)**
    - **Require all the selected controls**   
  
-   ![Conditional Access](./media/app-based-conditional-access/13.png)
+      ![Conditional Access](./media/app-based-conditional-access/13.png)
 
 
 
@@ -337,7 +334,7 @@ For the Conditional Access policy in this step, you need to configure the follow
    - **Require approved client app (preview)**
    - **Require all the selected controls**   
  
-   ![Conditional Access](./media/app-based-conditional-access/64.png)
+      ![Conditional Access](./media/app-based-conditional-access/64.png)
 
 **Step 3 - Configure Intune app protection policy for iOS and Android client applications**
 

@@ -73,21 +73,18 @@ The migration process consists of the following steps:
 
    1. If you have all users selected in your classic policy, click **All users**. 
 
-   ![Conditional Access](./media/policy-migration/35.png)
+      ![Conditional Access](./media/policy-migration/35.png)
 
    1. If you have groups selected in your classic policy, click **Select users and groups**, and then select the required users and groups.
 
-   ![Conditional Access](./media/policy-migration/36.png)
+      ![Conditional Access](./media/policy-migration/36.png)
 
    1. If you have the excluded groups, click the **Exclude** tab, and then select the required users and groups. 
 
-   ![Conditional Access](./media/policy-migration/37.png)
+      ![Conditional Access](./media/policy-migration/37.png)
 
 1. On the **New** page, to open the **Cloud apps** page, in the **Assignment** section, click **Cloud apps**.
 1. On the **Cloud apps** page, perform the following steps:
-
-   ![Conditional Access](./media/policy-migration/08.png)
-
    1. Click **Select apps**.
    1. Click **Select**.
    1. On the **Select** page, select your cloud app, and then click **Select**.
@@ -98,7 +95,7 @@ The migration process consists of the following steps:
 
    1. In the **Access controls** section, click **Grant**.
 
-   ![Conditional Access](./media/policy-migration/27.png)
+      ![Conditional Access](./media/policy-migration/27.png)
 
    1. On the **Grant** page, click **Grant access**, and then click **Require multi-factor authentication**.
    1. Click **Select**.
