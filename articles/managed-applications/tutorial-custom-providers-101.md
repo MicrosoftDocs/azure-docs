@@ -224,6 +224,7 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 
 Now all that's left is to update the references. After following through this part the Azure Function trigger should look like:
 
+<br>
 <details>
 <summary>show code</summary>
 <p>
@@ -323,6 +324,7 @@ var rowKey = $"{azureResourceId.FullResourceType.Replace('/', ':')}:{azureResour
 
 Run Method:
 
+<br>
 <details>
 <summary>show code</summary>
 <p>
@@ -548,6 +550,7 @@ For listing all existing resources, we generate a Azure Table query that ensures
 
 Once all the RESTful methods are added to the function, we can update the main `Run` method to call the functions to handle the different REST requests.
 
+<br>
 <details>
 <summary>show code</summary>
 <p>
@@ -640,6 +643,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 
 The Azure Function should not support the Azure RESTful API operations for both custom resources and custom actions.
 
+<br>
 <details>
 <summary>show code</summary>
 <p>
