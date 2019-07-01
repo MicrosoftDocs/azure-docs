@@ -20,20 +20,20 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |---------|---------|---------|---------|
 |Cross platform     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
 |Script authoring     |Yes         |Yes         |Yes         |
-|Script Intellisense     |Syntax highlighting         |Yes         |Yes         |
+|Script Intellisense     |Syntax highlighting         |Syntax highlighting</br>Code completion</br>Error marker         |Syntax highlighting</br>Code completion</br>Error marker         |
 |Define inputs, outputs, and job configurations     |Yes         |Yes         |Yes         |
 |Blob output partitioning     |Yes         |Yes         |Yes         |
 |Power BI as output     |Yes         |Yes         |No         |
 |SQL database reference data     |Yes         |Yes         |Yes         |
 |Custom message properties     |Yes         |No         |No         |
 |Share inputs and outputs across multiple queries     |No         |Yes         |Yes         |
-|JavaScript UDF and UDA     |Yes         |Yes         |Yes         |
-|Machine Learning callouts     |Yes         |Yes         |No         |
+|JavaScript UDF and UDA     |Yes         |Yes         |Windows only         |
+|Machine Learning callouts     |Yes, but the query cannot be tested        |Yes         |No         |
 |Compatibility level     |1.0</br>1.1</br>1.2         |1.0</br>1.1</br>1.2          |1.0</br>1.1</br>1.2          |
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |
 |Query testing with a sample file     |Yes         |Yes         |Yes         |
-|Live data local testing     |Yes         |Yes         |No         |
+|Live data local testing     |No         |Yes         |No         |
 |List jobs and view job entities     |Yes         |Yes         |Yes         |
 |Export a job to a local project     |No         |Yes         |Yes         |
 |Submit, start, and stop jobs     |Yes         |Yes         |Yes         |
@@ -58,7 +58,7 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |List jobs and view job entities     |Yes         |Yes         |No         |
 |View job metrics and diagram     |Yes         |Partial         |No         |
 |View job runtime errors     |Yes         |Partial         |No         |
-|CI/CD support     |No         |Yes         |No         |
+|CI/CD support     |No         |No         |No         |
 
 
 ## Next steps
