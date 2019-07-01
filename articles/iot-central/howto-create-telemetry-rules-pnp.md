@@ -78,8 +78,8 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 
-- [Microsoft Flow action](howto-add-microsoft-flow.md) to kick off a workflow in Microsoft Flow when a rule is triggered 
-- [Webhook action](howto-create-webhooks.md) to notify other services when a rule is triggered
+- [Microsoft Flow action](howto-add-microsoft-flow-pnp.md) to kick off a workflow in Microsoft Flow when a rule is triggered 
+- [Webhook action](howto-create-webhooks-pnp.md) to notify other services when a rule is triggered
 
 ## Parameterize the rule
 
@@ -105,7 +105,7 @@ Navigate to the device and choose the rule you want to enable or disable. Toggle
 
 Now that you have learned how to create rules in your Azure IoT Central application, here are some next step:
 
-- [Add Microsoft Flow action in rules](howto-add-microsoft-flow.md)
-- [Add Webhook action in rules](howto-create-webhooks.md)
-- [Group multiple actions to run from one or more rules](howto-use-action-groups.md)
-- [How to manage your devices](howto-manage-devices.md)
+- [Add Microsoft Flow action in rules](howto-add-microsoft-flow-pnp.md)
+- [Add Webhook action in rules](howto-create-webhooks-pnp.md)
+- [Group multiple actions to run from one or more rules](howto-use-action-groups-pnp.md)
+- [How to manage your devices](howto-manage-devices-pnp.md)

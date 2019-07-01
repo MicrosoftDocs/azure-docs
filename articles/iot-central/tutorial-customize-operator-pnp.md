@@ -30,18 +30,18 @@ In this tutorial, you learn how to:
 
 Before you begin, you should complete the two previous tutorials:
 
-* [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md).
-* [Configure rules and actions for your device](tutorial-configure-rules.md).
+* [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-pnp.md).
+* [Configure rules and actions for your device](tutorial-configure-rules-pnp.md).
 
 ## Configure your device dashboard
 
-As a builder, you can define what information displays on a device dashboard. In the [Define a new device type in your application](tutorial-define-device-type.md) tutorial, you added a line-chart and other information to the **Connected Air Conditioner** dashboard.
+As a builder, you can define what information displays on a device dashboard. In the [Define a new device type in your application](tutorial-define-device-type-pnp.md) tutorial, you added a line-chart and other information to the **Connected Air Conditioner** dashboard.
 
 1. To edit the **Connected Air Conditioner** device template, choose **Device Templates** on the left navigation menu:
 
     ![Device Templates page](media/tutorial-customize-operator-pnp/devicetemplates.png)
 
-2. To customize your device dashboard, select the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type.md) tutorial.
+2. To customize your device dashboard, select the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type-pnp.md) tutorial.
 
 3. To edit the dashboard, select the **Dashboard** tab.
 
@@ -155,5 +155,5 @@ In this tutorial, you learned how to customize the operator's view of the applic
 
 Now that you have learned how to customize the operator's view of the application, the suggested next steps are:
 
-* [Monitor your devices (as an operator)](tutorial-monitor-devices.md)
-* [Add a new device to your application (as an operator and device developer)](tutorial-add-device.md)
+* [Monitor your devices (as an operator)](tutorial-monitor-devices-pnp.md)
+* [Add a new device to your application (as an operator and device developer)](tutorial-add-device-pnp.md)

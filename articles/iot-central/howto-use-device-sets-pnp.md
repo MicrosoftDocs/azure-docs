@@ -84,7 +84,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
 You can add a map to visualize location of the devices in your device set.
 
-To add a map to your device sets dashboard, you must have configured a location measurement or location property in your device template. To learn more, see [Create a Location Measurement](howto-set-up-template.md) or [Create a Location Property](howto-set-up-template.md).
+To add a map to your device sets dashboard, you must have configured a location measurement or location property in your device template. To learn more, see [Create a Location Measurement](howto-set-up-template-pnp.md) or [Create a Location Property](howto-set-up-template-pnp.md).
 
 1. On your device set **Dashboard**, select **Map** from the library.
 2. Add a title and choose the location measurement or property you configured previously.
@@ -113,11 +113,11 @@ After you create your device set, you can configure the **List**. The **List** s
 
 ## Analytics
 
-The analytics in device sets is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-use-device-sets.md).
+The analytics in device sets is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-use-device-sets-pnp.md).
 
 ## Next steps
 
 Now that you have learned how to use device sets in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to create telemetry rules](howto-create-telemetry-rules.md)
+> [How to create telemetry rules](howto-create-telemetry-rules-pnp.md)

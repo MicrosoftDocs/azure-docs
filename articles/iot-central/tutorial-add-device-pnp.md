@@ -33,15 +33,15 @@ In this tutorial, you learn how to:
 
 Before you begin, the builder should complete at least the first builder tutorial to create the Azure IoT Central application:
 
-* [Define a new device type](tutorial-define-device-type.md) (Required)
-* [Configure rules and actions for your device](tutorial-configure-rules.md) (Optional)
-* [Customize the operator's views](tutorial-customize-operator.md) (Optional)
+* [Define a new device type](tutorial-define-device-type-pnp.md) (Required)
+* [Configure rules and actions for your device](tutorial-configure-rules-pnp.md) (Optional)
+* [Customize the operator's views](tutorial-customize-operator-pnp.md) (Optional)
 
 Install [Node.js](https://nodejs.org/) version 8.0.0 or later on your development machine. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
 ## Add a real device
 
-To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type.md) tutorial.
+To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type-pnp.md) tutorial.
 
 1. To add a new device as an operator choose **Device Explorer** in the left navigation menu:
 
@@ -347,9 +347,9 @@ Now that you've connected a real device to your Azure IoT Central application, h
 
 As an operator, you can learn how to:
 
-* [Manage your devices](howto-manage-devices.md)
-* [Use device sets](howto-use-device-sets.md)
-* [Create custom analytics](howto-use-device-sets.md)
+* [Manage your devices](howto-manage-devices-pnp.md)
+* [Use device sets](howto-use-device-sets-pnp.md)
+* [Create custom analytics](howto-use-device-sets-pnp.md)
 
 As a device developer, you can learn how to:
 

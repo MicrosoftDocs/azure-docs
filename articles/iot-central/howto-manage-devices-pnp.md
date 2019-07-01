@@ -23,7 +23,7 @@ This article describes how, as an operator, to manage devices in your Azure IoT 
 
 To view an individual device:
 
-1. Choose **Device Explorer** on the left navigation menu. Here you see a list of your [device templates](howto-set-up-template.md).
+1. Choose **Device Explorer** on the left navigation menu. Here you see a list of your [device templates](howto-set-up-template-pnp.md).
 
 1. Choose a device template in the **Templates** list.
 
@@ -175,6 +175,6 @@ Properties are the device metadata associated with the device, such as city and 
 Now that you've learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to use device sets](howto-use-device-sets.md)
+> [How to use device sets](howto-use-device-sets-pnp.md)
 
 <!-- Next how-tos in the sequence -->

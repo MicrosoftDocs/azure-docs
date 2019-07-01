@@ -51,4 +51,4 @@ To create a new Azure IoT Central application:
 In this quickstart, you created an IoT Central application. Here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Take a tour of IoT Central](overview-iot-central-tour.md)
+> [Take a tour of IoT Central](overview-iot-central-tour-pnp.md)

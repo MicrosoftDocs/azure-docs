@@ -107,4 +107,4 @@ The following JSON shows an example webhook action payload:
 
 ## Next steps
 
-Now that you've learned how to use action groups with rules, the suggested next step is to learn how to [manage your devices](howto-manage-devices.md).
+Now that you've learned how to use action groups with rules, the suggested next step is to learn how to [manage your devices](howto-manage-devices-pnp.md).

@@ -106,12 +106,12 @@ Administrators manage access to your application with [user roles and permission
 Now that you have an overview of Azure IoT Central, here are suggested next steps:
 
 - Understand the differences between [Azure IoT Central and Azure IoT solution accelerators](overview-iot-options.md).
-- Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
-- Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
+- Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour-pnp.md).
+- Get started by [creating an Azure IoT Central application](quick-deploy-iot-central-pnp.md).
 - Follow a sequence of tutorials that show you how to:
-  - [As a builder, to create a device template](tutorial-define-device-type.md)
-  - [As a builder, add rules to automate your solution](tutorial-configure-rules.md)
-  - [As a builder, customize the application for your operators](tutorial-customize-operator.md)
-  - [As an operator, monitor your devices](tutorial-monitor-devices.md)
-  - [As an operator, add a real device to your solution](tutorial-add-device.md)
-  - [As a device developer, create code for your devices](tutorial-add-device.md#prepare-the-client-code)
+  - [As a builder, to create a device template](tutorial-define-device-type-pnp.md)
+  - [As a builder, add rules to automate your solution](tutorial-configure-rules-pnp.md)
+  - [As a builder, customize the application for your operators](tutorial-customize-operator-pnp.md)
+  - [As an operator, monitor your devices](tutorial-monitor-devices-pnp.md)
+  - [As an operator, add a real device to your solution](tutorial-add-device-pnp.md)
+  - [As a device developer, create code for your devices](tutorial-add-device-pnp.md#prepare-the-client-code)

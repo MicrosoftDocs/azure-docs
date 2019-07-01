@@ -24,7 +24,7 @@ In this example, you connect to RequestBin to get notified when rules fire using
 
 1. Create a new RequestBin and copy the **Bin URL**.
 
-1. Create a [telemetry rule](howto-create-telemetry-rules.md) or an [event rule](howto-create-event-rules.md). Save the rule and add a new action.
+1. Create a [telemetry rule](howto-create-telemetry-rules-pnp.md) or an [event rule](howto-create-event-rules-pnp.md). Save the rule and add a new action.
 
     ![Webhook creation screen](media/howto-create-webhooks-pnp/webhookcreate.png)
 
@@ -92,4 +92,4 @@ If you have ideas for how to improve this feature, post your suggestions to our 
 
 ## Next steps
 
-Now that you've learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow.md).
+Now that you've learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow-pnp.md).

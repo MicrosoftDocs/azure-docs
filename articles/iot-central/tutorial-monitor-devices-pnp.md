@@ -26,15 +26,15 @@ In this tutorial, you learn how to:
 
 Before you begin, the builder should complete the three builder tutorials to create the Azure IoT Central application:
 
-* [Define a new device type](tutorial-define-device-type.md)
-* [Configure rules and actions for your device](tutorial-configure-rules.md)
-* [Customize the operator's views](tutorial-customize-operator.md)
+* [Define a new device type](tutorial-define-device-type-pnp.md)
+* [Configure rules and actions for your device](tutorial-configure-rules-pnp.md)
+* [Customize the operator's views](tutorial-customize-operator-pnp.md)
 
 ## Receive a notification
 
 Azure IoT Central sends notifications about devices as email messages. The builder added a rule to send a notification when the temperature in a connected air conditioner device exceeded a threshold. Check the emails sent to the account the builder chose to receive notifications.
 
-Open the email message you received at the end of the [Configure rules and actions for your device](tutorial-configure-rules.md) tutorial. In the email, choose **Click here to open your device**:
+Open the email message you received at the end of the [Configure rules and actions for your device](tutorial-configure-rules-pnp.md) tutorial. In the email, choose **Click here to open your device**:
 
 ![Alert notification email](media/tutorial-monitor-devices-pnp/email.png)
 
@@ -73,4 +73,4 @@ In this tutorial, you learned how to:
 > * Investigate an issue
 > * Remediate an issue
 
-Now that you know now to monitor your device, the suggested next step is to [Add a device](tutorial-add-device.md).
+Now that you know now to monitor your device, the suggested next step is to [Add a device](tutorial-add-device-pnp.md).

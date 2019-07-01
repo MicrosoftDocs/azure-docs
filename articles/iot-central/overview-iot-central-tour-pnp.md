@@ -58,7 +58,7 @@ You can choose between a light theme or a dark theme for the UI:
 
 ![Dashboard](media/overview-iot-central-tour-pnp/homepage.png)
 
-* The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial.
+* The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator-pnp.md) tutorial.
 
 * As an operator, you can create personalized dashboards and switch between them and the default dashboard. To learn more, see the [Create and manage personal dashboards](howto-personalize-dashboard.md) how-to article.
 
@@ -68,20 +68,20 @@ You can choose between a light theme or a dark theme for the UI:
 
 The explorer page shows the _devices_ in your Azure IoT Central application grouped by _device template_.
 
-* A device template defines a type of device that can connect to your application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md).
-* A device represents either a real or simulated device in your application. To learn more, see the [Add a new device to your Azure IoT Central application](tutorial-add-device.md).
+* A device template defines a type of device that can connect to your application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-pnp.md).
+* A device represents either a real or simulated device in your application. To learn more, see the [Add a new device to your Azure IoT Central application](tutorial-add-device-pnp.md).
 
 ## Device sets
 
 ![Device Sets page](media/overview-iot-central-tour-pnp/devicesets.png)
 
-The _device sets_ page shows device sets created by the builder. A device set is a collection of related devices. A builder defines a query to identify the devices that are included in a device set. You use device sets when you customize the analytics in your application. To learn more, see the [Use device sets in your Azure IoT Central application](howto-use-device-sets.md) article.
+The _device sets_ page shows device sets created by the builder. A device set is a collection of related devices. A builder defines a query to identify the devices that are included in a device set. You use device sets when you customize the analytics in your application. To learn more, see the [Use device sets in your Azure IoT Central application](howto-use-device-sets-pnp.md) article.
 
 ## Analytics
 
 ![Analytics page](media/overview-iot-central-tour-pnp/analytics.png)
 
-The analytics page shows charts that help you understand how the devices connected to your application are behaving. An operator uses this page to monitor and investigate issues with connected devices. The builder can define the charts shown on this page. To learn more, see the [Create custom analytics for your Azure IoT Central application](howto-use-device-sets.md) article.
+The analytics page shows charts that help you understand how the devices connected to your application are behaving. An operator uses this page to monitor and investigate issues with connected devices. The builder can define the charts shown on this page. To learn more, see the [Create custom analytics for your Azure IoT Central application](howto-use-device-sets-pnp.md) article.
 
 ## Jobs
 
@@ -100,7 +100,7 @@ The device templates page is where a builder creates and manages the device temp
 - Commands.
 - Rules based on events or telemetry values.
 
-To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
+To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-pnp.md) tutorial.
 
 ## Continuous data export
 
@@ -116,4 +116,4 @@ The administration page contains links to the tools an administrator uses such a
 
 ## Next steps
 
-Now that you have an overview of Azure IoT Central and are familiar with the layout of the UI, the suggested next step is to complete the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart.
+Now that you have an overview of Azure IoT Central and are familiar with the layout of the UI, the suggested next step is to complete the [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md) quickstart.

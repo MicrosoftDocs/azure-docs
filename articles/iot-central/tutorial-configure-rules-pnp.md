@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, you should complete the [Define a new device type in your application](tutorial-define-device-type.md) tutorial to create the **Connected Air Conditioner** device template to work with.
+Before you begin, you should complete the [Define a new device type in your application](tutorial-define-device-type-pnp.md) tutorial to create the **Connected Air Conditioner** device template to work with.
 
 ## Create a telemetry-based rule
 
@@ -92,10 +92,10 @@ In this tutorial, you learned how to:
 > * Create a telemetry-based rule
 > * Add an action
 
-Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator.md).
+Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator-pnp.md).
 
 To learn more about different types of rules in Azure IoT Central and how to parameterize the rule definition, see:
-* [Create a telemetry rule and set up notifications](howto-create-telemetry-rules.md).
-* [Create an event rule and set up notifications](howto-create-event-rules.md).
+* [Create a telemetry rule and set up notifications](howto-create-telemetry-rules-pnp.md).
+* [Create an event rule and set up notifications](howto-create-event-rules-pnp.md).
 
 <!-- Next tutorials in the sequence -->
