@@ -137,7 +137,7 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|List Of Resource Types|Resource Group|List of resource types that should have diagnostic logs enabled | Default value is all resources are selected| 
+|Audit Diagnostic Setting|Resource Group|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
 |Allowed locations|Policy Assignment|List Of Allowed Locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Select locations you wish to allow.| 
 |Allowed Locations for resource groups|Resource Group |Allowed Location |This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.| 
 |Retention Days|Policy Assignment|Retention days|(Optional, Data rentention in number of days. Default value is 180 but PCI requires 365.| 
