@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, you should complete the [Define a new device type in your application](tutorial-define-device-type-pnp.md) tutorial to create the **Connected Air Conditioner** device template to work with.
+Before you begin, you should complete the [Define a new device type in your application](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial to create the **Connected Air Conditioner** device template to work with.
 
 ## Create a telemetry-based rule
 
@@ -70,7 +70,7 @@ When you define a rule, you also define an action to run when the rule condition
     | Notes     | Air conditioner temperature exceeded the threshold. |
 
     > [!NOTE]
-    > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md), and that user must have signed in to the application at least once.
+    > To receive an email notification, the email address must be a [user ID in the application](howto-administer.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), and that user must have signed in to the application at least once.
 
     ![Temperature action](media/tutorial-configure-rules-pnp/temperatureaction.png)
 
@@ -92,10 +92,10 @@ In this tutorial, you learned how to:
 > * Create a telemetry-based rule
 > * Add an action
 
-Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator-pnp.md).
+Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 To learn more about different types of rules in Azure IoT Central and how to parameterize the rule definition, see:
-* [Create a telemetry rule and set up notifications](howto-create-telemetry-rules-pnp.md).
-* [Create an event rule and set up notifications](howto-create-event-rules-pnp.md).
+* [Create a telemetry rule and set up notifications](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* [Create an event rule and set up notifications](howto-create-event-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 <!-- Next tutorials in the sequence -->
