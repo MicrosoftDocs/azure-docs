@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A URL for an image of a receipt. You can use a [sample image](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png) for this quickstart.
+- A URL for an image of a receipt. You can use a [sample image](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-receipt.png?raw=true) for this quickstart.
 
 ## Create a Form Recognizer resource
 
@@ -217,18 +217,7 @@ See the following receipt image and its corresponding JSON output. The output ha
         }]
       }
     }
-  }],
-  "perfTrace": {
-    "GetImageStreamElapsedMS": 28,
-    "GenerateBitmapElapsedMS": 40,
-    "GenerateMultipleBitmapsElapsedMS": 20,
-    "UploadImageStreamElapsedMS": 15,
-    "DownloadImageElapsedMS": 45,
-    "DistributeTaskElapsedMS": 0,
-    "ProcessImageElapsedMS": 503,
-    "ReceiptAnalysisElapsedMS": 49,
-    "TotalElapsedMS": 19982
-  }
+  }]
 }
 ```
 

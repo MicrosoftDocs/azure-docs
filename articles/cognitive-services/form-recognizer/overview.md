@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 06/12/2019
+ms.date: 07/01/2019
 ms.author: pafarley
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
@@ -29,7 +29,7 @@ Form Recognizer also includes a model for reading sales receipts. This model ext
 
 ## What it includes
 
-Form Recognizer is available as a REST API. You can create, train, and score a custom model or access the pre-built model by invoking these APIs. If you want, you can run the model in a local Docker container.
+Form Recognizer is available as a REST API. You can create, train, and score a custom model or access the pre-built model by invoking these APIs. If you want, you can train and run custom models in a local Docker container.
 
 ## Input requirements (custom model)
 
@@ -55,8 +55,8 @@ We recommend that you use the free service when you're learning the technology. 
 
 You use the following APIs to train and extract structured data from forms.
 
-| Train | Train	a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
-| Analyze  |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
+| Train Model| Train	a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
+| Analyze Form |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
 | Analyze Receipt |Analyze a single receipt document to extract key information and other receipt text.|
 
 Explore the [REST API reference documentation](https://aka.ms/form-recognizer/api) to learn more. 
