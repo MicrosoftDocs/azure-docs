@@ -26,7 +26,7 @@
 
     1. Enter a name in **Create a new namespace**. A namespace contains one or more hubs.
 
-    1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the notification hub.
+    1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the hub.
 
     1. Select an existing resource group in **Resource Group**, or create a name for a new resource group.
 

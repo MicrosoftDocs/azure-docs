@@ -38,7 +38,9 @@ In this tutorial, you take the following steps:
 
 ## Prerequisites
 
- items:
+To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/). 
+
+You also need the following items: 
 
 * The latest version of [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)
 * Android 2.3 or higher for Firebase Cloud Messaging
@@ -63,7 +65,7 @@ Completing this tutorial is a prerequisite for doing all other Notification Hubs
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## Configure a notification hub
+## Configure a hub
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
@@ -86,7 +88,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 ### Add Azure Notification Hubs libraries
 
-1. In the `Build.Gradle` file for the app, add the following lines in the dependencies section.
+1. In the Build.Gradle file for the app, add the following lines in the dependencies section.
 
     ```gradle
     implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
@@ -105,7 +107,7 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 ### Add Google Firebase support
 
-1. In the `Build.Gradle` file for the app, add the following lines in the **dependencies** section if they don't already exist. 
+1. In the Build.Gradle file for the app, add the following lines in the **dependencies** section if they don't already exist. 
 
     ```gradle
     implementation 'com.google.firebase:firebase-core:16.0.8'
@@ -501,7 +503,7 @@ You can send push notifications from the [Azure portal] by taking the following 
 1. In the Azure portal, on the Notification Hub page for your hub, select **Test Send** in the **Troubleshooting** section.
 3. For **Platforms**, select **Android**.
 4. Select **Send**.  You won't see a notification on the Android device yet because you haven't run the mobile app on it. After you run the mobile app, select the **Send** button again to see the notification message.
-5. See the **result** of the operation in the list at the bottom.
+5. See the result of the operation in the list at the bottom.
 
     ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 6. You see the notification message on your device. 

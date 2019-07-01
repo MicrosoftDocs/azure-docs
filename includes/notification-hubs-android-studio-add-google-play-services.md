@@ -22,7 +22,7 @@
     ![Android SDK Manager - Google Play Services selected](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. If you see the **Confirm Change** dialog box, select **OK**. The Component Installer installs the requested components. Select **Finish** after the components are installed.
 4. Select **OK** to close the **Settings for New Projects** dialog box.  
-5. Open the `build.gradle` file in the **app** directory, and then add the following line under `dependencies`. 
+5. Open the build.gradle file in the **app** directory, and then add the following line under `dependencies`. 
 
     ```gradle
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
