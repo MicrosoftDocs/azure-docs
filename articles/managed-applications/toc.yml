@@ -19,6 +19,8 @@
     href: publish-marketplace-app.md 
   - name: Create custom resource provider
     href: create-custom-provider.md
+  - name: Create managed application with custom provider
+    href: tutorial-create-managed-app-with-custom-provider.md
 - name: Samples
   items:
   - name: Azure CLI
