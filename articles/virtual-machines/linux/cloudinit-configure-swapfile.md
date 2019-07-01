@@ -3,7 +3,7 @@ title: Use cloud-init to configure a swapfile on a Linux VM | Microsoft Docs
 description: How to use cloud-init to configure a swapfile in a Linux VM during creation with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: danielsollondon
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
