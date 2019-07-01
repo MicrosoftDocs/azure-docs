@@ -123,7 +123,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
-    - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
+    - If the disk was successfully unlocked by using the BEK key. we can consider the BitLocker problem to be resolved. 
 
     - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
     
@@ -250,7 +250,7 @@ For a Key Encryption Key scenario, follow these steps:
     ```
     In this sample, the attached OS disk is drive F. Make sure that you use the correct drive letter. 
 
-    - If the disk was successfully unlocked by using the BEK key. we can consider the BItLocker problem to be resolved. 
+    - If the disk was successfully unlocked by using the BEK key. we can consider the BitLocker problem to be resolved. 
 
     - If using the BEK key does not unlock the disk, you can use suspend protection to temporarily turn BitLocker OFF by running the following command
     
