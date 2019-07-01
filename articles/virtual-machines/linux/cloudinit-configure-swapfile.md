@@ -1,5 +1,5 @@
 ---
-title: Use cloud-init to configure a swapfile on a Linux VM | Microsoft Docs
+title: Use cloud-init to configure a swap partition on a Linux VM | Microsoft Docs
 description: How to use cloud-init to configure a swapfile in a Linux VM during creation with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
@@ -17,15 +17,15 @@ ms.date: 11/29/2017
 ms.author: rclaus
 
 ---
-# Use cloud-init to configure a swapfile on a Linux VM
+# Use cloud-init to configure a swap partition on a Linux VM
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure the swapfile on various Linux distributions. The swapfile was traditionally configured by the Linux Agent (WALA) based on which distributions required one.  This document will outline the process for building the swapfile on demand during provisioning time using cloud-init.  For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
-## Create swapfile for Ubuntu based images
+## Create swap partition for Ubuntu based images
 By default on Azure, Ubuntu gallery images do not create swap files. To enable swap file configuration during VM provisioning time using cloud-init - please see the [AzureSwapPartitions document](https://wiki.ubuntu.com/AzureSwapPartitions) on the Ubuntu wiki.
 
-## Create swapfile for Red Hat and CentOS based images
+## Create swap partition for Red Hat and CentOS based images
 
-Create a file in your current shell named *cloud_init_swapfile.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloud_init_swapfile.txt` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
+Create a file in your current shell named *cloud_init_swappart.txt* and paste the following configuration. For this example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloud_init_swappart.txt` to create the file and see a list of available editors. Choose #1 to use the **nano** editor. Make sure that the whole cloud-init file is copied correctly, especially the first line.  
 
 ```yaml
 #cloud-config
@@ -50,14 +50,14 @@ Before deploying this image, you need to create a resource group with the [az gr
 az group create --name myResourceGroup --location eastus
 ```
 
-Now, create a VM with [az vm create](/cli/azure/vm) and specify the cloud-init file with `--custom-data cloud_init_swapfile.txt` as follows:
+Now, create a VM with [az vm create](/cli/azure/vm) and specify the cloud-init file with `--custom-data cloud_init_swappart.txt` as follows:
 
 ```azurecli-interactive 
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \
   --image OpenLogic:CentOS:7-CI:latest \
-  --custom-data cloud_init_swapfile.txt \
+  --custom-data cloud_init_swappart.txt \
   --generate-ssh-keys 
 ```
 
@@ -82,7 +82,7 @@ Filename                Type        Size    Used    Priority
 ```
 
 > [!NOTE] 
-> If you have an existing Azure image that has a swap file configured and you want to change the swap file configuration for new images, you should remove the existing swap file. Please see 'Customize Images to provision by cloud-init' document for more details.
+> If you have an existing Azure image that has a swap partition configured and you want to change the swap file configuration for new images, you should remove the existing swap file. Please see 'Customize Images to provision by cloud-init' document for more details.
 
 ## Next steps
 For additional cloud-init examples of configuration changes, see the following:
