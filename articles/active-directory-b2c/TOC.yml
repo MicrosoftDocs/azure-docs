@@ -8,16 +8,20 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: 1 - Create B2C tenant
-    href: tutorial-create-tenant.md
-  - name: 2 - Create user flows
-    href: tutorial-create-user-flows.md
-  - name: 3 - Simulate the user flow
-    href: tutorial-register-applications.md
-  - name: 4 - Integrate a sample app
-    href: active-directory-b2c-tutorials-spa.md
+  - name: Set up sign-in - ASP.NET
+    href: active-directory-b2c-quickstarts-web-app.md
+  - name: Set up sign-in - Desktop
+    href: active-directory-b2c-quickstarts-desktop-app.md
+  - name: Set up sign-in - Single page
+    href: active-directory-b2c-quickstarts-spa.md
 - name: Tutorials
   items:
+  - name: 1 - Create B2C tenant
+    href: tutorial-create-tenant.md
+  - name: 2 - Register an application
+    href: tutorial-register-applications.md
+  - name: 3 - Create user flows
+    href: tutorial-create-user-flows.md
   - name: Add identity providers
     href: tutorial-add-identity-providers.md
   - name: Customize the UI
@@ -29,7 +33,7 @@
     - name: Desktop
       href: active-directory-b2c-tutorials-desktop-app.md
     - name: Single page
-      href: active-directory-b2c-tutorials-spa.md      
+      href: active-directory-b2c-tutorials-spa.md
   - name: Grant API access
     items:
     - name: ASP.NET
@@ -37,7 +41,7 @@
     - name: Desktop
       href: active-directory-b2c-tutorials-desktop-app-webapi.md
     - name: Single page
-      href: active-directory-b2c-tutorials-spa-webapi.md      
+      href: active-directory-b2c-tutorials-spa-webapi.md
 - name: Samples
   href: code-samples.md
 - name: Concepts
@@ -353,3 +357,4 @@
     href: active-directory-b2c-support.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
+
