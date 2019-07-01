@@ -280,7 +280,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview and is o
 
 ### Note 1
 
-Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload. 
+Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload.
 
 ### Next steps
 
