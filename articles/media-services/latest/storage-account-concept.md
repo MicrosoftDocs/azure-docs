@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Cloud upload and storage with Azure Media Services | Microsoft Docs
-description: This article cloud upload and storage concepts. 
+description: This article explains cloud upload and storage concepts. 
 services: media-services
 documentationcenter: ''
 author: Juliako

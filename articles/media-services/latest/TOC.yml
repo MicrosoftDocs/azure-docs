@@ -36,9 +36,11 @@
   items:
   - name: Overview
     href: concepts-overview.md
-  - name: Cloud upload and storage
+  - name: Accounts and cloud upload
     items:    
-    - name: Storage
+    - name: Media Services account
+      href: media-services-account-concept.md
+    - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
     - name: Assets
