@@ -44,7 +44,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 * Query metrics in cross partition now returns all partitions
 * Global Strong now works properly
 * Failover for queries not properly retries for multi-master
-* dependency bumps for security hotfixes
+* Dependency bumps for security hotfixes
 
 ### <a name="2.4.5"/>2.4.5
 * Bugfix for Hash V2 support
