@@ -189,7 +189,7 @@ return "Hello from webfrontend in Azure while debugging!";
 
 Save the file. Click *Debug* then *Restart Debugging* or in the *Debug toolbar*, click the *Restart Debugging* button.
 
-![Refresh Debugging](media/get-started-java/debug-action-refresh.png)
+![Refresh Debugging](media/common/debug-action-refresh.png)
 
 Open your service in a browser and notice your updated message is displayed.
 
