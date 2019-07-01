@@ -69,7 +69,7 @@ Storage Explorer provides several ways to connect to storage accounts. In genera
 ### Sign in to Azure
 
 > [!NOTE]
-> To fully access resources after signing in, Storage Explorer requires both management (ARM) and data layer permissions. This means that you need Azure AD permissions which give you access to your Storage account, the containers in the account, and the data in the containers. If you only have permissions at the data layer, consider using [Attach with Azure AD](#add-a-resource-via-azure-ad). For more information on the exact permissions Storage Explorer requires, see the [troubleshooting guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#role-based-access-control-permission-issues).
+> To fully access resources after signing in, Storage Explorer requires both management (ARM) and data layer permissions. This means that you need Azure AD permissions which give you access to your Storage account, the containers in the account, and the data in the containers. If you only have permissions at the data layer, consider using [Attach with Azure AD](#add-a-resource-via-azure-ad). For more information on the exact permissions Storage Explorer requires, see the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#role-based-access-control-permission-issues).
 >
 >
 
@@ -119,7 +119,7 @@ There are a variety of options for attaching a resource to Storage Explorer. You
 
 6. Review the connection summary and make sure all of the information is correct. If all of the information looks correct then click **Connect**, otherwise return to the previous pages with the **Back** button to correct any wrong information.
 
-Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts** → **(Attached Containers)** → **Blob Containers**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) for help.
+Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts** → **(Attached Containers)** → **Blob Containers**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for help.
 
 #### Use a connection string
 
@@ -133,7 +133,7 @@ Once the connection is successfully added, the resource tree will automatically 
 
 4. Review the connection summary and make sure all of the information is correct. If all of the information looks correct then click **Connect**, otherwise return to the previous pages with the **Back** button to correct any wrong information.
 
-Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) for help.
+Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for help.
 
 #### Use a SAS URI
 
@@ -147,7 +147,7 @@ Once the connection is successfully added, the resource tree will automatically 
 
 4. Review the connection summary and make sure all of the information is correct. If all of the information looks correct then click **Connect**, otherwise return to the previous pages with the **Back** button to correct any wrong information.
 
-Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts** → **(Attached Containers)** → **the service node for the type of container you attached**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) for help.
+Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts** → **(Attached Containers)** → **the service node for the type of container you attached**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for help.
 
 #### Use a name and key
 
@@ -165,7 +165,7 @@ Once the connection is successfully added, the resource tree will automatically 
 
 4. Review the connection summary and make sure all of the information is correct. If all of the information looks correct then click **Connect**, otherwise return to the previous pages with the **Back** button to correct any wrong information.
 
-Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) for help.
+Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for help.
 
 #### Attach to a local emulator
 
@@ -177,8 +177,8 @@ If your emulator is running on the default ports you can use the **Emulator - De
 
 1. Start your emulator. When you do, make a note of what ports the emulator is listening on for each service type. You will need to know this information later.
 
-> [!IMPORTANT]
-> Storage Explorer does not automatically start your emulator. You must start it yourself.
+   > [!IMPORTANT]
+   > Storage Explorer does not automatically start your emulator. You must start it yourself.
 
 2. Open the **Connect Dialog** by clicking on the **connect button** on the left hand, vertical toolbar.
 
@@ -190,7 +190,7 @@ If your emulator is running on the default ports you can use the **Emulator - De
 
 5. Review the connection summary and make sure all of the information is correct. If all of the information looks correct then click **Connect**, otherwise return to the previous pages with the **Back** button to correct any wrong information.
 
-Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) for help.
+Once the connection is successfully added, the resource tree will automatically navigate to the node representing the connection. If for some reason it doesn't, look under **Local & Attached** → **Storage Accounts**. If Storage Explorer was unable to add your connection, or if you cannot access your data after successfully adding the connection, then consult the [troubleshooting guide](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) for help.
 
 #### Connect to an Azure Cosmos DB account by using a connection string
 
