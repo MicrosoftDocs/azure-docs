@@ -36,7 +36,7 @@
   items:
   - name: Overview
     href: concepts-overview.md
-  - name: Accounts and cloud upload
+  - name: Accounts
     items:    
     - name: Media Services account
       displayName: subscription
