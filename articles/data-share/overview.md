@@ -26,7 +26,7 @@ Azure Data Share can be used in a number of different industries. For example, a
 
 Azure Data Share can also be used to establish a data marketplace for a specific industry. For example, a government or a research institution that regularly shares anonymized data about population growth with third parties. 
 
-Another interesting use case for Azure Data Share is establishing a data consortium. For example, a number of different research institutions can share data with a single trusted body. Data is analayzed, aggregated or processed using Azure analytics tools and then shared with interested parties. 
+Another interesting use case for Azure Data Share is establishing a data consortium. For example, a number of different research institutions can share data with a single trusted body. Data is analyzed, aggregated or processed using Azure analytics tools and then shared with interested parties. 
 
 ## How it works
 
@@ -35,6 +35,8 @@ Azure Data Share uses a snapshot-based sharing approach, where data is shared th
 Data Providers can offer their data consumers incremental updates to the data shared with them through a snapshot schedule. Snapshot schedules are offered on an hourly or a daily basis. When a data consumer accepts and configures their data share, they can subscribe to a snapshot schedule. This is beneficial in scenarios where the shared data is updated on a regular basis, and the data consumer needs the most up-to-date data. 
 
 ![data share flow](media/data-share-flow.png)
+
+When a data consumer accepts a data share, they are able to receive the data in a storage account of their choosing. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. 
 
 ## Key capabilities
 
@@ -63,6 +65,14 @@ Azure Data Share enables Data Consumers to:
 * Accept data shared with you into an Azure Blob Storage or Azure Data Lake Gen2 account
 
 All key capabilities listed above are supported through the Azure or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
+
+## Security
+
+Azure Data Share leverages the underlying security that Azure offers to protect data at rest and in transit. Data is encrypted at rest, where supported by the underlying storage mechanism. Data is also encrypted in transit. Metadata about a data share is also encrypted at rest and in transit. 
+
+Access controls can be set on the Azure Data Share resource level to ensure it is accessed by those that are authorized. 
+
+Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
 
 ## Pricing
 

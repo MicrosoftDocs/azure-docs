@@ -37,7 +37,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. Search for *Data Share*.
 
-1. Select Data Share (preview) and click **Create**.
+1. Select Data Share (preview) and Select **Create**.
 
 1. Fill out the basic details of your Azure Data Share resource with the following information. 
 
@@ -55,18 +55,21 @@ Create an Azure Data Share resource in an Azure resource group.
 
 ## Create a Data Share
 
-1. In your data share account, select 'Start sharing your data'. 
+1. Navigate to your Data Share Overview page.
 
-1. Select **Create**.
-   
+    ![Share your data](./media/share-receive-data.png "Share your data") 
+
+1. Select **Start sharing your data**.
+
+1. Select **Create**.   
 
 1. Fill out the details for your Data Share. Specify a name, description of share contents, and terms of use (optional). 
 
     ![EnterShareDetails](./media/enter-share-details.png "Enter Share details") 
 
-1. Click **Continue**
+1. Select **Continue**
 
-1. To add Datasets to your Data Share, click **Add Datasets**. 
+1. To add Datasets to your Data Share, select **Add Datasets**. 
 
     ![Datasets](./media/datasets.png "Datasets")
 
@@ -74,19 +77,15 @@ Create an Azure Data Share resource in an Azure resource group.
 
     ![AddDatasets](./media/add-datasets.png "Add Datasets")    
 
-1. Navigate to the object you would like to share and click 'Add Datasets'. 
+1. Navigate to the object you would like to share and select 'Add Datasets'. 
 
     ![SelectDatasets](./media/select-datasets.png "Select Datasets")    
-
-1. Click **Continue**
-
-    ![DatasetsAdded](./media/datasets-added.png "Datasets added")    
 
 1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'. 
 
     ![AddRecipients](./media/add-recipient.png "Add recipients") 
 
-1. Click **Continue**
+1. Select **Continue**
 
 1. If you'd like your data consumer to be able to get incremental updates of your data, enable the snapshot schedule. 
 
@@ -94,9 +93,9 @@ Create an Azure Data Share resource in an Azure resource group.
 
 1. Select a start time and recurrence interval. 
 
-1. Click **Continue**
+1. Select **Continue**
 
-1. In the Review + Create tab, review your Package Contents, Settings, Recipients, and Synchronization Settings. Click **Create**
+1. In the Review + Create tab, review your Package Contents, Settings, Recipients, and Synchronization Settings. Select **Create**
 
 Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation. 
 
