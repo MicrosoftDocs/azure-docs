@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/09/2019
+ms.date: 06/27/2019
 ms.author: raynew
 
 ---
@@ -65,7 +65,7 @@ This table summarizes support for the cache storage account used by Site Recover
 
 **Setting** | **Support** | **Details**
 --- | --- | ---
-General purpose V2 storage accounts (Hot and Cool tier) | Not supported. | The limitation exists for cache storage because transaction costs for V2 are substantially higher than V1 storage accounts.
+General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of GPv2 is not recommended because transaction costs for V2 are substantially higher than V1 storage accounts.
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
@@ -203,7 +203,7 @@ RA-GRS | Supported |
 ZRS | Not supported |
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-General purpose V2 storage accounts (Both Hot and Cool tier) | No | Transaction costs increase substantially compared to General purpose V1 storage accounts
+General purpose V2 storage accounts (Both Hot and Cool tier) | Yes | Transaction costs increase substantially compared to General purpose V1 storage accounts
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
@@ -241,7 +241,7 @@ Multiple IP addresses | Not supported | When you fail over a VM that has a NIC w
 Traffic Manager 	| Supported | You can preconfigure Traffic Manager so that traffic is routed to the endpoint in the source region on a regular basis, and to the endpoint in the target region in case of failover.
 Azure DNS | Supported |
 Custom DNS	| Supported |
-Unauthenticated proxy | Supported | [Learn more].(site-recovery-azure-to-azure-networking-guidance.md)	 
+Unauthenticated proxy | Supported | [Learn more](site-recovery-azure-to-azure-networking-guidance.md)	 
 Authenticated Proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it cannot be replicated using Azure Site Recovery.	 
 VPN site-to-site connection to on-premises<br/><br/>(with or without ExpressRoute)| Supported | Ensure that the UDRs and NSGs are configured in such a way that the Site Recovery traffic is not routed to on-premises. [Learn more](site-recovery-azure-to-azure-networking-guidance.md)	 
 VNET to VNET connection	| Supported | [Learn more](site-recovery-azure-to-azure-networking-guidance.md)	 
