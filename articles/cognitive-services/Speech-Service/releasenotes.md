@@ -16,6 +16,7 @@ ms.custom: seodec18
 # Release notes
 
 ## Speech SDK 1.6.0: 2019-June release
+
 **Samples**
 *	Quick start samples for Text To Speech on UWP and Unity
 *	Quick start sample for Swift on iOS
