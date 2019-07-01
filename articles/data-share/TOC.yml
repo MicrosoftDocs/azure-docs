@@ -21,7 +21,7 @@
   - name: Configure a dataset mapping
     href: how-to-configure-mapping.md
   - name: Troubleshoot Azure Data Share Preview
-    href: data-share-troubleshooting.md
+    href: data-share-troubleshoot.md
 - name: Resources
   expanded: true
   items:
