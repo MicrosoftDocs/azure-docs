@@ -95,7 +95,7 @@ speechToText:
       - containerpreview # Or an existing secret
     args:
       eula: accept
-      billing: #"< Your billing URL >"
+      billing: # < Your billing URL >
       apikey: # < Your API Key >
 
 # text-to-speech configurations
@@ -111,7 +111,7 @@ textToSpeech:
       - containerpreview # Or an existing secret
     args:
       eula: accept
-      billing: #"< Your billing URL >"
+      billing: # < Your billing URL >
       apikey: # < Your API Key >
 ```
 
