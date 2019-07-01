@@ -413,7 +413,7 @@ Please see the [Spring Boot documentation on data access](https://docs.spring.io
 > [!NOTE]
 > Java Enterprise Edition on App Service Linux is currently in Preview. This stack is **not** recommended for production-facing work. information on our Java SE and Tomcat stacks.
 
-Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (Java EE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [Wildfly](https://wildfly.org/) application server.
+Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (Java EE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [WildFly](https://wildfly.org/) application server.
 
 This section contains the following subsections:
 
@@ -432,16 +432,16 @@ Scale your application vertically or horizontally with [scale rules](../../monit
 
 ### Customize application server configuration
 
-Web App instances are stateless, so each new instance started must be configured on startup to support the Wildfly configuration needed by application.
+Web App instances are stateless, so each new instance started must be configured on startup to support the WildFly configuration needed by application.
 You can write a startup Bash script to call the WildFly CLI to:
 
 - Set up data sources
 - Configure messaging providers
-- Add other modules and dependencies to the Wildfly server configuration.
+- Add other modules and dependencies to the WildFly server configuration.
 
-The script runs when Wildfly is up and running, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from */opt/jboss/wildfly/bin/jboss-cli.sh* to configure the application server with any configuration or changes needed after the server starts.
+The script runs when WildFly is up and running, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from */opt/jboss/wildfly/bin/jboss-cli.sh* to configure the application server with any configuration or changes needed after the server starts.
 
-Do not use the interactive mode of the CLI to configure Wildfly. Instead, you can provide a script of commands to the JBoss CLI using the `--file` command, for example:
+Do not use the interactive mode of the CLI to configure WildFly. Instead, you can provide a script of commands to the JBoss CLI using the `--file` command, for example:
 
 ```bash
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
@@ -455,7 +455,7 @@ Supply [app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontai
 
 ### Install modules and dependencies
 
-To install modules and their dependencies into the Wildfly classpath via the JBoss CLI, you will need to create the following files in their own directory. Some modules and dependencies might need additional configuration such as JNDI naming or other API-specific configuration, so this list is a minimum set of what you'll need to configure a dependency in most cases.
+To install modules and their dependencies into the WildFly classpath via the JBoss CLI, you will need to create the following files in their own directory. Some modules and dependencies might need additional configuration such as JNDI naming or other API-specific configuration, so this list is a minimum set of what you'll need to configure a dependency in most cases.
 
 - An [XML module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). This XML file defines the name, attributes, and dependencies of your module. This [example module.xml file](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) defines a Postgres module, its JAR file JDBC dependency, and other module dependencies required.
 - Any necessary JAR file dependencies for your module.
@@ -466,7 +466,7 @@ To install modules and their dependencies into the Wildfly classpath via the JBo
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-Once you have the files and content for your module, follow the steps below to add the module to the Wildfly application server.
+Once you have the files and content for your module, follow the steps below to add the module to the WildFly application server.
 
 1. Use FTP to upload your files to a location in your App Service instance under your */home* directory, such as */home/site/deployments/tools*. For more info, see [Deploy your app to Azure App Service using FTP/S](../deploy-ftp.md).
 2. In the **Configuration** > **General settings** page of the Azure portal, set the **Startup Script** field to the location of your startup shell script, for example */home/site/deployments/tools/startup.sh*.
@@ -474,7 +474,7 @@ Once you have the files and content for your module, follow the steps below to a
 
 ### Configure data sources
 
-To configure Wildfly/JBoss to access a data source, you use the general process outlined above in the "Install modules and dependencies" section. The following section provides specific details on this process for PostgreSQL, MySQL, and SQL Server data sources.
+To configure WildFly/JBoss to access a data source, you use the general process outlined above in the "Install modules and dependencies" section. The following section provides specific details on this process for PostgreSQL, MySQL, and SQL Server data sources.
 
 This section assumes you already have an app, an App Service instance, and an Azure Database service instance. The instructions below refer to your App Service name, its resource group, and your database connection info. You can find this information on the Azure portal.
 
@@ -508,7 +508,7 @@ The following steps explain the requirements for connecting your existing App Se
 
     /subsystem=datasources/jdbc-driver=postgres:add(driver-name=postgres,driver-module-name=org.postgres,driver-class-name=org.postgresql.Driver,driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
 
-    data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=${DATABASE_CONNECTION_URL,env.DATABASE_CONNECTION_URL:jdbc:postgresql://db:5432/postgres} --user-name=${DATABASE_SERVER_ADMIN_FULL_NAME,env.DATABASE_SERVER_ADMIN_FULL_NAME:postgres} --password=${DATABASE_SERVER_ADMIN_PASSWORD,env.DATABASE_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
+    data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=$DATABASE_CONNECTION_URL --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
 
     reload --use-current-server-config=true
     ```
@@ -520,7 +520,7 @@ The following steps explain the requirements for connecting your existing App Se
 
     /subsystem=datasources/jdbc-driver=mysql:add(driver-name=mysql,driver-module-name=com.mysql,driver-class-name=com.mysql.cj.jdbc.Driver)
 
-    data-source add --name=mysqlDS --jndi-name=java:jboss/datasources/mysqlDS --connection-url=${DATABASE_CONNECTION_URL,env.DATABASE_CONNECTION_URL:jdbc:mysql://db:3306/petstore} --driver-name=mysql --user-name=${DATABASE_SERVER_ADMIN_FULL_NAME,env.DATABASE_SERVER_ADMIN_FULL_NAME:mysql} --password=${DATABASE_SERVER_ADMIN_PASSWORD,env.DATABASE_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=com.mysql.cj.jdbc.Driver --jta=true --use-java-context=true --exception-sorter-class-name=com.mysql.cj.jdbc.integration.jboss.ExtendedMysqlExceptionSorter
+    data-source add --name=mysqlDS --jndi-name=java:jboss/datasources/mysqlDS --connection-url=$DATABASE_CONNECTION_URL --driver-name=mysql --user-name=$DATABASE_SERVER_ADMIN_FULL_NAME --password=$DATABASE_SERVER_ADMIN_PASSWORD --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=com.mysql.cj.jdbc.Driver --jta=true --use-java-context=true --exception-sorter-class-name=com.mysql.cj.jdbc.integration.jboss.ExtendedMysqlExceptionSorter
 
     reload --use-current-server-config=true
     ```
@@ -532,12 +532,12 @@ The following steps explain the requirements for connecting your existing App Se
 
     /subsystem=datasources/jdbc-driver=sqlserver:add(driver-name=sqlserver,driver-module-name=com.microsoft,driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver,driver-datasource-class-name=com.microsoft.sqlserver.jdbc.SQLServerDataSource)
 
-    data-source add --name=sqlDS --jndi-name=java:jboss/datasources/sqlDS --driver-name=sqlserver --connection-url=${DATABASE_CONNECTION_URL,env.DATABASE_CONNECTION_URL:example} --validate-on-match=true --background-validation=false --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter
+    data-source add --name=sqlDS --jndi-name=java:jboss/datasources/sqlDS --driver-name=sqlserver --connection-url=$DATABASE_CONNECTION_URL --validate-on-match=true --background-validation=false --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLValidConnectionChecker --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.mssql.MSSQLExceptionSorter
 
     reload --use-current-server-config=true
     ```
 
-    This file is run by the startup script described in the next step. It installs the JDBC driver as a Wildfly module, creates the corresponding Wildfly data source, and reloads the server to ensure the changes will take effect.
+    This file is run by the startup script described in the next step. It installs the JDBC driver as a WildFly module, creates the corresponding WildFly data source, and reloads the server to ensure the changes will take effect.
 
 4. Create a file with a name like *startup.sh* and add the following code. Replace `<JBoss CLI script>` with the name of the file you created in the previous step. Be sure to include the full path to the location you will place the file in your App Service instance, for example */home/datasource-commands.cli*.
 
@@ -584,11 +584,17 @@ The following steps explain the requirements for connecting your existing App Se
             DATABASE_CONNECTION_URL=jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
     ```
 
+    The DATABASE_CONNECTION_URL values are different for each database server, and different than the values on the Azure portal. The URL formats shown here (and in the snippets above) are required for use by WildFly:
+
+    * **PostgreSQL:** `jdbc:postgresql://<database server name>:5432/<database name>?ssl=true`
+    * **MySQL:** `jdbc:mysql://<database server name>:3306/<database name>?ssl=true\&useLegacyDatetimeCode=false\&serverTimezone=GMT`
+    * **SQL Server:** `jdbc:sqlserver://<database server name>:1433;database=<database name>;user=<admin name>;password=<admin password>;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;`
+
 7. In the Azure portal, navigate to your App Service and find the **Configuration** > **General settings** page. Set the **Startup Script** field to the name and location of your startup script, for example */home/startup.sh*.
 
 The next time your App Service restarts, it will run the startup script and perform the necessary configuration steps. To test that this configuration occurs correctly, you can access your App Service using SSH and then run the startup script yourself from the Bash prompt. You can also examine the App Service logs. For more info about these options, see [Logging and debugging apps](#logging-and-debugging-apps).
 
-Next, you will need to update the Wildfly configuration for your app and redeploy it. Use the following steps:
+Next, you will need to update the WildFly configuration for your app and redeploy it. Use the following steps:
 
 1. Open the *src/main/resources/META-INF/persistence.xml* file for your app and find the `<jta-data-source>` element. Replace its contents as shown here:
 
@@ -620,7 +626,7 @@ Next, you will need to update the Wildfly configuration for your app and redeplo
 
 Your App Service instance is now configured to access your database.
 
-For more info on configuring database connectivity with Wildfly, see [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), or [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
+For more info on configuring database connectivity with WildFly, see [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7), [MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource), or [SQL Server](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898).
 
 ### Enable messaging providers
 
@@ -641,7 +647,7 @@ By default App Service on Linux will use session affinity cookies to ensure that
 - If an application instance is restarted or scaled down, the user session state in the application server will be lost.
 - If applications have long session time out settings or a fixed number of users, it can take some time for autoscaled new instances to receive load since only new sessions will be routed to the newly started instances.
 
-You can configure Wildfly to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured Wildfly session store to operate without interference.
+You can configure WildFly to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured WildFly session store to operate without interference.
 
 ## Docker containers
 
