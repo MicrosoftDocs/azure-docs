@@ -30,11 +30,11 @@ SQL as PaaS configured with Active geo-replication on Azure<br></br>(SQL Databas
 SQL Server on Azure IaaS VM or at on-premises| **Replication with Azure Site Recovery** | Typically less than 15 minutes. [Read more](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) to learn about the RTO SLA provided by Azure Site Recovery. | 1 hour for application consistency and 5 minutes for crash consistency. 
 
 > [!NOTE]
-> Few important considerations when protecting SQL workloads with Azure Site Recovery:
-> 1. Azure Site Recovery is application agnostic and hence, any version of SQL server that is deployed on a supported operating system can be protected by Azure Site Recovery. [Learn more](vmware-physical-azure-support-matrix.md#replicated-machines).
-> 2. You can choose to use Site Recovery for any deployment at Azure, Hyper-V, VMware or Physical infrastructure. Please follow the [guidance](site-recovery-sql.md#how-to-protect-a-sql-server-cluster-standard-editionsql-server-2008-r2) at the end of the document on how to protect SQL Server Cluster with Azure Site Recovery.
-> 3. Ensure that the data change rate (Write bytes per sec) observed on the machine is within [Site Recovery limits](vmware-physical-azure-support-matrix.md#churn-limits). For windows machines, you can view this under Performance tab on Task Manager. Observe Write speed for each disk.
-> 4. Azure Site Recovery supports replication of Failover Cluster Instances on Storage Spaces Direct. [Learn more](azure-to-azure-how-to-enable-replication-s2d-vms.md)
+> A few important considerations when protecting SQL workloads with Azure Site Recovery:
+> * Azure Site Recovery is application agnostic and hence, any version of SQL server that is deployed on a supported operating system can be protected by Azure Site Recovery. [Learn more](vmware-physical-azure-support-matrix.md#replicated-machines).
+> * You can choose to use Site Recovery for any deployment at Azure, Hyper-V, VMware or Physical infrastructure. Please follow the [guidance](site-recovery-sql.md#how-to-protect-a-sql-server-cluster-standard-editionsql-server-2008-r2) at the end of the document on how to protect SQL Server Cluster with Azure Site Recovery.
+> * Ensure that the data change rate (Write bytes per sec) observed on the machine is within [Site Recovery limits](vmware-physical-azure-support-matrix.md#churn-limits). For windows machines, you can view this under Performance tab on Task Manager. Observe Write speed for each disk.
+> * Azure Site Recovery supports replication of Failover Cluster Instances on Storage Spaces Direct. [Learn more](azure-to-azure-how-to-enable-replication-s2d-vms.md).
  
 
 ## Disaster recovery of application
@@ -64,7 +64,8 @@ Understand how you can design applications for connectivity considerations with 
 
 BCDR technologies Always On, Active-Geo replication and auto-failover groups have secondary replicas of SQL server running in target Azure region. Hence, the first step for your application failover is to make this replica as Primary (assuming you already have a domain controller in secondary). This step may not be necessary if you choose to do an auto-failover. Only after the database failover is completed, you should failover your web or application tiers.
 
-> [Note!] If you have protected the SQL machines with Azure Site Recovery, you just need to create a recovery group of these machines and add their failover in the recovery plan.
+> [!NOTE] 
+> If you have protected the SQL machines with Azure Site Recovery, you just need to create a recovery group of these machines and add their failover in the recovery plan.
 
 [Create a Recovery Plan](site-recovery-create-recovery-plans.md) with application and web tier virtual machines. Follow the below steps to add failover of database tier:
 
