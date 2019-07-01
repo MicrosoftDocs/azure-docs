@@ -13,6 +13,8 @@ manager: philmea
 
 # Take a tour of the Azure IoT Central UI
 
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original.md)]
+
 This article introduces you to the Microsoft Azure IoT Central UI. You can use the UI to create, manage, and use an Azure IoT Central solution and its connected devices.
 
 As a _builder_, you use the Azure IoT Central UI to define your Azure IoT Central solution. You can use the UI to:
