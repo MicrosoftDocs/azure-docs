@@ -268,7 +268,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview and is o
 |Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB size (GB)|64|128|256|384|384|384|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Target IOPS (64 KB)| [Note 1](#Note-1) |[Note 1](#Note-1)|[Note 1](#Note-1) |[Note 1](#Note-1) |[Note 1](#Note-1) |[Note 1](#Note-1) |[Note 1](#Note-1) | [Note 1](#Note-1) |
+|Target IOPS (64 KB)| [Note 1](#note-1) |[Note 1](#note-1)|[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) | [Note 1](#note-1) |
 |IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -282,7 +282,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview and is o
 
 Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload. 
 
-## Next steps
+### Next steps
 
 - For DTU resource limits for a single database, see [resource limits for single databases using the DTU-based purchasing model](sql-database-dtu-resource-limits-single-databases.md)
 - For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore-based purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
