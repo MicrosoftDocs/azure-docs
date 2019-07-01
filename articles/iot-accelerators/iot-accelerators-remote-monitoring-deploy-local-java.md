@@ -36,7 +36,7 @@ To complete the local deployment, you need the following tools installed on your
 * [IntelliJ SBT plugin](https://plugins.jetbrains.com/plugin/5007-sbt)
 * [IntelliJ SBT Executor plugin](https://plugins.jetbrains.com/plugin/7247-sbt-executor)
 * [Nginx](https://nginx.org/en/download.html)
-* [Node.js v8](https://nodejs.org/).
+* [Node.js v8](https://nodejs.org/)
 
 Node.js v8 is a prerequisite for the PCS CLI that the scripts use to create Azure resources. Don't use Node.js v10.
 
