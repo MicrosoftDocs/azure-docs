@@ -73,7 +73,7 @@ All documents are subject to revision by the standards bodies, and readers are e
 | [MPEGDASH]       | Information technology -- Dynamic adaptive streaming over HTTP (DASH) -- Part 1: Media presentation description and segment formats. May 2014. Published. URL: https://www.iso.org/standard/65274.html |
 | [MPEGCMAF]        | Information technology -- Multimedia application format (MPEG-A) -- Part 19: Common media application format (CMAF) for segmented media. January 2018. Published. URL: https://www.iso.org/standard/71975.html |
 | [MPEGCENC]        | Information technology -- MPEG systems technologies -- Part 7: Common encryption in ISO base media file format files. February 2016. Published. URL: https://www.iso.org/standard/68042.html |
-| [MS-SSTR]         | [“Microsoft Smooth Streaming Protocol”, May 15, 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+| [MS-SSTR]         | [“Microsoft Smooth Streaming Protocol”, May 15, 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 | [MS-SSTR-Ingest]  | [Azure Media Services Fragmented MP4 Live Ingest Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview) |
 | [RFC8216]         |R. Pantos, Ed.; W. May. HTTP Live Streaming. August 2017. Informational. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216) |
 | [RFC4648]   |The Base16, Base32, and Base64 Data Encodings - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648) |
