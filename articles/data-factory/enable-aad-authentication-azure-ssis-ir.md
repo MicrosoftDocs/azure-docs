@@ -141,7 +141,7 @@ Azure SQL Database Managed Instance supports creating a database with the manage
 
 ### Configure Azure AD authentication for Azure SQL Database Managed Instance
 
-Follow the steps in [Provision an Azure Active Directory administrator for your Managed Instance](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+Follow the steps in [Provision an Azure Active Directory administrator for your Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### Add the managed identity for your ADF as a user in Azure SQL Database Managed Instance
 
