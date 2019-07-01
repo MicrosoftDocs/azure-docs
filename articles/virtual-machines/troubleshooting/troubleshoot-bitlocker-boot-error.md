@@ -44,7 +44,7 @@ To resolve this problem, stop and deallocate the VM, and then restart it. This o
 If this method does not the resolve the problem, follow these steps to restore the BEK file manually:
 
 1. Take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
-2. [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md). 
+2. [Attach the system disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md). To run the [manage-bde] (https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command in the step 7, the **BitLocker Drive Encryption** feature must be enabled in the recovery VM.
 
     When you attach a managed disk, you might receive a "contains encryption settings and therefore cannot be used as a data disk” error message. In this situation, run the following script to try again to attach the disk:
 
@@ -116,7 +116,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.	To unlock the attached disk by using the BEK file, run the following command. To use the [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) command, the **BitLocker Drive Encryption** feature must be enabled in the recovery VM.
+7.	To unlock the attached disk by using the BEK file, run the following command.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
