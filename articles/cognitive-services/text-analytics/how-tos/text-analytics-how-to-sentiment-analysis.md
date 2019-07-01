@@ -148,9 +148,9 @@ Sentiment analysis V3 can returns scores and labels (`positive`, `negative`, and
 | Sentence sentiment                                                        | Document label |
 |---------------------------------------------------------------------------|----------------|
 | At least one positive sentence and the rest of the sentences are neutral. | `positive`     |
-| At least one negative sentence and the rest of the sentences are neutral  | `negative`     |
-| At least one negative sentence and at least one positive sentence         | `mixed`        |
-| All sentences are neutral                                                 | `neutral`      |
+| At least one negative sentence and the rest of the sentences are neutral.  | `negative`     |
+| At least one negative sentence and at least one positive sentence.         | `mixed`        |
+| All sentences are neutral.                                                 | `neutral`      |
 
 ### Sentiment analysis V3 example request
 
