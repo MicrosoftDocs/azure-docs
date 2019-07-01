@@ -36,7 +36,7 @@ For example, you may want to use a structure like this:
 
 Once you’ve created these groups, you can assign users as needed. Only add the users who truly need to have access. Be sure to review group membership regularly and remove any users that are no longer appropriate or necessary to include.
 
-We also recommend using different groups for each of the customers you [onboard to Azure Delegated Resource Management by using Azure Resource Manager templates](../how-to/onboard-customer.md). Even if the groups initially have the same membership, creating separate groups let you update membership as needed to limit access to individual customers where appropriate.
+We also recommend using different groups for each of the customers you [onboard to Azure delegated resource management by using Azure Resource Manager templates](../how-to/onboard-customer.md). Even if the groups initially have the same membership, creating separate groups let you update membership as needed to limit access to individual customers where appropriate.
 
 Keep  in mind that when you [onboard customers through a public managed service offer](../how-to/publish-managed-services-offers.md), any group (or user or service principal) that you include will have the same permissions for every customer who purchases the plan. To assign different groups to work with each customer, you’ll need to publish a separate private plan that is exclusive to each customer, or onboard customers individually by using Azure Resource Manager templates. For example, you could publish a public plan that has very limited access, then work with the customer directly to onboard their resources for additional access using a customized Azure Resource Template granting additional access as needed.
 
