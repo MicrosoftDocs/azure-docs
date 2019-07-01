@@ -142,6 +142,12 @@ You can modify the column data types in a later derived-column transformation. U
 
 ![Settings for default data formats](media/data-flow/source2.png "Default formats")
 
+### Add dynamic content
+
+When you click inside of fields in the setting panel, you will see a hyperlink for "Add dynamic content". When you click here, you will launch the Expression Builder. This is where you can set values for settings dynamically using expressions, static literal values, or parameters.
+
+![Parameters](media/data-flow/params6.png "Parameters")
+
 ## Next steps
 
 Begin building a [derived-column transformation](data-flow-derived-column.md) and a [select transformation](data-flow-select.md).
