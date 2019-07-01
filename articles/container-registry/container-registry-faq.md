@@ -90,7 +90,7 @@ az role assignment create --role "Reader" --assignee user@contoso.com --scope /s
 
 ### Firewall rules are updated successfully but they do not take effect
 
-It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for several minutes before verifying this change.
+It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for a few minutes before verifying this change.
 
 
 ## Registry operations
