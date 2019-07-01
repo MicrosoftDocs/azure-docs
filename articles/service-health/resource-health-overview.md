@@ -26,7 +26,7 @@ The health of a resource is displayed as one of the following statuses.
 
 ### Available
 
-*Available* means that the service hasn't detected any events that affect the health of the resource. In cases where the resource recovered from unplanned downtime during the last 24 hours, you'll see the *Recently resolved* notification.
+*Available* means that there are no events detected that affect the health of the resource. In cases where the resource recovered from unplanned downtime during the last 24 hours, you'll see the *Recently resolved* notification.
 
 ![Status of *Available* for a virtual machine with a "Recently resolved" notification](./media/resource-health-overview/Available.png)
 
@@ -50,17 +50,17 @@ Non-platform events are triggered by user actions. Examples include stopping a v
 
 ### Unknown
 
-**Unknown** means that Resource Health hasn't received information about the resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it's an important data point for troubleshooting.
+*Unknown* means that Resource Health hasn't received information about the resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it's an important data point for troubleshooting.
 
-If the resource is running as expected, the status of the resource will change to **Available** after a few minutes.
+If the resource is running as expected, the status of the resource will change to *Available* after a few minutes.
 
-If you experience problems with the resource, the **Unknown** health status might mean that an event in the platform is affecting the resource.
+If you experience problems with the resource, the *Unknown* health status might mean that an event in the platform is affecting the resource.
 
 ![Status of *Unknown* for a virtual machine](./media/resource-health-overview/Unknown.png)
 
 ### Degraded
 
-T**Degraded** means that your resource detected a loss in performance, although it's still available for use.
+*Degraded* means that your resource detected a loss in performance, although it's still available for use.
 
 Different resources have their own criteria for when they specify that they are degraded.
 
@@ -68,7 +68,7 @@ Different resources have their own criteria for when they specify that they are 
 
 ## Reporting an incorrect status
 
-If you believe that the current health status is incorrect, you can let us know by selecting **Report incorrect health status**. In cases where an Azure problem is affecting you, we encourage you to contact Support from Resource Health.
+If you think that the current health status is incorrect, you can tell us by selecting **Report incorrect health status**. In cases where an Azure problem is affecting you, we encourage you to contact Support from Resource Health.
 
 ![Box for submitting information about an incorrect status](./media/resource-health-overview/incorrect-status.png)
 

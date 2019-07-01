@@ -16,9 +16,9 @@ ms.date: 3/27/2018
 This article shows you how to configure Azure Service Health alerts to send data through webhooks to your existing notification system.
 
 You can configure Service Health alerts to notify you by text message or email when an Azure service incident affects you.
-But you might already have existing external notification system in place that you prefer to use. This article identifies the most important parts of the webhook payload and describes how to create custom alerts to notified you when relevant service issues occur.
+But you might already have existing external notification system in place that you prefer to use. This article identifies the most important parts of the webhook payload and describes how to create custom alerts to notify you when relevant service issues occur.
 
-If you want to use a preconfigured integration, see how to:
+If you want to use a preconfigured integration, see:
 * [Configure alerts with ServiceNow](service-health-alert-webhook-servicenow.md)
 * [Configure alerts with PagerDuty](service-health-alert-webhook-pagerduty.md)
 * [Configure alerts with OpsGenie](service-health-alert-webhook-opsgenie.md)
@@ -33,33 +33,30 @@ To set up your own custom webhook integration, you need to parse the JSON payloa
 See [an example](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` webhook payload.
 
 You can confirm that it's a service health alert by looking at `context.eventSource == "ServiceHealth"`. These properties are the most relevant:
- * `data.context.activityLog.status`
- * `data.context.activityLog.level`
- * `data.context.activityLog.subscriptionId`
- * `data.context.activityLog.properties.title`
- * `data.context.activityLog.properties.impactStartTime`
- * `data.context.activityLog.properties.communication`
- * `data.context.activityLog.properties.impactedServices`
- * `data.context.activityLog.properties.trackingId`
+ **data.context.activityLog.status**
+ **data.context.activityLog.level**
+ **data.context.activityLog.subscriptionId**
+ **data.context.activityLog.properties.title**
+ **data.context.activityLog.properties.impactStartTime**
+ **data.context.activityLog.properties.communication**
+ **data.context.activityLog.properties.impactedServices**
+ **data.context.activityLog.properties.trackingId**
 
 ## Create a direct link to the Service Health dashboard for an incident
-You can create a direct link to your Service Health dashboard on a desktop or mobile device by generating a specialized URL. Use the `trackingId` and the first three and last three digits of your `subscriptionId` in this format:
-```
-https://app.azure.com/h/<trackingId>/<first three and last three digits of subscriptionId>
-```
+You can create a direct link to your Service Health dashboard on a desktop or mobile device by generating a specialized URL. Use the *trackingId* and the first three and last three digits of your *subscriptionId* in this format:
 
-For example, if your `subscriptionId` is `bba14129-e895-429b-8809-278e836ecdb3` and your `trackingId` is `0DET-URB`, your Service Health URL is:
+*https<i></i>://app.azure.com/h/&lt;trackingId&gt;/&lt;first three and last three digits of subscriptionId&gt;*
 
-```
-https://app.azure.com/h/0DET-URB/bbadb3
-```
+For example, if your *subscriptionId* is bba14129-e895-429b-8809-278e836ecdb3 and your *trackingId* is 0DET-URB, your Service Health URL is:
+
+https<i></i>://app.azure.com/h/0DET-URB/bbadb3
 
 ## Use the level to detect the severity of the issue
-From lowest to highest severity, the `level` property in the payload can be *Informational*, *Warning*, *Error*, or *Critical*.
+From lowest to highest severity, the **level** property in the payload can be *Informational*, *Warning*, *Error*, or *Critical*.
 
 ## Parse the impacted services to determine the scope of the incident
 Service Health alerts can inform you about issues across multiple regions and services. To get  complete details, you need to parse the value of `impactedServices`.
-The content inside is a [JSON escaped](https://json.org/) string that, when unescaped, contains another JSON object that can be parsed regularly. For example:
+The content inside is an escaped [JSON](https://json.org/) string that, when unescaped, contains another JSON object that can be parsed regularly. For example:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
@@ -91,7 +88,7 @@ becomes:
 ]
 ```
 
-This example shows problems for "Alerts & Metrics" in both Australia East and Southeast, as well as problems for "App Service" in Australia Southeast.
+This example shows problem for "Alerts & Metrics" in Australia East and Australia Southeast, as well as problems for "App Service" in Australia Southeast.
 
 
 ## Test your webhook integration via an HTTP POST request
