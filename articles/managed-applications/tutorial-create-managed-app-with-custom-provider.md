@@ -21,6 +21,7 @@ In this tutorial you will do:
 > * Author view definition artifact with custom provider actions and resources
 > * Deploy a managed application definition
 > * Deploy an instance of managed application
+> * Perform custom provider actions and create resources
 
 ## Prerequisites
 
@@ -55,7 +56,9 @@ and output in *createUIDefinition.json*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-Here is the *createUiDefinition.json* file:
+<details>
+<summary>Show *createUiDefinition.json* file</summary>
+<p>
 
 ```json
 {
@@ -107,6 +110,9 @@ Here is the *createUiDefinition.json* file:
 }
 ```
 
+</p>
+</details>
+
 ## Authoring deployment template with custom provider
 
 To create a managed application instance with custom providers you need to define custom provider resource of type **Microsoft.CustomProviders/resourceProviders** in your **mainTemplate.json**. In that resource, you define the resource types and actions for your service. To deploy Azure function and Azure storage account instances define resources of type `Microsoft.Web/sites` and `Microsoft.Storage/storageAccounts` respectively.
@@ -146,7 +152,9 @@ In this tutorial you create one `users` resource type, `ping` custom action and 
 }
 ```
 
-Here is the full *mainTemplate.json* file:
+<details>
+<summary>Show full *mainTemplate.json* file</summary>
+<p>
 
 ```json
 {
@@ -313,7 +321,10 @@ Here is the full *mainTemplate.json* file:
   ],
   "outputs": {}
 }
-```  
+```
+
+</p>
+</details>
 
 ## Authoring view definition artifact
 
@@ -321,7 +332,9 @@ In order to define user interface that includes custom actions and custom resour
 
 In this tutorial you define an *Overview* page with toolbar button that represents a custom provider action `TestAction` with basic text input, *Users* page that represents a custom provider resource type `users` and an additional toolbar button that represents a custom resource action `users/contextAction` that is performed in a context of custom resource of type `users`.
 
-Here is the *viewDefinition.json* file:
+<details>
+<summary>Show *viewDefinition.json* file</summary>
+<p>
 
 ```json
 {
@@ -387,6 +400,9 @@ Here is the *viewDefinition.json* file:
   }]
 }
 ```
+
+</p>
+</details>
 
 ## Deploy a managed application definition
 
@@ -535,6 +551,8 @@ az managedapp create \
     ![Deploy managed application](./media/managed-application-with-custom-providers/deploy-managed-application.png)
 
 ---
+
+## Performing custom provider actions and create resources
 
 After the service catalog application instance has been deployed, you have two new resource groups. One resource group `applicationGroup` contains an instance of the managed application, while the other resource group `managedResourceGroup` holds the resources for the managed application, including **custom provider**.
 
