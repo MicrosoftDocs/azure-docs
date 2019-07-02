@@ -92,7 +92,4 @@ The Azure Data Share service does not have to be available in your region to lev
 
 ## Next steps
 
-To learn how to start sharing data, continue to the "Share your data" tutorial. 
-
-> [!div class="nextstepaction"]
-> [Tutorial: Share your data](share-your-data.md)
+To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
