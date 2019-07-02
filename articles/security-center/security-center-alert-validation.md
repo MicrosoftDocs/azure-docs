@@ -28,27 +28,26 @@ Security Center automatically collects, analyzes, and integrates log data from y
 * [Windows](#validate-windows)
 * [Linux](#validate-linux)
 
-## Validate alert on Windows VM<a name="validate-windows></a>
+## Validate alert on Windows VM <a name="validate-windows"></a>
 
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 
-1. Copy an executable (for example **calc.exe**) to the computer’s desktop, or other directory of your convenience.
-2. Rename this file to **ASC_AlertTest_662jfi039N.exe**.
-3. Open the command prompt and execute this file with an argument (just a fake argument name), such as: ```ASC_AlertTest_662jfi039N.exe -foo```
-4. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
+1. Copy an executable (for example **calc.exe**) to the computer’s desktop, or other directory of your convenience, and rename it as **ASC_AlertTest_662jfi039N.exe**.
+1. Open the command prompt and execute this file with an argument (just a fake argument name), such as: ```ASC_AlertTest_662jfi039N.exe -foo```
+1. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
 
-When reviewing this alert, make sure the field **Arguments Auditing Enabled** is **true**. If it is **false**, then you need to enable command-line arguments auditing. To enable it, use the following command line:
+When reviewing this test alert, make sure the field **Arguments Auditing Enabled** is **true**. If it is **false**, then you need to enable command-line arguments auditing. To enable it, use the following command line:
 
 ```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Validate alert on Linux VM<a name="validate-linux></a>
+## Validate alert on Linux VM <a name="validate-linux"></a>
 
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 
-1. Copy an executable (for example **calc.exe**) to the computer’s desktop, or other directory of your convenience.
-2. Rename this file to **ASC_AlertTest_662jfi039N.exe**.  ```cp /bin/echo ./asc_alerttest_662jfi039n```
-3. Open the command prompt and execute this file: **./asc_alerttest_662jfi039n testing eicar pipe**
-4. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
+1. Copy an executable (for example **calc.exe**) to the computer’s desktop, or other directory of your convenience, and rename it as **ASC_AlertTest_662jfi039N.exe**.
+1. Rename this file to **ASC_AlertTest_662jfi039N.exe**.  ```cp /bin/echo ./asc_alerttest_662jfi039n```
+1. Open the command prompt and execute this file: **./asc_alerttest_662jfi039n testing eicar pipe**
+1. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
 
 ### Alert example <a name="alert-validate"></a>
 
