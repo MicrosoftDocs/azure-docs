@@ -33,8 +33,7 @@ Run this code on either of these environments:
     - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
     - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
     - [Download the sample script file](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn) `train_iris.py`
-
-  You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-sklearn.ipynb) of this guide on the GitHub samples page. The notebook includes an expanded section covering intelligent hyperparameter tuning and retrieving the best model by primary metrics.
+    - You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-sklearn.ipynb) of this guide on the GitHub samples page. The notebook includes an expanded section covering intelligent hyperparameter tuning and retrieving the best model by primary metrics.
 
 ## Set up the experiment
 
@@ -82,7 +81,7 @@ exp = Experiment(workspace=ws, name='sklearn-iris')
 
 The [datastore](how-to-access-data.md) is a place where data can be stored and accessed by mounting or copying the data to the compute target. Each workspace provides a default datastore. Upload the data and training scripts to the datastore so that they can be easily accessed during training.
 
-1. Download the Iris dataset locally.
+1. Create the directory for your data.
 
     ```Python
     os.makedirs('./data/iris', exist_ok=True)
@@ -101,9 +100,11 @@ The [datastore](how-to-access-data.md) is a place where data can be stored and a
     shutil.copy('./train_iris.py', project_folder)
     ```
 
-## Create a compute target
+## Create or get a compute target
 
 Create a compute target for your Scikit-learn job to run on. Scikit learn only supports single node, CPU computing.
+
+The following code, creates an Azure Machine Learning managed compute (AmlCompute) for your remote training compute resource. Creation of AmlCompute takes approximately 5 minutes. If the AmlCompute with that name is already in your workspace, this code will skip the creation process.
 
 ```Python
 cluster_name = "cpu-cluster"
