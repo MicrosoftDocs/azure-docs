@@ -198,8 +198,7 @@ namespace SampleSkills
 
                 try
                 {
-                    string nameName = record.Data.Name;
-                    responseRecord.Data = GetEntityMetadata(nameName).Result;
+                    responseRecord.Data = GetEntityMetadata(record.Data.Name).Result;
                 }
                 catch (Exception e)
                 {
@@ -227,11 +226,11 @@ namespace SampleSkills
         /// <summary>
         /// Gets metadata for a particular entity based on its name using Bing Entity Search
         /// </summary>
-        /// <param name="nameName">The image to extract objects for.</param>
-        /// <returns>Asynchronous task that returns objects identified in the image. </returns>
-        private async static Task<OutputRecord.OutputRecordData> GetEntityMetadata(string nameName)
+        /// <param name="entityName">The name of the entity to extract data for.</param>
+        /// <returns>Asynchronous task that returns entity data. </returns>
+        private async static Task<OutputRecord.OutputRecordData> GetEntityMetadata(string entityName)
         {
-            var uri = bingApiEndpoint + "?q=" + nameName + "&mkt=en-us&count=10&offset=0&safesearch=Moderate";
+            var uri = bingApiEndpoint + "?q=" + entityName + "&mkt=en-us&count=10&offset=0&safesearch=Moderate";
             var result = new OutputRecord.OutputRecordData();
 
             using (var client = new HttpClient())
@@ -252,7 +251,7 @@ namespace SampleSkills
 
                 // Do some cleanup on the returned result.
                 result.Description = result.Description ?? "";
-                result.Name = nameName ?? "";
+                result.Name = entityName ?? "";
                 result.LicenseAttribution = result.LicenseAttribution ?? "";
             }
 
@@ -303,9 +302,10 @@ namespace SampleSkills
         }
         #endregion
     }
-}```
+}
+```
 
-Make sure to enter your own *key* value in the *TranslateText* method based on the key you got when signing up for the Translate Text API.
+Make sure to enter your own *key* value in the `key` constant based on the key you got when signing up for the Bing entity search API.
 
 This sample includes all necessary code in a single file for convenience. You can find a slightly more structured version of that same skill in [the power skills repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
@@ -351,12 +351,14 @@ You should see a response similar to the following example:
             "recordId": "e1",
             "data": {
                 "name": "Pablo Picasso",
-                "description": "Pablo Ruiz Picasso was a Spanish painter, sculptor, [...]",
-                "imageUrl": "https://www.bing.com/th?id=AMMS_e8c719d1c081e929c60a2f112d659d96&w=110&h=110&c=12&rs=1&qlt=80&cdv=1&pid=16.2",
-                "url": "http://en.wikipedia.org/wiki/Pablo_Picasso",
+                "description": "Pablo Ruiz Picasso was a Spanish painter [...]",
+                "source": "Wikipedia",
+                "sourceUrl": "http://en.wikipedia.org/wiki/Pablo_Picasso",
                 "licenseAttribution": "Text under CC-BY-SA license",
-                "entities": "{...}"
-            }
+                "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/"
+            },
+            "errors": null,
+            "warnings": null
         },
         "..."
     ]
@@ -420,19 +422,17 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new Bing entity search custom skill",
         "uri": "https://[your-entity-search-app-name].azurewebsites.net/api/Translate?code=[enter default host key here]",
-          "context": "/document/organizations",
+          "context": "/document/merged_content/organizations/*",
           "inputs": [
             {
               "name": "name",
-              "source": "/document/organizations/*",
-              "sourceContext": null,
-              "inputs": []
+              "source": "/document/merged_content/organizations/*"
             }
           ],
           "outputs": [
             {
               "name": "description",
-              "targetName": "organizationDescription"
+              "targetName": "description"
             }
           ]
       }
