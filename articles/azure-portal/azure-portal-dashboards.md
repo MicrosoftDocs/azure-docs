@@ -29,11 +29,11 @@ In this example, we create a new, private dashboard and assign a name. Follow th
 1. Select **Dashboard** from the upper section of the left sidebar. Your default view might already be set to dashboard.
 1. Select **+ New dashboard**.
 
-  ![Screenshot of default dashboard](./media/azure-portal-dashboards/dashboard-new.png)
+    ![Screenshot of default dashboard](./media/azure-portal-dashboards/dashboard-new.png)
 
 4. This action opens the **Tile Gallery**, from which you'll select tiles, and an empty grid where you'll arrange the tiles.
 
-  ![Screenshot of tile gallery and empty grid](./media/azure-portal-dashboards/dashboard-name.png)
+    ![Screenshot of tile gallery and empty grid](./media/azure-portal-dashboards/dashboard-name.png)
 
 5. Select the **My Dashboard** text in the dashboard label and enter a name that will help you easily identify the custom dashboard.
 1. Select **Done customizing** in the page header to exit edit mode.
@@ -49,7 +49,7 @@ Now, let's edit the dashboard to add, resize, and arrange tiles that represent y
 To add tiles to a dashboard, follow these steps:
 1. Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** from the page header.
 
-  ![Screenshot of dashboard highlighting edit](./media/azure-portal-dashboards/dashboard-edit.png)
+    ![Screenshot of dashboard highlighting edit](./media/azure-portal-dashboards/dashboard-edit.png)
 
 2. Browse the **Tile Gallery** or use the search field to find the tile you want.
 1. Select **Add** to automatically add the tile to the dashboard with a default size and location. Or, drag the tile to the grid and place it where you want.
