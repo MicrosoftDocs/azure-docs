@@ -159,7 +159,7 @@ Although the name of its package and namespace includes "WindowsServer," this ch
 
 The SDK stores telemetry items in local storage during network problems or during throttling. This data isn't encrypted locally.
 
-For Windows systems, the SDK automatically creates a temporary local folder in the %TEMP% or %APPDATA% directory, and restricts access to administrators and the current user only.
+For Windows systems, the SDK automatically creates a temporary local folder in the %TEMP% or %LOCALAPPDATA% directory, and restricts access to administrators and the current user only.
 
 For systems other than Windows, no local storage is created automatically by the SDK, and so no data is stored locally by default. You can create a storage directory yourself and configure the channel to use it. In this case, you're responsible for ensuring that the directory is secured.
 Read more about [data protection and privacy](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
