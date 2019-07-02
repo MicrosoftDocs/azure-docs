@@ -145,7 +145,7 @@
   - name: Reporting
     items:
     - name: Usage and insights
-      href: howto-sspr-reporting-usage-insights.md
+      href: howto-authentication-methods-usage-insights.md
     - name: SSPR Reports
       href: howto-sspr-reporting.md
     - name: MFA Reports

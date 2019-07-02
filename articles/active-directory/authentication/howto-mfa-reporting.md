@@ -185,6 +185,6 @@ The following table may be used to troubleshoot multi-factor authentication usin
 
 ## Next steps
 
-* [SSPR and MFA usage and insights reporting](howto-sspr-reporting-usage-insights.md)
+* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
 * [For Users](../user-help/multi-factor-authentication-end-user.md)
 * [Where to deploy](concept-mfa-whichversion.md)
