@@ -100,6 +100,8 @@
       href: configure-language-java.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
+    - name: Serve content from Azure Files (container)
+      href: how-to-serve-content-azure-files.md     
   - name: Deploy to Azure
     items:
     - name: Deploy the app
