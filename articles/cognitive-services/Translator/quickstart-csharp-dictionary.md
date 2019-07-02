@@ -71,8 +71,6 @@ static void AltTranslation()
 
 Add these lines to the `AltTranslation` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These parameters are used to set the translation input and output. In this sample, these are English (`en`) and Spanish (`es`).
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
-
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
 string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
@@ -142,6 +140,8 @@ static string PrettyPrint(string s)
     return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
 }
 ```
+
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## Put it all together
 
