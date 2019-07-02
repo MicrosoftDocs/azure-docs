@@ -52,6 +52,13 @@ Here's what's new in Service Fabric 6.5:
 
 For further details, see the [Service Fabric 6.5 Release Notes](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf).
 
+### Service Fabric 6.5 releases
+
+| Release date | Release | More info |
+|---|---|---|
+| June 11, 2019 | [Azure Service Fabric 6.5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Release notes](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
+| July 2, 2019 | [Azure Service Fabric 6.4 Refresh Release]()  | [Release notes](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65_CU1.pdf)  |
+
 ## Previous versions
 
 ### Service Fabric 6.4 releases
