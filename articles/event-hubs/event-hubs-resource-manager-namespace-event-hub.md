@@ -28,7 +28,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create an event hub
 
-In this quickstart, you use an [existing Resource Manager template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json):
+In this quickstart, you use an [existing quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json):
 
 [!code-json[create-azure-event-hub-namespace](~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)]
 
