@@ -43,8 +43,10 @@
       href: migrate-support-matrix-hyper-v.md
   - name: Azure Migrate architecture
     href: migrate-architecture.md
-  - name: Azure Migrate appliance architecture
-    href: concepts-collector.md
+  - name: Azure Migrate appliance
+    href: migrate-appliance.md
+  - name: Azure Migrate replication appliance
+    href: migrate-replication-appliance.md
   - name: Collector version upgrades
     href: concepts-collector-upgrade.md
   - name: Best practices for assessments

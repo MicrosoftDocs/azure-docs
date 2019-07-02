@@ -139,7 +139,7 @@ The appliance sends metadata and performance-related data from the VMs to Azure.
 
 **Action** | **Details**
 --- | ---
-**Collected metadata** | VM name<br/> vCenter VM path (host/cluster folder)<br/> IP and MAC addresses<br/> Operating system<br/> Number of cores/disks/NICs<br/> Memory and disk size<br/> Disk IOPS, disk throughput (MBps), network output (MBps)
+**Collected metadata** | VM name<br/> VM path (host/cluster folder)<br/> IP and MAC addresses<br/> Operating system<br/> Number of cores/disks/NICs<br/> Memory and disk size<br/> Disk IOPS, disk throughput (MBps), network output (MBps)
 **Collected performance data** |  CPU/memory usage<br/> Per disk data (disk read/write throughput; disk reads/writes per second)<br/> NIC data (network in, network out).<br/><br/> Performance data is collected continually after the appliance connects to the Hyper-V host. Historical data isn't collected.
 
 
