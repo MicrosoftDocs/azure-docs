@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 05/02/2019
+ms.date: 06/01/2019
 ---
 
 # Deploy a deep learning model for inference with GPU
@@ -79,7 +79,7 @@ from azureml.core.model import Model
 def init():
     global X, output, sess
     tf.reset_default_graph()
-    model_root = Model.get_model_path('tf-dnn-mnist-pl')
+    model_root = Model.get_model_path('tf-dnn-mnist')
     saver = tf.train.import_meta_graph(os.path.join(model_root, 'mnist-tf.model.meta'))
     X = tf.get_default_graph().get_tensor_by_name("network/X:0")
     output = tf.get_default_graph().get_tensor_by_name("network/output/MatMul:0")
@@ -166,18 +166,22 @@ For more information, see [Model class](https://docs.microsoft.com/python/api/az
 Send a test query to the deployed model. When you send a jpeg image to the model, it scores the image.
 
 ```python
+# Used to test your webservice
+from utils import load_data 
+
 # Load test data from model training
 X_test = load_data('./data/mnist/test-images.gz', False) / 255.0
+y_test = load_data('./data/mnist/test-labels.gz', True).reshape(-1)
 
 # send a random row from the test set to score
 random_index = np.random.randint(0, len(X_test)-1)
 input_data = "{\"data\": [" + str(list(X_test[random_index])) + "]}"
 
-headers = {'Content-Type':'application/json'}
+api_key = aks_service.get_keys()[0]
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+resp = requests.post(aks_service.scoring_uri, input_data, headers=headers)
 
-resp = requests.post(service.scoring_uri, input_data, headers=headers)
-
-print("POST to url", service.scoring_uri)
+print("POST to url", aks_service.scoring_uri)
 #print("input data:", input_data)
 print("label:", y_test[random_index])
 print("prediction:", resp.text)
