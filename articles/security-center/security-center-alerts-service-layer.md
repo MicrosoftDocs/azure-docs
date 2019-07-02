@@ -20,10 +20,10 @@ ms.author: monhaber
 
 # Threat detection for Azure service layer in Azure Security Center
 
-This topic presents the Security Center alerts available when monitoring your Azure service layers.
+This topic presents the Security Center alerts available when monitoring the following Azure service layers.
 
 * [Azure Network layer](#network-layer)
-* [ Azure Management layer (Azure Resource Manager) (Preview)](#management-layer)
+* [Azure Management layer (Azure Resource Manager) (Preview)](#management-layer)
 
 >[!NOTE]
 >Using the telemetry that Security Center leverages from tapping into Azure internal feeds, the analytics provided below are applicable to all resource types.
@@ -49,9 +49,9 @@ To understand how Security Center can use network related signals to apply threa
 ## Azure Management layer (Azure Resource Manager) (Preview)<a name ="management-layer"></a>
 
 >[!NOTE]
->Security Center protection layer based on Azure Resource Manager (ARM) is currently in preview.
+>Security Center protection layer based on Azure Resource Manager is currently in preview.
 
-Security Center offers an additional layer of protection by leveraging Azure Resource Manager (ARM) events, which is considered to be the control plane for Azure. By analyzing the ARM records, Security Center detects unusual or potentially harmful operations in the Azure subscription environment.
+Security Center offers an additional layer of protection by leveraging Azure Resource Manager events, which is considered to be the control plane for Azure. By analyzing the Azure Resource Manager records, Security Center detects unusual or potentially harmful operations in the Azure subscription environment.
 
 > [!div class="mx-tableFixed"]
 
