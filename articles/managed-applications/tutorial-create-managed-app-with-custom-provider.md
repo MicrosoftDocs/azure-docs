@@ -574,4 +574,4 @@ If you have questions about Azure Managed Applications, try asking on [Stack Ove
 ## Next Steps
 
 > [!div class="nextstepaction"]
-> [View definition artifact](concepts-view-definition.md)
+> To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
