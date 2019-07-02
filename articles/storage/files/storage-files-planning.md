@@ -85,22 +85,22 @@ Standard file shares up to 5 TiB in size are available as a GA offering. While l
 
 If you'd like to onboard to the preview of these larger file share sizes, submit this [form](https://aka.ms/azurefilesatscalesurvey). 
 
-### Premium file shares (preview)
+### Premium file shares
 
-Premium file shares (preview) are backed by solid-state disks (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
+Premium file shares are backed by solid-state drives (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
 
 Azure Backup is available for premium file shares and Azure Kubernetes Service supports premium file shares in version 1.13 and above.
 
 If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md).
 
-Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch to either tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. You can do this using any of the Azure Files supported copy tools, such as AzCopy.
+Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch to either tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. You can do this using any of the Azure Files supported copy tools, such as Robocopy or AzCopy.
 
 > [!IMPORTANT]
-> Premium file shares are still in preview, are only available with LRS, and are available in most regions that offer storage accounts. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure.
+> Premium file shares are only available with LRS and are available in most regions that offer storage accounts. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure.
 
 ### Provisioned shares
 
-Premium file shares (preview) are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput.
+Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput.
 
 On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
 
@@ -131,6 +131,9 @@ The following table illustrates a few examples of these formulae for the provisi
 |33,792      | 33,792  | Up to 100,000 | 2,088 | 1,392   |
 |51,200      | 51,200  | Up to 100,000 | 3,132 | 2,088   |
 |102,400     | 100,000 | Up to 100,000 | 6,204 | 4,136   |
+
+> [!NOTE]
+> File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
 ### Bursting
 

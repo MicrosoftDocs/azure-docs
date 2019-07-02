@@ -1,5 +1,5 @@
 ---
-title: REST API claims exchanges - Azure Active Directory B2C | Microsoft Docs
+title: REST API claims exchanges - Azure Active Directory B2C
 description: Add REST API claims exchanges to custom policies in Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -24,7 +24,7 @@ The interaction includes a claims exchange of information between the REST API c
 - Can be designed as an orchestration step.
 - Can trigger an external action. For instance, it can log an event in an external database.
 - Can be used to fetch a value and then store it in the user database.
-- Can change the flow of execution. 
+- Can change the flow of execution.
 
 The scenario that is represented in this article includes the following actions:
 
@@ -41,9 +41,16 @@ The scenario that is represented in this article includes the following actions:
 
 In this section, you prepare the Azure function to receive a value for `email`, and then return the value for `city` that can be used by Azure AD B2C as a claim.
 
-Change the run.csx file for the Azure function that you created to use the following code: 
+Change the run.csx file for the Azure function that you created to use the following code:
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -73,9 +80,9 @@ public class ResponseContent
 
 ## Configure the claims exchange
 
-A technical profile provides the configuration for the claim exchange. 
+A technical profile provides the configuration for the claim exchange.
 
-Open the *TrustFrameworkExtensions.xml* file and add the following XML elements inside the **ClaimsProvider** element.
+Open the *TrustFrameworkExtensions.xml* file and add the following **ClaimsProvider** XML element inside the **ClaimsProviders** element.
 
 ```XML
 <ClaimsProvider>
@@ -130,7 +137,7 @@ Add a step to the profile edit user journey. After the user is authenticated (or
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -184,7 +191,7 @@ The final XML for the user journey should look like this example:
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -200,13 +207,15 @@ Edit the *ProfileEdit.xml* file and add `<OutputClaim ClaimTypeReferenceId="city
 After you add the new claim, the technical profile looks like this example:
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 

@@ -1,13 +1,13 @@
 ---
 title: Navigate Azure Digital Twins APIs | Microsoft Docs
 description: Learn how to common patterns of querying the Azure Digital Twins management APIs.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
-ms.author: dkshir
+ms.author: v-adgera
 ---
 
 # How to use Azure Digital Twins management APIs

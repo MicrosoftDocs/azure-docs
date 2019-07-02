@@ -595,5 +595,13 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 
 Once reprotection is complete, you can initiate failover in reverse direction (West US to East US) and failback to source region.
 
+## Disable replication
+
+You can disable replication by using Remove-ASRReplicationProtectedItem cmdlet.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
+
 ## Next steps
 View the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/az.RecoveryServices) to learn how you can perform other tasks such as creating Recovery Plans and testing failover of Recovery plans through PowerShell.

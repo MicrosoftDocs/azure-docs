@@ -20,6 +20,57 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+
+## 2019-07-01
+
+### Azure Machine Learning Data Prep SDK v1.1.7
+
+We reverted a change that improved performance, as it was causing issues for some customers using Azure Databricks. If you experienced an issue on Azure Databricks, you can upgrade to version 1.1.7 using one of the methods below:
+1. Run this script to upgrade: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. Recreate the cluster, which will install the latest Data Prep SDK version.
+
+## 2019-06-25
+
+### Azure Machine Learning SDK for Python v1.0.45
+
++ **New features**
+  + Add decision tree surrogate model to mimic explainer in azureml-explain-model package
+  + Ability to specify a CUDA version to be installed on Inferencing images. Support for CUDA 9.0, 9.1, and 10.0.
+  + Information about Azure ML training base images are now available at [Azure ML Containers GitHub Repository](https://github.com/Azure/AzureML-Containers) and [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + Added CLI support for pipeline schedule. Run "az ml pipeline -h" to learn more
+  + Added custom Kubernetes namespace parameter to AKS webservice deployment configuration and CLI.
+  + Deprecated hash_paths parameter for all pipeline steps
+  + Model.register now supports registering multiple individual files as a single model with use of the `child_paths` parameter.
+  
++ **Preview features**
+    + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
+    + Bug Fix for Auto Feature Selector.
+    + Updated mlflow.azureml.build_image to the new api, patched bugs exposed by the new implementation.
+
++ **Breaking changes**
+
++ **Bug fixes and improvements**
+  + Removed paramiko dependency from azureml-core. Added deprecation warnings for legacy compute target attach methods.
+  + Improve performance of run.create_children
+  + In mimic explainer with binary classifier, fix the order of probabilities when teacher probability is used for scaling shap values
+  + Improved error handling and message for Automated machine learning. 
+  + Fixed the iteration timeout issue for Automated machine learning.
+  + Improved the time-series transformation performance for Automated machine learning.
+
+## 2019-06-24
+
+### Azure Machine Learning Data Prep SDK v1.1.6
+
++ **New features**
+  + Added summary functions for top values (`SummaryFunction.TOPVALUES`) and bottom values (`SummaryFunction.BOTTOMVALUES`).
+
++ **Bug fixes and improvements**
+  + Significantly improved the performance of `read_pandas_dataframe`.
+  + Fixed a bug that would cause `get_profile()` on a Dataflow pointing to binary files to fail.
+  + Exposed `set_diagnostics_collection()` to allow for programmatic enabling/disabling of the telemetry collection.
+  + Changed the behavior of `get_profile()`. NaN values are now ignored for Min, Mean, Std, and Sum, which aligns with the behavior of Pandas.
+
+
 ## 2019-06-10
 
 ### Azure Machine Learning SDK for Python v1.0.43
@@ -33,7 +84,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + STL featurizer for forecasting
     + KMeans clustering is enabled for feature sweeping
   + AmlCompute Quota approvals just became faster! We have now automated the process to approve your quota requests within a threshold. For more information on how quotas work, learn [how to manage quotas](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
- 
 
 + **Preview features**
     + Integration with [MLflow](https://mlflow.org) 1.0.0 tracking through azureml-mlflow package ([example notebooks](https://aka.ms/azureml-mlflow-examples)).
