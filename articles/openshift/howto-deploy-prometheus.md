@@ -180,7 +180,7 @@ To have Prometheus to gather metrics from itself, apply the permissions in prome
 
 ## Optional: Deploy example application
 
-If all is working but there aren't any metrics sources, see the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/). To open the Prometheus URL, run the following command:
+If everything is working but there aren't any metrics sources, go to the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/), which can be found by running the following command:
 ```
 oc get route prom -n prometheus-project
 ```
@@ -192,6 +192,7 @@ The **Status > Service Discovery** page will show 0/0 active targets.
 To deploy an example application, which exposes basic Python metrics under the /metrics endpoint, run the following commands:
 ```
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example1 -n app-project1
+
 oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=example2 -n app-project2
 ```
 The new applications should appear as valid targets on the Service Discovery page within 30 seconds after deployment.
@@ -199,7 +200,7 @@ The new applications should appear as valid targets on the Service Discovery pag
 For more details, select **Status** > **Targets**.
 
 > [!NOTE]
-> For every successfully scraped target, Prometheus adds a data point in the up metric. Select **Prometheus** in the upper-left corner, and then enter **up** as the expression. Select **Execute**.
+> For every successfully scraped target, Prometheus adds a data point in the up metric. Select **Prometheus** in the upper-left corner, enter **up** as the expression, and then select **Execute**.
 
 ## Next steps
 
