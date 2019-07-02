@@ -22,7 +22,7 @@ This document helps you learn how to verify if your system is properly configure
 
 ## What are security alerts?
 Alerts are the notifications that Security Center generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed for you to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
-For more information see, [Security Alerts in Azure Security Center](security-center-alerts-overview.md) and [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
+For more information, see [Security Alerts in Azure Security Center](security-center-alerts-overview.md) and [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 
 ## Alert validation
 
@@ -46,10 +46,12 @@ When reviewing this test alert, make sure the field **Arguments Auditing Enabled
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 
 1. Copy an executable (for example **calc.exe**) to the computer’s desktop, or other directory of your convenience and rename it as **./asc_alerttest_662jfi039n**
+
     ```cp /bin/echo ./asc_alerttest_662jfi039n```
-2. Open the command prompt and execute this file:
+1. Open the command prompt and execute this file:
+
     ```./asc_alerttest_662jfi039n testing eicar pipe```
-3. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
+1. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
 
 ### Alert example <a name="alert-validate"></a>
 
