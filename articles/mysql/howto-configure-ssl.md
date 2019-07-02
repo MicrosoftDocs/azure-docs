@@ -18,7 +18,7 @@ Download the certificate needed to communicate over SSL with your Azure Database
 
 For specific programming language connection strings, please refer to the [sample code](howto-configure-ssl.md#sample-code) below.
 
-### Connecting to server using the MySQL Workbench over SSL
+### Connecting to server using MySQL Workbench over SSL
 Configure MySQL Workbench to connect securely over SSL. 
 
 1. From the Setup New Connection dialogue, navigate to the **SSL** tab. 
