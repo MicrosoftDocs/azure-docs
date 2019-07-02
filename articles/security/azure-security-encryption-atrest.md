@@ -236,7 +236,7 @@ Any customer using Azure Infrastructure as a Service (IaaS) features can achieve
 
 #### Azure storage
 
-All Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files) support server-side encryption at rest, with some services supporting customer-managed keys and client-side encryption.  
+All Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files) support server-side encryption at rest, with some services supporting customer-managed keys and client-side encryption. Many services inherit encryption from Azure storage, such as Web Apps for Containers.
 
 - Server-side: All Azure Storage Services enable server-side encryption by default using service-managed keys, which is transparent to the application. For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage and Azure Files also support RSA 2048-bit customer-managed keys in Azure Key Vault. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 - Client-side: Azure Blobs, Tables, and Queues support client-side encryption. When using client-side encryption, customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
@@ -267,6 +267,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | Power BI                         | Yes                | Preview, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
+| Azure Kubernetes Service         | Yes                | -                  | -                  |
 | Container Registry               | Yes                | -                  | -                  |
 | **Compute**                      |                    |                    |                    |
 | Virtual Machines                 | Yes                | Yes, RSA 2048-bit  | -                  |
