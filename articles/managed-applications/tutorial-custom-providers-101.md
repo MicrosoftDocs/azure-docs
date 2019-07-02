@@ -176,7 +176,7 @@ In this next step we will update the function to work with custom actions. In Az
 
 <br>
 <details>
-<summary>TriggerCustomAction method:</summary>
+<summary><code>TriggerCustomAction</code> method:</summary>
 
 ```csharp
 /// <summary>
@@ -205,7 +205,7 @@ Currently, this custom action just takes an incoming request and echos it back a
 
 <br>
 <details>
-<summary>Run method:</summary>
+<summary><code>Run</code> method:</summary>
 
 ```csharp
 /// <summary>
@@ -477,7 +477,7 @@ Now that we have create custom resource set up, we can add the method `RetrieveC
 
 <br>
 <details>
-<summary>RetrieveCustomResource method:</summary>
+<summary><code>RetrieveCustomResource</code> method:</summary>
 
 ```csharp
 /// <summary>
@@ -514,7 +514,7 @@ Removing an existing resource also becomes simple. Add the method `RemoveCustomR
 
 <br>
 <details>
-<summary>RemoveCustomResource method:</summary>
+<summary><code>RemoveCustomResource</code> method:</summary>
 
 ```csharp
 /// <summary>
@@ -549,7 +549,7 @@ Finally, we can enumerate all existing resources. For this, add the method `Enum
 
 <br>
 <details>
-<summary>EnumerateAllCustomResources method:</summary>
+<summary><code>EnumerateAllCustomResources</code> method:</summary>
 
 ```csharp
 /// <summary>
@@ -600,7 +600,7 @@ Once all the RESTful methods are added to the function, we can update the main `
 
 <br>
 <details>
-<summary>Run method</summary>
+<summary><code>Run</code> method:</summary>
 
 ```csharp
 /// <summary>
