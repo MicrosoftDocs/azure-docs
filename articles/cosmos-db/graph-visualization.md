@@ -11,7 +11,7 @@ ms.date: 07/02/2019
 
 # Visualize your graph data in Azure Cosmos DB Gremlin API with data visualization solutions
 
-The following solutions are recommended by the [Apache Tinkerpop community](http://tinkerpop.apache.org/#poweredby) for Gremlin graph visualzation.
+The following solutions are recommended by the [Apache Tinkerpop community](http://tinkerpop.apache.org/#poweredby) for Gremlin graph visualization.
 
 ## Linkurious Enterprise
 
@@ -36,7 +36,7 @@ Cambridge Intelligence’s graph visualization toolkits now support Azure Cosmos
 
 ![Cambridge Intelligence Demo](./media/graph-visualization/ci-demo-2.gif)
 
-The toolkits let you design high-performance graph visualization and analysis applications for your specific use case. They harness powerful WebGL rendering and carefully crafted code to give users a fast and insightful visualization experience.
+The toolkits let you design high-performance graph visualization and analysis applications for your use case. They harness powerful WebGL rendering and carefully crafted code to give users a fast and insightful visualization experience.
 
 They’re compatible with any browser, device, server or database, and come with step-by-step tutorials, fully documented APIs, and interactive demos.
 
