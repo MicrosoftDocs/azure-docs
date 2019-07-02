@@ -69,22 +69,22 @@ Page contract packages are periodically updated to include fixes and improvement
 - Exception page (globalexception)
   - Accessibility fix
   - Removed the default message when there is no contact from the policy
-  - Default CSS is removed
+  - Default CSS removed
 - MFA page (multifactor)
-  - The 'Confirm Code' button doesn't exist anymore
+  - 'Confirm Code' button removed
   - The input field for the code now only takes input up to six (6) characters
   - The page will automatically attempt to verify the code entered when a 6-digit code is entered, without any button having to be clicked
   - If the code is wrong then the input field is automatically cleared
   - After three (3) attempts with an incorrect code, B2C sends an error back to the service
   - Accessibility fixes
-  - Default CSS is removed
+  - Default CSS removed
 - Self-asserted page (selfasserted)
   - Removed cancel alert
   - CSS class for error elements
   - Show/hide error logic improved
-  - Default CSS is removed
+  - Default CSS removed
 - Unified SSP (unifiedssp)
-  - Keep me signed in (KMSI) control
+  - Added keep me signed in (KMSI) control
 
 ### 1.0.0
 
