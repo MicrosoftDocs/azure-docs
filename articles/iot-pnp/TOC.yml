@@ -20,5 +20,7 @@
     href: tutorial-certification-test.md
 - name: How-to guides
   items:
+  - name: Install IoT explorer
+    href: howto-install-iot-explorer.md
   - name: Onboard to the IoT portal
     href: howto-onboard-portal.md
