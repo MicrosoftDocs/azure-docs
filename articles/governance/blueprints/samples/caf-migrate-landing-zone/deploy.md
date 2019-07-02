@@ -1,21 +1,20 @@
 ---
-title: Sample - ISO 27001 ASE/SQL workload blueprint - Deploy steps
-description: Deploy steps of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/14/2019
+title: Sample - CAF migrate landing zone blueprint - Deploy steps
+description: Deploy steps of the CAF migrate landing zone blueprint sample.
+author: absheik
+ms.author: absheik
+ms.date: 06/27/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.custom: fasttrack-edit
+manager: anushar
+ms.custom: fasttrack-new
 ---
-# Deploy the ISO 27001 App Service Environment/SQL Database workload blueprint sample
+# Deploy the CAF migrate landing zone blueprint sample
 
-To deploy the Azure Blueprints ISO 27001 App Service Environment/SQL Database workload blueprint
-sample, the following steps must be taken:
+To deploy the Azure Blueprints CAF migrate landing zone blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
-> - Deploy the [ISO 27001 Shared Services](../iso27001-shared/index.md) blueprint sample
+> - Deploy the [CAF migrate landing zone](../caf-migrate-landing-zone/index.md) blueprint sample
 > - Create a new blueprint from the sample
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
@@ -23,21 +22,9 @@ sample, the following steps must be taken:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
 
-## Deploy the ISO 27001 Shared Services blueprint sample
-
-Before this blueprint sample can be deployed, the [ISO 27001 Shared
-Services](../iso27001-shared/index.md) blueprint sample must be deployed to the target
-subscription. Without a successful deployment of the ISO 27001 Shared Services blueprint sample,
-this blueprint sample will be missing infrastructure dependencies and fail during deployment.
-
-> [!IMPORTANT]
-> This blueprint sample must be assigned in the same subscription as the [ISO 27001 Shared Services](../iso27001-shared/index.md)
-> blueprint sample.
-
 ## Create blueprint from sample
 
-First, implement the blueprint sample by creating a new blueprint in your environment using the
-sample as a starter.
+First, implement the blueprint sample by creating a new blueprint in your environment using the sample as a starter.
 
 1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
    page, select **Blueprints**.
@@ -45,7 +32,7 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **ISO 27001: ASE/SQL Workload** blueprint sample under _Other Samples_ and select **Use
+1. Find the **CAF migrate landing zone** blueprint sample under _Other Samples_ and select **Use
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
@@ -67,7 +54,7 @@ sample as a starter.
 Your copy of the blueprint sample has now been created in your environment. It's created in
 **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the
 blueprint sample can be customized to your environment and needs, but that modification may move it
-away from the ISO 27001 standard.
+away from the CAF migrate landing zone guidance.
 
 1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
    page, select **Blueprints**.
@@ -122,15 +109,13 @@ provided to make each deployment of the copy of the blueprint sample unique.
      The parameters defined in this section are used by many of the artifacts in the blueprint
      definition to provide consistency.
 
-     - **Organization name**: Enter a short-name for your organization. This property is primarily
-       used for naming resources.
-     - **Shared Service Subscription ID**: Subscription ID where the [ISO 27001 Shared Services](../iso27001-shared/index.md)
-       blueprint sample is assigned.
-     - **Default subnet address prefix**: The CIDR notation for the virtual network default subnet.
-       Default value is _10.1.0.0/16_.
-     - **Workload location**: Determines what location the artifacts are deployed to. Not all
-       services are available in all locations. Artifacts deploying such services provide a
-       parameter option for the location to deploy that artifact to.
+       - **Organization**: Enter your organization name (e.g. Contoso), must be unique.
+       - **AzureRegion**: Select one Azure Region for Deployment.
+       - **IPAddress_Space**: Provide first 2 octets i.e. 10.0.	
+       - **KV-AccessPolicy**: User ID to grant permissions to in Key Vault.
+       - **LogAnalytics_DataRetention**: Number of days data will be retained in in Log Analytics.
+       - **LogAnalytics_Location**: Region used when establishing the workspace.
+       - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint sample.
 
    - Artifact parameters
 
@@ -189,13 +174,11 @@ The following table provides a list of the blueprint artifact parameters:
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the ISO 27001 App Service Environment/SQL Database
-workload blueprint sample, visit the following articles to learn about the architecture and
-control mapping:
+Now that you've reviewed the steps to deploy the CAF migrate landing zone blueprint sample, visit the following articles to learn about the architecture:
 
 > [!div class="nextstepaction"]
-> [ISO 27001 App Service Environment/SQL Database workload blueprint - Overview](./index.md)
-> [ISO 27001 App Service Environment/SQL Database workload blueprint - Control mapping](./control-mapping.md)
+> [CAF migrate landing zone blueprint - Overview](./index.md)
+
 
 Addition articles about blueprints and how to use them:
 

@@ -7,7 +7,7 @@ ms.date: 06/27/2019
 ms.topic: sample
 ms.service: blueprints
 manager: anushar
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-new
 ---
 # Overview of the CAF Governance blueprint sample
 

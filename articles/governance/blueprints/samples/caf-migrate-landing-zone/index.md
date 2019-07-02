@@ -7,14 +7,13 @@ ms.date: 06/27/2019
 ms.topic: sample
 ms.service: blueprints
 manager: anushar
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-new
 ---
 # Overview of the CAF Migration landing zone blueprint sample
 
 The CAF Migration landing zone blueprint is a set of controls to help you setup for migrating your first workload and manage your cloud estate in alignment with the Microsoft Cloud Adoption Framework for Azure (CAF).
 
-The [CAF Migration landing zone](../CAF-Governance.md)
-blueprint sample extends this sample.
+The [CAF Migration landing zone](../CAF-Governance.md) blueprint sample extends this sample.
 
 ## Architecture
 
@@ -27,26 +26,13 @@ This environment is composed of several Azure services used to provide a secure,
 enterprise-ready governance. This environment is
 composed of:
 
-- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
-  for the VMs deployed in the shared services environment
-- Deploy [Log Analytics](../../../../azure-monitor/overview.md) for the
-    entire environment
-- Deploy [Azure Security Center](../../../../security-center/security-center-intro.md),
-    standard.
+- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used for the VMs deployed in the shared services environment
+- Deploy [Log Analytics](../../../../azure-monitor/overview.md) for the entire environment
+- Deploy [Azure Site Recovery](../../../../site-recovery/site-recovery-intro.md) for the environment.
 - Deploy [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) Hub
+- Deploy [Azure Migrate Project](../../../../azure-migrate/azure-migrate-overview.md) Hub
 
-The blueprint also defines and deploys [Azure Policies](../../../policy/overview.md), for 
-- Tagging (CostCenter) 
-    - Tag Resource Group
-    - Append resources in resource group with the CostCenter Tag
-    - llowed Azure Region for Resources
-	- Allowed Storage Account SKUs
-	- Allowed Azure VM SKUs	
-	- Allowed Azure Resource Types
-	- Require Network Watch to be deployed 
-	- Require Azure Storage Account Secure transfer Encryption
- - Initiatives
-     - Enable Monitoring in Azure Security Center (78 Policies)
+
 
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
 
