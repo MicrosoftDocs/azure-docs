@@ -121,9 +121,9 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >    ```
 > 1. Run the app! 
 
->    [!div renderon="portal" class="sxs-lookup"]
-> >    [!NOTE]
-> >  This quickstart supports Enter_the_Supported_Account_Info_Here.
+> [!div renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > 1. Extract and open the Project in Android Studio.
