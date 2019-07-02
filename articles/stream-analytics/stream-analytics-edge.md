@@ -1,13 +1,12 @@
 ---
 title: Azure Stream Analytics on IoT Edge
 description: Create edge jobs in Azure Stream Analytics and deploy them to devices running Azure IoT Edge.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
 ---
 
@@ -201,30 +200,30 @@ There are two ways to update the reference data:
 * [Third-party notice for Azure Stream Analytics on IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## Azure Stream Analytics module image information 
-## (updated on 6/27/2019)
 
-Image: asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64
-   * base image: microsoft/dotnet:2.1.6-runtime-alpine3.7
-   * platform:
-      * architecture: amd64
-      * os: linux
+This version information was last updated on 2019-06-27:
+
+- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - base image: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - platform:
+      - architecture: amd64
+      - os: linux
   
-Image: asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7
-   * base image: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
-   * platform:
-      * architecture: arm
-      * os: linux
+- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - base image: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - platform:
+      - architecture: arm
+      - os: linux
   
-Image: asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64
-   * base image: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
-   * platform:
-      * architecture: amd64
-      * os: windows
+- Image: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - base image: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - platform:
+      - architecture: amd64
+      - os: windows
       
       
 ## Get help
 For further assistance, try the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 
 ## Next steps
 

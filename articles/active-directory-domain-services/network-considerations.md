@@ -28,7 +28,7 @@ The ideal design is to host Azure AD Domain Services in its own virtual network.
 
 ## The virtual network
 Design the virtual network hosting Azure AD Domain Services with the following considerations:
-* Azure AD Domain Services is deployed in the same Azure region as the selected virtual network. Ensure you select a virtual network that is in an Azure region that supports [Azure AD Domain Services](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=active-directory-ds&regions=all).
+* Azure AD Domain Services is deployed in the same Azure region as the selected virtual network. Ensure you select a virtual network that is in an Azure region that supports [Azure AD Domain Services](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all).
 * Consider the proximity of the Azure regions and the virtual networks that host your application workloads when choosing a virtual network.
 * The virtual network cannot rely on DNS services other than the services provided by Azure AD Domain Services. This configuration includes custom DNS server settings to other DNS servers, including virtual machines. Name resolution for additional namespaces can be accomplished using conditional forwarders.
 
@@ -53,8 +53,8 @@ An Azure AD Domain Services instance also creates the following additional netwo
 | Component | Description |
 |:---|:---|
 | Network Interface| Azure AD Domain Services hosts the domain on two domain controllers. Each virtualized domain controller has a virtualized network interface connected to the selected virtual network. Two network interfaces are attached to the subnet where Azure AD Domain Services is created. |
-| Dynamic Basic Public IP Address | Azure AD Domain Services communicates with the synchronization and management service using a public IP address. For more information about public IP addresses, read [IP address types and allocation methods in Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses). |
-| Azure Basic Public Load Balancer | Azure AD Domain Services uses the load balancer for network address translation and load balancing (when used with secure LDAP). For more information about Azure Load Balancers, read [What is Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). |
+| Dynamic Basic Public IP Address | Azure AD Domain Services communicates with the synchronization and management service using a public IP address. For more information about public IP addresses, read [IP address types and allocation methods in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses). |
+| Azure Basic Public Load Balancer | Azure AD Domain Services uses the load balancer for network address translation and load balancing (when used with secure LDAP). For more information about Azure Load Balancers, read [What is Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). |
 | Network Address Translation Rules | Azure AD Domain Services uses three network addresses translation rules: one rule for secure HTTP traffic and two rules for secure PowerShell remoting. |
 | Load Balancer Rules | Azure AD Domain Services creates load-balancing rules only when a managed domain is configured for secure LDAP (TCP port 636) |
 
@@ -106,12 +106,12 @@ The following ports are required for Azure AD Domain Services to service and mai
 >
 
 ## Network security groups
-A [Network Security Group (NSG)](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
+A [Network Security Group (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
 
 ### Default network service group
 The following table illustrates a sample NSG you can configure for a virtual network hosting Azure AD Domain Services. These rules allow inbound traffic over the required ports to ensure your managed domain stays patched, updated and can be monitored by Microsoft. The default 'DenyAll' rule applies to all other inbound traffic from the internet.
 
-Additionally, the NSG illustrates how to lock down secure LDAP access over the internet, which you can skip if you have not enabled secure LDAP access to your managed domain over the internet. The NSG contains a rule (priority 320) that allows inbound LDAPS access over TCP port 636 only from a specified IP address, which has a higher priority than the DenyAll NSG rule. For more information, read [Create a Network Security Group for more information](https://docs.microsoft.com/en-us/azure/virtual-network/manage-network-security-group).
+Additionally, the NSG illustrates how to lock down secure LDAP access over the internet, which you can skip if you have not enabled secure LDAP access to your managed domain over the internet. The NSG contains a rule (priority 320) that allows inbound LDAPS access over TCP port 636 only from a specified IP address, which has a higher priority than the DenyAll NSG rule. For more information, read [Create a Network Security Group for more information](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 
 ![Sample NSG Rule](./media/active-directory-domain-services-alerts/default-nsg.png)
@@ -126,12 +126,12 @@ You can connect application workloads hosted in other Azure virtual networks usi
 
 ### Virtual Network Peering
 
-Virtual network peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses. This peered connection enables you to use the managed domain with your workloads deployed in other virtual networks. For more information, read [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
+Virtual network peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses. This peered connection enables you to use the managed domain with your workloads deployed in other virtual networks. For more information, read [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 ![Virtual network connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
 ### Virtual Private Networking 
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
+Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. For more information on using virtual private networking, read [Configure a VNet-to-VNet VPN gateway connection by using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
 
 ![Virtual network connectivity using VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
