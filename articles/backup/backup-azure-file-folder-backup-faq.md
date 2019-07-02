@@ -36,8 +36,7 @@ You can't back up the following types of drives and volumes:
 
 ### What file and folder types are supported?
 
-To know about the supported file and folder types for backup, refer this [article](backup-support-matrix-mars-agent.md#supported-file-types-for-backup).
-
+[Learn more](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) about the types of files and folders supported for backup.
 
 ### Can I use the MARS agent to back up files and folders on an Azure VM?  
 Yes. Azure Backup provides VM-level backup for Azure VMs using the VM extension for the Azure VM agent. If you want to back up  files and folders on the guest Windows operating system on the VM, you can install the MARS agent to do that.
