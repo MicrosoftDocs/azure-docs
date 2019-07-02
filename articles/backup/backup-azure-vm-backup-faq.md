@@ -40,10 +40,6 @@ If you're a VM contributor, you can enable backup on the VM. If you're using a c
 If your Recovery Services vault and VM have different resource groups, make sure you have write permissions in the resource group for the Recovery Services vault.  
 
 
-### What Azure VMs can you back up using Azure Backup?
-
-Review the [support matrix](backup-support-matrix-iaas.md) for support details and limitations.
-
 ### Does an on-demand backup job use the same retention schedule as scheduled backups?
 No. Specify the retention range for an on-demand backup job. By default, it's retained for 30 days when triggered from the portal.
 
@@ -67,11 +63,6 @@ If you lock the resource group created by Azure Backup Service, backups will sta
 
 User needs to remove the lock and clear the restore point collection from that resource group in order to make the future backups successful, [follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
-### Does the backup policy consider Daylight Saving Time (DST)?
-No. The date and time on your local computer is local with current daylight savings applied. The time set for scheduled backups might differ from the local time due to DST.
-
-### How many data disks can I attach to a VM backed up by Azure Backup?
-Azure Backup can back up VMs with up to 16 disks. Support for 16 disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
 
 ### Does Azure backup support standard SSD managed disk?
 Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
