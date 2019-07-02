@@ -247,12 +247,12 @@ These packages are the most common requirements for Storage Explorer on Linux:
 * `libgnome-keyring0` or `libgnome-keyring-dev`
 * `libgnome-keyring-common`
 
-> [!NOTE] Storage Explorer version 1.7.0 and earlier require .NET Core 2. If you have a newer version of .NET Core installed then you will need to patch Storage Explorer (see below). If you're running Storage Explorer 1.8.0 or greater then you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
+> [!NOTE] Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed then you will need to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or greater then you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
 
 # [Ubuntu 19.04](#tab/1904)
 
 1. Download Storage Explorer.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
 3. Run the following command:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring0
