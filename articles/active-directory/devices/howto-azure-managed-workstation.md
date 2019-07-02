@@ -152,7 +152,7 @@ It's important to ensure that your secure workstation is a trusted clean device.
 To ensure that devices are fully configured before use, Intune provides a means to **Block device use until all apps and profiles are installed**.
 
 From the **Azure portal**:
-1. Go to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Enrollment Status Page (Preview)** > **Default** > **Settings**.
+1. Go to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Enrollment Status Page** > **Default** > **Settings**.
 1. Set **Show app profile installation progress** to **Yes**.
 1. Set **Block device use until all apps and profiles are installed** to **Yes**.
 
