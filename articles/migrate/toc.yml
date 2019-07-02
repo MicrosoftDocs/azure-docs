@@ -4,16 +4,51 @@
   items:
   - name: About Azure Migrate
     href: migrate-overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Tutorials
   items:
-  - name: Discover and assess VMware VMs
-    href: tutorial-assessment-vmware.md
+  - name: VMware VM assessment and migration
+    items:
+    - name: Prepare VMware for assessment and migration
+      href: tutorial-prepare-vmware.md
+    - name: Assess VMware VMs for migration
+      href: tutorial-assess-vmware.md
+    - name: Migrate VMware VMs
+      items:
+      - name: About migration options for VMware VMs
+        href: server-migrate-overview.md
+      - name: Migrate VMware VMs with agentless migration
+        href: tutorial-migrate-vmware.md
+      - name: Migrate VMware VMs with agent-based migration
+        href: tutorial-migrate-vmware-agent.md
+  - name: Hyper-V assessment and migration
+    items:
+    
+    - name: Prepare Hyper-V for assessment and migration
+      href: tutorial-prepare-hyper-v.md
+    - name: Assess Hyper-V VMs for migration
+      href: tutorial-assess-hyper-v.md
+    - name: Migrate Hyper-V VMs
+      href: tutorial-migrate-hyper-v.md
 - name: Concepts
   items:
-  - name: About the collector
+  - name: Support matrices
+    items:
+    - name: Support matrix for Azure Migrate
+      href: migrate-support-matrix.md
+    - name: Support matrix for VMware assessment and migration
+      href: migrate-support-matrix-vmware.md
+    - name: Support matrix for Hyper-V assessment and migration
+      href: migrate-support-matrix-hyper-v.md
+  - name: Azure Migrate architecture
+    href: migrate-architecture.md
+  - name: Azure Migrate appliance architecture
     href: concepts-collector.md
   - name: Collector version upgrades
     href: concepts-collector-upgrade.md
+  - name: Best practices for assessments
+    href: best-practices-assessment.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
   - name: About dependency visualization
@@ -22,8 +57,20 @@
   items:
   - name: Migration examples-Contoso series
     href: contoso-migration-overview.md
-  - name: Discover and assess a large environment
-    href: how-to-scale-assessment.md
+  - name: How to create an Azure Migrate project
+    href: how-to-create-project.md
+  - name: How to create assessments
+    href: how-to-assess.md
+  - name: How to migrate to Azure
+    href: how-to-migrate.md
+  - name: Scale assessment and migration
+    items:
+    - name: Assess large numbers of VMware VMs
+      href: scale-vmware-assessment.md
+    - name: Assess large numbers of Hyper-V VMs
+      href: scale-hyper-v-assessment.md
+    - name: Scale an assessment
+      href: how-to-scale-assessment.md
   - name: Group machines
     href: how-to-create-a-group.md
   - name: Group machines using machine dependencies
