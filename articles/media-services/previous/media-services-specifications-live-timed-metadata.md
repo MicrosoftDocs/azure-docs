@@ -64,9 +64,9 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 The following documents contain provisions, which, through reference in this text, constitute provisions of this document. All documents are subject to revision by the standards bodies, and readers are encouraged to investigate the possibility of applying the most recent editions of the documents listed below. Readers are also reminded that newer editions of the referenced documents might not be compatible with this version of the timed metadata specification for Azure Media Services.
 
 
-| Standard          | Definition      |
-|-------------------|-----------------|
-| [Adobe-Primetime] | [Primetime Digital Program Insertion Signaling Specification 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf) |
+|Standard  |Definition  |
+|---------|---------|
+|[Adobe-Primetime] | [Primetime Digital Program Insertion Signaling Specification 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf) |
 | [AMF0]            | ["Action Message Format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf) |
 | [DASH-IF-IOP]     | DASH Industry Forum Interop Guidance v 4.2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html) |
 | [HLS-TMD]         | Timed Metadata for HTTP Live Streaming - [https://developer.apple.com/streaming](https://developer.apple.com/streaming) |
@@ -85,7 +85,8 @@ The following documents contain provisions, which, through reference in this tex
 | [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH for IP-Based Cable Services Part 3: DASH/FF Profile |
 | [SCTE-224]        | SCTE 224 2018r1 – Event Scheduling and Notification Interface |
 | [SCTE-250]        | Event and Signaling Management API (ESAM) |
-----------------------------------------
+
+---------
 
 
 ## 2 Timed Metadata Ingest
