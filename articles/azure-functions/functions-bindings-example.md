@@ -4,7 +4,7 @@ description: Learn to configure Azure Function bindings
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
 ms.devlang: multiple
@@ -131,7 +131,7 @@ public class Person
 }
 ```
 
-You now have a working function that is triggered by Azure Table storage which outputs data to a queue.
+You now have a working function that is triggered by an Azure Queue and outputs data to Azure Table storage.
 
 ## Next steps
 

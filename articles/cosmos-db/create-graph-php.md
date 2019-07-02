@@ -191,7 +191,7 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
 
-2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that he's connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
+2. In the **Results** list, notice the new users added to the graph. Select **ben** and notice that they're connected to robin. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow. 
 
    ![New vertices in the graph in Data Explorer in the Azure portal](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
 

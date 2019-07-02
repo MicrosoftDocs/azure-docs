@@ -176,17 +176,17 @@ The following flowchart describes how Azure CDN validates a client request when 
 3. Under **HTTP Large**, select **Rules Engine**. You use the rules engine to define paths to apply the feature, enable the token authentication feature, and enable additional token authentication-related capabilities. For more information, see [Rules engine reference](cdn-rules-engine-reference.md).
 
    1. Select an existing rule or create a new rule to define the asset or path for which you want to apply token authentication. 
-   2. To enable token authentication on a rule, select **[Token Auth](cdn-rules-engine-reference-features.md#token-auth)** from the **Features** list, then select **Enabled**. Select **Update** if you are updating a rule or **Add** if you are creating a rule.
+   2. To enable token authentication on a rule, select **[Token Auth](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** from the **Features** list, then select **Enabled**. Select **Update** if you are updating a rule or **Add** if you are creating a rule.
 		
       ![CDN rules engine token authentication enable example](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. In the rules engine, you can also enable additional token authentication-related features. To enable any of the following features, select it from the **Features** list, then select **Enabled**.
 	
-   - **[Token Auth Denial Code](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Determines the type of response that is returned to a user when a request is denied. Rules set here override the response code set in the **Custom Denial Handling** section on the token-based authentication page.
+   - **[Token Auth Denial Code](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)**: Determines the type of response that is returned to a user when a request is denied. Rules set here override the response code set in the **Custom Denial Handling** section on the token-based authentication page.
 
-   - **[Token Auth Ignore URL Case](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Determines whether the URL used to validate the token is case-sensitive.
+   - **[Token Auth Ignore URL Case](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Determines whether the URL used to validate the token is case-sensitive.
 
-   - **[Token Auth Parameter](cdn-rules-engine-reference-features.md#token-auth-parameter)**: Renames the token auth query string parameter that appears in the requested URL. 
+   - **[Token Auth Parameter](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)**: Renames the token auth query string parameter that appears in the requested URL. 
 		
      ![CDN rules engine token authentication settings example](./media/cdn-token-auth/cdn-rules-engine2.png)
 

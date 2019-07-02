@@ -59,7 +59,9 @@ After changing this setting, make sure to select **Save**.
 
 ### Model update frequency
 
-**Model update frequency** sets how often a new Personalizer model is retrained. 
+The latest model, trained from Reward API calls from every active event, isn't automatically used by Personalizer Rank call. The **Model update frequency** sets how often the model used by the Rank call up updated. 
+
+High model update frequencies are useful for situations where you want to closely track changes in user behaviors. Examples include sites that run on live news, viral content, or live product bidding. You could use a 15-minute frequency in these scenarios. For most use cases, a lower update frequency is effective. One-minute update frequencies are useful when debugging an application's code using Personalizer, doing demos, or interactively testing machine learning aspects.
 
 ![Model update frequency sets how often a new Personalizer model is retrained.](media/settings/configure-model-update-frequency-settings.png)
 
@@ -73,7 +75,7 @@ After changing this setting, make sure to select **Save**.
 
 ## Export the Personalizer model
 
-From the Resource management's section for **Model and Policy**, review model creation and last updated date and export the current model.
+From the Resource management's section for **Model and Policy**, review model creation and last updated date and export the current model. You can use the Azure portal or the Personalizer APIs to export a model file for archival purposes. 
 
 ![Export current Personalizer model](media/settings/export-current-personalizer-model.png)
 

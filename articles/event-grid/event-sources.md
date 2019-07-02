@@ -137,6 +137,15 @@ Subscribe to Azure Maps events to respond to geofence events. For example, an ap
 | [Tutorial: Set up a geofence](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | This tutorial walks you through the basics steps to set up geofence by using Azure Maps. You use Azure Event Grid to stream the geofence results and set up a notification based on the geofence results. |
 | [Event schema](event-schema-azure-maps.md) | Shows fields in Azure Maps events. |
 
+## App Configuration
+Subscribe to Azure App Configuration events to respond to key-value modification events.
+
+|Title | Description |
+|---------|---------|
+| [React to Azure App Configuration events by using Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Overview of integrating Azure App Configuration with Event Grid. |
+| [QuickStart: route Azure App Configuration events to a custom web endpoint with Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Azure App Configuration events to a WebHook. |
+| [Event schema](event-schema-app-configuration.md) | Shows fields in Azure App Configuration events. |
+
 
 ## Next steps
 

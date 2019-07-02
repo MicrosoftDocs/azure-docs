@@ -1,6 +1,6 @@
 ---
-title: "Azure Status Monitor v2 API Reference: Enable monitoring | Microsoft Docs"
-description: Status Monitor v2 API Reference Enable-ApplicationInsightsMonitoring. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+title: "Azure Status Monitor v2 API reference: Enable monitoring | Microsoft Docs"
+description: Status Monitor v2 API reference. Enable-ApplicationInsightsMonitoring. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -13,103 +13,107 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
+# Status Monitor v2 API: Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
 
-This document describes a cmdlet that's shipped as a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Description
 
-Enable code-less attach monitoring of IIS applications on a target machine.
+Enables codeless attach monitoring of IIS apps on a target computer.
+
 This cmdlet will modify the IIS applicationHost.config and set some registry keys.
-This cmdlet will also create an applicationinsights.ikey.config, which defines which instrumentation key is used by which application.
-IIS will load the RedfieldModule at startup, which will inject the Application Insights SDK into applications as those applications start up.
+It will also create an applicationinsights.ikey.config file, which defines the instrumentation key used by each app.
+IIS will load the RedfieldModule on startup, which will inject the Application Insights SDK into applications as the applications start.
 Restart IIS for your changes to take effect.
 
-After enabling monitoring, we recommend using [Live Metrics](live-stream.md) to quickly observe if your application is sending us telemetry.
+After you enable monitoring, we recommend that you use [Live Metrics](live-stream.md) to quickly check if your app is sending us telemetry.
 
 
 > [!NOTE] 
-> To get started, you must have an instrumentation key. For more information, read [create new resource](create-new-resource.md#copy-the-instrumentation-key).
-
+> - To get started, you need an instrumentation key. For more information, see [Create a resource](create-new-resource.md#copy-the-instrumentation-key).
+> - This cmdlet requires that you review and accept our license and privacy statement.
 
 > [!IMPORTANT] 
-> This cmdlet requires a PowerShell Session with Administrator permissions and with an elevated execution policy. Read [here](status-monitor-v2-detailed-instructions.md#run-powershell-as-administrator-with-an-elevated-execution-policy) for more information.
-
-> [!NOTE] 
-> This cmdlet will require you to review and accept our license and privacy statement.
-
+> This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy).
 
 ## Examples
 
-### Example with single instrumentation key
-In this example, all applications on the current machine will be assigned a single instrumentation key.
+### Example with a single instrumentation key
+In this example, all apps on the current computer are assigned a single instrumentation key.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### Example with instrumentation key map
-In this example, 
-- `MachineFilter` will match the current machine using the `'.*'` wildcard.
-- `AppFilter='WebAppExclude'` provides a `null` InstrumentationKey. This app won't be instrumented.
-- `AppFilter='WebAppOne'` will assign this specific app a unique instrumentation key.
-- `AppFilter='WebAppTwo'` will also assign this specific app a unique instrumentation key.
-- Lastly, `AppFilter` also uses the `'.*'` wildcard to match all other web apps not matched by the earlier rules and assigns a default instrumentation key.
-- Spaces added for readability only.
+### Example with an instrumentation key map
+In this example:
+- `MachineFilter` matches the current computer by using the `'.*'` wildcard.
+- `AppFilter='WebAppExclude'` provides a `null` instrumentation key. The specified app won't be instrumented.
+- `AppFilter='WebAppOne'` assigns the specified app a unique instrumentation key.
+- `AppFilter='WebAppTwo'` assigns the specified app a unique instrumentation key.
+- Finally, `AppFilter` also uses the `'.*'` wildcard to match all web apps that aren't matched by the earlier rules and assign a default instrumentation key.
+- Spaces are added for readability.
 
 ```powershell
 PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
 	@(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-	  @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'},
-	  @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'},
-	  @{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'})
+	  @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+	  @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+	  @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 
 ```
 
 
-## Parameters 
+## Parameters
 
 ### -InstrumentationKey
-**Required.** Use this parameter to supply a single iKey for use by all applications on the target machine.
+**Required.** Use this parameter to supply a single instrumentation key for use by all apps on the target computer.
 
 ### -InstrumentationKeyMap
-**Required.** Use this parameter to supply multiple ikeys and a mapping of which apps to use which ikey. 
-You can create a single installation script for several machines by setting the MachineFilter. 
+**Required.** Use this parameter to supply multiple instrumentation keys and a mapping of the instrumentation keys used by each app.
+You can create a single installation script for several computers by setting `MachineFilter`.
 
-> [!IMPORTANT] 
-> Applications will match against rules in the order that they're provided. As such you should specify the most specific rules first and the most generic rules last.
+> [!IMPORTANT]
+> Apps will match against rules in the order that the rules are provided. So you should specify the most specific rules first and the most generic rules last.
 
 #### Schema
-`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
+`@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
-- **MachineFilter** is a required c# regex of the computer or vm name.
+- **MachineFilter** is a required C# regex of the computer or VM name.
 	- '.*' will match all
-	- 'ComputerName' will match only computers with that exact name.
-- **AppFilter** is a required c# regex of the computer or vm name.
+	- 'ComputerName' will match only computers with the exact name specified.
+- **AppFilter** is a required C# regex of the computer or VM name.
 	- '.*' will match all
-	- 'ApplicationName' will match only IIS applications with that exact name.
-- **InstrumentationKey** is required to enable monitoring of the applications that match the above two filters.
-	- Leave this value null if you wish to define rules to exclude monitoring
+	- 'ApplicationName' will match only IIS apps with the exact name specified.
+- **InstrumentationKey** is required to enable monitoring of apps that match the preceding two filters.
+	- Leave this value null if you want to define rules to exclude monitoring.
 
 
 ### -EnableInstrumentationEngine
-**Optional.** Use this switch to enable the Instrumentation Engine to collect events and messages of what is happening to during the execution of a managed process. 
-Including but not limited to Dependency Result Codes, HTTP Verbs, and SQL Command Text. 
-The Instrumentation Engine will add additional overhead and is off by default.
+**Optional.** Use this switch to enable the instrumentation engine to collect events and messages about what's happening during the execution of a managed process. These events and messages include dependency result codes, HTTP verbs, and SQL command text.
+
+The instrumentation engine adds overhead and is off by default.
 
 ### -AcceptLicense
 **Optional.** Use this switch to accept the license and privacy statement in headless installations.
 
+### -IgnoreSharedConfig
+When you have a cluster of web servers, you might be using a [shared configuration](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211).
+The HttpModule can't be injected into this shared configuration.
+This script will fail with the message that extra installation steps are required.
+Use this switch to ignore this check and continue installing prerequisites. 
+For more information, see [known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
+
 ### -Verbose
-**Common Parameter.** Use this switch to output detailed logs.
+**Common parameter.** Use this switch to display detailed logs.
 
 ### -WhatIf 
-**Common Parameter.** Use this switch to test and validate your input parameters without actually enabling monitoring.
+**Common parameter.** Use this switch to test and validate your input parameters without actually enabling monitoring.
 
 ## Output
 
@@ -150,17 +154,17 @@ Successfully enabled Application Insights Status Monitor
 ## Next steps
 
   View your telemetry:
- - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage
-- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems
-- [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
-- [Create dashboards](../../azure-monitor/app/overview-dashboard.md)
+ - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
+- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
+- [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
+- [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
  
  Add more telemetry:
  - [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
-- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to let you insert trace calls.
-- [Add Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so that you can insert trace and log calls
+- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
+- [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
  
  Do more with Status Monitor v2:
- - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
  - [Get the config](status-monitor-v2-api-get-config.md) to confirm that your settings were recorded correctly.
  - [Get the status](status-monitor-v2-api-get-status.md) to inspect monitoring.

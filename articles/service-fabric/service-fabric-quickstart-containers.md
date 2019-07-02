@@ -52,7 +52,7 @@ Select **Service Fabric application**, name it "MyFirstContainer", and click **O
 
 Select **Container** from the **Hosted Containers and Applications** templates.
 
-In **Image Name**, enter "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016", the [Windows Server Core Server and IIS base image](https://hub.docker.com/r/microsoft-windows-servercore-iis).
+In **Image Name**, enter "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016", the [Windows Server Core Server and IIS base image](https://hub.docker.com/_/microsoft-windows-servercore-iis).
 
 Configure the container port-to-host port mapping so that incoming requests to the service on port 80 are mapped to port 80 on the container.  Set **Container Port** to "80" and set **Host Port** to "80".  
 
@@ -72,14 +72,14 @@ Microsoft publishes different images for versions of IIS built on different vers
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-	      <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+	      <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-The service manifest continues to specify only one image for the nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
+The service manifest continues to specify only one image for the nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`.
 
 Also in the *ApplicationManifest.xml* file, change **PasswordEncrypted** to **false**. The account and password are blank for the public container image that is on Docker Hub, so we turn off encryption because encrypting a blank password will generate a build error.
 

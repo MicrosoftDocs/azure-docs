@@ -52,7 +52,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
 
 > [!TIP]
-> If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
+> If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
 
 ## Create a module project
 
@@ -102,6 +102,7 @@ The deployment manifest shares the credentials for your container registry with 
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
 4. Save the deployment.template.json file. 
 

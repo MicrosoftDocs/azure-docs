@@ -90,7 +90,7 @@ The following reference topics provide you with more information about uploading
 
 Optionally, when a device notifies IoT Hub that an upload is complete, IoT Hub generates a notification message. This message contains the name and storage location of the file.
 
-As explained in [Endpoints](iot-hub-devguide-endpoints.md), IoT Hub delivers file upload notifications through a service-facing endpoint (**/messages/servicebound/fileuploadnotifications**) as messages. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message lifecycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Each message retrieved from the file upload notification endpoint is a JSON record with the following properties:
+As explained in [Endpoints](iot-hub-devguide-endpoints.md), IoT Hub delivers file upload notifications through a service-facing endpoint (**/messages/servicebound/fileuploadnotifications**) as messages. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message life cycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Each message retrieved from the file upload notification endpoint is a JSON record with the following properties:
 
 | Property | Description |
 | --- | --- |

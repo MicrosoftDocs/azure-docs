@@ -2,14 +2,14 @@
 title: Add ADFS as a SAML identity provider using custom policies in Azure Active Directory B2C | Microsoft Docs
 description: Set up ADFS 2016 using the SAML protocol and custom policies in Azure Active Directory B2C
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -97,6 +97,10 @@ By now, you have configured your policy so that Azure AD B2C knows how to commun
 1. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
 2. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
 3. Click **Upload**.
+
+> [!NOTE]
+> The Visual Studio code B2C extension uses "socialIdpUserId." A social policy is also required for ADFS.
+>
 
 ## Register the claims provider
 

@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 
 Do you want to:
 
-- Understand the effect of your [conditional access policies](../conditional-access/overview.md) on your users' sign-in experience?
+- Understand the effect of your [Conditional Access policies](../conditional-access/overview.md) on your users' sign-in experience?
 
 - Troubleshoot sign-in failures to get a better view of your organization's sign-in health and to resolve issues quickly?
 
@@ -34,7 +34,7 @@ This article:
 
 - Assumes you're familiar with how to [Create interactive reports by using Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
 
-- Explains how to use Monitor workbooks to understand the effect of your conditional access policies, to troubleshoot sign-in failures, and to identify legacy authentications.
+- Explains how to use Monitor workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications.
  
 
 
@@ -54,7 +54,7 @@ To access workbooks:
 
 2. On the left navigation pane, select **Azure Active Directory**.
 
-3. In the **Monitoring** section, select **Insights**. 
+3. In the **Monitoring** section, select **Workbooks**. 
 
     ![Select Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
@@ -130,10 +130,10 @@ For each trend, you get a breakdown by app and protocol.
 
 
 
-## Sign-ins by conditional access 
+## Sign-ins by Conditional Access 
 
 
-To access the workbook for sign-ins by [conditional access policies](../conditional-access/overview.md), in the **Conditional access** section, select **Sign-ins by Conditional Access**. 
+To access the workbook for sign-ins by [Conditional Access policies](../conditional-access/overview.md), in the **Conditional Access** section, select **Sign-ins by Conditional Access**. 
 
 This workbook shows the trends for disabled sign-ins. You can filter each trend by the following categories:
 
@@ -143,12 +143,12 @@ This workbook shows the trends for disabled sign-ins. You can filter each trend 
 
 - Users
 
-![Sign-ins using conditional access](./media/howto-use-azure-monitor-workbooks/49.png)
+![Sign-ins using Conditional Access](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-For disabled sign-ins, you get a breakdown by the conditional access status.
+For disabled sign-ins, you get a breakdown by the Conditional Access status.
 
-![Conditional access status](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![Conditional Access status](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 
@@ -159,7 +159,7 @@ For disabled sign-ins, you get a breakdown by the conditional access status.
 
 ## Sign-ins by grant controls
 
-To access the workbook for sign-ins by [grant controls](../conditional-access/controls.md), in the **Conditional access** section, select **Sign-ins by Grant Controls**. 
+To access the workbook for sign-ins by [grant controls](../conditional-access/controls.md), in the **Conditional Access** section, select **Sign-ins by Grant Controls**. 
 
 This workbook shows the following disabled sign-in trends:
 
@@ -195,11 +195,11 @@ For each trend, you get a breakdown by app and protocol.
 Use the **Sign-ins failure analysis** workbook to troubleshoot errors with the following:
 
 - Sign-ins
-- Conditional access policies
+- Conditional Access policies
 - Legacy authentication 
 
 
-To access the sign-ins by conditional access data, in the **Troubleshoot** section, select **Sign-ins using Legacy Authentication**. 
+To access the sign-ins by Conditional Access data, in the **Troubleshoot** section, select **Sign-ins using Legacy Authentication**. 
 
 This workbook shows the following sign-in trends:
 

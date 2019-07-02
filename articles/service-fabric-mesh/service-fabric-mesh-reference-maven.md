@@ -33,6 +33,10 @@ manager: subramar
 ### `azure-sfmesh:addgateway`
 - Generates a `gateway` YAML with the provided gateway name in the `appresources` folder 
 
+#### `azure-sfmesh:addvolume`
+- Generates a `volume` YAML with the provided volume name in the
+`appresources` folder.
+
 ### `azure-sfmesh:addsecret`
 - Generates a `secret` YAML with the provided secret name in the `appresources` folder 
 
@@ -90,7 +94,7 @@ mvn azure-sfmesh:init -DapplicationName=helloworldserver
 Run the command below to create a network resource yaml. 
 
 ```cmd
-mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.4/22
+mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
 - Creates a network YAML in folder `servicefabric->appresources` named `network_helloworldservicenetwork`

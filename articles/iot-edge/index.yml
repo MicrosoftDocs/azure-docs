@@ -2,6 +2,8 @@
 
 title: Azure IoT Edge
 summary: Azure IoT Edge is an Internet of Things (IoT) service that builds on top of IoT Hub. This service is meant for customers who want to analyze data on devices, or "at the edge," instead of in the cloud. By moving parts of your workload to the edge, your devices can spend less time sending messages to the cloud and react more quickly to events.
+metadata:
+   ms.topic: landing-page
 
 landingContent:
   - title: Develop for Linux devices
@@ -66,7 +68,9 @@ landingContent:
         links: 
           - text: Configure a transparent gateway
             url: how-to-create-transparent-gateway.md
-          - text: Connect a downstream device
+          - text: Authenticate a downstream device to Azure IoT Hub
+            url: how-to-authenticate-downstream-device.md
+          - text: Connect a downstream device to a gateway
             url: how-to-connect-downstream-device.md
   - title: Prepare for production scenarios
     linkLists: 

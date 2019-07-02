@@ -27,6 +27,9 @@
     - name: "Features Action and Context"
       href: concepts-features.md
       displayName: action, context, feature, namespace, JSON, best practice, set
+    - name: Active learning
+      href: concept-active-learning.md
+      displayName: active, inactive
     - name: Rewards
       href: concept-rewards.md
       displayName: reward, wait time, default reward 
@@ -40,11 +43,13 @@
     - name: Offline evaluation
       href: concepts-offline-evaluation.md
       displayName: learning policy, Counterfactual, features
+  - name: Scalability and performance
+    href: concepts-scalability-performance.md 
 - name: How-to guides
   items:
   - name: Create and configure Personalizer
     href: how-to-settings.md
-    displayName: azure, portal, settings, evaluation, offline, policy
+    displayName: azure, portal, settings, evaluation, offline, policy, export, model
   - name: Analyze
     items: 
     - name: Offline evaluation
@@ -57,12 +62,20 @@
     href: https://go.microsoft.com/fwlink/?linkid=2092082
   - name: SDKs
     items:
-    - name: .Net SDK Reference 
-      href: https://go.microsoft.com/fwlink/?linkid=2092353
-    - name: NuGet package
-      href: https://go.microsoft.com/fwlink/?linkid=2092272
+    - name: .NET
+      items: 
+      - name: .NET SDK Reference 
+        href: https://go.microsoft.com/fwlink/?linkid=2092353
+      - name: NuGet package
+        href: https://go.microsoft.com/fwlink/?linkid=2092272
+    - name: Python
+      items: 
+      - name: Pypi package
+        href: https://pypi.org/project/azure-cognitiveservices-personalizer/
 - name: Resources
   items:
+  - name: Troubleshooting
+    href: troubleshooting.md
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
