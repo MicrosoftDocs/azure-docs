@@ -44,7 +44,7 @@ After you create the application, you can determine or change the accepted token
 
 ## No redirect URI
 
-Web APIs don't need to register a redirect URI because no user is signed-in interactively.
+Web APIs don't need to register a redirect URI because no user is signed in interactively.
 
 ## Expose an API
 
@@ -131,7 +131,7 @@ The web API checks for the app role. (That's the developer way to expose applica
    >
    > If you keep **User assignment required?** set to **No**, *Azure AD won’t check the app role assignments when a client requests an access token for your web API*. Any daemon client (that is, any client using the client credentials flow) will be able to obtain an access token for the API just by specifying its audience. Any application will be able to access the API without having to request permissions for it. But your web API can always, as explained in the previous section, verify that the application has the right role (which is authorized by the tenant admin). The API performs this verification by validating that the access token has a roles claim and that the value for this claim is correct. (In our case, the value is `access_as_application`.)
 
-1. Select **Save**
+1. Select **Save**.
 
 ## Next steps
 
