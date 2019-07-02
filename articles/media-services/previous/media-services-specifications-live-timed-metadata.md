@@ -364,7 +364,7 @@ Normative definitions of carriage of [SCTE-35] cue messages are in [SCTE-214-1] 
 Events will be signaled in the MPD using the EventStream element, which appears
 within the Period element. The schemeId used is "urn:scte:scte35:2014:xml+bin".
 
->[!NOTE]
+> [!NOTE]
 > For brevity purposes [SCTE-35] allows use of the base64-encoded section in Signal.Binary element (rather than the
 > Signal.SpliceInfoSection element) as an alternative to
 > carriage of a completely parsed cue message.
@@ -380,7 +380,7 @@ The EventStream element has the following attributes:
 | value              | string                  | Optional      | An additional string value used by the owners of the scheme to customize the semantics of the message. In order to differentiate multiple event streams with the same scheme, the value **MUST** be set to the name of the event stream (trackName for [MS-SSTR-Ingest] or AMF message name for [RTMP] ingest). |
 | Timescale          | 32-bit unsigned integer | Required      | The timescale, in ticks per second, of the times and duration fields within the ‘emsg’ box.                                                                                                                                                                                                       |
 
-                                                         |
+
 #### Example MPEG DASH manifest (MPD) signaling of SCTE-35 using EventStream
 
 ~~~ xml
@@ -403,14 +403,12 @@ The EventStream element has the following attributes:
     </EventStream>
 ~~~
 
->[!NOTE]
->Note that presentationTime is the presentation time of the [SCTE-35] event translated to be relative to the Period Start time, not the arrival time of the message.
-
->[!NOTE]
+> [!IMPORTANT]
+> Note that presentationTime is the presentation time of the [SCTE-35] event translated to be relative to the Period Start time, not the arrival time of the message.
 > [MPEGDASH] defines the Event@presentationTime as "Specifies the presentation time of the event relative to the start of the Period.
 > The value of the presentation time in seconds is the division of the value of this attribute and the value of the EventStream@timescale attribute.
 > If not present, the value of the presentation time is 0.
->
+
 
 ### 4.3.1 MPEG DASH In-band Event Message Box Signaling
 
