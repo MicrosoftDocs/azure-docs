@@ -24,7 +24,7 @@ Some Prometheus configuration files are prepared locally. To store configuration
 
 Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io). Sign in with your Azure credentials. Next, select your username found in the top-right corner, and then select **Copy Login Command**. Paste your username into the terminal you'll use.
 
-You can see if you're signed in to the correct cluster by entering the `oc whoami -c` command.
+To see if you're signed in to the correct cluster, enter the command `oc whoami -c`.
 
 ## 2. Prepare the projects
 
