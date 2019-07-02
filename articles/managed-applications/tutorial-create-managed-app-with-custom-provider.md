@@ -552,7 +552,7 @@ az managedapp create \
 
 ---
 
-## Performing custom provider actions and create resources
+## Performing custom actions and create custom resources
 
 After the service catalog application instance has been deployed, you have two new resource groups. First resource group `applicationGroup` contains an instance of the managed application, second resource group `managedResourceGroup` holds the resources for the managed application, including **custom provider**.
 
