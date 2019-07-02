@@ -1,6 +1,6 @@
 ---
 title: Export flows from Microsoft Flow to Azure Logic Apps
-description: Migrate flows in Microsoft Flow by exporting as Azure Resource Manager templates and deploying to Azure Logic Apps
+description: Migrate flows from Microsoft Flow to Azure Logic Apps by exporting as Azure Resource Manager templates
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -13,21 +13,21 @@ ms.date: 07/04/2019
 
 # Export flows from Microsoft Flow and deploy to Azure Logic Apps
 
-To extend and expand the capabilities for a flow that you created with [Microsoft Flow](https://flow.microsoft.com), you can export that flow as an Azure Resource Manager template and open that template in Azure Logic Apps.
+To extend and expand your flow's capabilities, you can migrate that flow from [Microsoft Flow](https://flow.microsoft.com) to [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the Logic App Designer.
 
 > [!NOTE]
 > Not all Microsoft Flow connectors are available in Azure Logic Apps. 
-> You can import flows that have equivalent connectors in Azure Logic Apps. 
-> For example, logic apps don't support the Button trigger, and the 
-> Approval and Notification connectors are specific to Microsoft Flow. 
+> You can import flows that have [equivalent connectors](../connectors/apis-list.md) 
+> in Azure Logic Apps. For example, the Button trigger, the Approval connector, 
+> and Notification connector are specific to Microsoft Flow.
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The flow that you want to import into Azure Logic Apps from Microsoft Flow
+* The flow that you want to export from Microsoft Flow
 
-## Export from Microsoft Flow
+## Export a flow
 
 1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and select **My flows**. Find and select your flow. On the toolbar, select the ellipses (**...**) button. Select **Export** > **Logic Apps template (.json)**.
 
@@ -37,7 +37,7 @@ To extend and expand the capabilities for a flow that you created with [Microsof
 
 For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.com/blog/grow-up-to-logic-apps/).
 
-## Import into Azure portal
+## Deploy template to Azure
 
 1. Sign in the [Azure portal](https://portal.azure.com) with your Azure account.
 
@@ -76,7 +76,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
   
    ![Specify input parameters for template](./media/import-from-microsoft-flow/template-input-parameters.png)
 
-   Azure deploys your logic app to your specified resource group. All logic apps created and imported from Microsoft Flow are deployed in a disabled state.
+   Azure deploys your template as a logic app to your specified resource group. All logic apps that you migrate from Microsoft Flow are deployed in a disabled state.
 
 1. Before you activate your logic app, authorize any new connections by following these steps:
 
