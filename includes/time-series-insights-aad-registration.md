@@ -7,7 +7,7 @@
  ms.service: time-series-insights
  author: kingdomofends
  ms.author: adgera
- ms.date: 06/29/2019
+ ms.date: 07/02/2019
 ---
 
 > [!IMPORTANT]
@@ -34,7 +34,14 @@
 
    Copy your **Application (client) ID** to use in your client application.
 
-1. The **Authentication** blade provides additional advanced configuration options including where to direct users to after they sign out (Logout Redirect) and whether or not the implicit grant flow is enabled. Enable the implicit grant flow by checking **ID tokens**.
+1. The **Authentication** blade specifies important authentication configuration settings. 
+
+    1. **Redirect URIs** must match the address supplied by the authentication request:
+
+        * For apps hosted in a local development environment, select **Public client (mobile & desktop)**. Make sure to set the **Default client type** to yes.
+        * For Single-Page apps hosted on Azure App Service, select **Web**.
+
+    1. Enable the implicit grant flow by checking **ID tokens**.
 
    [![Create a new client secret](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
