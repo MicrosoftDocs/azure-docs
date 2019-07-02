@@ -1,6 +1,6 @@
 ---
 title: Learn how applications can interoperate with Azure AD B2C by using Microsoft Authentication Library (MSAL) 
-description: By using Microsoft Authentication Library (MSAL),  applications can interoperate with Azure AD B2C and acquire tokens to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, web APIs from others, or your own web API.
+description: By using Microsoft Authentication Library (MSAL), applications can interoperate with Azure AD B2C and acquire tokens to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, web APIs from others, or your own web API.
 services: active-directory
 documentationcenter: dev-center-name
 author: negoe
@@ -70,7 +70,7 @@ const msalConfig = {
 const myMSALObj = new UserAgentApplication(msalConfig);
 ```
 
-The name of the [user flow](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) used in this tutorial is **B2C_1_signupsignin1**. If you're using a different user flow name, set the **authority** value to that name.
+The name of the [user flow](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) in this tutorial is **B2C_1_signupsignin1**. If you're using a different user flow name, set the **authority** value to that name.
 
 ### Step 4: Configure your application to use `b2clogin.com`
 
@@ -83,7 +83,7 @@ Use of `b2clogin.com` in the context of `https://your-tenant-name.b2clogin.com/y
 
  To use `b2clogin.com`, you need to update the configuration of your application.  
 
-- Set the **validateAuthority** property to `false`, so that redirects to `b2clogin.com` can occur.
+- Set the **validateAuthority** property to `false`, so that redirects using `b2clogin.com` can occur.
 
 The following example shows how you might set the property:
 
