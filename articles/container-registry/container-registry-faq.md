@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 07/02/2019
 ms.author: sajaya
 ---
 
@@ -242,8 +242,9 @@ With the use of only the `AcrPull` or `AcrPush` role, the assignee doesn't have 
 
 Image quarantine is currently a preview feature of ACR. You can enable the quarantine mode of a registry so that only those images which have successfully passed security scan are visible to normal users. For details, see the [ACR GitHub repo](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
-## Diagnostics
+## Diagnostics and health checks
 
+- [Check health with `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push succeeds but docker pull fails with error: unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)	
@@ -251,6 +252,10 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
+
+### Check health with `az acr check-health`
+
+To troubleshoot common environment and registry issues, see [Check the health of an Azure container registry](container-registry-check-health.md).
 
 ### docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 
@@ -436,10 +441,6 @@ This setting also applies to the `az acr run` command.
 
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
-
-## Check health with `az acr check-health`
-
-For information about running the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to troubleshoot common environment and registry issues, see [Check the health of an Azure container registry](container-registry-check-health.md).
 
 ## Next steps
 
