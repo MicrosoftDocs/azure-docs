@@ -103,6 +103,10 @@ Currently, the cross-tenant management experience supports the following scenari
 
 - Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
 
+Support requests:
+
+- Open support requests for delegated resources from the **Help + support** blade in the Azure portal (selecting the support plan available to the delegated scope)
+
 With all scenarios, please be aware of the following current limitations:
 
 - While Azure Resource Manager operations are supported, Resource Provider operations (such as KeyVault secrets access, storage data access, VM login, etc.) can’t be performed using Azure delegated resource management.
