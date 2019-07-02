@@ -57,7 +57,7 @@ and output in *createUIDefinition.json*:
 ```
 
 <details>
-<summary>Show *createUiDefinition.json* file</summary>
+<summary>Show <i>createUiDefinition.json</i> file</summary>
 <p>
 
 ```json
@@ -153,7 +153,7 @@ In this tutorial you create one `users` resource type, `ping` custom action and 
 ```
 
 <details>
-<summary>Show full *mainTemplate.json* file</summary>
+<summary>Show full <i>mainTemplate.json</i> file</summary>
 <p>
 
 ```json
@@ -333,7 +333,7 @@ In order to define user interface that includes custom actions and custom resour
 In this tutorial you define an *Overview* page with toolbar button that represents a custom provider action `TestAction` with basic text input, *Users* page that represents a custom provider resource type `users` and an additional toolbar button that represents a custom resource action `users/contextAction` that is performed in a context of custom resource of type `users`.
 
 <details>
-<summary>Show *viewDefinition.json* file</summary>
+<summary>Show <i>viewDefinition.json</i> file</summary>
 <p>
 
 ```json
@@ -569,6 +569,10 @@ You can go to managed application instance and perform **custom action** in "Ove
 ## Clean up resources
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+
+## Looking for help
+
+If you have questions about Azure Managed Applications, try asking on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-managedapps). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managedapps` to get a fast response!
 
 ## Next Steps
 

@@ -247,7 +247,12 @@ Commands is an array of additional toolbar buttons that are displayed on page. E
 |icon|No|The icon of the command button. List of supported icons is defined in [JSON Schema](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|No|Create UI Definition schema for command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).|
 
+## Looking for help
+
+If you have questions about Azure Managed Applications, try asking on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-managedapps). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managedapps` to get a fast response!
+
 ## Next steps
 
 - For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 - For an introduction to custom providers, see [Azure Custom Providers overview](custom-providers-overview.md).
+- For creating an Azure Managed Application with Azure Custom Providers, see [Tutorial: Create managed application with custom provider actions and resource types](tutorial-create-managed-app-with-custom-provider.md)
