@@ -121,7 +121,7 @@ For more information on using Azure Dev Spaces and multi-service development wit
 5. Run the `azds prep` command to prepare your application to run in a dev space. This command must be run from `dev-spaces/samples/java/getting-started/webfrontend` to prepare your application correctly:
 
     ```bash
-    azds prep --publicwi
+    azds prep --public
     ```
 
     The Dev Spaces CLI's `azds prep` command generates Docker and Kubernetes assets with default settings. These files persist for the lifetime of the project, and they can be customized:
@@ -132,7 +132,7 @@ For more information on using Azure Dev Spaces and multi-service development wit
 
     For more information, see [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
 
-6. >Build and run the application in AKS using the `azds up` command:
+6. >Run the application in AKS using the `azds up` command:
 
     ```bash
     azds up
