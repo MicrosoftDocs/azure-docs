@@ -95,7 +95,7 @@ Credentials are read from environment variables based on the appropriate context
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 
