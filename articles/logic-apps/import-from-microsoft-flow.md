@@ -45,7 +45,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    ![Select "Template deployment"](./media/import-from-microsoft-flow/select-template-deployment.png)
 
-1. From the actions list, select **Build your own template in the editor**.
+1. Under **Custom deployment**, select **Build your own template in the editor**.
 
    ![Select "Build your own template in the editor"](./media/import-from-microsoft-flow/build-template-in-editor.png)
 
