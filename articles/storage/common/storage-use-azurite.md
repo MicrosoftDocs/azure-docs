@@ -17,10 +17,10 @@ The Azurite version 3 open-source emulator (preview) provides a free local envir
 
 There are several different ways to install and run Azurite on your local system:
 
-  1. [Install and run Azurite by using NPM](#install-azurite-by-using-npm)
-  1. [Install and run the Azurite Docker image](#install-the-azurite-docker-image)
-  1. [Install and run the Azurite Visual Studio Code extension](#install-the-azurite-visual-studio-code-extension)
-  1. [Clone, build, and run Azurite from the GitHub repository](#clone-the-azurite-github-repository)
+  1. [Install and run Azurite by using NPM](#install-and-run-azurite-by-using-npm)
+  1. [Install and run the Azurite Docker image](#install-and-run-the-azurite-docker-image)
+  1. [Install and run the Azurite Visual Studio Code extension](#install-and-run-the-azurite-visual-studio-code-extension)
+  1. [Clone, build, and run Azurite from the GitHub repository](#clone-build-and-run-azurite-from-the-github-repository)
 
 ## Install and run Azurite by using NPM
 
@@ -30,7 +30,7 @@ This installation method requires that you have [Node.js version 8.0 or later](h
 npm install -g azurite
 ```
 
-After installing Azurite, see [Run Azurite from a command-line](run-azurite-from-a-command-line).
+After installing Azurite, see [Run Azurite from a command-line](#run-azurite-from-a-command-line).
 
 ## Install and run the Azurite Docker image
 
@@ -107,7 +107,7 @@ npm run build
 npm install -g
 ```
 
-After installing and building Azurite, see [Run Azurite from a command-line](run-azurite-from-a-command-line).
+After installing and building Azurite, see [Run Azurite from a command-line](#run-azurite-from-a-command-line).
 
 ## Run Azurite from a command-line
 
