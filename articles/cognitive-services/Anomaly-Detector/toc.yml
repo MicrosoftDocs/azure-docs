@@ -8,7 +8,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Detect Anomalies in your data
+    - name: REST API
       items:
         - name: Using C#
           href: quickstarts/detect-data-anomalies-csharp.md
@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Using Python
           href: quickstarts/detect-data-anomalies-python.md
+    - name: SDK
+      items:
+        - name: Using C#
+          href: quickstarts/detect-data-anomalies-csharp-sdk.md
+        - name: Using Python
+          href: quickstarts/detect-data-anomalies-python-sdk.md
 - name: Tutorials
   items:
     - name: Visualize anomalies as a batch using Power BI
@@ -58,6 +64,8 @@
       href: https://aka.ms/adpricing
     - name: Regional availability 
       href: https://aka.ms/adregion
+    - name: User-generated content
+      href: user-generated-content.md
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
       href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture
