@@ -29,11 +29,11 @@ What the pre-registration script does:
 2. Adding key to Hdbuserstore for HANA plugin to do all operations (inquiry of database, configuring backup, doing backup, doing restore)
     - To confirm the key creation, run the HDBSQL command within the HANA machine with SIDADM credentials
 
-    ``` hdbsql 
+    ``` hdbsql
     hdbuserstore list
     ```
 
-    The command should display the key {SID}{DBNAME} with the user as ‘AZUREWLBACKUPHANAUSER’
+    The command output should display the key {SID}{DBNAME} with the user as ‘AZUREWLBACKUPHANAUSER’
 
 > [!NOTE]
 > Make sure you have a unique set of SSFS files under the path “/usr/sap/{SID}/home/.hdb/”. There should be only one folder under this path.
