@@ -377,7 +377,7 @@ When you're satisfied with the function behavior, you can publish it.
 
 1. After the deployment is complete, notice the Site URL. It is the address of your function app in Azure. 
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
+1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the `EntitySearch` Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
 
 ## Test the function in Azure
 
@@ -421,7 +421,7 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new Bing entity search custom skill",
-        "uri": "https://[your-entity-search-app-name].azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]",
           "context": "/document/merged_content/organizations/*",
           "inputs": [
             {
