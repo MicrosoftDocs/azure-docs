@@ -21,6 +21,14 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
 
+## 2019-07-01
+
+### Azure Machine Learning Data Prep SDK v1.1.7
+
+We reverted a change that improved performance, as it was causing issues for some customers using Azure Databricks. If you experienced an issue on Azure Databricks, you can upgrade to version 1.1.7 using one of the methods below:
+1. Run this script to upgrade: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. Recreate the cluster, which will install the latest Data Prep SDK version.
+
 ## 2019-06-25
 
 ### Azure Machine Learning SDK for Python v1.0.45
