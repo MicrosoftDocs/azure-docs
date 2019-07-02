@@ -26,14 +26,15 @@ What the pre-registration script does:
     - DATABASE ADMIN  - To create new DBs during restore
     - CATALOG READ – To read the backup catalog
     - SAP_INTERNAL_HANA_SUPPORT – To access few private tables
-2. Adding key to Hdbuserstore for HANA plugin to do all operations (inquiry of database, configuring backup, doing backup, doing restore)
-    - To confirm the key creation, run the HDBSQL command within the HANA machine with SIDADM credentials
+2. Adds key to Hdbuserstore for HANA plugin to do all operations (inquiry of database, configuring backup, doing backup, doing restore)
+   
+   - To confirm the key creation, run the HDBSQL command within the HANA machine with SIDADM credentials:
 
     ``` hdbsql
     hdbuserstore list
     ```
-
-    The command output should display the key {SID}{DBNAME} with the user as ‘AZUREWLBACKUPHANAUSER’
+    
+    The command output should display the key {SID}{DBNAME} with the user as ‘AZUREWLBACKUPHANAUSER’.
 
 > [!NOTE]
 > Make sure you have a unique set of SSFS files under the path “/usr/sap/{SID}/home/.hdb/”. There should be only one folder under this path.
