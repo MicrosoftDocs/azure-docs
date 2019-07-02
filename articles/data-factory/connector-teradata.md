@@ -238,7 +238,7 @@ To copy data from Teradata, the following properties are supported in the copy a
 
 Data factory Teradata connector provides built-in data partitioning to copy data from Teradata in parallel with great performance. You can find data partitioning options on copy activity -> Teradata source:
 
-![Partition options](C:/AzureContent/azure-docs-pr/articles/data-factory/media/connector-teradata/connector-teradata-partition-options.png)
+![Partition options](./media/connector-teradata/connector-teradata-partition-options.png)
 
 When you enable partitioned copy, data factory runs parallel queries against your Teradata source to load data by partitions. The parallel degree is configured and controlled via **[`parallelCopies`](copy-activity-performance.md#parallel-copy)** setting on copy activity. For example, if you set `parallelCopies` as four, data factory concurrently generates and runs four queries based on your specified partition option and settings, each retrieving portion of data from your Teradata database.
 
