@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 06/07/2019
 ms.author: rogarana
 ---
-#### Additional premium file share limits
+#### Additional premium file share level limits
 
 |Area  |Target  |
 |---------|---------|
@@ -15,7 +15,7 @@ ms.author: rogarana
 |Egress rate         |60 MiB/s + 0.06 * provisioned GiB        |
 |Ingress rate| 40 MiB/s + 0.04 * provisioned GiB |
 
-#### File limits
+#### File level limits
 
 |Area  |Premium file  |Standard file |
 |---------|---------|---------|
