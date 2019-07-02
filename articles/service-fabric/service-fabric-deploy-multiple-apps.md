@@ -204,7 +204,6 @@ Once the application is successfully published to the local cluster, you can acc
 
 In this tutorial, you have seen how to easily package two existing applications as one Service Fabric application. You have also learned how to deploy it to Service Fabric so that it can benefit from some of the Service Fabric features, such as high availability and health system integration.
 
-
 ## Adding more guest executables to an existing application using Yeoman on Linux
 
 To add another service to an application already created using `yo`, perform the following steps: 
