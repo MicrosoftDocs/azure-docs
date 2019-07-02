@@ -157,7 +157,7 @@ Next, you'll configure federation with the identity provider configured in step 
 1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). (If you need detailed steps, the quickstart for adding a guest user includes the section [Install the latest AzureADPreview module](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module).) 
 2. Run the following command: 
    ```powershell
-   Connect-AzureAD.
+   Connect-AzureAD
    ```
 1. At the sign-in prompt, sign in with the managed Global Administrator account. 
 2. Run the following commands, replacing the values from the federation metadata file. For AD FS Server and Okta, the federation file is federationmetadata.xml, for example: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml`. 
@@ -169,8 +169,7 @@ Next, you'll configure federation with the identity provider configured in step 
    $federationSettings.IssuerUri = "http://sts.totheclouddemo.com/adfs/services/trust"
    $federationSettings.MetadataExchangeUri="https://sts.totheclouddemo.com/adfs/services/trust/mex"
    $federationSettings.SigningCertificate= <Replace with X509 signing cert’s public key>
-   $federationSettings.PreferredAuthenticationProtocol="WsFed" OR “Samlp”
-   $federationSettings.FederationBrandName = "Direct Fed Demo"
+   $federationSettings.PreferredAuthenticationProtocol="WsFed" OR "Samlp"
    $domainName = <Replace with domain name>
    New-AzureADExternalDomainFederation -ExternalDomainName $domainName  -FederationSettings $federationSettings
    ```
@@ -202,7 +201,7 @@ To remove direct federation with an identity provider by using PowerShell:
 1. Install the latest version of the Azure AD PowerShell for Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. Run the following command: 
    ```powershell
-   Connect-AzureAD.
+   Connect-AzureAD
    ```
 3. At the sign-in prompt, sign in with the managed Global Administrator account. 
 4. Enter the following command:
