@@ -25,16 +25,12 @@ This article shows you how to:
 
 To use the Azure IoT explorer tool, you need:
 
-- An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub's connection string to run the Azure IoT explorer tool.
+- An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub's connection string to run the Azure IoT explorer tool. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - A device registered in your IoT hub. You can use the following Azure CLI command to register a device, be sure to replace the `{YourIoTHubName}` and `{YourDeviceID}` placeholders with your values:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
     ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Install Azure IoT explorer
 
@@ -45,9 +41,9 @@ Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/
 
 ## Use Azure IoT explorer
 
-In this article, you use Azure IoT explorer to interact with a simulated device. Follow [these instructions]() to run the simulated device.
+In this article, you use Azure IoT explorer to interact with a simulated device. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) to run the simulated device.
 
-### Connect to a device
+### Connect to your hub
 
 The first time you run Azure IoT explorer, you're prompted for your IoT hub's connection string. After you add the connection string, select **Connect**. You can use the tool's settings to switch to another IoT hub by updating the connection string.
 
@@ -88,7 +84,7 @@ This section includes the **Device Identity**, **Telemetry**, and **Device Twin*
 
 ### Digital twin
 
-You can use the tool to a view digital twin instance of the device. For a Plug and Play device, all the interfaces associated with the device capability model are displayed here. Select an interface to expand its corresponding [Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)).
+You can use the tool to a view digital twin instance of the device. For a Plug and Play device, all the interfaces associated with the device capability model are displayed here. Select an interface to expand its corresponding [Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 #### Properties
 
