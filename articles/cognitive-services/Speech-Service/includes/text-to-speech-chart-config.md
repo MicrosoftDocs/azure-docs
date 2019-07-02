@@ -20,7 +20,7 @@ To override the "umbrella" chart, add the prefix `textToSpeech.` on any paramete
 | -- | -- | -- |
 | `enabled` | Whether the **text-to-speech** service is enabled. | `true` |
 | `numberOfConcurrentRequest` | The number of concurrent requests for the **text-to-speech** service. This chart automatically calculates CPU and memory resources, based on this value. | `2` |
-| `optimizeForTextFiles`| Whether the service needs to optimize for text input via text files. If `true`, this chart will allocate more CPU resource to service. | `false` |
+| `optimizeForTurboMode`| Whether the service needs to optimize for text input via text files. If `true`, this chart will allocate more CPU resource to service. | `false` |
 | `image.registry`| The **text-to-speech** docker image registry. | `containerpreview.azurecr.io` |
 | `image.repository` | The **text-to-speech** docker image repository. | `microsoft/cognitive-services-text-to-speech` |
 | `image.tag` | The **text-to-speech** docker image tag. | `latest` |
