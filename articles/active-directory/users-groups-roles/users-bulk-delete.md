@@ -6,7 +6,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 05/13/2019
+ms.date: 07/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -39,13 +39,14 @@ You can check to see that the users you deleted are no longer in the directory e
 ### View users in the Azure portal
 
 1. Sign in to the Azure portal with an account that is a User administrator in the organization.
-1. In the navigation pane, select Azure Active Directory.
+1. In the navigation pane, select **Azure Active Directory**.
 1. Under **Manage**, select **Users**.
 1. Under **Show**, select **All users** only and verify that the users you deleted are no longer listed.
 
 ### View users with PowerShell
 
 Run the following command:
+
 ``` PowerShell
 Get-AzureADUser -Filter "UserType eq 'Member'"
 ```

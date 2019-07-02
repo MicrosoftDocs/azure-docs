@@ -6,7 +6,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/30/2019
+ms.date: 07/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
 ## Troubleshoot bulk user list download
 
-The causes of your troubles are many. Let us make them few. Specific actions can address the causes of many  potential error states during the list download process.
+The causes of your troubles are many. Let us make them few. Specific actions can address the causes of many potential error states during the list download process.
 
 Validation error Message 1
 guidance 1

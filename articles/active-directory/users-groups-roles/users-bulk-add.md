@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 05/10/2019
+ms.date: 07/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -41,9 +41,9 @@ Check to see that the users you added exist in the directory either in the Azure
 ### View users in the Azure portal
 
 1. Sign in to the Azure portal with an account that is a User administrator in the organization.
-2. In the navigation pane, select Azure Active Directory.
-3. Under **Manage**, select **Users**.
-4. Under **Show**, select **All users** and verify that the users you added are listed.
+1. In the navigation pane, select **Azure Active Directory**.
+1. Under **Manage**, select **Users**.
+1. Under **Show**, select **All users** and verify that the users you added are listed.
 
 ### View users with PowerShell
 
