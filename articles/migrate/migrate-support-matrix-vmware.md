@@ -197,6 +197,69 @@ VirtualMachine.Provisioning.AllowVirtualMachineFilesUpload | Allow write operati
 VirtualMachine.Provisioning.AllowVirtualMachineDownload | Allow read operations on files associated with a VM, to download the logs for troubleshooting.
 VirtualMachine.SnapshotManagement.RemoveSnapshot | Allow removal of a snapshot from the snapshot history.
 
+## Agent-based migration-Replication appliance requirements
+
+The Azure Migrate Server Migration [replication appliance](migrate-replication-appliance) must have the following:
+
+**Component** | **Requirement** 
+--- | ---
+**HARDWARE SETTINGS** | 
+CPU cores | 8 
+RAM | 16 GB
+Number of disks | 3, including the OS disk, process server cache disk, and retention drive for failback 
+Free disk space (process server cache) | 600 GB
+Free disk space (retention disk) | 600 GB
+ | 
+**SOFTWARE SETTINGS** | 
+Operating system | Windows Server 2012 R2 <br> Windows Server 2016
+Operating system locale | English (en-us)
+Apps | Don't install anything else on the replication appliance.
+Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
+Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | - No pre-existing default website <br> - No preexisting website/application listening on port 443 <br>- Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting 
+| 
+**NETWORK SETTINGS** | 
+IP address type | Static 
+Ports | 443 (Control channel orchestration)<br>9443 (Data transport) 
+NIC type | VMXNET3 (if the Configuration Server is a VMware VM)
+ |
+
+### URL access
+
+The replication appliance needs access to these URLs.
+
+**URL** | **Details**
+--- | ---
+\*.backup.windowsazure.com | Used for replicated data transfer and coordination
+\*.store.core.windows.net | Used for replicated data transfer and coordination
+\*.blob.core.windows.net | Used to access storage account that stores replicated data
+\*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
+https:\//management.azure.com | Used for replication management operations and coordination 
+*.services.visualstudio.com | Used for telemetry purposes (It is optional)
+time.nist.gov | Used to check time synchronization between system and global time.
+time.windows.com | Used to check time synchronization between system and global time.
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF set up needs access to these URLs. They are used for access control and identity management by Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download
+
+### Required software
+
+The replication appliance needs the following sofware installed on it.
+
+
+**Software** | **Details**
+--- | ---
+VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the Configuration Server is running on a VMware VM.
+MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. (Refer to [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) for more information)
+
+#### MySQL installation options
+
+MySQL can be installed on the replication appliance using one of these methods.
+
+**Install** | **Details**
+--- | ---
+Download and install manually | Download MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br/> When you set up the appliance MySQL will show as already installed. 
+Don't download online | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and click to donwload and install MySQL, setup will use the installer you added. 
+Download from Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
 
 
 
