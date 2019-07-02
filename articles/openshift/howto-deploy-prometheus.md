@@ -21,13 +21,13 @@ Target setup:
 - One project (prometheus-project), which contains Prometheus and Alertmanager.
 - Two projects (app-project1 and app-project2), which contain the applications to monitor.
 
-You'll need to prepare some Prometheus config files locally. To store config files, create a new folder. Config files are stored in the cluster as Secrets, in case Secret tokens are added later to the cluster.
+You'll prepare some Prometheus config files locally. Create a new folder to store them. Config files are stored in the cluster as Secrets, in case Secret tokens are added later to the cluster.
 
-## Sign in to the cluster with the OC tool
+## Sign in to the cluster by using the OC tool
 
-1. Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
+1. Open a web browser, and then go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
 2. Sign in with your Azure credentials.
-3. Select your username located in the top-right corner, and then select **Copy Login Command**.
+3. Select your username in the top-right corner, and then select **Copy Login Command**.
 4. Paste your username into the terminal that you'll use.
 
 > [!NOTE]
@@ -35,7 +35,7 @@ You'll need to prepare some Prometheus config files locally. To store config fil
 
 ## Prepare the projects
 
-Run the following commands:
+To create the projects, run the following commands:
 ```
 oc new-project prometheus-project
 oc new-project app-project1
@@ -68,7 +68,7 @@ scrape_configs:
           - app-project1
           - app-project2
 ```
-Create a Secret named Prom by entering the following configuration:
+Create a Secret called Prom by entering the following configuration:
 ```
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
@@ -97,7 +97,7 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-Create a Secret named Prom-Alerts by entering the following configuration:
+Create a Secret called Prom-Alerts by entering the following configuration:
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
@@ -108,8 +108,8 @@ Alertmanager.yml is the Alert Manager config file.
 > To verify the two previous steps, preparing the Alertmanager config file and preparing the Prometheus config file, enter `oc get secret -n prometheus-project`.
 
 ## Start Prometheus and Alertmanager
-Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus), and then download the template called [prometheus-standalone.yaml](
-https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml). Apply the template to prometheus-project by entering the following configuration:
+Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus), and then download the [prometheus-standalone.yaml](
+https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) template. Apply the template to prometheus-project by entering the following configuration:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
