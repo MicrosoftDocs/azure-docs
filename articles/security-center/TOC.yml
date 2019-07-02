@@ -111,11 +111,11 @@
     items:
     - name: Security alerts overview
       href: security-center-alerts-overview.md
-    - name: IaaS VMs & servers alerts
+    - name: Threat detection for VMs & Servers
       href: security-center-alerts-iaas.md
-    - name: Native compute alerts
+    - name: Threat detection for cloud native compute
       href: security-center-alerts-compute.md
-    - name: Data services alerts
+    - name: Threat detection for PaaS data services
       href: security-center-alerts-data-services.md
     - name: Service layer alerts
       href: security-center-alerts-service-layer.md   
@@ -123,8 +123,6 @@
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md 
-    - name: UEBA for Azure resources and users
-      href: security-center-ueba-mcas.md
     - name: Alert validation
       href: security-center-alert-validation.md
       

@@ -1,5 +1,5 @@
 ---
-title: IaaS VM and server alerts Azure Security Center | Microsoft Docs
+title: Threat detection for VMs & servers in Azure Security Center | Microsoft Docs
 description: Azure policy definitions monitored in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-# IaaS VM and server alerts in Azure Security Center
+# Threat detection for VMs & servers in Azure Security Center
 
 This topic presents the different types of detection methods and alerts available for VMs and Servers with the following operation systems.
 

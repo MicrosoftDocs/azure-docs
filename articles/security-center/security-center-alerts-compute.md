@@ -1,5 +1,5 @@
 ---
-title: Native computer alerts in Azure Security Center | Microsoft Docs
+title: Threat detection for cloud native compute in Azure Security Center | Microsoft Docs
 description: Azure policy definitions monitored in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-# Azure native compute alerts in Azure Security Center
+# Threat detection for cloud native compute in Azure Security Center
 
 This topic presents the alerts available for your Azure services:
 * [Azure App Service](#app-services)

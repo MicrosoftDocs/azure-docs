@@ -1,5 +1,5 @@
 ---
-title: Data services alerts in Azure Security Center | Microsoft Docs
+title: Threat detection for PaaS data services in Azure Security Center | Microsoft Docs
 description: Alerts for data storage resources Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 6/25/2019
 ms.author: monhaber
 
 ---
-# Azure data services alerts in Azure Security Center
+# Threat detection for PaaS data services in Azure Security Center
 
 This topic presents the alerts available for your data storage resources.
 
