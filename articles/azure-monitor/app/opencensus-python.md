@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create Application Insights resource
 
-First you have to create an Application Insights resource which will generate an instrumentation key(ikey). The ikey is then used to configure the OpenCensus SDK to send telemetry data to Application Insights.
+First you have to create an Application Insights resource, which will generate an instrumentation key(ikey). The ikey is then used to configure the OpenCensus SDK to send telemetry data to Application Insights.
 
 1. Select **Create a resource** > **Developer Tools** > **Application Insights**.
 
@@ -91,7 +91,7 @@ First you have to create an Application Insights resource which will generate an
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-4. While this is helpful for demonstration purposes, ultimately we want to emit the SpanData to Application Insights. Modify your code from the previous step to the following:
+4. While helpful for demonstration purposes, ultimately we want to emit the SpanData to Application Insights. Modify your code from the previous step based on the following code sample:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -118,7 +118,7 @@ First you have to create an Application Insights resource which will generate an
     if __name__ == "__main__":
         main()
     ```
-5. Now when you run the Python script from above you should still be prompted to enter values, but now only the value is being printed in the shell.
+5. Now when you run the Python script, you should still be prompted to enter values, but now only the value is being printed in the shell.
 
 ## Start monitoring in the Azure portal
 
