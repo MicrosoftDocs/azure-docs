@@ -148,11 +148,9 @@ In Media Services dynamic packaging, the streaming client manifests for HLS, MPE
 
 A manifest file includes streaming metadata such as track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), and video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments that are available and their location. Fragments (or segments) are the actual "chunks" of video content.
 
-The next sections show example manifests for the HLS, MPEG-DASH, and Smooth Steaming protocols.
+### HLS
 
-### HLS manifest
-
-Example of an HLS manifest file, also called an HLS master playlist: 
+Here's an example of an HLS manifest file, also called an HLS master playlist: 
 
 ```
 #EXTM3U
@@ -177,9 +175,9 @@ QualityLevels(3579827)/Manifest(video,format=m3u8-aapl)
 QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ```
 
-### MPEG-DASH manifest
+### MPEG-DASH
 
-Example of an MPEG-DASH manifest file, also called an MPEG-DASH Media Presentation Description (MPD):
+Here's an example of an MPEG-DASH manifest file, also called an MPEG-DASH Media Presentation Description (MPD):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -210,9 +208,9 @@ Example of an MPEG-DASH manifest file, also called an MPEG-DASH Media Presentati
    </Period>
 </MPD>
 ```
-### Smooth Streaming manifest
+### Smooth Streaming
 
-Example of a Smooth Streaming manifest file:
+Here's an example of a Smooth Streaming manifest file:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
