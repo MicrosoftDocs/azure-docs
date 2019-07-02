@@ -206,7 +206,7 @@ The `up` command uploads your application source files and other artifacts neede
 1. Builds the container for your application.
 1. Deploys your application to the dev space.
 1. Creates a publicly accessible DNS name for your application endpoint if configured.
-1. Uses *port-forward* to provide access to your application endpoint using http://locahost.
+1. Uses *port-forward* to provide access to your application endpoint using http://localhost.
 1. Forwards stdout and stderr to the client-side tooling.
 
 

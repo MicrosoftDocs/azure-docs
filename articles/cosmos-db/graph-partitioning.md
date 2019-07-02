@@ -6,26 +6,28 @@ ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/24/2019
 ms.custom: seodec18
 ---
 # Using a partitioned graph in Azure Cosmos DB
 
-One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scaling. Horizontal scaling is achieved through the [partitioning capabilities in Azure Cosmos DB](partition-data.md). The containers can scale independently in terms of storage and throughput. You can create containers in Azure Cosmos DB that can be automatically scaled to store a graph data. The data is automatically balanced based on the specified **partition key**.
+One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scaling. The containers can scale independently in terms of storage and throughput. You can create containers in Azure Cosmos DB that can be automatically scaled to store a graph data. The data is automatically balanced based on the specified **partition key**.
 
-In this document, the specifics on how graph databases are partitioned will be described along with its implications for both vertices (or nodes) and edges.
+**Partitioning is required** if the container is expected to store more than 10 GB in size or if you want to allocate more than 10,000 request units per second (RUs). The same general principles from the [Azure Cosmos DB partitioning mechanism](partition-data.md) apply with a few graph-specific optimizations described below.
 
-## Requirements for partitioned graph
+![Graph partitioning.](./media/graph-partitioning/graph-partitioning.png)
 
-The following are details that need to be understood when creating a partitioned graph container:
+## Graph partitioning mechanism
 
-- **Partitioning is required** if the container is expected to store more than 10 GB in size or if you want to allocate more than 10,000 request units per second (RUs).
+The following guidelines describe how the partitioning strategy in Azure Cosmos DB operates:
 
 - **Both vertices and edges are stored as JSON documents**.
 
-- **Vertices require a partition key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The name of this partition key is a single-word string without spaces or special characters. The partition key is defined when creating a new container and it has a format: `/partitioning-key-name`.
+- **Vertices require a partition key**. This key will determine in which partition the vertex will be stored through a hashing algorithm. The partition key property name is defined when creating a new container and it has a format: `/partitioning-key-name`.
 
-- **Edges will be stored with their source vertex**. In other words, for each vertex its partition key defines where they are stored along with its outgoing edges. This is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
+- **Edges will be stored with their source vertex**. In other words, for each vertex its partition key defines where they are stored along with its outgoing edges. This optimization is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
+
+- **Edges contain references to the vertices they point to**. All edges are stored with the partition keys and IDs of the vertices that they are pointing to. This computation makes all `out()` direction queries always be a scoped partitioned query, and not a blind cross-partition query. 
 
 - **Graph queries need to specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, the partition key should be specified when a single vertex is selected, whenever it's possible. The following are queries for selecting one or multiple vertices in a partitioned graph:
 

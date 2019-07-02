@@ -18,25 +18,33 @@ ms.custom: seodec18
 
 Learn about the architecture, concepts, and workflow for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
 
-[![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## Workflow
 
-The machine learning workflow generally follows this sequence:
+The machine learning model workflow generally follows this sequence:
 
-1. Develop machine learning training scripts in **Python** or with the visual interface.
-1. Create and configure a **compute target**.
-1. **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are saved as **runs** in the **workspace** and grouped under **experiments**.
-1. **Query the experiment** for logged metrics from the current and past runs. If the metrics don't indicate a desired outcome, loop back to step 1 and iterate on your scripts.
-1. After a satisfactory run is found, register the persisted model in the **model registry**.
-1. Develop a scoring script that uses the model and **Deploy the model** as a **web service** in Azure, or to an **IoT Edge device**.
+1. **Train**
+    + Develop machine learning training scripts in **Python** or with the visual interface.
+    + Create and configure a **compute target**.
+    + **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are saved as **runs** in the **workspace** and grouped under **experiments**.
 
-You perform these steps with any of the following:
-+ [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
-+ [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
-+  The [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)
+1. **Package** - After a satisfactory run is found, register the persisted model in the **model registry**.
 
+1. **Validate** - **Query the experiment** for logged metrics from the current and past runs. If the metrics don't indicate a desired outcome, loop back to step 1 and iterate on your scripts.
+
+1. **Deploy** - Develop a scoring script that uses the model and **Deploy the model** as a **web service** in Azure, or to an **IoT Edge device**.
+
+1. **Monitor** - Monitor for **data drift** between the training dataset and inference data of a deployed model. When necessary, loop back to step 1 to retrain the model with new training data.
+
+## Tools for Azure Machine Learning 
+
+Use these tools for Azure Machine Learning:
+
++  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
++ Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md) 
++ Use the [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
 
 ## Glossary of concepts
 
@@ -94,7 +102,10 @@ Models are identified by name and version. Each time you register a model with t
 
 When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
 
-You can't delete models that are being used by an active deployment.
+> [!TIP]
+> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+You can't delete a registered model that is being used by an active deployment.
 
 For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -176,9 +187,13 @@ Azure Machine Learning can create two types of images:
 
 The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
 
+### Image registry
+
 Images are cataloged in the **image registry** in your workspace. You can provide additional metadata tags when you create the image, so that you can query them to find your image later.
 
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
+
+For an example of deploying a model using a custom image, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
 ### Deployment
 

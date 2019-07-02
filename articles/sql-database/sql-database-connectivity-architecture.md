@@ -11,7 +11,7 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 07/01/2019
+ms.date: 07/02/2019
 ---
 # Azure SQL Connectivity Architecture
 
@@ -127,20 +127,43 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-The following CLI script shows how to change the connection policy.
+### Azure CLI in a bash shell
+
+> [!IMPORTANT]
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+The following CLI script shows how to change the connection policy in a bash shell.
 
 ```azurecli-interactive
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
-id="$sqlserverid/connectionPolicies/Default"
+ids="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-az resource show --ids $id
+az resource show --ids $ids
 
 # Update connection policy
-az resource update --ids $id --set properties.connectionType=Proxy
+az resource update --ids $ids --set properties.connectionType=Proxy
+```
+
+### Azure CLI from a Windows command prompt
+
+> [!IMPORTANT]
+> This script requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+The following CLI script shows how to change the connection policy from a Windows command prompt (with Azure CLI installed).
+
+```azurecli
+# Get SQL Server ID and set URI
+FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
+
+# Get current connection policy
+az resource show --ids %sqlserverid%
+
+# Update connection policy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## Next steps

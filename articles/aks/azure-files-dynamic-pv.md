@@ -33,7 +33,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 * *Standard_RAGRS* - standard read-access geo-redundant storage (RA-GRS)
 
 > [!NOTE]
-> Azure Files currently only work with Standard storage. If you use Premium storage, the volume fails to provision.
+> Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher.
 
 For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 

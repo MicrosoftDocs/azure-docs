@@ -35,10 +35,10 @@ The following is a list of examples created and maintained by Microsoft for use 
 
 ### Next Steps
 
-* [Get started with Apache Storm on HDInsight][2b8c3488]
+* [Create and monitor an Apache Storm topology in Azure HDInsight](./apache-storm-quickstart.md)
 * [Learn how to deploy and manage Apache Storm topologies with Apache Storm on HDInsight][6eb0d3b8]
 
-[2b8c3488]:apache-storm-tutorial-get-started-linux.md "Learn how to create an Apache Storm on HDInsight cluster and use the Storm Dashboard to deploy example topologies."
+
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "Learn how to deploy and manage topologies using the web-based Apache Storm Dashboard and Storm UI or the HDInsight Tools for Visual Studio."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Learn how to create C# Storm topologies by using the HDInsight Tools for Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Learn how to create Storm topologies in Java, using Maven, by creating a basic wordcount topology."

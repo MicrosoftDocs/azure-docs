@@ -85,12 +85,24 @@
       displayName: roles
     - name: Extract free-form data
       href: luis-tutorial-pattern-any.md
-  - name: Use V4 bot framework
+  - name: Use with bot
     items:
     - name: With C# 
-      href: luis-csharp-tutorial-bf-v4.md
+      items:
+      - name: 1. Create basic bot
+        href: luis-csharp-tutorial-bf-v4.md 
+        displayName: bot framework, framework, sdk, abs
+      - name: 2. Add telemetry to Application Insights
+        href: luis-tutorial-bot-csharp-appinsights.md
+        displayName: Application insight, kusto
     - name: With Node.js
-      href: luis-nodejs-tutorial-bf-v4.md
+      items: 
+      - name: 1. Create basic bot
+        displayName: bot framework, framework, sdk, abs
+        href: luis-nodejs-tutorial-bf-v4.md
+      - name: 2. Add telemetry to Application Insights
+        displayName: Application insight, kusto
+        href: luis-tutorial-bot-nodejs-appinsights.md      
 - name: Samples
   items:
   - name: Code samples
@@ -200,24 +212,6 @@
       href: luis-tutorial-bing-spellcheck.md
     - name: With Speech service
       href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-    - name: With a bot
-      items:
-        - name: Web app bot
-          items:
-          - name: Node.js
-            displayName: ABS, azure bot, service
-            href: luis-nodejs-tutorial-build-bot-framework-sample.md
-          - name: C#
-            displayName: ABS, azure bot, service
-            href: luis-csharp-tutorial-build-bot-framework-sample.md
-        - name: Application Insights
-          items:
-          - name: Node.js
-            displayName: Application insight, kusto
-            href: luis-tutorial-function-appinsights.md
-          - name: C#
-            displayName: Application insight, kusto
-            href: luis-tutorial-bot-csharp-appinsights.md
   - name: Improve prediction accuracy
     items:
     - name: Using the dashboard
@@ -264,7 +258,7 @@
       href: luis-migration-api-v1-to-v2.md
     - name: Migrate to V3 REST API
       href: luis-migration-api-v3.md 
-      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference
+      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
   - name: Use containers
     items:
     - name: Install and run containers
@@ -308,6 +302,8 @@
       href: luis-reference-prebuilt-number.md
     - name: Ordinal entity
       href: luis-reference-prebuilt-ordinal.md
+    - name: Ordinal V2 entity
+      href: luis-reference-prebuilt-ordinal-v2.md      
     - name: Percentage entity
       href: luis-reference-prebuilt-percentage.md
     - name: PersonName entity

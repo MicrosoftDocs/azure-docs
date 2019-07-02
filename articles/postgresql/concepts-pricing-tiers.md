@@ -59,11 +59,16 @@ We are increasing the storage limits in our General Purpose and Memory Optimized
 | Storage type | Azure Premium Storage | Azure Premium Storage |
 | Storage size | 32 GB to 16 TB| 32 to 16 TB |
 | Storage increment size | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
 > [!IMPORTANT]
-> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, West US 2, North Europe, West Europe, Southeast Asia, Japan East, Korea Central, Australia East. The large storage preview does not support connections through virtual network service endpoints at this time.
+> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East.
 >
+> The large storage preview currently does not support:
+>
+> * Incoming connections through virtual network service endpoints
+> * Geographically redundant backups
+> * Read replicas
 
 ### Reaching the storage limit
 

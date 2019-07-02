@@ -36,6 +36,8 @@
   items:
   - name: Choose a streaming analytics technology
     href: streaming-technologies.md
+  - name: Choose a job development tool
+    href: feature-comparison.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -88,7 +90,7 @@
       href: stream-analytics-test-query.md
     - name: View results on a dashboard
       href: stream-analytics-power-bi-dashboard.md
-    - name: Clean up a job
+    - name: Stop or delete a job
       href: stream-analytics-clean-up-your-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md

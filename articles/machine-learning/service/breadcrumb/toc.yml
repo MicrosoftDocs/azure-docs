@@ -58,6 +58,6 @@
       tocHref: /azure/devops/pipelines/
       topicHref: /azure/machine-learning/service/index
       items:
-      - name: CI/CD
+      - name: Pipelines
         tocHref: /azure/devops/pipelines/languages/
-        topicHref: /azure/devops/pipelines/targets/azure-machine-learning
+        topicHref: /azure/devops/pipelines/index

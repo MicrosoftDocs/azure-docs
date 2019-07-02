@@ -1,6 +1,6 @@
 ---
 title: Baseline policy Block legacy authentication (preview) - Azure Active Directory
-description: Conditional access policy to  block legacy authentication protocols
+description: Conditional Access policy to  block legacy authentication protocols
 
 services: active-directory
 ms.service: active-directory
@@ -26,7 +26,7 @@ Today, majority of all compromising sign-in attempts come from legacy authentica
 
 The best way to protect your account from malicious authentication requests made by legacy protocols is to block these attempts all together. To make it easier for you to block all login requests made by legacy protocols, we created a baseline policy that does just that.
 
-![Block legacy authentication with conditional access](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
+![Block legacy authentication with Conditional Access](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
 
 **Block legacy authentication** is [baseline policy](concept-baseline-protection.md) that blocks all authentication requests made from legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, all requests coming from legacy protocols will be blocked and all users will be required to MFA whenever required. This policy does not block Exchange ActiveSync.
 
@@ -40,7 +40,7 @@ Before you can block legacy authentication in your directory, you need to first 
 
 Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
 
-These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that do not appear in these logs and are confirmed to not be using legacy authentication, implement a conditional access policy or enable the **Baseline policy: block legacy authentication** for these users only.
+These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that do not appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy or enable the **Baseline policy: block legacy authentication** for these users only.
 
 ## Moving away from legacy authentication
 
@@ -104,17 +104,16 @@ The policy **Baseline policy: Block legacy authentication (preview)** comes pre-
 
 To enable this policy and protect your organization:
 
-1. Sign in to the **Azure portal** as global administrator, security administrator, or conditional access administrator.
+1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: Block legacy authentication (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
-1. Add any user exclusions by clicking on **Users** > **Select excluded users** and choosing the users that need to be excluded. Click **Select** then **Done**.
 1. Click **Save**.
 
 ## Next steps
 
 For more information, see:
 
-* [Conditional access baseline protection policies](concept-baseline-protection.md)
+* [Conditional Access baseline protection policies](concept-baseline-protection.md)
 * [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
-* [What is conditional access in Azure Active Directory?](overview.md)
+* [What is Conditional Access in Azure Active Directory?](overview.md)
