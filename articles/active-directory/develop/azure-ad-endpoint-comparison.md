@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
@@ -15,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
@@ -43,7 +42,7 @@ For Microsoft identity platform endpoint, you can use the Microsoft Authenticati
 
 Apps using the Azure AD v1.0 endpoint are required to specify their required OAuth 2.0 permissions in advance, for example:
 
-![Permissions Registration UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![Example showing the Permissions Registration UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 The permissions set directly on the application registration are **static**. While static permissions of the app defined in the Azure portal keep the code nice and simple, it presents some possible issues for developers:
 

@@ -3,8 +3,8 @@ title: View tenant applications - Azure Active Directory | Microsoft Docs
 description: Use the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 
@@ -61,7 +61,6 @@ Select options according to what you're looking for.
 1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.
 
 1. After choosing the options you want, select **Apply**.
- 
 
 ## Search for a tenant application
 
@@ -71,19 +70,17 @@ To search for a particular application:
 
 1. Enter the name of the application you want to find. If the application has been added to your Azure AD tenant, it appears in the search results. This example shows that GitHub hasn't been added to the tenant applications.
 
-    ![Search for an application](media/view-applications-portal/search-for-tenant-application.png)
+    ![Example shows an app hasn't been added to the tenant](media/view-applications-portal/search-for-tenant-application.png)
 
 1. Try entering the first few letters of an application name. This example shows all the applications that start with **Sales**.
 
-    ![Search with a prefix](media/view-applications-portal/search-by-prefix.png)
+    ![Example shows all apps that start with Sales](media/view-applications-portal/search-by-prefix.png)
 
 ## Next steps
 
 In this quickstart, you learned how to view the applications in your Azure AD tenant. You learned how to filter the list of applications by application type, status, and visibility. You also learned how to search for a particular application.
 
-Now that you've found the application you were looking for, you can continue to [Add more applications to your tenant](add-application-portal.md). Or, you can select the application to view or edit properties and configuration options. For example, you could configure single sign-on. 
+Now that you've found the application you were looking for, you can continue to [Add more applications to your tenant](add-application-portal.md). Or, you can select the application to view or edit properties and configuration options. For example, you could configure single sign-on.
 
 > [!div class="nextstepaction"]
 > [Configure single sign-on](configure-single-sign-on-portal.md)
-
-

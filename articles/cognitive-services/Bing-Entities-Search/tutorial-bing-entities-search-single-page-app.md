@@ -530,7 +530,7 @@ It's easy to install a CORS proxy to allow our tutorial app to access the client
 
 Next, change the Bing Web Search endpoint in the HTML file to:
 
-    https://localhost:9090/httpss://api.cognitive.microsoft.com/bing/v7.0/search
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
 Finally, start the CORS proxy with the following command:
 

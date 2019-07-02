@@ -4,9 +4,9 @@ description: This article describes how to develop parameterized URLs in Azure T
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 To share a custom view in Time Series Insights Explorer, you can programmatically create a parameterized URL of the custom view.
 
-The Time Series Insights Explorer supports URL query parameters to specify views in the experience directly from the URL. For example, using only the URL, you can specify a target environment, a search predicate, and desired time span. When a user clicks the customized URL, the interface provides a link directly to that asset in the Time Series Insights portal. Data access policies apply.
+The Time Series Insights Explorer supports URL query parameters to specify views in the experience directly from the URL. For example, using only the URL, you can specify a target environment, a search predicate, and desired time span. When a user selects the customized URL, the interface provides a link directly to that asset in the Time Series Insights portal. Data access policies apply.
 
 > [!TIP]
 > * View the free [Time Series Insights demo](https://insights.timeseries.azure.com/samples).
@@ -81,11 +81,11 @@ The `timeSeriesDefinitions=<collection of term objects>` parameter specifies the
 | `multiChartStack=false` | `true` is enabled by default so pass `false` to stack. |
 | `multiChartStack=false&multiChartSameScale=true` | Stacking must be enabled to use the same Y-axis scale across terms.  It's `false` by default, so passing 'true' enables this functionality. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Units = days, hours, minutes, seconds, milliseconds.  Always capitalize the unit. </br> Define the number of units by passing the desired integer for timeBucketSize.  Note, you smooth up to 7 days.  |
-| `timezoneOffset=-<integer>` | The integer is always in milliseconds. </br> Note, this functionality is slightly different than what we enable in the TSI explorer, where we enable you to choose local (browser time) or UTC. |
+| `timezoneOffset=-<integer>` | The integer is always in milliseconds. </br> Note, this functionality is slightly different than what we enable in the Time Series Insights explorer, where we enable you to choose local (browser time) or UTC. |
 
 ### Examples
 
-To add time series definitions to a TSI environment as a URL parameter, append:
+To add time series definitions to a Time Series Insights environment as a URL parameter, append:
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -107,7 +107,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 > [!TIP]
 > See the Explorer live [using the URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
 
-The URL above describes and builds the TSI Explorer view:
+The URL above describes and builds the Time Series Insights Explorer view:
 
 [![Time Series Insights explorer Terms](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 

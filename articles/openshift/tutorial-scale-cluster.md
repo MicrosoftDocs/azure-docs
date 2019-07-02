@@ -2,8 +2,8 @@
 title: Tutorial - Scale an Azure Red Hat OpenShift cluster | Microsoft Docs
 description: Learn how to scale a Microsoft Azure Red Hat OpenShift cluster using the Azure CLI
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift

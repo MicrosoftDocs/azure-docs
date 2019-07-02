@@ -58,7 +58,7 @@ Breaking the deployment into tasks is helpful if you are using the [Webservice.d
     ```python
     # configure the image
     image_config = ContainerImage.image_configuration(runtime="python",
-                                                      execution_script="score.py",
+                                                      entry_script="score.py",
                                                       conda_file="myenv.yml")
 
     # create the image
@@ -160,12 +160,12 @@ If you encounter problems deploying a model to ACI or AKS, try deploying it as a
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the `model` variable) as a local web service:
 
 ```python
-from azureml.core.model import InferenceConfig
+from azureml.core.model import InferenceConfig,Model
 from azureml.core.webservice import LocalWebservice
 
-# Create inferencing configuration. This creates a docker image that contains the model.
+# Create inference configuration. This creates a docker image that contains the model.
 inference_config = InferenceConfig(runtime= "python", 
-                                   execution_script="score.py",
+                                   entry_script="score.py",
                                    conda_file="myenv.yml")
 
 # Create a local deployment, using port 8890 for the web service endpoint

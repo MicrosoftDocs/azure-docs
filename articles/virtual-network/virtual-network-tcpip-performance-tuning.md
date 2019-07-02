@@ -62,7 +62,7 @@ Keep in mind that increasing the MTU won't necessarily create a more efficient n
 
 #### Azure and VM MTU
 
-The default MTU for Azure VMs is 1,500 bytes. The Azure Virtual Network stack will attempt to fragment a packet at 1,400 bytes. But the Virtual Network stack will allow packets up to 2,006 bytes when the Don't Fragment bit is set in the IP header.
+The default MTU for Azure VMs is 1,500 bytes. The Azure Virtual Network stack will attempt to fragment a packet at 1,400 bytes.
 
 Note that the Virtual Network stack isn't inherently inefficient because it fragments packets at 1,400 bytes even though VMs have an MTU of 1,500. A large percentage of network packets are much smaller than 1,400 or 1,500 bytes.
 

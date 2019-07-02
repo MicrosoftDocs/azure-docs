@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -63,11 +63,14 @@ If you aren't combining resources into a single group, or if existing resource g
 
 ## Select a location
 
-As an Azure service, Azure Search can be hosted in datacenters around the world. [Prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
+As an Azure service, Azure Search can be hosted in datacenters around the world. The list of supported regions can be found in the [pricing page](https://azure.microsoft.com/pricing/details/search/). 
 
-If you are indexing data provided by another Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), create your Azure Search service in the same region to avoid bandwidth charges. There are no charges for outbound data when services are in the same region.
+If you are indexing data provided by another Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), we recommend creating your Azure Search service in the same region to avoid bandwidth charges. There are no charges for outbound data when services are in the same region.
 
 If you are using cognitive search AI enrichments, create your service in the same region as your Cognitive Services resource. Co-location of services is a requirement for AI enrichment.
+
+> [!Note]
+> Central India is currently unavailable for new services. For services already in Central India, you can scale up with no restrictions, and your service is fully supported in that region. The restriction on this region is temporary and we will remove this note when it longer applies.
 
 ## Select a pricing tier (SKU)
 
@@ -85,7 +88,7 @@ Remember to pin your service to the dashboard for easy access whenever you sign 
 
 ## Get a key and URL endpoint
 
-With few exceptions, using your new service requires that you provide the URL endpoint and an authorization api-key. Quickstarts, tutorials such as [Explore Azure Search REST APIs (Postman)](search-fiddler.md) and [How to use Azure Search from .NET](search-howto-dotnet-sdk.md), samples, and custom code all need an endpoint and key to run on your particular resource.
+With few exceptions, using your new service requires that you provide the URL endpoint and an authorization api-key. Quickstarts, tutorials such as [Explore Azure Search REST APIs (Postman)](search-get-started-postman.md) and [How to use Azure Search from .NET](search-howto-dotnet-sdk.md), samples, and custom code all need an endpoint and key to run on your particular resource.
 
 1. In the service overview page, locate and copy the URL endpoint on the right side of the page.
 

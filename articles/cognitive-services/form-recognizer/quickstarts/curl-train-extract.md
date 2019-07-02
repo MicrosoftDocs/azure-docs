@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Train a model and extract form data using cURL - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will use the Form Recognizer REST API with cURL to train a model and extract data from forms.
+description: In this quickstart, you'll use the Form Recognizer REST API with cURL to train a model and extract data from forms.
 author: PatrickFarley
 manager: nitinme
 
@@ -13,34 +13,37 @@ ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use Form Recognizer to extract my form data.
 ---
 
-# Quickstart: Train a Form Recognizer model and extract form data using REST API with cURL
+# Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL
 
-In this quickstart, you will use the Form Recognizer's REST API with cURL to train and score forms to extract key-value pairs and tables.
+In this quickstart, you'll use the Azure Form Recognizer REST API with cURL to train and score forms to extract key-value pairs and tables.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+To complete this quickstart, you must have:
+- Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
+- [cURL](https://curl.haxx.se/windows/) installed.
+- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the data to the root of an Azure Blob Storage account.
 
-- You got access to the Form Recognizer limited-access preview. To get access to the preview, please fill out and submit the [Cognitive Services Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
-- You must have [cURL](https://curl.haxx.se/windows/).
-- You must have a subscription key for Form Recognizer. Follow the single-service subscription instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) to subscribe to Form Recognizer and get your key. Do not use the multi-service subscription, as this will not include the Form Recognizer service.
-- You must have a minimum set of five forms of the same type. You can use a [sample dataset](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
+## Create a Form Recognizer resource
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## Train a Form Recognizer model
 
-First, you will need a set of training data. You can use data in an Azure Blob or your own local training data. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Alternatively, you can use a single empty form; the form's filename includes the word "empty."
+First, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty."
 
-To train a Form Recognizer model using the documents in your Azure Blob container, call the **Train** API by executing the cURL command below. Before running the command, make the following changes:
+To train a Form Recognizer model by using the documents in your Azure blob container, call the **Train** API by running the cURL command that follows. Before you run the command, make these changes:
 
-* Replace `<Endpoint>` with the endpoint you obtained from your Form Recognizer subscription key. You can find it in your Form Recognizer resource overview tab.
-* Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the training data is located.  
-* Replace `<subscription key>` with your subscription key.
+1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve this, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Click the next dialog and copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
-You will receive a `200 (Success)` response with the following JSON output:
+You'll receive a `200 (Success)` response with the following JSON output:
 
 ```json
 {
@@ -81,25 +84,26 @@ You will receive a `200 (Success)` response with the following JSON output:
 }
 ```
 
-Take note of the `"modelId"` value; you will need it for the following steps.
+Note the `"modelId"` value. You'll need it in the following steps.
   
 ## Extract key-value pairs and tables from forms
 
-Next, you will analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by executing the cURL command below. Before running the command, make the following changes:
+Next, you'll analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the cURL command that follows. Before you run the command, make these changes:
 
-* Replace `<Endpoint>` with the endpoint you obtained from your Form Recognizer subscription key. You can find it in your Form Recognizer resource **Overview** tab.
-* Replace `<modelID>` with the model ID you received in the previous step of training the model.
-* Replace `<path to your form>` with the file path to your form.
-* Replace `<subscription key>` with your subscription key.
-* Replace `<file type>` with the file type - supported types pdf, image/jpeg, image/png.
+1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `<modelID>` with the model ID that you received in the previous section.
+1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
+1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`.
+1. Replace `<subscription key>` with your subscription key.
+
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### Examine the response
 
-A successful response is returned in JSON and represents the extracted key-value pairs and tables from the form.
+A success response is returned in JSON. It represents the key-value pairs and tables extracted from the form:
 
 ```bash
 {
@@ -424,7 +428,7 @@ A successful response is returned in JSON and represents the extracted key-value
 
 ## Next steps
 
-In this guide, you used the Form Recognizer REST APIs with cURL to train a model and run it in a sample case. Next, see the reference documentation to explore the Form Recognizer API in more depth.
+In this quickstart, you used the Form Recognizer REST API with cURL to train a model and run it in a sample scenario. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
 > [REST API reference documentation](https://aka.ms/form-recognizer/api)

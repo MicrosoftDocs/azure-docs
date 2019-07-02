@@ -10,9 +10,9 @@ ms.date: 04/25/2019
 ms.author: mbaldwin
 
 ---
-# Common security attributes for Azure Resource Manager
+# Security attributes for Azure Resource Manager
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Resource Manager.
+This article documents the security attributes built into Azure Resource Manager.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -21,7 +21,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes |  |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | HTTPS/TLS. |
+| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | HTTPS/TLS. |
 | Encryption key handling (CMK, BYOK, etc.)| N/A | Azure Resource Manager stores no customer content, only control data. |
 | Column level encryption (Azure Data Services)| Yes | |
 | API calls encrypted| Yes | |

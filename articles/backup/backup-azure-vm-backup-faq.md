@@ -6,7 +6,7 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 06/28/2019
 ms.author: sogup
 ---
 # Frequently asked questions-Back up Azure VMs
@@ -18,31 +18,27 @@ This article answers common questions about backing up Azure VMs with the [Azure
 
 ### Which VM images can be enabled for backup when I create them?
 When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions)
- 
-### Is the backup cost included in the VM cost? 
+
+### Is the backup cost included in the VM cost?
 
 No. Backup costs are separate from a VM's costs. Learn more about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
- 
-### Which permissions are required to enable backup for a VM? 
 
-If you're a VM contributor, you can enable backup on the VM. If you're using a custom role, you need the following permissions to enable backup on the VM: 
+### Which permissions are required to enable backup for a VM?
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+If you're a VM contributor, you can enable backup on the VM. If you're using a custom role, you need the following permissions to enable backup on the VM:
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 If your Recovery Services vault and VM have different resource groups, make sure you have write permissions in the resource group for the Recovery Services vault.  
 
-
-### What Azure VMs can you back up using Azure Backup?
-
-Review the [support matrix](backup-support-matrix-iaas.md) for support details and limitations.
 
 ### Does an on-demand backup job use the same retention schedule as scheduled backups?
 No. Specify the retention range for an on-demand backup job. By default, it's retained for 30 days when triggered from the portal.
@@ -67,11 +63,6 @@ If you lock the resource group created by Azure Backup Service, backups will sta
 
 User needs to remove the lock and clear the restore point collection from that resource group in order to make the future backups successful, [follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
-### Does the backup policy consider Daylight Saving Time (DST)?
-No. The date and time on your local computer is local with current daylight savings applied. The time set for scheduled backups might differ from the local time due to DST.
-
-### How many data disks can I attach to a VM backed up by Azure Backup?
-Azure Backup can back up VMs with up to 16 disks. Support for 16 disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
 
 ### Does Azure backup support standard SSD managed disk?
 Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
@@ -84,6 +75,11 @@ Azure Backup can't back up the WA-enabled disk but can exclude it from backup. H
 
 We're running private preview for an SAP HANA backup with an RPO of 15 minutes. It's built in a similar way to SQL DB backup, and uses the backInt interface for third-party solutions certified by SAP HANA. If you're interested, email us at `AskAzureBackupTeam@microsoft.com` with the subject **Sign up for private preview for backup of SAP HANA in Azure VMs**.
 
+### What is the maximum delay I can expect in backup start time from the scheduled backup time I have set in my VM backup policy?
+The scheduled backup will be triggered within 2 hours of the scheduled backup time. For ex. If 100 VMs have backup start time scheduled at 2:00 am, then by max 4:00 am all the 100VMs will have backup job in progress. If scheduled backups have been paused due to outage and resumed/retried then backup can start outside of this scheduled 2hr window.
+
+### What is the minimum allowed retention range for daily backup point?
+Azure Virtual Machine backup policy supports a minimum retention range of 7 days up to 9999 days. Any modification to an existing VM backup policy with less than 7 days will require an update to meet the minimum retention range of 7 days.
 
 ## Restore
 
@@ -134,3 +130,6 @@ The VM is backed up using the schedule and retention settings in the modified or
 3. Re-enabled backup in the same or new vault.
 
 You can restore the VM from available restore points that were created before the move operation.
+
+### Is there a limit on number of VMs that can be associated with a same backup policy?
+Yes, there is a limit of 100 VMs that can be associated to the same backup policy from portal. We recommend that for more than 100 VMs, create multiple backup policies with same schedule or different schedule.

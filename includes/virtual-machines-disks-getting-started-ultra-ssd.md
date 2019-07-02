@@ -22,7 +22,7 @@ Once approved, you need to determine which availability zone you are in, in orde
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
-CLI: `az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
+CLI: `az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].locationInfo"`
 
 The response will be similar to the form below, where X is the zone to use for deploying in East US 2. X could be either 1, 2, or 3.
 
@@ -32,7 +32,8 @@ Preserve the **Zones** value, it represents your availability zone and you will 
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-If there was no response from the command, then your registration to the feature is either still pending, or not approved yet.
+> [!NOTE]
+> If there was no response from the command, then your registration to the feature is either still pending, or not approved yet.
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with ultra SSD.
 

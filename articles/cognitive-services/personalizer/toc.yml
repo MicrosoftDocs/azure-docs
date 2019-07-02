@@ -24,34 +24,36 @@
     displayName: best practice, design
   - name: Fundamental concepts
     items: 
-    - name: "Features: Action and context"
+    - name: "Features Action and Context"
       href: concepts-features.md
-      displayName: action, context, feature, namespace, JSON, best practice, set 
+      displayName: action, context, feature, namespace, JSON, best practice, set
+    - name: Active learning
+      href: concept-active-learning.md
+      displayName: active, inactive
+    - name: Rewards
+      href: concept-rewards.md
+      displayName: reward, wait time, default reward 
     - name: Reinforcement learning
       href: concepts-reinforcement-learning.md
       displayName: RL, contextual bandits, Vowpal Wabbit
+    - name: Exploration
+      href: concepts-exploration.md
   - name: Analysis
     items: 
     - name: Offline evaluation
       href: concepts-offline-evaluation.md
       displayName: learning policy, Counterfactual, features
+  - name: Scalability and performance
+    href: concepts-scalability-performance.md 
 - name: How-to guides
   items:
   - name: Create and configure Personalizer
     href: how-to-settings.md
-    displayName: azure, portal, settings, evaluation, offline, policy
+    displayName: azure, portal, settings, evaluation, offline, policy, export, model
   - name: Analyze
     items: 
     - name: Offline evaluation
-      href: how-to-offline-evaluation.md
-  - name: Use containers
-    items:
-    - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey
-      href: personalizer-container-howto.md
-    - name: Configure containers
-      href: personalizer-container-configuration.md
-      displayName: docker, run, apikey      
+      href: how-to-offline-evaluation.md    
 - name: Reference
   items:
   - name: Samples
@@ -60,14 +62,24 @@
     href: https://go.microsoft.com/fwlink/?linkid=2092082
   - name: SDKs
     items:
-    - name: .Net SDK Reference 
-      href: https://go.microsoft.com/fwlink/?linkid=2092353
-    - name: NuGet package
-      href: https://go.microsoft.com/fwlink/?linkid=2092272
+    - name: .NET
+      items: 
+      - name: .NET SDK Reference 
+        href: https://go.microsoft.com/fwlink/?linkid=2092353
+      - name: NuGet package
+        href: https://go.microsoft.com/fwlink/?linkid=2092272
+    - name: Python
+      items: 
+      - name: Pypi package
+        href: https://pypi.org/project/azure-cognitiveservices-personalizer/
 - name: Resources
   items:
+  - name: Troubleshooting
+    href: troubleshooting.md
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing 

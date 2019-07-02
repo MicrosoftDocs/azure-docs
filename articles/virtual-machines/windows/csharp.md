@@ -76,12 +76,12 @@ Before you start this step, make sure that you have access to an [Active Directo
 4. Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to authorization file that you created. For example, the following PowerShell command can be used:
 
     ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
 ### Create the management client
 
-1. Open the Program.cs file for the project that you created, and then add these using statements to the existing statements at top of the file:
+1. Open the Program.cs file for the project that you created. Then, add these using statements to the existing statements at top of the file:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -361,7 +361,7 @@ Console.ReadLine();
 
 ### Add a data disk to the VM
 
-To add a data disk to the virtual machine, add this code to the Main method to add a data disk that is 2 GB in size, han a LUN of 0 and a caching type of ReadWrite:
+To add a data disk to the virtual machine, add this code to the Main method. This example adds a data disk that is 2 GB in size, han a LUN of 0 and a caching type of ReadWrite:
 
 ```
 Console.WriteLine("Adding data disk to vm...");

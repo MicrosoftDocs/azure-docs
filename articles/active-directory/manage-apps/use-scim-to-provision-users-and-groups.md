@@ -3,8 +3,8 @@ title: Automate provisioning of apps using SCIM in Azure Active Directory | Micr
 description: Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a web service with the interface defined in the SCIM protocol specification
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/06/2019
-ms.author: celested
-ms.reviewer: asmalser
+ms.date: 05/06/2019
+ms.author: mimart
+ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 
 
@@ -78,7 +78,7 @@ Applications that support the SCIM profile described in this article can be conn
    *Figure 3: Configuring provisioning in the Azure portal*
     
 1. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/v2/
-1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, Azure AD includes an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD-issued token.
+1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. 
 1. Select **Test Connection** to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempt fails, error information is displayed.  
 
     >[!NOTE]
@@ -256,10 +256,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Get User
 
-###### Request
+###### <a name="request-1"></a>Request
 *GET /Users/5d48a0a8e9f04aa38008* 
 
-###### Response
+###### <a name="response-1"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -287,10 +287,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 ```
 #### Get User by query
 
-##### Request
+##### <a name="request-2"></a>Request
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
-##### Response
+##### <a name="response-2"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -326,10 +326,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Get User by query - Zero results
 
-##### Request
+##### <a name="request-3"></a>Request
 *GET /Users?filter=userName eq "non-existent user"*
 
-##### Response
+##### <a name="response-3"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -344,7 +344,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Update User [Multi-valued properties]
 
-##### Request
+##### <a name="request-4"></a>Request
 *PATCH /Users/6764549bef60420686bc HTTP/1.1*
 ```json
 {
@@ -364,7 +364,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-4"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -393,7 +393,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Update User [Single-valued properties]
 
-##### Request
+##### <a name="request-5"></a>Request
 *PATCH /Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
 {
@@ -406,7 +406,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-5"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -436,10 +436,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Delete User
 
-##### Request
+##### <a name="request-6"></a>Request
 *DELETE /Users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### Response
+##### <a name="response-6"></a>Response
 *HTTP/1.1 204 No Content*
 
 ### Group Operations
@@ -451,7 +451,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Create Group
 
-##### Request
+##### <a name="request-7"></a>Request
 *POST /Groups HTTP/1.1*
 ```json
 {
@@ -465,7 +465,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-7"></a>Response
 *HTTP/1.1 201 Created*
 ```json
 {
@@ -485,10 +485,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Get Group
 
-##### Request
+##### <a name="request-8"></a>Request
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
-##### Response
+##### <a name="response-8"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -506,10 +506,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Get Group by displayName
 
-##### Request
+##### <a name="request-9"></a>Request
 *GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
 
-##### Response
+##### <a name="response-9"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -533,7 +533,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 ```
 #### Update Group [Non-member attributes]
 
-##### Request
+##### <a name="request-10"></a>Request
 *PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
@@ -546,12 +546,12 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-10"></a>Response
 *HTTP/1.1 204 No Content*
 
 ### Update Group [Add Members]
 
-##### Request
+##### <a name="request-11"></a>Request
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -567,12 +567,12 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-11"></a>Response
 *HTTP/1.1 204 No Content*
 
 #### Update Group [Remove Members]
 
-##### Request
+##### <a name="request-12"></a>Request
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -588,15 +588,15 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-12"></a>Response
 *HTTP/1.1 204 No Content*
 
 #### Delete Group
 
-##### Request
+##### <a name="request-13"></a>Request
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### Response
+##### <a name="response-13"></a>Response
 *HTTP/1.1 204 No Content*
 
 
@@ -630,7 +630,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 1. In this folder, launch the FileProvisioning\Host\FileProvisioningService.csproj project in Visual Studio.
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**, and execute the following commands for the FileProvisioningService project to resolve the solution references:
 
-   ```
+   ```powershell
     Update-Package -Reinstall
    ```
 
@@ -664,8 +664,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
     
 1. In the **Tenant URL** field, enter the internet-exposed URL and port of your SCIM endpoint. The entry is something like http://testmachine.contoso.com:9000 or http://\<ip-address>:9000/, where \<ip-address> is the internet exposed IP address. 
 
-1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. If this field is left blank, Azure AD will include an OAuth bearer token issued from Azure AD with each request. Apps that use Azure AD as an identity provider can validate this Azure AD -issued token.
-
+1. If the SCIM endpoint requires an OAuth bearer token from an issuer other than Azure AD, then copy the required OAuth bearer token into the optional **Secret Token** field. 
 1. Select **Test Connection** to have Azure Active Directory attempt to connect to the SCIM endpoint. If the attempt fails, error information is displayed.  
 
     >[!NOTE]
@@ -699,6 +698,7 @@ To develop your own web service that conforms to the SCIM specification, first f
 ### Building a Custom SCIM Endpoint
 Developers using the CLI libraries can host their services within any executable CLI assembly, or within Internet Information Services. Here is sample code for hosting a service within an executable assembly, at the address http://localhost:9000: 
 
+   ```csharp
     private static void Main(string[] arguments)
     {
     // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
@@ -767,6 +767,7 @@ Developers using the CLI libraries can host their services within any executable
         }
     }
     }
+   ```
 
 This service must have an HTTP address and server authentication certificate of which the root certification authority is one of the following names: 
 
@@ -788,6 +789,7 @@ Here, the value provided for the certhash argument is the thumbprint of the cert
 
 To host the service within Internet Information Services, a developer would build a CLI code library assembly with a class named Startup in the default namespace of the assembly.  Here is a sample of such a class: 
 
+   ```csharp
     public class Startup
     {
     // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
@@ -815,6 +817,7 @@ To host the service within Internet Information Services, a developer would buil
         this.starter.ConfigureApplication(builder);
     }
     }
+   ```
 
 ### Handling endpoint authentication
 Requests from Azure Active Directory include an OAuth 2.0 bearer token.   Any service receiving the request should authenticate the issuer as being Azure Active Directory for the expected Azure Active Directory tenant, for access to the Azure Active Directory Graph web service.  In the token, the issuer is identified by an iss claim, like "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  In this example, the base address of the claim value, https://sts.windows.net, identifies Azure Active Directory as the issuer, while the relative address segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, is a unique identifier of the Azure Active Directory tenant for which the token was issued.  If the token was issued for accessing the Azure Active Directory Graph web service, then the identifier of that service, 00000002-0000-0000-c000-000000000000, should be in the value of the token’s aud claim.  Each of the applications that are registered in a single tenant may receive the same `iss` claim with SCIM requests.
@@ -823,8 +826,8 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
 1. In a provider, implement the Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior property by having it return a method to be called whenever the service is started: 
 
-   ```
-     public override Action\<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration\> StartupBehavior
+   ```csharp
+     public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration> StartupBehavior
      {
        get
        {
@@ -841,7 +844,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
 2. Add the following code to that method to have any request to any of the service’s endpoints authenticated as bearing a token issued by Azure Active Directory for a specified tenant, for access to the Azure AD Graph web service: 
 
-   ```
+   ```csharp
      private void OnServiceStartup(
        Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
        System.Web.Http.HttpConfiguration HttpConfiguration configuration)
@@ -879,12 +882,12 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
     >[!NOTE]
     > This is an example only. Not all users will have a mailNickname attribute, and the value a user has may not be unique in the directory. Also, the attribute used for matching (which in this case is externalId) is configurable in the [Azure AD attribute mappings](customize-application-attributes.md).
 
-   ````
+   ```
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
-   ````
+   ```
    If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
-   ````
+   ```csharp
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -894,9 +897,9 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
       string correlationIdentifier);
-   ````
+   ```
    Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
-   ````
+   ```csharp
     public interface IQueryParameters: 
       Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
     {
@@ -913,6 +916,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
       string SchemaIdentifier 
       { get; }
     }
+   ```
 
    ```
      GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
@@ -921,7 +925,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
    If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
 
-   ```
+   ```csharp
      // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
      // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
      // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -935,7 +939,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
    Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
 
-   ```
+   ```csharp
      public interface IQueryParameters: 
        Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
      {
@@ -980,7 +984,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
 2. If the response to a query to the web service for a user with an externalId attribute value that matches the mailNickname attribute value of a user doesn't return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
 
-   ````
+   ```
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
     Content-type: application/scim+json
@@ -1009,9 +1013,9 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
       "title":null,
       "department":null,
       "manager":null}
-   ````
+   ```
    The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
-   ````
+   ```csharp
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -1019,16 +1023,16 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> Create(
       Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
       string correlationIdentifier);
-   ````
+   ```
    In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
 
 3. To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
-   ````
+   ```
     GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
-   ````
+   ```
    In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
-   ````
+   ```csharp
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
@@ -1054,7 +1058,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
         string Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier 
           { get; set; }
     }
-   ````
+   ```
    In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
   
    * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
@@ -1077,7 +1081,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
    Here, the value of the index x can be 0 and the value of the index y can be 1, or the value of x can be 1 and the value of y can be 0, depending on the order of the expressions of the filter query parameter.   
 
 5. Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
-   ````
+   ```
     PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
     Content-type: application/scim+json
@@ -1095,9 +1099,9 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
               {
                 "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
                 "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
-   ````
+   ```
    The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
-   ````
+   ```csharp
     // System.Threading.Tasks.Tasks and 
     // System.Collections.Generic.IReadOnlyCollection<T>
     // are defined in mscorlib.dll.  
@@ -1131,7 +1135,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
       <Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation> 
         Operations
         { get;}
-
+   ```
 
    If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
   
@@ -1171,7 +1175,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
    The Microsoft Common Language Infrastructure libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
 
-   ```
+   ```csharp
      // System.Threading.Tasks.Tasks and 
      // System.Collections.Generic.IReadOnlyCollection<T>
      // are defined in mscorlib.dll.  
@@ -1272,7 +1276,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 
    If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Delete method of the service’s provider.   That method has this signature: 
 
-   ```
+   ```csharp
      // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
      // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
      // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
@@ -1344,6 +1348,9 @@ Group resources are identified by the schema identifier, `urn:ietf:params:scim:s
 | objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 
+## Allow IP addresses used by the Azure AD provisioning service to make SCIM requests
+Certain apps allow inbound traffic to their app. In order for the Azure AD provisioning service to function as expected, the IP addresses used must be allowed. For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). You can download and program these IPs into your firewall as needed. The reserved IP ranges for Azure AD provisioning can be found under "AzureActiveDirectoryDomainServices."
+ 
 
 ## Related articles
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)

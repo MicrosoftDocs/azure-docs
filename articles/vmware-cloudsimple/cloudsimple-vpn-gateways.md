@@ -20,7 +20,7 @@ CloudSimple provides two kinds of VPN gateways:
 
 ## Site-to-site VPN gateway
 
-A site-to-site VPN gateway is used to send encrypted traffic between a CloudSimple region network and an on-premises datacenter. Use this connection to define the subnets/CIDR range, for network traffic between your on-premises network and the CloudSimple region network.
+A site-to-site VPN gateway is used to send encrypted traffic between a CloudSimple region network and an on-premises datacenter. Use this connection to define the subnets/CIDR range, for communication between your on-premises network and the CloudSimple region network.
 
 The VPN gateway allows you to consume services from on-premises on your private cloud, and services on your private cloud, from the on-premises network.  CloudSimple provides a policy-based VPN server for establishing connection from your on-premises network.
 
@@ -30,6 +30,11 @@ Use cases for site-to-site VPN include:
 * Use of your on-premises Active Directory as a vCenter identity source.
 * Convenient transfer of VM templates, ISOs, and other files from your on-premises resources to your private cloud vCenter.
 * Accessibility of workloads running on your private cloud from your on-premises network.
+
+![Site-to-Site VPN connection topology](media/cloudsimple-site-to-site-vpn-connection.png)
+
+> [!IMPORTANT]
+> You must clamp TCP MSS at 1078 bytes or lower. Or if your VPN devices do not support MSS clamping, you can alternatively set the MTU on the tunnel interface to 1118 bytes instead. 
 
 ### Cryptographic parameters
 
@@ -44,7 +49,7 @@ A site-to-site VPN connection uses the following default cryptographic parameter
 | IKE Version | IKEv1 | IKEv1 | IKEv1 |
 | Encryption | AES 128 | AES 256 | AES 256 |
 | Hash Algorithm| SHA 256 | SHA 256 | SHA 1 |
-| Diffie Hellman Group (DH Group) | 1 | 1 | 1 |
+| Diffie Hellman Group (DH Group) | 2 | 2 | 2 |
 | Life Time | 28,800 seconds | 28,800 seconds | 28,800 seconds |
 | Data Size | 4 GB | 4 GB | 4 GB |
 

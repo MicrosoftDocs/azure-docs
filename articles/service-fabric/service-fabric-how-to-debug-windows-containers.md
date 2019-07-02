@@ -1,6 +1,6 @@
 ---
 title: Debug Windows containers with Service Fabric and VS | Microsoft Docs
-description: Learn how to debug Windows containers in Azure Service Fabric using Visual Studio 2017.
+description: Learn how to debug Windows containers in Azure Service Fabric using Visual Studio 2019.
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,9 +14,9 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo, mikhegn
 ---
-# How to: Debug Windows containers in Azure Service Fabric using Visual Studio 2017
+# How to: Debug Windows containers in Azure Service Fabric using Visual Studio 2019
 
-With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in containers as Service Fabric services. This article shows you how to configure your environment and then debug a .NET application in a container running in a local Service Fabric cluster.
+With Visual Studio 2019, you can debug .NET applications in containers as Service Fabric services. This article shows you how to configure your environment and then debug a .NET application in a container running in a local Service Fabric cluster.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
 
 1. Make sure the Docker for Window service is running before proceeding with the next step.
 
-1. In order to support DNS resolution between containers, you will have to set up your local development cluster, using the machine name. These steps are also necessary if you want to address services through the reverse proxy.
+1. To support DNS resolution between containers, you'll have to set up your local development cluster, using the machine name. These steps are also necessary if you want to address services through the reverse proxy.
    1. Open PowerShell as administrator
    2. Navigate to the SDK Cluster setup folder, typically `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
    3. Run the script `DevClusterSetup.ps1`
@@ -47,19 +47,19 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
 
 Below is a list of known limitations with debugging containers in Service Fabric and possible resolutions:
 
-* Using localhost for ClusterFQDNorIP will not support DNS resolution in containers.
+* Using localhost for ClusterFQDNorIP won't support DNS resolution in containers.
     * Resolution: Set up the local cluster using machine name (see above)
-* Running Windows10 in a Virtual Machine will not get DNS reply back to the container.
+* Running Windows10 in a Virtual Machine won't get DNS reply back to the container.
     * Resolution: Disable UDP checksum offload for IPv4 on the Virtual Machines NIC
-    * Please note this will degrade networking performance on the machine.
+    * Running Windows10 will degrade networking performance on the machine.
     * https://github.com/Azure/service-fabric-issues/issues/1061
-* Resolving services in same application using DNS service name does not work on Windows10, if the application was deployed using Docker Compose
+* Resolving services in same application using DNS service name doesn't work on Windows10, if the application was deployed using Docker Compose
     * Resolution: Use servicename.applicationname to resolve service endpoints
     * https://github.com/Azure/service-fabric-issues/issues/1062
 * If using IP-address for ClusterFQDNorIP, changing primary IP on the host will break DNS functionality.
-    * Resolution: Recreate the cluster using the new primary IP on the host or use machine name. This is by design.
-* If the FQDN the cluster was created with is not resolvable on the network, DNS will fail.
-    * Resolution: Recreate the local cluster using the primary IP of the host. This is by design.
+    * Resolution: Recreate the cluster using the new primary IP on the host or use machine name. This breakage is by design.
+* If the FQDN the cluster was created with isn't resolvable on the network, DNS will fail.
+    * Resolution: Recreate the local cluster using the primary IP of the host. This failure is by design.
 * When debugging a container, docker logs will only be available in the Visual Studio output window, not through Service Fabric APIs, including Service Fabric Explorer
 
 ## Debug a .NET application running in docker containers on Service Fabric
@@ -75,4 +75,4 @@ Below is a list of known limitations with debugging containers in Service Fabric
     Visual Studio supports console and ASP.NET project types for .NET and .NET Core.
 
 ## Next steps
-To learn more about the capabilities of Service Fabric and containers, please follow this link: [Service Fabric containers overview](service-fabric-containers-overview.md).
+To learn more about the capabilities of Service Fabric and containers, see Service Fabric containers overview](service-fabric-containers-overview.md).

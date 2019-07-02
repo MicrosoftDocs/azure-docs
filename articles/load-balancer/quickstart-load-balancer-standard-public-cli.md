@@ -62,7 +62,7 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
   az network lb create \
     --resource-group myResourceGroupSLB \
     --name myLoadBalancer \
-    --sku standard
+    --sku standard \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
@@ -230,9 +230,9 @@ for i in `seq 1 2`; do
     --nics myNic$i \
     --image UbuntuLTS \
     --generate-ssh-keys \
-    --custom-data cloud-init.txt
+    --custom-data cloud-init.txt \
     --no-wait
-    done
+done
 ```
 It may take a few minutes for the VMs to get deployed.
 

@@ -21,11 +21,11 @@ Azure Stream Analytics is a fully managed service providing low-latency, highly 
 > We have updated the sample code in this article with Azure Stream Analytics Management .NET SDK v2.x version. For sample code using the uses lagecy (1.x) SDK version, please see [Use the Management .NET SDK v1.x for Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
 ## Prerequisites
-Before you begin this article, you must have the following:
+Before you begin this article, you must have the following requirements:
 
-* Install Visual Studio 2017 or 2015.
+* Install Visual Studio 2019 or 2015.
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Create an Azure Resource Group in your subscription. The following is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](/powershell/azure/overview);  
+* Create an Azure Resource Group in your subscription. The following example is a sample Azure PowerShell script. For Azure PowerShell information, see [Install and configure Azure PowerShell](/powershell/azure/overview);  
 
    ```powershell
    # Log in to your Azure account
@@ -44,7 +44,7 @@ Before you begin this article, you must have the following:
 * Set up an input source and output target for the job to connect to.
 
 ## Set up a project
-To create an analytics job use the Stream Analytics API for .NET, first set up your project.
+To create an analytics job, use the Stream Analytics API for .NET, first set up your project.
 
 1. Create a Visual Studio C# .NET console application.
 2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is for Azure client authentication.
@@ -205,7 +205,7 @@ The **TestConnection** method tests whether the Stream Analytics job is able to 
    ```
 
 ## Create a Stream Analytics output target
-Creating an output target is very similar to creating a Stream Analytics input source. Like input sources, output targets are tied to a specific job. To use the same output target for different jobs, you must call the method again and specify a different job name.
+Creating an output target is similar to creating a Stream Analytics input source. Like input sources, output targets are tied to a specific job. To use the same output target for different jobs, you must call the method again and specify a different job name.
 
 The following code creates an output target (Azure SQL database). You can customize the output target's data type and/or serialization type.
 
@@ -283,7 +283,7 @@ The **Delete** method will delete the job as well as the underlying sub-resource
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
-You've learned the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following:
+You've learned the basics of using a .NET SDK to create and run analytics jobs. To learn more, see the following articles:
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
