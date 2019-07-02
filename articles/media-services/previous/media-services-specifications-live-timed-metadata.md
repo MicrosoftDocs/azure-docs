@@ -13,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/1/2019
+ms.date: 07/2/2019
 ms.author: johndeu;
 
 ---
 # Signaling Timed Metadata in Live Streaming 
 
-Last Updated: 2019-07-01
+Last Updated: 2019-07-02
 
 
 ## 1 Introduction 
