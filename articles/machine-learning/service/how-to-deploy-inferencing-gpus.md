@@ -1,7 +1,7 @@
 ---
 title: Deploy a model for inference with GPU 
 titleSuffix: Azure Machine Learning service
-description: This article teaches you how to use the Azure Machine Learning service to deploy a gpu-enabled Tensorflow deep learning model as a web service.service and score inference requests.
+description: This article teaches you how to use the Azure Machine Learning service to deploy a GPU-enabled Tensorflow deep learning model as a web service.service and score inference requests.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 06/01/2019
 
 # Deploy a deep learning model for inference with GPU
 
-This article teaches you how to use the Azure Machine Learning service to deploy a gpu-enabled Tensorflow deep learning model as a web service.
+This article teaches you how to use the Azure Machine Learning service to deploy a GPU-enabled Tensorflow deep learning model as a web service.
 
 Deploy your model to an Azure Kubernetes Service (AKS) cluster to do GPU-enabled inferencing. Inferencing, or model scoring, is the phase where the deployed model is used for prediction. Using GPUs instead of CPUs offer performance advantages on highly parallelizable computation.
 
