@@ -17,7 +17,7 @@ ms.author: erhopf
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Linux to build a speech-enabled product or use it as a [Conversation Transcription](conversation-transcription-service.md) device. Currently only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported.
 
-The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). It runs on a 64-bit Java 8 runtime environment (JRE).
+The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). It runs on a 64-bit Java 8 runtime environment (JRE).
 
 This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech Services resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
@@ -34,7 +34,7 @@ This quickstart requires:
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 * Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download) for Java, and extract the .zip to your working directory.
    > [!NOTE]
-   > The JRE-Sample-Release.zip file includes the JRE sample app and this quickstart assumes that the app is extracted to ~\JRE-Sample-Release
+   > The JRE-Sample-Release.zip file includes the JRE sample app and this quickstart assumes that the app is extracted to /home/wcaltest/JRE-Sample-Release
 
 Make sure these dependencies are installed before starting Eclipse.
 
@@ -60,7 +60,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. Start Eclipse.
 
-1. In the Eclipse Launcher, in the **Workspace** field, enter the name of a new workspace directory. Then select **Launch**.
+1. In the **Eclipse IDE Launcher**, in the **Workspace** field, enter the name of a new workspace directory. Then select **Launch**.
 
    ![Screenshot of Eclipse Launcher](media/speech-devices-sdk/eclipse-launcher-linux.png)
 
@@ -68,9 +68,9 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. From the Eclipse menu bar, create a new project by choosing **File** > **New** > **Java Project**. If not available choose **Project** and then **Java Project**.
 
-1. The New Java Project wizard starts. **Browse** for the location of the sample project. Select **Finish**. UPDATE SCREENSHOT
+1. The **New Java Project** wizard starts. **Browse** for the location of the sample project. Select **Finish**.
 
-   ![Screenshot of New Java Project wizard](media/speech-devices-sdk/eclipse-new-java-project.png)
+   ![Screenshot of New Java Project wizard](media/speech-devices-sdk/eclipse-new-java-project-linux.png)
 
 1. In the **Package explorer**, right-click your project. Choose **Configure** > **Convert to Maven Project** from the context menu. Select **Finish**.
 
@@ -78,13 +78,13 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. In the **Package explorer**, right-click your project. Choose **Properties**,  then **Run/Debug Settings** > **New…** > **Java Application**. 
 
-1. The **Edit Configuration** window appears. In the **Name** field enter **Main**, and use **Search** for the **Main Class** to find and select **com.microsoft.cognitiveservices.speech.samples.FunctionsList**. UPDATE SCREENSHOT
+1. The **Edit Configuration** window appears. In the **Name** field enter **Main**, and use **Search** for the **Main Class** to find and select **com.microsoft.cognitiveservices.speech.samples.FunctionsList**.
 
-   ![Screenshot of Edit Launch Configuration](media/speech-devices-sdk/eclipse-edit-launch-configuration.png)
+   ![Screenshot of Edit Launch Configuration](media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
 
 1. Also from the **Edit Configuration** window select the **Environment** page and **New**. The **New Environment Variable** window appears. In the **Name** field enter **LD_LIBRARY_PATH** and in the **value** field enter the folder containing the *.so files, for example **/home/wcaltest/JRE-Sample-Release**
 
-1. Copy kws.table and participants.properties into the project folder \target\classes
+1. Copy kws.table and participants.properties into the project folder **target/classes**
 
 
 ## Configure the sample application
@@ -109,14 +109,15 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, C:\SDSDK\JRE-Sample-Release\keyword\Computer contains the files used for the wake word "Computer".
+1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, **/home/wcaltest/JRE-Sample-Release/keyword/Computer** contains the files used for the wake word "Computer".
 
    > [!TIP]
    > You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
 
     To use a new wake word, update the following two lines in `FunctionsList.java`, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
-   * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+   * Copy the wake word package into the project folder **target/classes**.
+
    * Update the `FunctionsList.java` with the keyword and the package name:
 
      ```java
@@ -124,17 +125,36 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
      private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
-## Run the sample application
+## Run the sample application from eclipse
 
 1. From the Eclipse menu bar, **Run** > **Run** 
 
 1. The Speech Devices SDK example application starts and displays the following options:
 
-   ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/java-sample-app-windows.png)
+   ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. Try the new Conversation Transcription demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into a file `participants.properties` on the device. To generate the voice signature, look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
+1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into `participants.properties` in the project folder **target/classes**. To generate the voice signature, look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
 
-   ![Demo Conversation Transcription application](media/speech-devices-sdk/cts-sample-app-windows.png)
+   ![Demo Conversation Transcription application](media/speech-devices-sdk/cts-sample-app-linux.png)
+
+## Create and run standalone application
+
+1. In the **Package explorer**, right-click your project. Choose **Export**. 
+1. The **Export** window appears. Expand **Java** and select **Runnable JAR file** and then select **Next**.
+
+   ![Screenshot of the Export window](media/speech-devices-sdk/eclipse-export-linux.png) 
+
+1. The **Runnable JAR File Export** window appears. Choose an **Export destination** for the application, and then select **Finish**.
+ 
+   ![Screenshot of Runnable JAR File Export](media/speech-devices-sdk/eclipse-export-jar-linux.png)
+
+1. Please put **kws.table** and **participants.properties** in the destination folder chosen above as these files are needed by the application.
+
+1. To run the standalone application
+
+     ```bash
+     java -jar SpeechDemo.jar
+     ```
 
 ## Next steps
 

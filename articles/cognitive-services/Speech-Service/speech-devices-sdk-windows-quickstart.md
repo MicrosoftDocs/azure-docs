@@ -17,7 +17,7 @@ ms.author: erhopf
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Windows to build a speech-enabled product or use it as a [Conversation Transcription](conversation-transcription-service.md) device. Currently only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported.
 
-The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4) on 64-bit Windows. It runs on a 64-bit Java 8 runtime environment (JRE).
+The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Windows. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech Services resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
@@ -45,7 +45,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. Start Eclipse.
 
-1. In the Eclipse Launcher, in the **Workspace** field, enter the name of a new workspace directory. Then select **Launch**.
+1. In the **Eclipse IDE Launcher**, in the **Workspace** field, enter the name of a new workspace directory. Then select **Launch**.
 
    ![Screenshot of Eclipse Launcher](media/speech-devices-sdk/eclipse-launcher.png)
 
@@ -61,7 +61,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
    ![Screenshot of Package explorer](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
-1. Copy kws.table, participants.properties and Microsoft.CognitiveServices.Speech.extension.pma.dll into the project folder \target\classes
+1. Copy kws.table, participants.properties and Microsoft.CognitiveServices.Speech.extension.pma.dll into the project folder **target\classes**
 
 ## Configure the sample application
 
@@ -92,7 +92,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
     To use a new wake word, update the following two lines in `FunctionsList.java`, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
-   * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+   * Copy the wake word package into the folder “C:\SDSDK\JRE-Sample-Release\example\app\src\main\assets\”.
    * Update the `FunctionsList.java` with the keyword and the package name:
 
      ```java
@@ -110,7 +110,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
    ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Try the new Conversation Transcription demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into a file `participants.properties` on the device. To generate the voice signature, look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
+1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into a file `participants.properties` on the device. To generate the voice signature, look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
 
    ![Demo Conversation Transcription application](media/speech-devices-sdk/cts-sample-app-windows.png)
 
