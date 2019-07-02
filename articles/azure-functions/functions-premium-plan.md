@@ -100,28 +100,30 @@ When creating or scaling your plan, you can choose between three instance sizes.
 
 ## Regions
 
-Below are the currently supported regions for the public preview.
+Below are the currently supported regions for the public preview for each OS.
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australia East| ✔ | -- |
-|Australia Southeast | ✔ | -- |
-|Canada Central| ✔ | -- |
-|Central US| ✔ | -- |
-|East Asia| ✔ | -- |
-|East US 2| ✔ | -- |
-|France Central| ✔ | -- |
-|Japan West| ✔ | -- |
-|Korea Central| ✔ | -- |
-|North Central US| ✔ | -- |
-|North Europe| ✔ | -- |
-|South Central US| ✔ | -- |
-|South India | ✔ | -- |
-|Southeast Asia| ✔ | -- |
-|UK West| ✔ | -- |
-|West Europe| ✔ | -- |
-|West India| ✔ | -- |
-|West US| ✔ | -- |
+|Australia East| ✔ | |
+|Australia Southeast | ✔ | ✔ |
+|Canada Central| ✔ |  |
+|Central US| ✔ |  |
+|East Asia| ✔ |  |
+|East US | | ✔ |
+|East US 2| ✔ |  |
+|France Central| ✔ |  |
+|Japan East|  | ✔ |
+|Japan West| ✔ | |
+|Korea Central| ✔ |  |
+|North Central US| ✔ |  |
+|North Europe| ✔ | ✔ |
+|South Central US| ✔ |  |
+|South India | ✔ | |
+|Southeast Asia| ✔ | ✔ |
+|UK West| ✔ |  |
+|West Europe| ✔ | ✔ |
+|West India| ✔ |  |
+|West US| ✔ | ✔ |
 
 ## Known Issues
 
