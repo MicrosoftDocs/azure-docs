@@ -22,10 +22,10 @@ This procedure requires several tools that must be installed and run locally.
 
 * Use an Azure subscription. If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin.
 * [Git][git-download] for your operating system so you can clone the [helm charts repository][helm-charts-repo] used in this procedure. 
-* Install the [Azure CLI][azure-cli].
-* Install the [Kubernetes CLI][kubernetes-cli] (kubectl v1.12.2 or newer).
-* Install the [Helm][helm-install] client, the Kubernetes package manager (v2.12.3 or newer).
-    * Install the Helm server, [Tiller][tiller-install] (v2.8.2 or newer)
+* Install the [Azure CLI][azure-cli] (az).
+* Install the [Kubernetes CLI][kubernetes-cli] (kubectl).
+* Install the [Helm][helm-install] client, the Kubernetes package manager.
+    * Install the Helm server, [Tiller][tiller-install].
 * An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
     * **Speech** resource with F0 or Standard pricing tiers only.
     * **Cognitive Services** resource with the S0 pricing tier.
@@ -63,6 +63,12 @@ kubectl create secret docker-registry containerpreview \
     --docker-email=<email-address>
 ```
 
+> [!NOTE]
+> If you already have access to the `containerpreview.azurecr.io` container registry, you could create a Kubernetes secret using the generic flag instead. Consider the following command that executes against your Docker configuration JSON.
+> ```console
+>  kubectl create secret generic containerpreview --from-file=.dockerconfigjson=~/.docker/config.json --type=kubernetes.io/dockerconfigjson
+> ```
+
 The following output is printed to the console when the secret has been successfully created.
 
 ```console
@@ -90,7 +96,7 @@ Visit the [Microsoft Helm Hub][ms-helm-hub] for all the publicly available helm 
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-Next, we'll configure our Helm chart values. Copy and paste the following YAML into a file named `config-values.yaml`. For more information on customizing the **Cognitive Services Speech On-Premises Helm Chart**, see [customize helm charts](#customize-helm-charts).
+Next, we'll configure our Helm chart values. Copy and paste the following YAML into a file named `config-values.yaml`. For more information on customizing the **Cognitive Services Speech On-Premises Helm Chart**, see [customize helm charts](#customize-helm-charts). Replace the `billing` and `apikey` values with your own.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -127,6 +133,9 @@ textToSpeech:
       billing: # < Your billing URL >
       apikey: # < Your API Key >
 ```
+
+> [!IMPORTANT]
+> If the `billing` and `apikey` values are not provided, the services will expire after 15 min. Likewise, verification will fail as the services will not be available.
 
 ### The Kubernetes package (Helm chart)
 
@@ -189,7 +198,7 @@ cognitive-services-speech-onpremise has been installed!
 Release is named onprem-speech
 ```
 
-The Kubernetes deployment can take over 10 minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
+The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
 
 ```console
 kubectl get all
