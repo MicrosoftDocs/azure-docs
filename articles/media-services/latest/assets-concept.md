@@ -85,7 +85,7 @@ curl -X PUT \
 
 For a full example, see [Create a job input from a local file](job-input-from-local-file-how-to.md). In Media Services v3, a job's input can also be created from HTTPS URLs (see [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)).
 
-## Map v3 asset to v2
+## Map v3 asset properites to v2
 
 The following table shows how [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s properites in v3 map to Asset's properties in v2.
 
@@ -94,7 +94,7 @@ The following table shows how [Asset](https://docs.microsoft.com/rest/api/media/
 |id - (unique) the full Azure Resource Manager path<br/>`"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan"`||
 |name - (unique) see [Naming conventions](media-services-apis-overview.md#naming-conventions) ||
 |alternateId|AlternateId|
-|assetId|Id (unique) value starts with the `nb:cid:UUID:` prefix.|
+|assetId|Id - (unique) value starts with the `nb:cid:UUID:` prefix.|
 |created|Created|
 |description|Name|
 |lastModified|LastModified|
