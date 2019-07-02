@@ -16,6 +16,8 @@ ms.author: cynthn
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
+> [!IMPORTANT]
+> You cannot use the portal to deploy a VM from an image in another azure tenant. To create a VM from an image shared between tenants, you must use the Azure CLI or [Powershell](../windows/share-images-across-tenants.md).
 
 ## Create a VM using Azure CLI
 

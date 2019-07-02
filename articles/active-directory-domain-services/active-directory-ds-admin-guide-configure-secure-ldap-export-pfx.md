@@ -3,7 +3,7 @@ title: Create a .PFX file with the secure LDAP (LDAPS) certificate for an Azure 
 description: Create a secure LDAP certificate for an Azure AD Domain Services manage domain
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
+ms.author: iainfou
 ---
 # Create a .PFX file with the secure LDAP (LDAPS) certificate for a managed domain
 
