@@ -22055,6 +22055,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/alerts-extend.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-unified-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alerts-extend-tool.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-unified-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/migrate-management-alerts.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log-alerts",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-usage.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/alert-metric",
       "redirect_document_id": false
@@ -35290,8 +35305,8 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md",
-      "redirect_url": "/azure/azure-monitor/platform/alerts-activity-log-service-notifications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-alerts-classic.md",
@@ -35720,7 +35735,17 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-service-notifications.md",
-      "redirect_url": "/azure/azure-monitor/platform/service-notifications",
+      "redirect_url": "/azure/service-health/service-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/service-notifications.md",
+      "redirect_url": "/azure/service-health/service-notifications",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alerts-activity-log-service-notifications.md",
+      "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications",
       "redirect_document_id": true
     },
     {
