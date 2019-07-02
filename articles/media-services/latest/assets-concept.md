@@ -99,7 +99,7 @@ The following table shows how [Asset](https://docs.microsoft.com/rest/api/media/
 |description|Name|
 |lastModified|LastModified|
 |storageAccountName|StorageAccountName|
-|storageEncryptionFormat|(Creation) Options|
+|storageEncryptionFormat| Options - creation options|
 |type||
 
 ## Storage side encryption
