@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/25/2019
+ms.date: 7/02/2019
 ms.author: monhaber
 
 ---
 
-# Threat detection for Azure service layer
+# Threat detection for Azure service layer in Azure Security Center
 
 This topic presents the Security Center alerts available when monitoring your Azure service layers.
 
@@ -72,7 +72,6 @@ Security Center offers an additional layer of protection by leveraging Azure Res
 > 1. In the Security Center blade, select **Security policy**. For the subscription you want to change, click **Edit settings**.
 > 2. Click **Threat detection**.
 > 3. Under **Enable integrations**, uncheck **Allow Microsoft Cloud App Security to access my data**, and click **Save**.
-
 
 >[!NOTE]
 >Azure Security Center stores security-related customer data in the same geo as its resource. If Microsoft has not yet deployed Azure Security Center in the resource's geo, then it stores the data in the United States. When Microsoft Cloud App Security (MCAS) is enabled, this information is stored in accordance with the geo location rules of MCAS. See [Data storage for non-regional services for more information](http://azuredatacentermap.azurewebsites.net/).
