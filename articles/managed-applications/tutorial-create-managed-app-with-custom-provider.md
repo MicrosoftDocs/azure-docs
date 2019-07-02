@@ -11,9 +11,9 @@ ms.date: 06/20/2019
 
 # Tutorial: Create managed application with custom provider actions and resource types
 
-In this tutorial you create your own managed application with custom provider actions and resource types. The managed application will contain custom action in `Overview` page, custom resource instance displayed as a separate menu item in `Table of Content` and custom context action in custom resource page.
+In this tutorial, you create your own managed application with custom provider actions and resource types. The managed application will contain custom action in `Overview` page, custom resource instance displayed as a separate menu item in `Table of Content` and custom context action in custom resource page.
 
-In this tutorial you will do:
+In this tutorial, you will do:
 
 > [!div class="checklist"]
 > * Author user interface definition file for creating a managed application instance
@@ -35,7 +35,7 @@ To complete this tutorial, you need to know:
 
 ## Authoring user interface definition file
 
-In this tutorial you create a managed application which managed resource group holds custom provider instance, storage account and function. The Azure function used in this example implements an API that handles custom provider operations for actions and resources. Azure storage account is used as a basic storage for your custom provider resources.
+In this tutorial, you create a managed application and its managed resource group will contain custom provider instance, storage account and function. The Azure function used in this example implements an API that handles custom provider operations for actions and resources. Azure storage account is used as a basic storage for your custom provider resources.
 
 Storage account name and function name must be globally unique, so including them in user interface definition for creating a managed application instance. By default function files will be deployed from [sample function package](https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip), but you can change it by adding an input element for providing a function package link in *createUIDefinition.json*:
 
@@ -116,7 +116,7 @@ and output in *createUIDefinition.json*:
 
 To create a managed application instance with custom providers you need to define custom provider resource of type **Microsoft.CustomProviders/resourceProviders** in your **mainTemplate.json**. In that resource, you define the resource types and actions for your service. To deploy Azure function and Azure storage account instances define resources of type `Microsoft.Web/sites` and `Microsoft.Storage/storageAccounts` respectively.
 
-In this tutorial you create one `users` resource type, `ping` custom action and `users/contextAction` custom action that will be performed in a context of a `users` custom resources. For each resource type and action provide an endpoint pointing to the function with name provided in [createUIDefinition.json](#authoring-user-interface-definition-file). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
+In this tutorial, you create one `users` resource type, `ping` custom action and `users/contextAction` custom action that will be performed in a context of a `users` custom resources. For each resource type and action provide an endpoint pointing to the function with name provided in [createUIDefinition.json](#authoring-user-interface-definition-file). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
 
 ```json
 {
@@ -328,7 +328,10 @@ In this tutorial you create one `users` resource type, `ping` custom action and 
 
 In order to define user interface that includes custom actions and custom resources in your managed application you need to author **viewDefinition.json** artifact. For more information about view definition artifact, see [View definition artifact in Azure Managed Applications](concepts-view-definition.md).
 
-In this tutorial you define an *Overview* page with toolbar button that represents a custom provider action `TestAction` with basic text input, *Users* page that represents a custom provider resource type `users` and an additional toolbar button that represents a custom resource action `users/contextAction` that is performed in a context of custom resource of type `users`.
+In this tutorial, you define:
+* *Overview* page with toolbar button that represents a custom provider action `TestAction` with basic text input.
+* *Users* page that represents a custom provider resource type `users`.
+* Custom resource action `users/contextAction` in *Users* page that will be performed in a context of custom resource of type `users`.
 
 <br>
 <details>
@@ -442,7 +445,7 @@ Set-AzStorageBlobContent `
 $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx).ICloudBlob.uri.AbsoluteUri
 ```
 
-The steps below show how to deploy a Service Catalog managed application definition:
+Run the Azure CLI script below or follow the steps in Azure portal to deploy a Service Catalog managed application definition:
 
 # [Azure CLI](#tab/azurecli-interactive)
 
@@ -500,7 +503,7 @@ az managedapp definition create \
 
 ## Deploying an instance of managed application
 
-Once the Service Catalog managed application definition is deployed, follow the steps below to deploy your managed application instance with custom provider:
+Once the Service Catalog managed application definition is deployed, run the script below or follow the steps in Azure portal to deploy your managed application instance with custom provider:
 
 # [Azure CLI](#tab/azurecli-interactive)
 
@@ -551,7 +554,7 @@ az managedapp create \
 
 ## Performing custom provider actions and create resources
 
-After the service catalog application instance has been deployed, you have two new resource groups. One resource group `applicationGroup` contains an instance of the managed application, while the other resource group `managedResourceGroup` holds the resources for the managed application, including **custom provider**.
+After the service catalog application instance has been deployed, you have two new resource groups. First resource group `applicationGroup` contains an instance of the managed application, second resource group `managedResourceGroup` holds the resources for the managed application, including **custom provider**.
 
 ![Application resource groups](./media/managed-application-with-custom-providers/application-resource-groups.png)
 
