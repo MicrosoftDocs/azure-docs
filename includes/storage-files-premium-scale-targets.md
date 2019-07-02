@@ -24,4 +24,4 @@ ms.author: rogarana
 |Concurrent handles    |2,000         |2,000|
 |Ingress  |300 MiB/sec|      See standard file throughput values|
 |Egress   |200 Mib/sec| See standard file throughput values|
-|Throughput| See premium file ingress/egress values| Up to 60 MiB/sec (GA), up to 300 MiB/sec (preview)|
+|Throughput| See premium file ingress/egress values| Up to 60 MiB/sec|
