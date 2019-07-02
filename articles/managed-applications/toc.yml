@@ -19,6 +19,8 @@
     href: publish-marketplace-app.md 
   - name: Create custom resource provider
     href: create-custom-provider.md
+  - name: Building custom providers 101
+    href: tutorial-custom-providers-101.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -29,13 +31,13 @@
     href: sample-projects.md
 - name: Concepts
   items:
-  - name: Azure custom resource providers
+  - name: Azure Custom Providers
     href: custom-providers-overview.md
   - name: View definition artifact
     href: concepts-view-definition.md
 - name: How-to guides
   items:
-  - name: Custom resource providers
+  - name: custom providers
     items:
     - name: Add custom actions to Azure
       href: custom-providers-action-endpoint-how-to.md

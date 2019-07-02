@@ -21,7 +21,7 @@ This tutorial is broken into the following steps:
 
 This tutorial will build on the following tutorials:
 
-- [creating your first Azure Function through the Azure portal](../azure-functions/functions-create-first-azure-function.md)
+- [Creating your first Azure Function through the Azure portal](../azure-functions/functions-create-first-azure-function.md)
 
 ## Modeling custom actions and custom resources
 
@@ -166,7 +166,7 @@ Parameter | Template | Description
 partitionKey | '{subscriptionId}:{resourceGroupName}:{resourceProviderName}' | The partitionKey is how the data is partitioned. For most cases, the data should be partitioned by the custom provider instance.
 rowKey | '{myResourceType}:{myResourceName}' | The rowKey is the individual identifier for the data. Most of the time this is the name of the resource.
 
-In addition, we also need to add in the new type for our storage. In this tutorial, we will add the `CustomResource` class to our function:
+In addition, we also need to create a new class to model our custom resource. In this tutorial, we will add the `CustomResource` class to our function, which is a generic class that accepts any inputted data:
 
 ```csharp
 // Custom Resource Table Entity
@@ -230,7 +230,7 @@ For custom providers, a custom resource is created through `PUT` requests. The c
 /// <returns>The http response containing the created custom resource.</returns>
 public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, ResourceId azureResourceId, string partitionKey, string rowKey)
 {
-    // Construct the new resource from the request body and adds the Azure Resource Manager fields.
+    // Adds the Azure top-level properties.
     var myCustomResource = JObject.Parse(await requestMessage.Content.ReadAsStringAsync());
     myCustomResource["name"] = azureResourceId.Name;
     myCustomResource["type"] = azureResourceId.FullResourceType;
@@ -266,7 +266,7 @@ In addition to adding the properties, we also save the document to Azure Table S
 
 # [Retrieve custom resource](#tab/function-retrieve-resource)
 
-For custom providers, a custom resource is retrieved through `GET` requests. The custom provider will *not* accept a JSON request body. In the case of `GET` requests, the *endpoint* should use the `x-ms-customproviders-requestpath` header to return the already created resource. In this tutorial, we will add the method `RetrieveCustomResource` to retrieve existing resources:
+For custom providers, a custom resource is retrieved through `GET` requests. The custom provider will *not* accept a JSON request body. In the case of `GET` requests, the **endpoint** should use the `x-ms-customproviders-requestpath` header to return the already created resource. In this tutorial, we will add the method `RetrieveCustomResource` to retrieve existing resources:
 
 <br>
 <details>
@@ -303,7 +303,7 @@ In Azure, resources should follow a RESTful model. The request URL that created 
 
 # [Remove custom resource](#tab/function-remove-resource)
 
-For custom providers, a custom resource is removed through `DELETE` requests. The custom provider will *not* accept a JSON request body. In the case of `DELETE` requests, the *endpoint* should use the `x-ms-customproviders-requestpath` header to delete the already created resource. In this tutorial, we will add the method `RemoveCustomResource` to remove existing resources:
+For custom providers, a custom resource is removed through `DELETE` requests. The custom provider will *not* accept a JSON request body. In the case of `DELETE` requests, the **endpoint** should use the `x-ms-customproviders-requestpath` header to delete the already created resource. In this tutorial, we will add the method `RemoveCustomResource` to remove existing resources:
 
 <br>
 <details>
@@ -340,7 +340,7 @@ In Azure, resources should follow a RESTful model. The request URL that created 
 
 # [List all custom resources](#tab/function-list-resource)
 
-For custom providers, a list of existing custom resources can be enumerated through collection `GET` requests. The custom provider will *not* accept a JSON request body. In the case of collection `GET` requests, the *endpoint* should use the `x-ms-customproviders-requestpath` header to enumerate the already created resources. In this tutorial, we will add the method `EnumerateAllCustomResources` to enumerate the existing resources.
+For custom providers, a list of existing custom resources can be enumerated through collection `GET` requests. The custom provider will *not* accept a JSON request body. In the case of collection `GET` requests, the **endpoint** should use the `x-ms-customproviders-requestpath` header to enumerate the already created resources. In this tutorial, we will add the method `EnumerateAllCustomResources` to enumerate the existing resources.
 
 <br>
 <details>
@@ -761,7 +761,7 @@ When you have finished the Azure Function, grab the trigger function URL. This U
 
 ## Creating a custom provider
 
-Once the **endpoint** is created, you can generate the create a custom provider to generate a contract between it and the **endpoint**. A custom provider allows you specify a list of endpoint definitions.
+Once the **endpoint** is created, you can generate the create a custom provider to generate a contract between it and the **endpoint**. A custom provider allows you to specify a list of endpoint definitions.
 
 <br>
 <details>
@@ -788,7 +788,7 @@ endpoint | *yes* | The endpoint to route the requests to. This will handle the r
 
 ### Defining custom actions and resources
 
-The custom provider contains a list of `actions` and `resourceTypes`. `actions` map to the custom actions exposed by the custom provider, while `resourceTypes` are the custom resources. For this tutorial we will define a custom provider will an `action` called `myCustomAction` and a `resourceType` called `myCustomResource`.
+The custom provider contains a list of `actions` and `resourceTypes`. `actions` map to the custom actions exposed by the custom provider, while `resourceTypes` are the custom resources. For this tutorial, we will define a custom provider with an `action` called `myCustomAction` and a `resourceType` called `myCustomResources`.
 
 <br>
 <details>
@@ -878,8 +878,8 @@ az resource invoke-action --action myCustomAction \
 
 Parameter | Required | Description
 ---|---|---
-action | *yes* | The name of the action defined in the **ResourceProvider**.
-ids | *yes* | The resource ID of the **ResourceProvider**.
+action | *yes* | The name of the action defined in the created custom provider.
+ids | *yes* | The resource ID of the created custom provider.
 request-body | *no* | The request body that will be sent to the **endpoint**.
 
 # [Template](#tab/template)
@@ -909,7 +909,7 @@ az resource create --is-full-object \
 Parameter | Required | Description
 ---|---|---
 is-full-object | *yes* | Indicates that the properties object includes other options such as location, tags, sku, and/or plan.
-id | *yes* | The resource ID of the custom resource. This should exist off of the **ResourceProvider**
+id | *yes* | The resource ID of the custom resource. This should exist off of the created custom provider.
 properties | *yes* | The request body that will be sent to the **endpoint**.
 
 Delete an Azure Custom Resource:
@@ -920,7 +920,7 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 Parameter | Required | Description
 ---|---|---
-id | *yes* | The resource ID of the custom resource. This should exist off of the **ResourceProvider**.
+id | *yes* | The resource ID of the custom resource. This should exist off of the created custom provider.
 
 Retrieve an Azure Custom Resource:
 
@@ -930,7 +930,7 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 Parameter | Required | Description
 ---|---|---
-id | *yes* | The resource ID of the custom resource. This should exist off of the **ResourceProvider**
+id | *yes* | The resource ID of the custom resource. This should exist off of the created custom provider.
 
 # [Template](#tab/template)
 
