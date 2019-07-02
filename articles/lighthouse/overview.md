@@ -3,7 +3,7 @@ title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
 author: JnHs
 ms.author: jenhayes
-ms.date: 07/01/2019
+ms.date: 07/02/2019
 ms.topic: overview
 ms.service: lighthouse
 manager: carmonm
@@ -12,7 +12,7 @@ manager: carmonm
 
 Azure Lighthouse provides comprehensive and robust management tooling, allowing service providers to deliver managed services on behalf of their customers with higher automation and efficiency at scale, using functionality built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
 
-![Overview diagram of Azure Lighthouse](media/azure-service-provider-management-toolkit-overview.jpg)
+![Overview diagram of Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
 ## Benefits
 
@@ -20,7 +20,7 @@ Azure Lighthouse helps you to profitably and efficiently build and deliver manag
 
 - **Management at scale**: Customer engagement and life-cycle operations to manage customer resources are easier and more scalable.
 - **Greater visibility and precision for customers**: Customers whose resources you're managing will have greater visibility into your actions and precise control over the scope they delegate for management, while your IP is preserved.
-- **Comprehensive and unified platform tooling**: Our tooling experience addresses key service provider scenarios, including multiple licensing models. The new capabilities work with existing tools, licensing models, and partner programs such as the [Cloud Solution Provider program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). The Azure Lighthouse options you choose are ready to be integrated into your existing workflows, and you can track your impact on customer engagements by [linking your partner ID](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
+- **Comprehensive and unified platform tooling**: Our tooling experience addresses key service provider scenarios, including multiple licensing models such as EA, CSP and pay-as-you-go. The new capabilities work with existing tools and APIs, licensing models, and partner programs such as the [Cloud Solution Provider program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). The Azure Lighthouse options you choose can be integrated into your existing workflows and applications, and you can track your impact on customer engagements by [linking your partner ID](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
 
 There are no additional costs associated with using Azure Lighthouse to manage your customers' Azure resources.
 
