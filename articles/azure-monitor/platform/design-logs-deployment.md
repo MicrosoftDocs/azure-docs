@@ -17,11 +17,11 @@ ms.author: magoedte
 
 # Designing your Azure Monitor Logs deployment
 
-Azure Monitor stores log data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, analyzed, and presented in Azure Monitor. While you can deploy one or more workspaces in your Azure subscription, there are several considerations you should understand in order to ensure that your initial deployment is following our guidelines to provide you with a cost effective, manageable, and scalable deployment meeting your organizations needs.
+Azure Monitor stores log data in a Log Analytics workspace, which is an Azure resource and a container where data is collected, aggregated, and serves as an administrative boundary. While you can deploy one or more workspaces in your Azure subscription, there are several considerations you should understand in order to ensure that your initial deployment is following our guidelines to provide you with a cost effective, manageable, and scalable deployment meeting your organizations needs.
 
 Data in a workspace is organized into tables, each of which stores different kinds of data and has its own unique set of properties based on the resource generating the data. Most data sources will write to their own tables in a Log Analytics workspace.
 
-![Example workspace data model](./media/designing-workspace/logs-data-model-01.png)
+![Example workspace data model](./media/design-logs-deployment/logs-data-model-01.png)
 
 A Log Analytics workspace provides:
 
@@ -76,11 +76,11 @@ Users have two options for accessing the data:
 
 **Workspace-context**: You can view all logs in the workspace that you have permission to. Queries in this mode are scoped to all data in all tables in the workspace. This is the access mode used when logs are accessed with the workspace as the scope, such as when you select **Logs** from the **Azure Monitor** menu in the Azure portal.
 
-![Log Analytics context from workspace](./media/designing-workspace/query-from-workspace.png)
+![Log Analytics context from workspace](./media/design-logs-deployment/query-from-workspace.png)
 
 **Resource-context**: When you access the workspace for a particular resource, resource group, or subscription, such as when you select **Logs** from a resource menu in the Azure portal, you can view logs for only that resource in all tables that you have access to. Queries in this mode are scoped to only data associated with that resource. This mode also enables granular RBAC.
 
-![Log Analytics context from resource](./media/designing-workspace/query-from-resource.png)
+![Log Analytics context from resource](./media/design-logs-deployment/query-from-resource.png)
 
 > [!NOTE]
 > Logs are available for resource-centric queries only if they were properly associated with the relevant resource. Currently, the following resources have limitations:

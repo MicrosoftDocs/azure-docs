@@ -134,10 +134,10 @@
   items:
   - name: Plan and prepare
     items:
-    - name: Design workspace deployment
+    - name: Design Logs deployment
       items: 
-      - name: Workspace design
-        href: platform/designing-workspace.md
+      - name: Design guide
+        href: platform/design-logs-deployment.md
       - name: Design for service providers
         href: platform/service-providers.md 
     - name: Manage access
