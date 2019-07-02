@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/04/2019
 ms.author: erhopf
 ---
 
@@ -53,7 +53,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. From the Eclipse menu bar, create a new project by choosing **File** > **New** > **Java Project**. If not available choose **Project** and then **Java Project**.
 
-1. The New Java Project wizard starts. **Browse** for the location of the sample project. Select **Finish**.
+1. The **New Java Project** wizard starts. **Browse** for the location of the sample project. Select **Finish**.
 
    ![Screenshot of New Java Project wizard](media/speech-devices-sdk/eclipse-new-java-project.png)
 
@@ -92,7 +92,8 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
     To use a new wake word, update the following two lines in `FunctionsList.java`, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
-   * Copy the wake word package into the folder “C:\SDSDK\JRE-Sample-Release\example\app\src\main\assets\”.
+   * Copy the wake word package into the project folder **target/classes**.
+
    * Update the `FunctionsList.java` with the keyword and the package name:
 
      ```java
@@ -100,7 +101,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
      private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
-## Run the sample application
+## Run the sample application from eclipse
 
 1. From the Eclipse menu bar, **Run** > **Run As** > **Java Application**. Then select **FunctionsList** and **OK**.
 
@@ -110,9 +111,29 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
    ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into a file `participants.properties` on the device. To generate the voice signature, look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
+1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant’s voice signatures they can be put into a file `participants.properties` in the project folder **target/classes**. To generate the voice signature, look at [Transcribe conversations (SDK)](how-to-use-conversation-transcription-service.md).
 
    ![Demo Conversation Transcription application](media/speech-devices-sdk/cts-sample-app-windows.png)
+
+## Create and run standalone application
+
+1. In the **Package explorer**, right-click your project. Choose **Export**. 
+
+1. The **Export** window appears. Expand **Java** and select **Runnable JAR file** and then select **Next**.
+
+   ![Screenshot of the Export window](media/speech-devices-sdk/eclipse-export-windows.png) 
+
+1. The **Runnable JAR File Export** window appears. Choose an **Export destination** for the application, and then select **Finish**.
+ 
+   ![Screenshot of Runnable JAR File Export](media/speech-devices-sdk/eclipse-export-jar-windows.png)
+
+1. Please put **kws.table**, **participants.properties**, **unimic_runtime.dll**, **pma.dll** and **Microsoft.CognitiveServices.Speech.extension.pma.dll**  in the destination folder chosen above as these files are needed by the application.
+
+1. To run the standalone application
+
+     ```powershell
+     java -jar SpeechDemo.jar
+     ```
 
 ## Next steps
 
