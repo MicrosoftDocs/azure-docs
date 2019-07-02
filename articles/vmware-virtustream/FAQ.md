@@ -21,10 +21,6 @@ This article addresses frequently asked **internal and external** questions abou
 
 As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers’ digital transformation. Azure VMware Solution by Virtustream (AVS by Virtustream) combines VMware’s enterprise-class Software Defined Data Center (SDDC) software with Microsoft Azure global cloud service ecosystem, managed by Virtustream to meet performance, availability, and security and compliance requirements.
 
-**When will AVS by Virtustream be generally available?**
-
-AVS by Virtustream will be generally available to customers and partners later in 2019. 
-
 ## AVS by Virtustream Service
 
 **Where is AVS by Virtustream available today?**
@@ -109,7 +105,7 @@ Yes, clusters can be scaled in or out between the minimum and maximum number of 
 
 **What are trial clusters?**
 
-Trial clusters are three host clusters used for one month evaluations of private clouds.
+Trial clusters are three host clusters used for one month evaluations of AVS by Virtustream private clouds.
 
 **Can I use High-end hosts for trial clusters?**
 
@@ -149,9 +145,9 @@ A private network /22 address space is required to deploy an AVS by Virtustream 
  
 **How do I connect from on-premises environments to a AVS by Virtustream private cloud?**
 
-You can connect to the service in one of three ways: 
+You can connect to the service in one of two methods: 
 - With a VM or application gateway deployed on an Azure VNet that is peered through ExpressRoute to the private cloud.
-- Through an ExpressRoute Global Reach from on-premises datacenter to Azure ExpressRoute circuit.  
+- Through ExpressRoute Global Reach from on-premises datacenter to Azure ExpressRoute circuit.  
 
 **How do I connect a workload VM to the internet or an Azure service endpoint?**
 
@@ -169,7 +165,7 @@ Yes. If you have VMs on NSX-T logical networks that need to have restricted inte
 
 **What accounts and privileges will I get with my new AVS by Virtustream private cloud?**
 
-You will get credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There is also a cloudadmin group that can used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts][concepts-identity].
+You are provided credentials for a cloudadmin user in vCenter and admin access on NSX-T Manager. There is also a cloudadmin group that can used to incorporate Azure Active Directory. For more information, see [Access and Identity Concepts][concepts-identity].
 
 **Will I have administrator access to ESXi hosts?**
 
@@ -177,11 +173,11 @@ No, administrator access to ESXi is limited in order to meet security and soluti
 
 **What privileges and permissions will I have in vCenter?**
 
-You will have cloudadmin group privileges. For more information, see [Access and Identity][concepts-identity].
+You will have cloudadmin group privileges. For more information, see [Access and Identity Concepts][concepts-identity].
 
 **What privileges and permissions will I have on the NSX-T manager?**
 
-You will have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity][concepts-identity].
+You will have full administrator privileges on NSX-T and can manage role-based access control as you would with NSX-T Data Center on-premises. For more information, see [Access and Identity Concepts][concepts-identity].
 
 Note: A T0 router is created and configured as part of a private cloud deployment and any modification to it or the Edge Node VMs could affect connectivity to the workload VMs running in a private cloud.
 
@@ -199,11 +195,7 @@ Since this a Microsoft solution, Microsoft or the CSP selling the solution will 
 
 Public cloud providers typically charge for data transiting various portions of their network infrastructure, be it inter-region, or in the case of Azure, between peered virtual networks.  It is also typical for public cloud providers not to charge for data ingress, but to charge for any data leaving their datacenters. 
 
-When considering the data ingress / egress costs for AVS by Virtustream, customers will want to consider how they plan to connect to the service and the associated data rates (e.g. ExpressRoute). 
-
-**Can I use my existing VMware licenses when using AVS by Virtustream?**
-
-**Can I use my existing Windows Server licenses in AVS by Virtustream?**
+When considering the data ingress/egress costs for AVS by Virtustream, customers will want to consider how they plan to connect to the service and the associated data rates (e.g. ExpressRoute). 
 
 **Who supports AVS by Virtustream?**
 
@@ -215,8 +207,7 @@ You will need an Azure account in an Azure subscription.
 
 
 <!-- LINKS - internal -->
-[Identity]: ./concepts-identity.md
+[Access and Identity Concepts]: ./concepts-identity.md
  
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952
-[rbac-control]: https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-26C44DE8-1854-4B06-B6DA-A2FD426CDF44.html
