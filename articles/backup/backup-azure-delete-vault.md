@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 07/02/2019
 ms.author: raynew
 ---
 # Delete a Recovery Services vault
@@ -185,6 +185,8 @@ Before removing the Azure backup management server, make sure to perform the ste
 > If you are seeing the below error, then first perform the steps listed in [Deleting backup items from management console](#deleting-backup-items-from-management-console).
 >
 >![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> If you are unable to perform the steps to delete backups from the management console, for example, due to unavailability of the server with the management console, contact Microsoft support.
 
 6. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
 7. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
@@ -221,8 +223,9 @@ Before removing the Azure backup recovery point, make sure to perform the steps 
 > [!NOTE]
 > If you are seeing the below error, then first perform the steps listed in [Deleting backup items from management console](#deleting-backup-items-from-management-console).
 >
->
 >![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> If you are unable to perform the steps to delete backups from the management console, for example, due to unavailability of the server with the management console, contact Microsoft support. 
 
 8. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
 9. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.

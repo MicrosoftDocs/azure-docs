@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 
 You might want to transfer billing ownership of your Azure subscription if you are leaving your organization, or you want your subscription to be billed to another account. Transferring billing ownership to another account provides the administrators in the new account permission to perform billing tasks such as change payment method, view charges, and cancel the subscription.
 
-If you want to keep the billing ownership but change the type of your subscription, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md). If you want to control who can manage resources in the subscription, see [Built-in roles for Azure resources](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles).
+If you want to keep the billing ownership but change the type of your subscription, see [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md). If you want to control who can manage resources in the subscription, see [Built-in roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 If you're an Enterprise Agreement(EA) customer, your enterprise administrators can transfer billing ownership of your subscriptions between accounts. For more information, see [Transfer billing ownership of Enterprise Agreement (EA) subscriptions](#transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions).
 
@@ -64,7 +64,7 @@ An Azure Active Directory (AD) tenant is created for you when you sign up for Az
 
 When you create a new subscription, it is hosted in the Azure AD tenant of your account. If you want to provide others access to your subscription or resources, you need to invite them to your tenant. This helps you control access to your subscriptions and resources.
 
-When you transfer billing ownership of your subscription to an account in another Azure AD tenant, the subscription is moved to the new account's tenant. All users, groups, or service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. To provide access to the users who originally had access, the new owner would have to [manually add these users to the subscription](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal).
+When you transfer billing ownership of your subscription to an account in another Azure AD tenant, the subscription is moved to the new account's tenant. All users, groups, or service principals who had [role based access (RBAC)](../role-based-access-control/overview.md) to manage resources in the subscription lose their access. Only the user in the new account who accepts your transfer request will have access to manage the resources. To provide access to the users who originally had access, the new owner would have to [manually add these users to the subscription](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 
 ## Transferring Visual Studio, Microsoft Partner Network (MPN) and Pay as you go Dev/Test subscriptions
@@ -95,7 +95,7 @@ If you have accepted the billing ownership of an Azure subscription, we recommen
 
 ## Supported subscription types
 
-Subscription transfer in the Azure portal is available for the subscription types listed below. Currently transfer is not supported for [Free Trial](https://azure.microsoft.com/en-us/offers/ms-azr-0044p/) or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md). To transfer other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Subscription transfer in the Azure portal is available for the subscription types listed below. Currently transfer is not supported for [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) or [Azure in Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) subscriptions. For a workaround, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md). To transfer other subscriptions, like [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) or support plans, [contact Azure Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 - [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  
@@ -107,7 +107,7 @@ Subscription transfer in the Azure portal is available for the subscription type
 - [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
-- [Microsoft Azure Plan](https://azure.microsoft.com/en-us/offers/ms-azr-0017g/)\*\*
+- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
 \* [Via the EA portal](#EA).
 
