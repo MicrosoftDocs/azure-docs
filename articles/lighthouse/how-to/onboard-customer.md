@@ -18,12 +18,12 @@ You can repeat this process if you are managing resources for multiple customers
 You can associate your Microsoft Partner Network (MPN) ID with your onboarded subscriptions to track your impact across customer engagements. For more info, see [Link a partner ID to your Azure accounts](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
 
 > [!NOTE]
-> Customers can be onboarded automatically when they purchase a managed services offer that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here with an offer published to Azure Marketplace.
+> Customers can be onboarded automatically when they purchase a managed services offer (publish or private) that you published to Azure Marketplace. For more info, see [Publish Managed Services offers to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here with an offer published to Azure Marketplace.
 
 The onboarding process requires actions to be taken from within both the service provider's tenant and from the customer's tenant. All of these steps are described in this article.
 
 > [!IMPORTANT]
-> You can’t onboard a subscription or resource group for Azure delegated resource management if that scope has any resource locks. For example, Azure managed applications and Azure Databricks automatically create resource locks on resources in the solution.
+> You can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the **Microsoft.ManagedServices** resource provider, you won’t be able to create a Databricks workspace for that subscription.
 
 ## Gather tenant and subscription details
 

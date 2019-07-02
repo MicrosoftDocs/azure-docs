@@ -4,14 +4,14 @@ description: Learn how to publish a managed service offer that onboards customer
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/01/2019
+ms.date: 07/02/2019
 ms.topic: overview
 manager: carmonm
 ---
 
 # Publish a managed services offer to Azure Marketplace
 
-In this article, you'll learn how to publish a managed services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure delegated resource management. 
+In this article, you'll learn how to publish a public or private managed services offer to [Azure Marketplace](https://azuremarketplace.microsoft.com) using the [Cloud Partner Portal](https://cloudpartner.azure.com/), enabling a customer who purchases the offer to be onboarded for Azure delegated resource management. 
 
 > [!NOTE]
 > You  need to have a valid [account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) to create and publish these offers. If you don’t have an account already, the [sign-up process](https://aka.ms/joinmarketplace) will lead you through the steps of creating an account in Partner Center and enrolling in the Commercial Marketplace program. Your Microsoft Partner Network (MPN) ID will be [automatically associated](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started) with the offers you publish to track your impact across customer engagements.
