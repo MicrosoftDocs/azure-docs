@@ -172,7 +172,7 @@ In Intune in the Azure portal:
    * The **Join to Azure AD as** box should show **Azure AD joined** and be grayed out.
    * Select your Langugage (Region), User account type **standard** 
 1. Select **Next**
-   * Select a scope tag if you you have preconfigured one.
+   * Select a scope tag if you have preconfigured one
 1. Select **Next**
 1. Choose **Assignments** > **Assign to** > **Selected Groups**. In **Select groups to include**, choose **Secure Workstation Users**.
 1. Select **Next**
