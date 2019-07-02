@@ -102,7 +102,7 @@ The middleware is added to the web API by this instruction:
  services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
- Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) v1.0 web APIs. But you can easily change them to use the Microsoft identity platform endpoint by adding this code to the Startup.cs file:
+ Currently, the ASP.NET Core templates create Azure Active Directory (Azure AD) web APIs that sign in users within your organization or any organization, not with personal accounts. But you can easily change them to use the Microsoft identity platform endpoint by adding this code to the Startup.cs file:
 
 ```CSharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
