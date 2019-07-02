@@ -28,7 +28,7 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |Custom message properties     |Yes         |No         |No         |
 |Share inputs and outputs across multiple queries     |No         |Yes         |Yes         |
 |JavaScript UDF and UDA     |Yes         |Yes         |Windows only         |
-|Machine Learning callouts     |Yes, but the query cannot be tested        |Yes         |No         |
+|Machine Learning callouts     |Yes, but the query cannot be tested        |Yes, but cannot be tested locally         |No         |
 |Compatibility level     |1.0</br>1.1</br>1.2         |1.0</br>1.1</br>1.2          |1.0</br>1.1</br>1.2          |
 |Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
 |Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |
