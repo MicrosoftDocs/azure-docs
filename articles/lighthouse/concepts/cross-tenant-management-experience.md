@@ -4,7 +4,7 @@ description: Azure delegated resource management enables a cross-tenant manageme
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/01/2019
+ms.date: 07/02/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -22,9 +22,9 @@ An Azure Active Directory (Azure AD) tenant is a representation of an organizati
 
 Typically, in order to manage Azure resources for a customer, service providers would have to sign in to the Azure portal using an account associated with that customer's tenant, requiring an administrator in the customer's tenant to create and manage user accounts for the service provider.
 
-With Azure delegated resource management, the onboarding process specifies users within the service provider's tenant who will be able to access and manage subscriptions, resource groups, and resources in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging to all customers to which they have access, either by visiting the [My customers](../how-to/view-manage-customers.md) page, or by working from within the context of that customer's subscription. This allows greater flexibility to manage resources for multiple customers, without having to sign in to different accounts in different tenants.
+With Azure delegated resource management, the onboarding process specifies users within the service provider's tenant who will be able to access and manage subscriptions, resource groups, and resources in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging to all customers to which they have access. This can be done by visiting the [My customers](../how-to/view-manage-customers.md) page in the Azure portal, or by working directly within the context of that customer's subscription, either in the Azure portal or via APIs.
 
-For example, a service provider may have three customers, with different responsibilities and access levels, as shown here:
+Azure delegated resource management allows greater flexibility to manage resources for multiple customers without having to sign in to different accounts in different tenants. For example, a service provider may have three customers, with different responsibilities and access levels, as shown here:
 
 ![Three customer tenants showing service provider responsibilities](../media/azure-delegated-resource-management-customer-tenants.jpg)
 
@@ -50,7 +50,7 @@ Currently, the cross-tenant management experience supports the following scenari
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/):
 
-- View alerts for delegated subscriptions and filter on up to 20 subscriptions
+- View alerts for delegated subscriptions in the Azure portal or programmatically through REST API calls, with the ability to view alerts across all subscriptions
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote customer workspaces in multiple tenants
 
@@ -103,12 +103,16 @@ Currently, the cross-tenant management experience supports the following scenari
 
 - Deploy and manage virtual networks and virtual network interface cards (vNICs) within customer tenants
 
+Support requests:
+
+- Open support requests for delegated resources from the **Help + support** blade in the Azure portal (selecting the support plan available to the delegated scope)
+
 With all scenarios, please be aware of the following current limitations:
 
 - While Azure Resource Manager operations are supported, Resource Provider operations (such as KeyVault secrets access, storage data access, VM login, etc.) can’t be performed using Azure delegated resource management.
 - Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience.
 - Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) aren't supported.
-- You can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the Microsoft.ManagedServices resource provider, you won’t be able to create a Databricks workspace for that subscription.
+- Currently, you can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the **Microsoft.ManagedServices** resource provider, you won’t be able to create a Databricks workspace for that subscription at this time.
 
 ## Using APIs and management tools with cross-tenant management
 
