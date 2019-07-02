@@ -56,7 +56,7 @@ and output in *createUIDefinition.json*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-<br/>
+<br>
 <details>
 <summary>Show <i>createUiDefinition.json</i> file</summary>
 
@@ -151,9 +151,9 @@ In this tutorial you create one `users` resource type, `ping` custom action and 
 }
 ```
 
+<br>
 <details>
 <summary>Show full <i>mainTemplate.json</i> file</summary>
-<p>
 
 ```json
 {
@@ -322,7 +322,6 @@ In this tutorial you create one `users` resource type, `ping` custom action and 
 }
 ```
 
-</p>
 </details>
 
 ## Authoring view definition artifact
@@ -331,9 +330,9 @@ In order to define user interface that includes custom actions and custom resour
 
 In this tutorial you define an *Overview* page with toolbar button that represents a custom provider action `TestAction` with basic text input, *Users* page that represents a custom provider resource type `users` and an additional toolbar button that represents a custom resource action `users/contextAction` that is performed in a context of custom resource of type `users`.
 
+<br>
 <details>
 <summary>Show <i>viewDefinition.json</i> file</summary>
-<p>
 
 ```json
 {
@@ -400,7 +399,6 @@ In this tutorial you define an *Overview* page with toolbar button that represen
 }
 ```
 
-</p>
 </details>
 
 ## Deploy a managed application definition
