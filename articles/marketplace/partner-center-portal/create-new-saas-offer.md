@@ -6,7 +6,7 @@ manager: evansma
 ms.author: mattwoj 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/27/2019
 ---
 
 # Create a new SaaS offer
@@ -37,7 +37,9 @@ Example: test-offer-1
 
 Select **Create**.  An **Offer overview** page is created for this offer.  
 
+<!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
+-->
 
 ## Offer overview
 
@@ -433,7 +435,7 @@ In order to deploy the Test Drive on your behalf, please create and provide a se
 
 - **Azure AD app ID** (required): Enter your Azure Active Directory (AD) [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app key** (required): Enter your Azure Active Directory (AD) [application key](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations** , then select **Settings** > **Keys**.
+- **Azure AD app client secret** (required): Enter your Azure AD application [client secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. (Don't navigate away from the page before you do this, or else you won't have access to the value.)
 
 Remember to **Save** before moving on to the next section!
 
