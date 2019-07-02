@@ -12,7 +12,9 @@ ms.author: glenga
 
 # Deploy Python to Azure Functions with VS Code
 
-In this tutorial, you use Visual Studio Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension to create a serverless HTTP endpoint with Python and to also add a connection (or "binding") to storage. [Azure Functions](functions-create-first-function-python.md) runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
+In this tutorial, you use Visual Studio Code and the Azure Functions extension to create a serverless HTTP endpoint with Python and to also add a connection (or "binding") to storage. Azure Functions runs your code in a serverless environment without needing to provision a virtual machine or publish a web app. The Azure Functions extension for VS Code greatly simplifies the process of using Functions by automatically handling many configuration concerns.
+
+If you encounter issues with any of the steps in this tutorial, we'd love to hear about the details. Use the "I ran into an issue" button at the end of each section to submit detailed feedback.
 
 ## Prerequisites
 
@@ -67,7 +69,7 @@ The name you've assigned to your subscription also appears in the **Azure: Funct
 
 ### Verify prerequisites
 
-To verify that all the Azure Functions tools are installed, select the **Terminal: Create New Integrated Terminal** command from the Command Palette (F1), then run the command `func`:
+To verify that all the Azure Functions tools are installed, open the VS Code Command Palette (F1), select the **Terminal: Create New Integrated Terminal** command, and once the terminal opens, run the command `func`:
 
 ![Checking Azure Functions core tools prerequisites](media/tutorial-vs-code-serverless-python/check-prereqs.png)
 
@@ -75,9 +77,12 @@ The output that starts with the Azure Functions logo (you need to scroll the out
 
 If the `func` command isn't recognized, then verify that the folder where you installed the Azure Functions Core Tools is included in your PATH environment variable.
 
-## Create the Function
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=01-verify-prerequisites)
 
-1. Code for Azure Functions is managed within a Functions "project," which you create first before creating the code. In **Azure: Functions** explorer (opened using the Azure icon on the left side), select the **New Project** command icon, or open the Command Palette and select **Azure Functions: Create New Project**.
+## Create the function
+
+1. Code for Azure Functions is managed within a Functions "project," which you create first before creating the code. In **Azure: Functions** explorer (opened using the Azure icon on the left side), select the **New Project** command icon, or open the Command Palette (F1) and select **Azure Functions: Create New Project**.
 
     ![Create new project button in the Functions explorer](media/tutorial-vs-code-serverless-python/project-create-new.png)
 
@@ -90,18 +95,21 @@ If the `func` command isn't recognized, then verify that the folder where you in
     - Select **Anonymous** for the authorization level, which makes the function publicly accessible to anyone.
     - If prompted with "Select how you would like to open your project," select **Open in current window**.
 
-1. After a short time, a message to indicate that the new project was created. In the **Explorer**, you there's the subfolder created for the function, and VS Code opens the *\_\_init\_\_.py* file that contains the default function code:
+1. After a short time, a message to indicate that the new project was created. In the **Explorer**, there's the subfolder created for the function, and VS Code opens the *\_\_init\_\_.py* file that contains the default function code:
 
-    ![Result of creating a new Python functions project](media/tutorial-vs-code-serverless-python/project-create-results.png)
+    [![Result of creating a new Python functions project](media/tutorial-vs-code-serverless-python/project-create-results.png)](media/tutorial-vs-code-serverless-python/project-create-results.png)
 
     > **Note**
-    > If VS Code tells you that you don't have a Python interpreter selected when it opens *\_\_init\_\_.py*, use the **Python: Select Interpreter** command from the Command Palette and select the virtual environment in the local `.env` folder (which was created as part of the project). The environment must be based on Python 3.6x specifically, as noted earlier under [Prerequisites](#prerequisites).
+    > If VS Code tells you that you don't have a Python interpreter selected when it opens *\_\_init\_\_.py*, open the Command Palette (F1), select the **Python: Select Interpreter** command,  and then select the virtual environment in the local `.env` folder (which was created as part of the project). The environment must be based on Python 3.6x specifically, as noted earlier under [Prerequisites](#prerequisites).
     >
     > ![Selecting the virtual environment created with the project](media/tutorial-vs-code-serverless-python/select-venv-interpreter.png)
 
-> **Tip**: Whenever you want to create another function in the same project, use the **Create Function** command in the **Azure: Functions** explorer, or use the **Azure Functions: Create Function** command from the Command Palette (F1). Both commands prompt you for a function name (which is the name of the endpoint), then creates a subfolder with the default files.
+> **Tip**: Whenever you want to create another function in the same project, use the **Create Function** command in the **Azure: Functions** explorer, or open the Command Palette (F1) and select the **Azure Functions: Create Function** command. Both commands prompt you for a function name (which is the name of the endpoint), then creates a subfolder with the default files.
 >
 > ![New Function command in the Azure: Functions explorer](media/tutorial-vs-code-serverless-python/function-create-new.png)
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=02-create-function)
 
 ## Examine the code files
 
@@ -178,6 +186,9 @@ The important parts of the code are as follows:
 - The body of `main` then processes the request and generates a response. In this case, the code looks for a `name` parameter in the URL. Failing that, it checks if the request body contains JSON (using `func.HttpRequest.get_json`) and that the JSON contains a `name` value (using the `get` method of the JSON object returned by `get_json`).
 - If a name is found, the code returns the string "Hello" with the name appended; otherwise it returns an error message.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=03-examine-code-files)
+
 ## Test and debug locally
 
 1. When you create the Functions project, the VS Code extension also creates a launch configuration in `.vscode/launch.json` that contains a single configuration named **Attach to Python Functions**. This configuration means you can just press F5 or use the Debug explorer to start the project:
@@ -197,7 +208,7 @@ The important parts of the code are as follows:
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
     ```
 
-1. Use `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) on the URL in the VS Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
+1. Use **Ctrl+click** or **Cmd+click** on the URL in the VS Code **Output** window to open a browser to that address, or start a browser and paste in the same URL. In either case, the endpoint is `api/<function_name>`, in this case `api/HttpExample`. However, because that URL doesn't include a name parameter, the browser window should just show, "Please pass a name on the query string or in the request body" as appropriate for that path in the code.
 
 1. Now try adding a name parameter to the use, such as `http://localhost:7071/api/HttpExample?name=VS%20Code`, and the browser window should display the message, "Hello VS Code!", demonstrating that you've run that code path.
 
@@ -222,11 +233,14 @@ The important parts of the code are as follows:
 
 1. When you're satisfied that you've thoroughly tested the function locally, stop the debugger (with the **Debug** > **Stop Debugging** menu command or the **Disconnect** command on the debugging toolbar).
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=04-test-debug)
+
 ## Deploy to Azure Functions
 
 In these steps, you use the Functions extension to create a "Function App" on Azure. A Function App is composed of a storage account for data, an App Service Plan (which corresponds to the Linux virtual machine on which the App Service runs), and an App Service (the hosting service for your endpoints that runs on the virtual machine). All of these resources are organized within a single resource group.
 
-1. In the **Azure: Functions** explorer, select the **Deploy to Function App** command, or use the **Azure Functions: Deploy to Function App** command on the Command Palette. A "Function App" here is again the Azure resource that hosts your code.
+1. In the **Azure: Functions** explorer, select the **Deploy to Function App** command, or open the Command Palette (F1) and select the **Azure Functions: Deploy to Function App** command. A "Function App" here is again the Azure resource that hosts your code.
 
     ![Deploy to Function App command](media/tutorial-vs-code-serverless-python/deploy-command.png)
 
@@ -255,7 +269,10 @@ In these steps, you use the Functions extension to create a "Function App" on Az
       HttpExample: https://vscode-azure-functions.azurewebsites.net/api/HttpExample
     ```
 
-    Use this endpoint to run the same tests you did locally, using URL parameters and/or requests with JSON data in the request body. The results of the public endpoint should match those when you ran the function locally.
+    Use this endpoint to run the same tests you did locally, using URL parameters and/or requests with JSON data in the request body. The results of the public endpoint should match the results of the local endpoint you tested earlier.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=05-deploy)
 
 ### Stream logs
 
@@ -288,7 +305,7 @@ After your first deployment, you can make changes to your code, such as adding a
 
 1. In the VS Code file explorer is a subfolder with your function name that again contains files named *\_\_init\_\_.py*, *function.json*, and *sample.dat*.
 
-1. Replace the code in *\_\_init\_\_.py* to match the following, which generates a string containing the value of PI to a number of digits specified in the URL (this code uses only a URL parameter)
+1. Replace the contents of *\_\_init\_\_.py* to match the following code, which generates a string containing the value of PI to a number of digits specified in the URL (this code uses only a URL parameter)
 
     ```python
     import logging
@@ -381,6 +398,9 @@ After your first deployment, you can make changes to your code, such as adding a
 
 1. Once deployment finishes (it takes a few minutes!), the **Output** window shows the public endpoints with which you can repeat your tests.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=06-second-function)
+
 ## Add a binding to write messages to Azure storage
 
 A "binding" is how you connect an Azure function to other Azure resources, such as storage. A binding is defined in the *function.json* file and represents both input and output. A function can use multiple input and output bindings. (To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).)
@@ -415,7 +435,7 @@ In this section, you add a storage binding to the HttpExample function created e
         }
     ```
 
-1. Now that you've configured the binding, you can use it in your function code. Again, the newly-defined binding appears in your code as an argument to the `main` function in *\_\_init\_\_.py*. For example, you can modify the *\_\_init\_\_.py* file in HttpExample to match the following, which shows using the `msg` argument to write a timestamped message with the name used in the request. The comments explain the specific changes:
+1. Now that you've configured the binding, you can use it in your function code. Again, the newly defined binding appears in your code as an argument to the `main` function in *\_\_init\_\_.py*. For example, you can modify the *\_\_init\_\_.py* file in HttpExample to match the following, which shows using the `msg` argument to write a timestamped message with the name used in the request. The comments explain the specific changes:
 
     ```python
     import logging
@@ -464,9 +484,12 @@ In this section, you add a storage binding to the HttpExample function created e
 
 1. To verify that the message was written to the queue, go to the [Azure portal](https://portal.azure.com), sign in if necessary, and navigate to the resource group containing your functions project. Within that resource group, local and navigate into the storage account for the project, then navigate into **Queues**. On that page, navigate into "outqueue" (the queue defined in the binding), which should then display all the logged messages.
 
-    You can also use the Azure CLI to query the storage queue, as described on [Query the storage queue](https://docs.microsoft.com/azure/azure-functions/functions-add-output-binding-storage-queue-python#query-the-storage-queue)
+    You can also use the Azure CLI to query the storage queue, as described on [Query the storage queue](https://docs.microsoft.com/azure/azure-functions/functions-add-output-binding-storage-queue-python#query-the-storage-queue).
 
 1. To test in the cloud, redeploy the code by using the **Deploy to Function App** in the **Azure: Functions** explorer. If prompted, select the Function App created previously. Once deployment finishes (it takes a few minutes!), the **Output** window again shows the public endpoints with which you can repeat your tests.
+
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=python-functions-extension&step=07-storage-binding)
 
 ## Clean up resources
 
@@ -478,7 +501,7 @@ Congratulations on completing this walkthrough of deploying Python code to Azure
 
 As noted earlier, you can learn more about the Functions extension by visiting its GitHub repository, [vscode-azurefunctions](https://github.com/Microsoft/vscode-azurefunctions). Issues and contributions are also welcome.
 
-Read the [Azure Functions Overview](functions-overview) to explore the different triggers you can use.
+Read the [Azure Functions Overview](functions-overview.md) to explore the different triggers you can use.
 
 To learn more about Azure services that you can use from Python, including data storage along with AI and Machine Learning services, visit [Azure Python Developer Center](https://docs.microsoft.com/python/azure/?view=azure-python).
 
