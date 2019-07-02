@@ -40034,6 +40034,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-domain-services/create-instance.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-network.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-admingroup.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
       "redirect_document_id": false
