@@ -68,10 +68,10 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="tier-options"></a>
   **What storage tiers are supported in Azure Files?**  
-    Currently, Azure Files supports only the standard storage tier. We don't have timelines to share for premium storage and cool storage support at this time. 
+    Azure Files supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. Learn more about how to create [standard file shares](storage-how-to-create-file-share.md) and [premium file shares](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > You cannot create Azure file shares from blob-only storage accounts or from premium storage accounts.
+    > You cannot create Azure file shares from Blob storage accounts or *premium* general purpose (GPv1 or GPv2) storage accounts. Standard Azure file shares must created in *standard* general purpose accounts only and premium Azure file shares must be created in FileStorage storage accounts only. *Premium* general purpose (GPv1 and GPv2) storage accounts are for premium page blobs only. 
 
 * <a id="give-us-feedback"></a>
   **I really want to see a specific feature added to Azure Files. Can you add it?**  

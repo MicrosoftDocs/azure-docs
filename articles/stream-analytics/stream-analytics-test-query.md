@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 By using Azure Stream Analytics, you can sample data from inputs or upload sample data to test queries in the Azure portal without starting or stopping a job.
 
-## Upload sample data and test the query
+## Upload or sample data from a live source to test the query
 
 1. Sign in to the Azure portal. 
 
@@ -25,7 +25,7 @@ By using Azure Stream Analytics, you can sample data from inputs or upload sampl
 
 4. To test your query you can then either sample data from a live input, or upload from a file. The data must be serialized in JSON, CSV or AVRO. Sample input must be encoded in UTF-8 and not compressed. Only comma (,) delimiter is supported for testing CSV input on portal.
 
-    1. Using live input: right-click on any of your inputs. Then select **Sample data from input**. In the next screen, you can set the duration of the sample.
+    1. Using live input: right-click on any of your inputs. Then select **Sample data from input**. In the next screen, you can set the duration of the sample. Sampling events from a live source will retrieve up to 1000 events or 1 MB (whichever comes first), so the data sampled may not represent the full time interval specified.
 
     1. Using file: right-click on any of your inputs. Then select **Upload sample data from file**. 
 
