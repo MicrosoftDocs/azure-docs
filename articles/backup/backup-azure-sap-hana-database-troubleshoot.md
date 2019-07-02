@@ -20,23 +20,24 @@ As part of [pre-requisites](backup-azure-sap-hana-database.md#prerequisites), th
 
 ### Setting up permissions
 
-What does the pre-registration script do:
+What the pre-registration script does:
 
-1. Creates of AZUREWLBACKUPHANAUSER in HANA System and adds required Roles and Permissions as listed below
+1. Creates AZUREWLBACKUPHANAUSER in HANA System and adds required Roles and Permissions as listed below:
     - DATABASE ADMIN  - To create new DBs during restore
     - CATALOG READ – To read the backup catalog
     - SAP_INTERNAL_HANA_SUPPORT – To access few private tables
-2. Adding key to Hdbuserstore for HANA plugin to do all operations (inquiry of database, configuring backup, doing backup, doing restore)
-    - If you run the HDBSQL command within the HANA machine,
+2. Adds key to Hdbuserstore for HANA plugin to do all operations (inquiry of database, configuring backup, doing backup, doing restore)
+   
+   - To confirm the key creation, run the HDBSQL command within the HANA machine with SIDADM credentials:
 
-    ``` hdbsql 
-    ‘hdbuserstore list’
+    ``` hdbsql
+    hdbuserstore list
     ```
-
-    it should display the key {SID}{DBNAME} with the user as ‘AZUREWLBACKUPHANAUSER’
+    
+    The command output should display the key {SID}{DBNAME} with the user as ‘AZUREWLBACKUPHANAUSER’.
 
 > [!NOTE]
-> Make sure you have a unique set of SSFS files under the path “/usr/sap/<SID>/home/.hdb/”. There should be only one folder under this path.
+> Make sure you have a unique set of SSFS files under the path “/usr/sap/{SID}/home/.hdb/”. There should be only one folder under this path.
 
 ### Setting up BackInt parameters
 
@@ -50,8 +51,6 @@ Once a database is chosen for backup, the Azure Backup service will configure ba
 
 > [!NOTE]
 > Make sure these parameters are NOT present at HOST level. Host level parameters will override these parameters and may cause different behavior than expected.
-
-'Stop protection with retain data' and then 'resume backup' once more will reset the parameters to the right values.
 
 ## Understanding common user errors
 
