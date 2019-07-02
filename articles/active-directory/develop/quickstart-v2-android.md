@@ -101,6 +101,10 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >          }
 >       ]
 >    }
+>    ```
+>    
+>    [!NOTE]
+>    This quickstart supports Enter_the_Supported_Account_Info_Here.
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 > 1. Paste the following activity to the **manifest\application** node:	
 >    ```xml
@@ -117,7 +121,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >        </intent-filter>
 >    </activity>
 >    ```
-> > 1. Run the app! 
+> 1. Run the app! 
 
 > [!div renderon="docs"]
 > 1. Extract and open the Project in Android Studio.
