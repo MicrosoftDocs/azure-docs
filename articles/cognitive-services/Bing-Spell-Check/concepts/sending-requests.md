@@ -117,7 +117,7 @@ BingAPIs-Market: en-US
 }  
 ```  
 
-# Next steps
+## Next steps
 
 - [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
