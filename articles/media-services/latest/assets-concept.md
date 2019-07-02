@@ -85,9 +85,9 @@ curl -X PUT \
 
 For a full example, see [Create a job input from a local file](job-input-from-local-file-how-to.md). In Media Services v3, a job's input can also be created from HTTPS URLs (see [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)).
 
-## Map v3 asset properites to v2
+## Map v3 asset properties to v2
 
-The following table shows how [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s properites in v3 map to Asset's properties in v2.
+The following table shows how the [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s properties in v3 map to Asset's properties in v2.
 
 |v3 properties|v2 properties|
 |---|---|
