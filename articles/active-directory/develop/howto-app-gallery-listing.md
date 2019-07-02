@@ -114,21 +114,21 @@ To update or remove an existing application in the Azure AD app gallery, you fir
 
 Customers can submit the request of listing an application by clicking **App requests by Customers** -> **Submit new request**.
 
-![Customer requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Shows the customer requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Below is the flow of customer requested applications-
 
-![Customer requested apps flow](./media/howto-app-gallery-listing/customer-request.png)
+![Shows the customer requested apps flow](./media/howto-app-gallery-listing/customer-request.png)
 
 ## Timelines
 
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7-10 business days.
 
-   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/timeline.png)
+   ![TimeLine of listing SAML application into the gallery](./media/howto-app-gallery-listing/timeline.png)
 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2-5 business days.
 
-   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/timeline2.png)
+   ![TimeLine of listing SAML application into the gallery](./media/howto-app-gallery-listing/timeline2.png)
 
 ## Escalations
 

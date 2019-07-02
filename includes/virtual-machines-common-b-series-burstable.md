@@ -14,7 +14,7 @@ The B-series VM family allows you to choose which VM size provides you the neces
 
 The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts,  small databases and development build environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
 
-The B-series comes in the following six VM sizes:
+The B-series comes in the following VM sizes:
 
 | Size             | vCPU  | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked / hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS / MBps | Max NICs |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
@@ -25,6 +25,9 @@ The B-series comes in the following six VM sizes:
 | Standard_B2ms | 2           | 8              | 16                         | 60%                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
 | Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+| Standard_B12ms | 12           | 48             | 96                         | 202%                  | 1200%                   | 360                   | 121                 | 2909           | 16                                     | 6480 / 75                                 | 4320 / 50                                  | 6  |
+| Standard_B16ms | 16           | 64             | 128                         | 270%                  | 1600%                   | 480                   | 162                 | 3888           | 32                                     | 8640 / 100                                 | 4320 / 50                                 | 8  |
+| Standard_B20ms | 20           | 80             | 160                         | 337%                  | 2000%                   | 600                   | 203                 | 4860           | 32                                     | 10800 / 125                                 | 4320 / 50                                 | 8  |
 
 <sup>1</sup> B1ls is supported only on Linux
 
@@ -33,6 +36,12 @@ The B-series comes in the following six VM sizes:
 Consider an office check-in/out application. The application needs CPU bursts during business hours, but not a lot of computing power during off hours. In this example, the workload requires a 16vCPU virtual machine with 64GiB of RAM to work efficiently.
 
 The table shows the hourly traffic data and the chart is a visual representation of that traffic.
+
+B16 characteristics:
+
+Max CPU perf: 16vCPU * 100% = 1600%
+
+Baseline: 270%
 
 ![Chart of hourly traffic data](./media/virtual-machines-common-b-series-burstable/office-workload.png)
 
@@ -66,6 +75,8 @@ The table shows the hourly traffic data and the chart is a visual representation
 
 <sup>1</sup> Credits accumulated/credits used in an hour is equivalent to: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
 
+For a D16s_v3 which has 16 vCPUs and 64 GiB of memory the hourly rate is $0.936 per hour (monthly $673.92) and for B16ms with 16 vCPUs and 64 GiB memory  the rate is $0.794 per hour (monthly $547.86). <b> This results in 15% savings!</b>
+
 ## Q & A
 
 ### Q: How do you get 135% baseline performance from a VM?
@@ -88,6 +99,12 @@ During peak hours my application averages 60% vCPU utilization, I still earn 0.2
 
 If I take the 120 credits I earned off-peak and subtract the 96 credits I used for my peak times, I bank an additional 24 credits per day that I can use for other bursts of activity.
 
+### Q: How can I calculate credits accumulated and used?
+**A**: You can use the following formula: 
+
+(Base CPU perf of VM - CPU Usage) / 100 = Credits bank or use per minute
+
+e.g in above instance your baseline is 20% and if you use 10% of the CPU you are accumulating (20%-10%)/100 = 0.1 credit per minute.
 
 ### Q: Does the B-Series support Premium Storage data disks?
 **A**: Yes, all B-Series sizes support Premium Storage data disks.   
@@ -97,7 +114,3 @@ If I take the 120 credits I earned off-peak and subtract the 96 credits I used f
 	
 ### Q: What happens if I deploy an unsupported OS image on B1ls?
 **A** : B1ls only supports Linux images and if you deploy any another OS image you might not get the best customer experience.
-	
-### Q: Why is there no pricing information for B1ls windows?
-**A** : B1ls only supports Linux images and if you deploy any another OS image you might not get the best customer experience but you will get billed.
-
