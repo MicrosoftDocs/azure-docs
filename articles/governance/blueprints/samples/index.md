@@ -7,6 +7,7 @@ ms.service: blueprints
 ms.topic: sample
 ms.date: 06/26/2019
 ms.author: dacoulte
+ms.custom: fasttrack-edit
 ---
 # Azure Blueprints samples
 
@@ -22,6 +23,8 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/control-mapping.md) | Provides guardrails for compliance to NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Provides a set of policies to aide in PCI-DSS v3.2.1 compliance. |
 | [UK OFFICIAL and UK NHS Governance](./ukofficial/index.md) | Provides a set of compliant infrastructure patterns and policy guard-rails that help towards UK OFFICIAL and UK NHS attestation. |
+| [CAF Governance](./caf-governance/index.md) | Provides a set of controls to help you manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index.md). |
+| [CAF Migrate landing zone](./caf-migrate-landing-zone/index.md) | Provides a set of controls to help you setup for migrating your first workload and manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index.md). |
 
 ## Next steps
 
