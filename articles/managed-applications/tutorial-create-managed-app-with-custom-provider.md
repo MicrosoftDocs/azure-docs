@@ -563,8 +563,6 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 ![Create custom resource](./media/managed-application-with-custom-providers/perform-custom-resource-action.png)
 
-## Clean up resources
-
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## Looking for help
