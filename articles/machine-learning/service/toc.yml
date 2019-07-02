@@ -307,6 +307,8 @@
         href: ../algorithm-module-reference/add-rows.md
       - name: Remove Duplicate Rows
         href: ../algorithm-module-reference/remove-duplicate-rows.md
+      - name: Join Data
+        href: ../algorithm-module-reference/join-data.md
       - name: Split Data
         href: ../algorithm-module-reference/split-data.md
       - name: Normalize Data
@@ -355,12 +357,14 @@
         href: ../algorithm-module-reference/two-class-support-vector-machine.md
       - name: K-Means Clustering
         href: ../algorithm-module-reference/k-means-clustering.md
-    - name: Python language modules
+    - name: Python and R language modules
       items:  
       - name: Execute Python Script
         href: ../algorithm-module-reference/execute-python-script.md
       - name: Create Python Model
         href: ../algorithm-module-reference/create-python-model.md
+      - name: Execute R Script
+        href: ../algorithm-module-reference/execute-r-script.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources

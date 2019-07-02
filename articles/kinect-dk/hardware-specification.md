@@ -97,7 +97,7 @@ The embedded Inertial Measurement Unit (IMU) is an LSM6DSMUS and includes both a
 
 ## Microphone array
 
-Azure Kinect DK embeds a high-quality, seven microphone circular array that identifies as a standard USB audio class 2.0 device. The performance specifications are:
+Azure Kinect DK embeds a high-quality, seven microphone circular array that identifies as a standard USB audio class 2.0 device. All 7 channels can be accessed. The performance specifications are:
 
 - Sensitivity: -22 dBFS (94 dB SPL, 1 kHz)
 - Signal to noise ratio > 65 dB
