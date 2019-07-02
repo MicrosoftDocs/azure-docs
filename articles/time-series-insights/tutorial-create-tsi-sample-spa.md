@@ -98,7 +98,7 @@ This tutorial also uses data from the sample application's Time Series Insights 
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. To configure the app to use your Azure AD app registration ID, change the `clientID` value to use the the **Application ID** you cpied in **step 3** when you [registered the application to use Azure AD](#register-the-application-with-azure-ad). If you've created a **Logout URL** in Azure AD, set that value as the `postLogoutRedirectUri` value.
+   1. To configure the app to use your Azure AD app registration ID, change the `clientID` value to use the the **Application ID** you copied in **step 3** when you [registered the application to use Azure AD](#register-the-application-with-azure-ad). If you've created a **Logout URL** in Azure AD, set that value as the `postLogoutRedirectUri` value.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
