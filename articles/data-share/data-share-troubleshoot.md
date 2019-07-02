@@ -30,7 +30,7 @@ The above error is a known issue with the service and is currently being address
 
 You'll need to have the [Azure Contributor RBAC role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) to complete these steps. 
 
-## Error when creating a new Data Share
+## Error when creating or receiving a new Data Share
 
 "Error: Operation returned an invalid status code 'BadRequest'"
 

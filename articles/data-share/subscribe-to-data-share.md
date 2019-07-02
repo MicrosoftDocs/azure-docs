@@ -17,13 +17,16 @@ ms.author: joanpo
 > * Create a subscription to your data share for scheduled refresh
 
 ## Prerequisites
-Before you can accept a data share invitation, you must provision a number of Azure resources which are listed below. 
+Before you can accept a data share invitation, you must provision a number of Azure resources, which are listed below. 
 
 Ensure that all pre-requisites are complete before accepting a data share invitation. 
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
+
+> [!IMPORTANT]
+> To accept and receive an Azure Data Share, you must first register the Microsoft.DataShare resource provider and you must be an owner of the storage account that you accept data into. Follow the instructions documented in [Troubleshoot Azure Data Share Preview](data-share-troubleshoot.md) to register the data share resource provider as well as add yourself as an owner of the storage account. 
 
 ## Sign in to the Azure portal
 
