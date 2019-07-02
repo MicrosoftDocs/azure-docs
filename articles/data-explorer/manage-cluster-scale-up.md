@@ -6,7 +6,7 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 06/30/2019
 ---
 
 # Manage cluster scale-up to accommodate changing demand
@@ -16,6 +16,7 @@ There are two workflows for scaling an Azure Data Explorer cluster: scale-up and
 Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. But demand on a cluster can’t be predicted with absolute accuracy. A static cluster size can lead to underutilization or overutilization, neither of which is ideal. A better approach is to *scale* a cluster, adding and removing capacity and CPU resources with changing demand. 
 
 ## Steps to scale up
+
 1. Go to your cluster. Under **Settings**, select **Scale up**.
 
     You're shown a list of available SKUs. For example, in the following figure, only four SKUs are available.
@@ -31,9 +32,11 @@ Sizing a cluster appropriately is critical to the performance of Azure Data Expl
 
 You've now done a scale-up or scale-down operation for your Azure Data Explorer cluster.
 
-## Next steps
-You can also [manage cluster scale-out](manage-cluster-scale-out.md) to dynamically scale out the instance count based on metrics that you specify.
-
 If you need assistance with cluster-scaling issues, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
 
-Monitor your resource usage by following this article: [Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md).
+## Next steps
+
+* [Manage cluster scale-out](manage-cluster-scale-out.md) to dynamically scale out the instance count based on metrics that you specify.
+
+* Monitor your resource usage by following this article: [Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md).
+
