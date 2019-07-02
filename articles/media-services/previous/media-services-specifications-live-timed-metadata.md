@@ -21,8 +21,11 @@ ms.author: johndeu;
 
 Last Updated: 2019-07-02
 
+### Conformance Notation
 
-## 1 Introduction 
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119
+
+## 1. Introduction 
 
 In order to signal the insertion of advertisements or custom metadata events on a client player, broadcasters often make use of timed metadata embedded within the video. To enable these scenarios, Media Services provides support for the transport of timed metadata from the ingest point of the live streaming channel to the client application.
 This specification outlines several modes that are supported by Media Services for timed metadata within live streaming signals.
@@ -32,10 +35,6 @@ This specification outlines several modes that are supported by Media Services f
 2. [SCTE-35] signaling that complies with the legacy [Adobe-Primetime] specification for RTMP ad signaling.
    
 3. A generic timed metadata signaling mode, for messages that are **NOT** [SCTE-35] and could carry [ID3v2] or other custom schemas defined by the application developer.
-
-### Conformance Notation
-
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119
 
 ## 1.1 Terms Used
 
@@ -89,7 +88,7 @@ The following documents contain provisions, which, through reference in this tex
 ---------
 
 
-## 2 Timed Metadata Ingest
+## 2. Timed Metadata Ingest
 
 ## 2.1 RTMP Ingest
 
@@ -435,7 +434,7 @@ Events are signaled in-band, within the ‘emsg’ box, for both video and audio
 
 When a sliding presentation window is enabled, event messages are removed from the MPD when the sum of the time and duration of the event message is less than the time of the media data in the manifest.  In other words, the event messages are removed from the manifest when the media time to which they refer has rolled out of the sliding presentation window.
 
-## 4 SCTE-35 Ingest Implementation Guidance
+## 4. SCTE-35 Ingest Implementation Guidance
 
 [SCTE-35] messages are ingested in binary format using the Scheme
 **“urn:scte:scte35:2013:bin”** for [MS-SSTR-Ingest] and the type **“scte35”** for
