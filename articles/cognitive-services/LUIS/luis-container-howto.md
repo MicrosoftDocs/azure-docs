@@ -336,14 +336,13 @@ You can use a LUIS application if it **doesn't include** any of the following de
 
 Unsupported app configurations|Details|
 |--|--|
-|Unsupported container cultures| Dutch (nl-NL)<br>Japanese (ja-JP)<br>German is only supported with the [1.0.1 tokenizer or later](luis-language-support.md#custom-tokenizer-versions).|
+|Unsupported container cultures| Dutch (nl-NL)<br>Japanese (ja-JP)<br>German is only supported with the [1.0.2 tokenizer or later](luis-language-support.md#custom-tokenizer-versions).|
 |Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
 |Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) prebuilt entities|
 |Speech priming|External dependencies are not supported in the container.|
 |Sentiment analysis|External dependencies are not supported in the container.|
 
-<!--blogs/samples/video coures -->
-
+<!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
