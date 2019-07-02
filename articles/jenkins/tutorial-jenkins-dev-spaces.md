@@ -132,7 +132,7 @@ For more information on using Azure Dev Spaces and multi-service development wit
 
     For more information, see [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
 
-6. >Run the application in AKS using the `azds up` command:
+6. Build and run the application in AKS using the `azds up` command:
 
     ```bash
     azds up
