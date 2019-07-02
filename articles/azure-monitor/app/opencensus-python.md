@@ -40,7 +40,6 @@ First you have to create an Application Insights resource which will generate an
     | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Application Type** | General | Type of app you are monitoring |
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
