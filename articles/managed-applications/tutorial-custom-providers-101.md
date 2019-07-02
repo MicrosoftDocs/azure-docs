@@ -482,6 +482,38 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 
 The updated `Run` method will now include the `tableStorage` input binding that was added for Azure Table storage. The first part of the method will now read the `x-ms-customproviders-requestpath` header and use the `Microsoft.Azure.Management.ResourceManager.Fluent` library to parse the value as a resource ID. The `x-ms-customproviders-requestpath` header is sent by the custom provider and designates the path of the incoming request. Using the parsed resource ID, we can now generate the partitionKey and rowKey for the data to lookup or store custom resources.
 
+#### Update function usings
+
+In addition to adding the methods and classes, we need to update the using methods for the function. Add the following to the top of the file:
+
+<br>
+<details>
+<summary>Show usings:</summary>
+
+```csharp
+#r "Newtonsoft.Json"
+#r "Microsoft.WindowsAzure.Storage"
+#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent.dll"
+
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Configuration;
+using System.Text;
+using System.Threading;
+using System.Globalization;
+using System.Collections.Generic;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+```
+
+</details>
+
 #### Final code sample
 
 The Azure Function should now support the Azure RESTful API operations for both custom resources and custom actions.
