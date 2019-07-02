@@ -50,7 +50,10 @@ This article provides a general workflow for moving resources to a different reg
 - For server-level audits, ensure that:
     - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region. 
     - Auditing is configured on the target server. For more information, see [Get started with SQL database auditing](sql-database-auditing.md). 
-- If your instance has a long-term retention policy (LTR), make sure to move the LTR backups to the target region. [!!!NEED LINK FOR THIS!!!](NEEDLINK.MD).
+- If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you will be able to access the older LTR backups in the source region using the source server, even if the server is deleted. 
+
+  > [!NOTE]
+  > This will be insufficient for moving between the sovereign cloud and a public region. Such a migration will require moving the LTR backups to the target server, which is not currently supported. 
 
 ### Prepare resources
 
@@ -96,7 +99,10 @@ Once the move completes, remove the resources in the source region to avoid unne
 - For server-level audits, ensure that:
     - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region.
     - Audit configuration is configured at the target server. For more information, see [SQL database auditing](sql-database-auditing.md).
-- If your databases have a long-term retention (LTR) policy, make sure to move the LTR backups to the target region. For more information, see [NEED LINK](NEEDLINK.MD). 
+- If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you will be able to access the older LTR backups in the source region using the source server, even if the server is deleted. 
+
+  > [!NOTE]
+  > This will be insufficient for moving between the sovereign cloud and a public region. Such a migration will require moving the LTR backups to the target server, which is not currently supported. 
 
 ### Prepare to move
  
@@ -143,7 +149,10 @@ Once the move completes, remove the resources in the source region to avoid unne
 - If audit is enabled for the instance, ensure that:
     - The storage container or event hub with the existing logs is moved to the target region. 
     - Audit is configured on the target instance. For more information, see [auditing with managed instance](sql-database-managed-instance-auditing.md).
-- If your instance has a long-term retention (LTR) policy, make sure to move the LTR backups to the target region. For more information, see [NEED LINK](NEEDLINK.MD). 
+- If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you will be able to access the older LTR backups in the source region using the source server, even if the server is deleted. 
+
+  > [!NOTE]
+  > This will be insufficient for moving between the sovereign cloud and a public region. Such a migration will require moving the LTR backups to the target server, which is not currently supported. 
 
 ### Prepare resources
 

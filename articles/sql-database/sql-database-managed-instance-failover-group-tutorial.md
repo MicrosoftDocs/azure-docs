@@ -13,9 +13,9 @@ ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 06/27/2019
 ---
-# Tutorial: Configure a failover group for an Azure SQL Database managed instance
+# Tutorial: Add a SQL Database managed instance to a failover group
 
-Configure a failover group for an Azure SQL database managed instance. In this article, you will learn how to:
+Add a SQL Database managed instance to a failover group. In this article, you will learn how to:
 
 > [!div class="checklist"]
 > - Create a primary managed instance
