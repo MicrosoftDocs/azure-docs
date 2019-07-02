@@ -12,7 +12,7 @@ An IoT Plug and Play device is typically a small-scale, standalone computing dev
 
 ## Digital twin
 
-Digital twins are models of IoT Plug and Play devices.  Digital twins are modeled using the [Digital Twin Definition Language](https://aka.ms/DTDL) and are represented in the Azure IoT API surface. 
+Digital twins are models of IoT Plug and Play devices.  Digital twins are modeled using the [Digital Twin Definition Language](https://aka.ms/DTDL).  You can use the Azure IoT API to interact with digital twins. 
 
 ## Digital Twin Definition Language
 
@@ -24,16 +24,16 @@ A device capability model describes a device and defines the set of interfaces i
 
 ## Interface
 
-An interface describes related capabilities that are implemented by a device or digital twin. Interfaces are reusable and can be reused across different capability models.
+An interface describes related capabilities that are implemented by a device or digital twin. Interfaces can be reused across different capability models.
 
 ## Property
 
-Properties are data fields that represent some state of a digital twin. Use properties to represent durable state. You can declare properties as read-only or writable. Read-only properties are set by code running in the context of the IoT Plug and Play device itself, such as serial number.  Writable properties are set by external entities, such as alarm thresholds.
+Properties are data fields defined in an [interface](#interface) that represent some state of a digital twin. You can declare properties as read-only or writable. Read-only properties are set by code running in the context of the IoT Plug and Play device itself, such as serial number.  Writable properties are set by external entities, such as alarm thresholds.
 
 ## Telemetry
 
-Telemetry fields represent measurements which are typically used for the equivalent of sensor readings.
+Telemetry fields defined in an [interface](#interface) represent measurements. These measurements are typically values such as sensor readings.
 
 ## Command
 
-Commands represent methods can be executed on the digital twin. An example would be a reset command. 
+Commands defined in an [interface](#interface) represent methods that can be executed on the digital twin. For example, a reset command to reset a device.
