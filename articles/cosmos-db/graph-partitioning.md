@@ -36,35 +36,41 @@ The following guidelines describe how the partitioning strategy in Azure Cosmos 
 
     - Selecting a vertex by ID, then **using the `.has()` step to specify the partition key property**: 
     
-        ```
+        ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
     
     - Selecting a vertex by **specifying a tuple including partition key value and ID**: 
     
-        ```
+        ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
         
     - Specifying an **array of tuples of partition key values and IDs**:
     
-        ```
+        ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
         
-    - Selecting a set of vertices and **specifying a list of partition key values**: 
+    - Selecting a set of vertices with their IDs and **specifying a list of partition key values**: 
     
-        ```
+        ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
+        ```
+
+    - Using the **Partition strategy** at the beginning of a query and specifying a partition for the scope of the rest of the Gremlin query: 
+    
+        ```java
+        g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```
 
 ## Best practices when using a partitioned graph
 
 Use the following guidelines to ensure performance and scalability when using partitioned graphs with unlimited containers:
 
-- **Always specify the partition key value when querying a vertex**. Getting vertex from a known partition is a way to achieve performance.
+- **Always specify the partition key value when querying a vertex**. Getting vertex from a known partition is a way to achieve performance. All subsequent adjacency operations will always be scoped to a partition since Edges contain reference ID and partition key to their target vertices.
 
-- **Use the outgoing direction when querying edges whenever it's possible**. As mentioned above, edges are stored with their source vertices in the outgoing direction. So the chances of resorting to cross-partition queries are minimized when the data and queries are designed with this pattern in mind.
+- **Use the outgoing direction when querying edges whenever it's possible**. As mentioned above, edges are stored with their source vertices in the outgoing direction. So the chances of resorting to cross-partition queries are minimized when the data and queries are designed with this pattern in mind. On the contrary, the `in()` query will always be an expensive fan-out query.
 
 - **Choose a partition key that will evenly distribute data across partitions**. This decision heavily depends on the data model of the solution. Read more about creating an appropriate partition key in [Partitioning and scale in Azure Cosmos DB](partition-data.md).
 
