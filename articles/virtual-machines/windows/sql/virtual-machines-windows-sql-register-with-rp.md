@@ -145,7 +145,6 @@ Verify current SQL Server VM registration status with the following AZ CLI comma
   az sql vm show -n <vm_name> -g <resource_group>
   ```
 
-Seeing `Microsoft.SqlVirtualMachine` in the **ID** value of the output indicates your SQL Server VM has been registered with the resource provider. 
 
 # [PowerShell](#tab/powershell)
 
