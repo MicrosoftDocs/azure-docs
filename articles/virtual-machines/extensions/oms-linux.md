@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: roiyz
 
 ---
@@ -43,7 +43,7 @@ The Log Analytics Agent extension can be run against these Linux distributions.
 | Red Hat Enterprise Linux Server | 6 (x86/x64) and 7 (x64) |
 | Debian GNU/Linux | 8 and 9 (x86/x64) |
 | Ubuntu | 14.04 LTS (x86/x64), 16.04 LTS (x86/x64), and 18.04 LTS (x64) |
-| SUSE Linux Enterprise Server | 12 (x64) |
+| SUSE Linux Enterprise Server | 12 (x64) and 15 (x64) |
 
 >[!NOTE]
 >OpenSSL lower than version 1.x is not supported on any platform, and version 1.10 is only supported on x86_64 platforms (64-bit).  
@@ -69,7 +69,8 @@ The following table provides a mapping of the version of the Azure Monitor VM ex
 
 | Azure Monitor Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
-|1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
+| 1.11.9 | [1.11.0-7](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-7) |
+| 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 

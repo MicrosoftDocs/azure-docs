@@ -238,7 +238,7 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 1. Simple Azure Machine Learning experiment flow starting with uploaded dataset.
 
 ## <a name="decisiontree"></a>Decision tree for scenario selection
-- - -
+---
 The following diagram summarizes the scenarios described above and the Advanced Analytics Process and Technology choices made that take you to each of the itemized scenarios. Note that data processing, exploration, feature engineering, and sampling may take place in one or more method/environment -- at the source, intermediate, and/or target environments – and may proceed iteratively as needed. The diagram only serves as an illustration of some of possible flows and does not provide an exhaustive enumeration.
 
 ![Sample DS process walkthrough scenarios][8]

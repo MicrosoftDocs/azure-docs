@@ -74,9 +74,45 @@ Use Service Bus as an event handler to route your events in Event Grid directly 
 
 Please note, while Service Bus as a handler is in public preview, you must install the CLI or PowerShell extension when using those to create event subscriptions.
 
-### Using CLI
+### Install extension for Azure CLI
 
-For Azure CLI, the following example subscribes a connects and Event Grid topic to a Service Bus queue:
+For Azure CLI, you need the [Event Grid extension](/cli/azure/azure-cli-extensions-list).
+
+In [CloudShell](/azure/cloud-shell/quickstart):
+
+* If you've installed the extension previously, update it with `az extension update -n eventgrid`.
+* If you haven't installed the extension previously, install it by using `az extension add -n eventgrid`.
+
+For a local installation:
+
+1. [Install the Azure CLI](/cli/azure/install-azure-cli). Make sure that you have the latest version, by checking with `az --version`.
+1. Uninstall previous versions of the extension with `az extension remove -n eventgrid`.
+1. Install the `eventgrid` extension with `az extension add -n eventgrid`.
+
+### Install module for PowerShell
+
+For PowerShell, you need the [AzureRM.EventGrid module](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
+
+In [CloudShell](/azure/cloud-shell/quickstart-powershell):
+
+* Install the module with `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+For a local installation:
+
+1. Open PowerShell console as administrator.
+1. Install the module with `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+If the `-AllowPrerelease` parameter isn't available, use the following steps:
+
+1. Run `Install-Module PowerShellGet -Force`.
+1. Run `Update-Module PowerShellGet`.
+1. Close the PowerShell console.
+1. Restart PowerShell as administrator.
+1. Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+### Using CLI to add a Service Bus handler
+
+For Azure CLI, the following example subscribes and connects an Event Grid topic to a Service Bus queue:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

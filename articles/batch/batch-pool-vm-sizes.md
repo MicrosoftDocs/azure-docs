@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -34,34 +34,35 @@ There are a few exceptions and limitations to choosing a VM size:
 
 Batch pools in the Virtual Machine configuration support almost all VM sizes ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). See the following table to learn more about supported sizes and restrictions.
 
-Any promotional or preview VM sizes not listed aren't guaranteed for support. 
+Any promotional or preview VM sizes not listed aren't guaranteed for support.
 
-| VM series  | Supported sizes | Allocation mode |
+| VM series  | Supported sizes | Batch account pool allocation mode<sup>1</sup> |
 |------------|---------|-----------------|
 | Basic A-series | All sizes *except* Basic_A0 (A0) | Any |
 | A-series | All sizes *except* Standard_A0 | Any |
 | Av2-series | All sizes | Any |
-| B-series | None | N/A |
-| DC-series | None | N/A |
+| B-series | None | Not available |
+| DC-series | None | Not available |
 | Dv2, Dsv2-series | All sizes | Any |
 | Dv3, Dsv3-series | All sizes | Any |
-| [Memory optimized sizes](../virtual-machines/linux/sizes-memory.md) | None | N/A |
+| [Memory optimized sizes](../virtual-machines/linux/sizes-memory.md) | None | Not available |
 | Fsv2-series | All sizes | Any |
 | H-series | All sizes | Any |
-| Hb-series | All sizes | User subscription mode |
-| Hc-series | All sizes | User subscription mode |
+| Hb-series<sup>2</sup> | All sizes | Any |
+| Hc-series<sup>2</sup> | All sizes | Any |
 | Ls-series | All sizes | Any |
-| Lsv2-series | None | N/A |
+| Lsv2-series | None | Not available |
 | M-series | Standard_M64ms (low-priority only), Standard_M128s (low-priority only) | Any |  
 | NCv2-series<sup>2</sup> | All sizes | Any |
 | NCv3-series<sup>2</sup> | All sizes | Any |
 | ND-series<sup>2</sup> | All sizes | Any |
 | NDv2-series | All sizes | User subscription mode |
 | NV-series | All sizes | Any |
-| NVv3-series | None | N/A |
-| SAP HANA | None | All |
+| NVv3-series | None | Not available |
+| SAP HANA | None | Not available |
 
-<sup>1</sup> The ExtraSmall, Standard_A1_v2, Standard_A2_v2, and Standard_A2m_v2 sizes are not available in Cloud Services.
+<sup>1</sup> Some newer VM series are partially supported initially. These VM series can be allocated by Batch accounts with the **pool allocation mode** set to **user subscription**. See [Manage Batch accounts](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) for more information on Batch account configuration. See [Quotas and limits](batch-quota-limit.md) to learn how to request quota for these partially supported VM series for **user subscription** Batch accounts.  
+
 <sup>2</sup> These VM sizes can be allocated in Batch pools in Virtual Machine configuration, but you must request a specific [quota increase](batch-quota-limit.md#increase-a-quota).
 
 ### Pools in Cloud Service configuration

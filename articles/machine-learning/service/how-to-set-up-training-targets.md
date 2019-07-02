@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
 ---
 # Set up compute targets for model training 
@@ -69,7 +69,7 @@ The following code shows an example of configuring training runs for a user-mana
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## Set up compute targets with Python
+## Set up in Python
 
 Use the sections below to configure these compute targets:
 
@@ -265,7 +265,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## Set up compute in the Azure portal
+## Set up in Azure portal
 
 You can access the compute targets that are associated with your workspace in the Azure portal.  You can use the portal to:
 
@@ -352,7 +352,7 @@ Follow the steps described earlier to view the list of compute targets. Then use
 1. Select __Attach__. 
 1. View the status of the attach operation by selecting the compute target from the list.
 
-## Set up compute with the CLI
+## Set up with CLI
 
 You can access the compute targets that are associated with your workspace using the [CLI extension](reference-azure-machine-learning-cli.md) for Azure Machine Learning service.  You can use the CLI to:
 
@@ -362,7 +362,7 @@ You can access the compute targets that are associated with your workspace using
 
 For more information, see [Resource management](reference-azure-machine-learning-cli.md#resource-management).
 
-## Set up compute with VS Code
+## Set up with VS Code
 
 You can access, create and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning service.
 

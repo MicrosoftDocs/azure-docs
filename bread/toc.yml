@@ -336,6 +336,18 @@
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
+    - name: Form Recognizer
+      tocHref: /azure/cognitive-services/form-recognizer/
+      topicHref: /azure/cognitive-services/form-recognizer/
+    - name: Ink Recognizer
+      tocHref: /azure/cognitive-services/Ink-Recognizer/
+      topicHref: /azure/cognitive-services/Ink-Recognizer/
+    - name: Personalizer
+      tocHref: /azure/cognitive-services/personalizer/
+      topicHref: /azure/cognitive-services/personalizer/
+    - name: Immersive Reader
+      tocHref: /azure/cognitive-services/immersive-reader/
+      topicHref: /azure/cognitive-services/immersive-reader/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -358,6 +370,9 @@
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
+  - name: Bastion
+    tocHref: /azure/bastion/
+    topicHref: /azure/bastion/
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
@@ -494,6 +509,9 @@
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Azure Kinect DK
+    tocHref: /azure/kinect-dk/
+    topicHref: /azure/kinect-dk/
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/    
@@ -609,6 +627,10 @@
   - name: Security
     tocHref: /azure/security/
     topicHref: /azure/security/
+    items:
+      - name: Develop
+        tocHref: /azure/security/develop/
+        topicHref: /azure/security/develop/ 
   - name: Security Center
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/

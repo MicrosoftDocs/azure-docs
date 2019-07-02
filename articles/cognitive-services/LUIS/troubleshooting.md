@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 06/18/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -183,11 +183,11 @@ See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md)
 
 ### I got an error about being out of quota. How do I fix it? 
 
-See, [How to fix out-of-quota errors when the key exceeds pricing tier usage](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) to learn more.
+See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) to learn more.
 
 ### I need to handle more endpoint queries. How do I do that? 
 
-See, [How to fix out-of-quota errors when the key exceeds pricing tier usage](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) to learn more.
+See, [Fix HTTP status code 403 and 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) to learn more.
 
 
 

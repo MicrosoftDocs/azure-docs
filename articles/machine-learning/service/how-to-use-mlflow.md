@@ -1,5 +1,5 @@
 ---
-title: How to use MLflow with Azure Machine Learning service
+title: Use MLflow with Azure Machine Learning service
 titleSuffix: Azure Machine Learning service
 description: Learn how to log metrics and artifacts using MLflow library to Azure Machine Learning service
 services: machine-learning
@@ -13,14 +13,14 @@ ms.date: 06/10/2019
 ms.custom: seodec18
 ---
 
-# How to use MLflow with Azure Machine Learning service (Preview)
+# Use MLflow with Azure Machine Learning service (Preview)
 
 This article demonstrates how to use MLflow's tracking URI and logging API, collectively also known as MLflow Tracking, with Azure Machine Learning service to track and log your experiment metrics and artifacts in your [Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store your training metrics and models.
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. [MLFlow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is a component of MLflow that logs and tracks your training run metrics and model artifacts, whether your experiments are run locally, on a virtual machine, or on a remote compute cluster.
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram.png)
 
-## Compare MLflow and Azure Machine Learning service clients
+## Compare MLflow and Azure Machine Learning clients
 
  The below table summarizes the different clients that can use Azure Machine Learning service, and their respective function capabilities.
 
@@ -140,7 +140,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/mlflow) demonstrates concepts in this article.
+The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrates concepts in this article.
 
 ## Next steps
 

@@ -14,8 +14,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
-
+#Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live) content so that my customers could view the content on a wide variety of clients (these clients understand different formats).
 ---
+
 # Dynamic Packaging
 
 Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS and XBOX). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG DASH, or Smooth Streaming, you can take advantage of **Dynamic Packaging**. The packaging is agnostic to the video resolution, SD/HD/UHD-4K are supported.

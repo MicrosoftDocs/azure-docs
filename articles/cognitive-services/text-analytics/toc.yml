@@ -8,6 +8,7 @@
   - name: Example user scenarios
     href: text-analytics-user-scenarios.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: REST API
       items:
@@ -33,6 +34,8 @@
         href: quickstarts/go-sdk.md
       - name: Ruby
         href: quickstarts/ruby-sdk.md
+      - name: Node.js
+        href: quickstarts/nodejs-sdk.md
 
 - name: Tutorials
   items:
@@ -69,8 +72,16 @@
         href: how-tos/text-analytics-how-to-install-containers.md
       - name: Configure containers
         href: text-analytics-resource-container-config.md
-      - name: How to run on Azure Kubernetes Service
-        href: How-tos/text-analytics-how-to-use-container-instance.md
+      - name: Use container instances (ACI)
+        items:
+          - name: Sentiment analysis
+            href: how-tos/use-sentiment-analysis-on-aci.md
+      - name: Use kubernetes service (AKS)
+        items:
+          - name: Language detection
+            href: how-tos/use-language-detection-on-aks.md
+          - name: Sentiment analysis
+            href: how-tos/use-sentiment-analysis-on-aks.md
    - name: Use the Text Analytics Connected Service
      href: vs-text-connected-service.md
 - name: Reference
