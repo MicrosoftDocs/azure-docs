@@ -11,4 +11,4 @@
 ---
 
 > [!NOTE]
-> You're currently viewing the original IoT Central documentation, to view the updated Plug and Play documentation click [here](../articles/iot-central/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+> You're currently viewing the original IoT Central documentation. To view the updated Plug and Play documentation go to [What is Azure IoT Central (Plug and Play)?](../articles/iot-central/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
