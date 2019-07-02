@@ -32,7 +32,7 @@ The interactive visualization interface of Linkurious Enterprise offers an easy 
 
 Cambridge Intelligence’s graph visualization toolkits now support Azure Cosmos DB:
 - [KeyLines for JavaScript developers](https://cambridge-intelligence.com/keylines/) 
-- [ReGraph for React developers](https://cambridge-intelligence.com/regraph/)
+- [Re-Graph for React developers](https://cambridge-intelligence.com/regraph/)
 
 ![Cambridge Intelligence Demo](./media/graph-visualization/ci-demo-2.gif)
 
@@ -46,5 +46,5 @@ They’re compatible with any browser, device, server or database, and come with
 **Next steps:** 
 - [Try the toolkits](https://cambridge-intelligence.com/try/)
 - [KeyLines technology overview](https://cambridge-intelligence.com/keylines/technology/)
-- [ReGraph technology overview](https://cambridge-intelligence.com/regraph/technology/)
+- [Re-Graph technology overview](https://cambridge-intelligence.com/regraph/technology/)
 - [Graph visualization use cases](https://cambridge-intelligence.com/use-cases/)
