@@ -13,7 +13,7 @@ ms.date: 06/20/2019
 
 In this tutorial, you create your own managed application with custom actions and resources. The managed application will contain a custom action on the `Overview` page, a custom resource type displayed as a separate menu item in `Table of Content` and a custom context action on the custom resource page.
 
-In this tutorial, you will do:
+This tutorial includes the following steps:
 
 > [!div class="checklist"]
 > * Author user interface definition file for creating a managed application instance
@@ -35,9 +35,9 @@ To complete this tutorial, you need to know:
 
 ## Authoring user interface definition file
 
-In this tutorial, you create a managed application and its managed resource group will contain custom provider instance, storage account and function. The Azure Function used in this example implements an API that handles custom provider operations for actions and resources. Azure Storage Account is used as a basic storage for your custom provider resources.
+In this tutorial, you create a managed application and its managed resource group will contain custom provider instance, storage account, and function. The Azure Function used in this example implements an API that handles custom provider operations for actions and resources. Azure Storage Account is used as basic storage for your custom provider resources.
 
-Storage account name and function name must be globally unique, we will add `funcname` and `storagename` input elements in user interface definition for creating a managed application instance. By default function files will be deployed from [sample function package](https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip), but you can change it by adding an input element for providing a function package link in *createUIDefinition.json*:
+The user interface definition for creating a managed application instance includes `funcname` and `storagename` input elements. Storage account name and function name must be globally unique. By default function files will be deployed from [sample function package](https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip), but you can change it by adding an input element for providing a function package link in *createUIDefinition.json*:
 
 ```json
 {
@@ -63,7 +63,7 @@ and output in *createUIDefinition.json*:
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-  "handler": "Microsoft.Compute.MultiVm",
+  "handler": "Microsoft.Azure.CreateUIDef",
   "version": "0.1.2-preview",
   "parameters": {
     "basics": [
@@ -114,9 +114,9 @@ and output in *createUIDefinition.json*:
 
 ## Authoring deployment template with custom provider
 
-To create a managed application instance with custom providers you need to define custom provider resource of type **Microsoft.CustomProviders/resourceProviders** in your **mainTemplate.json**. In that resource, you define the resource types and actions for your service. To deploy Azure Function and Azure Storage Account instances define resources of type `Microsoft.Web/sites` and `Microsoft.Storage/storageAccounts` respectively.
+To create a managed application instance with custom provider, you need to define custom provider resource of type **Microsoft.CustomProviders/resourceProviders** in your **mainTemplate.json**. In that resource, you define the resource types and actions for your service. To deploy Azure Function and Azure Storage Account instances define resources of type `Microsoft.Web/sites` and `Microsoft.Storage/storageAccounts` respectively.
 
-In this tutorial, you create one `users` resource type, `ping` custom action and `users/contextAction` custom action that will be performed in a context of a `users` custom resources. For each resource type and action provide an endpoint pointing to the function with name provided in [createUIDefinition.json](#authoring-user-interface-definition-file). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
+In this tutorial, you create one `users` resource type, `ping` custom action, and `users/contextAction` custom action that will be performed in a context of a `users` custom resource. For each resource type and action provide an endpoint pointing to the function with name provided in [createUIDefinition.json](#authoring-user-interface-definition-file). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
 
 ```json
 {
@@ -326,7 +326,7 @@ In this tutorial, you create one `users` resource type, `ping` custom action and
 
 ## Authoring view definition artifact
 
-In order to define user interface that includes custom actions and custom resources in your managed application you need to author **viewDefinition.json** artifact. For more information about view definition artifact, see [View definition artifact in Azure Managed Applications](concepts-view-definition.md).
+To define user interface that includes custom actions and custom resources in your managed application, you need to author **viewDefinition.json** artifact. For more information about view definition artifact, see [View definition artifact in Azure Managed Applications](concepts-view-definition.md).
 
 In this tutorial, you define:
 * *Overview* page with toolbar button that represents a custom action `TestAction` with basic text input.
@@ -412,7 +412,7 @@ Package the following managed application artifacts to zip archive and upload it
 * mainTemplate.json
 * viewDefinition.json
 
-All files must be at root level. The package with artifacts can be stored in any storage, for example Github blob or Azure Storage Account blob. Here is a script to upload the application package to storage account: 
+All files must be at root level. The package with artifacts can be stored in any storage, for example GitHub blob or Azure Storage Account blob. Here is a script to upload the application package to storage account: 
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -482,7 +482,7 @@ az managedapp definition create \
 3. Provide values for creating a Service Catalog definition:
 
     * Provide a unique **Name** for the Service Catalog definition, **Display Name** and *Description*(optional).
-    * Select the **Subscription**, **Resource group** and **Location** where application definition will be created. You can use the same resource group that is used for zip package or create a new resource group.
+    * Select the **Subscription**, **Resource group**, and **Location** where application definition will be created. You can use the same resource group that is used for zip package or create a new resource group.
     * For a **Package File Uri**, provide the path to the zip file you created in previous step.
 
     ![Provide values](./media/managed-application-with-custom-providers/add-service-catalog-managed-application.png)
@@ -503,7 +503,7 @@ az managedapp definition create \
 
 ## Deploying an instance of managed application
 
-Once the Service Catalog managed application definition is deployed, run the script below or follow the steps in Azure portal to deploy your managed application instance with custom provider:
+When managed application definition is deployed, run the script below or follow the steps in Azure portal to deploy your managed application instance with custom provider:
 
 # [Azure CLI](#tab/azurecli-interactive)
 
@@ -541,7 +541,7 @@ az managedapp create \
 
 4. Provide values for creating a managed application instance from Service Catalog definition:
 
-    * Select the **Subscription**, **Resource group** and **Location** where application instance will be created.
+    * Select the **Subscription**, **Resource group**, and **Location** where application instance will be created.
     * Provide a unique Azure Function name and Azure Storage Account name.
 
     ![Application settings](./media/managed-application-with-custom-providers/application-settings.png)
