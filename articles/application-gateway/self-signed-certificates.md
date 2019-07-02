@@ -67,7 +67,7 @@ Create your root CA certificate using OpenSSL.
 
 ## Create a server certificate
 
-Next you'll create a server certificate using OpenSSL.
+Next, you'll create a server certificate using OpenSSL.
 
 ### Create the certificate’s key
 
@@ -191,29 +191,68 @@ Or, you can use Azure CLI or Azure PowerShell to upload the root certificate. Th
 
 $gw=Get-AzApplicationGateway -Name appgwv2 -ResourceGroupName rgOne
 
-Add-AzApplicationGatewayTrustedRootCertificate -ApplicationGateway $gw -Name CustomCARoot -CertificateFile "C:\Users\surmb\Downloads\contoso.cer"
+Add-AzApplicationGatewayTrustedRootCertificate `
+   -ApplicationGateway $gw `
+   -Name CustomCARoot `
+   -CertificateFile "C:\Users\surmb\Downloads\contoso.cer"
 
-$trustedroot=Get-AzApplicationGatewayTrustedRootCertificate -Name CustomCARoot -ApplicationGateway $gw
+$trustedroot = Get-AzApplicationGatewayTrustedRootCertificate `
+   -Name CustomCARoot `
+   -ApplicationGateway $gw
 
 ## Get the listener, backend pool and probe
 
-$listener=Get-AzApplicationGatewayHttpListener -Name basichttps -ApplicationGateway $gw
+$listener = Get-AzApplicationGatewayHttpListener `
+   -Name basichttps `
+   -ApplicationGateway $gw
 
-$bepool=Get-AzApplicationGatewayBackendAddressPool -Name testbackendpool -ApplicationGateway $gw
+$bepool = Get-AzApplicationGatewayBackendAddressPool `
+  -Name testbackendpool `
+  -ApplicationGateway $gw
 
-Add-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name testprobe -Protocol Https -HostName "www.fabrikam.com" -Path "/" -Interval 15 -Timeout 20 -UnhealthyThreshold 3
+Add-AzApplicationGatewayProbeConfig `
+  -ApplicationGateway $gw `
+  -Name testprobe `
+  -Protocol Https `
+  -HostName "www.fabrikam.com" `
+  -Path "/" `
+  -Interval 15 `
+  -Timeout 20 `
+  -UnhealthyThreshold 3
 
-$probe=Get-AzApplicationGatewayProbeConfig -Name testprobe -ApplicationGateway $gw
+$probe = Get-AzApplicationGatewayProbeConfig `
+  -Name testprobe `
+  -ApplicationGateway $gw
 
-## Add the configuration to the HTTP Setting and don’t forget to set the “hostname” field to the domain name of the server certificate as this will be set as the SNI header and will be used to verify the backend server’s certificate. Note that SSL handshake will fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
+## Add the configuration to the HTTP Setting and don’t forget to set the “hostname” field
+## to the domain name of the server certificate as this will be set as the SNI header and
+## will be used to verify the backend server’s certificate. Note that SSL handshake will
+## fail otherwise and might lead to backend servers being deemed as Unhealthy by the probes
 
-Add-AzApplicationGatewayBackendHttpSettings -ApplicationGateway $gw -Name testbackend -Port 443 -Protocol Https -Probe $probe -TrustedRootCertificate $trustedroot -CookieBasedAffinity Disabled -RequestTimeout 20 -HostName www.fabrikam.com
+Add-AzApplicationGatewayBackendHttpSettings `
+  -ApplicationGateway $gw `
+  -Name testbackend `
+  -Port 443 `
+  -Protocol Https `
+  -Probe $probe `
+  -TrustedRootCertificate $trustedroot `
+  -CookieBasedAffinity Disabled `
+  -RequestTimeout 20 `
+  -HostName www.fabrikam.com
 
 ## Get the configuration and update the Application Gateway
 
-$backendhttp=Get-AzApplicationGatewayBackendHttpSettings -Name testbackend -ApplicationGateway $gw
+$backendhttp = Get-AzApplicationGatewayBackendHttpSettings `
+  -Name testbackend `
+  -ApplicationGateway $gw
 
-Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $gw -Name testrule -RuleType Basic -BackendHttpSettings $backendhttp -HttpListener $listener -BackendAddressPool $bepool
+Add-AzApplicationGatewayRequestRoutingRule `
+  -ApplicationGateway $gw `
+  -Name testrule `
+  -RuleType Basic `
+  -BackendHttpSettings $backendhttp `
+  -HttpListener $listener `
+  -BackendAddressPool $bepool
 
 Set-AzApplicationGateway -ApplicationGateway $gw 
 ```
