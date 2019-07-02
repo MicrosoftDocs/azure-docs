@@ -87,10 +87,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
->    ```
->    [!NOTE]
->    This quickstart supports Enter_the_Supported_Account_Info_Here.
-> 
+>    ``` 
 > 1. Right click **Info.plist** and select **Open As** > **Source Code**.
 > 1. Under the dict root node, replace with your ***Bundle Id***:
 >
@@ -107,6 +104,10 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 > 
 >    ```
 > 1. Build & run the app! 
+
+> [!div renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 >
