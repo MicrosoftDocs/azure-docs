@@ -19,12 +19,11 @@ ms.author: monhaber
 ---
 # Threat detection for VMs & servers in Azure Security Center
 
-This topic presents the different types of detection methods and alerts available for VMs and Servers with the following operation systems.
+This topic presents the different types of detection methods and alerts available for VMs and Servers with the following operation systems. 
+For a list of supported versions, see [Platforms and features supported by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-os-coverage).
 
 * [Windows](#windows-machines)
 * [Linux](#linux-machines)
-
-For a list of supported versions, see [Platforms and features supported by Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-os-coverage).
 
 ## Windows <a name="windows-machines"></a>
 
@@ -37,7 +36,7 @@ Azure Security Center extends its Cloud Workload Protection Platforms by integra
 > [!NOTE]
 > Windows Server Defender ATP sensor is automatically enabled on Windows Servers that are onboarded to Azure Security Center.
 
-When Windows Server Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Windows Defender ATP console to perform a detailed investigation to uncover the scope of the attack. For more information about Windows Server Defender ATP, see [Onboard servers to the Windows Defender ATP service](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+When Windows Server Defender ATP detects a threat, it triggers an alert. The alert is shown on the Security Center dashboard. From the dashboard, you can pivot to the Windows Defender ATP console to perform a detailed investigation to uncover the scope of the attack. For more information about Windows Server Defender ATP, see [Onboard servers to the Windows Defender ATP service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 ### Crash Dump Analysis <a nanme="windows-dump"></a>
 
@@ -78,8 +77,8 @@ It finds evidence of exploitation, code injection, and execution of malicious pa
 
 For examples and more information about Security Center detection:
 
-* [How Azure Security Center automates the detection of cyber attack](https://azure.microsoft.com/en-us/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
-* [How Azure Security Center detects vulnerabilities using administrative tools](https://azure.microsoft.com/en-us/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
+* [How Azure Security Center automates the detection of cyber attack](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
+* [How Azure Security Center detects vulnerabilities using administrative tools](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
 ## Linux <a name="linux-machines"></a>
 
@@ -113,8 +112,8 @@ Below are several examples of analytics, that demonstrate how we span across dif
 
 For more information, see these articles:  
 
-* [Leverage Azure Security Center to detect when compromised Linux machines attack](https://azure.microsoft.com/en-us/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
+* [Leverage Azure Security Center to detect when compromised Linux machines attack](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
 
-* [Azure Security Center can detect emerging vulnerabilities in Linux](https://azure.microsoft.com/en-us/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
+* [Azure Security Center can detect emerging vulnerabilities in Linux](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
  

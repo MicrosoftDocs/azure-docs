@@ -19,7 +19,7 @@ ms.author: monhaber
 ---
 # Threat detection for data services in Azure Security Center
 
-This topic presents the alerts available for your data storage resources.
+ Security Center analyzes the logs of data storage services and triggers alerts when it detects a threat to your data resources. This topic lists the alerts that Security Center generates for the following services:
 
 * [Azure SQL Database and SQL Data Warehouse](#data-sql)
 * [Azure Storage](#azure-storage)
@@ -37,7 +37,7 @@ SQL threat detection detects anomalous activities indicating unusual and potenti
 |**Access from a potentially harmful application**|A potentially harmful application has been used to access the database. In some cases, the alert detects penetration testing in action. In other cases, the alert detects an attack using common attack tools.|
 |**Brute force SQL credentials**|An abnormal high number of failed logins with different credentials have occurred. In some cases, the alert detects penetration testing in action. In other cases, the alert detects brute force attack.|
 
-For more information about SQL threat detection alerts see,[Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview), and review the threat detection alerts section. Also see [How Azure Security Center helps reveal a Cyberattack](https://azure.microsoft.com/is-is/blog/how-azure-security-center-helps-reveal-a-cyberattack/) to view an example of how Security Center used malicious SQL activity detection to discover an attack.
+For more information about SQL threat detection alerts see,[Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview), and review the threat detection alerts section. Also see [How Azure Security Center helps reveal a Cyberattack](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) to view an example of how Security Center used malicious SQL activity detection to discover an attack.
 
 ## Azure Storage<a name="azure-storage"></a>
 
@@ -46,7 +46,7 @@ For more information about SQL threat detection alerts see,[Azure SQL Database t
 
 Advanced Threat Protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and manage security monitoring systems.
 
-Security Center analyzes diagnostic logs of read, write, and delete requests to Blob storage to detect threats, and it triggers alerts when anomalies in activity occur. For more information, see to [configure Storage Analytics logging](https://docs.microsoft.com/en-us/azure/storage/common/storage-monitor-storage-account#configure-logging) for more information.
+Security Center analyzes diagnostic logs of read, write, and delete requests to Blob storage to detect threats, and it triggers alerts when anomalies in activity occur. For more information, see to [configure Storage Analytics logging](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging) for more information.
 
 > [!div class="mx-tableFixed"]
 

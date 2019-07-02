@@ -67,12 +67,12 @@ To set up advanced detections, upgrade to Azure Security Center Standard.
 1. From the Security Center menu, select **Security Policy**.
 2. For the subscriptions you would like to move to Standard tier, click **Edit settings**. 
 3. From the Settings page, select **Pricing Tier**. 
-   A free trial is available for a month. To learn more see the [pricing page](https://azure.microsoft.com/en-us/pricing/details/security-center/). 
+   A free trial is available for a month. To learn more see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
 
 ## Next steps
 
 In this article, you learned what are security alerts and the different types of alerts available in Security Center. For more information, see the following topics:
 
-* [Azure Security Center planning and operations guide](https://docs.microsoft.com/en-us/azure/security-center/security-center-planning-and-operations-guide)
-* [Azure Security Center FAQ](https://docs.microsoft.com/en-us/azure/security-center/security-center-faq): Find frequently asked questions about using the service.
+* [Azure Security Center planning and operations guide](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Azure Security Center FAQ](https://docs.microsoft.com/azure/security-center/security-center-faq): Find frequently asked questions about using the service.
 

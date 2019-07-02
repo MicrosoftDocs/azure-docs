@@ -1,5 +1,5 @@
 ---
-title: Cloud smart alert correlation (incidents) | Microsoft Docs
+title: Cloud smart alert correlation in Azure Security Center (incidents) | Microsoft Docs
 description: This topic explains how fusion uses cloud smart alert correlation to generate security incidents are in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date:  7/02/2019
 ms.author: monhaber
 
 ---
-# Cloud smart alert  correlation in Azure Security Center (incidents)
+# Cloud smart alert correlation in Azure Security Center (incidents)
 
 Security Center continuously analyzes the hybrid cloud workloads using advanced analytics and threat intelligence to alert you about malicious activity.
 
@@ -35,5 +35,5 @@ During an investigation of an incident, analysts often need extra context to rea
 
 ![Security incident details](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-To better understand security incidents, see [How to handle Security Incidents in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-incident).
+To better understand security incidents, see [How to handle Security Incidents in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-incident).
 
