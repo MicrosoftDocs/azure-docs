@@ -9,9 +9,12 @@ ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, metrics, red hat
 ---
 
-# Deploy a standalone Prometheus in an Azure Red Hat OpenShift cluster
+# Deploy a standalone Prometheus instance in an Azure Red Hat OpenShift cluster
 
-This article describes how to configure a standalone Prometheus instance that uses Service Discovery in an Azure Red Hat OpenShift cluster. Customer admin access to the cluster isn't required.
+This article describes how to configure a standalone Prometheus instance that uses service discovery in an Azure Red Hat OpenShift cluster.
+
+> [!NOTE]
+> Customer admin access to Azure Red Hat OpenShift cluster isn't required.
 
 Target setup:
 
@@ -20,13 +23,16 @@ Target setup:
 
 You'll prepare some Prometheus config files locally. To store config files, create a new folder. Config files are stored in the cluster as Secrets, in case Secret tokens are added later to the cluster.
 
-## 1. Sign in to the cluster by using the OC tool
+## Sign in to the cluster by using the OC tool
 
-Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io). Sign in with your Azure credentials. Next, select your username, found in the top-right corner, and then select **Copy Login Command**. Paste your username into the terminal that you'll use.
+1. Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
+2. Sign in by using your Azure credentials.
+3. Select your username located in the top-right corner, and then select **Copy Login Command**.
+4. Paste your username into the terminal that you'll use.
 
-To see if you're signed in to the correct cluster, enter the command `oc whoami -c`.
+To see if you're signed in to the correct cluster, enter the `oc whoami -c` command.
 
-## 2. Prepare the projects
+## Prepare the projects
 
 Create the following projects:
 ```
@@ -39,7 +45,7 @@ oc new-project app-project2
 > [!NOTE]
 > You can either use the `-n` or `--namespace` parameter, or select an active project by using the commmand `oc project`.
 
-## 3. Prepare the Prometheus config file
+## Prepare the Prometheus config file
 Create a prometheus.yml file by entering the following content:
 ```
 global:
@@ -66,12 +72,13 @@ Create a Secret called prom by entering the following config:
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
 
-The prometheus.yml file is a basic Prometheus config file. It sets the intervals and configures auto discovery in three projects (prometheus-project, app-project1, app-project2). In the previous config file, the auto-discovered endpoints are scraped over HTTP without authentication.
+The prometheus.yml file is a basic Prometheus config file. It sets the intervals and configures auto discovery in three projects (prometheus-project, app-project1, app-project2). 
+In the previous config file, the auto-discovered endpoints are scraped over HTTP without authentication.
 
 For more information about scraping endpoints, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config.
 
 
-## 4. Prepare the Alertmanager config file
+## Prepare the Alertmanager config file
 Create a alertmanager.yml file by entering the following content:
 ```
 global:
@@ -90,7 +97,7 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-Create a Secret called prom-alerts by entering the following configuration:
+Create a Secret called prom-alerts by using the following configuration:
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
@@ -100,7 +107,7 @@ Alertmanager.yml is the Alert Manager config file.
 > [!NOTE]
 > You can verify the two previous steps by entering `oc get secret -n prometheus-project`.
 
-## 5. Start Prometheus and Alertmanager
+## Start Prometheus and Alertmanager
 Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus), and then download the template called [prometheus-standalone.yaml](
 https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml). Apply the template to prometheus-project:
 ```
@@ -114,18 +121,18 @@ The prometheus-standalone.yml file also creates an Alertmanager instance, secure
 > [!NOTE]
 > You can verify if the prom StatefulSet has equal DESIRED and CURRENT number replicas by using the `oc get statefulset -n prometheus-project` command. You can also check all resources in the project by using `oc get all -n prometheus-project`.
 
-## 6. Add permissions to allow Service Discovery
+## Add permissions to allow service discovery
 
-Create prometheus-sdrole.yml by entering the following content:
+Create prometheus-sdrole.yml by using the following content:
 ```
 apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
   name: prometheus-sdrole
   annotations:
-    "openshift.io/display-name": Prometheus Service Discovery Role
+    "openshift.io/display-name": Prometheus service discovery role
     description: |
-      A role and rolebinding adding permissions required to perform Service Discovery in a given project.
+      A role and rolebinding adding permissions required to perform service discovery in a given project.
     iconClass: fa fa-cogs
     tags: "monitoring,prometheus,alertmanager,time-series"
 parameters:
@@ -161,7 +168,7 @@ objects:
     name: prom
     namespace: ${PROMETHEUS_PROJECT}
 ```
-Apply the template to all projects where you would like to allow service discovery.
+Apply the template to all the projects that you want allow service discovery:
 ```
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
