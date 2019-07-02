@@ -18,19 +18,19 @@ This article describes how to configure a standalone Prometheus instance that us
 
 Target setup:
 
-- One project (prometheus-project), which contains Prometheus and Alertmanager
-- Two projects (app-project1 and app-project2), which contain the applications to monitor
+- One project (prometheus-project), which contains Prometheus and Alertmanager.
+- Two projects (app-project1 and app-project2), which contain the applications to monitor.
 
 You'll prepare some Prometheus config files locally. To store config files, create a new folder. Config files are stored in the cluster as Secrets, in case Secret tokens are added later to the cluster.
 
 ## Sign in to the cluster by using the OC tool
 
 1. Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
-2. Sign in by using your Azure credentials.
+2. Sign in with your Azure credentials.
 3. Select your username located in the top-right corner, and then select **Copy Login Command**.
 4. Paste your username into the terminal that you'll use.
 
-To see if you're signed in to the correct cluster, enter the `oc whoami -c` command.
+To see if you're signed in to the correct cluster, run the following command: `oc whoami -c`.
 
 ## Prepare the projects
 
@@ -105,25 +105,25 @@ oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-
 Alertmanager.yml is the Alert Manager config file.
 
 > [!NOTE]
-> You can verify the two previous steps by entering `oc get secret -n prometheus-project`.
+> To verify the two previous steps, preparing the Alertmanager config file and preparing the Prometheus config file, enter `oc get secret -n prometheus-project`.
 
 ## Start Prometheus and Alertmanager
 Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus), and then download the template called [prometheus-standalone.yaml](
-https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml). Apply the template to prometheus-project:
+https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml). Apply the template to prometheus-project by using the following configuration:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
-The prometheus-standalone.yml file is an OpenShift Template, which creates a Prometheus instance
+The prometheus-standalone.yml file is an OpenShift template, which creates a Prometheus instance
 that begins with oauth-proxy.
 
 The prometheus-standalone.yml file also creates an Alertmanager instance, secured with oauth-proxy. In this template, oauth-proxy is configured to allow any user who can get the prometheus-project namespace (see the `-openshift-sar` flag).
 
 > [!NOTE]
-> You can verify if the prom StatefulSet has equal DESIRED and CURRENT number replicas by using the `oc get statefulset -n prometheus-project` command. You can also check all resources in the project by using `oc get all -n prometheus-project`.
+> To verify if the prom StatefulSet has equal DESIRED and CURRENT number replicas, run the `oc get statefulset -n prometheus-project` command. To check all resources in the project, run the `oc get all -n prometheus-project` command.
 
 ## Add permissions to allow service discovery
 
-Create prometheus-sdrole.yml by using the following content:
+Create prometheus-sdrole.yml by entering the following content:
 ```
 apiVersion: template.openshift.io/v1
 kind: Template
@@ -168,7 +168,7 @@ objects:
     name: prom
     namespace: ${PROMETHEUS_PROJECT}
 ```
-Apply the template to all the projects that you want allow service discovery:
+To apply template to all the projects that you want allow service discovery, run the following commands:
 ```
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
@@ -180,7 +180,7 @@ To have Prometheus to gather metrics from itself, apply the permissions in prome
 
 ## Optional: Deploy example application
 
-If all is working but there aren't any metrics sources, see the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/). You can open the Prometheus URL by using the following command:
+If all is working but there aren't any metrics sources, see the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/). To open the Prometheus URL, run the following command:
 ```
 oc get route prom -n prometheus-project
 ```
