@@ -29,13 +29,13 @@ To perform a join on two datasets, they should be related by a key column. Compo
  
 1. Select **Launch column selector** to choose key column(s). Remember to choose columns for both the left and right inputs.
 
-    **Single Key**
+    For a single key:
 
     Select a single key column for both inputs.
     
-    **Composite Keys**
+    For a composite key:
 
-    If you need to join the table use composite keys, select all the key columns from left input and right input in the same order. The **Join Data** module will join the tables when all key columns match. Check the option **Allow duplicates and preserve column order in selection** if the column order isn't the same as the original table. 
+    Select all the key columns from left input and right input in the same order. The **Join Data** module will join the tables when all key columns match. Check the option **Allow duplicates and preserve column order in selection** if the column order isn't the same as the original table. 
 
     ![column-selector](media/module/join-data-column-selector.png)
 
