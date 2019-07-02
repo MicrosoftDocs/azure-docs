@@ -138,19 +138,19 @@ The provided *Helm charts* pull the docker images of the Speech Service, both te
 
 ## Install the Helm chart on the Kubernetes cluster
 
-To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` and `<name>` with their appropriate arguments.
+To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument.
 
 ```console
-helm install microsoft/speech-onprem \
+helm install microsoft/cognitive-services-speech-onpremise \
     --version 0.1.0 \
     --values <config-values.yaml> \
-    --name <name>
+    --name onprem-speech
 ```
 
 Here is an example output you might expect to see from a successful install execution:
 
 ```console
-NAME:   speech-cogsvcs
+NAME:   onprem-speech
 LAST DEPLOYED: Tue Jul  2 12:51:42 2019
 NAMESPACE: default
 STATUS: DEPLOYED
@@ -185,11 +185,11 @@ text-to-speech-autoscaler  Deployment/text-to-speech  <unknown>/50%  2        10
 
 
 NOTES:
-speech-onprem has been installed!
-Release is named speech-cogsvcs
+cognitive-services-speech-onpremise has been installed!
+Release is named onprem-speech
 ```
 
-The Kubernetes deployment takes several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
+The Kubernetes deployment can take over 10 minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
 
 ```console
 kubectl get all
@@ -222,16 +222,16 @@ horizontalpodautoscaler.autoscaling/speech-to-text-autoscaler   Deployment/speec
 horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-to-speech   0%/50%    2         10        2          34m
 ```
 
-### Verify helm deployment with helm tests
+### Verify Helm deployment with Helm tests
 
-The installed helm charts define *helm tests*, which serve as a convenience for verification. To verify both speech-to-text and text-to-speech services, we'll execute the [helm test][helm-test] command. These tests validate service readiness.
+The installed Helm charts define *Helm tests*, which serve as a convenience for verification. These tests validate service readiness. To verify both **speech-to-text** and **text-to-speech** services, we'll execute the [Helm test][helm-test] command.
 
 ```console
-helm test on-prem-speech
+helm test onprem-speech
 ```
 
 > [!IMPORTANT]
-> These tests will fail if the POD status is not `Running` or if the deployment is not listed under the `AVAILABLE` column. Be patient as this can take several minutes.
+> These tests will fail if the POD status is not `Running` or if the deployment is not listed under the `AVAILABLE` column. Be patient as this can take over ten minutes to complete.
 
 These tests will output various status results:
 
@@ -282,9 +282,3 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [speech-container-host-computer]: speech-container-howto.md#the-host-computer
 [installing-helm-apps-in-aks]: ../../aks/kubernetes-helm.md
 [cog-svcs-containers]: ../cognitive-services-container-support.md
-
-
-<!--
-
-
--->
