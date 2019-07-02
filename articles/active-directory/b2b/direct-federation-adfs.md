@@ -36,6 +36,7 @@ To set up direct federation, the following attributes must be received in the SA
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Audience     |`urn:federation:MicrosoftOnline`         |
+|Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 The following claims need to be configured in the SAML 2.0 token issued by the identity provider:
 
@@ -108,6 +109,7 @@ To set up direct federation, the following attributes must be received in the WS
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Audience     |`urn:federation:MicrosoftOnline`         |
+|Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Required claims for the WS-Fed token issued by the IdP:
 

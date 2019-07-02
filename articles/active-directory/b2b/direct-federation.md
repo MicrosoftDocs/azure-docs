@@ -16,7 +16,7 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Direct federation with AD FS and third-party identity providers (preview)
+# Direct federation with AD FS and third-party providers for guest users (preview)
 |     |
 | --- |
 | Direct federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
@@ -78,7 +78,7 @@ Azure AD B2B can be configured to federate with identity providers that use the 
 
 > [!NOTE]
 > NOTE
-The target domain for direct federation must not be DNS-verified on Azure AD. The authentication URL domain must match either the target domain or the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 
+The target domain for direct federation must not be DNS-verified on Azure AD. The authentication URL domain must match the target domain or it must be the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 
 
 #### Required SAML 2.0 attributes and claims
 The following tables show requirements for specific attributes and claims that must be configured at the third-party identity provider. To set up direct federation, the following attributes must be received in the SAML 2.0 response from the identity provider. These attributes can be configured by linking to the online security token service XML file or by entering them manually.
@@ -89,6 +89,8 @@ Required attributes for the SAML 2.0 response from the IdP:
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Audience     |`urn:federation:MicrosoftOnline`         |
+|Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
+
 
 Required claims for the SAML 2.0 token issued by the IdP:
 
@@ -113,6 +115,7 @@ Required attributes in the WS-Fed message from the IdP:
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
 |Audience     |`urn:federation:MicrosoftOnline`         |
+|Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Required claims for the WS-Fed token issued by the IdP:
 
@@ -122,7 +125,7 @@ Required claims for the WS-Fed token issued by the IdP:
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 ## Step 2: Configure direct federation in Azure AD 
-Next, you'll configure federation with the identity provider configured in step 1 in Azure AD. You can use either the Azure AD portal or PowerShell. It might take 5-10 minutes before the direct federation policy takes effect. The following attributes are required:
+Next, you'll configure federation with the identity provider configured in step 1 in Azure AD. You can use either the Azure AD portal or PowerShell. It might take 5-10 minutes before the direct federation policy takes effect. During this time, don't attempt to redeem an invitation for the direct federation domain. The following attributes are required:
 - Issuer URI of partner IdP
 - Passive auth endpoint of partner IdP
 - Certificate
@@ -206,4 +209,3 @@ To remove direct federation with an identity provider by using PowerShell:
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```
-
