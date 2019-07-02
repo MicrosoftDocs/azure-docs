@@ -65,28 +65,27 @@ The following documents contain provisions, which, through reference in this tex
 
 
 | Standard          | Definition      |
-|-------------------|-----------------|      
+|-------------------|-----------------|
 | [Adobe-Primetime] | [Primetime Digital Program Insertion Signaling Specification 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf) |
-| [AMF0]            | ["Action Message Format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf) |           
-| [DASH-IF-IOP]     | DASH Industry Forum Interop Guidance v 4.2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html)
+| [AMF0]            | ["Action Message Format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf) |
+| [DASH-IF-IOP]     | DASH Industry Forum Interop Guidance v 4.2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html) |
 | [HLS-TMD]         | Timed Metadata for HTTP Live Streaming - [https://developer.apple.com/streaming](https://developer.apple.com/streaming) |
 | [ID3v2]           | ID3 Tag version 2.4.0  [http://id3.org/id3v2.4.0-structure](http://id3.org/id3v2.4.0-structure) |
-| [ISO-14496-12]    |ISO/IEC 14496-12: Part 12 ISO base media file format, FourthEdition 2012-07-15  |
-| [MPEGDASH]       | Information technology -- Dynamic adaptive streaming over HTTP (DASH) -- Part 1: Media presentation description and segment formats. May 2014. Published. URL: https://www.iso.org/standard/65274.html |
+| [ISO-14496-12]    | ISO/IEC 14496-12: Part 12 ISO base media file format, FourthEdition 2012-07-15  |
+| [MPEGDASH]        | Information technology -- Dynamic adaptive streaming over HTTP (DASH) -- Part 1: Media presentation description and segment formats. May 2014. Published. URL: https://www.iso.org/standard/65274.html |
 | [MPEGCMAF]        | Information technology -- Multimedia application format (MPEG-A) -- Part 19: Common media application format (CMAF) for segmented media. January 2018. Published. URL: https://www.iso.org/standard/71975.html |
 | [MPEGCENC]        | Information technology -- MPEG systems technologies -- Part 7: Common encryption in ISO base media file format files. February 2016. Published. URL: https://www.iso.org/standard/68042.html |
-| [MS-SSTR]         | [“Microsoft Smooth Streaming Protocol”, May 15, 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
+| [MS-SSTR]         | [“Microsoft Smooth Streaming Protocol”, May 15, 2014](https://docs.microsoft.com/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) |
 | [MS-SSTR-Ingest]  | [Azure Media Services Fragmented MP4 Live Ingest Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview) |
-| [RFC8216]         |R. Pantos, Ed.; W. May. HTTP Live Streaming. August 2017. Informational. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216) |
-| [RFC4648]   |The Base16, Base32, and Base64 Data Encodings - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648) |
+| [RFC8216]         | R. Pantos, Ed.; W. May. HTTP Live Streaming. August 2017. Informational. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216) |
+| [RFC4648]         |The Base16, Base32, and Base64 Data Encodings - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648) |
 | [RTMP]            |[“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](https://www.adobe.com/devnet/rtmp.html)  |
-| [SCTE-35-2019]         | SCTE 35: 2019 - Digital Program Insertion Cueing Message for Cable - https://www.scte.org/SCTEDocs/Standards/SCTE%2035%202019.pdf  |
+| [SCTE-35-2019]    | SCTE 35: 2019 - Digital Program Insertion Cueing Message for Cable - https://www.scte.org/SCTEDocs/Standards/SCTE%2035%202019.pdf  |
 | [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH for IP-Based Cable Services Part 1: MPD Constraints and Extensions |
 | [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH for IP-Based Cable Services Part 3: DASH/FF Profile |
 | [SCTE-224]        | SCTE 224 2018r1 – Event Scheduling and Notification Interface |
 | [SCTE-250]        | Event and Signaling Management API (ESAM) |
 ----------------------------------------
-
 
 
 ## 2 Timed Metadata Ingest
