@@ -58,7 +58,7 @@ You can create multiple versions of the device template. Over time, you will hav
 1. Choose **Migrate Device**.
 1. Select the version number you want to migrate the device to and choose **Migrate**.
 
-![How to migrate a device](media/howto-version-devicetemplate/pick-version.png)
+![How to migrate a device](media/howto-version-device-template/pick-version.png)
 
 ## Next steps
 
