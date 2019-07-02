@@ -24,12 +24,14 @@ Last Updated: 2019-07-01
 
 ## 1 Introduction 
 
-In order to facilitate the insertion of advertisements, or custom events on a client player, broadcasters often make use of timed metadata embedded within the video. To enable these scenarios, Media Services provides support for the transport of timed metadata along with the media, from the ingest point of the live streaming channel to the client application.
-This specification outlines two modes that are supported by Media Services for timed metadata within live streaming signals:
+In order to signal the insertion of advertisements or custom metadata events on a client player, broadcasters often make use of timed metadata embedded within the video. To enable these scenarios, Media Services provides support for the transport of timed metadata from the ingest point of the live streaming channel to the client application.
+This specification outlines several modes that are supported by Media Services for timed metadata within live streaming signals.
 
-1. [SCTE-35] signaling that heeds the recommended practices outlined by [SCTE-35], [SCTE-214-1], [SCTE-214-3] and [RFC8216]
+1. [SCTE-35] signaling that complies with the standards outlined by [SCTE-35], [SCTE-214-1], [SCTE-214-3] and [RFC8216]
 
-2. A generic timed metadata signaling mode, for messages that are **NOT** [SCTE-35] and could carry [ID3v2] or other custom schemas
+2. [SCTE-35] signaling that complies with the legacy [Adobe-Primetime] specification for RTMP ad signaling.
+   
+3. A generic timed metadata signaling mode, for messages that are **NOT** [SCTE-35] and could carry [ID3v2] or other custom schemas defined by the application developer.
 
 ### 1.2 Conformance Notation
 
@@ -37,8 +39,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ### 1.3 Terms Used
 
-| Term              | Definition                                                                                                                                                                                                                       |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Term              | Definition |
+|-------------------|------------|
 | Ad Break          | A location or point in time where one or more ads may be scheduled for delivery; same as avail and placement opportunity. |
 | Ad Decision Service| external service that decides which ad(s) and durations will be shown to the user. The services is typically provided by a partner and are out of scope for this document.|
 | Cue               | Indication of time and parameters of the upcoming ad break. Note that cues can indicate a pending switch to an ad break, pending switch to the next ad within an ad break, and pending switch from an ad break to the main content. |
@@ -59,8 +61,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ### 1.4 Normative References
 
-The following documents contain provisions, which, through reference in this text, constitute provisions of this document. 
-All documents are subject to revision by the standards bodies, and readers are encouraged to investigate the possibility of applying the most recent editions of the documents listed below. Readers are also reminded that newer editions of the referenced documents might not be compatible with this version of the timed metadata specification for Azure Media Services. 
+The following documents contain provisions, which, through reference in this text, constitute provisions of this document. All documents are subject to revision by the standards bodies, and readers are encouraged to investigate the possibility of applying the most recent editions of the documents listed below. Readers are also reminded that newer editions of the referenced documents might not be compatible with this version of the timed metadata specification for Azure Media Services.
+
 
 | Standard          | Definition      |
 |-------------------|-----------------|      
@@ -79,12 +81,12 @@ All documents are subject to revision by the standards bodies, and readers are e
 | [RFC4648]   |The Base16, Base32, and Base64 Data Encodings - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648) |
 | [RTMP]            |[“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](https://www.adobe.com/devnet/rtmp.html)  |
 | [SCTE-35-2019]         | SCTE 35: 2019 - Digital Program Insertion Cueing Message for Cable - https://www.scte.org/SCTEDocs/Standards/SCTE%2035%202019.pdf  |
-| [SCTE-67]         | ANSI/SCTE 67 2014 –Recommended Practice for SCTE 35: Digital Program Insertion Cueing Message for Cable |
 | [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH for IP-Based Cable Services Part 1: MPD Constraints and Extensions |
 | [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH for IP-Based Cable Services Part 3: DASH/FF Profile |
 | [SCTE-224]        | SCTE 224 2018r1 – Event Scheduling and Notification Interface |
 | [SCTE-250]        | Event and Signaling Management API (ESAM) |
 ----------------------------------------
+
 
 
 ## 2 Timed Metadata Ingest
@@ -95,7 +97,7 @@ All documents are subject to revision by the standards bodies, and readers are e
 
 The following table describes the format of the AMF message payload that Media Services will ingest.
 
-The name of the AMF message can be used to differentiate multiple event streams of the same type.  For [SCTE-35] messages, the name of the AMF message MUST be “onAdCue” as recommended in [SCTE-67].  Any fields not listed below MUST be ignored, so that innovation of this design is not inhibited in the future.
+The name of the AMF message can be used to differentiate multiple event streams of the same type.  For [SCTE-35] messages, the name of the AMF message MUST be “onAdCue” as recommended in [Adobe-Primetime].  Any fields not listed below MUST be ignored, so that innovation of this design is not inhibited in the future.
 
 ### 2.1.1 Signal Syntax
 
@@ -362,7 +364,7 @@ Normative definitions of carriage of [SCTE-35] cue messages are in [SCTE-214-1] 
 Events will be signaled in the MPD using the EventStream element, which appears
 within the Period element. The schemeId used is "urn:scte:scte35:2014:xml+bin".
 
->[!NOTE]
+> [!NOTE]
 > For brevity purposes [SCTE-35] allows use of the base64-encoded section in Signal.Binary element (rather than the
 > Signal.SpliceInfoSection element) as an alternative to
 > carriage of a completely parsed cue message.
@@ -378,7 +380,7 @@ The EventStream element has the following attributes:
 | value              | string                  | Optional      | An additional string value used by the owners of the scheme to customize the semantics of the message. In order to differentiate multiple event streams with the same scheme, the value **MUST** be set to the name of the event stream (trackName for [MS-SSTR-Ingest] or AMF message name for [RTMP] ingest). |
 | Timescale          | 32-bit unsigned integer | Required      | The timescale, in ticks per second, of the times and duration fields within the ‘emsg’ box.                                                                                                                                                                                                       |
 
-                                                         |
+
 #### Example MPEG DASH manifest (MPD) signaling of SCTE-35 using EventStream
 
 ~~~ xml
@@ -401,14 +403,12 @@ The EventStream element has the following attributes:
     </EventStream>
 ~~~
 
->[!NOTE]
->Note that presentationTime is the presentation time of the [SCTE-35] event translated to be relative to the Period Start time, not the arrival time of the message.
-
->[!NOTE]
+> [!IMPORTANT]
+> Note that presentationTime is the presentation time of the [SCTE-35] event translated to be relative to the Period Start time, not the arrival time of the message.
 > [MPEGDASH] defines the Event@presentationTime as "Specifies the presentation time of the event relative to the start of the Period.
 > The value of the presentation time in seconds is the division of the value of this attribute and the value of the EventStream@timescale attribute.
 > If not present, the value of the presentation time is 0.
->
+
 
 ### 4.3.1 MPEG DASH In-band Event Message Box Signaling
 
