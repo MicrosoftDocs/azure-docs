@@ -116,13 +116,13 @@ Install SQL IaaS agent with *full* mode using PowerShell:
      // Register SQL VM with 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-        -Properties @{virtualMachineResourceId=$vm.Id;sqlLicenseType='AHUB';sqlManagement='Full'}  
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='Full'}  
   
   ```
 
 | Parameter | Acceptable values                        |
 | :------------------| :-------------------------------|
-| **sqlLicenseType** | `'AHUB'`, or `'PAYG'`           |
+| **sqlServerLicenseType** | `'AHUB'`, or `'PAYG'`           |
 | &nbsp;             | &nbsp;                          |
 
 
@@ -154,13 +154,13 @@ Install SQL IaaS agent with *lightweight* mode using PowerShell:
      // Register SQL VM with 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-        -Properties @{virtualMachineResourceId=$vm.Id;sqlLicenseType='AHUB';sqlManagement='LightWeight'}  
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
   
   ```
 
 | Parameter | Acceptable values                        |
 | :------------------| :-------------------------------|
-| **sqlLicenseType** | `'AHUB'`, or `'PAYG'`           |
+| **sqlServerLicenseType** | `'AHUB'`, or `'PAYG'`     |
 | &nbsp;             | &nbsp;                          |
 
 > [!NOTE]

@@ -77,14 +77,6 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ## Register SQL Server VM with SQL VM resource provider
 Once the SQL VM resource provider has been registered to your subscription, you can then register your SQL Server VM with the resource provider using PowerShell. If the SQL IaaS extension has not already been installed to your SQL Server VM, registering will install the SQL IaaS installation in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#modes), which will not restart your SQL Server service. 
 
-The following table details the acceptable values for the parameters provided during registration:
-
-| Parameter | Acceptable values                        |
-| :------------------| :-------------------------------|
-| **sqlLicenseType** | `'AHUB'`, or `'PAYG'`           |
-| &nbsp;             | &nbsp;                          |
-
-
 Register SQL Server VM using PowerShell with the following code snippet:
 
   ```powershell-interactive
@@ -94,23 +86,20 @@ Register SQL Server VM using PowerShell with the following code snippet:
      // Register SQL VM with 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-        -Properties @{virtualMachineResourceId=$vm.Id;sqlLicenseType='AHUB';sqlManagement='LightWeight'}  
+        -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  
   
   ```
+
+The following table details the acceptable values for the parameters provided during registration:
+
+| Parameter | Acceptable values                        |
+| :------------------| :-------------------------------|
+| **sqlServerLicenseType** | `'AHUB'`, or `'PAYG'`     |
+| &nbsp;             | &nbsp;                          |
 
 ## Register Windows Server 2008 images
 
 SQL Server 2008 and 2008 R2 installed on Windows Server 2008 images can be registered with the SQL VM resource provider by utilizing the [noagent](virtual-machines-windows-sql-server-agent-extension.md#modes) mode of the SQL IaaS extension. This option provides limited functionality but will allow the SQL Server VM to be managed in the Azure portal.  
-
-The following table details the acceptable values for the parameters provided during registration:
-
-| Parameter | Acceptable values                                 |
-| :------------------| :--------------------------------------- |
-| **sqlLicenseType** | `'AHUB'`, or `'PAYG'`                    |
-| **sqlImageOffer**  | `'SQL2008-WS2008'` or `'SQL2008R2-WS2008`|
-| &nbsp;             | &nbsp;                                   |
-
-
 
 To register your Windows Server 2008 image, user PowerShell:  
 
@@ -120,9 +109,18 @@ To register your Windows Server 2008 image, user PowerShell:
           
     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
       -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-      -Properties @{virtualMachineResourceId=$vm.Id;sqlLicenseType='AHUB'; `
+      -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB'; `
        sqlManagement='NoAgent';sqlImageSku='Standard';sqlImageOffer='SQL2008R2-WS2008'}
   ```
+
+The following table details the acceptable values for the parameters provided during registration:
+
+| Parameter | Acceptable values                                 |
+| :------------------| :--------------------------------------- |
+| **sqlServerLicenseType** | `'AHUB'`, or `'PAYG'`              |
+| **sqlImageOffer**  | `'SQL2008-WS2008'` or `'SQL2008R2-WS2008`|
+| &nbsp;             | &nbsp;                                   |
+
 
 ## Verify registration status
 You can verify if your SQL Server has already been registered with the SQL VM resource provider using the Azure portal, Azure CLI or PowerShell. 
