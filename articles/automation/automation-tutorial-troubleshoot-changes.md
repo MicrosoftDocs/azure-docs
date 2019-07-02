@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot changes on an Azure virtual machine | Microsoft Docs 
+title: Troubleshoot changes on an Azure virtual machine | Microsoft Docs
 description: Use Change Tracking to troubleshoot changes on an Azure virtual machine.
 services: automation
 ms.service: automation

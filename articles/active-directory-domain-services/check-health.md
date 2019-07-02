@@ -3,7 +3,7 @@ title: Azure AD Domain Services - Check the health of your managed domain | Micr
 description: Check the health of your managed domain using the health page in the Azure portal.
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Check the health of an Azure AD Domain Services managed domain

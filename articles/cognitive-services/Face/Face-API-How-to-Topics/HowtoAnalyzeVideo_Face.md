@@ -156,7 +156,9 @@ namespace VideoFrameConsoleApplication
 			FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
 			
 			// Create Face API Client. Insert your Face API key here.
-			FaceServiceClient faceClient = new FaceServiceClient("<Subscription Key>");
+			private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials("<subscription key>"),
+            new System.Net.Http.DelegatingHandler[] { });
 
 			// Set up our Face API call.
 			grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));

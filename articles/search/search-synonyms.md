@@ -19,7 +19,7 @@ In Azure Search, synonym expansion is done at query time. You can add synonym ma
 
 ## Create synonyms
 
-There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-fiddler.md) and formulation of requests using this API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Searching using C#](search-synonyms-tutorial-sdk.md).
+There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-get-started-postman.md) and formulation of requests using this API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Searching using C#](search-synonyms-tutorial-sdk.md).
 
 Optionally, if you are using [customer-managed keys](search-security-manage-encryption-keys.md) for service-side encryption-at-rest, you can apply that protection to the contents of your synonym map.
 

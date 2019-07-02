@@ -134,6 +134,8 @@ if err != nil {
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Handle and print the response
 
 Add this code to the `translate` function to decode the JSON response, and then format and print the result.

@@ -28,18 +28,22 @@ This article requires that you are running the Azure CLI version 2.0.65 or later
 
 ### Install aks-preview CLI extension
 
-AKS clusters that support the cluster autoscaler must use virtual machine scale sets and run Kubernetes version *1.12.7* or later. This scale set support is in preview. To opt in and create clusters that use scale sets, first install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
+To use the cluster autoscaler, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> If you have previously installed the *aks-preview* extension, install any available updates using the `az extension update --name aks-preview` command.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register scale set feature provider
 
 To create an AKS that uses scale sets, you must also enable a feature flag on your subscription. To register the *VMSSPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+
+> [!CAUTION]
+> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 ```azurecli-interactive
 az feature register --name VMSSPreview --namespace Microsoft.ContainerService
@@ -62,7 +66,6 @@ az provider register --namespace Microsoft.ContainerService
 The following limitations apply when you create and manage AKS clusters that use the cluster autoscaler:
 
 * The HTTP application routing add-on can't be used.
-* Multiple node pools (currently in preview in AKS) can't currently be used.
 
 ## About the cluster autoscaler
 
@@ -181,9 +184,10 @@ This article showed you how to automatically scale the number of AKS nodes. You 
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [autoscaler-scaledown]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-types-of-pods-can-prevent-ca-from-removing-a-node
 [autoscaler-parameters]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-the-parameters-to-ca

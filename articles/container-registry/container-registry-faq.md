@@ -5,7 +5,7 @@ services: container-registry
 author: sajayantony
 manager: jeconnoc
 
-ms.service: container-instances
+ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
@@ -23,6 +23,7 @@ This article addresses frequently asked questions and known issues about Azure C
 - [How do I get admin credentials for a container registry?](#how-do-i-get-admin-credentials-for-a-container-registry)
 - [How do I get admin credentials in a Resource Manager template?](#how-do-i-get-admin-credentials-in-a-resource-manager-template)
 - [Delete of replication fails with Forbidden status although the replication gets deleted using the Azure CLI or Azure PowerShell](#delete-of-replication-fails-with-forbidden-status-although-the-replication-gets-deleted-using-the-azure-cli-or-azure-powershell)
+- [Firewall rules are updated successfully but they do not take effect](#firewall-rules-are-updated-successfully-but-they-do-not-take-effect)
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
@@ -30,11 +31,11 @@ Yes. Here is [a template](https://github.com/Azure/azure-cli/blob/master/src/com
 
 ### Is there security vulnerability scanning for images in ACR?
 
-Yes. See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](http://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Yes. See the documentation from [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### How do I configure Kubernetes with Azure Container Registry?
 
-See the documentation for [Kubernetes](http://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](container-registry-auth-aks.md).
+See the documentation for [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) and steps for [Azure Kubernetes Service](container-registry-auth-aks.md).
 
 ### How do I get admin credentials for a container registry?
 
@@ -86,6 +87,11 @@ The error is seen when the user has permissions on a registry but doesn't have R
 ```azurecli  
 az role assignment create --role "Reader" --assignee user@contoso.com --scope /subscriptions/<subscription_id> 
 ```
+
+### Firewall rules are updated successfully but they do not take effect
+
+It takes some time to propagate firewall rule changes. After you change firewall settings, please wait for a few minutes before verifying this change.
+
 
 ## Registry operations
 
@@ -260,13 +266,23 @@ To troubleshoot common environment and registry issues, see [Check the health of
 ### docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
 
  - If this error is a transient issue, then retry will succeed.
- - If `docker pull` fails continuously, then there could be a problem with the docker daemon. The problem can generally be mitigated by restarting the docker daemon. 
- - If you continue to see this issue after restarting docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, try a command such as `ping www.bing.com`.
- - You should always have a retry mechanism on all docker client operations.
+ - If `docker pull` fails continuously, then there could be a problem with the Docker daemon. The problem can generally be mitigated by restarting the Docker daemon. 
+ - If you continue to see this issue after restarting Docker daemon, then the problem could be some network connectivity issues with the machine. To check if general network on the machine is healthy, run the following command to test endpoint connectivity. The minimum `az acr` version that contains this connectivity check command is 2.2.9. Upgrade your Azure CLI if you are using an older version.
+ 
+   ```azurecli
+    az acr check-health -n myRegistry
+    ```
+ - You should always have a retry mechanism on all Docker client operations.
 
-### docker push succeeds but docker pull fails with error: unauthorized: authentication required
+### Docker pull is slow
+Use [this](http://www.azurespeed.com/Azure/Download) tool to test your machine network download speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
 
-This error can happen with the Red Hat version of docker daemon, where `--signature-verification` is enabled by default. You can check the docker daemon options for Red Hat Enterprise Linux (RHEL) or Fedora by running the following command:
+### Docker push is slow
+Use [this](http://www.azurespeed.com/Azure/Upload) tool to test your machine network upload speed. If machine network is slow, consider using Azure VM in the same region as your registry. This usually gives you faster network speed.
+
+### Docker push succeeds but docker pull fails with error: unauthorized: authentication required
+
+This error can happen with the Red Hat version of the Docker daemon, where `--signature-verification` is enabled by default. You can check the Docker daemon options for Red Hat Enterprise Linux (RHEL) or Fedora by running the following command:
 
 ```bash
 grep OPTIONS /etc/sysconfig/docker
@@ -286,12 +302,12 @@ unauthorized: authentication required
 ```
 
 To resolve the error:
-1. Add the option `--signature-verification=false` to the docker daemon configuration file `/etc/sysconfig/docker`. For example:
+1. Add the option `--signature-verification=false` to the Docker daemon configuration file `/etc/sysconfig/docker`. For example:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
   ```
-2. Restart the docker daemon service by running the following command:
+2. Restart the Docker daemon service by running the following command:
 
   ```bash
   sudo systemctl restart docker.service
@@ -299,9 +315,9 @@ To resolve the error:
 
 Details of `--signature-verification` can be found by running `man dockerd`.
 
-### Enable and get the debug logs of the docker daemon	
+### Enable and get the debug logs of the Docker daemon	
 
-Start `dockerd` with the `debug` option. First, create the docker daemon configuration file (`/etc/docker/daemon.json`) if it doesn't exist, and add the `debug` option:
+Start `dockerd` with the `debug` option. First, create the Docker daemon configuration file (`/etc/docker/daemon.json`) if it doesn't exist, and add the `debug` option:
 
 ```json
 {	

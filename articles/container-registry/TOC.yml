@@ -93,6 +93,8 @@
     items:
       - name: ACR Tasks overview
         href: container-registry-tasks-overview.md
+      - name: Scheduled tasks
+        href: container-registry-tasks-scheduled.md
       - name: Multi-step tasks
         href: container-registry-tasks-multi-step.md
       - name: Use with managed identity
