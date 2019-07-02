@@ -1,6 +1,6 @@
 ---
-title: Create managed application with custom provider actions and resource types
-description: This tutorial describes how to create an Azure Managed Application with Azure Custom Providers actions and resource types.
+title: Create managed application with custom actions and resources
+description: This tutorial describes how to create an Azure Managed Application with an Azure Custom Provider.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: tutorial
@@ -9,19 +9,19 @@ author: lazinnat
 ms.date: 06/20/2019
 ---
 
-# Tutorial: Create managed application with custom provider actions and resource types
+# Tutorial: Create managed application with custom actions and resources
 
-In this tutorial, you create your own managed application with custom provider actions and resource types. The managed application will contain custom action in `Overview` page, custom resource instance displayed as a separate menu item in `Table of Content` and custom context action in custom resource page.
+In this tutorial, you create your own managed application with custom actions and resources. The managed application will contain a custom action on the `Overview` page, a custom resource type displayed as a separate menu item in `Table of Content` and a custom context action on the custom resource page.
 
 In this tutorial, you will do:
 
 > [!div class="checklist"]
 > * Author user interface definition file for creating a managed application instance
 > * Author deployment template with Azure Custom Provider, Azure Storage Account and Azure Function
-> * Author view definition artifact with custom provider actions and resources
+> * Author view definition artifact with custom actions and resources
 > * Deploy a managed application definition
 > * Deploy an instance of managed application
-> * Perform custom provider actions and create resources
+> * Perform custom actions and create custom resources
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ To complete this tutorial, you need to know:
 * How to [Deploy Service Catalog app through Azure portal](deploy-service-catalog-quickstart.md)
 * How to [Create Azure portal user interface for your managed application](create-uidefinition-overview.md)
 * [View definition artifact](concepts-view-definition.md) capabilities
-* [Azure Custom Providers](custom-providers-overview.md) capabilities
+* [Azure Custom Provider](custom-providers-overview.md) capabilities
 
 ## Authoring user interface definition file
 
@@ -329,8 +329,8 @@ In this tutorial, you create one `users` resource type, `ping` custom action and
 In order to define user interface that includes custom actions and custom resources in your managed application you need to author **viewDefinition.json** artifact. For more information about view definition artifact, see [View definition artifact in Azure Managed Applications](concepts-view-definition.md).
 
 In this tutorial, you define:
-* *Overview* page with toolbar button that represents a custom provider action `TestAction` with basic text input.
-* *Users* page that represents a custom provider resource type `users`.
+* *Overview* page with toolbar button that represents a custom action `TestAction` with basic text input.
+* *Users* page that represents a custom resource type `users`.
 * Custom resource action `users/contextAction` in *Users* page that will be performed in a context of custom resource of type `users`.
 
 <br>
