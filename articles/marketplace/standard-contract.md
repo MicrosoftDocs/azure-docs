@@ -29,7 +29,7 @@ Standard Contract Amendments allow publishers to select the standard contract fo
 
 Standard Contract Amendments add unique terms and conditions to the standard contract:
 
-* Enable publishers to offer software under a standardized set of common terms and condition to simplify procurement for customers.
+* Enable publishers to offer software under a standardized set of common terms and conditions to simplify procurement for customers.
 * Alternatively, publishers can submit their own language for customer agreements.
 * Standard contract terms can also be applied when the offer is sold through CSP Partners.
 

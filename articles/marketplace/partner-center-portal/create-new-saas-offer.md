@@ -113,7 +113,7 @@ List your offer to customers for free by providing a valid URL (beginning with h
 ##### Free trial
 List your offer to customers on a free trial basis by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/trial/saas-app`
 
-A free trial period allows your customers to experience the software, validate alignment between business needs and solution, and seamlessly convert to a paid subscription. It a low risk option that requires minimal commitment, customers can find the product on AppSource or Azure Marketplace, try the solution as a trial, and buy a subscription through a quick and easy process. 
+A free trial period allows your customers to experience the software, validate alignment between business needs and solution, and seamlessly convert to a paid subscription. It is a low risk option that requires minimal commitment.  Customers can find the product on AppSource or Azure Marketplace, try the solution as a trial, and buy a subscription once their trial is complete. 
 
 Trials last one month at the beginning of a monthly or annual SaaS subscription.  They can be cancelled at any time before the first billing period. After the trial duration, free trials will automatically convert to a standard paid subscription. 
 
@@ -308,11 +308,11 @@ The **Pricing and availability** tab enables you to configure the markets that t
 
 ##### Enabling Free Trials
 
-SaaS offers through the Commercial Marketplace have the ability to offer a month free trial for your offer. This capability supports all billing models and terms across all channels, allowing customers to have a low barrier to entry with one month of free access. If you choose to enable a free trial for plans within your offer, the free trial period is mandatory, and will convert to a paid offer after the initial one month duration. During this time, customers purchasing your offer can try out any of the plans that have the free trial enabled and convert between them. The ability to configure your offer to include a free trial is done for each plan in your offer. Simply navigate to the pricing and availability for each offer and check the box to allow a one month trial to enable this. 
+SaaS offers through the Commercial Marketplace enable you to provide a one-month free trial. Free trials support all billing models and terms across all channels, allowing customers to have a low-barrier to entry with one month of free access.  If you choose to enable a free trial for plans within your offer, the free trial period is mandatory, and will convert to a paid offer after the initial one month duration. During this time, customers purchasing your offer can try out any of the plans that have the free trial enabled and convert between them.  The ability to configure a free trial is available for each plan in your offer. Simply navigate to the Pricing and Availability for each offer and check the box to allow a one-month trial.
 
 ![One month free trial checkbox](./media/free-trial-enable.png)
 
-As a publisher, you will be notified of customer subscriptions that are currently participating in a free trial through a new API property “isFreeTrial”, as being true or false.  
+As a publisher, you will be notified of customer subscriptions that are currently participating in a free trial through a new API property, `isFreeTrial`, which will be marked as true or false. 
 
 #### Markets
 
