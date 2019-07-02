@@ -24,12 +24,14 @@ Last Updated: 2019-07-01
 
 ## 1 Introduction 
 
-In order to facilitate the insertion of advertisements, or custom events on a client player, broadcasters often make use of timed metadata embedded within the video. To enable these scenarios, Media Services provides support for the transport of timed metadata along with the media, from the ingest point of the live streaming channel to the client application.
-This specification outlines two modes that are supported by Media Services for timed metadata within live streaming signals:
+In order to signal the insertion of advertisements or custom metadata events on a client player, broadcasters often make use of timed metadata embedded within the video. To enable these scenarios, Media Services provides support for the transport of timed metadata from the ingest point of the live streaming channel to the client application.
+This specification outlines several modes that are supported by Media Services for timed metadata within live streaming signals.
 
-1. [SCTE-35] signaling that heeds the recommended practices outlined by [SCTE-35], [SCTE-214-1], [SCTE-214-3] and [RFC8216]
+1. [SCTE-35] signaling that complies with the standards outlined by [SCTE-35], [SCTE-214-1], [SCTE-214-3] and [RFC8216]
 
-2. A generic timed metadata signaling mode, for messages that are **NOT** [SCTE-35] and could carry [ID3v2] or other custom schemas
+2. [SCTE-35] signaling that complies with the legacy [Adobe-Primetime] specification for RTMP ad signaling.
+   
+3. A generic timed metadata signaling mode, for messages that are **NOT** [SCTE-35] and could carry [ID3v2] or other custom schemas defined by the application developer.
 
 ### 1.2 Conformance Notation
 
@@ -37,8 +39,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ### 1.3 Terms Used
 
-| Term              | Definition                                                                                                                                                                                                                       |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Term              | Definition |
+|-------------------|------------|
 | Ad Break          | A location or point in time where one or more ads may be scheduled for delivery; same as avail and placement opportunity. |
 | Ad Decision Service| external service that decides which ad(s) and durations will be shown to the user. The services is typically provided by a partner and are out of scope for this document.|
 | Cue               | Indication of time and parameters of the upcoming ad break. Note that cues can indicate a pending switch to an ad break, pending switch to the next ad within an ad break, and pending switch from an ad break to the main content. |
@@ -59,8 +61,8 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "S
 
 ### 1.4 Normative References
 
-The following documents contain provisions, which, through reference in this text, constitute provisions of this document. 
-All documents are subject to revision by the standards bodies, and readers are encouraged to investigate the possibility of applying the most recent editions of the documents listed below. Readers are also reminded that newer editions of the referenced documents might not be compatible with this version of the timed metadata specification for Azure Media Services. 
+The following documents contain provisions, which, through reference in this text, constitute provisions of this document. All documents are subject to revision by the standards bodies, and readers are encouraged to investigate the possibility of applying the most recent editions of the documents listed below. Readers are also reminded that newer editions of the referenced documents might not be compatible with this version of the timed metadata specification for Azure Media Services.
+
 
 | Standard          | Definition      |
 |-------------------|-----------------|      
@@ -85,6 +87,7 @@ All documents are subject to revision by the standards bodies, and readers are e
 | [SCTE-224]        | SCTE 224 2018r1 – Event Scheduling and Notification Interface |
 | [SCTE-250]        | Event and Signaling Management API (ESAM) |
 ----------------------------------------
+
 
 
 ## 2 Timed Metadata Ingest
