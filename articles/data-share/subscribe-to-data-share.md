@@ -10,6 +10,8 @@ ms.author: joanpo
 ---
 # Tutorial: Accept and receive data using Azure Data Share Preview
 
+In this tutorial, you will learn how to accept a data share invitation using Azure Data Share Preview. You will learn how to receive data being shared with you, as well as how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
+
 > [!div class="checklist"]
 > * How to accept an Azure Data Share Preview invitation
 > * Create an Azure Data Share Preview account
@@ -90,7 +92,4 @@ To check which storage account you used, Select on **Datasets**.
 To view a history of your snapshots, navigate to Received Shares -> History. Here you'll find a history of all snapshots that were generated for the past 60 days. 
 
 ## Next steps
-In this tutorial, you learnt how to accept and receive an Azure Data Share. To learn more about Azure Data Share concepts, continue to Azure Data Share Terminology. 
-
-> [!div class="nextstepaction"]
-> [Concepts: Azure Data Share Terminology](terminology.md)
+In this tutorial, you learnt how to accept and receive an Azure Data Share. To learn more about Azure Data Share concepts, continue to [Concepts: Azure Data Share Terminology](terminology.md).

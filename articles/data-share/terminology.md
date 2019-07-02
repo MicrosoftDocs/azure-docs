@@ -55,8 +55,6 @@ A data provider can delete an invitation after it has been sent. Note that if a 
 A recipient is someone that receives an invitation to a data share. Typically, a data provider will add recipients to data share that they create. Once the recipient of an invitation accepts the invitation, they become a data consumer.  
 
 ## Next steps
-To learn how to start sharing data, continue to the "Share your data" tutorial. 
 
-> [!div class="nextstepaction"]
-> [Tutorial: Share your data](share-your-data.md)
+To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
 

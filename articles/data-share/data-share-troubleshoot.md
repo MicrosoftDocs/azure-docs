@@ -49,4 +49,5 @@ If you receive any of the above errors when creating a new data share or receivi
 
 ## Next steps
 
-Learn how to [share your data](share-your-data.md).
+To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
+

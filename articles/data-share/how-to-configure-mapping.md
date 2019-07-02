@@ -30,9 +30,7 @@ Select a storage account that you'd like the data to land in. Note that any data
 
 ## Next steps
 
-To learn how to start sharing data, continue to the "Share your data" tutorial. 
+To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Share your data](share-your-data.md)
 
 
