@@ -33,7 +33,7 @@ To be able to create release annotations, you'll need to install one of the many
 
 1. Sign in to your [Azure DevOps](https://azure.microsoft.com/services/devops/) project.
    
-1. On the Visual Studio Marketplace, [Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) page, select your Azure DevOps organization, and then select **Install** to add the extension to your Azure DevOps organization.
+1. On the Visual Studio Marketplace [Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) page, select your Azure DevOps organization, and then select **Install** to add the extension to your Azure DevOps organization.
 
 ![Select an Azure DevOps organization and then select Install.](./media/annotations/1-install.png)
 
@@ -49,7 +49,7 @@ You need to create a separate API key for each of your Azure Pipelines release t
    
    ![Under API Access, copy the Application ID.](./media/annotations/2-app-id.png)
 
-1. In a separate browser window, open or create the release template that manages your deployments from Azure Pipelines.
+1. In a separate browser window, open or create the release template that manages your Azure Pipelines deployments.
    
 1. Select **Add task**, and then select the **Application Insights Release Annotation** task from the menu.
    
@@ -87,9 +87,9 @@ You can use the [CreateReleaseAnnotation](https://github.com/Microsoft/Applicati
 
 1. Make a local copy of [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
    
-1. Use the steps in the preceding procedure to get your Application Insights ID and create an API key from the **API Access** tab.
+1. Use the steps in the preceding procedure to get your Application Insights ID and create an API key from your Application Insights **API Access** tab.
    
-1. Call the PowerShell script with the following code, replacing the angle-bracketed placeholders with your values. 
+1. Call the PowerShell script with the following code, replacing the angle-bracketed placeholders with your values. The `-releaseProperties` are optional. 
    
    ```powershell
    
@@ -99,7 +99,7 @@ You can use the [CreateReleaseAnnotation](https://github.com/Microsoft/Applicati
          -releaseName "<releaseName>" `
          -releaseProperties @{
              "ReleaseDescription"="<a description>";
-             "TriggerBy"="<yourName>" }
+             "TriggerBy"="<Your name>" }
    ```
 
 You can modify the script, for example to create annotations for the past.
