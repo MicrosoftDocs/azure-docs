@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/07/2019
+ms.date: 07/02/2019
 ms.author: barclayn
 
 ---
@@ -251,7 +251,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 
 |                                  |                    | **Encryption Model and Key Management** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed in Key Vault**             | **Client-Side Using Client-Managed**      |
+|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed**      |
 | **AI and Machine Learning**      |                    |                    |                    |
 | Azure Search                     | Yes                | -                  | -                  |
 | Azure Machine Learning Service   | Yes                | -                  | -                  |
@@ -265,12 +265,19 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | HDInsight                        | Yes                | Preview for Apache Kafka, All RSA Lengths | -                  |
 | Azure Data Factory               | Yes                | -                  | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
+| Power BI                         | Yes                | Preview, RSA 2048-bit  | -                  |
+| **Containers**                   |                    |                    |                    |
+| Container Registry               | Yes                | -                  | -                  |
 | **Compute**                      |                    |                    |                    |
-| Virtual Machines                 | -                  | Yes, RSA 2048-bit  | -                  |
-| Virtual Machine Scale Set        | -                  | Yes, RSA 2048-bit  | -                  |
+| Virtual Machines                 | Yes                | Yes, RSA 2048-bit  | -                  |
+| Virtual Machine Scale Set        | Yes                | Yes, RSA 2048-bit  | -                  |
+| SAP HANA                         | Yes                | Yes, RSA 2048-bit  | -                  |
 | **Databases**                    |                    |                    |                    |
 | SQL Server on Virtual Machines   | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure SQL Database               | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
+| Azure SQL Database for MySQL     | Yes                | -                  | -                  |
+| Azure SQL Database for PostgreSQL | Yes                | -                  | -                  |
 | Azure SQL Data Warehouse         | Yes                | Yes, RSA 2048-bit  | Yes                |
 | SQL Server Stretch Database      | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Table Storage                    | Yes                | -                  | Yes                |
@@ -298,8 +305,9 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | File Storage                     | Yes                | Yes, RSA 2048-bit  | -                  |
 | Queue Storage                    | Yes                | -                  | Yes                |
 | Avere vFXT                       | Yes                | -                  | -                  |
+| Azure NetApp Files               | Yes                | -                  | -                  |
 | Archive Storage                  | Yes                | Yes, RSA 2048-bit  | -                  |
-| StorSimple                       | Yes                | -                  | Yes                |
+| StorSimple                       | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure Backup                     | Yes                | -                  | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
 
