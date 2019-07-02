@@ -35,9 +35,9 @@ To complete this tutorial, you need to know:
 
 ## Authoring user interface definition file
 
-In this tutorial, you create a managed application and its managed resource group will contain custom provider instance, storage account and function. The Azure function used in this example implements an API that handles custom provider operations for actions and resources. Azure storage account is used as a basic storage for your custom provider resources.
+In this tutorial, you create a managed application and its managed resource group will contain custom provider instance, storage account and function. The Azure Function used in this example implements an API that handles custom provider operations for actions and resources. Azure Storage Account is used as a basic storage for your custom provider resources.
 
-Storage account name and function name must be globally unique, so including them in user interface definition for creating a managed application instance. By default function files will be deployed from [sample function package](https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip), but you can change it by adding an input element for providing a function package link in *createUIDefinition.json*:
+Storage account name and function name must be globally unique, we will add `funcname` and `storagename` input elements in user interface definition for creating a managed application instance. By default function files will be deployed from [sample function package](https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip), but you can change it by adding an input element for providing a function package link in *createUIDefinition.json*:
 
 ```json
 {
@@ -114,7 +114,7 @@ and output in *createUIDefinition.json*:
 
 ## Authoring deployment template with custom provider
 
-To create a managed application instance with custom providers you need to define custom provider resource of type **Microsoft.CustomProviders/resourceProviders** in your **mainTemplate.json**. In that resource, you define the resource types and actions for your service. To deploy Azure function and Azure storage account instances define resources of type `Microsoft.Web/sites` and `Microsoft.Storage/storageAccounts` respectively.
+To create a managed application instance with custom providers you need to define custom provider resource of type **Microsoft.CustomProviders/resourceProviders** in your **mainTemplate.json**. In that resource, you define the resource types and actions for your service. To deploy Azure Function and Azure Storage Account instances define resources of type `Microsoft.Web/sites` and `Microsoft.Storage/storageAccounts` respectively.
 
 In this tutorial, you create one `users` resource type, `ping` custom action and `users/contextAction` custom action that will be performed in a context of a `users` custom resources. For each resource type and action provide an endpoint pointing to the function with name provided in [createUIDefinition.json](#authoring-user-interface-definition-file). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
 
@@ -175,7 +175,7 @@ In this tutorial, you create one `users` resource type, `ping` custom action and
     "funcname": {
       "type": "string",
       "metadata": {
-        "description": "Name of the Azure function that hosts the code. Must be globally unique"
+        "description": "Name of the Azure Function that hosts the code. Must be globally unique"
       },
       "defaultValue": ""
     },
@@ -412,7 +412,7 @@ Package the following managed application artifacts to zip archive and upload it
 * mainTemplate.json
 * viewDefinition.json
 
-All files must be at root level. The package with artifacts can be stored in any storage, for example Github blob or Azure storage account blob. Here is a script to upload the application package to storage account: 
+All files must be at root level. The package with artifacts can be stored in any storage, for example Github blob or Azure Storage Account blob. Here is a script to upload the application package to storage account: 
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
