@@ -14,12 +14,14 @@ ms.author: rogarana
 |IOPS bursting    |3x IOPS per GiB up to 100,000|
 |Egress rate         |60 MiB/s + 0.06 * provisioned GiB        |
 |Ingress rate| 40 MiB/s + 0.04 * provisioned GiB |
-|Maximum number of snapshots        |200       |
 
 #### Premium file limits
 
-|Area  |Target  |
-|---------|---------|
-|Size                  |1 TiB         |
-|Max IOPS per file     |5,000         |
-|Concurrent handles    |2,000         |
+|Area  |Premium file  |Standard file |
+|---------|---------|---------|
+|Size                  |1 TiB         |1 TiB|
+|Max IOPS per file     |5,000         |1,000|
+|Concurrent handles    |2,000         |2,000|
+|Ingress|              |300 MiB/sec|      See throughput|
+|Egress|               |200 Mib/sec| See throughput|
+|Throughput| See ingress/egress| Up to 60 MiB/sec (GA), up to 300 MiB/sec (preview)|
