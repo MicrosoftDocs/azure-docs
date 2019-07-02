@@ -77,7 +77,7 @@ To restore your service, follow these steps:
 
 1. [Delete your managed domain](delete-aadds.md) from your existing Azure AD directory.
 2. Create a new directory that is not an Azure AD B2C directory.
-3. Follow the [Getting Started](create-instance.md) guide to recreate a managed domain.
+3. Follow the [Getting Started](tutorial-create-instance.md) guide to recreate a managed domain.
 
 ## AADDS103: Address is in a public IP range
 
@@ -106,7 +106,7 @@ Inside the virtual network, machines may make requests to Azure resources that a
    5. Click on **Subnets** in the left-hand navigation.
    6. Click on the subnet you wish to edit in the table.
    7. Update the address range and save your changes.
-3. Follow [the Getting Started Using Azure AD Domain Services guide](create-instance.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
+3. Follow [the Getting Started Using Azure AD Domain Services guide](tutorial-create-instance.md) to recreate your managed domain. Ensure that you pick a virtual network with a private IP address range.
 4. To domain-join your virtual machines to your new domain, follow [this guide](join-windows-vm.md).
 8. To ensure the alert is resolved, check your domain's health in two hours.
 
@@ -122,7 +122,7 @@ Azure AD Domain Services requires a subscription to function and cannot be moved
 
 1. Create an Azure subscription
 2. [Delete your managed domain](delete-aadds.md) from your existing Azure AD directory.
-3. Follow the [Getting Started](create-instance.md) guide to recreate a managed domain.
+3. Follow the [Getting Started](tutorial-create-instance.md) guide to recreate a managed domain.
 
 ## AADDS107: Your Azure subscription is disabled
 
@@ -173,7 +173,7 @@ Azure AD Domain Services creates specific resources while deploying in order to 
 
 **Resolution:**
 
-This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and [recreate your managed domain](create-instance.md)
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and [recreate your managed domain](tutorial-create-instance.md)
 
 ## AADDS111: Service principal unauthorized
 
@@ -218,7 +218,7 @@ Our service principals need access to be able to manage and create resources on 
 
 **Resolution:**
 
-This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and [recreate your managed domain](create-instance.md).
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and [recreate your managed domain](tutorial-create-instance.md).
 
 ## AADDS114: Subnet invalid
 
@@ -228,7 +228,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 **Resolution:**
 
-This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and [recreate your managed domain](create-instance.md).
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](delete-aadds.md) and [recreate your managed domain](tutorial-create-instance.md).
 
 ## AADDS115: Resources are locked
 
@@ -266,7 +266,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 Here are some common reasons why synchronization stops on managed domains:
 - Network connection is blocked on the managed domain. To learn more about checking your network for problems, read how to [troubleshoot Network Security Groups](alert-nsg.md) and [network requirements for Azure AD Domain Services](network-considerations.md).
--  Password synchronization was never set up or completed. To set up password synchronization, read [this article](active-directory-ds-getting-started-password-sync.md).
+-  Password synchronization was never set up or completed. To set up password synchronization, read [this article](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-active-directory-domain-services).
 
 ## AADDS501: A backup has not been taken in a while
 

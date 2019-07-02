@@ -38,7 +38,7 @@ If you still have trouble connecting to the managed domain using secure LDAP, [c
 
 
 ## Related content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
+* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
 * [Manage Group Policy for Azure AD Domain Services](manage-group-policy.md)

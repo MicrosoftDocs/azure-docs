@@ -28,7 +28,7 @@ To complete the tasks listed in this article, you need:
 
 1. A valid **Azure subscription**.
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
+3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
 4. A **domain-joined virtual machine** from which you administer the Azure AD Domain Services managed domain. If you don't have such a virtual machine, follow all the tasks outlined in the article titled [Join a Windows virtual machine to a managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
 5. You need the credentials of a **user account belonging to the 'AAD DC Administrators' group** in your directory, to administer DNS for your managed domain.
 
@@ -98,7 +98,7 @@ Now, you can use Windows Server DNS tools to administer DNS on the managed domai
 For more information about managing DNS, see the [DNS tools article on Technet](https://technet.microsoft.com/library/cc753579.aspx).
 
 ## Related Content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
+* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [DNS administration tools](https://technet.microsoft.com/library/cc753579.aspx)

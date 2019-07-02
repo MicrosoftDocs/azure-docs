@@ -72,4 +72,4 @@ On a domain-joined machine, user authentication happens using NTLM or Kerberos a
 * [Introduction to device management in Azure Active Directory](../active-directory/device-management-introduction.md)
 
 ### Get started with Azure AD Domain Services
-* [Enable Azure AD Domain Services using the Azure portal](create-instance.md)
+* [Enable Azure AD Domain Services using the Azure portal](tutorial-tutorial-create-instance.md)

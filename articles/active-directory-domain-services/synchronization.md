@@ -112,7 +112,7 @@ The following table illustrates how specific attributes for group objects in you
 ## Password hash synchronization and security considerations
 When you enable Azure AD Domain Services, your Azure AD directory generates and stores password hashes in NTLM & Kerberos compatible formats. 
 
-For existing cloud user accounts, since Azure AD never stores their clear-text passwords, these hashes cannot be automatically generated. Therefore, Microsoft requires [cloud-users to reset/change their passwords](active-directory-ds-getting-started-password-sync.md) in order for their password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. 
+For existing cloud user accounts, since Azure AD never stores their clear-text passwords, these hashes cannot be automatically generated. Therefore, Microsoft requires [cloud-users to reset/change their passwords](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-active-directory-domain-services) in order for their password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. 
 
 For user accounts synced from on-premises AD using Azure AD Connect Sync, you need to [configure Azure AD Connect to synchronize password hashes in the NTLM and Kerberos compatible formats](active-directory-ds-getting-started-password-sync-synced-tenant.md).
 
@@ -125,4 +125,4 @@ As described in a preceding section of this article, there is no synchronization
 * [Features - Azure AD Domain Services](active-directory-ds-features.md)
 * [Deployment scenarios - Azure AD Domain Services](scenarios.md)
 * [Networking considerations for Azure AD Domain Services](network-considerations.md)
-* [Get started with Azure AD Domain Services](create-instance.md)
+* [Get started with Azure AD Domain Services](tutorial-create-instance.md)

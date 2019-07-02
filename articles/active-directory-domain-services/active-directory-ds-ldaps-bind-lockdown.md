@@ -60,7 +60,7 @@ The sample NSG in the following table locks down secure LDAP access over the int
 
 
 ## Related content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
+* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [LDAP query basics](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 * [Manage Group Policy for Azure AD Domain Services](manage-group-policy.md)
