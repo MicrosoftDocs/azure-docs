@@ -186,11 +186,11 @@ For a full list of sections and properties available for defining activities, se
 >
 > Learn more from [Parallel copy from Teradata](#parallel-copy-from-teradata) section on how to load data from Teradata efficiently using data partitioning.
 
-To copy data from Teradata, set the source type in the copy activity to **RelationalSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Teradata, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **RelationalSource** | Yes |
+| type | The type property of the copy activity source must be set to: **TeradataSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`.<br>When you enable partitioned load, you need to hook corresponding built-in partition parameter(s) in your query. See examples in [Parallel copy from Teradata](#parallel-copy-from-teradata) section. | No (if table in dataset is specified) |
 | partitionOptions | Specifies the data partitioning options used to load data from Teradata. <br>Allow values are: **None** (default), **Hash** and **DynamicRange**.<br>When partition option is enabled (not 'None'), please also configure **[`parallelCopies`](copy-activity-performance.md#parallel-copy)** setting on copy activity e.g. as 4, which determines the parallel degree to concurrently load data from Teradata database. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when partition option is not `None`. | No |
