@@ -58,7 +58,6 @@ and output in *createUIDefinition.json*:
 
 <details>
 <summary>Show <i>createUiDefinition.json</i> file</summary>
-<p>
 
 ```json
 {
@@ -110,7 +109,6 @@ and output in *createUIDefinition.json*:
 }
 ```
 
-</p>
 </details>
 
 ## Authoring deployment template with custom provider
