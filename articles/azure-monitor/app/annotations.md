@@ -34,14 +34,14 @@ To be able to create release annotations, you'll need to install one of the many
 1. Sign in to your [Azure DevOps](https://azure.microsoft.com/services/devops/) project.
    
 1. On the Visual Studio Marketplace [Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) page, select your Azure DevOps organization, and then select **Install** to add the extension to your Azure DevOps organization.
-
-![Select an Azure DevOps organization and then select Install.](./media/annotations/1-install.png)
-
-You only need to do this once for your Azure DevOps organization. You can now configure release annotations for any project in your organization.
+   
+   ![Select an Azure DevOps organization and then select Install.](./media/annotations/1-install.png)
+   
+You only need to install the extension once for your Azure DevOps organization. You can now configure release annotations for any project in your organization.
 
 ### Configure release annotations
 
-You need to create a separate API key for each of your Azure Pipelines release templates.
+Create a separate API key for each of your Azure Pipelines release templates.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. Or if you don't have one, [create a new Application Insights resource](../../azure-monitor/app/app-insights-overview.md).
    
@@ -63,9 +63,9 @@ You need to create a separate API key for each of your Azure Pipelines release t
    
    ![In the API Access tab, select Create API Key.](./media/annotations/5-create-api-key.png)
    
-1. In the **Create API key** window, type a description, select **Write annotations**, and then select **Generate Key**. Copy the new key.
+1. In the **Create API key** window, type a description, select **Write annotations**, and then select **Generate key**. Copy the new key.
    
-   ![In the Create API key window, type a description, select Write annotations, and then select Generate Key.](./media/annotations/6-create-api-key.png)
+   ![In the Create API key window, type a description, select Write annotations, and then select Generate key.](./media/annotations/6-create-api-key.png)
    
 1. In the release template window, on the **Variables** tab, select **Add** to create a variable definition for the new API key.
 
