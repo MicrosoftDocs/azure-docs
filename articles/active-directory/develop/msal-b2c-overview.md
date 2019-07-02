@@ -17,7 +17,7 @@ ms.date: 05/04/2019
 ms.author: negoe 
 ms.reviewer: nacanuma
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about  Microsoft Authentication Library so that I can decide if this platform meets my application development needs and requirements.
+#Customer intent: As an application developer, I want to learn about Microsoft Authentication Library so that I can decide if this platform meets my application development needs and requirements.
 ms.collection: M365-identity-device-management
 ---
 
@@ -45,7 +45,9 @@ To implement authentication, you first need to register your application. See [R
 
 Download the sample as a zip file, or clone it from GitHub:
 
-`git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git`
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
+```
 
 ### Step 3: Configure authentication
 
@@ -104,11 +106,11 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 > [!NOTE]
 > Your Azure AD B2C application probably refers to `login.microsoftonline.com` in several places, such as your user flow references and token endpoints. Make sure that your authorization endpoint, token endpoint, and issuer have been updated to use `your-tenant-name.b2clogin.com`.
 
-Follow this [MSAL JavaScript sample](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#single-page-application-built-on-msaljs-with-azure-ad-b2c) on how to use the MSAL Preview for JavaScript (MSAL.js). The sample gets an access token and calls an API secured by Azure AD B2C.
+Follow this [MSAL JS sample](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#single-page-application-built-on-msaljs-with-azure-ad-b2c) on how to use the MSAL Preview for JavaScript (MSAL.js). The sample gets an access token and calls an API secured by Azure AD B2C.
 
 ## Next steps
 
-Learn more about:
+To learn more, see:
 
 - [Custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [User interface customization](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-overview)
