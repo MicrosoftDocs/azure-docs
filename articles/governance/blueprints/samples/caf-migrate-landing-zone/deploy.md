@@ -7,6 +7,7 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
+ms.custom: fasttrack-edit
 ---
 # Deploy the ISO 27001 App Service Environment/SQL Database workload blueprint sample
 

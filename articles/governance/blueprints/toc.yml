@@ -76,6 +76,22 @@
     - name: Steps to deploy
       displayName: standards, uk official, uk nhs
       href: ./samples/ukofficial/deploy.md
+  - name: CAF Governance
+    items:
+    - name: Overview
+      displayName: caf, governance
+      href: ./samples/caf-governance/index.md
+    - name: Steps to deploy
+      displayName: caf, governance, deploy
+      href: ./samples/caf-governance/deploy.md
+  - name: CAF Migrate landing zone
+    items:
+    - name: Overview
+      displayName: caf, migrate, landing zone
+      href: ./samples/caf-migrate-landing-zone/index.md
+    - name: Steps to deploy
+      displayName: caf, migrate, landing zone, deploy
+      href: ./samples/caf-migrate-landing-zone/deploy.md
 - name: Concepts
   items:
   - name: Lifecycle of a blueprint
