@@ -9,7 +9,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/28/2019
+ms.date: 07/01/2019
 ms.author: cynthn
 
 ---
@@ -59,6 +59,9 @@ az vm create \
    -l westus
 ```
 
+## Scale sets
+
+You can also create a scale-set in your proximity placement group. Use the same `--ppg` parameter with [az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) to create a scale set and all of the instances will be created in the same proximity placement group.
 
 ## Next steps
 

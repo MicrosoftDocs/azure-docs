@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/17/2019
+ms.date: 07/01/2019
 ms.author: cynthn
 
 ---
 
-# Creating and using proximity placement groups using PowerShell
+# Preview: Creating and using proximity placement groups using PowerShell
 
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../includes/virtual-machines-common-ppg-overview.md)]
@@ -72,7 +72,6 @@ You can see the instance in the placement group using [Get-AzProximityPlacementG
    -Wrap `
    -Property VirtualMachineScaleSets
 ```
-
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/28/2019
+ms.date: 07/01/2019
 ms.author: cynthn
 
 ---
@@ -77,6 +77,9 @@ Get-AzProximityPlacementGroup `
    -Property VirtualMachines 
 ```
 
+## Scale sets
+
+You can also create a scale-set in your proximity placement group. Use the same `-ProximityPlacementGroup` parameter with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) to create a scale set and all of the instances will be created in the same proximity placement group.
 
 ## Next steps
 
