@@ -199,7 +199,7 @@ VirtualMachine.SnapshotManagement.RemoveSnapshot | Allow removal of a snapshot f
 
 ## Agent-based migration-Replication appliance requirements
 
-The Azure Migrate Server Migration [replication appliance](migrate-replication-appliance) must have the following:
+The Azure Migrate Server Migration [replication appliance](migrate-replication-appliance.md) must have the following:
 
 **Component** | **Requirement** 
 --- | ---
@@ -249,7 +249,7 @@ The replication appliance needs the following sofware installed on it.
 **Software** | **Details**
 --- | ---
 VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the Configuration Server is running on a VMware VM.
-MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. (Refer to [configure settings](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) for more information)
+MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. 
 
 #### MySQL installation options
 
