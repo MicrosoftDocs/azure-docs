@@ -17,7 +17,7 @@ ms.author: t-maadam
 
 This how-to guide will show you how to add recipients to a pre-existing data share. 
 
-For information on how to add recipients as you create a share, see the tutorial on creating a data share.
+For information on how to add recipients as you create a share, see the [Share data](share-your-data.md) tutorial.
 
 <!-- > [!NOTE]
 > If you are new to Azure Data Share, see [Introduction to Azure Data Share](data-share-introduction.md) before doing this quickstart.  -->
@@ -34,3 +34,9 @@ For information on how to add recipients as you create a share, see the tutorial
 5. A panel will pop out on the right side of the page. Click **Add Recipient** and then fill in the email of your new recipient on the blank line. Add as many recipients as you would like.
 
 6. Click **Add and send invitation**. The new recipient(s) will be sent invitation emails to this data share.
+
+## Next steps
+In this how-to guide, you learned about adding recipients to a pre-existing share. To learn about how to delete an invitation to a share, continue to the next how-to guide.
+
+> [!div class="nextstepaction"]
+> [How To: Delete an Invitation](how-to-delete-invitation.md)

@@ -15,7 +15,7 @@ ms.author: t-maadam
 ---
 # How To: Delete an invitation to a recipient before they accept it
 
-> This will prevent the recipient from creating a share subscription, and they will never receive the shared data. If you delete the invitation to a consumer it won't do anything.
+> This will prevent the recipient from creating a share subscription, and they will never receive the shared data. If you delete the invitation to a consumer they will be able to view the invitation, but not accept it.
 
 1. Navigate to your **Data Share Account** and go to **Sent Shares**.
 2. Select the share from which you would like to delete a recipient. 
@@ -24,3 +24,9 @@ ms.author: t-maadam
 5. Click **Delete**
    
    ![Invitations page for a data share](./media/how-to/how-to-delete-invitation/delete-invitation.png)
+
+## Next steps
+In this how-to guide, you learned about deleting an invitation to a share. To learn about how to revoke a share subscription, continue to the next how-to guide.
+
+> [!div class="nextstepaction"]
+> [How To: Revoke a Share Subscription](how-to-revoke-share-subscription.md)

@@ -17,10 +17,7 @@ ms.author: t-maadam
 
 This how-to guide will show you how to add datasets to a pre-existing data share. 
 
-For information on how to add datasets as you create a share, see the tutorial on creating a data share.
-
-<!-- > [!NOTE]
-> If you are new to Azure Data Share, see [Introduction to Azure Data Share](data-share-introduction.md) before doing this quickstart.  -->
+For information on how to add datasets as you create a share, see the [Share data](share-your-data.md) tutorial.
 
 ## Add Datasets
 
@@ -37,6 +34,10 @@ For information on how to add datasets as you create a share, see the tutorial o
 8. Click "Add Datasets".
 9. Your new datasets have now been added to this data share.
 
-Note: A snapshot must be triggered by your consumers in order for them to see the new datasets. If there's a synchronization schedule configured, consumers will see the new datasets once the next scheduled sync completes. Without a sync schedule configured, the consumer must manually trigger a full or incremental copy of the data to receive the updates.
+Note: A snapshot must be triggered by your consumers in order for them to see the new datasets. If there are snapshot settings configured, consumers will see the new datasets once the next scheduled snapshot completes. Without snapshot settings configured, the consumer must manually trigger a full or incremental copy of the data to receive the updates. For more information on snapshots, see [snapshots](terminology.md).
 
-<!-- (For more information on Snapshots see here (link to Concepts -> Azure Data Share Terminology -> Snapshot)) -->
+## Next steps
+In this how-to guide, you learned about adding datasets to a pre-existing share. To learn about how to add more recipients to a share, continue to the next how-to guide.
+
+> [!div class="nextstepaction"]
+> [How To: Add Recipients to an Existing Data Share](how-to-add-recipients-to-share.md)
