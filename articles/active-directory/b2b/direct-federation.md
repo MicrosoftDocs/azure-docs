@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 |     |
 
 This article describes how to set up direct federation with another organization for B2B collaboration. You can set up direct federation with any organization whose identity provider (IdP) supports the SAML 2.0 or WS-Fed protocol.
-When you set up direct federation with a partner's IdP, ***new*** guest users from that domain can use their own organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
+When you set up direct federation with a partner's IdP, new guest users from that domain can use their own organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
 > [!NOTE]
 > Direct federation guest users must sign in using a link that includes the tenant context (for example, `https://myapps.microsoft.com/?tenantid=<tenant id>` or `https://portal.azure.com/<tenant id>`, or in the case of a verified domain, `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`). Direct links to applications and resources also work as long as they include the tenant context. Direct federation users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or `https://teams.microsoft.com` will result in an error.
  
@@ -40,8 +40,8 @@ With direct federation, guest users sign into your Azure AD tenant using their o
 
 ## Limitations
 
-### DNS verified domains in Azure AD
-Direct federation is allowed only for domains that aren't DNS verified in Azure AD. Direct federation is allowed for unmanaged (email-verified) Azure AD tenants because they aren't DNS verified.
+### DNS-verified domains in Azure AD
+Direct federation is allowed only for domains that aren't DNS-verified in Azure AD. Direct federation is allowed for unmanaged (email-verified) Azure AD tenants because they aren't DNS-verified.
 ### Authentication URL
 Direct federation is only allowed for policies where the authentication URL’s domain matches the target domain, or where the authentication URL is one of these allowed identity providers (this list is subject to change):
 -	accounts.google.com
@@ -55,17 +55,20 @@ Direct federation is only allowed for policies where the authentication URL’s 
 For example, when setting up direct federation for **fabrikam.com**, the authentication URL `https://fabrikam.com/adfs` will pass the validation. However, the authentication URL `https://fabrikamconglomerate.com/adfs` or `https://fabrikam.com.uk/adfs` for the same domain won't pass.
 
 ### Signing certificate renewal
-If you specify the metadata URL in the identity provider settings, Azure AD will automatically renew the signing certificate when it expires. However, if the certificate is rotated for any reason before the expiration time or if you don't provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
+If you specify the metadata URL in the identity provider settings, Azure AD will automatically renew the signing certificate when it expires. However, if the certificate is rotated for any reason before the expiration time, or if you don't provide a metadata URL, Azure AD will be unable to renew it. In this case, you'll need to update the signing certificate manually.
 ## Frequently asked questions
-### Can I set up direct federation with an unmanaged (e-mail verified) tenant? 
+### Can I set up direct federation with an unmanaged (email-verified) tenant? 
 Yes. If the domain hasn't been verified and the tenant hasn't undergone an [admin takeover](../users-groups-roles/domains-admin-takeover.md), you can set up direct federation. Unmanaged, or email-verified, tenants are created when a user redeems a B2B invitation or performs a self-service sign-up for Azure AD using a domain that doesn’t currently exist. You can set up direct federation with these domains.
 ### If direct federation and email one-time passcode authentication are both enabled, which method takes precedence?
 When direct federation is established with a partner organization, it takes precedence over email one-time passcode authentication for new guest users from that organization. If a guest user redeemed an invitation using one-time passcode authentication before you set up direct federation, they'll continue to use one-time passcode authentication. 
-### Does direct federation address sign-in issues due to a partially synced tenancy?
-No, the [e-mail one-time passcode](one-time-passcode.md) feature should be used in this scenario. A “partially synced tenancy” refers to a partner Azure AD tenant where on-premises user identities aren't fully synced to the cloud. A guest whose identity doesn’t yet exist in the cloud but who tries to redeem your B2B invitation won’t be able to sign in. The one-time passcode feature would allow this guest to sign in. The direct federation feature addresses scenarios where the partner has no Azure AD presence at all.
+### Does direct federation address sign-in issues due to a partially-synced tenancy?
+No, the [email one-time passcode](one-time-passcode.md) feature should be used in this scenario. A “partially-synced tenancy” refers to a partner Azure AD tenant where on-premises user identities aren't fully synced to the cloud. A guest whose identity doesn’t yet exist in the cloud but who tries to redeem your B2B invitation won’t be able to sign in. The one-time passcode feature would allow this guest to sign in. The direct federation feature addresses scenarios where the partner has no Azure AD presence at all.
 
 ## Step 1: Configure the partner organization’s identity provider
 First, your partner organization needs to configure their identity provider with the required claims and relying party trusts. 
+
+> [!NOTE]
+> To illustrate how to configure an identity provider for direct federation, we’ll use Active Directory Federation Services (AD FS) as an example. See the article [Configure direct federation with AD FS](direct-federation-adfs.md), which gives examples of how to configure AD FS as a SAML 2.0 or WS-Fed identity provider in preparation for direct federation.
 
 ### SAML 2.0 configuration
 
@@ -73,18 +76,20 @@ Azure AD B2B can be configured to federate with identity providers that use the 
 
 > [!NOTE]
 > NOTE
-The target domain for direct federation must not be DNS verified on Azure AD. The authentication URL domain must match either the target domain or the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 
+The target domain for direct federation must not be DNS-verified on Azure AD. The authentication URL domain must match either the target domain or the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 
 
 #### Required SAML 2.0 attributes and claims
-The following tables show requirements for specific attributes and claims that must be configured at the third-party identity provider. To set up direct federation, the following attributes must be received in the SAML 2.0 response from the identity provider. These attributes can be configured by linking to online ESTS XML file  or manually.
+The following tables show requirements for specific attributes and claims that must be configured at the third-party identity provider. To set up direct federation, the following attributes must be received in the SAML 2.0 response from the identity provider. These attributes can be configured by linking to the online security token service XML file or by entering them manually.
 
 Required attributes for the SAML 2.0 response from the IdP:
+
 |Attribute  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Audience     |`urn:federation:MicrosoftOnline`         |
 
 Required claims for the SAML 2.0 token issued by the IdP:
+
 |Attribute  |Value  |
 |---------|---------|
 |NameID Format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
@@ -94,11 +99,11 @@ Required claims for the SAML 2.0 token issued by the IdP:
 Azure AD B2B can be configured to federate with identity providers that use the WS-Fed protocol with some specific requirements as listed below. Currently, the two WS-Fed providers have been tested for compatibility with Azure AD include AD FS and Shibboleth. For more information about establishing a relying party trust between a WS-Fed compliant provider with Azure AD, refer to the "STS Integration Paper using WS Protocols" available in the [Azure AD Identity Provider Compatibility Docs](https://www.microsoft.com/download/details.aspx?id=56843).
 
 > [!NOTE]
-> The target domain for direct federation must not be DNS verified on Azure AD. The authentication URL domain must match either the target domain or the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 
+> The target domain for direct federation must not be DNS-verified on Azure AD. The authentication URL domain must match either the target domain or the domain of an allowed identity provider. See the [Limitations](#limitations) section for details. 
 
 #### Required WS-Fed attributes and claims
 
-The following tables show requirements for specific attributes and claims that must be configured at the third-party WS-Fed identity provider. To set up direct federation, the following attributes must be received in the WS-Fed message from the identity provider. These attributes can be configured by linking to online ESTS [XML file](https://www.microsoft.com/download/details.aspx?id=56843) or manually.
+The following tables show requirements for specific attributes and claims that must be configured at the third-party WS-Fed identity provider. To set up direct federation, the following attributes must be received in the WS-Fed message from the identity provider. These attributes can be configured by linking to the online security token service XML file or by entering them manually.
 
 Required attributes in the WS-Fed message from the IdP:
  
@@ -108,19 +113,17 @@ Required attributes in the WS-Fed message from the IdP:
 |Audience     |`urn:federation:MicrosoftOnline`         |
 
 Required claims for the WS-Fed token issued by the IdP:
+
 |Attribute  |Value  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 ## Step 2: Configure direct federation in Azure AD 
-Next, you'll configure federation with the identity provider configured in step 1 in Azure AD. You can use either the Azure AD portal or PowerShell. It might take 5-10 minutes before the direct federation policy takes effect.
-
-|Required Attributes  |
-|---------|
-|Issuer URI of partner IdP     |
-|Passive auth endpoint of partner IdP     |
-|Certificate     |
+Next, you'll configure federation with the identity provider configured in step 1 in Azure AD. You can use either the Azure AD portal or PowerShell. It might take 5-10 minutes before the direct federation policy takes effect. The following attributes are required:
+- Issuer URI of partner IdP
+- Passive auth endpoint of partner IdP
+- Certificate
 
 ### To configure direct federation in the Azure AD portal
 
