@@ -37,7 +37,13 @@
     - name: Add new users to Azure AD 
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage user profiles    
-      href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      name: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Download list of users
+      href: users-bulk-download.md
+    - name: Add users in bulk
+      href: users-bulk-add.md
+    - name: Delete users in bulk
+      href: users-bulk-delete.md  
     - name: Share user accounts  
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    
@@ -92,7 +98,9 @@
       href: groups-lifecycle.md
     - name: Restore expired or deleted groups   
       href: groups-restore-deleted.md
-    - name: Manage group settings    
+    - name: Download group list
+      href: groups-bulk-download.md
+    - name: Manage group settings
       href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
     - name: Set up group self-service    
       href: groups-self-service-management.md
