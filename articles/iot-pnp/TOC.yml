@@ -18,6 +18,10 @@
     href: tutorial-certification-product.md
   - name: Run certification tests
     href: tutorial-certification-test.md
+- name: Concepts
+  items:
+  - name: Glossary
+    href: iot-plug-and-play-glossary.md
 - name: How-to guides
   items:
   - name: Onboard to the IoT portal

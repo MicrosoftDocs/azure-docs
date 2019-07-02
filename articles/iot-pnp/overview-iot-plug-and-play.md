@@ -13,7 +13,7 @@ manager: philmea
 # As a device builder, I need to know what is PnP and how to certify devices, so I can understand how they can help me build and market my IoT devices.
 ---
 
-# What is Azure IoT Plug and Play?
+# What is Azure IoT Plug and Play (preview)?
 
 IoT Plug and Play enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play, is a schema that describes device capabilities. This schema, called a _device capability model_, is a JSON-LD document. This schema is structured as a set of interfaces that include definitions of:
 
@@ -71,6 +71,9 @@ As a device developer, you can submit IoT hardware products for certification. Y
 - Submit an IoT Plug and Play device capability model and marketing information to create a new device record.
 - Pass automated set of validation tests for the device.
 - Publish to the Certified for IoT device catalog.
+
+## Regional availability
+During public preview, IoT Hub device streams are available in the North Europe, Central US, and Japan East regions. Please make sure you create your hub in one of these regions.
 
 ## Next steps
 
