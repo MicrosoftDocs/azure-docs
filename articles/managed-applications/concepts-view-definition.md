@@ -27,6 +27,8 @@ Sample JSON for view definition:
 
 ```json
 {
+    "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
+    "contentVersion": "0.0.0.1",
     "views": [
         {
             "kind": "Overview",
@@ -79,7 +81,7 @@ Sample JSON for view definition:
                         "displayName": "Custom Context Action",
                         "path": "testCustomResource/testContextAction",
                         "icon": "Stop",
-                        "createUIDefinition": { },
+                        "createUIDefinition": { }
                     }
                 ],
                 "columns": [
