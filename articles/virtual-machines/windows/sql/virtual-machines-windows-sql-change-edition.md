@@ -41,8 +41,7 @@ The **internal** edition specification must match the **metadata** specification
 
  - Changing the edition metadata is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. 
  - Changing the edition metadata is only enabled for Public Cloud installations.
- - Changing the edition metadata is supported only on virtual machines that have a single NIC (network interface). On virtual machines that have more than one NIC, you should first remove one of the NICs (by using the Azure portal) before you attempt the procedure. Otherwise, you will run into an error similar to the following: 
-   `The virtual machine '\<vmname\>' has more than one NIC associated.` Although you might be able to add the NIC back to the VM after you change the edition, operations done through the SQL configuration page in the Azure portal, like automatic patching and backup, will no longer be considered supported.
+
 
 ## Prerequisites
 
