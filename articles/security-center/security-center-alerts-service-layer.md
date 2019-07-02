@@ -1,6 +1,6 @@
 ---
-title: Threat detection for service layer in Azure Security Center | Microsoft Docs
-description: This topic presents the service layer alerts available in Azure Security Center.
+title: Threat detection for Azure service layer in Azure Security Center | Microsoft Docs
+description: This topic presents the Azure service layer alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -18,7 +18,7 @@ ms.author: monhaber
 
 ---
 
-# Threat detection for service layer
+# Threat detection for Azure service layer
 
 This topic presents the Security Center alerts available when monitoring your Azure service layers.
 
