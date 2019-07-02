@@ -15,11 +15,14 @@ ms.date: 06/28/2019
 
 # Monitor model performance with TensorBoard and Azure Machine Learning
 
-In this article, you learn how to launch TensorBoard against experiment run histories using the [Azure Machine Learning service SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). This allows you to visualize and inspect your experiment runs and metrics, so you can tune and retrain your machine learning models.
+In this article, you learn how to view your experiment runs and metrics in Tensorboard using [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) in the main Azure Machine Learning service SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
-With the Azure Machine Learning SDK `tensorboard` extra, you can launch TensorBoard from your experiment's run history. If your experiment natively outputs log files that are consumable by TensorBoard, like PyTorch, Chainer and TensorFlow experiments,  you can launch TensorBoard directly from run history. For experiments that don't natively output TensorBoard consumable files, like Scikit-learn or Azure Machine Learning experiments, export those run histories as TensorBoard logs with the SDK's `export_to_tensorboard()` method, then launch TensorBoard from there. 
+How you launch Tensorboard with the [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) depends on your experiment. 
++ If your experiment natively outputs log files that are consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments, then you can [launch TensorBoard directly](#direct) from experiment's run history. 
+
++ For experiments that don't natively output TensorBoard consumable files, such as like Scikit-learn or Azure Machine Learning experiments, use [the `export_to_tensorboard()` method](#export) to export the run histories as TensorBoard logs and launch TensorBoard from there. 
 
 ## Prerequisites
 
@@ -39,12 +42,14 @@ The code in this how-to can be run in either of the following environments:
       * Create a workspace and its configuration file (config.json)
   
 
+<a name="direct"></a>
+## Option 1: Directly view run history in TensorBoard
 
-## Launch TensorBoard from run history
+This option works for experiments that natively outputs log files consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments. If that is not the case of your experiment, use [the `export_to_tensorboard()` method](#export) instead.
 
-To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance. 
+To launch TensorBoard and view your experiment run histories, your experiments need to have previously enabled logging to track its metrics and performance.  
 
-In the following sections, we run the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, AMLCompute, and demonstrate how to 
+The following example code used the [MNIST demo experiment](https://raw.githubusercontent.com/tensorflow/tensorflow/r1.8/tensorflow/examples/tutorials/mnist/mnist_with_summaries.py) from TensorFlow's repository in a remote compute target, Azure Machine Learning Compute, and demonstrate how to 
 start TensorBoard against a TensorFlow experiment, that is, an experiment that natively outputs TensorBoard event files.
 
 ### Set experiment name and create project folder
@@ -172,7 +177,9 @@ tb.start()
 tb.stop()
 ```
 
-## Export and convert run histories
+<a name="export"></a>
+
+## Option 2: Export history as log to view in Tensorboard
 
 The following code sets up a sample experiment, begins the logging process using the Azure Machine Learning run history APIs, and exports the experiment run history into logs consumable by TensorBoard for visualization. 
 
