@@ -1,12 +1,10 @@
 ---
 title: Frequently asked questions for Azure VMware Solution by Virtustream (AVSV)
 description: Provides answers to some of the common questions about Azure VMware Solution by Virtustream (AVSV).
-services: avsv-service
 author: v-jetome
-manager: v-jetome
 
 ms.service: avsv-service
-ms.topic: article
+ms.topic: conceptual
 ms.date:  7/5/2019
 ms.author: v-jetome
 
@@ -56,28 +54,6 @@ Yes. VM migration and vMotion can be used to move VMs to a private cloud if stan
 **Is a specific version of vSphere required in on-premises environments?**
 
 In order to perform vMotion, you will need to run vSphere 6.0 or later in on-premises environments.
-
-**What compliance certifications has AVS by Virtustream achieved?**
-
-The following certifications are planned for the initial service offering: 
-
-ISO 27001
-
-ISO 27017:2015 
-
-ISO 27018:2019 
-
-ISO 9001:2015 
-
-ISO 22301 
-
-SSAE18 SOC 1 – Type 2 
-
-SSAE18 SOC 2 – Type 2 
-
-CSA STAR (attestation level 2) 
-
-Certifications to support specific industry verticals (healthcare, financial services) or the public sector will be addressed at a later date.
 
 **What does the change control process look like?**
 
