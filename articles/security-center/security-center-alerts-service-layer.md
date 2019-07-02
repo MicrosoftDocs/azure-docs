@@ -76,12 +76,3 @@ Security Center offers an additional layer of protection by leveraging Azure Res
 
 >[!NOTE]
 >Azure Security Center stores security-related customer data in the same geo as its resource. If Microsoft has not yet deployed Azure Security Center in the resource's geo, then it stores the data in the United States. When Microsoft Cloud App Security (MCAS) is enabled, this information is stored in accordance with the geo location rules of MCAS. See [Data storage for non-regional services for more information](http://azuredatacentermap.azurewebsites.net/).
-
-
-
-
-> When MCAS is enabled, Azure Security Center stores a copy of security-related customer data, collected from or associated with a customer resource (e.g. virtual machine or Azure Active Directory tenant). The information is stored in the same geo as the resource, except in the following circumstances:
->
->* If Microsoft has not yet deployed Azure Security Center in the resource's geo, then a copy of the data is stored in the United States.
->* If Azure Security Center is using another Microsoft Online Service to process the data, then it may store the data in accordance with the geolocation rules of the other Online Service.
-
