@@ -127,7 +127,7 @@ Required claims for the WS-Fed token issued by the IdP:
 ## Step 2: Configure direct federation in Azure AD 
 Next, you'll configure federation with the identity provider configured in step 1 in Azure AD. You can use either the Azure AD portal or PowerShell. It might take 5-10 minutes before the direct federation policy takes effect. During this time, don't attempt to redeem an invitation for the direct federation domain. The following attributes are required:
 - Issuer URI of partner IdP
-- Passive auth endpoint of partner IdP
+- Passive authentication endpoint of partner IdP (only https is supported)
 - Certificate
 
 ### To configure direct federation in the Azure AD portal
