@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 06/28/2019
 ms.author: wesmc
 ---
 # Choose the right IoT Hub tier for your solution
@@ -56,6 +56,9 @@ Once you create your IoT hub, you can upgrade from the basic tier to the standar
 
 The partition configuration remains unchanged when you migrate from basic tier to standard tier.
 
+> [!NOTE]
+> The free tier does not support upgrading to basic or standard.
+
 ## IoT Hub REST APIs
 
 The difference in supported capabilities between the basic and standard tiers of IoT Hub means that some API calls do not work with basic tier hubs. The following table shows which APIs are available:
@@ -64,26 +67,25 @@ The difference in supported capabilities between the basic and standard tiers of
 | --- | ---------- | ------------- |
 | [Delete device](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Yes | Yes |
 | [Get device](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Yes | Yes |
-| Delete module | Yes | Yes |
-| Get module | Yes | Yes |
+| [Delete module](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Yes | Yes |
+| [Get module](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Yes | Yes |
 | [Get registry statistics](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Yes | Yes |
 | [Get services statistics](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Yes | Yes |
-| [Create Or Update Device](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Yes | Yes |
-| Put module | Yes | Yes |
+| [Create or update device](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Yes | Yes |
+| [Create or update module](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Yes | Yes |
 | [Query IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Yes | Yes |
-| Query modules | Yes | Yes |
 | [Create file upload SAS URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
 | [Receive device bound notification](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
 | [Send device event](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
-| Send module event | Yes | Yes |
+| Send module event | AMQP and MQTT only | AMQP and MQTT only |
 | [Update file upload status](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
-| [Bulk device operation](/rest/api/iot-dps/runbulkenrollmentgroupoperation/runbulkenrollmentgroupoperation) | Yes, except for IoT Edge capabilities | Yes | 
+| [Bulk device operation](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Yes, except for IoT Edge capabilities | Yes |
 | [Purge command queue](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Yes |
 | [Get device twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Yes |
-| Get module twin |   | Yes |
+| [Get module twin](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Yes |
 | [Invoke device method](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Yes |
-| [Update device twin](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Yes | 
-| Update module twin |   | Yes | 
+| [Update device twin](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Yes |
+| [Update module twin](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Yes |
 | [Abandon device bound notification](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
 | [Complete device bound notification](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
 | [Cancel job](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Yes |

@@ -4,7 +4,7 @@ description: Learn to use triggers and bindings to connect your Azure Function t
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
 ms.devlang: multiple
