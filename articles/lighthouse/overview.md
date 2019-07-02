@@ -10,7 +10,9 @@ manager: carmonm
 ---
 # What is Azure Lighthouse?
 
-Azure Lighthouse provides comprehensive and robust management tooling, allowing service providers to deliver managed services on behalf of their customers with higher automation and efficiency at scale, using functionality built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
+Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale, and enhanced governance. With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
+
+Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale and enhanced governance.
 
 ![Overview diagram of Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
