@@ -21,7 +21,7 @@ hideEdit: true
 
 This article provides more information on the latest releases and updates to the Service Fabric runtime and SDKs.
 
-## **What's new in Service Fabric**
+## What's new in Service Fabric
 
 ### Service Fabric 6.5
 
