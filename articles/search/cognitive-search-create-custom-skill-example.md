@@ -100,12 +100,12 @@ namespace SampleSkills
         {
             public class OutputRecordData
             {
-                public string Name { get; set; }
-                public string Description { get; set; }
-                public string Source { get; set; }
-                public string SourceUrl { get; set; }
-                public string LicenseAttribution { get; set; }
-                public string LicenseUrl { get; set; }
+                public string Name { get; set; } = "";
+                public string Description { get; set; } = "";
+                public string Source { get; set; } = "";
+                public string SourceUrl { get; set; } = "";
+                public string LicenseAttribution { get; set; } = "";
+                public string LicenseUrl { get; set; } = "";
             }
 
             public class OutputRecordMessage
@@ -137,7 +137,7 @@ namespace SampleSkills
 
         private class BingEntity
         {
-            public class Entitypresentationinfo
+            public class EntityPresentationinfo
             {
                 public string[] EntityTypeHints { get; set; }
             }
@@ -147,7 +147,7 @@ namespace SampleSkills
                 public string Url { get; set; }
             }
 
-            public class Contractualrule
+            public class ContractualRule
             {
                 public string _type { get; set; }
                 public License License { get; set; }
@@ -156,10 +156,10 @@ namespace SampleSkills
                 public string Url { get; set; }
             }
 
-            public Contractualrule[] ContractualRules { get; set; }
+            public ContractualRule[] ContractualRules { get; set; }
             public string Description { get; set; }
             public string Name { get; set; }
-            public Entitypresentationinfo EntityPresentationInfo { get; set; }
+            public EntityPresentationinfo EntityPresentationInfo { get; set; }
         }
         #endregion
 
@@ -172,8 +172,10 @@ namespace SampleSkills
         {
             log.LogInformation("Entity Search function: C# HTTP trigger function processed a request.");
 
-            var response = new WebApiResponse();
-            response.Values = new List<OutputRecord>();
+            var response = new WebApiResponse
+            {
+                Values = new List<OutputRecord>()
+            };
 
             string requestBody = new StreamReader(req.Body).ReadToEnd();
             var data = JsonConvert.DeserializeObject<WebApiRequest>(requestBody);
@@ -193,8 +195,10 @@ namespace SampleSkills
             {
                 if (record == null || record.RecordId == null) continue;
 
-                OutputRecord responseRecord = new OutputRecord();
-                responseRecord.RecordId = record.RecordId;
+                OutputRecord responseRecord = new OutputRecord
+                {
+                    RecordId = record.RecordId
+                };
 
                 try
                 {
@@ -208,8 +212,10 @@ namespace SampleSkills
                         Message = e.Message
                     };
 
-                    responseRecord.Errors = new List<OutputRecord.OutputRecordMessage>();
-                    responseRecord.Errors.Add(error);
+                    responseRecord.Errors = new List<OutputRecord.OutputRecordMessage>
+                    {
+                        error
+                    };
                 }
                 finally
                 {
@@ -234,25 +240,23 @@ namespace SampleSkills
             var result = new OutputRecord.OutputRecordData();
 
             using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
+            using (var request = new HttpRequestMessage {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(uri)
+            })
             {
-                request.Method = HttpMethod.Get;
-                request.RequestUri = new Uri(uri);
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
+                HttpResponseMessage response = await client.SendAsync(request);
+                string responseBody = await response?.Content?.ReadAsStringAsync();
 
                 BingResponse bingResult = JsonConvert.DeserializeObject<BingResponse>(responseBody);
-
-                // In addition to the list of entities that could match the name, for simplicity let's return information
-                // for the top match as additional metadata at the root object.
-                result = AddTopEntityMetadata(bingResult.Entities.Value);
-
-                // Do some cleanup on the returned result.
-                result.Description = result.Description ?? "";
-                result.Name = entityName ?? "";
-                result.LicenseAttribution = result.LicenseAttribution ?? "";
+                if (bingResult != null)
+                {
+                    // In addition to the list of entities that could match the name, for simplicity let's return information
+                    // for the top match as additional metadata at the root object.
+                    return AddTopEntityMetadata(bingResult.Entities?.Value);
+                }
             }
 
             return result;
@@ -263,8 +267,7 @@ namespace SampleSkills
             if (entities != null)
             {
                 foreach (BingEntity entity in entities.Where(
-                    entity => entity.EntityPresentationInfo != null
-                        && entity.EntityPresentationInfo.EntityTypeHints != null
+                    entity => entity?.EntityPresentationInfo?.EntityTypeHints != null
                         && (entity.EntityPresentationInfo.EntityTypeHints[0] == "Person"
                             || entity.EntityPresentationInfo.EntityTypeHints[0] == "Organization"
                             || entity.EntityPresentationInfo.EntityTypeHints[0] == "Location")
@@ -412,7 +415,7 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 This example should produce the same result you saw previously when running the function in the local environment.
 
 ## Connect to your pipeline
-Now that you have a new custom skill, you can add it to your skillset. The example below shows you how to call the skill to add descriptions to organizations in the document. Replace `[your-entity-search-app-name]` with the name of your app.
+Now that you have a new custom skill, you can add it to your skillset. The example below shows you how to call the skill to add descriptions to organizations in the document (this could be extended to also work on locations and people). Replace `[your-entity-search-app-name]` with the name of your app.
 
 ```json
 {
@@ -440,7 +443,34 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
 }
 ```
 
-Here, we're counting on the built-in [entity recognition skill](cognitive-search-skill-entity-recognition.md) to have enriched the document with the list of organizations.
+Here, we're counting on the built-in [entity recognition skill](cognitive-search-skill-entity-recognition.md) to be present in the skillset and to have enriched the document with the list of organizations. For reference, here's an entity extraction skill configuration that would be sufficient in generating the data we need:
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "name": "#1",
+    "description": "Organization name extraction",
+    "context": "/document/merged_content",
+    "categories": [ "Organization" ],
+    "defaultLanguageCode": "en",
+    "inputs": [
+        {
+            "name": "text",
+            "source": "/document/merged_content"
+        },
+        {
+            "name": "languageCode",
+            "source": "/document/language"
+        }
+    ],
+    "outputs": [
+        {
+            "name": "organizations",
+            "targetName": "organizations"
+        }
+    ]
+},
+```
 
 ## Next steps
 Congratulations! You've created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
