@@ -42,18 +42,39 @@ from azure.storage.blob import BlockBlobService, PublicAccess
 > * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice?view=azure-python) module
 > * [PublicAccess](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.models.publicaccess?view=azure-python) module
 
-## Perform common blob tasks 
+## Create a storage account instance
+
+Intro text here
+
+```python
+def initialize_storage_account(storage_account_name, storage_account_key):
+    try:
+       global block_blob_service
+
+       block_blob_service = BlockBlobService(account_name=storage_account_name, account_key=storage_account_key)
+
+    except Exception as e:
+        print(e)
+```
+
+## Perform common blob tasks
 
 You can use the same set of APIs to interact with your data objects regardless of whether the account has a hierarchical namespace. To find snippets that help you perform common tasks such as creating a container (file system), uploading and downloading blobs (files), and deleting blobs and containers, see [Quickstart: Upload, download, and list blobs with Python](storage-quickstart-blobs-python.md).
 
-The rest of this article presents snippets that help you perform tasks related only to accounts that have a hierarchical namespace. 
+The rest of this article presents snippets that help you perform tasks related only to accounts that have a hierarchical namespace.
 
 ## Add directory to a container
 
 Intro text here
 
-```cs
-Snippet here
+```python
+def create_directory(container_name, directory_name):
+    try:
+
+        block_blob_service.create_directory(container_name, directory_name)
+
+    except Exception as e:
+        print(e)
 ```
 
 ### APIs featured in this snippet
@@ -68,8 +89,15 @@ Snippet here
 
 Intro text here
 
-```cs
-Snippet here
+```python
+def rename_directory(container_name, new_directory_name, directory_name):
+  
+   try:
+
+        block_blob_service.rename_path(container_name, new_directory_name, directory_name)
+
+    except Exception as e:
+        print(e)
 ```
 
 ### APIs featured in this snippet
@@ -84,8 +112,15 @@ Snippet here
 
 Intro text here
 
-```cs
-Snippet here
+```python
+def delete_directory(container_name, directory_name):
+  
+    try:
+
+        block_blob_service.delete_directory(container_name, directory_name)
+
+    except Exception as e:
+        print(e)
 ```
 
 ### APIs featured in this snippet
@@ -100,8 +135,18 @@ Snippet here
 
 Intro text here
 
-```cs
-Snippet here
+```python
+def get_directory_permissions(container_name, directory_name):
+  
+    try:
+
+        path_properties = PathProperties()
+        path_properties = block_blob_service.get_path_access_control(container_name, directory_name)
+        
+        print(path_properties.acl)
+
+    except Exception as e:
+        print(e)
 ```
 
 ### APIs featured in this snippet
@@ -116,7 +161,7 @@ Snippet here
 
 Intro text here
 
-```cs
+```python
 Snippet here
 ```
 
@@ -127,6 +172,7 @@ Snippet here
 > * [Type](url) method.
 > * [Type](url) method.
 > * [Type](url) method.
+
 ## Next steps
 
 Explore more APIs in the [blob package](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob?view=azure-python) section of the [Azure Client SDK for Python](https://docs.microsoft.com/python/api/overview/azure/storage/client?view=azure-python) docs.
