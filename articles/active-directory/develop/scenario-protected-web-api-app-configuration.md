@@ -52,7 +52,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> The bearer token was requested by a client application to the Microsoft identity platform endpoint *for the web API*. The web API is the only application that should verify the token and view the claims it contains. Client apps should never view the claims in tokens. (The web API could require, in the future, that the token be encrypted. This requirement would prevent access for client apps that can view access tokens.)
+> The bearer token was requested by a client application to the Microsoft identity platform endpoint *for the web API*. The web API is the only application that should verify the token and view the claims it contains. Client apps should never try to inspect the claims in tokens. (The web API could require, in the future, that the token be encrypted. This requirement would prevent access for client apps that can view access tokens.)
 
 ## JwtBearer configuration
 
