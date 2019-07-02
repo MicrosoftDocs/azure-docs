@@ -37,7 +37,7 @@ To complete this tutorial, you need to know:
 
 In this tutorial, you create a managed application and its managed resource group will contain custom provider instance, storage account, and function. The Azure Function used in this example implements an API that handles custom provider operations for actions and resources. Azure Storage Account is used as basic storage for your custom provider resources.
 
-The user interface definition for creating a managed application instance includes `funcname` and `storagename` input elements. Storage account name and function name must be globally unique. By default function files will be deployed from [sample function package](https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip), but you can change it by adding an input element for providing a function package link in *createUIDefinition.json*:
+The user interface definition for creating a managed application instance includes `funcname` and `storagename` input elements. Storage account name and function name must be globally unique. By default function files will be deployed from [sample function package](https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip), but you can change it by adding an input element for a package link in *createUIDefinition.json*:
 
 ```json
 {
@@ -414,8 +414,6 @@ Package the following managed application artifacts to zip archive and upload it
 
 All files must be at root level. The package with artifacts can be stored in any storage, for example GitHub blob or Azure Storage Account blob. Here is a script to upload the application package to storage account: 
 
-[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
-
 ```powershell
 $resourceGroup="appResourcesGroup"
 $storageName="mystorageaccount$RANDOM"
@@ -446,6 +444,8 @@ $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $c
 ```
 
 Run the Azure CLI script below or follow the steps in Azure portal to deploy a Service Catalog managed application definition:
+
+[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 # [Azure CLI](#tab/azurecli-interactive)
 
@@ -535,7 +535,7 @@ az managedapp create \
 
     ![Add managed application](./media/managed-application-with-custom-providers/add-managed-application.png)
 
-3. In **Service Catalog applications** page type Service Catalog definition display name in search box and select definition created in previous step and click **Create**.
+3. On the **Service Catalog applications** page type Service Catalog definition display name in search box. Select the definition created in previous step and click **Create**.
 
     ![Select service catalog](./media/managed-application-with-custom-providers/select-service-catalog-definition.png)
 
