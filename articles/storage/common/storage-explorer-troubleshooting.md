@@ -228,7 +228,7 @@ If you accidentally attached using an invalid SAS URL and are unable to detach, 
 
 ## Linux dependencies
 
-Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
 Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
 
@@ -236,11 +236,11 @@ Storage Explorer requires the use of a password manager, which may need to be co
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-You can also download the application .tar.gz file, but you'll have to install dependencies manually.
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
 
-> [!IMPORTANT] Storage Explorer .tar.gz installation is supported only for Ubuntu distributions. Other distributions and have not been verified and may require equivalent or additional packages.
+> [!IMPORTANT] Storage Explorer as provided in the .tar.gz download is only supported for Ubuntu distributions. Other distributions have not been verified and may require alternative or additional packages.
 
-The following packages are required to run Storage Explorer on Linux:
+These packages are the most common requirements for Storage Explorer on Linux:
 
 * [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
@@ -255,8 +255,7 @@ The following packages are required to run Storage Explorer on Linux:
 2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
 3. Run the following command:
    ```bash
-   sudo apt-get install libgconf-2-4
-libgnome-keyring0
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
 # [Ubuntu 18.04](#tab/1804)
@@ -285,8 +284,6 @@ libgnome-keyring0
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
-
----
 
 ### Patching Storage Explorer for newer versions of .NET Core
 
