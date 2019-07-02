@@ -63,4 +63,6 @@ To perform a join on two datasets, they should be related by a key column. Compo
 
 1. To view the results, right-click the **Join Data** > **Results dataset** > **Visualize**.
 
+## Next steps
 
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 

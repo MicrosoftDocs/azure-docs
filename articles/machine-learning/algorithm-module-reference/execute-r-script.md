@@ -372,3 +372,7 @@ The current list of pre-installed R Packages available to use:
 | yaml         | 2.2.0      | 
 | zeallot      | 0.1.0      | 
 | zoo          | 1.8-6      | 
+
+## Next steps
+
+See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
