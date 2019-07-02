@@ -1,6 +1,6 @@
 ---
-title: 'Configure an One Click SSO to your application from the Azure AD app gallery | Microsoft Docs'
-description: Steps to configure One Click SSO to your application from the Azure AD app gallery.
+title: One-click, single sign-on (SSO) configuration of your Azure Active Directory app gallery application  | Microsoft Docs
+description: Steps for one-click configuration of  SSO for your application from the Azure AD app gallery.
 services: active-directory
 documentationCenter: na
 author: jeevansd
