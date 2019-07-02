@@ -111,13 +111,13 @@
     items:
     - name: Security alerts overview
       href: security-center-alerts-overview.md
-    - name: Threat detection for VMs & Servers
+    - name: Threat detection for VMs & servers
       href: security-center-alerts-iaas.md
     - name: Threat detection for cloud native compute
       href: security-center-alerts-compute.md
-    - name: Threat detection for PaaS data services
+    - name: Threat detection for data services
       href: security-center-alerts-data-services.md
-    - name: Service layer alerts
+    - name: Threat detection for service layer
       href: security-center-alerts-service-layer.md   
     - name: Integration with Azure Security Products
       href: security-center-alerts-integration.md
@@ -186,6 +186,8 @@
       href: security-center-planning-and-operations-guide.md
     - name: Understanding security alerts
       href: security-center-alerts-type.md
+    - name: UEBA for Azure resources and users
+      href: security-center-ueba-mcas.md
 
 - name: Reference
   items:

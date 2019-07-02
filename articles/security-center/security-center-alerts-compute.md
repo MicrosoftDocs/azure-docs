@@ -1,6 +1,6 @@
 ---
 title: Threat detection for cloud native compute in Azure Security Center | Microsoft Docs
-description: Azure policy definitions monitored in Azure Security Center.
+description: This topic presents the cloud native compute alerts available in Azure Security Center. in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber

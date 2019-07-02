@@ -1,6 +1,6 @@
 ---
 title: Security Center Integration with Azure Security Products | Microsoft Docs
-description: Azure policy definitions monitored in Azure Security Center.
+description: This topics presents Azure Security products that have been integrated with Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber

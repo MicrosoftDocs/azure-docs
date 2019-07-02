@@ -1,6 +1,6 @@
 ---
 title: Cloud smart alert correlation (incidents) | Microsoft Docs
-description: Azure policy definitions monitored in Azure Security Center.
+description: This topic explains how fusion uses cloud smart alert correlation to generate security incidents are in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
