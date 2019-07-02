@@ -122,6 +122,8 @@ When you provide this view in **viewDefinition.json**, it overrides the default 
 |description|No|The description of your managed application.|
 |commands|No|The array of additional toolbar buttons of the overview page, see [commands](#commands).|
 
+![Overview](./media/view-definition/overview.png)
+
 ## Metrics
 
 `"kind": "Metrics"`
@@ -177,6 +179,8 @@ The metrics view enables you to collect and aggregate data from your managed app
 |resourceTagFilter|No|The resource tags array (will be separated with `or` word) for which metrics would be displayed. Applies on top of resource type filter.|
 |resourceType|Yes|The resource type for which metrics would be displayed.|
 
+![Metrics](./media/view-definition/metrics.png)
+
 ## Custom resources
 
 `"kind": "CustomResources"`
@@ -222,6 +226,8 @@ In this view you can perform GET, PUT, DELETE and POST operations for your custo
 |createUIDefinition|No|Create UI Definition schema for create custom resource command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
 |commands|No|The array of additional toolbar buttons of the CustomResources view, see [commands](#commands).|
 |columns|No|The array of columns of the custom resource. If not defined the `name` column will be shown by default. The column must have `"key"` and `"displayName"`. For key, provide the key of the property to display in a view. If nested, use dot as delimiter, for example, `"key": "name"` or `"key": "properties.property1"`. For display name, provide the display name of the property to display in a view. You can also provide an `"optional"` property. When set to true, the column is hidden in a view by default.|
+
+![CustomResources](./media/view-definition/customresources.png)
 
 ## Commands
 
