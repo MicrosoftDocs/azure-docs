@@ -84,7 +84,7 @@ public class Startup
 
 We recommend that you keep feature flags outside the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI. App Configuration also delivers the flags to your application directly through its .NET Core client libraries.
 
-The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.AzureAppConfiguration.AspNetCore`. Follwo these steps to use this NuGet package.
+The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.AzureAppConfiguration.AspNetCore`. Follow these steps to use this NuGet package.
 
 1. Open *Program.cs* file and add the following code.
 
