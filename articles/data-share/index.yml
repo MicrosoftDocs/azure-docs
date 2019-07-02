@@ -3,14 +3,14 @@ documentType: LandingData
 title: Azure Data Share Preview Documentation
 metadata:
   title: Azure Data Share Preview Documentation - Tutorials, how to guides
-  description: Azure Data Share Preview is a safe and secure service for sharing data with third party organizations.
-  author: orspod
-  ms.author: orspodek
-  ms.service: data-explorer
+  description: Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations.
+  author: joannapea
+  ms.author: joanpo
+  ms.service: data-share
   ms.topic: landing-page
-  ms.date: 03/24/2019
+  ms.date: 07/10/2019
 abstract:
-  description: <p>Azure Data Share Preview is a safe and secure service for sharing data with third party organizations. Simply select the datasets that you want to share, add recipients and start sharing data with the ability to govern, monitor and control your data sharing relationships. </p><p>Learn how to use Azure Data Share through our tutorials, how-to guides and reference content.</p>
+  description: <p>Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations. Select the datasets that you want to share, add recipients, and start sharing data with the ability to govern, monitor, and control your data sharing relationships. </p><p>Learn how to use Azure Data Share through our tutorials, how-to guides, and reference content.</p>
   aside:
     image:
       alt: 
