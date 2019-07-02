@@ -17,7 +17,7 @@ ms.author: erhopf
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Windows to build a speech-enabled product or use it as a [Conversation Transcription](conversation-transcription-service.md) device. Currently only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported.
 
-The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows. It runs on a 64-bit Java 8 runtime environment (JRE).
+The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4) on 64-bit Windows. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech Services resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
@@ -53,7 +53,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. From the Eclipse menu bar, create a new project by choosing **File** > **New** > **Java Project**. If not available choose **Project** and then **Java Project**.
 
-1. The New Java Project wizard starts. Browse for the location of the sample project. Select **Finish**.
+1. The New Java Project wizard starts. **Browse** for the location of the sample project. Select **Finish**.
 
    ![Screenshot of New Java Project wizard](media/speech-devices-sdk/eclipse-new-java-project.png)
 
@@ -61,7 +61,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
    ![Screenshot of Package explorer](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
-1. Copy kws.table, participants.properties and Microsoft.CognitiveServices.Speech.extension.pma.dll into the folder \target\classes
+1. Copy kws.table, participants.properties and Microsoft.CognitiveServices.Speech.extension.pma.dll into the project folder \target\classes
 
 ## Configure the sample application
 
@@ -78,7 +78,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    If you are using conversation transcription, your speech key and region information are also needed in cts.java:
+    If you are using conversation transcription, your speech key and region information are also needed in `cts.java`:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
