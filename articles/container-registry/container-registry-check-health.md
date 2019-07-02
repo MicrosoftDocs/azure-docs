@@ -39,7 +39,7 @@ az acr check-health --name myregistry
 
 ## Error reporting
 
-The command logs information to the standard output. If a problem is detected, it provides an error code and description. For more information about the codes and possible solutions, see the[error reference](container-registry-health-error-reference.md).
+The command logs information to the standard output. If a problem is detected, it provides an error code and description. For more information about the codes and possible solutions, see the [error reference](container-registry-health-error-reference.md).
 
 By default, the command stops whenever it finds an error. You can also run the command so that it provides output for all health checks, even if errors are found. Add the `--ignore-errors` parameter, as shown in the following examples:
 
@@ -55,6 +55,7 @@ Sample output:
 
 ```console
 $ az acr check-health --name myregistry --ignore-errors --yes
+
 Docker daemon status: available
 Docker version: Docker version 18.09.2, build 6247962
 Docker pull of 'mcr.microsoft.com/mcr/hello-world:latest' : OK
