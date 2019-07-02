@@ -43,12 +43,14 @@ To know about the supported file and folder types for backup, refer this [articl
 Yes. Azure Backup provides VM-level backup for Azure VMs using the VM extension for the Azure VM agent. If you want to back up  files and folders on the guest Windows operating system on the VM, you can install the MARS agent to do that.
 
 ### Can I use the MARS agent to back up files and folders on temporary storage for the Azure VM?
-Yes. Install the MARS agent, and back up files and folders on the guest Windows operating system to temporary storage. - Backup jobs fail about temporary storage data is wiped out.
+Yes. Install the MARS agent, and back up files and folders on the guest Windows operating system to temporary storage.
+
+- Backup jobs fail when temporary storage data is wiped out.
 - If the temporary storage data is deleted, you can only restore to non-volatile storage.
 
 ### How do I register a server to another region?
 
-Backup data is sent to the datacenter of the vault in which the server is registered. The easiest way to change the datacenter is to uninstall and reinstall the agent, and then register the machine to a new vault in the region you need
+Backup data is sent to the datacenter of the vault in which the server is registered. The easiest way to change the datacenter is to uninstall and reinstall the agent, and then register the machine to a new vault in the region you need.
 
 ### Does the MARS agent support Windows Server 2012 deduplication?
 Yes. The MARS agent converts the deduplicated data to normal data when it prepares the backup operation. It then optimizes the data for backup, encrypts the data, and then sends the encrypted data to the vault.
@@ -125,7 +127,7 @@ The cache folder and the metadata VHD do not have the necessary attributes for t
 
 ### Is there a way to adjust the amount of bandwidth used for backup?
 
-Yes, you can use the **Change Properties** option in the MARS agent to adjust the bandwidth and timing. [Learn more](backup-configure-vault.md#enable-network-throttling)**.
+Yes, you can use the **Change Properties** option in the MARS agent to adjust the bandwidth and timing. [Learn more](backup-configure-vault.md#enable-network-throttling).
 
 ## Restore
 
