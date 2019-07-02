@@ -444,7 +444,7 @@ $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $c
 
 The steps below show how to deploy a Service Catalog managed application definition:
 
-# [Azure CLI](#tab/sc-azurecli-interactive)
+# [Azure CLI](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 resourceGroup="appResourcesGroup"
@@ -469,7 +469,7 @@ az managedapp definition create \
   --package-file-uri "path to your app.zip package"
 ```
 
-# [Portal](#tab/sc-azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. In the Azure portal, select **All services**. In the list of resources, type and select **Managed Applications Center**.
 2. On the **Managed Applications Center**, choose **Service Catalog application definition** and click **Add**. 
@@ -502,7 +502,7 @@ az managedapp definition create \
 
 Once the Service Catalog managed application definition is deployed, follow the steps below to deploy your managed application instance with custom provider:
 
-# [Azure CLI](#tab/ma-azurecli-interactive)
+# [Azure CLI](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 appResourcesGroup="appResourcesGroup"
@@ -525,7 +525,7 @@ az managedapp create \
   --parameters "{\"funcname\": {\"value\": \"managedusersappfunction\"}, \"storageName\": {\"value\": \"managedusersappstorage\"}}"
 ```
 
-# [Portal](#tab/ma-azure-portal)
+# [Portal](#tab/azure-portal)
 
 1. In the Azure portal, select **All services**. In the list of resources, type and select **Managed Applications Center**.
 2. On the **Managed Applications Center**, choose **Service Catalog applications** and click **Add**. 
@@ -557,11 +557,17 @@ After the service catalog application instance has been deployed, you have two n
 
 You can go to managed application instance and perform **custom action** in "Overview" page, create **users** custom resource in "Users" page and run **custom context action** on custom resource.
 
+<br>
+<details>
+<summary>Show details</summary>
+
 ![Perform custom action](./media/managed-application-with-custom-providers/perform-custom-action.png)
 
 ![Create custom resource](./media/managed-application-with-custom-providers/create-custom-resource.png)
 
 ![Create custom resource](./media/managed-application-with-custom-providers/perform-custom-resource-action.png)
+
+</details>
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
