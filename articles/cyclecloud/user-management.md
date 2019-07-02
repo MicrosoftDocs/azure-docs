@@ -61,11 +61,7 @@ When viewing a cluster, select the "Access" button to see a list of which users 
 
 This dialog shows a comprehensive list of every CycleCloud user with access to the cluster. By default, the owner is the user who created the cluster and has full permission to manage and log in to all nodes with administrator (sudo) privileges. Shared permissions grant explicit access to only the current cluster and may be modified by selecting each row. To share permissions with a new user, use the `Add User` button at the bottom of the list and select the permissions to share.
 
-[See Cluster User Management for details](user-cluster-access.md).
-
-It is possible to share additional permissions with other CycleCloud user accounts after a cluster has been created. Clicking on the **Share** button on each cluster page creates a pop-up dialog with an option to **Add Users**.
-
-![Share Cluster](./images/share_cluster.png)
+See [Cluster User Management](user-cluster-access.md) for more information about managing cluster node access.
 
 ## User Authentication
 
