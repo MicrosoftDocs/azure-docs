@@ -183,9 +183,9 @@ Console.WriteLine();
 
 Next, the sample adds a message to the back of the queue. 
 
-A message must be in a format that can be included in an XML request with UTF-8 encoding, and may be up to 64 KB in size. If a message contains binary data, then Microsoft recommends that you Base64-encode the message.
+A message must be in a format that can be included in an XML request with UTF-8 encoding, and may be up to 64 KB in size. If a message contains binary data, we recommend that you Base64-encode the message.
 
-By default, the maximum time-to-live for a message is set to 7 days. You can specify any positive number for the message time-to-live, as well as -1 to indicate that the message does not expire.
+By default, the maximum time-to-live for a message is set to 7 days. You can specify any positive number for the message time-to-live.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -195,6 +195,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+To add a message that does not expire, use `Timespan.FromSeconds(-1)` in your call to [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync):
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### Peek a message from the queue
