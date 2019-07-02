@@ -19,18 +19,18 @@ This article describes how to configure Azure Table storage to manage sales lead
 1. After your account is active, sign in to the [Azure portal](https://portal.azure.com).
 1. In the Azure portal, follow these steps:  
     1. Select **+Create a resource** in the pane on the left side. The **New** pane will open.
-    2. In the **New** pane, select **Storage**. A **Featured** list will open on the right side.
-    3. Select **Storage account**. Then, follow the instructions in [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. In the **New** pane, select **Storage**. A **Featured** list will open on the right side.
+    1. Select **Storage account**. Then, follow the instructions in [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
 
         ![Create an Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-    For more information about storage accounts, see [Quickstart tutorials](https://docs.microsoft.com/azure/storage/). For information about pricing, see [Azure storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+    For more about storage accounts, see [Quickstart tutorials](https://docs.microsoft.com/azure/storage/). For information about pricing, see [Azure storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Wait until your storage account is provisioned, which typically takes a few minutes. Then, access the account from the **Home** page of the Azure portal: Select **See all your resources** or **All resources** in the navigation pane on the left side.
+1. Wait until your storage account is provisioned, which typically takes a few minutes. Then, access the account from the **Home** page of the Azure portal: Select **See all your resources** or **All resources** in the navigation pane.
 
     ![Access your Azure storage account](./media/cloud-partner-portal-lead-management-instructions-azure-table/azure-storage-access.png)
 
-1. From your storage account pane, copy the storage account connection string for the key. Paste it into the **Storage Account Connection String** field in the Cloud Partner Portal.
+1. From your storage account pane, copy the storage account connection string for the key. Paste it in the **Storage Account Connection String** field in the Cloud Partner Portal.
 
     Example connection string:
 
@@ -44,35 +44,35 @@ You can use [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
 
 ## Use Microsoft Flow with Table storage (*optional*)
 
-You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automate notifications to be sent every time a lead is added to your table storage. If you don’t have a Microsoft Flow account, [sign up for a free account](https://flow.microsoft.com/).
+You can use [Microsoft Flow](https://docs.microsoft.com/flow/) to automate notifications to be sent when a lead is added to your table storage. If you don’t have a Microsoft Flow account, [sign up for a free account](https://flow.microsoft.com/).
 
 ### Lead notification example
 
-This example shows how to create a basic flow that automatically sends an email notification when a new lead is added to your table storage. It sends lead information hourly when the table storage is updated.
+This example shows how to create a basic flow. The flow automatically sends an email notification hourly when new leads are added to your table storage.
 
 1. Sign in to your Microsoft Flow account.
-2. In the navigation pane on the left side, select **My flows**.
-3. In the top navigation bar, select **+ New**.  
-4. From the drop-down list, select **+Create from blank**.
-5. Under "Create a flow from blank," select **Create from blank**.
+1. In the navigation pane on the left side, select **My flows**.
+1. In the top navigation bar, select **+ New**.  
+1. From the drop-down list, select **+Create from blank**.
+1. Under "Create a flow from blank," select **Create from blank**.
 
    ![Create a new flow from blank](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-6. On the connectors and triggers search page, select **Triggers**.
-7. Under "Triggers," select **Recurrence**.
-8. In the **Recurrence** window, keep the default setting of *1* for **Interval**. From the **Frequency** drop-down list, select **Hour**.
+1. On the connectors and triggers search page, select **Triggers**.
+1. Under "Triggers," select **Recurrence**.
+1. In the **Recurrence** window, keep the default setting of *1* for **Interval**. From the **Frequency** drop-down list, select **Hour**.
 
    >[!NOTE] 
    >This example uses a 1-hour interval. But you can select an interval and frequency that best fits your business needs.
 
    ![Set a 1-hour frequency for recurrence](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
-9. Select **+New step**.
-10. Search for **Get past time**, and then select **Get past time** under "Actions."
+1. Select **+New step**.
+1. Search for **Get past time**, and then select **Get past time** under "Actions."
 
     ![Find and select the "get past time" action](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
-11. In the **Get past time** window, set the **Interval** to *1*.  From the **Time unit** dropdown list, select **Hour**.
+1. In the **Get past time** window, set the **Interval** to *1*.  From the **Time unit** drop-down list, select **Hour**.
     >[!IMPORTANT] 
     >Make sure that the **Interval** and **Time unit** match the interval and frequency that you configured for recurrence.
 
@@ -81,11 +81,11 @@ This example shows how to create a basic flow that automatically sends an email 
     >[!TIP] 
     >You can check your flow at any time to verify that each step is configured correctly: Select **Flow checker** from the Flow menu bar.
 
-In the next set of steps, you connect to your Storage table and set up the processing logic to handle new leads.
+In the next set of steps, you connect to your storage table and set up the processing logic to handle new leads.
 
 1. After the "Get past time" step, select **+New step**, and then search for **Get entities**.
-2. Under "Actions," select **Get entities** and then **Show advanced options**.
-3. In the **Get entities** window, fill in the following fields:
+1. Under "Actions," select **Get entities** and then **Show advanced options**.
+1. In the **Get entities** window, fill in the following fields:
 
    - **Table**: the name of your table storage. The following image shows “MarketPlaceLeads” entered:
 
@@ -97,28 +97,28 @@ In the next set of steps, you connect to your Storage table and set up the proce
 
      ![Set up the filter query function](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
-4. Select **New step** to add a condition to scan your table storage for new leads.
+1. Select **New step** to add a condition to scan your table storage for new leads.
 
    ![Use "New step" to add a condition to scan table storage](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
 
-5. In the **Choose an action** window, select **Actions**, and then select the **Condition** control.
+1. In the **Choose an action** window, select **Actions**, and then select the **Condition** control.
 
      ![Add a condition control](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
-6. In the **Condition** window, select **Choose a value**, and then select **Expression** in the pop-up window.
-7. Paste `length(body('Get_entities')?['value'])` into the ***fx*** field. Select **OK** to add this function. To finish setting up the condition:
+1. In the **Condition** window, select **Choose a value**, and then select **Expression** in the pop-up window.
+1. Paste `length(body('Get_entities')?['value'])` in the ***fx*** field. Select **OK** to add this function. To finish setting up the condition:
 
-   1. Select **is greater than** from the dropdown list.
+   1. Select **is greater than** from the drop-down list.
    1. Enter **0** as the value.
 
      ![Add a function to the condition](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
-8. Set up the action to take based on the result of the condition.
+1. Set up the action to take based on the result of the condition.
 
      ![Set up an action based on condition results](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-9. If the condition resolves to "If no," don’t do anything.
-10. If the condition resolves to "If yes," trigger an action that connects your Office 365 account to send an email:
+1. If the condition resolves to "If no," don’t do anything.
+1. If the condition resolves to "If yes," trigger an action that connects your Office 365 account to send an email:
    1. Select **Add an action**.
    1. Select **Send an email**.
    1. In the **Send an email** window, enter information in the following fields:
@@ -128,7 +128,7 @@ In the next set of steps, you connect to your Storage table and set up the proce
       - **Body**: the text that you want to include in each email (optional). Also paste in `body('Get_entities')?['value']` as a function to insert lead information.
 
         >[!NOTE] 
-        >You can insert additional static or dynamic data points into the body of the email.
+        >You can insert additional static or dynamic data points in the body of the email.
 
       ![Set up email for lead notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
@@ -142,13 +142,13 @@ In the next set of steps, you connect to your Storage table and set up the proce
 
 ### Manage your flow
 
-It's easy to manager your flow after it's running. You have complete control over your flow. For example, you can stop it, edit it, see a run history, and get analytics. The following image shows the flow-management options.
+It's easy to manage your flow after it's running. You have complete control over your flow. For example, you can stop it, edit it, see a run history, and get analytics. The following image shows the flow-management options.
 
- ![Managing a flow](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
+ ![Flow-management options](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
 
 The flow keeps running until you select the **Turn flow off** option.
 
-If you’re not getting any lead email notifications, it's because no new leads have been added to your table storage. You'll get an email like the following example if a flow failure occurs:
+If you’re not getting any lead email notifications, no new leads have been added to your table storage. You'll get an email like the following example if a flow failure occurs:
 
  ![Flow failure email notification](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
 
