@@ -53,14 +53,14 @@ Exit code | Description
 
 ## Other common error codes and their potential fixes
 
-Exit Code | Hex Value | Short Description | Root Cause | Potential Fix
+Exit code | Hex value | Short description | Root cause | Potential fix
 --------- | --------- | ----------------- | ---------- | -------------
 3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | This error sometimes means that the machine has run out of desktop heap space. This cause is especially likely if you have a large number of processes belonging to your application running on the node. | If your program wasn't built to respond to Ctrl+C signals, you can enable the **EnableActivateNoWindow** setting in the Cluster manifest. Enabling this setting means your code package will run without a GUI window and won't receive Ctrl+C signals, but this will reduce the amount of desktop heap space each process consumes. If your code package needs to receive Ctrl+C signals, you can increase the size of your node's desktop heap.
-3762504530 | 0xe0434352 | N/A | This value represents the error code for an unhandled exception from managed code (that is, .NET). | If you're seeing this exit code, it indicates that your application raised an exception that remains unhandled and that terminated the process. As the first step in determining what caused this error, debug your application's logs and dump files.
+3762504530 | 0xe0434352 | N/A | This value represents the error code for an unhandled exception from managed code (that is, .NET). | If you're seeing this exit code, it indicates that your application raised an exception that remains unhandled and that terminated the process. As the first step in determining what triggered this error, debug your application's logs and dump files.
 
 ## Next steps
 
-* Learn more about [diagnosing other common scenarios](service-fabric-diagnostics-common-scenarios.md)
-* Get a more detailed overview of Azure Monitor logs and what it offers by reading [What is Azure Monitor logs?](../operations-management-suite/operations-management-suite-overview.md)
-* Learn more about Azure Monitor logs [alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics.
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
+* Learn more about [diagnosing other common scenarios](service-fabric-diagnostics-common-scenarios.md).
+* Get a more detailed overview of Azure Monitor logs and what they offer by reading [What is Azure Monitor Logs?](../operations-management-suite/operations-management-suite-overview.md)
+* Learn more about Azure Monitor logs [alerting](../log-analytics/log-analytics-alerts.md) for aid in detection and diagnostics.
+* Get familiar with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs.
