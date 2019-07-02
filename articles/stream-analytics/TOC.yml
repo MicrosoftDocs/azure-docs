@@ -36,6 +36,8 @@
   items:
   - name: Choose a streaming analytics technology
     href: streaming-technologies.md
+  - name: Choose a job development tool
+    href: feature-comparison.md
   - name: Input types for a job
     items:
     - name: Inputs overview
