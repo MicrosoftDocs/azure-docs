@@ -47,9 +47,9 @@ Generally, SAP ECC exposes entities via OData services through SAP Gateway. To u
 
 - **Activate and configure the SAP OData service**. You can activate the OData service through TCODE SICF in seconds. You can also configure which objects need to be exposed. For more information, see the [step-by-step guidance](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/).
 
-## Getting started
+## Get started
 
-You can create a Data Factory pipeline with a copy activity by using .NET SDK, Python SDK, Azure PowerShell, the REST API, or an Azure Resource Manager template. For step-by-step instructions to create a pipeline with a copy activity, see the [Copy activity tutorial](quickstart-create-data-factory-dot-net.md).
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define the Data Factory entities specific to the SAP ECC connector.
 
@@ -73,7 +73,7 @@ The following properties are supported for the SAP ECC linked service:
     "properties": {
         "type": "SapEcc",
         "typeProperties": {
-            "url": "<SAP ECC OData url e.g. http://eccsvrname:8000/sap/opu/odata/sap/zgw100_dd02l_so_srv/>",
+            "url": "<SAP ECC OData URL, e.g., http://eccsvrname:8000/sap/opu/odata/sap/zgw100_dd02l_so_srv/>",
             "username": "<username>",
             "password": {
                 "type": "SecureString",
@@ -92,7 +92,7 @@ The following properties are supported for the SAP ECC linked service:
 
 For a full list of the sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md). The following section provides a list of the properties supported by the SAP ECC dataset.
 
-To copy data from SAP ECC, set the `type` property of the dataset to `SapEccResource`. 
+To copy data from SAP ECC, set the `type` property of the dataset to `SapEccResource`.
 
 The following properties are supported:
 
@@ -108,7 +108,7 @@ The following properties are supported:
     "properties": {
         "type": "SapEccResource",
         "typeProperties": {
-            "path": "<entity path e.g. dd04tentitySet>"
+            "path": "<entity path, e.g., dd04tentitySet>"
         },
         "linkedServiceName": {
             "referenceName": "<SAP ECC linked service name>",
