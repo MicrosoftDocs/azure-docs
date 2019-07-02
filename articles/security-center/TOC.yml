@@ -115,7 +115,7 @@
       href: security-center-alerts-iaas.md
     - name: Native compute alerts
       href: security-center-alerts-compute.md
-    - name: Data service alerts
+    - name: Data services alerts
       href: security-center-alerts-data-services.md
     - name: Service layer alerts
       href: security-center-alerts-service-layer.md   
