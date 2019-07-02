@@ -6,7 +6,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/30/2019
+ms.date: 07/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles

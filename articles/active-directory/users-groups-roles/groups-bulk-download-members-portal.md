@@ -1,12 +1,11 @@
 ---
-
 title: Bulk add users in the Azure Active Directory portal | Microsoft Docs
 description: Add users in bulk in the Azure admin center. 
 services: active-directory 
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 04/18/2019
+ms.date: 07/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
