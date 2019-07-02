@@ -21,20 +21,21 @@ Target setup:
 - One project (prometheus-project), which contains Prometheus and Alertmanager.
 - Two projects (app-project1 and app-project2), which contain the applications to monitor.
 
-You'll prepare some Prometheus config files locally. To store config files, create a new folder. Config files are stored in the cluster as Secrets, in case Secret tokens are added later to the cluster.
+You'll need to prepare some Prometheus config files locally. To store config files, create a new folder. Config files are stored in the cluster as Secrets, in case Secret tokens are added later to the cluster.
 
-## Sign in to the cluster by using the OC tool
+## Sign in to the cluster with the OC tool
 
 1. Using a web browser, go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
 2. Sign in with your Azure credentials.
 3. Select your username located in the top-right corner, and then select **Copy Login Command**.
 4. Paste your username into the terminal that you'll use.
 
-To see if you're signed in to the correct cluster, run the following command: `oc whoami -c`.
+> [!NOTE]
+> To see if you're signed in to the correct cluster, run the `oc whoami -c` command.
 
 ## Prepare the projects
 
-Create the following projects:
+Run the following commands:
 ```
 oc new-project prometheus-project
 oc new-project app-project1
@@ -43,7 +44,7 @@ oc new-project app-project2
 
 
 > [!NOTE]
-> You can either use the `-n` or `--namespace` parameter, or select an active project by using the commmand `oc project`.
+> You can either use the `-n` or `--namespace` parameter, or select an active project by running the `oc project` command.
 
 ## Prepare the Prometheus config file
 Create a prometheus.yml file by entering the following content:
@@ -67,13 +68,12 @@ scrape_configs:
           - app-project1
           - app-project2
 ```
-Create a Secret called prom by entering the following config:
+Create a Secret named Prom by entering the following configuration:
 ```
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
 
-The prometheus.yml file is a basic Prometheus config file. It sets the intervals and configures auto discovery in three projects (prometheus-project, app-project1, app-project2). 
-In the previous config file, the auto-discovered endpoints are scraped over HTTP without authentication.
+The prometheus.yml file is a basic Prometheus config file. It sets the intervals and configures auto discovery in three projects (prometheus-project, app-project1, app-project2). In the previous config file, the auto-discovered endpoints are scraped over HTTP without authentication.
 
 For more information about scraping endpoints, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config.
 
@@ -97,7 +97,7 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-Create a Secret called prom-alerts by using the following configuration:
+Create a Secret named Prom-Alerts by entering the following configuration:
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
@@ -109,7 +109,7 @@ Alertmanager.yml is the Alert Manager config file.
 
 ## Start Prometheus and Alertmanager
 Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus), and then download the template called [prometheus-standalone.yaml](
-https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml). Apply the template to prometheus-project by using the following configuration:
+https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml). Apply the template to prometheus-project by entering the following configuration:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
@@ -176,11 +176,11 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 To have Prometheus to gather metrics from itself, apply the permissions in prometheus-project.
 
 > [!NOTE]
-> You can verify if Role and RoleBinding were created correctly by using the `oc get role` and `oc get rolebinding` commands, respectively.
+> You can verify if Role and RoleBinding were created correctly by running the `oc get role` and `oc get rolebinding` commands, respectively.
 
 ## Optional: Deploy example application
 
-If everything is working but there aren't any metrics sources, go to the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/), which can be found by running the following command:
+If everything is working without any metrics sources, go to the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/), which can be found by running the following command:
 ```
 oc get route prom -n prometheus-project
 ```
