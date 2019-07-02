@@ -1,6 +1,6 @@
 ---
 title: Generate an Azure Application Gateway self-signed certificate with a custom root CA
-description: Learn how generate an Azure Application Gateway self-signed certificate with a custom root CA
+description: Learn how to generate an Azure Application Gateway self-signed certificate with a custom root CA
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -43,7 +43,7 @@ Create your root CA certificate using OpenSSL.
 
 ### Create the root key
 
-1. Logon to your computer where OpenSSL is installed and run the following command. This creates a password protected key.
+1. Sign in to your computer where OpenSSL is installed and run the following command. This creates a password protected key.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
@@ -59,9 +59,9 @@ Create your root CA certificate using OpenSSL.
 
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
-   The previous commands creates the root certificate. You'll use this to sign your server certificate.
+   The previous commands create the root certificate. You'll use this to sign your server certificate.
 
-1. When prompted, type the password for the root key, and the organizational information for the custom CA such as Country, State, Org, OU and the fully qualified domain name (this is the domain of the issuer).
+1. When prompted, type the password for the root key, and the organizational information for the custom CA such as Country, State, Org, OU, and the fully qualified domain name (this is the domain of the issuer).
 
    ![create root certificate](media/self-signed-certificates/root-cert.png)
 
@@ -79,7 +79,7 @@ Use the following command to generate the key for the server certificate.
 
 ### Create the CSR (Certificate Signing Request)
 
-The CSR is a public key that is usually given to a CA when requesting a certificate. The CA issues the certificate for this specific request.
+The CSR is a public key that is given to a CA when requesting a certificate. The CA issues the certificate for this specific request.
 
 > [!NOTE]
 > The CN for the server certificate must be different from the issuer’s domain. For example, in this case, the CN for the issuer is www.contoso.com and the server certificate’s CN is www.fabrikam.com
@@ -131,7 +131,7 @@ For SSL binding instructions, see [How to Set Up SSL on IIS 7](https://docs.micr
 
 ### Apache
 
-The following is an example [virtual host configured for SSL](https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts) in Apache:
+The following configuration is an example [virtual host configured for SSL](https://cwiki.apache.org/confluence/display/HTTPD/NameBasedSSLVHosts) in Apache:
 
 ```
 <VirtualHost www.fabrikam:443>
@@ -145,7 +145,7 @@ The following is an example [virtual host configured for SSL](https://cwiki.apac
 
 ### NGINX
 
-The following is an example [NGINX server block](http://nginx.org/docs/http/configuring_https_servers.html) with SSL configuration:
+The following configuration is an example [NGINX server block](http://nginx.org/docs/http/configuring_https_servers.html) with SSL configuration:
 
 ![NGINX with SSL](media/self-signed-certificates/nginx-ssl.png)
 
@@ -161,7 +161,7 @@ The following is an example [NGINX server block](http://nginx.org/docs/http/conf
 
 ## Verify the configuration with OpenSSL
 
-Alternatively, you can use OpenSSL to verify the certificate.
+Or, you can use OpenSSL to verify the certificate.
 
 ```
 openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
@@ -181,7 +181,7 @@ To upload the trusted root certificate from the portal, select the **HTTP Settin
 
 ### Azure PowerShell
 
-Alternatively, you can use Azure CLI or Azure PowerShell to upload the root certificate. The following is an Azure PowerShell sample.
+Or, you can use Azure CLI or Azure PowerShell to upload the root certificate. The following code is an Azure PowerShell sample.
 
 > [!NOTE]
 > The following sample adds a trusted root certificate to the application gateway, creates a new HTTP setting and adds a new rule, assuming the backend pool and the listener exist already.
