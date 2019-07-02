@@ -56,6 +56,7 @@ and output in *createUIDefinition.json*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
+<br/>
 <details>
 <summary>Show <i>createUiDefinition.json</i> file</summary>
 
