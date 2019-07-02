@@ -10,13 +10,13 @@ ms.author: jobreen
 
 # Create custom actions and resources in Azure Resource Manager
 
-Custom resource providers allow you to customize workflows on Azure. A custom resource provider is a contract between Azure and an **endpoint**. It allows the addition of new custom APIs into the Azure Resource Manager to enable new deployment and management capabilities. This tutorial will go through a simple example of how to add new actions and resources to Azure and how to integrate them.
+Custom providers allow you to customize workflows on Azure. A custom provider is a contract between Azure and an **endpoint**. It allows the addition of new custom APIs into the Azure Resource Manager to enable new deployment and management capabilities. This tutorial will go through a simple example of how to add new actions and resources to Azure and how to integrate them.
 
 This tutorial is broken into the following steps:
 
 - Modeling custom actions and custom resources
 - Creating a simple service endpoint
-- Creating the custom resource provider
+- Creating the custom provider
 - Using custom actions and resources in existing workflows
 
 This tutorial will build on the following tutorials:
@@ -25,7 +25,7 @@ This tutorial will build on the following tutorials:
 
 ## Modeling custom actions and custom resources
 
-Custom resource providers act as a proxy between Azure REST clients and an **endpoint**. This means that the **endpoint** will directly handle every request and response. Although the only requirement is that **endpoint** accept and returns content-type `application/json`, in order to ensure that the new API can integrate with existing Azure services, it should follow the standard Azure REST specification.
+Custom providers act as a proxy between Azure REST clients and an **endpoint**. This means that the **endpoint** will directly handle every request and response. Although the only requirement is that **endpoint** accept and returns content-type `application/json`, in order to ensure that the new API can integrate with existing Azure services, it should follow the standard Azure REST specification.
 
 # [Custom actions](#tab/model-custom-action)
 
@@ -59,10 +59,10 @@ For a more detailed guide on building custom resources and their requirements, s
 Parameter | Description
 --- | ---
 myResourceName | The name of the resource. This should be the same as what is defined in the request URI.
-myResourceType | The name of the custom resource provider endpoint. This is the resource type, which is also from the request URI.
-subscriptionId | The subscription ID of the custom resource provider.
-resourceGroupName | The resourceGroup name of the custom resource provider.
-resourceProviderName | The name of the custom resource provider.
+myResourceType | The name of the custom provider endpoint. This is the resource type, which is also from the request URI.
+subscriptionId | The subscription ID of the custom provider.
+resourceGroupName | The resourceGroup name of the custom provider.
+resourceProviderName | The name of the custom provider.
 
 </details>
 
@@ -70,13 +70,13 @@ resourceProviderName | The name of the custom resource provider.
 
 ## Creating a simple service endpoint
 
-In this guide, we will be creating a simple service endpoint using an Azure Function, but a custom resource provider can be any public accessible **endpoint**. Azure Logic Apps, Azure API Management, and Azure Web Apps are some great alternatives.
+In this guide, we will be creating a simple service endpoint using an Azure Function, but a custom provider can be any public accessible **endpoint**. Azure Logic Apps, Azure API Management, and Azure Web Apps are some great alternatives.
 
-To start this tutorial, you should follow the tutorial, [creating your first Azure Function in the Azure portal](../azure-functions/functions-create-first-azure-function.md). The tutorial will create a .NET core webhook function that can be modified in the Azure portal. The trigger URL of the Azure Function will be used as our **endpoint** for the custom resource provider that will be created later in the tutorial.
+To start this tutorial, you should follow the tutorial, [creating your first Azure Function in the Azure portal](../azure-functions/functions-create-first-azure-function.md). The tutorial will create a .NET core webhook function that can be modified in the Azure portal. The trigger URL of the Azure Function will be used as our **endpoint** for the custom provider that will be created later in the tutorial.
 
 ### Setting up the function
 
-Before we start programming our custom resource provider, there are several setup steps that will get the Azure Function ready to work with our custom resource provider.
+Before we start programming our custom provider, there are several setup steps that will get the Azure Function ready to work with our custom provider.
 
 #### Install Azure Table bindings
 
@@ -89,20 +89,32 @@ This section will go through quick steps for installing the Azure Table storage 
 5. Update the `Table parameter name` to "tableStorage" and the `Table name` to "myCustomResources".
 6. Save the updated input parameter.
 
+<br>
+<details>
+<summary>Show functions table bindings:</summary>
+
 ![Custom provider overview](./media/create-custom-providers/azure-functions-table-bindings.png)
+
+</details>
 
 #### Update the HTTP methods
 
 Update the `Selected HTTP methods` to: GET, POST, DELETE, and PUT.
 
+<br>
+<details>
+<summary>Show functions http methods:</summary>
+
 ![Custom provider overview](./media/create-custom-providers/azure-functions-http-methods.png)
+
+</details>
 
 #### Modifying the csproj
 
 > [!NOTE]
 > If the csproj is missing from the directory, it can be added manually or it will appear once the `Microsoft.Azure.WebJobs.Extensions.Storage` extension is installed on the function.
 
-Next, we will update the csproj file to include helpful NuGet libraries that will make it easier to parse incoming requests from custom resource providers. Follow the steps at [add extensions from the portal](../azure-functions/install-update-binding-extensions-manual.md) and update the csproj to include the following package references:
+Next, we will update the csproj file to include helpful NuGet libraries that will make it easier to parse incoming requests from custom providers. Follow the steps at [add extensions from the portal](../azure-functions/install-update-binding-extensions-manual.md) and update the csproj to include the following package references:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -151,7 +163,7 @@ Based on the above sample `x-ms-customproviders-requestpath` header, we can crea
 
 Parameter | Template | Description
 ---|---
-partitionKey | '{subscriptionId}:{resourceGroupName}:{resourceProviderName}' | The partitionKey is how the data is partitioned. For most cases, the data should be partitioned by the custom resource provider instance.
+partitionKey | '{subscriptionId}:{resourceGroupName}:{resourceProviderName}' | The partitionKey is how the data is partitioned. For most cases, the data should be partitioned by the custom provider instance.
 rowKey | '{myResourceType}:{myResourceName}' | The rowKey is the individual identifier for the data. Most of the time this is the name of the resource.
 
 In addition, we also need to add in the new type for our storage. In this tutorial, we will add the `CustomResource` class to our function:
@@ -213,7 +225,7 @@ For custom providers, a custom resource is created through `PUT` requests. The c
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="tableStorage">The Azure Storage Account table.</param>
 /// <param name="azureResourceId">The parsed Azure resource Id.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom resource provider id.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
 /// <returns>The http response containing the created custom resource.</returns>
 public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, ResourceId azureResourceId, string partitionKey, string rowKey)
@@ -266,7 +278,7 @@ For custom providers, a custom resource is retrieved through `GET` requests. The
 /// </summary>
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom resource provider id.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
 /// <returns>The http response containing the existing custom resource.</returns>
 public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string rowKey)
@@ -303,7 +315,7 @@ For custom providers, a custom resource is removed through `DELETE` requests. Th
 /// </summary>
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom resource provider id.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
 /// <returns>The http response containing the result of the delete.</returns>
 public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string rowKey)
@@ -340,7 +352,7 @@ For custom providers, a list of existing custom resources can be enumerated thro
 /// </summary>
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom resource provider id.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
 /// <param name="resourceType">The resource type of the enumeration.</param>
 /// <returns>The http response containing a list of resources stored under 'value'.</returns>
 public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string resourceType)
@@ -373,7 +385,7 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 > [!NOTE]
 > The row key greater than and less than is Azure Table syntax to perform a query "startswith" for strings. 
 
-For listing all existing resources, we generate a Azure Table query that ensures that the resources exist under our custom resource provider partition. The query then checks that the row key starts with the same `{myResourceType}`.
+For listing all existing resources, we generate a Azure Table query that ensures that the resources exist under our custom provider partition. The query then checks that the row key starts with the same `{myResourceType}`.
 
 ---
 
@@ -387,7 +399,7 @@ Once all the RESTful methods are added to the function, we can update the main `
 
 ```csharp
 /// <summary>
-/// Entry point for the Azure Function webhook and acts as the service behind a custom resource provider.
+/// Entry point for the Azure Function webhook and acts as the service behind a custom provider.
 /// </summary>
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="log">The logger.</param>
@@ -468,7 +480,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 
 </details>
 
-The updated `Run` method will now include the `tableStorage` input binding that was added for Azure Table storage. The first part of the method will now read the `x-ms-customproviders-requestpath` header and use the `Microsoft.Azure.Management.ResourceManager.Fluent` library to parse the value as a resource ID. The `x-ms-customproviders-requestpath` header is sent by the custom resource provider and designates the path of the incoming request. Using the parsed resource ID, we can now generate the partitionKey and rowKey for the data to lookup or store custom resources.
+The updated `Run` method will now include the `tableStorage` input binding that was added for Azure Table storage. The first part of the method will now read the `x-ms-customproviders-requestpath` header and use the `Microsoft.Azure.Management.ResourceManager.Fluent` library to parse the value as a resource ID. The `x-ms-customproviders-requestpath` header is sent by the custom provider and designates the path of the incoming request. Using the parsed resource ID, we can now generate the partitionKey and rowKey for the data to lookup or store custom resources.
 
 #### Final code sample
 
@@ -506,7 +518,7 @@ public class CustomResource : TableEntity
 }
 
 /// <summary>
-/// Entry point for the Azure Function webhook and acts as the service behind a custom resource provider.
+/// Entry point for the Azure Function webhook and acts as the service behind a custom provider.
 /// </summary>
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="log">The logger.</param>
@@ -605,7 +617,7 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 /// </summary>
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom resource provider id.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
 /// <param name="resourceType">The resource type of the enumeration.</param>
 /// <returns>The http response containing a list of resources stored under 'value'.</returns>
 public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string resourceType)
@@ -637,7 +649,7 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 /// </summary>
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom resource provider id.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
 /// <returns>The http response containing the existing custom resource.</returns>
 public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string rowKey)
@@ -661,7 +673,7 @@ public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequest
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="tableStorage">The Azure Storage Account table.</param>
 /// <param name="azureResourceId">The parsed Azure resource Id.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom resource provider id.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
 /// <returns>The http response containing the created custom resource.</returns>
 public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, ResourceId azureResourceId, string partitionKey, string rowKey)
@@ -692,7 +704,7 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 /// </summary>
 /// <param name="requestMessage">The http request message.</param>
 /// <param name="tableStorage">The Azure Storage Account table.</param>
-/// <param name="partitionKey">The partition key for storage. This is the custom resource provider id.</param>
+/// <param name="partitionKey">The partition key for storage. This is the custom provider id.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
 /// <returns>The http response containing the result of the delete.</returns>
 public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string rowKey)
@@ -715,11 +727,13 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 
 When you have finished the Azure Function, grab the trigger function URL. This URL will act as our endpoint.
 
-## Creating a custom resource provider
+## Creating a custom provider
 
-Once the **endpoint** is created, you can generate the create a custom resource provider to generate a contract between it and the **endpoint**. A custom resource provider allows you specify a list of endpoint definitions.
+Once the **endpoint** is created, you can generate the create a custom provider to generate a contract between it and the **endpoint**. A custom provider allows you specify a list of endpoint definitions.
 
-Sample Endpoint:
+<br>
+<details>
+<summary>Show sample endpoint definition:</summary>
 
 ```JSON
 {
@@ -738,11 +752,15 @@ endpoint | *yes* | The endpoint to route the requests to. This will handle the r
 > [!NOTE]
 > The endpoint URL can include query strings and path parts.
 
+</details>
+
 ### Defining custom actions and resources
 
-The custom resource provider contains a list of `actions` and `resourceTypes`. `actions` map to the custom actions exposed by the custom resource provider, while `resourceTypes` are the custom resources. For this tutorial we will define a custom resource provider will an `action` called `myCustomAction` and a `resourceType` called `myCustomResource`.
+The custom provider contains a list of `actions` and `resourceTypes`. `actions` map to the custom actions exposed by the custom provider, while `resourceTypes` are the custom resources. For this tutorial we will define a custom provider will an `action` called `myCustomAction` and a `resourceType` called `myCustomResource`.
 
-Sample custom resource provider:
+<br>
+<details>
+<summary>Show sample custom provider:</summary>
 
 ```JSON
 {
@@ -768,11 +786,15 @@ Sample custom resource provider:
 
 Replace `{myFunctionTriggerURL}` with the **endpoint** URL from the function we created earlier in the tutorial.
 
-### Deploying the custom resource provider
+</details>
 
-The above custom resource provider can be deployed using an Azure Resource Manager Template.
+### Deploying the custom provider
 
-Sample template:
+The above custom provider can be deployed using an Azure Resource Manager Template.
+
+<br>
+<details>
+<summary>Show sample template:</summary>
 
 ```JSON
 {
@@ -804,6 +826,8 @@ Sample template:
     ]
 }
 ```
+
+</details>
 
 ## Using custom actions and resources
 
@@ -901,7 +925,7 @@ Sample Azure Resource Manager Template:
 Parameter | Required | Description
 ---|---|---
 resourceTypeName | *yes* | The **name** of the **resourceType** defined in the custom provider.
-resourceProviderName | *yes* | The custom resource provider instance name.
+resourceProviderName | *yes* | The custom provider instance name.
 customResourceName | *yes* | The custom resource name.
 
 ---
@@ -910,6 +934,6 @@ customResourceName | *yes* | The custom resource name.
 
 In this article, you learned about custom providers. Go to the next article to create a custom provider.
 
-- [Tutorial: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
+- [Tutorial: Create Azure Custom Provider and deploy custom resources](./create-custom-provider.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)
