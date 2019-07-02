@@ -74,7 +74,7 @@ Hybrid Azure AD join is currently not supported if your environment consists of 
 
 Hybrid Azure AD join is currently not supported when using virtual desktop infrastructure (VDI).
 
-Hybrid Azure AD is not supported for FIPS-compliant TPMs. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
+Hybrid Azure AD join is not supported for FIPS-compliant TPMs. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
 
 Hybrid Azure AD join is not supported for Windows Server running the Domain Controller (DC) role.
 
