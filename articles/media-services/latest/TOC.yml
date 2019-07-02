@@ -44,7 +44,7 @@
     - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
-  - name: Uploading assets
+  - name: Uploading 
     items:
     - name: Assets
       href: assets-concept.md    
