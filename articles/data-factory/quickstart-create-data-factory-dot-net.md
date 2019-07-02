@@ -56,8 +56,8 @@ Next, create a C# .NET console application in Visual Studio:
 
 ## Install NuGet packages
 
-1. Select **Tools** -> **NuGet Package Manager** -> **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+2. In the **Package Manager Console** pane, run the following commands to install packages. For more information, see the [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
@@ -172,7 +172,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(
 
 Add the following code to the **Main** method that creates an **Azure blob dataset**.
 
-You define a dataset that represents the data to copy from a source to a sink. In this example, this Blob dataset references to the Azure Storage linked service you created in the previous step. The dataset takes a parameter whose value is set in an activity that consumes the dataset. The parameter is used to construct the "folderPath" pointing to where the data resides/stored.
+You define a dataset that represents the data to copy from a source to a sink. In this example, this Blob dataset references to the Azure Storage linked service you created in the previous step. The dataset takes a parameter whose value is set in an activity that consumes the dataset. The parameter is used to construct the "folderPath" pointing to where the data resides/is stored.
 
 ```csharp
 // Create an Azure Blob dataset
@@ -423,10 +423,10 @@ Press any key to exit...
 
 ## Verify the output
 
-The pipeline automatically creates the output folder in the **adftutorial** blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
+The pipeline automatically creates the output folder in the **adftutorial** blob container. Then, it copies the **emp.txt** file from the input folder to the output folder. 
 
 1. In the Azure portal, on the **adftutorial** container page that you stopped at in the [Add an input folder and file for the blob container](#add-an-input-folder-and-file-for-the-blob-container) section above, select **Refresh** to see the output folder. 
-2. Click **output** in the folder list. 
+2. In the folder list, select **output**.
 3. Confirm that the **emp.txt** is copied to the output folder. 
 
 ## Clean up resources
