@@ -164,6 +164,7 @@ Back up deduplicated disks | Not supported.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not recommended. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
+Ephemeral disk | Not supported. <br/> For ex. NVMe disks
 
 > [!NOTE]
 > Resizing of disk is not recommended by Azure Backup.
