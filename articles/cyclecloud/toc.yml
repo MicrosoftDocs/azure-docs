@@ -70,7 +70,7 @@
       href: event-logs.md
     - name: HealthCheck
       href: healthcheck.md
-  - name: User Management
+  - name: Access Control
     items:
     - name: User Managemement
       href: user-management.md
