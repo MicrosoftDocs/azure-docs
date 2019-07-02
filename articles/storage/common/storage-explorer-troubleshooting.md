@@ -238,7 +238,8 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
 
-> [!IMPORTANT] Storage Explorer as provided in the .tar.gz download is only supported for Ubuntu distributions. Other distributions have not been verified and may require alternative or additional packages.
+> [!IMPORTANT]
+> Storage Explorer as provided in the .tar.gz download is only supported for Ubuntu distributions. Other distributions have not been verified and may require alternative or additional packages.
 
 These packages are the most common requirements for Storage Explorer on Linux:
 
@@ -247,7 +248,8 @@ These packages are the most common requirements for Storage Explorer on Linux:
 * `libgnome-keyring0` or `libgnome-keyring-dev`
 * `libgnome-keyring-common`
 
-> [!NOTE] Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed then you will need to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or greater then you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
+> [!NOTE]
+> Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed then you will need to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or greater then you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
 
 # [Ubuntu 19.04](#tab/1904)
 
