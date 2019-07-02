@@ -31,8 +31,8 @@ The objective of this tutorial is to demonstrate the steps to be performed in Di
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant
-* [A Dialpad tenant](https://www.dialpad.com/pricing/)
+* An Azure AD tenant.
+* [A Dialpad tenant](https://www.dialpad.com/pricing/).
 * A user account in Dialpad with Admin permissions.
 
 ## Assign Users to Dialpad
