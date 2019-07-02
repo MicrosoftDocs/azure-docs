@@ -101,4 +101,4 @@ Now that you've learned how to create jobs in your Azure IoT Central application
 
 - [Use device sets](howto-use-device-sets.md)
 - [Manage your devices](howto-manage-devices.md)
-- [Version your device template](howto-version-devicetemplate.md)
+- [Version your device template](howto-version-device-template.md)
