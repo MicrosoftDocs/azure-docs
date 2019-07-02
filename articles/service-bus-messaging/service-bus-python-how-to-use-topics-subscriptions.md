@@ -75,9 +75,9 @@ bus_service.create_topic('mytopic', topic_options)
 Subscriptions to topics are also created with the **ServiceBusService** object. Subscriptions are named and can have an optional filter that restricts the set of messages delivered to the subscription's virtual queue.
 
 > [!NOTE]
-> Subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
+> By default, subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
 > 
-> 
+> You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### Create a subscription with the default (MatchAll) filter
 
