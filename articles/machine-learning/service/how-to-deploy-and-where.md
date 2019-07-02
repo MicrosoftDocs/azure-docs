@@ -305,7 +305,7 @@ The following entities are valid in this file:
 * __baseImageRegistry__ (optional): Image registry that contains the base image.
 * __cudaVersion__ (optional): Version of CUDA to install for images that need GPU support. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Supported versions are 9.0, 9.1, and 10.0. If 'enable_gpu' is set, defaults to '9.1'.
 
-These map to the parameters for the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class.
+These entities map to the parameters for the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class.
 
 Thee following command demonstrates how to deploy a model using the CLI:
 
@@ -339,9 +339,7 @@ The following table provides an example of creating a deployment configuration f
 The following sections demonstrate how to create the deployment configuration, and then use it to deploy the web service.
 
 ### Optional: Profile your model
-Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements.
-
-You can do profile your model using either the SDK or CLI.
+Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements. You can do profile your model using either the SDK or CLI.
 
 For more information, you can check out our SDK documentation here: 
 https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
@@ -578,6 +576,34 @@ service.update(models=[new_model])
 print(service.state)
 print(service.get_logs())
 ```
+
+## Continuous model deployment 
+
+You can continuously deploy models using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). By using the Machine Learning extension for Azure DevOps, you can trigger a deployment pipeline when a new machine learning model is registered in Azure Machine Learning service workspace. 
+
+1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform/any cloud possible. Azure Pipelines [differs from ML pipelines](concept-ml-pipelines.md#compare). 
+
+1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+
+1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+
+1. Use __service Connections__ to set up a service principal connection to your Azure Machine Learning service workspace to access all your artifacts. Go to project settings, click on service connections, and select Azure Resource Manager.
+
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+
+1. Define AzureMLWorkspace as the __scope level__ and fill in the subsequent parameters.
+
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
+
+1. Next, to continuously deploy your machine learning model using the Azure Pipelines, under pipelines select __release__. Add a new artifact, select AzureML Model artifact and the service connection that was created in the earlier step. Select the model and version to trigger a deployment. 
+
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+
+1. Enable the model trigger on your model artifact. By turning on the trigger, every time the specified version (i.e the newest version) of that model is register in your workspace, an Azure DevOps release pipeline is triggered. 
+
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+For sample projects and examples, check out [the MLOps repository](https://github.com/Microsoft/MLOps)
 
 ## Clean up resources
 To delete a deployed web service, use `service.delete()`.

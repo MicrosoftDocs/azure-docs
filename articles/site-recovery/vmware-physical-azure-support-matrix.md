@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 06/27/2019
 ms.author: raynew
 
 ---
@@ -181,8 +181,8 @@ Guest/server iSCSI | No
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
 Guest/server disk > 1 TB | Yes<br/><br/>Up to 4,095 GB<br/><br/> Disk must be larger than 1024 MB.
-Guest/server disk with 4K logical and 4k physical sector size | Yes
-Guest/server disk with 4K logical and 512-bytes physical sector size | Yes
+Guest/server disk with 4K logical and 4k physical sector size | No
+Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB <br/><br/>Logical volume management (LVM)| Yes
 Guest/server - Storage Spaces | No
 Guest/server hot add/remove disk | No
@@ -213,7 +213,7 @@ Encryption-at-rest (SSE)| Yes
 Premium storage | Yes
 Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).
-General-purpose v2 storage accounts (hot and cool tiers) | No
+General-purpose v2 storage accounts (hot and cool tiers) | Yes (Transaction costs are substantially higher for V2 compared to V1)
 
 ## Azure compute
 

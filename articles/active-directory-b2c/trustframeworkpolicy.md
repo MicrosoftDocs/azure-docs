@@ -128,7 +128,7 @@ B2C_1A_TrustFrameWorkBase or B2C_1A_TrustFrameworkExtensionPolicy:
 
 ```XML
 <UserJourneys>
-  <UserJourney Id="SignOrSignIn">
+  <UserJourney Id="SignUpOrSignIn">
   ...
 ```
 

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -75,14 +75,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button and perform the following step:
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    a. Click **Set additional URLs**.
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<CostpointURI>`
 
-    b. In the **Relay State** text box, type a value using the following pattern:`<SYSTEM VALUE>`
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<CostpointURI>/LoginServlet.cps`
+
+    c. Click **Set additional URLs**.
+
+    d. In the **Relay State** text box, type a value using the following pattern:`<SYSTEM VALUE>`
 
 	> [!NOTE]
-	> The Relay State value is not real. Update this value with the actual Relay State. Contact [Costpoint Client support team](https://www.deltek.com/about/contact-us) to get this value.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Relay State. Contact [Costpoint Client support team](https://www.deltek.com/about/contact-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. If you wish to configure the application in **SP** initiated mode perform the following step:
 
