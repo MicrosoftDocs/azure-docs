@@ -106,9 +106,9 @@ The script contains two functions that load and run the model:
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
 #### What is get_model_path?
-When you register a model, you provide a model name used for managing the model in the registry. You use this name in the get_model_path API which returns the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory which contains those files.
+When you register a model, you provide a model name used for managing the model in the registry. You use this name in the get_model_path API, which returns the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory that contains the files.
 
-When you register a model, you give it a name which corresponds to where the model is placed, either locally or during service deployment.
+When you register a model, you give it a name that corresponds to where the model is placed, either locally or during service deployment.
 
 The below example will return a path to a single file called 'sklearn_mnist_model.pkl' (which was registered with the name 'sklearn_mnist')
 ```
@@ -274,7 +274,7 @@ The following sections demonstrate how to create the deployment configuration, a
 
 ### Optional: Profile your model
 Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements.
-You can do this via the SDK or CLI.
+You can perform profiling using either the SDK or CLI.
 
 For more information, you can check out our SDK documentation here: 
 https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
@@ -558,31 +558,33 @@ If your model is trained on Azure Machine Learning Compute, using __version 1.0.
 image_config.base_image = run.properties["AzureML.DerivedImageName"]
 ```
 
-## Continuously model deployment 
+## Continuous model deployment 
 
-You can continuously deploy models using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). By using the Machine Learning extension for Azure DevOps you can trigger a deployment pipeline when a new machine learning model is registered in Azure Machine Learning service workspace. 
+You can continuously deploy models using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). By using the Machine Learning extension for Azure DevOps, you can trigger a deployment pipeline when a new machine learning model is registered in Azure Machine Learning service workspace. 
 
-1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform/any cloud possible. Azure pipelines [differs from ML pipelines](concept-ml-pipelines.md#compare). 
+1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform/any cloud possible. Azure Pipelines [differs from ML pipelines](concept-ml-pipelines.md#compare). 
 
 1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
 
 1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
 
-1. Use __service Connections__ to set up a service principal connection to your Azure Machine Learning service workspace to access all your artifacts. Go to project settings, click on service connections, and select Azure Resource Manager. Define AzureMLWorkspace as the __scope level__ and fill in the subsequent parameters. 
+1. Use __service Connections__ to set up a service principal connection to your Azure Machine Learning service workspace to access all your artifacts. Go to project settings, click on service connections, and select Azure Resource Manager.
 
-![view-service-connection](/articles/machine-learning/service/media/how-to-deploy-and-where/view-service-connection.png) 
-![view-azure-resource-manager](/articles/machine-learning/service/media/how-to-deploy-and-where/view-arm.png)
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
 
-1. Next, to continuously deploy your machine learning model using the Azure DevOps pipelines, under pipelines select __release__. Add a new artifact, select AzureML Model artifact and the service connection that was created in the earlier step. Select the model and version to trigger a deployment. 
+1. Define AzureMLWorkspace as the __scope level__ and fill in the subsequent parameters.
 
-![select-AzureMLmodel-artifact](/articles/machine-learning/service/media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
 
-1. Enable the model trigger on your model artifact. By turning on the trigger, everytime the specified version (i.e the newest version) of that model is register in your workspace, an Azure DevOps release pipeline is triggerd. 
+1. Next, to continuously deploy your machine learning model using the Azure Pipelines, under pipelines select __release__. Add a new artifact, select AzureML Model artifact and the service connection that was created in the earlier step. Select the model and version to trigger a deployment. 
 
-![enable-model-trigger](/articles/machine-learning/service/media/how-to-deploy-and-where/set-modeltrigger.png)
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
 
+1. Enable the model trigger on your model artifact. By turning on the trigger, every time the specified version (i.e the newest version) of that model is register in your workspace, an Azure DevOps release pipeline is triggered. 
 
-For sample projects and examples check out [the MLOps repository](https://github.com/Microsoft/MLOps)
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+For sample projects and examples, check out [the MLOps repository](https://github.com/Microsoft/MLOps)
 
 
 ## Clean up resources
