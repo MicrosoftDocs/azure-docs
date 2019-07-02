@@ -62,11 +62,11 @@ In this section, you create a folder named **input** in the container you just c
 
    ![Select Advanced link](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
 4. In a text editor such as **Notepad**, create a file named **emp.txt** with the following content. Save it in the **C:\ADFv2QuickStartPSH** folder. Create the **ADFv2QuickStartPSH** folder if it does not already exist.
-    
-   ```
+
+   ```text
    John, Doe
    Jane, Doe
-   ```    
+   ```
 5. In the Azure portal's **Upload blob** page, select the **Files** box, and then browse to and select the **emp.txt** file.
 6. In the **Upload to folder** box, enter **input**.
 7. Select **Upload**. You should see the **emp.txt** file and the status of the upload in the list.
