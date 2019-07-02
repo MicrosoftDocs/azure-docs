@@ -4,7 +4,7 @@ description: Create automated tests for a C# Function in Visual Studio and JavaS
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, testing
 
 ms.service: azure-functions

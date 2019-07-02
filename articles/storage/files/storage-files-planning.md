@@ -87,7 +87,7 @@ If you'd like to onboard to the preview of these larger file share sizes, submit
 
 ### Premium file shares
 
-Premium file shares are backed by solid-state disks (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
+Premium file shares are backed by solid-state drives (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
 
 Azure Backup is available for premium file shares and Azure Kubernetes Service supports premium file shares in version 1.13 and above.
 

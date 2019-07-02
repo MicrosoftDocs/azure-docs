@@ -41,6 +41,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "resourcemanager-templates",
+      "url": "https://github.com/Azure/azure-docs-json-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
@@ -153,6 +159,12 @@
     {
       "path_to_root": "samples-luis",
       "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-anomaly-detector",
+      "url": "https://github.com/Azure-Samples/anomalydetector",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -376,7 +388,7 @@
   "need_generate_pdf_url_template": true,
   "targets": {
     "Pdf": {
-      "template_folder": "_themes.pdf"	
+      "template_folder": "_themes.pdf"
     }
   }
 }
