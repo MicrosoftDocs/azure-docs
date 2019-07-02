@@ -108,10 +108,7 @@ With all scenarios, please be aware of the following current limitations:
 - While Azure Resource Manager operations are supported, Resource Provider operations (such as KeyVault secrets access, storage data access, VM login, etc.) can’t be performed using Azure delegated resource management.
 - Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience.
 - Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) aren't supported.
-- You can’t onboard a subscription or resource group for Azure delegated resource management if that scope has any resource locks. For example, Azure managed applications and Azure Databricks automatically create resource locks on resources in the solution. Use this query to check for resource locks on a subscription:  
-  ```azurecli-interactive
-  Get-AzResourceLock -Scope {subscriptionId}
-  ```
+- You can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the Microsoft.ManagedServices resource provider, you won’t be able to create a Databricks workspace for that subscription.
 
 ## Using APIs and management tools with cross-tenant management
 
@@ -122,5 +119,5 @@ There are also APIs specific to performing Azure delegated resource management t
 
 ## Next steps
 
-- Onboard your customers to Azure delegated resource management, either by [using Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
+- Onboard your customers to Azure delegated resource management, either by [using Azure Resource Manager templates](../how-to/onboard-customer.md) or by [publishing a private or public managed services offer to Azure Marketplace](../how-to/publish-managed-services-offers.md).
 - [View and manage customers](../how-to/view-manage-customers.md) by going to **My customers** in the Azure portal.
