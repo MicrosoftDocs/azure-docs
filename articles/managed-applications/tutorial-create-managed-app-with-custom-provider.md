@@ -565,7 +565,7 @@ You can go to managed application instance and perform **custom action** in "Ove
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## Looking for help
 
