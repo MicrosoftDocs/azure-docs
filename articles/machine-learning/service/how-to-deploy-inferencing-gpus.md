@@ -24,6 +24,7 @@ In this article, you take the following steps:
 
 * Create a GPU-enabled AKS cluster
 * Deploy a Tensorflow GPU model
+* Issue a sample query to your deployed model
 
 ## Prerequisites
 
@@ -161,9 +162,9 @@ print(aks_service.state)
 
 For more information, see [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## Issue a sample query to your deployed model
+## Issue a sample query to your model
 
-Send a test query to the deployed model. When you send a jpeg image to the model, it scores the image.
+Send a test query to the deployed model. When you send a jpeg image to the model, it scores the image. The following code sample uses an external utility function  to load images. You can find the relevant code at pir [TensorFlow sample on GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py). 
 
 ```python
 # Used to test your webservice
