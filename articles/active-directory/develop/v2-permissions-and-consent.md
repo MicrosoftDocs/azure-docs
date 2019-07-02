@@ -121,7 +121,7 @@ After the user enters their credentials, the Microsoft identity platform endpoin
 > [!NOTE]
 > At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.  
 
-![Work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
+![Example screenshot that shows work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
 When the user approves the permission request, consent is recorded and the user doesn't have to consent again on subsequent sign-ins to the application.
 

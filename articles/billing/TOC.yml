@@ -25,6 +25,8 @@
     href: billing-understand-your-invoice.md
   - name: Invoice terms explained - Microsoft Customer Agreement only
     href: billing-mca-understand-your-invoice.md
+  - name: How to pay your bill - Microsoft Customer Agreement only
+    href: billing-how-to-pay-bill.md
   - name: Billing accounts for Microsoft Customer Agreement
     href: billing-mca-overview.md
 - name: Manage costs
@@ -79,7 +81,7 @@
         href: billing-understand-suse-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
-    - name: Usage for Pay-As-You-Go
+    - name: Usage for individual subscriptions
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md

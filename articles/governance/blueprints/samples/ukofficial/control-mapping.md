@@ -45,7 +45,6 @@ machine password encryption; and audit unencrypted Service Fabric communication.
 - Disk encryption should be applied on virtual machines
 - Automation account variables should be encrypted
 - Secure transfer to storage accounts should be enabled
-- Secure transfer to storage accounts should be enabled
 - Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign
 - Transparent Data Encryption on SQL databases should be enabled
 - Deploy SQL DB transparent data encryption

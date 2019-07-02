@@ -81,7 +81,7 @@ If you have an existing mobile app backend and you want to add only the capabili
 
 Refer to the [Notification Hubs Pricing] page for details on the number of supported devices.
 
-If you need support for more than 10 million registered devices, [contact us](https://azure.microsoft.com/overview/contact-us/) directly and we help you scale your solution.
+If you need support for more than 10 million registered devices, you must partition your devices across multiple hubs.
 
 ### How many push notifications can I send out?
 
