@@ -22,6 +22,17 @@ abstract:
     width: 250
 
 sections:
+- title: How-to guides
+  items:
+  - type: paragraph
+    text: 'Learn how to share data, configure dataset mappings, add recipients and more with one of the following how-to guides:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/data-share/media/index/portal.svg
+      text: Add a dataset mapping
+      href: /azure/data-share/how-to-configure-mapping
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
