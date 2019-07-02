@@ -82,6 +82,10 @@ In the Azure portal, you can choose to use ephemeral disks when deploying a VM b
 
 If the option for using an ephemeral disk is greyed out, you might have selected a VM size that does not have a cache size larger than the OS image or that doesn't support Premium storage. Go back to the **Basics** page and try choosing another VM size.
 
+You can also create scale-sets with ephemeral OS disks using the portal. Just make sure you select a VM size with a large enough cache size and then in **Use ephemeral OS disk** select **Yes**.
+
+![Screenshot showing the radio button for choosing to use an ephemeral OS disk for your scale set](./media/virtual-machines-common-ephemeral/scale-set.png)
+
 ## Scale set template deployment  
 The process to create a scale set that uses an ephemeral OS disk is to add the `diffDiskSettings` property to the 
 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` resource type in the template. Also, the caching policy must be set to `ReadOnly` for the ephemeral OS disk. 
