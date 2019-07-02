@@ -110,7 +110,7 @@ public class Function {
 
 ## Run the function locally
 
-Change directory to the newly created project folder and build and run the function with Maven:
+Change directory to the newly created project folder (the one containing your host.json and pom.xml files) and build and run the function with Maven:
 
 ```
 cd fabrikam-function
