@@ -39,12 +39,12 @@ To perform a swap one slot is considered the source and the other the target. Th
 
 1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. This includes the following settings: 
     - [Slot-specific](#which-settings-are-swapped) app settings and connection strings (if applicable)
-    - [Continuous deployment](deploy-continuous-deployment.md) settings (if enabled)
-    - [App Service authentication](overview-authentication-authorization.md) settings (if enabled)
+    - [Continuous deployment](../app-service/deploy-continuous-deployment.md) settings (if enabled)
+    - [App Service authentication](../app-service/overview-authentication-authorization.md) settings (if enabled)
     
 1. **Wait for restarts and availability:** The swap waits for every instance in the source slot to complete its restart and to be available for requests. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 
-1. **Cache initialization:** If [local cache](overview-local-cache.md) is enabled, local cache initialization is triggered by making an HTTP request to the application root ("/") on each instance of the source slot. The process waits until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
+1. **Cache initialization:** If [local cache](../app-service/overview-local-cache.md) is enabled, local cache initialization is triggered by making an HTTP request to the application root ("/") on each instance of the source slot. The process waits until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
 
 1. **Update routing:** If all instances on the source slot are warmed up successfully, the two slots complete the swap by switching routing rules. After this step, the target slot (for example, the production slot) has the app that's previously warmed up in the source slot.
 
