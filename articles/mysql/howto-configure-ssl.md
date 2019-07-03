@@ -27,7 +27,7 @@ Configure MySQL Workbench to connect securely over SSL.
 
 1. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**. 
     
-    ![save customized tile](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+    ![Save SSL configuration](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
 For existing connections, you can bind SSL by right-clicking on the connection icon and choose edit. Then navigate to the **SSL** tab and bind the cert file.
 
