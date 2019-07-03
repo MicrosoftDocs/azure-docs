@@ -46,7 +46,7 @@
       - name: Comparison of remote access solutions
         href: application-proxy-migration.md
     - name: Single sign-on
-      items: 
+      items:  
       - name: What is single sign-on
         href: what-is-single-sign-on.md
       - name: Enabling SSO for your multi-tenant application 

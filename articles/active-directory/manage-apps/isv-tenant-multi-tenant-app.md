@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
 ---
 
-# Create an Azure Tenant for a Multi-Tenant Application
+# Create an Azure Tenant for a Multi-Tenant Application  
 
 To provide access to your multi-tenant application you must create an Azure Active Directory tenant to register the application and enable the federation of your customer’s identities. See [Choosing the right federation protocol for your multi-tenant application](\manage-apps\isv-choose-multi-tenant-federation.md). This tenant will allow you to test your application and the federation in an environment that is similar to your customers Azure AD environments.
 

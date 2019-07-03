@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
 ---
 
-# Enable Single Sign-on for your multi-tenant application
+# Enable Single Sign-on for your multi-tenant application  
 
 When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/en-us/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-and-multi-tenant-apps).
 

@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
-ms.workload: identity
+ms.workload: identity   
 ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: barbaraselden

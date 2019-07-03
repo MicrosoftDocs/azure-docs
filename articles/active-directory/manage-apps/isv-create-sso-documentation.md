@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
 ---
 
-# Create and publish single sign-on documentation for your application
+# Create and publish single sign-on documentation for your application   
 
 ## Documentation on your site
 
