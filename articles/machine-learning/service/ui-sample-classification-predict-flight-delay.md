@@ -74,7 +74,7 @@ Flight records are joined with weather data using the destination of the flight 
 
 The **Split Data** module splits the data into April through September records for training, and October records for test.
 
- ![Split training and test data](media/ui-sample-regression-predict-flight-delay/split.png)
+ ![Split training and test data](media/ui-sample-classification-predict-flight-delay/split.png)
 
 Year, month, and timezone columns are removed from the training dataset using the Select Columns module.
 
