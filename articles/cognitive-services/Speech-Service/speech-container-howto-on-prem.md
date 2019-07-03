@@ -208,7 +208,7 @@ kubectl get all
 
 You should expect to see something similar to the following output:
 
-```
+```console
 NAME                                  READY     STATUS    RESTARTS   AGE
 pod/speech-to-text-7664f5f465-87w2d   1/1       Running   0          34m
 pod/speech-to-text-7664f5f465-klbr8   1/1       Running   0          34m
