@@ -178,6 +178,12 @@ For volumes that don't have cloud tiering enabled, Azure File Sync supports Wind
 - For ongoing Deduplication optimization jobs, cloud tiering with date policy will get delayed by the Data Deduplication [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) setting, if the file is not already tiered. 
     - Example: If the MinimumFileAgeDays setting is 7 days and cloud tiering date policy is 30 days, the date policy will tier files after 37 days.
     - Note: Once a file is tiered by Azure File Sync, the Deduplication optimization job will skip the file.
+- If a server running Windows Server 2012 R2 with the Azure File Sync agent installed is upgraded to Windows Server 2016 or Windows Server 2019, the following steps must be performed to support Data Deduplication and cloud tiering on the same volume:  
+    - Uninstall the Azure File Sync agent for Windows Server 2012 R2 and restart the server.
+    - Download the Azure File Sync agent for the new server OS version (Windows Server 2016 or Windows Server 2019).
+    - Install the Azure File Sync agent and restart the server.  
+    
+    Note: The Azure File Sync configuration settings on the server are retained when the agent is uninstalled and reinstalled.
 
 ### Distributed File System (DFS)
 Azure File Sync supports interop with DFS Namespaces (DFS-N) and DFS Replication (DFS-R).

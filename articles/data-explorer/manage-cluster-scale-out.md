@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 06/30/2019
 ---
 
 # Manage cluster scale-out to accommodate changing demand
@@ -71,10 +71,10 @@ The following graphic shows the flow of the next several steps. More details fol
 
 You've now configured a scale-out operation for your Azure Data Explorer cluster. Add another rule for a scale-in operation. This configuration allows your cluster to scale dynamically based on metrics that you specify.
 
-You can also [manage cluster scale-up](manage-cluster-scale-up.md) for appropriate sizing of a cluster.
-
 If you need assistance with cluster-scaling issues, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
 
 ## Next steps
 
-[Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md)
+* [Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md)
+
+* [Manage cluster scale-up](manage-cluster-scale-up.md) for appropriate sizing of a cluster.
