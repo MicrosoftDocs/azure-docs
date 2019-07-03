@@ -31,9 +31,9 @@ Points in the 3D-coordinate systems are represented as metric [X,Y,Z]-coordinate
 
 The origin `[0,0,0]` is located at the focal point of the camera. The coordinate system is oriented such that the positive X-axis points right, the positive Y-axis points down, and the positive Z-axis points forward.
 
-The depth camera is tilted 6 degrees downwards of the color camera, as shown below.
+The depth camera is tilted 6 degrees downwards of the color camera, as shown below. 
 
-There are two illuminators used by the depth camera. The illuminator used in narrow field-of-view (NFOV) modes is aligned with the depth camera. The illuminator used in wide field-of-view (WFOV) modes is tilted an additional 1.3 degrees downward.
+There are two illuminators used by the depth camera. The illuminator used in narrow field-of-view (NFOV) modes is aligned with the depth camera case, so, the illuminator is not tilted. The illuminator used in wide field-of-view (WFOV) modes is tilted an additional 1.3 degrees downward relative to the depth camera.
 
 ![3D coordinate conventions](./media/concepts/concepts-coordinate-systems/coordinate-systems-camera-features.png)
 

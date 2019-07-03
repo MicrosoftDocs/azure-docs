@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Join a CentOS VM to a managed do
 description: Join a CentOS Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Join a CentOS Linux virtual machine to a managed domain
