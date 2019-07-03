@@ -51,3 +51,7 @@ In order to make a connection, the following roles are required:
 ### <a name="previewbill"></a>Pricing - Will I be billed for participating in the preview?
 
 You will only be billed partially during public preview. However, there is no SLA attached with your deployment. For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
+
+### <a name="previewbill"></a>Why do I get "Your session has expired" error message before the Bastion session starts?
+
+A session should be initiated only from Azure Portal.  Please login to Azure Portal and start your session again.  If you directly hit the URL from another browser session/tab, this error is expected.  It is there to ensure your session is more secure and can only be accessed when invoked through the Azure Portal.
