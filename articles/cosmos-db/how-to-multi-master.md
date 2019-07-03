@@ -4,11 +4,7 @@ description: Learn how to configure multi-master in your applications in Azure C
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-<<<<<<< HEAD
-ms.date: 06/25/2019
-=======
 ms.date: 07/02/2019
->>>>>>> 1a0f765935aa8d4e00a3cf2d43095efc80656e56
 ms.author: mjbrown
 ---
 
