@@ -34,7 +34,7 @@ For example, here are just a few workloads you can automate with logic apps:
 and create alerts or tasks for items that need review.
 
 To build enterprise integration solutions with Azure Logic Apps, you can choose 
-from a growing gallery with [200+ connectors](../connectors/apis-list.md), 
+from a growing gallery with [300+ connectors](../connectors/apis-list.md), 
 which include services such as Azure Service Bus, Functions, and Storage; 
 SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, 
 file shares, and more. [Connectors](#logic-app-concepts) provide 

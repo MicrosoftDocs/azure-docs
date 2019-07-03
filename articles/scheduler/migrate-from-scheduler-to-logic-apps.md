@@ -97,7 +97,7 @@ Under the actions list, select this action: **Delay until**
    ![Provide "Delay until" details](./media/migrate-from-scheduler-to-logic-apps/delay-until-details.png)
 
 1. Add any other actions you want to run by 
-selecting from [~200+ connectors](../connectors/apis-list.md). 
+selecting from [~300+ connectors](../connectors/apis-list.md). 
 
    For example, you can include an HTTP 
    action that sends a request to a URL, 
@@ -183,7 +183,7 @@ From the triggers list, select this trigger:
    [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md)
 
 1. Add other actions you want by selecting from 
-[200+ connectors](../connectors/apis-list.md). 
+[300+ connectors](../connectors/apis-list.md). 
 Under the trigger, choose **Next step**. 
 Find and select the actions you want.
 

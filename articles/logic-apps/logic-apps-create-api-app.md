@@ -14,7 +14,7 @@ ms.date: 05/26/2017
 
 # Create custom APIs you can call from Azure Logic Apps
 
-Although Azure Logic Apps offers [100+ built-in connectors](../connectors/apis-list.md) 
+Although Azure Logic Apps offers [300+ connectors](../connectors/apis-list.md) 
 that you can use in logic app workflows, you might want to call APIs, 
 systems, and services that aren't available as connectors. 
 You can create your own APIs that provide actions and triggers to use in logic apps. 
