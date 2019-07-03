@@ -8,7 +8,6 @@
   expanded: true
   items:
   - name: Create an AVS by Virtustream private cloud
-    expanded: false
 - name: Tutorials
   items:
   - name: 4 - Create an NSX-T network
