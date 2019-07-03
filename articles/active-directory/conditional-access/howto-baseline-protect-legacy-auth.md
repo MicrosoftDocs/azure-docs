@@ -26,8 +26,6 @@ Today, majority of all compromising sign-in attempts come from legacy authentica
 
 The best way to protect your account from malicious authentication requests made by legacy protocols is to block these attempts all together. To make it easier for you to block all login requests made by legacy protocols, we created a baseline policy that does just that.
 
-![Block legacy authentication with Conditional Access](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
-
 **Block legacy authentication** is [baseline policy](concept-baseline-protection.md) that blocks all authentication requests made from legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, all requests coming from legacy protocols will be blocked and all users will be required to MFA whenever required. This policy does not block Exchange ActiveSync.
 
 ## Identify legacy authentication use
