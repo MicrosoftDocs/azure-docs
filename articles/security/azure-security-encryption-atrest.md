@@ -220,7 +220,7 @@ Like PaaS, IaaS solutions can leverage other Azure services that store data encr
 
 #### Encrypted compute
 
-All Managed Disks, Snapshots and Images are encrypted using Storage Service Encryption using a service-managed keys. A more complete Encryption at Rest solution ensures that the data is never persisted in unencrypted form. While in use, on a server loading the data in memory, data can be persisted locally in various ways including the Windows page file, a crash dump, and any logging the application may perform. To ensure this data is encrypted at rest, IaaS applications can use Azure Disk Encryption on an Azure IaaS virtual machine (Windows or Linux) and virtual disk.
+All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. A more complete Encryption at Rest solution ensures that the data is never persisted in unencrypted form. While in use, on a server loading the data in memory, data can be persisted locally in various ways including the Windows page file, a crash dump, and any logging the application may perform. To ensure this data is encrypted at rest, IaaS applications can use Azure Disk Encryption on an Azure IaaS virtual machine (Windows or Linux) and virtual disk.
 
 #### Custom encryption at rest
 
