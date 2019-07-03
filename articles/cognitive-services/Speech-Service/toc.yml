@@ -57,13 +57,16 @@
         href: quickstart-js-node.md
         displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'Objective-C (iOS)'
-        href: quickstart-objectivec-ios.md
+        href: quickstart-objectivec-ios.md      
+        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
+      - name: 'Objective-C (macOS)'
+        href: quickstart-objective-c-macos.md
         displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
       - name: 'Swift (iOS)'
         href: quickstart-swift-ios.md
         displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
-      - name: 'Objective-C (macOS)'
-        href: quickstart-objective-c-macos.md
+      - name: 'Swift (macOS)'
+        href: quickstart-swift-macos.md  
         displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
       - name: 'Python'
         href: quickstart-python.md
