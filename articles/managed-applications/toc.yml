@@ -29,16 +29,26 @@
     href: sample-projects.md
 - name: Concepts
   items:
-  - name: Custom Providers
+  - name: Azure custom resource providers
     href: custom-providers-overview.md
+  - name: View definition artifact
+    href: concepts-view-definition.md
 - name: How-to guides
   items:
+  - name: Custom resource providers
+    items:
+    - name: Add custom actions to Azure
+      href: custom-providers-action-endpoint-how-to.md
+    - name: Add custom resources to Azure
+      href: custom-providers-resources-endpoint-how-to.md
   - name: Publishers
     items:
     - name: Create portal interface
       href: create-uidefinition-overview.md
     - name: Test portal interface
       href: test-createuidefinition.md
+    - name: Request just-in-time access
+      href: request-just-in-time-access.md
     - name: Update managed resources
       href: update-managed-resources.md
     - name: Use portal to publish application definition
@@ -51,8 +61,16 @@
     items:
     - name: Monitor managed application
       href: monitor-managed-application-portal.md
+    - name: Approve just-in-time access
+      href: approve-just-in-time-access.md
 - name: Reference
   items:
+  - name: Custom resource providers
+    items:
+    - name: Custom resource proxy reference
+      href: custom-providers-proxy-resource-endpoint-reference.md
+    - name: Custom resource cache reference
+      href: custom-providers-proxy-cache-resource-endpoint-reference.md
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell

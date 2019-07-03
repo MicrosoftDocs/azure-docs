@@ -97,9 +97,9 @@
     - name: Create and publish a knowledge base
       href: Quickstarts/create-publish-knowledge-base.md
       displayName: create bot, bot, publish to bot, test, edit
-    - name: Get answer
+    - name: Get answer using metadata
       href: How-To/metadata-generateanswer-usage.md  
-      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer
+      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context
     - name: Create bot enabled with knowledge base
       href: Tutorials/integrate-qnamaker-luis.md
     - name: Create a knowledge base in a different language
@@ -145,6 +145,13 @@
 - name: Reference
   items:
   - name: REST API Reference
+    items: 
+    - name: Authoring APIs
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+    - name: GenerateAnswer API
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer
+    - name: Train API
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train
     href: https://go.microsoft.com/fwlink/?linkid=2092179 
   - name: FAQ
     href: faqs.md

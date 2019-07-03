@@ -103,7 +103,7 @@ To create and attach a new disk to an existing virtual machine, use the [az vm d
 az vm disk attach \
     --resource-group myResourceGroupDisk \
     --vm-name myVM \
-    --disk myDataDisk \
+    --name myDataDisk \
     --size-gb 128 \
     --sku Premium_LRS \
     --new
@@ -252,7 +252,7 @@ Use the [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) command to att
 az vm disk attach \
    –g myResourceGroupDisk \
    --vm-name myVM \
-   --disk $datadisk
+   --name $datadisk
 ```
 
 ## Next steps

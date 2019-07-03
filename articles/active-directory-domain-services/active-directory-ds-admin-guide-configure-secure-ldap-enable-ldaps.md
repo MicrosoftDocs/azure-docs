@@ -3,7 +3,7 @@ title: Enable Secure LDAP (LDAPS) in Azure AD Domain Services | Microsoft Docs
 description: Enable Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: ergreenl
+ms.author: iainfou
 
 ---
 # Enable secure LDAP (LDAPS) for an Azure AD Domain Services managed domain

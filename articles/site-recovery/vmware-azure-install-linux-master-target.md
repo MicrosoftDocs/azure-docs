@@ -42,7 +42,7 @@ Create the master target in accordance with the following sizing guidelines:
 - **Additional disk size for retention drive**: 1 TB
 - **CPU cores**: 4 cores or more
 
-The following supported Ubuntu kernels are supported.
+The following Ubuntu kernels are supported.
 
 
 |Kernel Series  |Support up to  |

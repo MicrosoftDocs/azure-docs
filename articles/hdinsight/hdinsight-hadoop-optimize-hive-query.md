@@ -34,7 +34,7 @@ For more information about scaling HDInsight, see [Scale HDInsight clusters](hdi
 
 ## Use Apache Tez instead of Map Reduce
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
+[Apache Tez](https://tez.apache.org/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -46,7 +46,7 @@ Tez is faster because:
 * **Reuses containers**. Whenever possible Tez is able to reuse containers to ensure that latency due to starting up containers is reduced.
 * **Continuous optimization techniques**. Traditionally optimization was done during compilation phase. However more information about the inputs is available that allow for better optimization during runtime. Tez uses continuous optimization techniques that allow it to optimize the plan further into the runtime phase.
 
-For more information on these concepts, see [Apache TEZ](https://hortonworks.com/hadoop/tez/).
+For more information on these concepts, see [Apache TEZ](https://tez.apache.org/).
 
 You can make any Hive query Tez enabled by prefixing the query with the following set command:
 
@@ -190,7 +190,7 @@ There are more optimization methods that you can consider, for example:
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
 * [Use Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analyze flight delay data by using Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyze flight delay data by using Interactive Query in HDInsight](/interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analyze Twitter data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png

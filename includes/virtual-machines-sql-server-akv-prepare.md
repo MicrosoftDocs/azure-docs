@@ -26,7 +26,7 @@ The following sections describe these prerequisites and the information you need
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ### <a id="install"></a> Install Azure PowerShell
-Make sure you have installed the latest Azure PowerShell SDK. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+Make sure you have installed the latest Azure PowerShell module. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a id="register"></a> Register an application in your Azure Active Directory
 

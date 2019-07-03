@@ -102,8 +102,8 @@ This includes both french and canadian subcultures.
 |Diacritics set to false|Diacritics set to false|
 |--|--|
 |`ä`|`a`|
-|`ö `|`o`| 
-|`ü `|`u`| 
+|`ö`|`o`| 
+|`ü`|`u`| 
 
 #### Italian `it-it` diacritics
 
@@ -116,7 +116,7 @@ This includes both french and canadian subcultures.
 |`í`|`i`| 
 |`î`|`i`| 
 |`ò`|`o`| 
-|`ó `|`o`| 
+|`ó`|`o`| 
 |`ù`|`u`|
 |`ú`|`u`|
 
@@ -129,7 +129,7 @@ This includes both spanish and canadian mexican.
 |`á`|`a`|
 |`é`|`e`|
 |`í`|`i`| 
-|`ó `|`o`| 
+|`ó`|`o`| 
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|

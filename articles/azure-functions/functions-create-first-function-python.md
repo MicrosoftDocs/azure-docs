@@ -27,9 +27,9 @@ Before you start, you must have the following:
 
 + Install [Python 3.6](https://www.python.org/downloads/).
 
-+ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or later.
++ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.1071 or a later version.
 
-+ Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.x or later.
++ Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.x or a later version.
 
 + An active Azure subscription.
 
@@ -39,18 +39,18 @@ Before you start, you must have the following:
 
 To locally develop and test Python functions, you must work in a Python 3.6 environment. Run the following commands to create and activate a virtual environment named `.env`.
 
-### Bash or a terminal window:
+### Bash:
 
 ```bash
-python3.6 -m venv .env
-source .env/bin/activate
+python3.6 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### PowerShell or a Windows command prompt:
 
 ```powershell
-py -3.6 -m venv .env
-.env\scripts\activate
+py -3.6 -m venv .venv
+.venv\scripts\activate
 ```
 
 The remaining commands are run inside the virtual environment.
@@ -61,7 +61,7 @@ A Functions project is the equivalent of a function app in Azure. It can have mu
 
 In the virtual environment, run the following command, choosing **python** as your worker runtime.
 
-```command
+```console
 func init MyFunctionProj
 ```
 
@@ -73,25 +73,17 @@ A folder named _MyFunctionProj_ is created, which contains the following three f
 
 Navigate to the new MyFunctionProj folder:
 
-```command
+```console
 cd MyFunctionProj
 ```
 
 Next, you update the host.json file to enable extension bundles.  
 
-## Reference bindings
-
-Extension bundles makes it easier to add binding extensions down the road. It also removes the requirement of installing the .NET Core 2.x SDK. Extension bundles requires version 2.6.1071 of the Core Tools, or a later version. 
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
-Now, you can add a function to your project.
-
 ## Create a function
 
 To add a function to your project, run the following command:
 
-```command
+```console
 func new
 ```
 
@@ -170,7 +162,7 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 ```
 
 > [!NOTE]
-> Linux and Windows apps cannot be hosted in the same resource group. If you have an existing resource group named `myResourceGroup` with a Windows function app or web app, you must use a different resource group.
+> Azure Functions, Consumption plan for Linux is currently in preview and only available on following regions: West US, East US, West Europe, East Asia. Moreover, Linux and Windows apps cannot be hosted in the same resource group. If you have an existing resource group named `myResourceGroup` with a Windows function app or web app, you must use a different resource group.
 
 You're now ready to publish your local functions project to the function app in Azure.
 

@@ -10,12 +10,12 @@
   - name: Quickstart
     expanded: true
     items:
-    - name: Initialize and purchase capacity
+    - name: Initialize and provision capacity
       href: quickstart-create-cloudsimple-service.md
     - name: Configure private cloud environment
       href: quickstart-create-private-cloud.md
     - name: Create VMware VM on Private Cloud
-      href: https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/
+      href: quickstart-create-private-cloud-vmware-virtual-machine.md
     - name: Consume VMware VMs on Azure
       href: quickstart-create-vmware-virtual-machine.md
   - name: Concepts
@@ -55,31 +55,27 @@
   - name: Tutorials
     items:
     - name: Enable resource provider
-      href: https://docs.azure.cloudsimple.com/enable-cloudsimple-service/
+      href: enable-cloudsimple-service.md
     - name: Create the CloudSimple Service
-      href: https://docs.azure.cloudsimple.com/create-cloudsimple-service/ 
+      href: create-cloudsimple-service.md 
     - name: Access the CloudSimple portal
-      href: https://docs.azure.cloudsimple.com/access-cloudsimple-portal/
+      href: access-cloudsimple-portal.md
     - name: Manage nodes
       items:
-      - name: Purchase nodes
+      - name: Provision nodes
         href: create-nodes.md
     - name: Manage private cloud resources
       items: 
       - name: Create a private cloud
-        href: https://docs.azure.cloudsimple.com/create-private-cloud/
+        href: create-private-cloud.md
       - name: Manage your private clouds
-        href: https://docs.azure.cloudsimple.com/manage-private-cloud/
+        href: manage-private-cloud.md
       - name: Expand a private cloud
-        href: https://docs.azure.cloudsimple.com/expand-private-cloud/
-      - name: Shrink a private cloud
-        href: https://docs.azure.cloudsimple.com/shrink-private-cloud/
-      - name: View the list of private cloud racks  
-        href: https://docs.azure.cloudsimple.com/view-cloud-racks/
+        href: expand-private-cloud.md
       - name: Map your Azure subscription
-        href: https://docs.azure.cloudsimple.com/azure-subscription-mapping/
+        href: azure-subscription-mapping.md
       - name: Escalate privileges
-        href: https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/
+        href: escalate-private-cloud-privileges.md
     - name: Monitor CloudSimple activity
       href: https://docs.azure.cloudsimple.com/activity/
     - name: Set up private cloud networking

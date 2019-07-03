@@ -70,29 +70,38 @@ Azure Front Door Service has the same list of POP (Point of Presence) locations 
 
 ### Is Azure Front Door Service a dedicated deployment for my application or is it shared across customers?
 
-Azure Front Door Service is a globally distributed multi-tenant service. So, the infrastructure for Front Door is shared across all its customers. However, by creating a Front Door you define the specific configuration required for your application and 
+Azure Front Door Service is a globally distributed multi-tenant service. So, the infrastructure for Front Door is shared across all its customers. However, by creating a Front Door profile, you define the specific configuration required for your application and no changes made to your Front Door impact other Front Door configurations.
 
 ### Is HTTP->HTTPS redirection supported?
 
-Front Door currently doesn't support URL redirection.
+Yes. In fact, Azure Front Door Service supports host, path, and query string redirection as well as part of URL redirection. Learn more about [URL redirection](front-door-url-redirect.md). 
 
 ### In what order are routing rules processed?
 
 Routes for your Front Door are not ordered and a specific route is selected based on the best match. Learn more about [How Front Door matches requests to a routing rule](front-door-route-matching.md).
 
-### How do I lock down the access to my backend to only Azure Front Door Service?
+### How do I lock down the access to my backend to only Azure Front Door?
 
-You can configure IP ACLing for your backends to accept traffic from Azure Front Door Service only. You can restrict your application to accept incoming connections only from the backend IP space of Azure Front Door Service. We are working towards integrating with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519)  but for now you can refer the IP ranges as below:
+To lock down your application to accept traffic only from your specific Front Door, you will need to set up IP ACLs for your backend and then restrict the set of accepted values for the header 'X-Forwarded-Host' sent by Azure Front Door. These steps are detailed out as below:
+
+- Configure IP ACLing for your backends to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only. We are working towards integrating with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) but for now you can refer the IP ranges as below:
  
-- **IPv4** - `147.243.0.0/16`
-- **IPv6** - `2a01:111:2050::/44`
+    - Front Door's **IPv4** backend IP space: `147.243.0.0/16`
+    - Front Door's **IPv6** backend IP space: `2a01:111:2050::/44`
+    - Azure's [basic infrastructure services](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) through virtualized host IP addresses: `168.63.129.16` and `169.254.169.254`
 
-> [!WARNING]
-> Our backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates. 
+    > [!WARNING]
+    > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
+
+-	Filter on the values for the incoming header '**X-Forwarded-Host**' sent by Front Door. The only allowed values for the header should be all of the frontend hosts as defined in your Front Door config. In fact even more specifically, only the host names for which you want to accept traffic from, on this particular backend of yours.
+    - Example – let’s say your Front Door config has the following frontend hosts _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C), and _`notifications.contoso.com`_ (D). Let’s assume that you have two backends X and Y. 
+    - Backend X should only take traffic from host names A and B. Backend Y can take traffic from A, C, and D.
+    - So, on Backend X you should only accept traffic that has the header '**X-Forwarded-Host**' set to either _`contoso.azurefd.net`_ or _`www.contoso.com`_. For everything else, backend X should reject the traffic.
+    - Similarly, on Backend Y you should only accept traffic that has the header “**X-Forwarded-Host**” set to either _`contoso.azurefd.net`_, _`api.contoso.com`_ or _`notifications.contoso.com`_. For everything else, backend Y should reject the traffic.
 
 ### Can the anycast IP change over the lifetime of my Front Door?
 
-The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly do not take any direct dependencies on the IP.  
+The frontend anycast IP for your Front Door should typically not change and may remain static for the lifetime of the Front Door. However, there are **no guarantees** for the same. Kindly do not take any direct dependencies on the IP.
 
 ### Does Azure Front Door Service support static or dedicated IPs?
 
@@ -137,6 +146,11 @@ Front Door supports TLS versions 1.0, 1.1 and 1.2. TLS 1.3 is not yet supported.
 To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you can choose to use a certificate that is managed by Azure Front Door Service or use your own certificate.
 The Front Door managed option provisions a standard SSL certificate via Digicert and  stored in Front Door's Key Vault. If you choose to use your own certificate, then you can onboard a certificate from a supported CA and can be a standard SSL, extended validation certificate, or even a wildcard certificate. Self-signed certificates are not supported. Learn [how to enable HTTPS for a custom domain](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
+### Does Front Door support autorotation of certificates?
+
+For the Front Door managed certificate option, the certificates are autorotated by Front Door. If you are using a Front Door managed certificate and see that the certificate expiry date is less than 60 days away, file a support ticket.
+</br>For your own custom SSL certificate, autorotation isn't supported. Similar to how it was set up the first time for a given custom domain, you will need to point Front Door to the right certificate version in your Key Vault and ensure that the service principal for Front Door still has access to the Key Vault. This updated certificate rollout operation by Front Door is atomic and doesn't cause any production impact provided the subject name or SAN for the certificate doesn't change.
+
 ### What are the current cipher suites supported by Azure Front Door Service?
 
 The following are the current cipher suites supported by Azure Front Door Service:
@@ -166,7 +180,7 @@ Yes, Azure Front Door Service supports SSL offload, and end to end SSL, which re
 
 ### Can I configure SSL policy to control SSL Protocol versions?
 
-No, currently Front Door doesn't support to deny specific TLS versions nor can you set the minimal TLS versions. 
+No, currently Front Door doesn't support to deny specific TLS versions nor can you set the minimum TLS version. 
 
 ### Can I configure Front Door to only support specific cipher suites?
 

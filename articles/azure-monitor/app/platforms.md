@@ -50,7 +50,6 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Stack](https://safe-stack.github.io/docs/template-azure-ai/)
-* [Spring](https://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 * [Universal Windows app](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
 * [Windows desktop applications, services, and worker roles](../../azure-monitor/app/windows-desktop.md)
@@ -76,7 +75,6 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## Export and Data Analysis
-* [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 

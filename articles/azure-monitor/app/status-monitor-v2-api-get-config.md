@@ -1,6 +1,6 @@
 ---
-title: "Azure Status Monitor v2 API Reference: Get config | Microsoft Docs"
-description: Status Monitor v2 API Reference Get-ApplicationInsightsMonitoringConfig. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+title: "Azure Status Monitor v2 API reference: Get config | Microsoft Docs"
+description: Status Monitor v2 API reference. Get-ApplicationInsightsMonitoringConfig. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -15,19 +15,19 @@ ms.author: tilee
 ---
 # Status Monitor v2 API: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
-This document describes a cmdlet that's shipped as a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Description
 
-Get the config file and print the values to the console.
+Gets the config file and prints the values to the console.
 
 > [!IMPORTANT] 
-> This cmdlet requires a PowerShell Session with Administrator permissions.
+> This cmdlet requires a PowerShell session with Admin permissions.
 
 ## Examples
 
@@ -35,9 +35,9 @@ Get the config file and print the values to the console.
 PS C:\> Get-ApplicationInsightsMonitoringConfig
 ```
 
-## Parameters 
+## Parameters
 
-(No Parameters Required)
+No parameters required.
 
 ## Output
 
@@ -55,16 +55,16 @@ Filters:
 ## Next steps
 
   View your telemetry:
- - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage
-- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems
-- [Analytics](../../azure-monitor/app/analytics.md) for more advanced queries
-- [Create dashboards](../../azure-monitor/app/overview-dashboard.md)
+ - [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
+- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
+- Use [analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
+- [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
  
  Add more telemetry:
  - [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
-- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to let you insert trace calls.
-- [Add Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so that you can insert trace and log calls
+- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
+- [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
  
  Do more with Status Monitor v2:
- - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
- - Make changes to this config using the [Set config](status-monitor-v2-api-set-config.md) cmdlet.
+ - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ - Make changes to the config by using the [Set config](status-monitor-v2-api-set-config.md) cmdlet.
