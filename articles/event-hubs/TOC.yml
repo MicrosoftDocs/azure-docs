@@ -63,14 +63,14 @@
     href: event-hubs-availability-and-consistency.md
   - name: Scalability
     href: event-hubs-scalability.md
+  - name: Geo-disaster recovery and Geo-replication
+    href: event-hubs-geo-dr.md  
   - name: Security
     items:
     - name: Managed identity for Azure resources
       href: event-hubs-managed-service-identity.md
     - name: Role-Based Access Control (preview)
       href: event-hubs-role-based-access-control.md
-    - name: Geo-disaster recovery and Geo-replication
-      href: event-hubs-geo-dr.md
     - name: Authentication and security model overview
       href: event-hubs-authentication-and-security-model-overview.md
     - name: Security Attributes
