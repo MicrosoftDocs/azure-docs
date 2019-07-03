@@ -25,7 +25,14 @@ sections:
 - title: How-to guides
   items:
   - type: paragraph
-    text: 'Learn how to share data, configure dataset mappings, add recipients and more with one of the following how-to guides:'
+    text: 'Learn how to monitor your data share, configure dataset mappings, add recipients and more with one of the following how-to guides:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/data-share/media/index/portal.svg
+      text: Monitor Azure Data Share
+      href: /azure/data-share/how-to-monitor
   - type: list
     style: icon48
     items: 
@@ -33,6 +40,13 @@ sections:
         src: /azure/data-share/media/index/portal.svg
       text: Configure a dataset mapping
       href: /azure/data-share/how-to-configure-mapping
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/data-share/media/index/portal.svg
+      text: Troubleshoot Azure Data Share
+      href: /azure/data-share/data-share-troubleshoot
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
