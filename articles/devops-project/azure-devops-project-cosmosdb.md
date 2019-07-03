@@ -150,3 +150,15 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 
 You can delete the related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
 
+## Next steps
+
+You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Use DevOps Projects to deploy a Node.js app powered by Azure Cosmos DB
+> * Configure Azure DevOps and an Azure subscription 
+> * Examine the Azure Cosmos DB
+> * Examine the CI pipeline
+> * Examine the CD pipeline
+> * Commit changes to Git and automatically deploy them to Azure
+> * Clean up resources
