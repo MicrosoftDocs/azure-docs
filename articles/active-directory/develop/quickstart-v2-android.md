@@ -121,7 +121,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >    ```
 > 1. Run the app! 
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
