@@ -199,7 +199,9 @@ VirtualMachine.SnapshotManagement.RemoveSnapshot | Allow removal of a snapshot f
 
 ## Agent-based migration-Replication appliance requirements
 
-The Azure Migrate Server Migration [replication appliance](migrate-replication-appliance.md) must have the following:
+Requirements for the [replication appliance](migrate-replication-appliance.md) used for agent-based migration of VMware VMs and physical servers with Azure Migrate Server Migration are summarized in the table.
+
+When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements.
 
 **Component** | **Requirement** 
 --- | ---
@@ -221,7 +223,7 @@ IIS | - No pre-existing default website <br> - No preexisting website/applicatio
 **NETWORK SETTINGS** | 
 IP address type | Static 
 Ports | 443 (Control channel orchestration)<br>9443 (Data transport) 
-NIC type | VMXNET3 (if the Configuration Server is a VMware VM)
+NIC type | VMXNET3 
  |
 
 ### URL access
@@ -249,7 +251,7 @@ The replication appliance needs the following sofware installed on it.
 **Software** | **Details**
 --- | ---
 VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the Configuration Server is running on a VMware VM.
-MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. 
+MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it during appliance deployment. 
 
 #### MySQL installation options
 
