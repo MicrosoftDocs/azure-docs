@@ -46,7 +46,7 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
 
 1. In the left pane, select **Configure Application Insights Alerts**.
 
-1. To keep the default alert rule settings, select **Save** at upper right. Enter a descriptive comment, and then select **OK**.
+1. To save the pipeline with default alert rule settings, select **Save** at upper right in the Azure DevOps window. Enter a descriptive comment, and then select **OK**.
 
 ## Modify alert rules
 
