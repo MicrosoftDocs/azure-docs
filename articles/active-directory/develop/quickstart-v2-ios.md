@@ -105,7 +105,7 @@ This quickstart contains a code sample that demonstrates how a native iOS applic
 >    ```
 > 1. Build & run the app! 
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
