@@ -16,7 +16,7 @@ Large partition keys are supported by using the functionality of an enhanced ver
 
 ## Create a large partition key (.Net SDK V2)
 
-To create a container with a large partition key using the .Net SDK, specify the `PartitionKeyDefinitionVersion.V2` property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2.
+To create a container with a large partition key using the .NET SDK, specify the `PartitionKeyDefinitionVersion.V2` property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2.
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
