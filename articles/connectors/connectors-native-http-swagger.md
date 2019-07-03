@@ -25,11 +25,12 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in H
   Typically, the REST endpoint must meet this criteria for the connector to work:
 
   * The Swagger file must be hosted on an HTTPS URL that's publicly accessible.
+
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
   To reference a Swagger file that's not hosted or that doesn't meet the security and cross-origin requirements, you can [upload the Swagger file to a blob container in an Azure storage account](#host-swagger), and enable CORS on that storage account so that you can reference the file.
 
-  The examples in this topic use the [Cognitive Services Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview).
+  The examples in this topic use the [Cognitive Services Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview), which requires a [Cognitive Services account and access key](../cognitive-services/cognitive-services-apis-create-account.md).
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
