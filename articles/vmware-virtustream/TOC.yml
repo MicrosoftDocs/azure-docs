@@ -5,6 +5,7 @@
   - name: About AVS by Virtustream
     href: intro-avsv.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create an AVS by Virtustream private cloud
     expanded: false
