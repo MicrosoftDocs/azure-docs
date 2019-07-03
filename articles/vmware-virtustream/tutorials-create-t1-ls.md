@@ -163,4 +163,3 @@ With DHCP services enabled on the NSX-T logical switch, virtual machines deploye
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-deploy-vm]: ./tutorials-deploy-vm.md

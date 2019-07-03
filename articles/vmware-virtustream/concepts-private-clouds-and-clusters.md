@@ -77,7 +77,6 @@ Private cloud vCenter and NSX-T configurations are backed up hourly. Backups are
 [Learn about networking and interconnectivity concepts.][concepts-networking]
 
 <!-- LINKS - internal -->
-[concepts-networking]: ./concepts-networking.md
 
 <!-- LINKS - external-->
 [VCSA versions]: https://kb.vmware.com/s/article/2143838
