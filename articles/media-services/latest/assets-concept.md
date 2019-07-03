@@ -91,7 +91,7 @@ The following table shows how the [Asset](https://docs.microsoft.com/rest/api/me
 
 |v3 properties|v2 properties|
 |---|---|
-|id - (unique) the full Azure Resource Manager path||
+|id - (unique) the full Azure Resource Manager path <br />`"id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan"`||
 |name - (unique) see [Naming conventions](media-services-apis-overview.md#naming-conventions) ||
 |alternateId|AlternateId|
 |assetId|Id - (unique) value starts with the `nb:cid:UUID:` prefix.|
