@@ -39,7 +39,9 @@
         href: anomaly-detector-container-howto.md
       - name: Configure containers
         href: anomaly-detector-container-configuration.md
-        displayName: docker, container, apikey, billing, log, mount, run, pull, port      
+        displayName: docker, container, apikey, billing, log, mount, run, pull, port
+      - name: Use container instances (ACI)
+        href: how-to/use-anomaly-detection-on-aci.md
 - name: Concepts
   items: 
     - name: Anomaly Detection API best practices
