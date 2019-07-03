@@ -50,7 +50,7 @@ Event | search "error"
 
 This query searches the _Event_ table for records that contain the term _error_ in any property.
 
-Queries can start with either a table name or a [search](/kusto/query/searchoperator) command. The above example starts with the table name _Event_, which retrieves all records from the Event table. The pipe (|) character separates commands, so the output of the first one serves as the input of the following command. You can add any number of commands to a single query.
+Queries can start with either a table name or a [search](/azure/kusto/query/searchoperator) command. The above example starts with the table name _Event_, which retrieves all records from the Event table. The pipe (|) character separates commands, so the output of the first one serves as the input of the following command. You can add any number of commands to a single query.
 
 Another way to write that same query would be:
 
