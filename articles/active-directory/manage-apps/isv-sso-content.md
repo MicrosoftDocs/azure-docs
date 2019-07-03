@@ -19,18 +19,18 @@ ms.collection: M365-identity-device-management
 
 When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/en-us/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-and-multi-tenant-apps).
 
-## What is Single Sign On
+## What is Single Sign-On
 
-Single sign-on (SSO) adds security and convenience when users sign-on to applications by using Azure Active Directory and other identities. When an application is SSO enabled, users don't have to enter separate credentials to access that application. For a full explanation of Single sign-on, [see Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on).
+Single sign-on (SSO) adds security and convenience when users sign on to applications by using Azure Active Directory and other identities. When an application is SSO enabled, users don't have to enter separate credentials to access that application. For a full explanation of Single sign-on. [See Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Why Enable Single Sign-on in your application?
 
 There are many advantages to enabling SSO in your multi-tenant application. When you enable SSO for your application:
 
-* You become eligible to be listed in the Azure Marketplace, where your app is discoverable by millions of organizations using Azure Active Directory.
+* Your application can be listed in the Azure Marketplace, where your app is discoverable by millions of organizations using Azure Active Directory.
   * Enables customers to quickly configure the application with Azure AD.
 
-* Your application is eligible to be discovered on the Office 365 App Gallery, on the Office 365 App Launcher and within Microsoft Search on Office.com
+* Your application can be discoverable in the Office 365 App Gallery, the Office 365 App Launcher and within Microsoft Search on Office.com
 
 * Your application can use the Microsoft Graph REST API to access the data that drives user productivity that is available from the Microsoft Graph.
 
@@ -46,7 +46,7 @@ There are many advantages to enabling SSO in your multi-tenant application. When
 
 * You increase your marketability and adoptability. Many large organizations require that (or aspire to) their employees have seamless SSO experiences across all applications. Making SSO easy is important.
 
-* You reduce end user friction, which may increase end-user usage and increase your revenue.
+* You reduce end-user friction, which may increase end-user usage and increase your revenue.
 
 
 ## How to enable Single Sign-on in your published application

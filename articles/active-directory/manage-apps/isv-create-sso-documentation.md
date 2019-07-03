@@ -1,5 +1,5 @@
 ---
-title: Create and pulish single sign-on documentation for your application
+title: Create and publish single sign-on documentation for your application
 description: Guidance for independent software vendors on integrating with Azure Active Directory
 services: active-directory
 author: baselden
@@ -33,7 +33,7 @@ We recommend that your documentation on your site at a minimum include the follo
 
 * Licensing information for your application
 
-* Role based access control for configuring SSO
+* Role-based access control for configuring SSO
 
 * SSO Configuration Steps
 
@@ -53,8 +53,8 @@ We recommend that your documentation on your site at a minimum include the follo
 
 ## Documentation on the Microsoft Site
 
-When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your Github account.
+When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
 
 ## Next Steps
 
-[List your application in the Azure AD Applicatioin Gallery](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[List your application in the Azure AD Application Gallery](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)

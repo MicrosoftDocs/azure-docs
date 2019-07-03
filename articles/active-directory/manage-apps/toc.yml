@@ -49,6 +49,14 @@
       items: 
       - name: What is single sign-on
         href: what-is-single-sign-on.md
+      - name: Enabling SSO for your multi-tenant application 
+        href: isv-sso-content.md
+      - name: Create an Azure tenant for multi-tenant application
+        href: isv-tenant-multi-tenant-app.md
+      - name: Choose multi-tenant federation
+        href: isv-choose-multi-tenant-federation.md
+      - name: Create documentation for multi-tenant application
+        href: isv-create-sso-documentation.md
       - name: Planning a single sign-on deployment
         href: plan-sso-deployment.md
     - name: One Click SSO
