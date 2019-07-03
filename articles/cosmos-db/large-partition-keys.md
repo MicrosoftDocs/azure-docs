@@ -16,7 +16,7 @@ Large partition keys are supported by using the functionality of an enhanced ver
 
 ## Create a large partition key (.Net SDK V2)
 
-To create a container with large partition key using the .Net SDK, specify the `PartitionKeyDefinitionVersion.V2` property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2.
+To create a container with a large partition key using the .Net SDK, specify the `PartitionKeyDefinitionVersion.V2` property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2.
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
@@ -41,7 +41,7 @@ To create a large partition key, while you create a new container using the Azur
 
 ## Create a large partition key (PowerShell)
 
-To create a container with large partition key using PowerShell, include `"version" = 2` for the `partitionKey` object.
+To create a container with a large partition key using PowerShell, include `"version" = 2` for the `partitionKey` object.
 
 ```azurepowershell-interactive
 # Create a Cosmos SQL API container with large partition key support (version 2)
