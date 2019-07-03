@@ -14,7 +14,7 @@ ms.reviewer: craigg
 
 # Troubleshoot Azure Data Factory
 
-This article addresses common troubleshooting issues for external control activities in Data Factory.
+This article explores common troubleshooting methods for external control activities in Data Factory.
 
 ## Azure Databricks
 
@@ -26,53 +26,60 @@ This article addresses common troubleshooting issues for external control activi
 | 3201           | Invalid   Python file URI.... Please visit Databricks user guide for supported URI   schemes. | Bad authoring.                                                | Specify either absolute paths for workspace-addressing schemes, or `dbfs:/folder/subfolder/foo.py` for files stored in Databricks File System. |
 | 3201           | {0}   LinkedService should have domain and accessToken as required properties. | Bad authoring.                                                | Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service). |
 | 3201           | {0}   LinkedService should specify either existing cluster ID or new cluster   information for creation. | Bad authoring.                                                | Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service). |
-| 3201           | Node   type Standard_D16S_v3 is not supported. Supported node types:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3,   Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2,   Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3,   Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2,   Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2,   Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3,   Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s,   Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2,   Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2,   Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3,   Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2,   Standard_L64s_v2, Standard_L80s_v2. | Bad authoring.                                                | Refer to error message.                                          |
+| 3201           | Node   type Standard_D16S_v3 is not supported. Supported node types:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3,   Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2,   Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3,   Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2,   Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2,   Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3,   Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s,   Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2,   Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2,   Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3,   Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2,   Standard_L64s_v2, Standard_L80s_v2. | Bad authoring.                                                | Refer to the error message.                                          |
 | 3201           | Invalid notebook_path: ... Only absolute paths are currently supported. Paths must   begin with '/'. | Bad authoring.                                                | Refer to error message.                                          |
 | 3202           | There were already 1000 jobs created in past 3600 seconds, exceeding rate limit:   1000 job creations per 3600 seconds. | Too many Databricks runs in an hour.                         | Check all pipelines that use this Databricks workspace for their job   creation rate.  If pipelines launched   too many Databricks runs in aggregate, migrate some pipelines to a new   workspace. |
 | 3202           | Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead. | Authoring error: No value provided for the parameter.         | Inspect the pipeline JSON and ensure all parameters in the baseParameters notebook specify a non-empty value. |
-| 3202           | User: SimpleUserContext{userId=..., name=user@company.com, orgId=...} is not   authorized to access cluster. | The user who generated the access token is not allowed to access the   Databricks cluster specified in the linked service. | Ensure the user has the required permissions in the workspace.   |
+| 3202           | User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not   authorized to access cluster. | The user who generated the access token is not allowed to access the   Databricks cluster specified in the linked service. | Ensure the user has the required permissions in the workspace.   |
 | 3203           | The cluster is in Terminated state, not available to receive jobs. Please fix the cluster or retry later. | The cluster has been terminated.    For interactive clusters, this might be a race condition. | Avoid this error by using job clusters.             |
 | 3204           | Job execution failed. Error messages might address anything from an unexpected cluster state to a specific activity. Commonly, there is no error   message at all. | N/A                                                          | N/A                                                          |
 
 
 
-## Azure Data Lake Analytics (U-SQL)
+## Azure Data Lake Analytics
+
+The following table applies to U-SQL.
 
 | Error code         | Error message                                                | Description                                          | Recommendation                            |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2709                 | The access token is from the wrong tenant                    | Incorrect AAD tenant                                         | The Service Principal used to access the ADLA belongs to another AAD tenant. Create a new Service Principal in the same tenant as ADLA account. |
-| 2711,   2705,   2704 | Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation<br/><br/>User is   not able to access Data Lake Store  <br/><br/>User is  not authorized to data lake analytics | The Service Principal or certificate provided doesn't have access to the file in storage | Make sure the Service Principal or certificate they provide for ADLA jobs has access to both ADLA account and the default ADLS storage for it from   root folder. |
-| 2711                 | Cannot find the 'Azure Data Lake Store' file or folder.       | The   path to USQL file is either wrong or the linked service credentials don't have access | Verify the path and the credentials provided in linked service |
-| 2707                 | Cannot resolve the account of   AzureDataLakeAnalytics. Please check 'AccountName' and   'DataLakeAnalyticsUri'. | The ADLA account in linked service is wrong                  | Verify that the right account is provided             |
-| 2703                 | Error Id: E_CQO_SYSTEM_INTERNAL_ERROR or any error the starts with "Error   Id:" | Error is coming from ADLA                                    | Any   error that looks like the example means the job was submitted to ADLA and the   script there failed. The investigation must be done on ADLA. If you open the   portal and navigate to the ADLA account, look for the job by using ADF   activity run Id (not pipeline run Id). The job there will have more   information about the error and will help to troubleshoot. If resolution is not clear, contact ADLA support team and provide the job URL, which   includes your account name and the job ID. |
-| 2709                 | We cannot accept your job at this moment. The maximum number of queued jobs for   your account is 200. | Throttling on ADLA                                           | Reduce the number of submitted jobs to ADLA by changing ADF triggers and concurrency settings on activities, or increase the limits on ADLA |
-| 2709                 | This job was rejected because it requires 24 AUs and this account has an administrator-defined policy that prevents a job from using more than 5 AUs. | Throttling on ADLA                                           | Reduce the number of submitted jobs to ADLA by changing ADF triggers and concurrency settings on activities, or increase the limits on ADLA |
+| 2709                 | The access token is from the wrong tenant.                    | Incorrect Azure Active Directory (Azure AD) tenant.                                         | The service principal used to access Azure Data Lake Analytics belongs to another Azure AD tenant. Create a new service principal in the same tenant as the Data Lake Analytics account. |
+| 2711,   2705,   2704 | Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/><br/>User is   not able to access Data Lake Store.  <br/><br/>User is  not authorized to use Data Lake Analytics. | The service principal or certificate provided doesn't have access to the file in storage. | Make sure the service principal or certificate the user provides for Data Lake Analytics jobs has access to the Data Lake Analytics account and the default Data Lake Storage instance from the root folder. |
+| 2711                 | Cannot find the 'Azure Data Lake Store' file or folder.       | The   path to the U-SQL file is wrong, or the linked service credentials don't have access. | Verify the path and the credentials provided in linked service. |
+| 2707                 | Cannot resolve the account of   AzureDataLakeAnalytics. Please check 'AccountName' and   'DataLakeAnalyticsUri'. | The Data Lake Analytics account in the linked service is wrong.                  | Verify that the right account is provided.             |
+| 2703                 | Error Id: E_CQO_SYSTEM_INTERNAL_ERROR (or any error that starts with "Error   Id:") | The error is from Data Lake Analytics.                                    | An error like the example means the job was submitted to Data Lake Analytics and the   script there failed. Investigate on Data Lake Analytics. In the portal, go to the Data Lake Analytics account, and look for the job by using the Data Factory activity run ID (not the pipeline run ID). The job there provides more   information about the error and will help you troubleshoot. If resolution isn't clear, contact the Data Lake Analytics support team and provide the job URL, which   includes your account name and the job ID. |
+| 2709                 | We cannot accept your job at this moment. The maximum number of queued jobs for   your account is 200. | Throttling on Data Lake Analytics.                                           | Reduce the number of submitted jobs to Data Lake Analytics by changing Data Factory triggers and concurrency settings on activities. Or increase the limits on Data Lake Analytics. |
+| 2709                 | This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs. | Throttling on Data Lake Analytics.                                           | Reduce the number of submitted jobs to Data Lake Analytics by changing Data Factory triggers and concurrency settings on activities. Or increase the limits on Data Lake Analytics. |
 
 
 
-## Azure Functions
+## Azure functions
 
 | Error code | Error message                           | Description                                                  | Recommendation                           |
 | ------------ | --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 3600         | Response Content is not a valid JObject | This means that the Azure function that got called did not return a JSON Payload in the response. ADF Azure function activity only supports JSON response content. | Update Azure function to return a valid JSON Payload e.g. a C# function can return (ActionResult)new<OkObjectResult("{`\"Id\":\"123\"`}"); |
-| 3600         | Invalid HttpMethod: ‘..’.               | This means that Http method specified in the   activity payload is not supported by Azure Function Activity. | The Http methods that are supported are:  <br/>PUT, POST,GET, DELETE, OPTIONS, HEAD, TRACE |
+| 3600         | Response Content is not a valid JObject. | The Azure function that was called didn't return a JSON payload in the response. Azure function activity in Data Factory supports only JSON response content. | Update the Azure function to return a valid JSON payload. For example, a C# function can return `(ActionResult)new<OkObjectResult("{`\"Id\":\"123\"`}");`. |
+| 3600         | Invalid HttpMethod: '..'.               | The HTTP method specified in the   activity payload is not supported by the Azure function activity. | Use a supported HTTP method, such as PUT, POST, GET, DELETE, OPTIONS, HEAD, or TRACE. |
 
 
 
-## Custom (Azure Batch)
+## Custom
+
+The following table applies to Azure Batch.
+
 | Error code | Error message                                                | Description                                                  | Recommendation                          |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2500         | Hit   unexpected exception and execution failed.             | Cannot launch command, or the program returned an error code. | Check that the executable exists. If program launched, check the stdout.txt and stderr.txt uploaded to the storage account. It is a good practice to emit copious logs in your code for debugging. |
-| 2501         | Can not   access user batch account, please check batch account settings. | Incorrect Batch access key or pool name provided.            | Need to verify pool name and Batch access key in the linked   service. |
-| 2502         | Can not   access user storage account, please check storage account settings. | Incorrect storage account name or access key provided.       | Need to verify storage account name and access key in linked service. |
-| 2504         | Operation   returned an invalid status code 'BadRequest'     | Too many files in folderPath if the custom activity.  (Total   size of resourceFiles cannot be more than 32768 characters.) | Remove unnecessary files, or zip them and add an unzip command to extract, for example: powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;  $folder\yourProgram.exe |
-| 2505         | Cannot   create Shared Access Signature unless Account Key credentials are used. | Custom activities only support storage accounts that use an access   key. | Refer description                                            |
-| 2507         | The   folder path does not exist or is empty: ...            | No files in the storage account at the specified path.       | The folderPath must contain the executables that you want to run. |
-| 2508         | There’re   duplicate files in resource folder.               | There are multiple files of the same name in different subfolders   of folderPath. | Custom activities flatten folder structure under folderPath.  If folder structure needs to be preserved,   zip the files and extract them on Azure Batch with an unzip command, for   example:   powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;   $folder\yourProgram.exe |
-| 2509         | Batch   url ...is invalid, it must be in Uri format.         | Batch URLs must be similar to https://mybatchaccount.eastus.batch.azure.com | Refer description                                            |
-| 2510         | An   error occurred while sending the request.               | Batch URL is invalid                                         | Verify batch URL.                                            |
+| 2500         | Hit   unexpected exception and execution failed.             | Cannot launch command, or the program returned an error code. | Ensure that the executable file exists. If the program started, check the *stdout.txt* and *stderr.txt* files that were uploaded to the storage account. It's a good practice to emit copious logs in your code for debugging. |
+| 2501         | Can not   access user batch account, please check batch account settings. | Incorrect Batch access key or pool name.            | Verify the pool name and the Batch access key in the linked   service. |
+| 2502         | Can not   access user storage account, please check storage account settings. | Incorrect storage account name or access key.       | Verify the storage account name and the access key in the linked service. |
+| 2504         | Operation   returned an invalid status code 'BadRequest'.     | Too many files in the folderPath of the custom activity.  The total   size of resourceFiles can't be more than 32,768 characters. | Remove unnecessary files. Or zip them and add an unzip command to extract them. For example, use `powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;  $folder\yourProgram.exe`. |
+| 2505         | Cannot   create Shared Access Signature unless Account Key credentials are used. | Custom activities support only storage accounts that use an access   key. | Refer to the error description.                                            |
+| 2507         | The   folder path does not exist or is empty: ...            | No files are in the storage account at the specified path.       | In folderPath, place the executable files you want to run. |
+| 2508         | There are   duplicate files in the resource folder.               | Different subfolders   of folderPath contain multiple files of the same name. | Custom activities flatten folder structure under folderPath.  If you need to preserve the folder structure,   zip the files and extract them in Azure Batch by using an unzip command. For   example, use   `powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;   $folder\yourProgram.exe`. |
+| 2509         | Batch   url ... is invalid, it must be in Uri format.         | Batch URLs must be similar to `https://mybatchaccount.eastus.batch.azure.com`. | Refer to the error description.                                            |
+| 2510         | An   error occurred while sending the request.               | The Batch URL is invalid                                         | Verify the batch URL.                                            |
 
-## HDInsight (Spark, Hive, MapReduce, Pig, Hadoop Streaming)
+## HDInsight
+
+The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming.
 
 | Error code | Error message                                                | Description                                                  | Recommendation                        |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -93,7 +100,7 @@ This article addresses common troubleshooting issues for external control activi
 | Error code | Error message                                                | Description                                                  | Recommendation                          |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 2108         | Invalid HttpMethod: '..'.                                    | Web Activity doesn't support the Http method specified in the activity payload. | The Http methods that are supported are: <br/>PUT, POST, GET, DELETE |
-| 2108         | Invalid Server Error 500                                     | Internal error on the endpoint                               | Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | Invalid Server Error 500                                     | Internal error on the endpoint                               | Check the functionality on the URL (with Fiddler or Postman). For more information, see [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application). |
 | 2108         | Unauthorized 401                                             | Missing valid authentication on request                      | Provide valid authentication method (token may have expired).   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
 | 2108         | Forbidden 403                                                | Missing required permissions                                 | Check user permissions on the accessed resource.   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
 | 2108         | Bad Request 400                                              | Invalid Http request                                         | Check the URL, verb and body of the request.   <br/><br/>Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
@@ -104,17 +111,17 @@ This article addresses common troubleshooting issues for external control activi
 | 2108         | The page you are looking for cannot be displayed because an invalid method (HTTP   verb) is being used. | Incorrect Web activity method was specified in the request   | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
 | 2108         | invalid_payload                                              | The body for Web activity is incorrect                       | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
 
-#### How to use Fiddler to create an HTTP session of the monitored web application
+### Use Fiddler to create an HTTP session of the monitored web application
 
-1. Download and install [Fiddler](https://www.telerik.com/download/fiddler)
+1. Download and install [Fiddler](https://www.telerik.com/download/fiddler).
 
 2. If your web application uses HTTPS:
 
-   1. Open Fiddler
+   1. Open Fiddler.
 
    2. Go to **Tools > Fiddler Options** and select as in below screenshot. 
 
-      ![fiddler-options](media/data-factory-troubleshoot-guide/fiddler-options.png)
+      ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 3. If your application uses SSL certificates, you must also add the Fiddler certificate to your device.
 
@@ -125,9 +132,9 @@ This article addresses common troubleshooting issues for external control activi
 6. 1. Go to **File** > **Capture Traffic**. Or press **F12**.
    2. Clear your browser's cache so that all cached items are removed and must be re-downloaded.
 
-7. Create request : 
+7. Create a request : 
 
-8. 1. Click on the Composer tab
+   1. Select the Composer tab
    2. Set the Http method and URL
    3. Add headers and request body if required
    4. Click Execute
@@ -142,7 +149,7 @@ For more information, see [Getting started with Fiddler](https://docs.telerik.co
 
 For more troubleshooting help, try these resources:
 
-*  [Azure Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
