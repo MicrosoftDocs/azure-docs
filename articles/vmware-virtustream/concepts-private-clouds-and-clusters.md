@@ -1,10 +1,10 @@
 ---
 title: Concepts - Software-defined data center and clusters for Azure VMware Solution by Virtustream (AVSV)
 description: Learn about the key capabilities of Azure VMware software-defined data centers and vSphere clusters in VMware Solution on Azure by VMware. 
-services: avsv-service
+services: 
 author: v-jetome
 
-ms.service: avsv-service
+ms.service: 
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: v-jetome
@@ -75,8 +75,7 @@ Private cloud vCenter and NSX-T configurations are backed up hourly, including N
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [You now have an understanding of private clouds, clusters, and hosts, and you can about networking and interconnectivity concepts next ][concepts-networking]
+[Learn about networking and interconnectivity concepts.][concepts-networking]
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md

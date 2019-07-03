@@ -1,10 +1,10 @@
 ---
 title: Introduction to Azure VMware Solution by Virtustream
 description: Learn the features and benefits of Azure VMware Solution by Virtustream to deploy and manage VMware-based workloads in Azure.
-services: avsv-service
+services: 
 author: v-jetome
 
-ms.service: avsv-service
+ms.service: 
 ms.topic: overview
 ms.date: 7/5/2019
 ms.author: v-jetome
@@ -12,7 +12,7 @@ ms.custom:
 
 ---
 
-# Azure VMware Solution by Virtustream (AVSV)
+# What is Azure VMware Solution by Virtustream (AVSV)?
 
 Azure VMware Solution by Virtustream (AVS by Virtustream) provides you with private clouds in Azure. The private clouds contain vSphere clusters, built from dedicated bare-metal infrastructure in Azure. Private cloud clusters are scalable from 3 to 16 hosts, with the capability to have multiple clusters in a single private cloud. All private clouds are provisioned with vCenter Server, VSAN, vSphere, and NSX-T, and enable you to consume Azure services, migrate workloads from your on-premises environments, and create or deploy virtual machines (VMs).
 
@@ -56,8 +56,7 @@ AVS by Virtustream is compliant with SOC 1, SOC 2 Type 2, and ISO 27001 standard
 
 You now have an overview of AVS by Virtustream private clouds. The next step is to learn key private cloud and cluster concepts.
 
-> [!div class="nextstepaction"]
-> [Follow this link to learn key AVS by Virtustream private cloud and cluster concepts][concepts-private-clouds-and-clusters]
+[Learn AVS by Virtustream private cloud and cluster concepts.][concepts-private-clouds-and-clusters]
 
 <!-- LINKS - external -->
 [NSX-T documentation]: https://docs.vmware.com/en/VMware-NSX-T-Data-Center/index.html
