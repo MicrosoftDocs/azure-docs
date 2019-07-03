@@ -81,7 +81,6 @@
         href: tenant-restrictions.md
       - name: Configure SAML token encryption (Preview)
         href: howto-saml-token-encryption.md
-<<<<<<< HEAD
     - name: Single sign-on
       items: 
       - name: What is single sign-on
@@ -96,10 +95,8 @@
         href: isv-tenant-multi-tenant-app.md
       - name: Create and publish SSO documentation for your application
         href: isv-create-sso-documentation.md
-=======
->>>>>>> 231c708caadaa86e68117a572e4a56bd672491ac
     - name: End-user portals
-        href: end-user-experiences.md
+      href: end-user-experiences.md
   - name: How-to guides
     items:
     - name: Add a cloud app

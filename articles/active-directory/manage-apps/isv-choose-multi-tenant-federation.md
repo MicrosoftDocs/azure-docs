@@ -14,12 +14,11 @@ ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
 ---
-
 # Choose the right federation protocol for your multi-tenant application
 
 When you develop your software as a service (SaaS) application, you must select the federation protocol that best meets your and your customers’ needs. This decision is based on your development platform, and your desire to integrate with data available within your customers’ Office 365 and Azure AD ecosystem.
 
-See the complete list of [protocols available for SSO integrations](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) with Azure Active Directory.
+See the complete list of [protocols available for SSO integrations](what-is-single-sign-on.md) with Azure Active Directory.
 The following table compares 
 * Open Authentication 2.0 (OAuth 2.0)
 * Open ID Connect (OIDC)
@@ -56,17 +55,17 @@ Additionally, using these protocols enables your customers to use Conditional Ac
 
 You register your application with Microsoft Identity, which is an OAuth 2.0 provider. You could then also register your OAuth 2.0-based application with any other Identity Provider that you wish to integrate with. 
 
-For information on how to register your application and implement these protocols for SSO to web apps, see [Authorize access to web applications using OpenID Connect and Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code).  For information on how to implement these protocols for SSO in mobile apps, see the following: 
+For information on how to register your application and implement these protocols for SSO to web apps, see [Authorize access to web applications using OpenID Connect and Azure Active Directory](../develop/sample-v2-code.md).  For information on how to implement these protocols for SSO in mobile apps, see the following: 
 
-* [Android](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-android)
+* [Android](../develop/quickstart-v2-android.md)
 
-* [iOS](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-ios)
+* [iOS](../develop/quickstart-v2-ios.md)
 
-* [Universal Windows Platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-uwp)
+* [Universal Windows Platform](../develop/quickstart-v2-uwp.md)
 
 ## SAML 2.0 and WSFed
 
-Security Assertion Markup Language (SAML) is usually used for web applications. See [How Azure uses the SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-protocol-reference) for an overview. 
+Security Assertion Markup Language (SAML) is usually used for web applications. See [How Azure uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md) for an overview. 
 
 Web Services Federation (WSFed) is an [industry standard](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .Net platform.
 
@@ -90,8 +89,8 @@ Using any of the above protocols for SSO enables your application’s access to 
 
 If you are using Open ID Connect  to authenticate, then your development experience is seamless  because you will use OAuth2, the foundation of Open ID Connect, to acquire tokens can be used for invoking Microsoft Graph APIs. If your application is using SAML or WSFed, you must add additional code within your application to get these OAuth2 to acquire the tokens  required to  invoking Microsoft Graph APIs. 
 
-
 ## Next Steps
-[Enable SSO for your multi-tenant application](\manage-apps\isv-sso-content.md)
 
-[Create documentation for your multi-tenant application](\manage-apps\isv-create-sso-documentation.md)
+[Enable SSO for your multi-tenant application](isv-sso-content.md)
+
+[Create documentation for your multi-tenant application](isv-create-sso-documentation.md)

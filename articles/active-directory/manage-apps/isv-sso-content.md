@@ -14,14 +14,13 @@ ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
 ---
-
 # Enable Single Sign-on for your multi-tenant application  
 
-When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/en-us/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-and-multi-tenant-apps).
+When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/en-us/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md).
 
 ## What is Single Sign-On
 
-Single sign-on (SSO) adds security and convenience when users sign on to applications by using Azure Active Directory and other identities. When an application is SSO enabled, users don't have to enter separate credentials to access that application. For a full explanation of Single sign-on. [See Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on).
+Single sign-on (SSO) adds security and convenience when users sign on to applications by using Azure Active Directory and other identities. When an application is SSO enabled, users don't have to enter separate credentials to access that application. For a full explanation of Single sign-on. [See Single sign-on to applications in Azure Active Directory](what-is-single-sign-on).
 
 ## Why Enable Single Sign-on in your application?
 
@@ -48,20 +47,13 @@ There are many advantages to enabling SSO in your multi-tenant application. When
 
 * You reduce end-user friction, which may increase end-user usage and increase your revenue.
 
-
 ## How to enable Single Sign-on in your published application
 
-1. [Choose the right federation protocol for your multi-tenant application](\manage-apps\isv-choose-multi-tenant-federation.md).
-
-2. Implement SSO in your application
-
-   ‎See [guidance on authentication patterns](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-app-types)  
-   ‎See [Azure active Directory code samples](https://docs.microsoft.com/en-us/azure/active-directory/develop/sample-v2-code) for OIDC and OAuth protocols
-
-3. [Create your Azure Tenant](\manage-apps\isv-tenant-multi-tenant-app.md) and test your application
-
-4. [Create and publish SSO documentation on your site](manage-apps\isv-create-sso-documentation.md).
-
-5. [Submit your application listing.](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) And partner with Microsoft to create documentation on Microsoft’s site.
-
+1. [Choose the right federation protocol for your multi-tenant application](isv-choose-multi-tenant-federation.md).
+1. Implement SSO in your application
+   - ‎See [guidance on authentication patterns](../develop/v2-app-types.md)
+   - See [Azure active Directory code samples](../develop/sample-v2-code.md) for OIDC and OAuth protocols
+1. [Create your Azure Tenant](isv-tenant-multi-tenant-app.md) and test your application
+1. [Create and publish SSO documentation on your site](isv-create-sso-documentation.md).
+1. [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)  and partner with Microsoft to create documentation on Microsoft’s site.
 1. [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/en-us/explore/commercial#gtm).
