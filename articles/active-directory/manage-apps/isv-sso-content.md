@@ -2,7 +2,7 @@
 title: Enable SSO for your multi-tenant application
 description: Guidance for independent software vendors on integrating with Azure active Directory
 services: active-directory
-author: baselden
+author: barbaraselden
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
