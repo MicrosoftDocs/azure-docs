@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solution by Virtustream tutorial - Create an NSX-T network
-description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you create an NSX-T T1 router and a logical switch with DHCP services using NSX-T Manager in the private cloud.
+description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you create an NSX-T T1 router with a logical. You then create a DHCP server and associate it with the logical switch.
 services: 
 author: v-jetome
 
@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Create an NSX-T network on an Azure VMware Solution by Virtustream private cloud
 
-AVS by Virtustream private clouds provide Azure-based environments to run VMware workload virtual machines (VMs). With AVS by Virtustream, you can quickly create networks to deploy or migrate VMs. In this tutorial, part four of seven, an NSX-T T1 router and logical switch with DHCP services are deployed in a private cloud. Using NSX-T Manager, you learn how to:
+AVS by Virtustream private clouds provide Azure-based environments to run VMware workload virtual machines (VMs). You can quickly create networks in a private cloud and then deploy or migrate VMs on those networks. In this tutorial you create an NSX-T T1 router and a logical switch with DHCP services. Using NSX-T Manager, you learn how to:
 
 > [!div class="checklist"]
 > * Create a logical switch
@@ -25,15 +25,15 @@ AVS by Virtustream private clouds provide Azure-based environments to run VMware
 
 ## Prerequisites
 
-In previous tutorials, a private cloud was deployed in Azure, access to vCenter and NSX-T manager was established, and a VM template was uploaded to vCenter. If you haven't performed these steps and want to follow along step-by-step, start at [Tutorial 1 – Create a private cloud][tutorials-create-private-cloud].
+In previous tutorials, you created a private cloud in Azure and recieved the credentials for access vCenter and NSX-T manager. If you haven't created a private cloud and want to follow along step-by-step with this tutorial, start at [Tutorial 1 – Create a private cloud][tutorials-create-private-cloud].
 
 This tutorial requires that you have access to vCenter and NSX-T Manager in your private cloud. If you need to establish access, see [Tutorial 3 -- Access private cloud][tutorial-access-private-cloud].
 
-Ensure that you have the IP address and admin credentials for the NSX-T Manager. These were provided when the private cloud was deployed and are accessible under the private cloud resource overview Admin details in the Portal.
+Ensure that you have the IP address and admin credentials for the NSX-T Manager. These items were provided when the private cloud was deployed and are available in the Azure portal.
 
-Using a browser, navigate to the IP address of the NSX-T Manager and sign in as the "admin" user.
+Using a browser, navigate to the IP address of the NSX-T Manager and sign in as the **admin** user.
 
-On the NSX-T manager home page, ensure it matches this initial configuration on first access after a private cloud is provisioned:
+On first sign in to the NSX-T manager, the details on the home page should have match the following initial configuration.
 
 ![Image of NSX-T Manager initial configuration](./media/NSX-initial-config.png)
 
@@ -56,7 +56,7 @@ Select **Hierarchical Two-Tier replication**.
 
 Select the **ADD** button to show results.
 
-![Add a new NSX-T Logical Switch results](./media/NSX-add-switch-results.png)
+![Add a new NSX-T Logical Switch result](./media/NSX-add-switch-results.png)
 
 ## Create a T1 router
 
@@ -76,7 +76,7 @@ Enter a **Name** and select **Non-preemptive** Failover Mode.
 
 Select **ADD**.
 
-![Add a new NSX-T DHCP server Router results](./media/NSX-add-router-results.png)
+![Add a new NSX-T DHCP server Router result](./media/NSX-add-router-results.png)
 
 ## Add the Logical Switch to a port on the T1 router
 
@@ -98,7 +98,7 @@ Complete the form with a new name for the router port, the **Logical Switch** na
 
 Select **ADD**.
 
-![Add a router port results](./media/NSX-add-router-port-results.png)
+![Add a router port result](./media/NSX-add-router-port-results.png)
 
 ## Add DHCP service to the logical switch
 
@@ -112,14 +112,14 @@ Enter a **Name** and select the **Edge Cluster** on the form.
 
 Select **ADD**.
 
-![Add  DHCP server profile results](./media/NSX-add-dhcp-server-profile-results.png)
+![Add  DHCP server profile result](./media/NSX-add-dhcp-server-profile-results.png)
 
 Use this profile to create a DHCP server for the logical switch.
 
 Select **Networking > DHCP > Servers**.
 Select **+ ADD** to add a DHCP server. Enter a name and other details on the form.
 
-![Add a NSX-T DHCP server form](./media/NSX-associate-dhcp-server.png)
+![Add an NSX-T DHCP server form](./media/NSX-associate-dhcp-server.png)
 
 Select "+ ADD", choose Tier-1 Router, and then enter a name and other details in the form (what's shown are examples):
 
@@ -129,7 +129,7 @@ Select "+ ADD", choose Tier-1 Router, and then enter a name and other details in
 
 Select **ADD**.
 
-![Add a NSX-T DHCP server results](./media/NSX-add-dhcp-server-form-results.png)
+![Add an NSX-T DHCP server result](./media/NSX-add-dhcp-server-form-results.png)
 
 Select the new DHCP server in **DHCP > Servers**.
 Select **IP Pools > + ADD**.
@@ -141,7 +141,7 @@ Enter the required information in the form.
 
 Select **ADD**.
 
-![Add IP pools to a DHCP server results](./media/NSX-add-dhcp-ip-pools-results.png)
+![Add IP pools to a DHCP server result](./media/NSX-add-dhcp-ip-pools-results.png)
 
 Select **Actions (the gear icon) > Attach to Logical Switch**.
 
@@ -152,7 +152,7 @@ Select **ATTACH**.
 
 ![Attach a Logical Switch to a DHCP server](./media/NSX-attach-switch-to-dhcp-form.png)
 
-![Attach a Logical Switch to a DHCP server results](./media/NSX-attach-switch-to-dhcp-server-results.png)
+![Attach a Logical Switch to a DHCP server result](./media/NSX-attach-switch-to-dhcp-server-results.png)
 
 With DHCP services enabled on the NSX-T logical switch, virtual machines deployed on the network can now receive a default gateway and an IP address.
 
