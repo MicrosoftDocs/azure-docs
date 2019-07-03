@@ -25,14 +25,14 @@ Azure Personalizer is a cloud-based API service that allows you to choose the be
 
 ## How does Personalizer work?
 
-Personalizer uses machine learning models to discover what action to rank highest in a context. Your client application provides a list of possible actions, with information about them; and information about the context, which may include information about the user, device, etc. Personalizer determines the action to take. Once your client application uses the chosen action, it provides feedback to Personalizer in the form of a reward score. After the feedback loop is complete, Personalizer automatically updates its own model used for future ranks.
+Personalizer uses machine learning models to discover what action to rank highest in a context. Your client application provides a list of possible actions, with information about them; and information about the context, which may include information about the user, device, etc. Personalizer determines the action to take. Once your client application uses the chosen action, it provides feedback to Personalizer in the form of a reward score. After the feedback is received, Personalizer automatically updates its own model used for future ranks.
 
 ## How do I use the Personalizer?
 
 ![Using Personalizer to choose which video to show to a user](media/what-is-personalizer/personalizer-example-highlevel.png)
 
 1. Choose an experience in your app to personalize.
-1. Create and configure the Personalization Service in the Azure portal
+1. Create and configure an instance of the Personalization Service in the Azure portal. Each instance is a Personalizer Loop.
 1. Use SDK to call Personalizer with information (_features_) about your users, and the content (_actions_). You don't need to provide clean, labeled data before using Personalizer. 
 1. In the client application, show the user the action selected by Personalizer.
 1. Use SDK to provide feedback to Personalizer indicating if the user selected Personalizer's action. This is a _reward score_, typically between -1 and 1.
