@@ -79,7 +79,7 @@ For more information about scraping endpoints, see [Prometheus scape config](htt
 
 
 ## Prepare the Alertmanager config file
-Create a alertmanager.yml file by entering the following content:
+Create an alertmanager.yml file by entering the following content:
 ```
 global:
   resolve_timeout: 5m
@@ -123,7 +123,7 @@ The prometheus-standalone.yml file also creates an Alertmanager instance, secure
 
 ## Add permissions to allow service discovery
 
-Create prometheus-sdrole.yml by entering the following content:
+Create a prometheus-sdrole.yml file by entering the following content:
 ```
 apiVersion: template.openshift.io/v1
 kind: Template
@@ -180,7 +180,7 @@ To have Prometheus to gather metrics from itself, apply the permissions in prome
 
 ## Optional: Deploy example application
 
-If everything is working without metrics sources, go to the [Prometheus URL](https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/) and run the following command:
+If everything is working without metrics sources, go to the [Prometheus URL](https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/) and then run the following command:
 ```
 oc get route prom -n prometheus-project
 ```
