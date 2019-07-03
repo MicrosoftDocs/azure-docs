@@ -150,6 +150,12 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. Please put **kws.table** and **participants.properties** in the destination folder chosen above as these files are needed by the application.
 
+1. Set the LD_LIBRARY_LIB to the folder containing the *.so files
+
+     ```bash
+     export LD_LIBRARY_PATH=/home/wcaltest/JRE-Sample-Release
+     ```
+
 1. To run the standalone application
 
      ```bash
