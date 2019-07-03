@@ -85,9 +85,6 @@ This enables the following scenarios:
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
 - **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
 
-> [!NOTE]
-> During the public preview, if you add or remove a public IP address to a running firewall, existing inbound connectivity using DNAT rules may not function for 40 - 120 seconds. You can't remove the first public IP address assigned to the firewall unless the firewall is deallocated or deleted.
-
 ## Azure Monitor logging
 
 All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Azure Monitor logs.
@@ -107,8 +104,7 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Threat intelligence alerts may get masked|Network rules with destination 80/443 for outbound filtering masks threat intelligence alerts when configured to alert only mode.|Create outbound filtering for 80/443 using application rules. Or, change the threat intelligence mode to **Alert and Deny**.|
 |Azure Firewall uses Azure DNS only for name resolution|Azure Firewall resolves FQDNs using Azure DNS only. A custom DNS server isn't supported. There's no impact on DNS resolution on other subnets.|We're working to relax this limitation.|
 |Azure Firewall SNAT/DNAT doesn't work for private IP destinations|Azure Firewall SNAT/DNAT support is limited to Internet egress/ingress. SNAT/DNAT doesn't currently work for private IP destinations. For example, spoke to spoke.|This is a current limitation.|
-|Can't remove first public IP address|You can't remove the first public IP address assigned to the firewall unless the firewall is deallocated or deleted.|This is by design.|
-|If you add or remove a public IP address, the DNAT rules may not function temporarily.| If you add or remove a public IP address to a running firewall, existing inbound connectivity using DNAT rules may not function for 40 - 120 seconds.|This is a limitation of the public preview for this feature.|
+|Can't remove first public IP address using the portal|You can't remove the first public IP address using the Azure portal because it is associated with the firewall IP configuration. If you want to modify the IP address, you can use Azure PowerShell.|This is by design.|
 |Availability zones can only be configured during deployment.|Availability zones can only be configured during deployment. You can't configure Availability Zones after a firewall has been deployed.|This is by design.|
 |SNAT on inbound connections|In addition to DNAT, connections via the firewall public IP address (inbound) are SNATed to one of the firewall private IPs. This requirement today (also for Active/Active NVAs) to ensure symmetric routing.|To preserve the original source for HTTP/S, consider using [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) headers. For example, use a service such as [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) in front of the firewall. You can also add WAF as part of Azure Front Door and chain to the firewall.
 

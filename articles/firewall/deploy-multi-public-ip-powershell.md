@@ -21,49 +21,7 @@ This feature enables the following scenarios:
 - **DNAT** - You can translate multiple standard port instances to your backend servers. For example, if you have two public IP addresses, you can translate TCP port 3389 (RDP) for both IP addresses.
 - **SNAT** - Additional ports are available for outbound SNAT connections, reducing the potential for SNAT port exhaustion. At this time, Azure Firewall randomly selects the source public IP address to use for a connection. If you have any downstream filtering on your network, you need to allow all public IP addresses associated with your firewall.
 
-The following Azure PowerShell examples show how you can add, remove, and configure public IP addresses for Azure Firewall.
-
-> [!NOTE]
-> During the public preview, if you add or remove a public IP address to a running firewall, existing inbound connectivity using DNAT rules may not function for 40 - 120 seconds. You can't remove the first public IP address assigned to the firewall unless the firewall is deallocated or deleted.
-
-## Add a public IP address to an existing firewall
-
-In this example, the public IP address *azFwPublicIp1* as attached to the firewall.
-
-```azurepowershell
-$pip = New-AzPublicIpAddress `
-  -Name "azFwPublicIp1" `
-  -ResourceGroupName "rg" `
-  -Sku "Standard" `
-  -Location "centralus" `
-  -AllocationMethod Static
-
-$azFw = Get-AzFirewall `
-  -Name "AzureFirewall" `
-  -ResourceGroupName "rg"
-
-$azFw.AddPublicIpAddress($pip)
-
-$azFw | Set-AzFirewall
-```
-
-## Remove a public IP address from an existing firewall
-
-In this example, the public IP address *azFwPublicIp1* as detached from the firewall.
-
-```azurepowershell
-$pip = Get-AzPublicIpAddress `
-  -Name "azFwPublicIp1" `
-  -ResourceGroupName "rg"
-
-$azFw = Get-AzFirewall `
-  -Name "AzureFirewall" `
-  -ResourceGroupName "rg"
-
-$azFw.RemovePublicIpAddress($pip)
-
-$azFw | Set-AzFirewall
-```
+The following Azure PowerShell examples show how you can configure, add, and remove public IP addresses for Azure Firewall.
 
 ## Create a firewall with two or more public IP addresses
 
@@ -96,6 +54,45 @@ New-AzFirewall `
   -Location centralus `
   -VirtualNetwork $vnet `
   -PublicIpAddress @($pip1, $pip2)
+```
+
+## Add a public IP address to an existing firewall
+
+In this example, the public IP address *azFwPublicIp1* is attached to the firewall.
+
+```azurepowershell
+$pip = New-AzPublicIpAddress `
+  -Name "azFwPublicIp1" `
+  -ResourceGroupName "rg" `
+  -Sku "Standard" `
+  -Location "centralus" `
+  -AllocationMethod Static
+
+$azFw = Get-AzFirewall `
+  -Name "AzureFirewall" `
+  -ResourceGroupName "rg"
+
+$azFw.AddPublicIpAddress($pip)
+
+$azFw | Set-AzFirewall
+```
+
+## Remove a public IP address from an existing firewall
+
+In this example, the public IP address *azFwPublicIp1* is detached from the firewall.
+
+```azurepowershell
+$pip = Get-AzPublicIpAddress `
+  -Name "azFwPublicIp1" `
+  -ResourceGroupName "rg"
+
+$azFw = Get-AzFirewall `
+  -Name "AzureFirewall" `
+  -ResourceGroupName "rg"
+
+$azFw.RemovePublicIpAddress($pip)
+
+$azFw | Set-AzFirewall
 ```
 
 ## Next steps
