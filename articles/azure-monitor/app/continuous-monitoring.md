@@ -23,7 +23,7 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
    
 1. On the left menu, select **Pipelines**, and then select **Releases**. 
    
-1. Select **New pipeline**.
+1. Drop down the arrow next to **New** and select **New release pipeline**. Or, if you don't have a pipeline yet, select **New pipeline** on the page that appears.
    
 1. On the **Select a template** pane, search for and select **Azure App Service deployment with continuous monitoring**, and then select **Apply**. 
 
@@ -42,7 +42,7 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
    | **App type** | Drop down and select your app type. |
    | **App Service name** | Enter the name of your Azure App Service. |
    | **Resource Group name for Application Insights**    | Drop down and select the resource group you want to use. |
-   | **Application Insights resource name** | Drop down and select the Application Insights resource for the resource group you selected .
+   | **Application Insights resource name** | Drop down and select the Application Insights resource for the resource group you selected.
 
 1. In the left pane, select **Configure Application Insights Alerts**.
 
@@ -50,13 +50,13 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
 
 ## Modify alert rules
 
-Out of box, there are four alert rules: **Availability**, **Failed requests**, **Server response time**, and **Server exceptions**. You can change the alert rule settings to meet your service level needs. 
+Out of box, there are four alert rules: Availability, Failed requests, Server response time, and Server exceptions. You can change the alert rule settings to meet your service level needs. 
    
 1. To modify alert rule settings, in the **Azure Monitor Alerts** pane, select the ellipsis **...** next to **Alert rules**.
    
-1. In the **Alert rules** dialog, select the drop-down symbol next to an alert rule. 
+1. In the **Alert rules** dialog, select the drop-down symbol next to an alert rule, such as **Availability**. 
    
-1. Modify the **Threshold**, **Condition**, and **Period** to meet your requirements.
+1. Modify the **Threshold** and other settings to meet your requirements.
    
    ![Modify alert](media/continuous-monitoring/003.png)
    
@@ -79,7 +79,7 @@ To add deployment gates:
    
    ![Azure Monitor](media/continuous-monitoring/005.png)
    
-1. Under **Evaluation options**, change the values for **The time between re-evaluation of gates**, **The timeout after which gates faile**, and other options as desired. 
+1. Under **Evaluation options**, change the values for settings like **The time between re-evaluation of gates** and **The timeout after which gates fail** as desired. 
 
 ## Deployment gate status logs
 
@@ -97,4 +97,4 @@ You can see deployment gate behavior and other release steps in the release logs
 
 ## Next steps
 
-To learn more about Azure Pipelines try these [quickstarts.](https://docs.microsoft.com/azure/devops/pipelines)
+For more information about Azure Pipelines, see the [Azure Pipelines documentation](https://docs.microsoft.com/azure/devops/pipelines).
