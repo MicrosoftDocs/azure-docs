@@ -75,7 +75,7 @@ oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 
 The prometheus.yml file is a basic Prometheus config file. It sets the intervals and configures auto discovery in three projects (prometheus-project, app-project1, app-project2). In the previous config file, the auto-discovered endpoints are scraped over HTTP without authentication.
 
-For more information about scraping endpoints, see https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config.
+For more information about scraping endpoints, see [Prometheus scape config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
 
 ## Prepare the Alertmanager config file
@@ -108,7 +108,7 @@ Alertmanager.yml is the Alert Manager config file.
 > To verify the two previous steps, run the `oc get secret -n prometheus-project` command.
 
 ## Start Prometheus and Alertmanager
-Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus), and then download the [prometheus-standalone.yaml](
+Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) and download the [prometheus-standalone.yaml](
 https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) template. Apply the template to prometheus-project by entering the following configuration:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
@@ -132,7 +132,7 @@ metadata:
   annotations:
     "openshift.io/display-name": Prometheus service discovery role
     description: |
-      A role and rolebinding adding permissions required to perform service discovery in a given project.
+      Role and rolebinding added permissions required for service discovery in a given project.
     iconClass: fa fa-cogs
     tags: "monitoring,prometheus,alertmanager,time-series"
 parameters:
@@ -176,11 +176,11 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 To have Prometheus to gather metrics from itself, apply the permissions in prometheus-project.
 
 > [!NOTE]
-> You can verify if Role and RoleBinding were created correctly by running the `oc get role` and `oc get rolebinding` commands, respectively.
+> To verify if Role and RoleBinding were created correctly, run the `oc get role` and `oc get rolebinding` commands.
 
 ## Optional: Deploy example application
 
-If everything is working without any metrics sources, go to the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/), which can be found by running the following command:
+If everything is working without metrics sources, go to the [Prometheus URL](https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/) and run the following command:
 ```
 oc get route prom -n prometheus-project
 ```
@@ -206,9 +206,9 @@ For more details, select **Status** > **Targets**.
 
 You can add custom Prometheus instrumentation to your applications. The Prometheus Client library, which simplifies Prometheus metrics preparation, is ready for different programming languages.
 
-For more information, see the following libraries:
+For more information, see the following GitHub libraries:
 
- - Java: https://github.com/prometheus/client_java
- - Python: https://github.com/prometheus/client_python
- - Go: https://github.com/prometheus/client_golang
- - Ruby: https://github.com/prometheus/client_ruby
+ - [Java](https://github.com/prometheus/client_java)
+ - [Python](https://github.com/prometheus/client_python)
+ - [Go](https://github.com/prometheus/client_golang)
+ - [Ruby](https://github.com/prometheus/client_ruby)
