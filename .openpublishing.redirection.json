@@ -1401,6 +1401,11 @@
       "redirect_document_id": false
     },
     {
+    "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-none.md",
+    "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-container-create-index-none",
+    "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-conflict-policy.md",
       "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
       "redirect_document_id": false
