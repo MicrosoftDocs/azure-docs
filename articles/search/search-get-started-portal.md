@@ -149,7 +149,7 @@ Moving forward, you should now have a search index that's ready to query using t
 
    ![Search explorer command](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. From the **Index** dropdown tk dropdown? combobox? tk, choose  *hotels-sample*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2019-05-06).
+2. From the **Index** dropdown, choose  *hotels-sample*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2019-05-06).
 
    ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex.png)
 
@@ -219,9 +219,7 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 #### Example (linguistic analysis): `search=beaches&highlight=Description`
 
-* Full text search finds word forms with similar stem words. In this case, search results contain highlighted text for "beach", for hotels that have that word in their searchable fields, in response to a keyword search on "beaches". Different forms of the same word can appear in results because of linguistic analysis. 
-
-tk Any better example? Something where the plural has a significantly different form, e.g., mice vs mouse? tk 
+* Full text search recognizes basic variations in word forms. In this case, search results contain highlighted text for "beach", for hotels that have that word in their searchable fields, in response to a keyword search on "beaches". Different forms of the same word can appear in results because of linguistic analysis. 
 
 * Azure Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Search is the standard Lucene analyzer.
 
