@@ -20,7 +20,7 @@ Azure Functions Deployment Slots allow you to have different running instances o
 The following reflect how functions are affected by swapping slots:
 
 - Traffic redirection is seamless; no requests are dropped because of a swap.
-- If a function is running while a swap is initiated, execution continues and subsequent triggers are routed to the swapped app instance.
+- If a function is running during a swap, execution continues and subsequent triggers are routed to the swapped app instance.
 
 > [!NOTE]
 > Slots are not available for Linux runtimes on the Consumption plan.
@@ -30,12 +30,12 @@ The following reflect how functions are affected by swapping slots:
 There are a number of advantages to using deployment slots. The following scenarios describe common uses for slots:
 
 - **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
-- **Prewarming production**: Deploying to a slot instead of directly to production ensures the app is warmed up before being swapped into production.
-- **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can perform the same swap immediately to get your "last known good instance" back.
+- **Prewarming production**: Deploying to a slot instead of directly to production allows the app to warm up before going live to production.
+- **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
 
-## What happens during a swap?
+## Swap operations
 
-To perform a swap one slot is considered the source and the other the target. The source slot has the instance of the application that is applied to the target slot. The a following steps ensure the target slot doesn't experience downtime during a swap:
+To perform a swap one slot is considered the source and the other the target. The source slot has the instance of the application that is applied to the target slot. The following steps ensure the target slot doesn't experience downtime during a swap:
 
 1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. This includes the following settings: 
     - [Slot-specific](#which-settings-are-swapped) app settings and connection strings (if applicable)
@@ -44,31 +44,29 @@ To perform a swap one slot is considered the source and the other the target. Th
     
 1. **Wait for restarts and availability:** The swap waits for every instance in the source slot to complete its restart and to be available for requests. If any instance fails to restart, the swap operation reverts all changes to the source slot and stops the operation.
 
-1. **Cache initialization:** If [local cache](../app-service/overview-local-cache.md) is enabled, local cache initialization is triggered by making an HTTP request to the application root ("/") on each instance of the source slot. The process waits until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
-
 1. **Update routing:** If all instances on the source slot are warmed up successfully, the two slots complete the swap by switching routing rules. After this step, the target slot (for example, the production slot) has the app that's previously warmed up in the source slot.
 
 1. **Repeat operation:** Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances for the source slot.
 
-At any point of the swap operation, initialization of the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of where the swap succeeds or fails.
+At any point of the swap operation, initialization of the swapped apps happens on the source slot. A target slot remains online while the source slot is being prepared, whether the swap succeeds or fails.
 
 To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
 
-### Which settings are swapped?
+### Settings
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-If you want to designate a setting as "sticky", or not available for a swap, you can mark the setting as a deployment slot setting. To create a sticky setting, navigate to the **Configuration** page for that slot, add or edit a setting, then select the **deployment slot setting** box. 
+You can create "sticky" settings that are not available for a swap by marking them as a deployment slot setting. To create a sticky setting, navigate to the **Configuration** page for that slot, add or edit a setting, then select the **deployment slot setting** box. 
 
-## Deploy to a slot
+## Deployment
 
 Slots are empty when you create a slot. You can use any of the [supported deployment technologies](./functions-deployment-technologies.md) to deploy your application to a slot.
 
 ## Scaling
 
-All slots scale to the same amount of workers as the production slot. 
+All slots scale to the same number of workers as the production slot. 
 
-- For Consumption plans, all slots scale as as the function app scales.
+- For Consumption plans, all slots scale as the function app scales.
 - For App Service plans, the app scales to a fixed number of workers. Slots run on the same number of workers as the app plan.
 
 ## Add a slot
@@ -113,7 +111,7 @@ You can remove a slot via the [CLI](https://docs.microsoft.com/cli/azure/functio
 
 ## Automate slot management
 
-Using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest), you an automate the following actions for a slot:
+Using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest), you can automate the following actions for a slot:
 
 - [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
@@ -123,9 +121,9 @@ Using the [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deploymen
 
 ## Limitations
 
-The following limitations exist for deployment slots:
+Azure Functions deployment slots have the following limitations:
 
-- The number of slots available to an app depend on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under the App Service plan.
+- The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under the App Service plan.
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
 - Slots are not available for Linux runtimes on the Consumption plan.
 
