@@ -62,9 +62,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
     Once joined, HDInsight installed in the Resource Manager network can interact with resources in the classic network.
 
-2. Do you use forced tunneling? Forced tunneling is a subnet setting that forces outbound Internet traffic to a device for inspection and logging. HDInsight does not support forced tunneling. Either remove forced tunneling before deploying HDInsight into an existing subnet, or create a new subnet with no forced tunneling for HDInsight.
-
-3. Do you use network security groups, user-defined routes, or Virtual Network Appliances to restrict traffic into or out of the virtual network?
+2. Do you use network security groups, user-defined routes, or Virtual Network Appliances to restrict traffic into or out of the virtual network?
 
     As a managed service, HDInsight requires unrestricted access to several IP addresses in the Azure data center. To allow communication with these IP addresses, update any existing network security groups or user-defined routes.
     
@@ -103,7 +101,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
         For more information, see the [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md) document.
 
-4. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
+3. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
 
     * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
