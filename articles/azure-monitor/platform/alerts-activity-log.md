@@ -5,7 +5,7 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 06/25/2019
 ms.author: vinagara
 ---
 # Create, view, and manage activity log alerts using Azure Monitor  
@@ -18,16 +18,17 @@ These alerts are for Azure resources, can be created by using an Azure Resource 
 > [!IMPORTANT]
 > Alerts on Service Health notification can not be created via the interface for activity log alert creation. To learn more about creating and using service health notifications, see [Receive activity log alerts on service health notifications](alerts-activity-log-service-notifications.md).
 
+While creating the alert rules, ensure the following:
+
+- Subscription in the scope is not different from the subscription where the alert is created.
+- Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
+- There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
+- When the category is "administrative". You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
+
+
 ## Azure portal
 
-> [!NOTE]
-> 
->  While creating the alert rules, ensure the following:
-> 
-> - Subscription in the scope is not different from the subscription where the alert is created.
-> - Criteria must be level/status/ caller/ resource group/ resource id/ resource type/ event category on which the alert is configured.
-> - There is no  “anyOf” condition or nested conditions in the alert configuration JSON (basically, only one allOf is allowed with no further allOf/anyOf).
-> - When the category is "administrative". You must specify at least one of the preceding criteria in your alert. You may not create an alert that activates every time an event is created in the activity logs.
+Using Azure portal, user can create & modify activity log alert rules. And the experience is integrated with Azure activity log - to ensure seamless alert creation for specific events of interest.
 
 ### Create with Azure portal
 
@@ -214,11 +215,11 @@ where the sampleActivityLogAlert.parameters.json contains the values provided fo
 
 Activity log alerts have dedicated PowerShell cmdlets available:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Creates a new or update an existing activity log alert.
-- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Gets one or more activity log alert resources.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Enables an existing activity log alert and sets its Tags.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Disables an existing activity log alert and sets its tags.
-- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)	: Removes an activity log alert.
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert) : Creates a new or update an existing activity log alert.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert) : Gets one or more activity log alert resources.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert) : Enables an existing activity log alert and sets its Tags.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert) : Disables an existing activity log alert and sets its tags.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert)	: Removes an activity log alert.
 
 ## CLI
 

@@ -20,6 +20,101 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+
+## 2019-07-01
+
+### Azure Machine Learning Data Prep SDK v1.1.7
+
+We reverted a change that improved performance, as it was causing issues for some customers using Azure Databricks. If you experienced an issue on Azure Databricks, you can upgrade to version 1.1.7 using one of the methods below:
+1. Run this script to upgrade: `%sh /home/ubuntu/databricks/python/bin/pip install azureml-dataprep==1.1.7`
+2. Recreate the cluster, which will install the latest Data Prep SDK version.
+
+## 2019-06-25
+
+### Azure Machine Learning SDK for Python v1.0.45
+
++ **New features**
+  + Add decision tree surrogate model to mimic explainer in azureml-explain-model package
+  + Ability to specify a CUDA version to be installed on Inferencing images. Support for CUDA 9.0, 9.1, and 10.0.
+  + Information about Azure ML training base images are now available at [Azure ML Containers GitHub Repository](https://github.com/Azure/AzureML-Containers) and [DockerHub](https://hub.docker.com/_/microsoft-azureml)
+  + Added CLI support for pipeline schedule. Run "az ml pipeline -h" to learn more
+  + Added custom Kubernetes namespace parameter to AKS webservice deployment configuration and CLI.
+  + Deprecated hash_paths parameter for all pipeline steps
+  + Model.register now supports registering multiple individual files as a single model with use of the `child_paths` parameter.
+  
++ **Preview features**
+    + Scoring explainers can now optionally save conda and pip information for more reliable serialization and deserialization.
+    + Bug Fix for Auto Feature Selector.
+    + Updated mlflow.azureml.build_image to the new api, patched bugs exposed by the new implementation.
+
++ **Breaking changes**
+
++ **Bug fixes and improvements**
+  + Removed paramiko dependency from azureml-core. Added deprecation warnings for legacy compute target attach methods.
+  + Improve performance of run.create_children
+  + In mimic explainer with binary classifier, fix the order of probabilities when teacher probability is used for scaling shap values
+  + Improved error handling and message for Automated machine learning. 
+  + Fixed the iteration timeout issue for Automated machine learning.
+  + Improved the time-series transformation performance for Automated machine learning.
+
+## 2019-06-24
+
+### Azure Machine Learning Data Prep SDK v1.1.6
+
++ **New features**
+  + Added summary functions for top values (`SummaryFunction.TOPVALUES`) and bottom values (`SummaryFunction.BOTTOMVALUES`).
+
++ **Bug fixes and improvements**
+  + Significantly improved the performance of `read_pandas_dataframe`.
+  + Fixed a bug that would cause `get_profile()` on a Dataflow pointing to binary files to fail.
+  + Exposed `set_diagnostics_collection()` to allow for programmatic enabling/disabling of the telemetry collection.
+  + Changed the behavior of `get_profile()`. NaN values are now ignored for Min, Mean, Std, and Sum, which aligns with the behavior of Pandas.
+
+
+## 2019-06-10
+
+### Azure Machine Learning SDK for Python v1.0.43
+
++ **New features**
+  + Azure Machine Learning now provides first-class support for popular machine learning and data analysis framework Scikit-learn. Using [`SKLearn` estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py), users can easily train and deploy Scikit-learn models.
+    + Learn how to [run hyperparameter tuning with Scikit-learn using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
+  + Added support for creating ModuleStep in pipelines along with Module and ModuleVersion classes to manage reusable compute units.
+  + ACI webservices now support persistent scoring_uri through updates. The scoring_uri will change from IP to FQDN. The Dns Name Label for FQDN can be configured by setting the dns_name_label on deploy_configuration. 
+  + Automated machine learning new features:
+    + STL featurizer for forecasting
+    + KMeans clustering is enabled for feature sweeping
+  + AmlCompute Quota approvals just became faster! We have now automated the process to approve your quota requests within a threshold. For more information on how quotas work, learn [how to manage quotas](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+
++ **Preview features**
+    + Integration with [MLflow](https://mlflow.org) 1.0.0 tracking through azureml-mlflow package ([example notebooks](https://aka.ms/azureml-mlflow-examples)).
+    + Submit Jupyter notebook as a run. [API Reference Documentation](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
+    + Public Preview of [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) through azureml-contrib-datadrift package ([example notebooks](https://aka.ms/azureml-datadrift-example)). Data Drift is one of the top reasons where model accuracy degrades over time. It happens when data served to model in production is different from the data that the model was trained on. AML Data Drift detector helps customer to monitor data drift and sends alert whenever drift is detected. 
+
++ **Breaking changes**
+
++ **Bug fixes and improvements**
+  + RunConfiguration load and save supports specifying a full file path with full back-compat for previous behavior.
+  + Added caching in ServicePrincipalAuthentication, turned off by default.
+  + Enable logging of multiple plots under the same metric name.
+  + Model class now properly importable from azureml.core (`from azureml.core import Model`).
+  + In pipeline steps, `hash_path` parameter is now deprecated. New behavior is to hash complete source_directory, except files listed in .amlignore or .gitignore.
+  + In pipeline packages, various `get_all` and `get_all_*` methods have been deprecated in favor of `list` and `list_*`, respectively.
+  + azureml.core.get_run no longer requires classes to be imported before returning the original run type.
+  + Fixed an issue where some calls to WebService Update did not trigger an update.
+  + Scoring timeout on AKS webservices should be between 5ms and 300000ms. Max allowed scoring_timeout_ms for scoring requests has been bumped from 1 min to 5 min.
+  + LocalWebservice objects now have `scoring_uri` and `swagger_uri` properties.
+  + Moved outputs directory creation and outputs directory upload out of the user process. Enabled run history SDK to run in every user process. This should resolve some synchronization issues experienced by distributed training runs.
+  + The name of the azureml log written from the user process name will now include process name (for distributed training only) and PID.
+
+### Azure Machine Learning Data Prep SDK v1.1.5
+
++ **Bug fixes and improvements**
+  + For interpreted datetime values that have a 2-digit year format, the range of valid years has been updated to match Windows May Release. The range has been changed from 1930-2029 to 1950-2049.
+  + When reading in a file and setting `handleQuotedLineBreaks=True`, `\r` will be treated as a new line.
+  + Fixed a bug that caused `read_pandas_dataframe` to fail in some cases.
+  + Improved performance of `get_profile`.
+  + Improved error messages.
+
 ## 2019-05-28
 
 ### Azure Machine Learning Data Prep SDK v1.1.4

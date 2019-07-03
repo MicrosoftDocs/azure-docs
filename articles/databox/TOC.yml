@@ -112,10 +112,16 @@
       items:
       - name: Manage via Azure portal
         href: data-box-portal-ui-admin.md
-      - name: Move data to a blob tier
-        href: data-box-how-to-set-data-tier.md
-      - name: Troubleshoot Data Box Heavy issues
-        href: data-box-disk-troubleshoot.md 
+      - name: Troubleshoot
+        items:
+        - name: Unlock issues
+          href: data-box-disk-troubleshoot-unlock.md
+        - name: Data copy issues
+          href: data-box-disk-troubleshoot-data-copy.md
+        - name: Validation issues
+          href: data-box-disk-troubleshoot.md
+        - name: Upload issues
+          href: data-box-disk-troubleshoot-upload.md 
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md  
 
@@ -157,6 +163,8 @@
         href: data-box-local-web-ui-admin.md
       - name: Troubleshoot device issues
         href: data-box-troubleshoot.md 
+      - name: Move data to a blob tier
+        href: data-box-how-to-set-data-tier.md
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md 
       - name: Migrate

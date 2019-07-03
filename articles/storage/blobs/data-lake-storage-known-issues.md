@@ -19,7 +19,7 @@ This article lists the features and tools that are not yet supported or only par
 
 ## Blob storage APIs
 
-Blob storage APIs are disabled to prevent inadvertent data access issues that could arise because Blob Storage APIs aren't yet interoperable with Azure Data Lake Gen2 APIs.
+Blob storage APIs are disabled to prevent feature operability issues that could arise because Blob Storage APIs aren't yet interoperable with Azure Data Lake Gen2 APIs.
 
 ### What to do with existing tools, applications, and services
 
@@ -53,7 +53,6 @@ The following table lists all other features and tools that are not yet supporte
 | **AzCopy** | Version-specific support <br><br>Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.|
 | **Azure Blob storage Lifecycle management policies** | Not yet supported |
 | **Azure Content Delivery Network (CDN)** | Not yet supported|
-| **Azure Event Grid** | Not yet supported |
 | **Azure search** |Not yet supported|
 | **Azure Storage Explorer** | Version-specific support <br><br>Use only version `1.6.0` or higher. <br>Version `1.6.0` is available as a [free download](https://azure.microsoft.com/features/storage-explorer/).|
 | **Blob container ACLs** |Not yet supported|

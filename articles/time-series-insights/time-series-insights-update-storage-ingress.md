@@ -32,7 +32,7 @@ Like other Azure Storage blobs, Time Series Insights-created blobs let you read 
 
 For an overview of Azure Blob storage, see [Storage blobs introduction](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
 
-For more about the Parquet file type, see [Supported file types in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format).
+For more about the Parquet file type, see [Supported file types in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#parquet-format).
 
 ## Parquet file format
 

@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/17/2019
+ms.date: 6/6/2019
 ms.author: tomfitz
 ---
 
@@ -418,7 +418,7 @@ To get the same data as a file of comma-separated values, download [move-support
 | metricalerts | No | No |
 | notificationgroups | No | No |
 | notificationrules | No | No |
-| scheduledqueryrules | No | No |
+| scheduledqueryrules | Yes | Yes |
 | webtests | Yes | Yes |
 | workbooks | Yes | Yes |
 
@@ -559,8 +559,8 @@ To get the same data as a file of comma-separated values, download [move-support
 | expressroutecrossconnections | No | No |
 | expressroutegateways | No | No |
 | expressrouteports | No | No |
-| frontdoors | Yes | Yes |
-| frontdoorwebapplicationfirewallpolicies | Yes | Yes |
+| frontdoors | No | No |
+| frontdoorwebapplicationfirewallpolicies | No | No |
 | loadbalancers | Yes | Yes |
 | localnetworkgateways | Yes | Yes |
 | natgateways | Yes | Yes |

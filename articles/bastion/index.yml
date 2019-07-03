@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Bastion Documentation
+metadata:
+  document_id: 
+  title: Bastion
+  meta.description: Learn how to use Azure Bastion
+  author: cherylmc
+  ms.service: Bastion
+  ms.topic: landing-page
+  ms.date: 07/02/2019
+  ms.author: cherylmc
+abstract:
+  description: Learn how to use Azure Bastion to connect to a virtual machine. Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://go.microsoft.com/fwlink/?linkid=2095604
+      width: 250  
+    title: Working with Azure Bastion (1:03)
+    href: https://go.microsoft.com/fwlink/?linkid=2095517
+    width: 250
+sections:
+- title: Create and manage Azure Bastion (Preview)
+  items:
+  - type: paragraph
+    text: Learn how to configure an Azure Bastion host, then connect to a virtual machine.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/bastion/bastion-create-host-portal">Create and modify an Azure Bastion host</a>
+    - html: <a href="/azure/bastion/bastion-connect-vm-ssh">Connect to a Windows virtual machine</a>
+    - html: <a href="/azure/bastion/bastion-connect-vm-rdp">Connect to a Linux virtual machine</a>
+    - html: <a href="/azure/bastion/bastion-faq">Read the Azure Bastion FAQ</a>

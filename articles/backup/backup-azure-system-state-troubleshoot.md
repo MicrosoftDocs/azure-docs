@@ -15,6 +15,29 @@ ms.author: srinathvasireddy
 
 This article describes solutions for issues that you might encounter while using System State Backup.
 
+## Basic troubleshooting
+We recommend you perform the below validation, before you start troubleshooting System State backup:
+
+- [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Ensure there is network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50)
+- Ensure Microsoft Azure Recovery Services is running (in Service console). If required restart and retry the operation
+- [Ensure 5-10% free volume space is available on scratch folder location](https://aka.ms/AB-AA4dwtt)
+- [Check if another process or antivirus software is interfering with Azure Backup](https://aka.ms/AB-AA4dwtk)
+- [Scheduled backup fails, but manual backup works](https://aka.ms/ScheduledBackupFailManualWorks)
+- Ensure your OS has the latest updates
+- [Ensure unsupported drives and files with unsupported attributes are excluded from backup](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Ensure **System Clock** on the protected system is configured to correct time zone <br>
+- [Ensure that the server has at least .Net Framework version 4.5.2 and higher](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- If you are trying to **reregister your server** to a vault, then: <br>
+  - Ensure the agent is uninstalled on the server and it is deleted from portal <br>
+  - Use the same passphrase that was initially used for registering the server <br>
+- In case of offline backup ensure that Azure PowerShell version 3.7.0 is installed on both source and copy computer before you begin offline backup operation
+- [Consideration when Backup agent is running on an Azure virtual machine](https://aka.ms/AB-AA4dwtr)
+
+### Limitation
+- Recovering to different hardware using System State recovery is not recommended by Microsoft
+- System State backup currently supports "on premise" Windows servers, this functionality is not available for Azure VMs.
+
 ## Pre-requisite
 
 Before we troubleshoot System State Backup with Azure Backup, ensure you preform the below pre-requisites check.  
@@ -90,7 +113,7 @@ To validate Windows Server Backup status, perform the below:
 
   * Ensure WSB backup is working properly, by running the below command from elevated command prompt:
 
-      ` wbadmin start systemstatebackup -backuptarget:X: -quiet `
+      `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
       >Replace X with the drive letter of the volume where you want to store the system state back up image.
