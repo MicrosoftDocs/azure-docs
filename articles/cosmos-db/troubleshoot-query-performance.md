@@ -31,9 +31,9 @@ This article covers how to identify, diagnose, and troubleshoot Azure Cosmos DB 
 Use [QueryMetrics](https://docs.microsoft.com/azure/cosmos-db/profile-sql-api-query) to troubleshoot slow or expensive queries.
 
 * You need to set `FeedOptions.PopulateQueryMetrics = true` to have `QueryMetrics` in the response.
-* `QueryMetrics` class has an overloaded `.ToString()` function which can be invoked to get the string representation of `QueryMetrics`. 
+* `QueryMetrics` class has an overloaded `.ToString()` function that can be invoked to get the string representation of `QueryMetrics`. 
 * For cross partition queries the `FeedResponse` will consist of a dictionary of `QueryMetrics` where the keys are partitions that your query fanned out to and the values are the `QueryMetrics` for that partition. 
-* The `QueryMetrics` class has an overloaded + operator which can be used to aggregate `QueryMetrics` across continuations, partitions, and queries. 
+* The `QueryMetrics` class has an overloaded + operator that can be used to aggregate `QueryMetrics` across continuations, partitions, and queries. 
 * The metrics can be utilized to derive the following insights, among others: 
 
     * Whether any specific component of the query pipeline took abnormally long to complete (in order of hundreds of milliseconds or more). 
@@ -44,9 +44,9 @@ Use [QueryMetrics](https://docs.microsoft.com/azure/cosmos-db/profile-sql-api-qu
 ### <a name="drain-continuations-fully"></a> Drain continuations fully
 Don't think you're getting all the results? Be sure to drain the continuation fully. In other words, use the continuation token to drain all the results.
 
-This can be achieved with either of the following patterns:
+Fully draining can be achieved with either of the following patterns:
 
-  * Continue processing results while continuation not empty (i.e. while continuation token != null).
+  * Continue processing results while continuation is not empty.
   * Continue processing while query has more results. 
   ```csharp
             // using AsDocumentQuery you get access to whether or not the query HasMoreResults
@@ -78,7 +78,7 @@ To verify that the current [Indexing Policy]((https://docs.microsoft.com/en-us/a
   * Exclude unused paths for faster writes.
 
 ### <a name="spatial-ordering-of-points"></a> Spatial data: Check ordering of points
-Note that points within a Polygon must be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
+Points within a Polygon must be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 
 ### <a name="slow-queries"></a> Slow queries: Identify where time is spent 
 
@@ -86,15 +86,15 @@ Use `QueryMetrics` to determine where the time is being spent:
 
 1. Look at the `TotalExecutionTime` from the `QueryMetrics`. 
 2. If this time does not account for the total end to end time, then the issue is not with the query execution itself. 
-3. If the issue is persistent, it is likely the time is being spent in client side transport/network.
+3. If the issue is persistent, it is likely the time is being spent in client-side transport/network.
 4. Double check that the client and Azure region are collocated. 
  
 ### <a name="expensive-queries-no-results"></a> Expensive queries with no results
 
-Note that the RUs charged on the query are not only from the size of the response, 
+The RUs charged on the query are not only from the size of the response, 
 but the work done by the entire query processing pipeline. 
 
-For example, the query could have done a lot of work in evaluating multiple filter conditions before deriving the fact that there are no documents that satisfy the query. 
+For example, the query could have done a large amount of work in evaluating multiple filter conditions before deriving the fact that there are no documents that satisfy the query. 
 
 Example query: 
 
@@ -107,9 +107,9 @@ WHERE root.timestamp > "2018-01-01"
 
 ```
 
-Each of the individual predicates themselves may be very expensive to evaluate from the index, whereas the intersection of these predicates may return 0 results. 
+Each of the individual predicates themselves may be expensive to evaluate from the index, whereas the intersection of these predicates may return no results. 
 
-However, the query has performed significant work in this case, and thus this will reflect in the request charges. 
+However, the query has performed significant work in this case, and that will be reflected in the request charges. 
 
 ## <a name="common-reasons"></a> Common reasons for slow/expensive queries
 
@@ -195,7 +195,7 @@ In order to achieve optimal performance for Azure Cosmos DB queries, there are a
 
 8. Filter before and between JOINS (rather than after)
 
-9. Note that not all string system functions can utilize the index. If the expression can be translated into a range of string values, then it can utilize the index; otherwise, it cannot. 
+9. Choose system functions which utilize the index when possible. Not all string system functions can utilize the index. If the expression can be translated into a range of string values, then it can utilize the index; otherwise, it cannot. 
 
     Here is the list of string functions that can utilize the index: 
     
@@ -223,7 +223,7 @@ In order to achieve optimal performance for Azure Cosmos DB queries, there are a
 
     ```
 
-  * Avoid system functions in the filter/WHERE clause which are not served by the index e.g. CONTAINS, UPPER, LOWER. 
+  * Avoid system functions in the filter/WHERE clause that are not served by the index (CONTAINS, UPPER, LOWER). 
   * To achieve performant queries for UPPER/LOWER filters, insert and 
 maintain the desired casing. 
 
@@ -235,7 +235,7 @@ maintain the desired casing.
 
     ```
     
-    Store the JSON data in all caps or store both casings i.e. "Joe" and "JOE". 
+    Store the JSON data in all caps or store both casings. For example, store both "Joe" and "JOE". 
     
     Then the query becomes:
     
@@ -246,7 +246,7 @@ maintain the desired casing.
     ```
 
 ## **Recommended Documents**
-Please refer to documents below on how to measure RUs per query, get execution statistics to tune your queries, and more:
+Refer to documents below on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
 * [Get SQL query execution metrics using .NET SDK](https://docs.microsoft.com/azure/cosmos-db/profile-sql-api-query)
 * [Tuning query performance with Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-metrics)
