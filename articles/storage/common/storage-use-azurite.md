@@ -34,7 +34,7 @@ After installing Azurite, see [Run Azurite from a command-line](#run-azurite-fro
 
 ## Install and run the Azurite Docker image
 
-Use [DockerHub](https://hub.docker.com/) to pull the [latest Azurite image](https://hub.docker.com/_/microsoft-azure-storage-azurite) with the following command:
+Use [DockerHub](https://hub.docker.com/) to pull the [latest Azurite image](https://hub.docker.com/_/microsoft-azure-storage-azurite) by using the following command:
 
 ```console
 docker pull mcr.microsoft.com/azure-storage/azurite
@@ -42,33 +42,37 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 **Run the Azurite Docker image**:
 
-The following command runs the Azurite Docker image:
+The following command runs the Azurite Docker image. The `-p 10000:10000` parameter redirects requests from host machine's port 10000 to the Docker instance.
 
 ```console
 docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
 ```
 
-The `-p 10000:10000` parameter redirects requests from host machine's port 10000 to the Docker instance.
-
 **Specify the workspace location**:
+
+In the following example, the `-v c:/azurite:/data` parameter specifies `c:/azurite` as the Azurite persisted data location.
 
 ```console
 docker run -p 10000:10000 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
 ```
 
-The `-v c:/azurite:/data` parameter specifies `c:/azurite` as the Azurite persisted data location.
-
 **Set all Azurite parameters**:
+
+This example shows how to set all of the command-line parameters. The `-p 8888:8888` parameter redirects requests from host machine's port 8888 to the Docker instance.
 
 ```console
 docker run -p 8888:8888 -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite -l /workspace -d /workspace/debug.log --blobPort 8888 --blobHost 0.0.0.0
 ```
 
-The `-p 8888:8888` parameter redirects requests from host machine's port 8888 to the Docker instance. See [Command-line options](#command-line-options) for more information about configuring Azurite at start-up.
+See [Command-line options](#command-line-options) for more information about configuring Azurite at start-up.
 
 ## Install and run the Azurite Visual Studio Code extension
 
-Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurite* in the **EXTENSIONS:MARKETPLACE**. Alternatively, install the Azurite extension from the [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite).
+Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurite* in the **EXTENSIONS:MARKETPLACE**.
+
+![Visual Studio Code extensions marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
+
+Alternatively, navigate to [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
 
 You can quickly start or close Azurite by clicking on **Azurite Blob Service** in the VS Code status bar or issuing the following commands.
 
@@ -81,19 +85,21 @@ The extension supports the following Visual Studio Code commands:
    * **Azurite: Close** - Blob Close blob service
    * **Azurite: Clean** - Blob Clean blob service
 
-To configure Azurite within Visual Studio Code, select the extensions pane and right-click on Azurite. Select **Configure Extension Settings**. The following settings are supported:
+To configure Azurite within Visual Studio Code, select the extensions pane and right-click on **Azurite**. Select **Configure Extension Settings**.
 
-   * **azurite.blobHost** - Blob service listening endpoint, by default 127.0.0.1
-   * **azurite.blobPort** - Blob service listening port, by default 10000
-   * **azurite.location** - Workspace location path, by default existing Visual Studio Code opened folder
-   * **azurite.silent** - Silent mode to disable access log in Visual Studio channel, by default false
-   * **azurite.debug** - Output debug log into Azurite channel, by default false
+![Azurite configure extension settings](media/storage-use-azurite/azurite-configure-extension-settings.png)
+
+The following settings are supported:
+
+   * **Azurite: Blob Host** - Blob service listening endpoint, by default 127.0.0.1
+   * **Azurite: Blob Port** - Blob service listening port, by default 10000
+   * **Azurite: Debug** - Output debug log into Azurite channel, by default false
+   * **Azurite: Location** - Workspace location path, by default existing Visual Studio Code working folder
+   * **Azurite: Silent** - Silent mode to disable access log in Visual Studio channel, by default false
 
 ## Clone, build, and run Azurite from the GitHub repository
 
-This installation method requires that you have [Git](https://git-scm.com/) installed. You'll also want to have a [GitHub account](https://github.com).
-
-Clone the GitHub repository for the project by using the following console command.
+This installation method requires that you have [Git](https://git-scm.com/) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
 
 ```console
 git clone https://github.com/Azure/Azurite.git
@@ -111,7 +117,7 @@ After installing and building Azurite, see [Run Azurite from a command-line](#ru
 
 ## Run Azurite from a command-line
 
-To get started immediately, create a directory called c:\azurite, then launch Azurite by issuing the following command:
+To get started immediately, create a directory called **c:\azurite**, then launch Azurite by issuing the following command:
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
@@ -172,11 +178,11 @@ azurite --blobPort 0
 **Optional** Azurite stores data to the local disk during execution. Use the **--location** switch to specify a path as the workspace location. By default, the current process working directory will be used.
 
 ```console
-azurite -l c:\azurite
+azurite --location c:\azurite
 ```
 
 ```console
-azurite --location c:\azurite
+azurite -l c:\azurite
 ```
 
 ### Access log
@@ -184,11 +190,11 @@ azurite --location c:\azurite
 **Optional** By default, the access log is displayed in the console window. Disable the display of the access log by using the **--silent** switch.
 
 ```console
-azurite -s
+azurite --silent
 ```
 
 ```console
-azurite --silent
+azurite -s
 ```
 
 ### Debug log
@@ -196,16 +202,16 @@ azurite --silent
 **Optional** The debug log includes detailed information on every request and exception stack trace. Enable the debug log by providing a valid local file path to the **--debug** switch.
 
 ```console
-azurite -d path/debug.log
+azurite --debug path/debug.log
 ```
 
 ```console
-azurite --debug path/debug.log
+azurite -d path/debug.log
 ```
 
 ## Authentication for tools and SDKs
 
-You may use any Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), to connect Azurite with any authentication strategy. Authentication is required. Azurite supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications.
+Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) by using any authentication strategy. Authentication is required. Azurite supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications.
 
 ### Default Storage Account
 
@@ -239,11 +245,11 @@ In Azure Storage Explorer, connect to Azurite by clicking the **Add Account** ic
 
 ## Differences between Azurite and Azure Storage
 
-Because it runs as a local instance, there are functional differences between Azurite and an Azure Storage account in the cloud.
+There are functional differences between a local instance of Azurite and an Azure Storage account in the cloud.
 
 ### Storage accounts
 
-Azurite supports a default account as General Storage Account v2 and provides features.
+Azurite supports the following default account as a General Storage Account v2.
 
 * Account name: `devstoreaccount1`
 * Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
@@ -252,11 +258,11 @@ Azurite supports a default account as General Storage Account v2 and provides fe
 
 The service endpoints for Azurite are different from the endpoints of an Azure Storage account. The local computer doesn't do domain name resolution, requiring Azurite endpoints to be local addresses.
 
-When you address a resource in an Azure Storage account, use the following scheme. The account name is part of the URI host name. The resource being addressed is part of the URI path:
+When you address a resource in an Azure Storage account, the account name is part of the URI host name. The resource being addressed is part of the URI path:
 
 `<http|https>://<account-name>.<service-name>.core.windows.net/<resource-path>`
 
-As an example, the following URI is a valid address for a blob in an Azure Storage account:
+The following URI is a valid address for a blob in an Azure Storage account:
 
 `https://myaccount.blob.core.windows.net/mycontainer/myblob.txt`
 
@@ -270,23 +276,11 @@ The following address might be used for accessing a blob in Azurite:
 
 ### Scaling and performance
 
-Azurite doesn't scale to support many concurrent clients. There's no performance guarantee. Performance depends highly on the environment in which Azurite is deployed. Azurite is intended for development and testing purposes.
+Azurite is not a scalable storage service and does not support a large number of concurrent clients. There's no performance guarantee. Performance depends highly on the environment in which Azurite is deployed. Azurite is intended for development and testing purposes.
 
 ### Error handling
 
 We've tried to align Azurite with Azure Storage error handling logic, but there are differences. For example, error messages may be different, while error status codes will align.
-
-### API version strategy
-
-We strive to make Azurite compatible with Azure Storage APIs:
-
-* An Azurite instance has a baseline Azure Storage API version.
-  * A Swagger definition with the same API version will be used to generate protocol layer APIs and interfaces.
-  * Azurite should implement all the possible features provided in this API version.
-* If an incoming request has the same API version Azurite provides, Azurite should handle the request with parity to Azure Storage.
-* If an incoming request has a higher API version than Azurite, Azurite will return a **VersionNotSupportedByEmulator** error (HTTP status code 400 - Bad Request).
-* If an incoming request has a lower API version header, the emulator attempts to handle the request with the Azurite baseline API version behavior.
-* Azurite will return the API version in the response header as the baseline API version
 
 ### RA-GRS
 
