@@ -43,7 +43,7 @@ To create a large partition key, while you create a new container using the Azur
 
 To create a container with large partition key using PowerShell, include `"version" = 2` for the `partitionKey` object.
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-large-partition-key.ps1 "Create a container for SQL (Core) API with a large partition key")]
+[!code-powershell[main](../../../../powershell_scripts/cosmosdb/sql/ps-container-large-partition-key.ps1 "Create a container for SQL (Core) API with a large partition key")]
 
 ## Supported SDK versions
 

@@ -15,7 +15,7 @@ The following table includes links to commonly used sample Azure PowerShell scri
 | | |
 |---|---|
 |[Create an account, database and container](scripts/powershell/sql/ps-sql-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an Azure Cosmos account, database and container. |
-|[Create a container with a large partition key](scripts/powershell/sql/ps-sql-create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create a container with a large partition key. |
+|[Create a container with a large partition key](scripts/powershell/sql/ps-sql-container-create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create a container with a large partition key. |
 |[List or get databases or containers](scripts/powershell/sql/ps-sql-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get database or containers. |
 |[Get RU/s](scripts/powershell/sql/ps-sql-ru-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get RU/s for a database or container. |
 |[Update RU/s](scripts/powershell/sql/ps-sql-ru-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Update RU/s for a database or container. |
