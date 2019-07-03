@@ -129,6 +129,8 @@ This scenario covers a single workspace design in your IT organizations subscrip
 
 All resources supporting infrastructure and applications maintained by the different teams are configured to forward their collected data to the shared workspace in the IT organizations subscription based on the sources specified, monitoring solutions and Insights enabled such as Application Insights and Azure Monitor for VMs. etc. Users on each team are granted access to logs and metrics for resources they have been given access to.
 
+For customers who have already deployed multiple workspaces and are interested in consolidating to the resource-context access model, we recommend you take an incremental approach to migrate to the recommended access model, and you don't attempt to achieve this quickly or aggressively. Following a phased approach to plan,  migrate, validate, and retire following a reasonable timeline will help avoid any unplanned incidents or unexpected impact to your cloud operations. If your timetable is for example 60 days, set this as your retention limit for the workspace you are migrating from. While you are reconfiguring resources to report to the shared workspace, you can still analyze the data in the original workspace as necessary and once the transition is complete and the 
+
 While planning your migration to this model, consider the following:
 
 * Make sure that your application teams can work within the existing resource-context functionality.
@@ -136,9 +138,7 @@ While planning your migration to this model, consider the following:
 * Configure the workspace to enable resource-only permissions.
 * Remove application teams permission to read and query the workspace.
 
-Once you have designed your workspace architecture, you should enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). This can provide a built-in definition that would automatically apply to all Azure resources. For example, you could set a policy to ensure that all your Azure resources in a particular region send all their diagnostic logs to a particular workspace.
-
-For customers who have already deployed multiple workspaces and are interested in consolidating to the resource-context access model, we recommend you take an incremental approach to migrate to the recommended access model, and you don't attempt to achieve this quickly or aggressively. Following a phased approach to plan,  migrate, validate, and retire following a reasonable timeline will help avoid any unplanned incidents or unexpected impact to your cloud operations. If your timetable is for example 60 days, set this as your retention limit for the workspace you are migrating from. While you are reconfiguring resources to report to the shared workspace, you can still analyze the data in the original workspace as necessary and once the transition is complete and the 
+Once you have deployed your workspace architecture, you should enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). This can provide a built-in definition that would automatically apply to all Azure resources. For example, you could set a policy to ensure that all your Azure resources in a particular region send all their diagnostic logs to a particular workspace.
 
 ## Next steps
 
