@@ -21,8 +21,6 @@ We tend to think that administrator accounts are the only accounts that need pro
 
 To achieve a reasonable balance of security and usability, users shouldn’t be prompted every single time they sign-in. Authentication requests that reflect normal user behavior, such as signing in from the same device from the same location, have a low chance of compromise. Only sign-ins that are deemed risky and show characteristics of a bad actor should be prompted with MFA challenges.
 
-![Require MFA for users](./media/howto-baseline-protect-end-users/baseline-policy-end-user-protection.png)
-
 End user protection is a risk-based MFA [baseline policy](concept-baseline-protection.md) that protects all users in a directory, including all administrator roles. Enabling this policy requires all users to register for MFA using the Authenticator App. Users can ignore the MFA registration prompt for 14 days, after which they will be blocked from signing in until they register for MFA. Once registered for MFA, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until their password is reset and risk events have been dismissed.
 
 > [!NOTE]
