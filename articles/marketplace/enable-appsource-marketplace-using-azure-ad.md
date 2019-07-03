@@ -91,4 +91,4 @@ Use Azure AD to support one of the following actions:
 ## Next steps
 
 - Make sure you've [registered in the Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Sign in to [Cloud Partner Portal](https://cloudpartner.azure.com/) to create or complete your offer.
+- See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information on how to create or complete your offer.

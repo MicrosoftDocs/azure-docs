@@ -6,7 +6,7 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 05/27/2019
+ms.date: 06/18/2019
 ms.author: anuragm
 ---
 
@@ -20,8 +20,7 @@ To view the feature consideration, see the article, [About SQL Server backup in 
 
 ## SQL Server permissions
 
-To configure protection for a SQL Server database on a virtual machine, the **AzureBackupWindowsWorkload** extension must be installed on that virtual machine. If you receive the error, **UserErrorSQLNoSysadminMembership**, it means your SQL Instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set permissions for non-marketplace SQL VMs](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
+To configure protection for a SQL Server database on a virtual machine, the **AzureBackupWindowsWorkload** extension must be installed on that virtual machine. If you receive the error, **UserErrorSQLNoSysadminMembership**, it means your SQL Instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set permissions for non-marketplace SQL VMs](backup-azure-sql-database.md#set-vm-permissions).
 
 ## Backup Type Unsupported
 

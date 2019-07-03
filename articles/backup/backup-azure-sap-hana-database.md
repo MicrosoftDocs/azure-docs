@@ -18,15 +18,13 @@ ms.author: raynew
 > [!NOTE]
 > This feature is currently in public preview. It's not currently production ready, and doesn't have a guaranteed SLA. 
 
-
 ## Scenario support
 
 **Support** | **Details**
 --- | ---
 **Supported geos** | Australia South East, East Australia <br> Brazil South <br> Canada Central, Canada East <br> South East Asia, East Asia <br> East US, East US 2, West Central US, West US, West US 2, North Central US, Central US, South Central US<br> India Central, India South <br> Japan East, Japan West<br> Korea Central, Korea South <br> North Europe, West Europe <br> UK South, UK West
 **Supported VM operating systems** | SLES 12 with SP2 or SP3.
-**Supported HANA versions** | SSDC on HANA 1.x, MDC on HANA 2.x <= SPS03
-
+**Supported HANA versions** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
 
 ### Current limitations
 
@@ -35,12 +33,9 @@ ms.author: raynew
 - You can only back up databases in Scale-Up mode.
 - You can back up database logs every 15 minutes. Log backups only begin to flow after a successful full backup for the database has completed.
 - You can take full and differential backups. Incremental backup isn't currently supported.
-- You can't modify the backup policy after you apply it for SAP HANA backups. If you want to back up with different settings, create a new policy, or assign a different policy. 
-    - To create a new policy, in the vault click **Policies** > **Backup Policies** > **+Add** > **SAP HANA in Azure VM**, and specify policy settings.
-    - To assign a different policy, in the properties of the VM running the database, click the current policy name. Then on the **Backup Policy** page you can select a different policy to use for the backup.
-
-
-
+- You can't modify the backup policy after you apply it for SAP HANA backups. If you want to back up with different settings, create a new policy, or assign a different policy.
+  - To create a new policy, in the vault click **Policies** > **Backup Policies** > **+Add** > **SAP HANA in Azure VM**, and specify policy settings.
+  - To assign a different policy, in the properties of the VM running the database, click the current policy name. Then on the **Backup Policy** page you can select a different policy to use for the backup.
 
 ## Prerequisites
 
@@ -53,14 +48,16 @@ Make sure you do the following before you configure backups:
 
         ![Package installation option](./media/backup-azure-sap-hana-database/hana-package.png)
 
-2.	On the VM, install and enable ODBC driver packages from the official SLES package/media using zypper, as follows:
+2. On the VM, install and enable ODBC driver packages from the official SLES package/media using zypper, as follows:
 
-    ``` 
+    ```unix
     sudo zypper update
     sudo zypper install unixODBC
     ```
-4.	Allow connectivity from the VM to the internet, so that it can reach Azure, as described in procedure below.
 
+3. Allow connectivity from the VM to the internet, so that it can reach Azure, as described in procedure [below](#set-up-network-connectivity).
+
+4. Run the pre-registration script in the virtual machine where HANA is installed as a root user. The script is provided [in the portal](#discover-the-databases) in the flow and is required to set up the [right permissions](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).
 
 ### Set up network connectivity
 
@@ -76,7 +73,7 @@ Onboard to the public preview as follows:
 - In the portal, register your subscription ID to the Recovery Services service provider by [following this article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal). 
 - For PowerShell, run this cmdlet. It should complete as "Registered".
 
-    ```
+    ```powershell
     PS C:>  Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
@@ -85,7 +82,6 @@ Onboard to the public preview as follows:
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Discover the databases
-
 
 1. In the vault, in **Getting Started**, click **Backup**. In **Where is your workload running?**, select **SAP HANA in Azure VM**.
 2. Click **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
@@ -100,7 +96,7 @@ Onboard to the public preview as follows:
 6. Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
 
     ![Discover SAP HANA databases](./media/backup-azure-sap-hana-database/hana-discover.png)
-    
+
 ## Configure backup  
 
 Now enable backup.
@@ -112,6 +108,7 @@ Now enable backup.
 5. Track the backup configuration progress in the **Notifications** area of the portal.
 
 ### Create a backup policy
+
 A backup policy defines when backups are taken, and how long they're retained.
 
 - A policy is created at the vault level.
@@ -185,6 +182,5 @@ If you want to take a local backup (using HANA Studio) of a database that's bein
 
 ## Next steps
 
+[Learn about](backup-azure-sap-hana-database-troubleshoot.md) how to troubleshoot common errors while using SAP HANA backup in Azure VMs.
 [Learn about](backup-azure-arm-vms-prepare.md) backing up Azure VMs.
-
-

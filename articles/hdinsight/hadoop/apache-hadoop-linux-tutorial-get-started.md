@@ -55,11 +55,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 > [!NOTE]  
 > For other cluster creation methods and understanding the properties used in this quickstart, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
 
-## Troubleshoot
-
-If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-hadoop-customize-cluster-linux.md#access-control).
-
 ## Clean up resources
+
 After you complete the quickstart, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
 
 > [!NOTE]  
@@ -80,4 +77,4 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 In this quickstart, you learned how to create an Apache Hadoop cluster in HDInsight using a Resource Manager template. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Apache Hive on HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extract, transform, and load data using Interactive Query on HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

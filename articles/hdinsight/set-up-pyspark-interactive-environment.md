@@ -7,7 +7,7 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 1/17/2019
+ms.date: 06/13/2019
 ---
 
 # Set up the PySpark interactive environment for Visual Studio Code

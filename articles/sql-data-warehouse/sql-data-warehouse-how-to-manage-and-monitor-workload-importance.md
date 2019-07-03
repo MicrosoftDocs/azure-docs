@@ -67,4 +67,4 @@ GO
 - For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Go to Configure Workload Importance ](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [Go to Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md)

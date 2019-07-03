@@ -20,7 +20,7 @@ In this quickstart, you'll use [SQL Server Management Studio][ssms-install-lates
 
 ## Prerequisites
 
-- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
   || Single database | Managed instance |
   |:--- |:--- |:---|
@@ -31,7 +31,6 @@ In this quickstart, you'll use [SQL Server Management Studio][ssms-install-lates
   |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
   |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
 
   > [!IMPORTANT]
   > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.

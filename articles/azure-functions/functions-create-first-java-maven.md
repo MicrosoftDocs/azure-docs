@@ -58,8 +58,8 @@ mvn archetype:generate `
 
 ```cmd
 mvn archetype:generate ^
-	-DarchetypeGroupId=com.microsoft.azure ^
-	-DarchetypeArtifactId=azure-functions-archetype
+	"-DarchetypeGroupId=com.microsoft.azure" ^
+	"-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
 Maven will ask you for values needed to finish generating the project. For _groupId_, _artifactId_, and _version_ values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The _appName_ value must be unique across Azure, so Maven generates an app name based on the previously entered _artifactId_  as a default. The _packageName_ value determines the Java package for the generated function code.
@@ -104,7 +104,7 @@ public class Function {
 
 ```
 
-## Reference bindings
+## Enable extension bundles
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
