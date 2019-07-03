@@ -68,7 +68,6 @@ After the tool connects to your IoT hub, it displays an overview page that lists
 - To delete a device identity, select **Delete**. Review the device details before you complete this action to be sure you're deleting the right device identity.
 - You can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to find devices in the IoT hub's registry. The tool also supports querying by `capabilityID` and `interfaceID`:
 
-    ![Image](img/.png)
 
 ## Interact with a device
 
@@ -97,7 +96,6 @@ You can view the read-only properties defined in an interface on the **Propertie
 - Submit the change.
 
 After you submit a change, you can track the update status: **synching**, **success**, or **error**. When the synching is complete, you see the new value of your property in the **Reported Property** column. If you navigate to other pages before the synching completes, the tool still notifies you when the update is complete. You can also use the tool's notification center to see the notification history:
-![Image](img/.png)
 
 #### Commands
 
@@ -111,8 +109,6 @@ To send a command to a device, go to the **Commands** page:
 #### Telemetry
 
 To view the telemetry for the selected interface, go to its **Telemetry** page:
-
-![Image](img/.png)
 
 ## Clean up resources
 
