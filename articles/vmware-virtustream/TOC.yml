@@ -11,7 +11,7 @@
 - name: Tutorials
   items:
   - name: 4 - Create an NSX-T network
-    href: tutorial-create-t1-ls.md
+    href: tutorials-create-t1-ls.md
 - name: Concepts
   items:
   - name: Private clouds and clusters
