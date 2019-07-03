@@ -125,7 +125,7 @@
       href: troubleshoot/runbooks.md
       displayName: troubleshoot
     - name: Start/Stop VMs
-    href: troubleshoot/start-stop-vm.md
+      href: troubleshoot/start-stop-vm.md
 - name: Update Management
   items:
   - name: Update Management overview
