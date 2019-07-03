@@ -6,11 +6,11 @@ author: baselden
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: baselden
-ms.reviewer: barbaraselden
+ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
 ---
