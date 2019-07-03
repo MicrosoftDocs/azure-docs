@@ -25,7 +25,7 @@ ms.author: msangapu-msft
 
 ## Link storage to your web app (preview)
 
- Both [Azure Files Shares](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli] and [Premium Files Shares](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) are supported. You use Azure Files Shares in this how-to. To mount an Azure Files Share to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type must be AzureFiles.
+ Both [Azure Files Shares](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) and [Premium Files Shares](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) are supported. You use Azure Files Shares in this how-to. To mount an Azure Files Share to a directory in your App Service app, you use the [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type must be AzureFiles.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory of form c:<directory name> >
