@@ -39,7 +39,7 @@ Learn more about how billing works for [triggers](#triggers) and [actions](#acti
 
 ## Fixed pricing model
 
-An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for [built-in actions and triggers](../connectors/apis-list.md#built-in) and also for [Standard connectors](../connectors/apis-list.md#managed-connectors). Your ISE includes one free Enterprise connector, which includes as many connections as you want.
+An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for [built-in actions and triggers](../connectors/apis-list.md#built-in) and also for [Standard connectors](../connectors/apis-list.md#managed-connectors). Your ISE includes one free Enterprise connector, which includes as many connections as you want, and one free integration account.
 
 > [!NOTE]
 > Within an ISE, built-in triggers and actions display the 
