@@ -18,6 +18,14 @@ This experiment uses historical flight and weather data to predict if a schedule
 
 This problem can be approached as a classification problem, predicting two classes -- delayed, or on time. To build a classifier, this model using a large number of examples from historic flight data.
 
+## Prerequisites
+
+[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
+
+4. Select the **Open** button for the Sample 6 experiment:
+
+    ![Open the experiment](media/ui-sample-classification-predict-flight-delay/open-sample6.png)
+
 ## Get the data
 
 This experiment uses the **Flight Delays Data** dataset. It's part of the TranStats data collection from the U.S. Department of Transportation. The dataset contains flight delay information from April to October  2013. Before uploading the data to the visual interface, it has been pre-processed as follows:
