@@ -157,22 +157,7 @@ The following table shows the operating systems and languages for which portal e
 
 ## Deployment slots
 
-When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see [the Azure App Service Slots documentation](../app-service/deploy-staging-slots.md).
-
-### Deployment slots levels of support
-
-There are two levels of support:
-
-* _Generally available (GA)_ - Fully supported and approved for production use.
-* _Preview_ - Not yet supported but is expected to reach GA status in the future.
-
-| OS/Hosting Plan | Level of Support |
-| --------------- | ------ |
-| Windows Consumption | Preview |
-| Windows Premium (Preview) | Preview |
-| Windows Dedicated | Generally available |
-| Linux Consumption | Unsupported |
-| Linux Dedicated | Generally available |
+When you deploy your function app to Azure, you can deploy to a separate deployment slot instead of directly to production. For more information on deployment slots, see the [Azure Functions Deployment Slots](../app-service/deploy-staging-slots.md) documentation for details.
 
 ## Next steps
 
