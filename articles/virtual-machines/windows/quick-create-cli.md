@@ -41,7 +41,10 @@ az group create --name myResourceGroup --location eastus
 
 ## Create virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword* as the password. You need to change the value of `--admin-password` before running this command to something appropriate to your environment. These values will be used later when you connect to the VM.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name. 
+
+You must change the value for `--admin-password` or it will fail. Change it to a password that meets the [password requirements for Azure VMs](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm
+). The user name and password will be used later, when you connect to the VM.
 
 ```azurecli-interactive
 az vm create \
