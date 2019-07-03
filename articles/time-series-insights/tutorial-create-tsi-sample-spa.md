@@ -4,7 +4,7 @@ description: Learn how to create a single-page web application that queries and 
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Tutorial: Create an Azure Time Series Insights single-page web app
 
-This tutorial guides you through the process of creating your own single-page web application (SPA) to access Azure Time Series Insights data. 
+This tutorial guides you through the process of creating your own single-page web application (SPA) to access Azure Time Series Insights data.
 
 In this tutorial, you'll learn about:
 
@@ -47,55 +47,14 @@ This tutorial also uses data from the sample application's Time Series Insights 
 
 ## Register the application with Azure AD
 
-Before you build the application, you must register it with Azure AD. Registration provides the identity configuration, so the application can use OAuth support for single sign-on. OAuth requires SPAs to use the Implicit authorization grant type. You update the authorization in the application manifest. An application manifest is a JSON representation of the application's identity configuration.
-
-1. Sign in to the [Azure portal](https://portal.azure.com) by using your Azure subscription account.  
-1. Select **Azure Active Directory** > **App registrations** > **New application registration**.
-
-   [![Azure portal - Begin the Azure AD application registration](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png#lightbox)
-
-1. In the **Create** pane, fill in the required parameters.
-
-   Parameter|Description
-   ---|---
-   **Name** | Enter a meaningful registration name.  
-   **Application type** | Leave as **Web app/API**.
-   **Sign-on URL** | Enter the URL for the sign-in (home) page of the application. Because the application will later be hosted in Azure App Service, you must use a URL in the https:\//azurewebsites.net domain. In this example, the name is based on the registration name.
-
-   Select **Create** to create the new application registration.
-
-   [![Azure portal - The Create option in the Azure AD application registration pane](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png#lightbox)
-
-1. Resource applications provide REST APIs that other applications can use. The APIs are also registered with Azure AD. APIs provide granular, secured access to client applications by exposing *scopes*. Because your application calls the Azure Time Series Insights API, you must specify the API and scope. Permission is granted for the API and scope at runtime. Select **Settings** > **Required permissions** > **Add**.
-
-   [![Azure portal - The Add option for adding Azure AD permissions](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png#lightbox)
-
-1. In the **Add API access** pane, select **1 Select an API** to specify the Azure Time Series Insights API. In the **Select an API** pane, in the search box, enter **azure time**. Then, select **Azure Time Series Insights** in the results list. Choose **Select**.
-
-   [![Azure portal - The search option for adding Azure AD permissions](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png#lightbox)
-
-1. To select a scope for the API, in the **Add API access** pane, select **2 Select permissions**. In the **Enable Access** pane, select the **Access Azure Time Series Insights service** scope. Choose **Select**. You're returned to the **Add API access** pane. Select **Done**.
-
-   [![Azure portal - Set a scope for adding Azure AD permissions](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png#lightbox)
-
-1. In the **Required permissions** pane, the Azure Time Series Insights API is now shown. You also need to provide pre-consent permission for the application to access the API and scope for all users. Select **Grant permissions**, and then select **Yes**.
-
-   [![Azure portal - The Grant permissions option for adding Azure AD required permissions](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png#lightbox)
-
-1. As we discussed earlier, you also must update the application manifest. In the horizontal menu at the top of the pane (the "breadcrumb"), select the application name to return to the **Registered app** pane. Select **Manifest**, change the `oauth2AllowImplicitFlow` property to `true`, and then select **Save**.
-
-   [![Azure portal - Update the Azure AD manifest](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png#lightbox)
-
-1. In the breadcrumb, select the application name to return to the **Registered app** pane. Copy the values for **Home page** and **Application ID** for your application. You use these properties later in the tutorial.
-
-   [![Azure portal - Copy the Home Page URL and Application ID values for your application](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png#lightbox)
+[!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
 ## Build and publish the web application
 
 1. Create a directory to store your application project files. Then, go to each of the following URLs. Right-click the **Raw** link in the upper-right corner of the page, and then select **Save as** to save the files in your project directory.
 
-   - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): HTML and JavaScript for the page
-   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): CSS style sheet
+   - [*index.html*](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html): the HTML and JavaScript for the page
+   - [*sampleStyles.css*]( https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css): the CSS style sheet
 
    > [!NOTE]
    > Depending on the browser, you might need to change the file extensions to .html or .css before you save the file.
@@ -139,7 +98,7 @@ Before you build the application, you must register it with Azure AD. Registrati
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. To configure the app to use your Azure AD app registration ID, change the `clientID` and `postLogoutRedirectUri` values to use the values for **Application ID** and **Home Page** that you copied in step 9 in [Register the application with Azure AD](#register-the-application-with-azure-ad).
+   1. To configure the app to use your Azure AD app registration ID, change the `clientID` value to use the the **Application ID** you copied in **step 3** when you [registered the application to use Azure AD](#register-the-application-with-azure-ad). If you've created a **Logout URL** in Azure AD, set that value as the `postLogoutRedirectUri` value.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -179,9 +138,9 @@ Before you build the application, you must register it with Azure AD. Registrati
 
 Error code/condition | Description
 ---------------------| -----------
-*AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the **Reply URL** property. Go to **Settings** > **Reply URLs** for your Azure AD application registration. Verify that the **Sign-on** URL specified in step 3 in [Register the application with Azure AD](#register-the-application-with-azure-ad) is present.
-*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in step 6 in [Build and publish the web application](#build-and-publish-the-web-application) must match the value specified under **Settings** > **Reply URLs** in your Azure AD application registration. Be sure to also change the value for **Destination URL** to use *https* per step 5 in [Build and publish the web application](#build-and-publish-the-web-application).
-The web application loads, but it has an unstyled, text-only sign-in page, with a white background. | Verify that the paths discussed in step 4 in [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
+*AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the **Reply URL** property. Go to **Settings** > **Reply URLs** for your Azure AD application registration. Verify that the **Redirect URI** you had the option to specify in **step 2** when you [registered the application to use Azure AD](#register-the-application-with-azure-ad) is present.
+*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in **step 6** in [Build and publish the web application](#build-and-publish-the-web-application) must match the value specified under **Settings** > **Reply URLs** in your Azure AD application registration. Be sure to also change the value for **Destination URL** to use *https* per **step 5** in [Build and publish the web application](#build-and-publish-the-web-application).
+The web application loads, but it has an unstyled, text-only sign-in page, with a white background. | Verify that the paths discussed in **step 4** in [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
 
 ## Clean up resources
 
