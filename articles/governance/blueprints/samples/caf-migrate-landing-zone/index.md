@@ -13,7 +13,7 @@ ms.custom: fasttrack-new
 
 The CAF Migration landing zone blueprint is a set of controls to help you setup for migrating your first workload and manage your cloud estate in alignment with the Microsoft Cloud Adoption Framework for Azure (CAF).
 
-The [CAF Migration landing zone](../CAF-Governance.md) blueprint sample extends this sample.
+The [CAF Governance](../caf-governance/index.md) blueprint sample extends this sample.
 
 ## Architecture
 
@@ -26,11 +26,11 @@ This environment is composed of several Azure services used to provide a secure,
 enterprise-ready governance. This environment is
 composed of:
 
-- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used for the VMs deployed in the shared services environment
-- Deploy [Log Analytics](../../../../azure-monitor/overview.md) for the entire environment
-- Deploy [Azure Site Recovery](../../../../site-recovery/site-recovery-intro.md) for the environment.
+- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used for the Certificates, Keys and Secrets deployed in the shared services environment
+- Deploy [Log Analytics](../../../../azure-monitor/overview.md) enabling diagnostics for the entire environment
+- Deploy [Azure Site Recovery](../../../../site-recovery/site-recovery-overview.md) to migrate your on-prem assets.
 - Deploy [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) Hub
-- Deploy [Azure Migrate Project](../../../../azure-migrate/azure-migrate-overview.md) Hub
+- Deploy [Azure Migrate Project](../../../..//migrate/migrate-overview.md) Hub for discovery and assessment.
 
 
 
@@ -44,12 +44,12 @@ For more information, see the [Microsoft Cloud Adoption Framework for Azure](/az
 
 ## Next steps
 
-You've reviewed the overview and architecture of the CAF Governance blueprint sample.
+You've reviewed the overview and architecture of the CAF Migrate landing zone blueprint sample.
 Next, visit the following articles to learn about the control mapping and how to deploy this
 sample:
 
 > [!div class="nextstepaction"]
->  [CAF Governance blueprint - Deploy steps](./deploy.md)
+>  [CAF Migrate landing zone blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 

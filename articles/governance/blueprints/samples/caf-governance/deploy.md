@@ -14,7 +14,6 @@ ms.custom: fasttrack-new
 To deploy the CAF governance blueprint blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
-> - Deploy the [CAF governance](../caf-governance/index.md) blueprint sample
 > - Create a new blueprint from the sample
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
@@ -104,18 +103,6 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 
      The parameters defined in this section are used by many of the artifacts in the blueprint
      definition to provide consistency.
-        
-       /*Abdul to verify below*/
-
-     - **Organization name**: Enter a short-name for your organization. This property is primarily
-       used for naming resources.
-     - **Shared Service Subscription ID**: Subscription ID where the [ISO 27001 Shared Services](../iso27001-shared/index.md)
-       blueprint sample is assigned.
-     - **Default subnet address prefix**: The CIDR notation for the virtual network default subnet.
-       Default value is _10.1.0.0/16_.
-     - **Workload location**: Determines what location the artifacts are deployed to. Not all
-       services are available in all locations. Artifacts deploying such services provide a
-       parameter option for the location to deploy that artifact to.
 
    - Artifact parameters
 
@@ -139,19 +126,13 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Append CostCenter TAG to Resource Groups|Policy|Policy_CostCenter_Tag|**UnLocked** - Append CostCenter TAG & its value from the Resource Group.|
-|n/a|n/a|Organization|**UnLocked** - Enter your organization name (e.g. Contoso), must be unique|
-|n/a|n/a|HUB-RG-Location|**UnLocked** - Select 1 Azure Region for Deployment|
-|n/a|n/a|Policy_Allowed-Locations|**UnLocked** - Which Azure Regions will you allow resources to be built in?|
-|n/a|n/a|Policy_Allowed-VM-SKUs|**UnLocked** - Allowed virtual machine SKUs|
-|n/a|n/a|Policy_Allowed-StorageAccount-SKUs|**UnLocked** - SKU used in Diagnostic Log storage accounts|
-|n/a|n/a|Policy_Allowed-Resource-Types|**UnLocked** - Which Azure Resources you want to allow in your environment|
-|n/a|n/a|Policy_CostCenter_Tag|**UnLocked** - Append CostCenter TAG & its value from the Resource Group|
-|n/a|n/a|LocalAdmin-Username|**UnLocked** - KeyVault-Secret LocalAdmin Username|
-|n/a|n/a|Local-Admin-Password|**UnLocked** - KeyVault-Secret LocalAdmin Password|
-|n/a|n/a|KeyVault-user-id|**UnLocked** - AAD object ID of the user that requires access to Key Vault.|
-|n/a|n/a|LogAnalytics_DataRetention|**UnLocked** - Number of days data will be retained in Log Analytics|
-|n/a|n/a|LogAnalytics_Location|**UnLocked** - Region to use when establishing the workspace|
+|Deploy Policy|Policy|Policy_Allowed-Locations|**Locked** - Which Azure Regions will you allow resources to be built in?|
+|Deploy Policy|Policy|Policy_Allowed-VM-SKUs|**Locked** - Allowed virtual machine SKUs|
+|Deploy Policy|Policy|Policy_Allowed-StorageAccount-SKUs|**Locked** - SKU used in Diagnostic Log storage accounts|
+|Deploy Policy|Policy|Policy_Allowed-Resource-Types|**Locked** - Which Azure Resources you want to allow in your environment|
+|Deploy Policy|Policy|Policy_CostCenter_Tag|**Locked** - Append CostCenter TAG and its value from the Resource Group|
+|Deploy Log Analytics|Resource Manager template|LogAnalytics_DataRetention|**Locked** - Number of days data will be retained in Log Analytics|
+|Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region to use when establishing the workspace|
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.custom: fasttrack-new
 To deploy the Azure Blueprints CAF migrate landing zone blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
-> - Deploy the [CAF migrate landing zone](../caf-migrate-landing-zone/index.md) blueprint sample
+> - Deploy the [CAF Governance](../caf-governance/index.md) blueprint sample
 > - Create a new blueprint from the sample
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
@@ -36,11 +36,8 @@ First, implement the blueprint sample by creating a new blueprint in your enviro
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
-
-   - **Blueprint name**: Provide a name for your copy of the ISO 27001 ASE/SQL workload blueprint
-     sample.
-   - **Definition location**: Use the ellipsis and select the management group to save your copy of
-     the sample to.
+   - **Blueprint name**: Provide a name for your copy of the CAF Migrate landing zone blueprint sample.
+   - **Definition location**: Use the ellipsis and select the management group or subscription to save your copy of the sample to.
 
 1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the
    page.
@@ -64,7 +61,7 @@ away from the CAF migrate landing zone guidance.
 
 1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a
    **Version** for your copy of the blueprint sample. This property is useful for if you make a
-   modification later. Provide **Change notes** such as "First version published from the ISO 27001
+   modification later. Provide **Change notes** such as "First version published from the CAF Migrate landing zone
    blueprint sample." Then select **Publish** at the bottom of the page.
 
 ## Assign the sample copy
@@ -109,7 +106,7 @@ provided to make each deployment of the copy of the blueprint sample unique.
      The parameters defined in this section are used by many of the artifacts in the blueprint
      definition to provide consistency.
 
-       - **Organization**: Enter your organization name (e.g. Contoso), must be unique.
+       - **Organization**: Enter your organization name such as Contoso or Fabrikam, must be unique.
        - **AzureRegion**: Select one Azure Region for Deployment.
        - **IPAddress_Space**: Provide first 2 octets i.e. 10.0.	
        - **KV-AccessPolicy**: User ID to grant permissions to in Key Vault.
@@ -125,7 +122,7 @@ provided to make each deployment of the copy of the blueprint sample unique.
      and their descriptions, see [Artifact parameters table](#artifact-parameters-table).
 
 1. Once all parameters have been entered, select **Assign** at the bottom of the page. The blueprint
-   assignment is created and artifact deployment begins. Deployment takes roughly an hour. To check
+   assignment is created and artifact deployment begins. Deployment takes roughly five minutes. To check
    on the status of deployment, open the blueprint assignment.
 
 > [!WARNING]
@@ -139,38 +136,10 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Log Analytics resource group|Resource group|Name|**Locked** - Concatenates the **Organization name** with `-workload-log-rg` to make the resource group unique.|
-|Log Analytics resource group|Resource group|Location|**Locked** - Uses the blueprint parameter.|
-|Log Analytics template|Resource Manager template|Service tier|Sets the tier of the Log Analytics workspace. Default value is _PerNode_.|
-|Log Analytics template|Resource Manager template|Log retention in days|Data retention in days. Default value is _365_.|
-|Log Analytics template|Resource Manager template|Location|Region used for creating the Log Analytics workspace. Default value is _West US 2_.|
-|Network resource group|Resource group|Name|**Locked** - Concatenates the **Organization name** with `-workload-net-rg` to make the resource group unique.|
-|Network resource group|Resource group|Location|**Locked** - Uses the blueprint parameter.|
-|Network Security Group template|Resource Manager template|Log retention in days|Data retention in days. Default value is _365_.|
-|Virtual Network and Route Table template|Resource Manager template|Azure firewall private IP|Configures the private IP of the [Azure firewall](../../../../firewall/overview.md). Should be part of the CIDR notation defined in _ISO 27001: Shared Services_ artifact parameter **Azure Firewall subnet address prefix**. Default value is _10.0.4.4_.|
-|Virtual Network and Route Table template|Resource Manager template|Shared services Subscription ID|Value used to enable VNET peering between a Workload and Shared Services.|
-|Virtual Network and Route Table template|Resource Manager template|Virtual Network address prefix|The CIDR notation for the virtual network. Default value is _10.1.0.0/16_.|
-|Virtual Network and Route Table template|Resource Manager template|Default subnet address prefix|The CIDR notation for the virtual network default subnet. Default value is _10.1.0.0/16_.|
-|Virtual Network and Route Table template|Resource Manager template|ADDS IP address|IP address of the first ADDS VM. This value is used as custom VNET DNS.|
-|Key Vault resource group|Resource group|Name|**Locked** - Concatenates the **Organization name** with `-workload-kv-rg` to make the resource group unique.|
-|Key Vault resource group|Resource group|Location|**Locked** - Uses the blueprint parameter.|
-|Key Vault template|Resource Manager template|AAD object ID|The AAD object identifier of the account that requires access to the Key Vault instance. No default value and can't be left blank. To locate this value from the Azure portal, search for and select "Users" under _Services_. Use the _Name_ box to filter for the account name and select that account. On the _User profile_ page, select the "Click to copy" icon next to the _Object ID_.|
-|Key Vault template|Resource Manager template|Log retention in days|Data retention in days. Default value is _365_.|
-|Key Vault template|Resource Manager template|Key Vault SKU|Specifies the SKU of the Key Vault that is created. Default value is _Premium_.|
-|Key Vault template|Resource Manager template|Azure SQL Server admin username|The username used to access Azure SQL Server. Must match same property value in **Azure SQL Database template**. Default value is _sql-admin-user_.|
-|Azure SQL Database resource group|Resource group|Name|**Locked** - Concatenates the **Organization name** with `-workload-azsql-rg` to make the resource group unique.|
-|Azure SQL Database resource group|Resource group|Location|**Locked** - Uses the blueprint parameter.|
-|Azure SQL Database template|Resource Manager template|Azure SQL Server admin username|Username for the Azure SQL Server. Must match same property value in **Key Vault template**. Default value is _sql-admin-user_.|
-|Azure SQL Database template|Resource Manager template|Azure SQL Server admin password (Key Vault Resource ID)|The Resource ID of the Key Vault. Use "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" and replace `{subscriptionId}` with your Subscription ID and `{orgName}` with the **Organization name** blueprint parameter.|
-|Azure SQL Database template|Resource Manager template|Azure SQL Server admin password (Key Vault Secret Name)|Username of the SQL Server admin. Must match value in **Key Vault template** property **Azure SQL Server admin username**.|
-|Azure SQL Database template|Resource Manager template|Log retention in days|Data retention in days. Default value is _365_.|
-|Azure SQL Database template|Resource Manager template|AAD admin object ID|AAD object ID of the user that will get assigned as an Active Directory admin. No default value and can't be left blank. To locate this value from the Azure portal, search for and select "Users" under _Services_. Use the _Name_ box to filter for the account name and select that account. On the _User profile_ page, select the "Click to copy" icon next to the _Object ID_.|
-|Azure SQL Database template|Resource Manager template|AAD admin login|Currently, Microsoft accounts (such as live.com or outlook.com) can't be set as admin. Only users and security groups within your organization can be set as admin. No default value and can't be left blank. To locate this value from the Azure portal, search for and select "Users" under _Services_. Use the _Name_ box to filter for the account name and select that account. On the _User profile_ page, copy the _User name_.|
-|App Service Environment resource group|Resource group|Name|**Locked** - Concatenates the **Organization name** with `-workload-ase-rg` to make the resource group unique.|
-|App Service Environment resource group|Resource group|Location|**Locked** - Uses the blueprint parameter.|
-|App Service Environment template|Resource Manager template|Domain name|Name of the Active Directory created by the sample. Default value is _contoso.com_.|
-|App Service Environment template|Resource Manager template|ASE location|App Service Environment location. Default value is _West US 2_.|
-|App Service Environment template|Resource Manager template|Application Gateway log retention in days|Data retention in days. Default value is _365_.|
+|Deploy vNET Landing Zone|Resource Manager template|IPAddress_Space|**Locked** - Provide first 2 octets i.e. 10.0|
+|Deploy Key Vault|Resource Manager template|KV-AccessPolicy|**Locked** - Group or User Object ID to grant permissions to in Key Vault|
+|Deploy Log Analytics|Resource Manager template|LogAnalytics_DataRetention|**Locked** - Number of days data will be retained in in Log Analytics|
+|Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region used when establishing the workspace|
 
 ## Next steps
 

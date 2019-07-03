@@ -13,9 +13,6 @@ ms.custom: fasttrack-new
 
 The CAF Governance Blueprint is a set of controls to help you manage your cloud estate in alignment with the Microsoft Cloud Adoption Framework for Azure (CAF).
 
-The [CAF Governance](../create-from-sample.md)
-blueprint sample extends this sample.
-
 ## Architecture
 
 The CAF Governance blueprint sample deploys foundation infrastructure resources in Azure that can
@@ -40,7 +37,7 @@ The blueprint also defines and deploys [Azure Policies](../../../policy/overview
 - Tagging (CostCenter) 
     - Tag Resource Group
     - Append resources in resource group with the CostCenter Tag
-    - llowed Azure Region for Resources
+    - Allowed Azure Region for Resources
 	- Allowed Storage Account SKUs
 	- Allowed Azure VM SKUs	
 	- Allowed Azure Resource Types
