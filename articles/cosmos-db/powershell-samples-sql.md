@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Azure PowerShell samples for Azure Cosmos DB SQL (Core) API
 
-The following table includes links to commonly used sample Azure PowerShell scripts for Azure Cosmos DB for Core (SQL) API. For a complete listing of all PowerShell scripts see, [Cosmos DB PowerShell Samples for SQL (Core) API on GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb/sql)
+The following table includes links to commonly used Azure PowerShell scripts for Azure Cosmos DB for SQL (Core) API.. For a complete listing of all PowerShell scripts see, [Cosmos DB PowerShell Samples for SQL (Core) API on GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb/sql)
 
 | | |
 |---|---|
