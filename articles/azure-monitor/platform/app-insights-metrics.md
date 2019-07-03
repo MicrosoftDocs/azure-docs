@@ -357,7 +357,7 @@ CPU consumption by *all* processes running on the monitored server instance.
 |Percentage|Average, Min, Max|Cloud role instance
 
 >[!NOTE]
-> Processor time metric is not available for the application hosted in Azure App Services. Use  [Process CPU](../../azure-monitor/app/app-insights-metrics.md#process-cpu-performancecountersprocesscpupercentage) metric to track CPU utilization of the web applications hosted in App Services.
+> Processor time metric is not available for the application hosted in Azure App Services. Use  [Process CPU](#process-cpu-performancecountersprocesscpupercentage) metric to track CPU utilization of the web applications hosted in App Services.
 
 ```Kusto
 performanceCounters
