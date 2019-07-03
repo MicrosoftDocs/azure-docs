@@ -150,6 +150,10 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 
 You can delete the related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
 
+## Next steps
+
+You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
+
 > [!div class="checklist"]
 > * Use DevOps Projects to deploy an ASP.NET Core app to Azure Function
 > * Configure Azure DevOps and an Azure subscription 
