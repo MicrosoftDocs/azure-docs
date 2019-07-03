@@ -17,9 +17,14 @@ ms.collection: M365-identity-device-management
 
 # Choose the right federation protocol for your multi-tenant application
 
-As you develop your software as a service (SaaS) application, you must select the federation protocol that best meets your and your customers’ needs. This decision is based on your development platform, and your desire to integrate with data available within your customers’ Office 365 and Azure AD ecosystem.
+When you develop your software as a service (SaaS) application, you must select the federation protocol that best meets your and your customers’ needs. This decision is based on your development platform, and your desire to integrate with data available within your customers’ Office 365 and Azure AD ecosystem.
 
 See the complete list of [protocols available for SSO integrations](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) with Azure Active Directory.
+The following table compares 
+* Open Authentication 2.0 (OAuth 2.0)
+* Open ID Connect (OIDC)
+* Security Assertion Markup Language (SAML)
+* Web Services Federation (WSFed)
 
 | Capability| OAuth / OIDC| SAML / WSFed |
 | - |-|-|
@@ -45,13 +50,13 @@ The authorization inherent in these protocols enables your application to access
 
 Using OAuth 2.0 and OIDC simplifies your customers’ end-user experience when adopting SSO for your application. You can easily define the permission sets necessary, which are then automatically represented to the administrator or end user consenting.
 
-Additionally, using these protocols enables your customers to use Conditional Access and MFA policies to control access to the applications. Microsoft provides libraries and code samples across multiple technology platforms to aid your development.
+Additionally, using these protocols enables your customers to use Conditional Access and MFA policies to control access to the applications. Microsoft provides libraries and [code samples across multiple technology platforms](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) to aid your development.  
 
 ### Implementation
 
-You register your application with Microsoft Identity, an OAuth 2.0 provider. You can then also register your OAuth-based application with any other desired Identity Providers.
+You register your application with Microsoft Identity, which is an OAuth 2.0 provider. You could then also register your OAuth 2.0-based application with any other Identity Provider that you wish to integrate with. 
 
-For information on how to implement these protocols for SSO to web apps, see [Authorize access to web applications using OpenID Connect and Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code). For information on how to implement these protocols for SSO in mobile apps, see the following documentation:
+For information on how to register your application and implement these protocols for SSO to web apps, see [Authorize access to web applications using OpenID Connect and Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code).  For information on how to implement these protocols for SSO in mobile apps, see the following: 
 
 * [Android](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-android)
 
@@ -61,13 +66,13 @@ For information on how to implement these protocols for SSO to web apps, see [Au
 
 ## SAML 2.0 and WSFed
 
-Security Assertion Markup Language (SAML) is generally used for web applications. See [How Azure uses the SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-protocol-reference) for an overview. 
+Security Assertion Markup Language (SAML) is usually used for web applications. See [How Azure uses the SAML protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-protocol-reference) for an overview. 
 
 Web Services Federation (WSFed) is an [industry standard](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .Net platform.
 
 ### Benefits
 
-SAML 2.0 is a mature standard and most technology platforms support open source libraries for SAML 2.0. You can provide your customers an administration interface to configure SAML SSO. They can configure SAML SSO for Microsoft Azure AD,  and any other identity provider that supports SAML 2
+SAML 2.0 is a mature standard and most technology platforms support open-source libraries for SAML 2.0. You can provide your customers an administration interface to configure SAML SSO. They can configure SAML SSO for Microsoft Azure AD,  and any other identity provider that supports SAML 2
 
 ### Trade-offs
 
@@ -75,16 +80,15 @@ When using SAML 2.0 or WSFed protocols for mobile applications, certain conditio
 
 ### Implementation
 
-Microsoft does not provide libraries for SAML implementation or recommend specific libraries. There are many open source libraries available.
+Microsoft does not provide libraries for SAML implementation or recommend specific libraries. There are many open-source libraries available.
 
-## SSO and Using Microsoft Graph
+## SSO and Using Microsoft Graph Rest API 
 
-*KYLE CONTENT FOR GRAPH WHAT IS HERE*
+Microsoft Graph is the data fabric across all of Microsoft 365, including Office 365, Windows 10 and Enterprise Mobility and Security, and additional products such as Dynamics 365. This includes the core schemas of the entities such as Users, Groups, Calendar, Mail, Files, and more, that drive user productivity. Microsoft Graph offers three interfaces for developers a REST based API, Microsoft Graph data connect, and Connectors that allow developers to add their own data into the the Microsoft Graph.  
 
+Using any of the above protocols for SSO enables your application’s access to the rich data available through the Microsoft Graph REST API. This  enables your customers  to get more value from their investment in Microsoft 365. For example,  your application can call the Microsoft Graph API to integrate with your customers’ Office 365 instance and surface users’ Microsoft Office and SharePoint items within your application. 
 
-Using any of the above protocols for SSO enables you leverage the rich data available through the Microsoft Graph to enable your customers to better integrate your application into their Microsoft ecosystems. For example, using these modern protocols can enable your application to use Microsoft Graph to integrate with your customers’ Office 365 implementation and surface users’ Microsoft Office and Sharepoint items within your application.
-
-If you are using OAuth/OIDC protocols with Microsoft Libraries, then the experience is seamless for Azure AD customers because the same token can be used for invoking Microsoft Graph APIs. For SAML or WSFed, you must add additional code within your application to get the OAuth token for invoking Microsoft Graph
+If you are using Open ID Connect  to authenticate, then your development experience is seamless  because you will use OAuth2, the foundation of Open ID Connect, to acquire tokens can be used for invoking Microsoft Graph APIs. If your application is using SAML or WSFed, you must add additional code within your application to get these OAuth2 to acquire the tokens  required to  invoking Microsoft Graph APIs. 
 
 
 ## Next Steps
