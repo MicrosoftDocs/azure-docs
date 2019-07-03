@@ -1,5 +1,5 @@
 ---
-title: Monitor experiments with TensorBoard and Azure Machine Learning service
+title: Visualize experiments with TensorBoard and Azure Machine Learning service
 description: Launch TensorBoard to visualize experiment run histories, and identify potential areas for hyperparameter tuning and retraining.
 services: machine-learning
 author: maxluk
@@ -13,7 +13,7 @@ ms.date: 06/28/2019
 
 ---
 
-# Monitor model performance with TensorBoard and Azure Machine Learning
+# Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
 
 In this article, you learn how to view your experiment runs and metrics in Tensorboard using [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) in the main Azure Machine Learning service SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 
