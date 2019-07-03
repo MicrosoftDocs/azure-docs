@@ -33,9 +33,6 @@ If you updated SQL Server edition with the installation media after registering 
 1. Review the warning that appears, notifying you that you must change the internal SQL Server edition first, and that your edition metadata must match  your internal edition. 
 1. Select **Apply** to apply your edition metadata changes. 
 
-  > [!WARNING]
-  > - **Upgrading the internal edition of SQL Server will restart the service for SQL Server, as well as any associated services, such as Analysis Services and R Services.** 
-  > - **Downgarding the internal edition of SQL Server requires completely uninstalling SQL Server, which may incur additional downtime**. 
 
 ## Prerequisites
 
@@ -47,6 +44,10 @@ To change the edition of SQL Server, you will need the following:
 
 
 ## Upgrade edition
+
+  > [!WARNING]
+  > - **Upgrading the internal edition of SQL Server will restart the service for SQL Server, as well as any associated services, such as Analysis Services and R Services.** 
+
 To upgrade the edition of SQL Server, obtain the SQL Server setup media for the desired edition of SQL Server, and then do the following:
 
 1. Launch Setup.exe from the SQL Server installation media. 
@@ -57,6 +58,11 @@ To upgrade the edition of SQL Server, obtain the SQL Server setup media for the 
 1. Select **Next** until you reach the **Ready to upgrade edition** page, and then select **Upgrade**. The setup window may hang for a few minutes while the change is taking effect, and then you will see a **Complete** page confirming that your edition upgrade is complete. 
 
 ## Downgrade edition
+
+  > [!WARNING]
+  > - **Downgrading the internal edition of SQL Server requires completely uninstalling SQL Server, which may incur additional downtime**. 
+
+
 To downgrade the edition of SQL Server, you will need to completely uninstall SQL Server, and reinstall it again with the desired edition setup media. 
 
 You can downgrade the edition of SQL Server by following these steps:

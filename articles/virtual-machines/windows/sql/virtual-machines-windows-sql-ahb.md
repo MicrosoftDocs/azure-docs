@@ -24,20 +24,18 @@ The **pay-as-you-go** (PAYG) model means that the per-second cost of running the
 
 The [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/), also known as bring-your-own-license (BYOL), allows you to use your own SQL Server license with a VM running SQL Server. 
 
-Microsoft Azure Hybrid Benefit for SQL Server allows using SQL Server Licenses with Software Assurance ("Qualified License") on Azure Virtual Machines. With Azure Hybrid Benefit for SQL Server, customers will not be charged for the usage of SQL Server license on the VM, but they must still pay for the cost of the underlying cloud compute (i.e., the base rate), storage, and back-ups, as well as I/O associated with their use of the services (as applicable).
+
+Microsoft Azure Hybrid Benefit for SQL Server allows using SQL Server Licenses with Software Assurance ("Qualified License") on Azure Virtual Machines. With Azure Hybrid Benefit for SQL Server, customers will not be charged for the usage of SQL Server license on the VM, but they must still pay for the cost of the underlying cloud compute (that is, the base rate), storage, and back-ups, as well as I/O associated with their use of the services (as applicable).
 
 According to Microsoft Product Terms "Customers must indicate that they are using Azure SQL Database (Managed Instance, Elastic Pool, and Single Database), Azure Data Factory, SQL Server Integration Services, or SQL Server Virtual Machines under Azure Hybrid Benefit for SQL Server when configuring workloads on Azure."
 
 To indicate the use of the Azure Hybrid Benefit for SQL Server on Azure VM and be compliant, there are three options:
 
 1. Provision a virtual machine using a BYOL SQL Server image from the Azure marketplace.
-
 1. Provision a virtual machine using a PAYG SQL Server image from Azure marketplace and activate AHB.
-
 1. Self-install SQL Server on an Azure VM, manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-rp.md) and activate AHB.
 
-
-Switching between the two license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
+Switching between license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
 
 ## Prerequisites
 
@@ -49,7 +47,7 @@ The use of the SQL VM resource provider requires the SQL IaaS extension. As such
 
 ## Change license for VMs already registered with resource provider
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -123,7 +121,7 @@ SQL Server virtual machine service supports two license types as PAYG or AHB. If
 
 You are only eligible to self-install SQL Server on Azure VM via Azure Hybrid Benefit; If you self-installed SQL Server on Azure VM you should [register these VMs with SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md) by setting the SQL Server license as AHB to indicate the AHB usage according to Microsoft Product Terms or as PAYG.
 
-You can change the license type of a self-installed SQL Server VM as PAYG or AHB either when registering or after registered with SQL VM resouce provider. 
+You can change the license type of a self-installed SQL Server VM as PAYG or AHB either when registering or after registered with SQL VM resource provider. 
 
 ## Remarks
 

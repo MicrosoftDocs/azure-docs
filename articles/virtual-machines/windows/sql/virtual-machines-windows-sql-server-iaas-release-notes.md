@@ -76,7 +76,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **Portal improvement** | It is now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license using the [Azure portal](virtual-machines-windows-sql-ahb.md#change-listening-type)|
+| **Portal improvement** | It is now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license using the [Azure portal](virtual-machines-windows-sql-ahb.md#change-license-for-vms-already-registered-with-resource-provider)|
 |**AG deployment simplification with Azure SQL VM CLI** | It is now easier than ever to deploy an availability group to a SQL Server VM in Azure. [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) allows you to create the WSFC, ILB and AG listener all from the command line, and in record time! For more information, see [Use Azure SQL VM CLI to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 
