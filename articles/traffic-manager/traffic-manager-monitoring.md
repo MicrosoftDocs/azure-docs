@@ -97,7 +97,7 @@ An endpoint is unhealthy when any of the following events occur:
 - If the monitoring protocol is HTTP or HTTPS:
     - A non-200 response, or a response that does not include the status range specified in the **Expected status code ranges** setting, is received (including a different 2xx code, or a 301/302 redirect).
 - If the monitoring protocol is TCP: 
-    - A response other than ACK or SYN-ACK is received in response to the SYNC request sent by Traffic Manager to attempt a connection establishment.
+    - A response other than ACK or SYN-ACK is received in response to the SYN request sent by Traffic Manager to attempt a connection establishment.
 - Timeout. 
 - Any other connection issue resulting in the endpoint being not reachable.
 
