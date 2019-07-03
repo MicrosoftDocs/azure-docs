@@ -102,7 +102,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    If you are using conversation transcription, your speech key and region information are also needed in `cts.java`:
+    If you are using conversation transcription, your speech key and region information are also needed in `Cts.java`:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -125,7 +125,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
      private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
-## Run the sample application from eclipse
+## Run the sample application from Eclipse
 
 1. From the Eclipse menu bar, **Run** > **Run** 
 
