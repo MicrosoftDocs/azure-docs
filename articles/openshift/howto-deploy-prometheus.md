@@ -105,7 +105,7 @@ oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-
 Alertmanager.yml is the Alert Manager config file.
 
 > [!NOTE]
-> To verify the two previous steps, preparing the Alertmanager config file and preparing the Prometheus config file, enter `oc get secret -n prometheus-project`.
+> To verify the two previous steps, run the `oc get secret -n prometheus-project` command.
 
 ## Start Prometheus and Alertmanager
 Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus), and then download the [prometheus-standalone.yaml](
@@ -116,7 +116,7 @@ oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/ex
 The prometheus-standalone.yml file is an OpenShift template, which creates a Prometheus instance
 that begins with oauth-proxy.
 
-The prometheus-standalone.yml file also creates an Alertmanager instance, secured with oauth-proxy. In this template, oauth-proxy is configured to allow any user who can get the prometheus-project namespace (see the `-openshift-sar` flag).
+The prometheus-standalone.yml file also creates an Alertmanager instance, secured with oauth-proxy. In this template, oauth-proxy is configured to allow any user who can "get" the prometheus-project namespace (see the `-openshift-sar` flag).
 
 > [!NOTE]
 > To verify if the prom StatefulSet has equal DESIRED and CURRENT number replicas, run the `oc get statefulset -n prometheus-project` command. To check all resources in the project, run the `oc get all -n prometheus-project` command.
