@@ -125,16 +125,27 @@ This is the default setting for all workspaces created after March 2019.
 
 ![Resource-context design example](./media/designing-workspace/workspace-design-resource-context-01.png)
 
-This scenario covers a single workspace design that is not constrained by data sovereignty or regulatory compliance, or needs to map to the regions your resources are deployed within. It allows you to leverage the improved integration with Azure access management and more secure access control.
+This scenario covers a single workspace design in your IT organizations subscription that is not constrained by data sovereignty or regulatory compliance, or needs to map to the regions your resources are deployed within. It allows your organizations security and IT admin teams the ability to leverage the improved integration with Azure access management and more secure access control.
+
+All resources supporting infrastructure and applications maintained by the different teams are configured to forward their collected data to the shared workspace in the IT organizations subscription based on the sources specified, monitoring solutions and Insights enabled such as Application Insights and Azure Monitor for VMs. etc. Users on each team are granted access to logs and metrics for resources they have been given access to.
 
 While planning your migration to this model, consider the following:
 
-* Make sure that your application teams can work within the existing resource-centric functionality.
+* Make sure that your application teams can work within the existing resource-context functionality.
 * Validate that your application teams have been granted proper access to their resources.
 * Configure the workspace to enable resource-only permissions.
 * Remove application teams permission to read and query the workspace.
 
 Once you have designed your workspace architecture, you should enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). This can provide a built-in definition that would automatically apply to all Azure resources. For example, you could set a policy to ensure that all your Azure resources in a particular region send all their diagnostic logs to a particular workspace.
+
+For customers who have already deployed multiple workspaces and are interested in consolidating to the resource-context access model, we recommend you approach this following a phased migration approach and you don't attempt to achieve this quickly or aggressively. 
+
+
+
+Create the new shared workspace and route existing resources to it following a transition plan 
+
+
+ (60 days let's say  - in old workspace you put 60 day retention). 
 
 ## Next steps
 
