@@ -31,7 +31,7 @@ sections:
     items: 
     - image: 
         src: /azure/data-share/media/index/portal.svg
-      text: Add a dataset mapping
+      text: Configure a dataset mapping
       href: /azure/data-share/how-to-configure-mapping
 - title: Step-by-Step Tutorials
   items:
