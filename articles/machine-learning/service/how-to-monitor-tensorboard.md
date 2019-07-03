@@ -15,11 +15,11 @@ ms.date: 06/28/2019
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
 
-In this article, you learn how to view your experiment runs and metrics in Tensorboard using [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) in the main Azure Machine Learning service SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
+In this article, you learn how to view your experiment runs and metrics in TensorBoard using [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) in the main Azure Machine Learning service SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
-How you launch Tensorboard with Azure Machine Learning experiments depends on the type of experiment:
+How you launch TensorBoard with Azure Machine Learning experiments depends on the type of experiment:
 + If your experiment natively outputs log files that are consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments, then you can [launch TensorBoard directly](#direct) from experiment's run history. 
 
 + For experiments that don't natively output TensorBoard consumable files, such as like Scikit-learn or Azure Machine Learning experiments, use [the `export_to_tensorboard()` method](#export) to export the run histories as TensorBoard logs and launch TensorBoard from there. 
@@ -176,7 +176,7 @@ tb.stop()
 
 <a name="export"></a>
 
-## Option 2: Export history as log to view in Tensorboard
+## Option 2: Export history as log to view in TensorBoard
 
 The following code sets up a sample experiment, begins the logging process using the Azure Machine Learning run history APIs, and exports the experiment run history into logs consumable by TensorBoard for visualization. 
 
