@@ -50,7 +50,7 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
 
 ## Modify alert rules
 
-Out of box, there are four alert rules: Availability, Failed requests, Server response time, and Server exceptions. You can change the alert rule settings to meet your service level needs. 
+Out of box, there are four alert rules: Availability, Failed requests, Server response time, and Server exceptions. You can add more rules, or change the rule settings to meet your service level needs. 
    
 1. To modify alert rule settings, in the **Azure Monitor Alerts** pane, select the ellipsis **...** next to **Alert rules**.
    
@@ -60,11 +60,12 @@ Out of box, there are four alert rules: Availability, Failed requests, Server re
    
    ![Modify alert](media/continuous-monitoring/003.png)
    
-1. Select **OK**, and then select **Save** at upper right. Enter a descriptive comment, and then select **OK**.
+1. Select **OK**, and then select **Save** at upper right in the Azure DevOps window. Enter a descriptive comment, and then select **OK**.
 
 ## Add deployment conditions
 
-When you add deployment gates, an Application Insights alert that exceeds the thresholds you set guards your deployment against unwanted release promotion. When you resolve the alert, the deployment can proceed automatically. 
+When you add deployment gates, an Application Insights alert that exceeds the thresholds you set guards your deployment against unwanted release promotion. Once you resolve the alert, the deployment can proceed automatically. 
+
 To add deployment gates:
 
 1. On the main pipeline page, under **Stages**, select the **Pre-deployment conditions** or **Post-deployment conditions** symbol, depending on which stage needs a continuous monitoring gate.
@@ -81,7 +82,7 @@ To add deployment gates:
    
 1. Under **Evaluation options**, change the values for settings like **The time between re-evaluation of gates** and **The timeout after which gates fail** as desired. 
 
-## Deployment gate status logs
+## View release logs
 
 You can see deployment gate behavior and other release steps in the release logs. To open the logs:
 
