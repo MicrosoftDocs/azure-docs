@@ -49,14 +49,8 @@ from azure.storage.blob.models import PathProperties
 Create an instance of the [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class. This class represents the blob service in your storage account.
 
 ```python
-def initialize_storage_account(storage_account_name, storage_account_key):
-    try:
-       global block_blob_service
-
-       block_blob_service = BlockBlobService(account_name=storage_account_name, account_key=storage_account_key)
-
-    except Exception as e:
-        print(e)
+global block_blob_service
+block_blob_service = BlockBlobService(account_name=storage_account_name, account_key=storage_account_key)
 ```
 
 ### APIs featured in this snippet
@@ -81,13 +75,13 @@ Add a directory by calling the [BlockBlobService.create_directory](https://www.m
 This example adds a directory named `my-directory` to a container named `my-file-system`. 
 
 ```python
-    block_blob_service.create_directory("my-file-system", "my-directory")
+block_blob_service.create_directory("my-file-system", "my-directory")
 ```
 
 This example adds a sub-directory named `my-subdirectory` to the directory named `my-directory`.
 
 ```python
-   block_blob_service.create_directory("my-file-system", "my-directory/my-sub-directory")
+block_blob_service.create_directory("my-file-system", "my-directory/my-sub-directory")
 ```
 
 ### APIs featured in these snippets
@@ -106,11 +100,16 @@ Move or rename a directory by calling the [BlockBlobService.rename_path](https:/
 
 * The path of the existing directory.
 
-The following example moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. Then, it renames that sub-directory to `my-new-directory-renamed`.
+This example moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. 
 
 ```python
-    block_blob_service.rename_path("my-file-system", "my-directory", "my-directory-2/my-new-directory")
-    block_blob_service.rename_path("my-file-system", "my-directory-2/my-new-directory", "my-directory-2/my-new-directory-renamed")  
+block_blob_service.rename_path("my-file-system", "my-directory", "my-directory-2/my-new-directory") 
+```
+
+This example renames that sub-directory to `my-new-directory-renamed`.
+
+```
+block_blob_service.rename_path("my-file-system", "my-directory-2/my-new-directory", "my-directory-2/my-new-directory-renamed") 
 ```
 
 ### APIs featured in this snippet
@@ -148,12 +147,11 @@ Get the access permissions of a directory by calling the [BlockBlobService.get_p
 
 The following example returns a [PathProperties](https://www.microsoft.com) instance that contains the access control list (ACL) of the directory.
 
-The following example gets the ACL of the `my-directory` directory and then prints the short form of ACL to the console.
+This example gets the ACL of the `my-directory` directory and then prints the short form of ACL to the console.
 
 ```python
     path_properties = PathProperties()
-    path_properties = block_blob_service.get_path_access_control("my-file-system","my-directory")
-        
+    path_properties = block_blob_service.get_path_access_control("my-file-system","my-directory")       
     print(path_properties.acl)
 ```
 
@@ -179,7 +177,7 @@ Set the access permissions of a directory by calling the [BlockBlobService.set_d
 
 * The short form of the desired ACL.
 
-The following example gives read access to all users.
+This example gives read access to all users.
 
 ```python
     block_blob_service.set_path_access_control(container_name, directory_name, acl='other::r--')
