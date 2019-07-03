@@ -124,6 +124,8 @@
     - name: Troubleshoot Runbooks
       href: troubleshoot/runbooks.md
       displayName: troubleshoot
+    - name: Start/Stop VMs
+      href: troubleshoot/start-stop-vm.md
 - name: Update Management
   items:
   - name: Update Management overview
@@ -313,6 +315,8 @@
   items:
   - name: Forward Azure Automation job data to Log Analytics
     href: automation-manage-send-joblogs-log-analytics.md
+  - name: Supported Regions for Log Analytics Workspace Mappings
+    href: how-to/region-mappings.md
 - name: Migrate
   items:
   - name: Migrate from Orchestrator
