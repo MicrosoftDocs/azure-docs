@@ -30,21 +30,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /azure/data-share/media/index/portal.svg
+      src: /azure/data-share/media/index/portal.svg
       text: Monitor Azure Data Share
       href: /azure/data-share/how-to-monitor
-  - type: list
-    style: icon48
-    items: 
     - image: 
-        src: /azure/data-share/media/index/portal.svg
+      src: /azure/data-share/media/index/portal.svg
       text: Configure a dataset mapping
       href: /azure/data-share/how-to-configure-mapping
-  - type: list
-    style: icon48
-    items: 
     - image: 
-        src: /azure/data-share/media/index/portal.svg
+      src: /azure/data-share/media/index/portal.svg
       text: Troubleshoot Azure Data Share
       href: /azure/data-share/data-share-troubleshoot
 - title: Step-by-Step Tutorials
