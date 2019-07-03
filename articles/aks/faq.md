@@ -35,6 +35,10 @@ Yes, you can limit access to the Kubernetes API server using [API Server Authori
 
 Not at this time, but this is planned. You can track progress on the [AKS GitHub repo][private-clusters-github-issue].
 
+## Can I have different VM sizes in a single cluster?
+
+Yes, you can use different virtual machine sizes in your AKS cluster by creating [multiple node pools][multi-node-pools], which is currently in preview.
+
 ## Are security updates applied to AKS agent nodes?
 
 Azure automatically applies security patches to the Linux nodes in your cluster on a nightly schedule. However, you are responsible for ensuring that those Linux nodes are rebooted as required. You have several options for rebooting nodes:
@@ -147,6 +151,7 @@ AKS agent nodes are billed as standard Azure virtual machines, so if you've purc
 [aks-windows-limitations]: windows-node-limitations.md
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
+[multi-node-pools]: ./use-multiple-node-pools.md
 
 <!-- LINKS - external -->
 
