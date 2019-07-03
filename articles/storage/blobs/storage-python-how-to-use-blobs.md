@@ -78,7 +78,7 @@ Add a directory by calling the [BlockBlobService.create_directory](https://www.m
 
 * The path of the new directory.
 
-This method adds a directory named `my-directory` to a container named `my-file-system`. Then, it adds a sub-directory named `my-subdirectory` to the directory named `my-directory`.
+The following example adds a directory named `my-directory` to a container named `my-file-system`. Then, it adds a sub-directory named `my-subdirectory` to the directory named `my-directory`.
 
 ```python
 def create_directory():
@@ -108,7 +108,7 @@ Move or rename a directory by calling the [BlockBlobService.rename_path](https:/
 
 * The path of the existing directory.
 
-This method moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. Then, it renames that sub-directory to `my-new-directory-renamed`.
+The following example moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. Then, it renames that sub-directory to `my-new-directory-renamed`.
 
 ```python
 def rename_directory():
@@ -129,7 +129,7 @@ def rename_directory():
 
 ## Delete a directory from a file system (container)
 
-Delete a directory by calling the [BlockBlobService.delete_directory](https://www.microsoft.com) method. Pass these items as parameters to the method:
+The following example deletes a directory by calling the [BlockBlobService.delete_directory](https://www.microsoft.com) method. Pass these items as parameters to the method:
 
 * The name of the container.
 
@@ -162,7 +162,7 @@ Get the access permissions of a directory by calling the [BlockBlobService.get_p
 
 * The path of the directory.
 
-This method returns a [PathProperties](https://www.microsoft.com) instance that contains the access control list (ACL) of the directory.
+The following example returns a [PathProperties](https://www.microsoft.com) instance that contains the access control list (ACL) of the directory.
 
 The following example gets the ACL of the `my-directory` directory and then prints the short form of ACL to the console.
 
