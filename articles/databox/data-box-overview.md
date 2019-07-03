@@ -113,7 +113,7 @@ Data Box can transfer data based on the region in which service is deployed, cou
     - UK - UK South and UK West.
     - France - France Central and France South.
     - Japan - Japan East and Japan West.
-    - Australia - Australia East, Australia Southeast, Australia Central, and Australia Central 2.
+    - Australia - Australia East and Australia Southeast.
     - Canada - Canada East and Canada Central.
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.  
