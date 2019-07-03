@@ -39,9 +39,9 @@ Identifying the number of workspaces you need is influenced by one or more of th
 * You are using Azure and you want to avoid outbound data transfer charges by having a workspace in the same region as the Azure resources it manages.
 * You manage multiple departments or business groups, and you want each to see their own data, but not data from others. Also, there is no business requirement for a consolidated cross department or business group view.
 
-IT organizations today are modeled following either a centralized, decentralized, or an in-between hybrid of both structures. As a result, the following workspace deployment models have been commonly used:
+IT organizations today are modeled following either a centralized, decentralized, or an in-between hybrid of both structures. As a result, the following workspace deployment models have been commonly used to map to one of these organizational structures:
 
-* Centralized: All logs are stored in a central workspace. In this scenario, it is easy to search across resources and cross-correlate logs. The workspace can grow significantly depending on the amount of data collected from multiple resources in your subscription, with additional administrative overhead to maintain access control to different users.
+* Centralized: All logs are stored in a central workspace and administered by a single team. In this scenario, it is easy to manage, search across resources, and cross-correlate logs. The workspace can grow significantly depending on the amount of data collected from multiple resources in your subscription, with additional administrative overhead to maintain access control to different users.
 * Decentralized: Log data is either stored within a resource group or stored centrally, but segregated per resource. In this scenario, the repository can be kept secure, and access control is consistent with resource access, but it's almost impossible to cross-correlate logs. Users who need a broad view of many resources cannot analyze the data in a meaningful way.
 * Hybrid: Security audit compliance requirements further complicate this scenario because many organizations implement both deployment models in parallel. This commonly results in a complex, expensive, and hard-to-maintain configuration with gaps in logs coverage.
 
@@ -52,8 +52,6 @@ When using the Log Analytics agents to collect data, you need to understand the 
 * To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](../../azure-monitor/platform/agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
 * The Linux agent does not support multi-homing and can only report to a single workspace.
 * If you are using System Center Operations Manager 2012 R2 or later, each Operations Manager management group can be [connected to only one workspace](../platform/om-agents.md). With Linux computers reporting to a management group, the agent doesn't include a health service component as the Windows agent does, and information is collected and processes by a management server on its behalf. Because Linux computers are monitored differently with Operations Manager, they do not receive configuration or collect data directly and forward through the management group like a Windows agent-managed system. In this scenario, you need to configure the Linux computer to [report to an Operations Manager management group](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). You can install the Log Analytics Windows agent on the Windows computer and have it report to both Operations Manager and a different workspace.
-
-Once you have designed your workspace architecture, you should enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). This can provide a built-in definition that would automatically apply to all Azure resources. For example, you could set a policy to ensure that all your Azure resources in a particular region send all their diagnostic logs to a particular workspace.
 
 ## Access control overview
 
@@ -83,7 +81,7 @@ Users have two options for accessing the data:
 ![Log Analytics context from resource](./media/design-logs-deployment/query-from-resource.png)
 
 > [!NOTE]
-> Logs are available for resource-centric queries only if they were properly associated with the relevant resource. Currently, the following resources have limitations:
+> Logs are available for resource-context queries only if they were properly associated with the relevant resource. Currently, the following resources have limitations:
 > - Computers outside of Azure
 > - Service Fabric
 > - Application Insights
@@ -102,7 +100,7 @@ The following table summarizes the access modes:
 | Who is each model intended for? | Central administration. Administrators who need to configure data collection and users who need access to a wide variety of resources. Also currently required for users who need to access logs for resources outside of Azure. | Application teams. Administrators of Azure resources being monitored. |
 | What does a user require to view logs? | Permissions to the workspace. See **Workspace permissions** in [Manage accounts and users](manage-access.md#manage-accounts-and-users). | Read access to the resource. See **Resource permissions** in [Manage accounts and users](manage-access.md#manage-accounts-and-users). Permissions can be inherited (such as from the containing resource group) or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. |
 | What is the scope of permissions? | Workspace. Users with access to the workspace can query all logs in that workspace from tables that they have permissions to. See [Table access control](manage-access.md#table-level-rbac) | Azure resource. User can query logs for resources they have access to from any workspace but can't query logs for other resources. |
-| How can user access logs? | Start **Logs** from **Azure Monitor** menu or **Log Analytics workspaces**. | Start **Logs** from the menu for the Azure resource. |
+| How can user access logs? | * Start **Logs** from **Azure Monitor** menu.<br> * Start **Logs** from **Log Analytics workspaces**.<br> * From Azure Monitor [Workbooks](../visualizations.md#workbooks). | Start **Logs** from the menu for the Azure resource<br> * Start **Logs** from **Azure Monitor** menu.<br> * Start **Logs** from **Log Analytics workspaces**.<br> * From Azure Monitor [Workbooks](../visualizations.md#workbooks). |
 
 ## Access control mode
 
@@ -135,6 +133,8 @@ While planning your migration to this model, consider the following:
 * Validate that your application teams have been granted proper access to their resources.
 * Configure the workspace to enable resource-only permissions.
 * Remove application teams permission to read and query the workspace.
+
+Once you have designed your workspace architecture, you should enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). This can provide a built-in definition that would automatically apply to all Azure resources. For example, you could set a policy to ensure that all your Azure resources in a particular region send all their diagnostic logs to a particular workspace.
 
 ## Next steps
 
