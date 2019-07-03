@@ -45,7 +45,9 @@ This quickstart shows how to connect to an Azure Cache for Redis with Python to 
 
 The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2019 Developer Command prompt running with elevated Administrator privileges.
 
+```python
     pip3 install redis
+```
 
 ![Install redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
