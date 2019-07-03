@@ -13,11 +13,11 @@ ms.custom: seodec18
 ---
 # Quickstart: Explore and analyze costs with the cost analysis feature in Azure
 
-Before you can control and optimize your Azure costs, you must understand where costs originate within your organization. It's also useful to know how much your services cost and which environments and systems they support. Visibility into the full spectrum of costs is critical to accurately understand organizational spending patterns. You can use spending patterns to enforce cost control mechanisms, like budgets.
+Before you can control and optimize your Azure costs, you need to understand where costs originate within your organization. It's also useful to know how much your services cost and which environments and systems they support. Visibility into the full spectrum of costs is critical to accurately understand organizational spending patterns. You can use spending patterns to enforce cost control mechanisms, like budgets.
 
 This quickstart shows you how to use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. A budget helps to provide adherence to financial constraints. And a budget is used to view daily or monthly costs to isolate spending irregularities. You can also download the current report's data for further analysis or use in an external system.
 
-This quickstart teaches you how to:
+In this quickstart, you learn how to:
 
 - Review costs in cost analysis
 - Customize cost views
@@ -28,7 +28,7 @@ This quickstart teaches you how to:
 
 Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account.
 
-To view cost data, [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers must at least have read access to one or more of the following scopes:
+To view cost data, [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers need to at least have read access to one or more of the following scopes:
 
 - Billing account
 - Department
@@ -45,7 +45,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Review costs in cost analysis
 
-To review your costs in cost analysis, open the scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. Use the **Scope** pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+To review your costs in cost analysis, open the scope in the Azure portal and select **Cost analysis** on the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** on the menu. Use the **Scope** pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 The scope you select is used throughout  Azure Cost Management by Cloudyn to provide data consolidation and control access to cost information. When you use scopes, you don't multiple-select them. Instead, you select a larger scope, which others roll up to. Then, you filter down to the nested scopes you need. This approach is important to understand because some people may not have access to a single parent scope, which covers multiple nested scopes.
 
@@ -90,7 +90,7 @@ Generally, you can expect to see data or notifications for consumed resources wi
 
 Use **Group by** to group common properties, in order to break down costs and identify top contributors. To group by resource tags, for example, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.
 
-Most [Azure resources support tagging](../azure-resource-manager/tag-support.md). However, some tags aren't available in billing or Azure Cost Management by Cloudyn. Additionally, resource group tags aren't supported. Azure Cost Management by Cloudyn only supports resource tags from the date that the tags are applied directly to the resource. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to learn about using Azure's tag policy to improve cost data visibility.
+Most [Azure resources support tagging](../azure-resource-manager/tag-support.md). However, some tags aren't available in billing or Azure Cost Management by Cloudyn. Additionally, resource group tags aren't supported. Azure Cost Management by Cloudyn only supports resource tags from the date that the tags are applied directly to the resource. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to learn about using the Azure tag policy to improve cost data visibility.
 
 Here's a view of Azure service costs for the last month.
 
@@ -105,7 +105,7 @@ The preceding image shows resource group names. Although you can group by tag to
 
 When you group costs by a specific attribute, the top 10 cost contributors are shown from highest to lowest. If there are more than 10, the top nine cost contributors are shown with an **Others** group, which covers all remaining groups together. When grouping by tags, you may also see an **Untagged** group for costs that don't have the tag key applied. **Untagged** is always last, even if untagged costs are higher than tagged costs. Untagged costs will be part of **Others**, if there are 10 or more tag values.
 
-*Classic* virtual machines, networking, and storage resources don't share detailed billing data. They're merged as **Classic services** when grouping costs.
+*Classic* virtual machines, networking, and storage resources don't share detailed billing data. They're merged as **classic services** when you're grouping costs.
 
 You can view the full dataset for any view. The selections or filters that you apply affect the data presented. To see the full dataset, select the **chart type** list and then select **Table** view.
 
@@ -114,7 +114,7 @@ You can view the full dataset for any view. The selections or filters that you a
 
 ## Download cost analysis data
 
-You can **Download** information from cost analysis to generate a CSV file for all data currently shown in the Azure portal. Any filters or grouping that you apply are included in the file. Underlying data for the total chart that isn't actively displayed is included in the CSV file.
+You can download information from cost analysis to generate a CSV file for all data currently shown in the Azure portal. Any filters or grouping that you apply are included in the file. Underlying data for the total chart that isn't actively displayed is included in the CSV file.
 
 ## Next steps
 
