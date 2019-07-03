@@ -25,7 +25,7 @@ Microsoft is always working to stay one step ahead of cyber-criminals. Therefore
 
 ## Custom banned password list
 
-Some organizations may want to take security one step further by adding their own customizations on top of the global banned password list in what Microsoft calls the custom banned password list. Enterprise customers like Contoso could then choose to block variants of their brand names, company-specific terms, or other items.
+Some organizations may want to take security one step further by adding their own customizations on top of the global banned password list in what Microsoft calls the custom banned password list. We recommend enterprises adding words specific to them.  For example, Contoso corp, could then choose to add their brand names and variations on those, company-specific terms like products, or other items like their location or abbreviations that have specific company meaning. You do not need to include common passwords found in password cracking list files in this custom list. Those are already covered in the global list. Choose words specific to your company in the custom list.
 
 The custom banned password list and the ability to enable on-premises Active Directory integration is managed using the Azure portal.
 
