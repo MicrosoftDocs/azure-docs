@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/03/2019
 ms.author: dapine
 ---
 
@@ -66,7 +66,9 @@ kubectl create secret docker-registry containerpreview \
 > [!NOTE]
 > If you already have access to the `containerpreview.azurecr.io` container registry, you could create a Kubernetes secret using the generic flag instead. Consider the following command that executes against your Docker configuration JSON.
 > ```console
->  kubectl create secret generic containerpreview --from-file=.dockerconfigjson=~/.docker/config.json --type=kubernetes.io/dockerconfigjson
+>  kubectl create secret generic containerpreview \
+>      --from-file=.dockerconfigjson=~/.docker/config.json \
+>      --type=kubernetes.io/dockerconfigjson
 > ```
 
 The following output is printed to the console when the secret has been successfully created.
@@ -147,7 +149,7 @@ The provided *Helm charts* pull the docker images of the Speech Service, both te
 
 ## Install the Helm chart on the Kubernetes cluster
 
-To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument.
+To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument. The `microsoft/cognitive-services-speech-onpremise` Helm chart referenced below is available on the [Microsoft Helm Hub here](ms-helm-hub-speech-chart).
 
 ```console
 helm install microsoft/cognitive-services-speech-onpremise \
@@ -253,7 +255,7 @@ PASSED: text-to-speech-readiness-test
 
 As an alternative to executing the *helm tests*, you could collect the *External IP* addresses and corresponding ports from the `kubectl get all` command. Using the IP and port, open a web browser and navigate to `http://<external-ip>:<port>:/swagger/index.html` to view the API swagger page(s).
 
-## Customize helm charts
+## Customize Helm charts
 
 Helm charts are hierarchical. Being hierarchical allows for chart inheritance, it also caters to the concept of specificity, where settings that are more specific override inherited rules.
 
@@ -286,6 +288,7 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test
 [ms-helm-hub]: https://hub.helm.sh/charts/microsoft
+[ms-helm-hub-speech-chart]: https://hub.helm.sh/charts/microsoft/cognitive-services-speech-onpremise
 
 <!-- LINKS - internal -->
 [speech-container-host-computer]: speech-container-howto.md#the-host-computer
