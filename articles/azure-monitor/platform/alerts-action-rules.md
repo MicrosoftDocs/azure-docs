@@ -1,6 +1,6 @@
 ---
 title: Action rules for Azure Monitor alerts
-description: Understanding what action rules in Azure Resource Manager are and how to configure and manage them.
+description: Understanding what action rules in Azure Monitor are and how to configure and manage them.
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -67,8 +67,8 @@ The available filters are:
 * **Resource Type**:  A filter based on a specific resource type. This filter is also multiple-select. For example, **Resource Type = “Virtual Machines”** means that the action rule is applicable for all virtual machines.
 * **Alert Rule ID**: An option to filter for specific alert rules by using the Resource Manager ID of the alert rule.
 * **Monitor Condition**:  A filter for alert instances with either **Fired** or **Resolved** as the monitor condition.
-* **Description**: A regex (regular expression) match within the description defined as part of the alert rule.
-* **Alert Context (payload)**: A regex match within the [alert context](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) fields of an alert instance.
+* **Description**: A regex (regular expression) match that defines a string match against the description, defined as part of the alert rule. For example, **Description contains 'prod'** will match all alerts that contain the string "prod" in their descriptions.
+* **Alert Context (payload)**: A regex match that defines a string match against the alert context fields of an alert's payload. For example, **Alert context (payload) contains 'Computer-01'** will match all alerts whose payloads contain the string "Computer-01."
 
 These filters are applied in conjunction with one another. For example, if you set **Resource type' = Virtual Machines** and **Severity' = Sev0**, then you've filtered for all **Sev0** alerts on only your VMs. 
 
