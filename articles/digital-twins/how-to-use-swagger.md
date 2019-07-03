@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ---
@@ -87,14 +87,12 @@ The examples also include error codes to help debug or improve failing tests.
 
 ## Swagger OAuth 2.0 authorization
 
-To learn more about interactively testing requests protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
-
 > [!NOTE]
-> The user principal that created the Azure Digital Twins resource will have a Space Administrator role assignment and will be able to create additional role assignments for other users.
+> * The user principal that created the Azure Digital Twins resource will have a Space Administrator role assignment and will be able to create additional role assignments for other users. Such users and their roles can be authorized to call the APIs.
 
-1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application of type ***Web app / API***. Or you can reuse an existing app registration.
+1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) or [Register your Azure Digital Twins app with Azure Active Directory legacy](./how-to-use-legacy-aad.md) to create and configure an Azure AD application. Alternatively, you can reuse an existing app registration.
 
-2. Add the following reply url to the app registration:
+1. Add the following reply url to the app registration:
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
@@ -103,29 +101,23 @@ To learn more about interactively testing requests protected by OAuth 2.0, see t
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | Your Management REST API documentation URL found in the portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-3. Grant permissions for your app to access Azure Digital Twins. Under **Required permissions**, enter `Azure Digital Twins` and select **Delegated Permissions**. Then select **Grant Permissions**.
-
-    ![Azure AD app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
-
-4. Configure the application manifest to allow OAuth 2.0 implicit flow. Select **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
-
-    ![Azure AD implicit flow](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
-
-5. Copy the ID of your Azure AD app.
+1. Copy the ID of your Azure AD app.
 
 After completing the Azure Active Directory registration:
 
-6. Select the **Authorize** button on your swagger page.
+1. Select the **Authorize** button on your swagger page.
 
     [![Select the Swagger authorize button](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-7. Paste the application ID into the **client_id** field.
+1. Paste the application ID into the **client_id** field.
 
     [![Swagger client_id field](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. You will then be redirected to the following success modal.
+1. You will then be redirected to the following success modal.
 
-    [![Swagger redirect modal](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
+    [![Swagger redirect modal](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+
+To learn more about interactively testing requests protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## Next steps
 

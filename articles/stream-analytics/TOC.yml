@@ -36,6 +36,8 @@
   items:
   - name: Choose a streaming analytics technology
     href: streaming-technologies.md
+  - name: Choose a job development tool
+    href: feature-comparison.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -494,6 +496,9 @@
           maintainContext: true
         - name: JOIN
           href: /stream-analytics-query/join-azure-stream-analytics
+          maintainContext: true
+        - name: MATCH_RECOGNIZE
+          href: /stream-analytics-query/match-recognize-stream-analytics.md
           maintainContext: true
         - name: Reference Data JOIN
           href: /stream-analytics-query/reference-data-join-azure-stream-analytics
