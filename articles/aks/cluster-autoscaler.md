@@ -66,7 +66,6 @@ az provider register --namespace Microsoft.ContainerService
 The following limitations apply when you create and manage AKS clusters that use the cluster autoscaler:
 
 * The HTTP application routing add-on can't be used.
-* Multiple node pools (currently in preview in AKS) can't currently be used.
 
 ## About the cluster autoscaler
 
