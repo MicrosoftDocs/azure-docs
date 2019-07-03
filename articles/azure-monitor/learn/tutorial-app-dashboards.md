@@ -5,7 +5,7 @@ keywords:
 services: application-insights
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 01/11/2019
+ms.date: 07/3/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
@@ -19,9 +19,9 @@ You can create multiple dashboards in the Azure portal that each include tiles v
 > [!div class="checklist"]
 > * Create a custom dashboard in Azure
 > * Add a tile from the Tile Gallery
-> * Add standard metrics in Application Insights to the dashboard 
+> * Add standard metrics in Application Insights to the dashboard
 > * Add a custom metric chart Application Insights to the dashboard
-> * Add the results of an Analytics query to the dashboard 
+> * Add the results of an Logs (Analytics) query to the dashboard
 
 
 
@@ -55,16 +55,12 @@ A dashboard with just static text isn't very interesting, so now add a tile from
 
 
 1. Select your **Application Insights** resource on the home screen.
-2. In the **Overview** pane, click the pushpin icon to add the tile to the last dashboard that you were viewing.  
-
-	![Pin Overview timeline](media/tutorial-app-dashboards/3overview.png)
+2. In the **Overview** pane, click the pushpin icon ![push pin icon](pushpin.png) to add the tile to the last dashboard that you were viewing.  
  
 3. In the top right a notification will appear that your tile was pinned to your dashboard. Click **Pinned to dashboard** in the notification to return to your dashboard or use the dashboard pane.
 4. That tile is now added to your dashboard. Select **Edit** to change the positioning of the tile. Click and drag the it into position and then click **Done customizing**. Your dashboard now has a tile with some useful information.
 
 	![Dashboard with Overview timeline](media/tutorial-app-dashboards/4dashboard-edit.png)
-
-
 
 ## Add custom metric chart
 The **Metrics** panel allows you to graph a metric collected by Application Insights over time with optional filters and grouping.  Like everything else in Application Insights, you can add this chart to the dashboard.  This does require you to do a little customization first.
@@ -73,22 +69,18 @@ The **Metrics** panel allows you to graph a metric collected by Application Insi
 1. Select **Metrics**.  
 2. An empty chart has already been created, and you're prompted to add a metric.  Add a metric to the chart and optionally add a filter and a grouping.  The example below shows the number of server requests grouped by success.  This gives a running view of successful and unsuccessful requests.
 
-	![Add metric](media/tutorial-app-dashboards/5sumserverrequests.png)
+	![Add metric](media/tutorial-app-dashboards/metrics.png)
 
 4. Select **Pin to dashboard** on the right. This adds the view to the last dashboard that you were working with.
-
-	![Pin metric chart](media/tutorial-app-dashboards/6sumserverrequests-pin.png)
 
 3.  In the top right a notification will appear that your tile was pinned to your dashboard. Click **Pinned to dashboard** in the notification to return to your dashboard or use the dashboard blade.
 
 4. That tile is now added to your dashboard. Select **Edit** to change the positioning of the tile. Click and drag the it into position and then click **Done customizing**.
 
-	![Dashboard with metrics](media/tutorial-app-dashboards/7dashboard-edit2.png)
+## Add Logs (Analytics) query
+Azure Application Insights Logs (Analytics) provides a rich query language that allows you to analyze all of the data collected Application Insights. Just like charts and other views, you can add the output of an logs query to your dashboard.
 
-## Add Analytics query
-Azure Application Insights Analytics provides a rich query language that allows you to analyze all of the data collected Application Insights.  Just like charts and other views, you can add the output of an Analytics query to your dashboard.   
-
-Since Azure Applications Insights Analytics is a separate service, you need to share your dashboard for it to include an Analytics query. When you share an Azure dashboard, you publish it as an Azure resource which can make it available to other users and resources.  
+Since Azure Applications Insights Logs (Analytics) is a separate service, you need to share your dashboard for it to include an logs query. When you share an Azure dashboard, you publish it as an Azure resource which can make it available to other users and resources.  
 
 1. At the top of the dashboard screen, click **Share**.
 
@@ -96,17 +88,14 @@ Since Azure Applications Insights Analytics is a separate service, you need to s
 
 2. Keep the **Dashboard name** the same and select the **Subscription Name** to share the dashboard.  Click **Publish**.  The dashboard is now available to other services and subscriptions.  You can optionally define specific users who should have access to the dashboard.
 1. Select your **Application Insights** resource in the home screen.
-2. Click **Analytics** at the top of the screen to open the Analytics portal.
-
-	![Start Analytics](media/tutorial-app-dashboards/9analytics.png)
-
+2. Click **Logs (Analytics)** on the left under monitoring to open the Logs (Analytics) portal.
 3. Type the following query, which returns the top 10 most requested pages and their request count:
 
-    ```
+    ``` Kusto
 	requests
 	| summarize count() by name
 	| sort by count_ desc
-	| take 10 
+	| take 10
     ```
 
 4. Click **Run** to validate the results of the query.
@@ -114,24 +103,22 @@ Since Azure Applications Insights Analytics is a separate service, you need to s
 
 	![Pin Analytics query](media/tutorial-app-dashboards/10query.png)
 
-5. Before you go back to the dashboard, add another query, but this time render it as a chart so you see the different ways to visualize an Analytics query in a dashboard.  Start with the following query that summarizes the top 10 operations with the most exceptions.
+5. Before you go back to the dashboard, add another query, but this time render it as a chart so you see the different ways to visualize an Analytics query in a dashboard. Start with the following query that summarizes the top 10 operations with the most exceptions.
 
-    ```
+    ``` Kusto
 	exceptions
 	| summarize count() by operation_Name
 	| sort by count_ desc
-	| take 10 
+	| take 10
     ```
 
 6. Select **Chart** and then change to a **Doughnut** to visualize the output.
 
-	![Analytics chart](media/tutorial-app-dashboards/11querychart.png)
+	![Logs (Analytics) chart](media/tutorial-app-dashboards/11querychart.png)
 
-6. Click the pin icon to pin the chart to your dashboard and this time select the link to return to your dashboard.
+6. Click the pin icon ![Push pin](pushpin.png) on the top right to pin the chart to your dashboard and this time select the link to return to your dashboard.
 4. The results of the queries are now added to your dashboard in the format that you selected.  Click and drag each into position and then click **Done customizing**.
-5. Select the pencil icon on each title to give them a descriptive title.
-
-	![Dashboard with Analytics](media/tutorial-app-dashboards/12edit-title.png)
+5. Select the pencil icon ![Pencil icon](pencil.png) on each title to give them a descriptive title.
 
 5. Select **Share** to republish your changes to your dashboard that now includes a variety of charts and visualizations from Application Insights.
 
