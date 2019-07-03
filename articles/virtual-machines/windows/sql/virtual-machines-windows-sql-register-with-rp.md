@@ -26,14 +26,16 @@ Deploying a SQL Server VM marketplace image through the Azure portal automatical
 
 1. **Feature benefits** - Registering your SQL Server VM with the resource provider unlocks [auto patching](virtual-machines-windows-sql-automated-patching.md), [auto backup](virtual-machines-windows-sql-automated-backup-v2.md), monitoring and manageability capabilities, as well as [licensing](virtual-machines-windows-sql-ahb.md) and [edition](virtual-machines-windows-sql-change-edition.md) flexibility. Previously, these were only available to SQL Server VM images from the Azure Marketplace.
 
+
+
 Self-installing SQL Server on an Azure VM or provisioning an Azure VM from a custom VHD with SQL Server is compliant through Azure Hybrid Benefit for SQL Server with the condition that customers indicate that use to Microsoft by registering with SQL VM resource provider. 
 
 To utilize the SQL VM resource provider, you must also register the SQL VM resource provider with your subscription. This can be accomplished with the Azure portal, Azure CLI, and PowerShell. 
 
 ## Overview
-[SQL IaaS Extension](virtual-machines-windows-sql-server-agent-extension.md) is needed to manage SQL Server instance on VM. You can install SQL IaaS extension   manually anytime. By default, SQL IaaS extension is installed in Full Management to enable full manageability for SQL Server and this requires restarting SQL Server service once.
+[SQL IaaS Extension](virtual-machines-windows-sql-server-agent-extension.md) is needed to register SQL Server VM with SQL VM RP. You can install SQL IaaS extension manually anytime. By default, SQL IaaS extension is installed in Full Management and this requires restarting SQL Server service once.
 
- If you are looking for flexible licensing and in-place SQL Server edition updates only, then you can install the extension in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#modes). Installing SQL IaaS Extension in lightweight mode will not restart SQL Server service and will not leave any Windows Service on the VM. Failover Cluster Instances and multi-instance deployments can be registered with SQL VM resource provider only with SQL IaaS extension in lightweight mode.
+ If you are looking for compliance, flexible licensing and in-place SQL Server edition updates only, then you can install register with SQL VM RP in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#modes). In this mode, SQL VMRP will auto install SQL IaaS Exstension on the VM in lightweight management mode will and this will not restart SQL Server service and will not leave any Windows Service on the VM. Failover Cluster Instances and multi-instance deployments can be registered with SQL VM resource provider only in lightweight mode.
 
 ## Prerequisites
 
@@ -45,7 +47,7 @@ To register your SQL Server VM with the resource provider, you will need the fol
 
 
 ## Register SQL VM in full management mode
-If SQL IaaS Extension is installed on the VM, then registering with SQL VM resource provider is simply creating a metadata resource of type Microsoft.SqlVirtualMachine/SqlVirtualMachines. SQL VM resource provider will verify existence of a SQL Server instance on the VM through the SQL IaaS Extension. Below is the code snippet to register with SQL VM resource provider if the SQL IaaS Extension is already installed on the VM. You need to provide the type of SQL Server license desired when registering with SQL VM resource provider as either 'PAYG 'or 'AHUB'. 
+If SQL IaaS Extension is already installed on the VM, then registering with SQL VM resource provider is simply creating a metadata resource of type Microsoft.SqlVirtualMachine/SqlVirtualMachines. Below is the code snippet to register with SQL VM resource provider if the SQL IaaS Extension is already installed on the VM. You need to provide the type of SQL Server license desired when registering with SQL VM resource provider as either 'PAYG 'or 'AHUB'. 
 
 Register SQL Server VM using PowerShell with the following code snippet:
 
@@ -76,9 +78,9 @@ Register SQL Server VM in lightweight SQL management mode using PowerShell with 
   
   ```
 
-## Register Windows Server 2008 instances 
+## Register SQL Server 2008/R2 on Windows Server 2008 VMs
 
-SQL Server 2008 and 2008 R2 installed on Windows Server 2008 can be registered with the SQL VM resource provider by utilizing the [noagent](virtual-machines-windows-sql-server-agent-extension.md#modes) mode of the SQL IaaS extension. This option assures compliance and allows the SQL Server VM to be monitored in the Azure portal with limited functionality.
+SQL Server 2008 and 2008 R2 installed on Windows Server 2008 can be registered with the SQL VM resource provide in the [noagent](virtual-machines-windows-sql-server-agent-extension.md#modes) mode. This option assures compliance and allows the SQL Server VM to be monitored in the Azure portal with limited functionality.
 
 The following table details the acceptable values for the parameters provided during registration:
 
