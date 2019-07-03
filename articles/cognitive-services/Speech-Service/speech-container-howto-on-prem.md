@@ -21,12 +21,11 @@ Using Kubernetes (K8s) and Helm to define the speech-to-text and text-to-speech 
 This procedure requires several tools that must be installed and run locally.
 
 * Use an Azure subscription. If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin.
-* [Git][git-download] for your operating system so you can clone the [helm charts repository][helm-charts-repo] used in this procedure. 
 * Install the [Azure CLI][azure-cli] (az).
 * Install the [Kubernetes CLI][kubernetes-cli] (kubectl).
 * Install the [Helm][helm-install] client, the Kubernetes package manager.
     * Install the Helm server, [Tiller][tiller-install].
-* An Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
+* An Azure resource with the correct pricing tier. Not all pricing tiers work with these container images:
     * **Speech** resource with F0 or Standard pricing tiers only.
     * **Cognitive Services** resource with the S0 pricing tier.
 
@@ -36,8 +35,8 @@ Refer to the [Speech Service container host computer][speech-container-host-comp
 
 | Service | CPU / Container | Memory / Container |
 |--|--|--|
-| **Speech-to-Text** | one decoder requires a minimum of 1,150 millicores<br>If the `optimizedForAudioFile` is enabled, then 1,950 millicores are required. (default: two decoders) | Required: 2 GB<br>Limited:  4 GB |
-| **Text-to-Speech** | one concurrent request requires a minimum of 500 millicores<br>If the `optimizeForTurboMode` is enabled, then 1,000 millicores are required. (default: two concurrent requests) | Required: 1 GB<br> Limited: 2 GB |
+| **Speech-to-Text** | one decoder requires a minimum of 1,150 millicores. If the `optimizedForAudioFile` is enabled, then 1,950 millicores are required. (default: two decoders) | Required: 2 GB<br>Limited:  4 GB |
+| **Text-to-Speech** | one concurrent request requires a minimum of 500 millicores. If the `optimizeForTurboMode` is enabled, then 1,000 millicores are required. (default: two concurrent requests) | Required: 1 GB<br> Limited: 2 GB |
 
 ## Request access to the container registry
 
@@ -275,7 +274,6 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[helm-charts-repo]: https://github.com/microsoft/charts
 [azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
