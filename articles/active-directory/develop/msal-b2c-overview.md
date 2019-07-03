@@ -1,5 +1,5 @@
 ---
-title: Learn how applications can interoperate with Azure AD B2C by using Microsoft Authentication Library (MSAL) 
+title: Learn how applications can interoperate with Azure AD B2C by using Microsoft Authentication Library 
 description: Microsoft Authentication Library (MSAL) enables applications to interoperate with Azure AD B2C and acquire tokens to call secured Web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, web APIs from others, or your own web API.
 services: active-directory
 documentationcenter: dev-center-name
