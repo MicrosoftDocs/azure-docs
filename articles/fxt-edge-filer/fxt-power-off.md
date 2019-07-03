@@ -4,7 +4,7 @@ description: Procedures for startup and safe shutdown of an Azure FXT Edge Filer
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: how-to
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
 ---
 
@@ -24,7 +24,7 @@ After an Azure FXT Edge Filer node is in use as part of a cluster, you should us
 Follow these instructions to safely power off an Azure FXT Edge Filer node:
 
 1. Sign in to the cluster Control Panel. (Directions in [Open the Settings pages](fxt-cluster-create.md#open-the-settings-pages))
-1. Click the **Settings** tab, then load the **Cluster** > **FXT Nodes** page. 
+1. Click the **Settings** tab, then load the **Cluster** > **FXT Nodes** page.
 1. In the list of cluster nodes, find the one you want to shut down. Click the **Power down** button in its **Actions** column. 
 1. Wait a few moments. The node will shut down and power itself off.
 

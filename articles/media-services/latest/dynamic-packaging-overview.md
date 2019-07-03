@@ -19,45 +19,18 @@ ms.author: juliako
 
 # Dynamic packaging
 
-In Azure Media Services, a [streaming endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application. 
+Microsoft Azure Media Services can be used to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies (for example, iOS and XBOX). These clients understand different protocols, for example iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG DASH, or Smooth Streaming, you can take advantage of *dynamic Packaging*. The packaging is agnostic to the video resolution, SD/HD/UHD-4K are supported.
 
-You can use Media Services to deliver many media source file formats, media streaming formats, and content protection formats to a variety of client technologies, such as iOS and Xbox. Different clients understand different protocols. For example, iOS requires an HTTP Live Streaming (HLS) format and Xbox require Smooth Streaming. 
+In Media Services, a [Streaming Endpoint](streaming-endpoint-concept.md) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application, using one of the common streaming media protocols (HLS or DASH). Dynamic packaging is a feature that comes standard on all **Streaming Endpoints** (Standard or Premium). 
 
-If you have a set of adaptive bitrate (multi-bitrate) MP4 (ISO Base Media 14496-12) files or a set of adaptive bitrate Smooth Streaming files that you want to serve to clients that understand HLS, MPEG-DASH, or Smooth Streaming, you can take advantage of *dynamic packaging* in Media Services. 
+To take advantage of dynamic packaging, you need to have an **Asset** with a set of adaptive bitrate MP4 files and streaming configuration files needed by Media Services dynamic packaging. One way to get the files is to encode your mezzanine (source) file with Media Services. To make videos in the encoded Asset available to clients for playback, you have to create a **Streaming Locator** and build streaming URLs. Then, based on the specified format in the streaming client manifest (HLS, DASH, or Smooth), you receive the stream in the protocol you have chosen.
 
-A streaming endpoint uses one of the common streaming media protocols (HLS or MPEG-DASH). Dynamic packaging is a feature that comes standard on all streaming endpoints in Azure Media Services (Standard or Premium).
+As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. 
 
-## Delivery protocols
-
-You can use these delivery protocols for your content in Media Services dynamic packaging:
-
-|Protocol|Example|
-|---|---|
-|HLS V4	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
-
-Dynamic packaging is agnostic to video resolution and SD, HD, and UHD-4K are supported.
-
-## How it works
-
-In Media Services dynamic packaging, you store your files in a single format, and you pay for one format. Media Services builds and serves the appropriate response based on requests from a client.
-
-In Media Services, dynamic packaging is used whether you stream live or on-demand. 
-
-Here's an overview of how it works:
-
-1. **Start with an asset**. To use dynamic packaging, you start with an *asset* that has a specific set of adaptive bitrate MP4 files and streaming configuration files. (See the [list of formats supported by the Media Encoder Standard](media-encoder-standard-formats.md).)
-2. **Encode your source file**. One way to get your files is to encode your mezzanine (source) file with Media Services. (See [Encode to adaptive bitrate MP4s](#encode-to-adaptive-bitrate-mp4s).)
-3. **Create a streaming locator**. To make videos in the encoded asset available to clients for playback, you must create a *streaming locator*.
-4. **Build streaming URLs**.
-5. **Clients receive the stream in their protocol**. Based on the specified format in the streaming client manifest (HLS, MPEG-DASH, or Smooth Streaming), clients receive the stream.
+In Media Services, dynamic packaging is used whether you are streaming live or on-demand. 
 
 > [!NOTE]
-> Currently, you can't manage v3 resources in the Azure portal. Instead, use the [REST API](https://aka.ms/ams-v3-rest-ref), the [Azure CLI](https://aka.ms/ams-v3-cli-ref), or a supported [SDK](media-services-apis-overview.md#sdks).
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ## On-demand streaming workflow
 
@@ -93,6 +66,19 @@ This diagram shows the workflow for live streaming with dynamic packaging:
 ![Diagram of a workflow for pass-through encoding with dynamic packaging](./media/live-streaming/pass-through.svg)
 
 For information about live streaming in Media Services v3, see [Live streaming overview](live-streaming-overview.md).
+
+## Delivery protocols
+
+You can use these delivery protocols for your content in Media Services dynamic packaging:
+
+|Protocol|Example|
+|---|---|
+|HLS V4	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3	|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
+|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 ## Encode to adaptive bitrate MP4s
 
@@ -140,7 +126,7 @@ Dynamic packaging supports multi audio tracks for HLS output (version 4 or later
 
 ## Dynamic encryption
 
-You can use *dynamic encryption* to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information, see [Dynamic encryption](content-protection-overview.md).
+You can use *dynamic encryption* to dynamically encrypt your live or on-demand content with AES-128 or any of the three major digital rights management (DRM) systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM licenses to authorized clients. For more information, see [dynamic encryption](content-protection-overview.md).
 
 ## Manifest examples 
  
