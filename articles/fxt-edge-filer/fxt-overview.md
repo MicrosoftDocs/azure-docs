@@ -4,11 +4,11 @@ description: Describes Azure FXT Edge Filer hybrid storage cache, an active arch
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: overview
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell 
 ---
 
-# What is Azure FXT Edge Filer hybrid storage cache? (Preview)
+# What is Azure FXT Edge Filer hybrid storage cache?
 
 Azure FXT Edge Filer is a hybrid storage caching appliance that provides fast file access and active archive for high-performance computing (HPC) tasks.
 
@@ -17,9 +17,6 @@ It works with multiple data sources, whether stored in a local data center, remo
 Three or more FXT Edge Filer hardware devices work together as a clustered filesystem to provide the cache. For details about purchasing the required hardware, contact your Microsoft representative. 
 
 To learn more, read the product information and data sheet on [Azure FXT Edge Filer](https://azure.microsoft.com/services/fxt-edge-filer/).
-
-> [!IMPORTANT]
-> Azure FXT Edge Filer is in *preview*. You must contact Microsoft's HPC team or the Azure FXT Edge Filer team to access this service. Contact information is available in the [Azure FXT Edge Filer hybrid storage cache data sheet](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-fxt-edge-filer-hybrid-storage-cache-software-defined-networking-fast-file-access-and-active-archive-for-hpc/FXT%20Edge%20Filer%20datasheet-032219.pdf). 
 
 ## Use cases
 
@@ -54,4 +51,4 @@ Two hardware models are available.
 ## Next steps
 
 * Continue learning about the Azure FXT Edge Filer by reading the [specifications](fxt-specs.md) or [installation tutorial](fxt-install.md).
-* Learn how to qualify for the product preview: Contact the Azure FXT Edge Filer team at the address provided in the [data sheet](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-fxt-edge-filer-hybrid-storage-cache-software-defined-networking-fast-file-access-and-active-archive-for-hpc/FXT%20Edge%20Filer%20datasheet-032219.pdf). Learn more on the [Azure FXT Edge Filer product page](https://azure.microsoft.com/services/fxt-edge-filer/).
+* Learn how to purchase Azure FXT Edge Filer on the [Azure FXT Edge Filer product page](https://azure.microsoft.com/services/fxt-edge-filer/).
