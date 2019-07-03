@@ -7,7 +7,7 @@ manager: barbkess
 services: key-vault
 
 ms.author: mbaldwin
-ms.date: 06/2019
+ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
 
