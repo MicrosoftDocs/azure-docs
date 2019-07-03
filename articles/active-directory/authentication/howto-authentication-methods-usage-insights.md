@@ -95,5 +95,6 @@ Usage and insights data is not a replacement for the Azure Multi-Factor Authenti
 
 ## Next steps
 
+- [Working with the authentication methods usage report API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Choosing authentication methods for your organization](concept-authentication-methods.md)
 - [Combined registration experience](concept-registration-mfa-sspr-combined.md)

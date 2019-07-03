@@ -40,7 +40,7 @@ Specifically, this Teradata connector supports:
 
 ## Prerequisites
 
-If your Teradata is not publicly accessible, you need to set up a Self-hosted Integration Runtime. For more information about integration runtime, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md). The Integration Runtime provides a built-in Teradata driver starting from version 3.18, therefore you don't need to manually install any driver.
+If your Teradata is not publicly accessible, you need to set up a Self-hosted Integration Runtime. For more information about integration runtime, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md). The Integration Runtime provides a built-in Teradata driver starting from version 3.18, therefore you don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the Self-hosted IR machine, download from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679) if you don't yet have it installed.
 
 For Self-hosted IR version lower than 3.18, you need to install the [.NET Data Provider for Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) version 14 or above on the Integration Runtime machine. 
 
