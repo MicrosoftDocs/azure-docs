@@ -130,10 +130,13 @@ If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart
 
    When deployment starts, your app's deployment status appears in the Visual Studio **Output** window. If the status doesn't appear, open the **Show output from** list, and select your Azure resource group.
 
-   If your selected connectors need input from you, a PowerShell window opens in the background and prompts for any necessary passwords or secret keys. After you enter this information, 
-   deployment continues.
+   If your selected connectors need input from you, a PowerShell window opens in the background and prompts for any necessary passwords or secret keys. After you enter this information, deployment continues.
 
-   After deployment finishes, your logic app is published and live in the Azure portal.
+   After deployment finishes, your logic app is published but isn't activated in the Azure portal.
+
+1. When you're ready to activate your logic app in the Azure portal, find and open your logic app in the Logic App Designer. On the logic app's menu, select **Overview**, and then select **Enable**.
+
+1. To avoid running duplicate workflows, make sure that you deactivate or delete your original flow.
 
 For more information about these deployment steps, see [Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
 
