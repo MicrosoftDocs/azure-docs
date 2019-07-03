@@ -194,7 +194,7 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Data from Azure App Configuration - now with live updates! |
 
-6. Refresh the browser page to see the new configuration settings. Since the configuration updates triggered by the middleware are asynchronous, an additional refresh of the browser page may be required for the changes to be reflected.
+6. Refresh the browser page to see the new configuration settings. More than one refresh of the browser page may be required for the changes to be reflected.
 
     ![Quickstart app refresh local](./media/quickstarts/aspnet-core-app-launch-local-after.png)
     

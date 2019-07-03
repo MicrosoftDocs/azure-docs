@@ -84,7 +84,7 @@ public class Startup
 
 We recommend that you keep feature flags outside the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI. App Configuration also delivers the flags to your application directly through its .NET Core client libraries.
 
-The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.AzureAppConfiguration.AspNetCore`. Follow these steps to use this NuGet package.
+The easiest way to connect your ASP.NET Core application to App Configuration is through the configuration provider `Microsoft.Azure.AppConfiguration.AspNetCore`. Follow these steps to use this NuGet package.
 
 1. Open *Program.cs* file and add the following code.
 
@@ -113,7 +113,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Feature flag values are expected to change over time. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expiures. The following code shows how to change the cache expiration time to 5 minutes in the `options.UseFeatureFlags()` call.
+Feature flag values are expected to change over time. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expires. The following code shows how to change the cache expiration time to 5 minutes in the `options.UseFeatureFlags()` call.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
