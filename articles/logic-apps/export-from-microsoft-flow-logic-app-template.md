@@ -53,11 +53,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    ![Select "Load file"](./media/import-from-microsoft-flow/load-file.png)
 
-1. Edit the template so that you can deploy the flow as a logic app. In the template editor, after your template's contents appear, remove *only* the `template` attribute and enclosing curly braces, but keep the content within that attribute.
-
-   ![Edit template](./media/import-from-microsoft-flow/edit-template.png)
-
-1. After the template editor correctly shows the parameters and resources in your template, select **Save**.
+1. After the editor shows the JSON, parameters, and resources in your template, select **Save**.
   
    ![Save template](./media/import-from-microsoft-flow/save-template.png)
 
