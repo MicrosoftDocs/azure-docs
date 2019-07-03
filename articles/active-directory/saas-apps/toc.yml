@@ -259,6 +259,8 @@
         href: clearcompany-tutorial.md
       - name: Clever
         href: clever-tutorial.md
+      - name: Clever Nelly
+        href: clever-nelly-tutorial.md
       - name: ClickTime
         href: clicktime-tutorial.md
       - name: ClickUp Productivity Platform
@@ -1456,8 +1458,6 @@
         href: samanage-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
-      - name: Smartsheet
-        href: smartsheet-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Tableau Online

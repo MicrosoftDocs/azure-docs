@@ -39,6 +39,7 @@ This feature is available for the following Azure services and regions:
 **Public Preview**
 
 - **[Azure Container Registry](../container-registry/container-registry-vnet.md)**: Preview available in all Azure regions where Azure Container Registry is available.
+- **[Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions)**: Preview available in all Azure regions where App service is available.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
