@@ -55,7 +55,7 @@ A dashboard with just static text isn't very interesting, so now add a tile from
 
 
 1. Select your **Application Insights** resource on the home screen.
-2. In the **Overview** pane, click the pushpin icon ![push pin icon](pushpin.png) to add the tile to the last dashboard that you were viewing.  
+2. In the **Overview** pane, click the pushpin icon ![push pin icon](media/tutorial-app-dashboards/pushpin.png) to add the tile to the last dashboard that you were viewing.  
  
 3. In the top right a notification will appear that your tile was pinned to your dashboard. Click **Pinned to dashboard** in the notification to return to your dashboard or use the dashboard pane.
 4. That tile is now added to your dashboard. Select **Edit** to change the positioning of the tile. Click and drag the it into position and then click **Done customizing**. Your dashboard now has a tile with some useful information.
@@ -116,9 +116,9 @@ Since Azure Applications Insights Logs (Analytics) is a separate service, you ne
 
 	![Logs (Analytics) chart](media/tutorial-app-dashboards/11querychart.png)
 
-6. Click the pin icon ![Push pin](pushpin.png) on the top right to pin the chart to your dashboard and this time select the link to return to your dashboard.
+6. Click the pin icon ![Push pin](media/tutorial-app-dashboards/pushpin.png) on the top right to pin the chart to your dashboard and this time select the link to return to your dashboard.
 4. The results of the queries are now added to your dashboard in the format that you selected.  Click and drag each into position and then click **Done customizing**.
-5. Select the pencil icon ![Pencil icon](pencil.png) on each title to give them a descriptive title.
+5. Select the pencil icon ![Pencil icon](media/tutorial-app-dashboards/pencil.png) on each title to give them a descriptive title.
 
 5. Select **Share** to republish your changes to your dashboard that now includes a variety of charts and visualizations from Application Insights.
 
