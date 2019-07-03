@@ -137,7 +137,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Don't forget the additional configuration steps after provisioning your managed domain.**
 > After your managed domain is provisioned, you still need to complete the following tasks:
 > * **[Update DNS settings](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)** for the virtual network so virtual machines can find the managed domain for domain join or authentication.
-> * **[Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-active-directory-domain-services)**, so end users can sign in to the managed domain using their corporate credentials.
+> * **[Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-ad-ds)**, so end users can sign in to the managed domain using their corporate credentials.
 
 
 ## PowerShell script
@@ -228,4 +228,4 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 After your managed domain is created, perform the following configuration tasks so you can use the managed domain:
 
 * [Update the DNS server settings for the virtual network to point to your managed domain](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
-* [Enable password synchronization to your managed domain](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-active-directory-domain-services)
+* [Enable password synchronization to your managed domain](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-ad-ds)

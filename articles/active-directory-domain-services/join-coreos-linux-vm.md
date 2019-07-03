@@ -29,7 +29,7 @@ To perform the tasks listed in this article, you need:
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
 3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
 4. Ensure that you have configured the IP addresses of the managed domain as the DNS servers for the virtual network. For more information, see [how to update DNS settings for the Azure virtual network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
-5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-active-directory-domain-services).
+5. Complete the steps required to [synchronize passwords to your Azure AD Domain Services managed domain](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-ad-ds).
 
 
 ## Provision a CoreOS Linux virtual machine

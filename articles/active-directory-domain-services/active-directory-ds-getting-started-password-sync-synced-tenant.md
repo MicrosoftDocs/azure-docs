@@ -26,7 +26,7 @@ The steps involved are different for cloud-only user accounts vs user accounts t
 | **Type of user account** | **Steps to perform** |
 | --- | --- |
 | **User accounts synchronized from an on-premises directory** |**&#x2713;** [Follow the instructions in this article](active-directory-ds-getting-started-password-sync-synced-tenant.md#task-5-enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad) |
-| **Cloud user accounts created in Azure AD** |**&#x2713;** [Synchronize passwords for cloud-only user accounts to your managed domain](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-active-directory-domain-services) |
+| **Cloud user accounts created in Azure AD** |**&#x2713;** [Synchronize passwords for cloud-only user accounts to your managed domain](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-ad-ds) |
 
 > [!TIP]
 > **You may need to complete both sets of steps.**
@@ -75,7 +75,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Depending on the size of your directory (number of users, groups etc.), synchronization of credential hashes to Azure AD takes time. The passwords will be usable on the Azure AD Domain Services managed domain shortly after the credential hashes have synchronized to Azure AD.
 
 ## Related Content
-* [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-active-directory-domain-services)
+* [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-ad-ds)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

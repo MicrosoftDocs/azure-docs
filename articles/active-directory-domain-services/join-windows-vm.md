@@ -140,7 +140,7 @@ If you're having trouble with credentials and are unable to join the domain, try
 
 * Try to use the credentials of a user account that belongs to the *AAD DC Administrators* group.
 
-* Check that you have [enabled password synchronization](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-active-directory-domain-services) to your managed domain.
+* Check that you have [enabled password synchronization](tutorial-create-instance.md#enable-password-hash-synchronization-to-azure-ad-ds) to your managed domain.
 
 * Check that you've used the UPN of the user as configured in Azure AD (for example, *bob\@domainservicespreview.onmicrosoft.com*) to sign in.
 

@@ -70,7 +70,7 @@ The following important considerations apply when administering a managed domain
 
 * **CSP admin agents can provision a managed domain using their credentials:** Azure AD Domain Services supports Azure CSP subscriptions. Therefore, users belonging to a CSP partner's admin agents group can provision a new Azure AD Domain Services managed domain.
 
-* **CSPs can script creation of new managed domains for their customers using PowerShell:** See [how to enable Azure AD Domain Services using PowerShell](powershell-tutorial-create-instance.md) for details.
+* **CSPs can script creation of new managed domains for their customers using PowerShell:** See [how to enable Azure AD Domain Services using PowerShell](powershell-create-instance.md) for details.
 
 * **CSP admin agents cannot perform ongoing management tasks on the managed domain using their credentials:** CSP admin users cannot perform routine management tasks within the managed domain using their credentials. These users are external to the customer's Azure AD directory and their credentials are not available within the customer's Azure AD directory. Therefore, Azure AD Domain Services does not have access to the Kerberos and NTLM password hashes for these users. As a result, such users cannot be authenticated on Azure AD Domain Services managed domains.
 
@@ -85,5 +85,5 @@ The following important considerations apply when administering a managed domain
 ## Next steps
 * [Enroll in the Azure CSP program](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) and start creating business through Azure CSP.
 * Review the list of [Azure services available in Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
-* [Enable Azure AD Domain Services using PowerShell](powershell-tutorial-create-instance.md)
+* [Enable Azure AD Domain Services using PowerShell](powershell-create-instance.md)
 * [Get started with Azure AD Domain Services](tutorial-create-instance.md)
