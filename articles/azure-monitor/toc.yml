@@ -122,8 +122,6 @@
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
-  - name: OMS portal deprecation
-    href: platform/oms-portal-transition.md
   - name: FAQ
     items:
     - name: Log Analytics
@@ -577,6 +575,8 @@
             href: insights/container-insights-enable-new-cluster.md
           - name: Enable for existing cluster
             href: insights/container-insights-enable-existing-clusters.md
+          - name: Region mappings
+            href: insights/container-insights-region-mapping.md
         - name: Analyze 
           href: insights/container-insights-analyze.md
         - name: Configure agent collection settings
@@ -848,10 +848,12 @@
         items:
         - name: Alert on an activity log event
           href: platform/alerts-activity-log.md
-        - name: Migrate management events to activity log alerts
-          href: platform/migrate-management-alerts.md
-        - name: Alert on service health notifications
-          href: platform/alerts-activity-log-service-notifications.md
+      - name: Service health notifications in activity log
+        items:
+        - name: View service health notifications
+          href: ../service-health/service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
+        - name: Configure service health alert rule
+          href: ../service-health/alerts-activity-log-service-notifications.md?toc=%2fazure%2fazure-monitor%2ftoc.json
       - name: Use action groups
         items:
         - name: Create action group
@@ -896,12 +898,6 @@
           href: platform/alerts-enable-template.md    
         - name: Classic metric alert calling a webhook
           href: platform/alerts-webhooks.md
-    - name: Service health notifications in activity log
-      items:
-      - name: View notifications
-        href: platform/service-notifications.md
-      - name: Configure alerts on notification events
-        href: platform/alerts-activity-log-service-notifications.md
     - name: Autoscale
       items:
       - name: Walkthrough
@@ -1087,12 +1083,10 @@
       href: ./platform/classic-api-retirement-metrics-autoscale.md 
     - name: Classic alerting & monitoring 
       href: platform/monitoring-classic-retirement.md
-    - name: Extend alerts from Log Analytics to Azure
-      href: platform/alerts-extend.md
-    - name: Copy alerts from OMS portal to Azure portal 
-      href: platform/alerts-extend-tool.md
     - name: Switch log alert API preference
       href: platform/alerts-log-api-switch.md
+    - name: OMS portal deprecation
+      href: platform/oms-portal-transition.md
 - name: Resources
   items:
   - name: Azure Roadmap

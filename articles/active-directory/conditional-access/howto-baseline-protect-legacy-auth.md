@@ -26,8 +26,6 @@ Today, majority of all compromising sign-in attempts come from legacy authentica
 
 The best way to protect your account from malicious authentication requests made by legacy protocols is to block these attempts all together. To make it easier for you to block all login requests made by legacy protocols, we created a baseline policy that does just that.
 
-![Block legacy authentication with Conditional Access](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
-
 **Block legacy authentication** is [baseline policy](concept-baseline-protection.md) that blocks all authentication requests made from legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, all requests coming from legacy protocols will be blocked and all users will be required to MFA whenever required. This policy does not block Exchange ActiveSync.
 
 ## Identify legacy authentication use
@@ -108,7 +106,6 @@ To enable this policy and protect your organization:
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: Block legacy authentication (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
-1. Add any user exclusions by clicking on **Users** > **Select excluded users** and choosing the users that need to be excluded. Click **Select** then **Done**.
 1. Click **Save**.
 
 ## Next steps
