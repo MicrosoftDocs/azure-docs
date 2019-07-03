@@ -41,6 +41,8 @@
       href: logic-apps-create-logic-apps-from-templates.md
     - name: Migrate from BizTalk Services
       href: logic-apps-move-from-mabs.md
+    - name: Export flows from Microsoft Flow and deploy to Azure Logic Apps
+      href: export-from-microsoft-flow-logic-app-template.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
