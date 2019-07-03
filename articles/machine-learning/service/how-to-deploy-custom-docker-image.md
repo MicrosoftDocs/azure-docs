@@ -57,7 +57,7 @@ The information in this section assumes that you are using an Azure Container Re
 
     When using images stored in a __standalone container registry__, you will need to configure a service principal that has at least read access. You then provide the service principal ID (username) and password to anyone that uses images from the registry. The exception is if you make the container registry publicly accessible.
 
-    For information on creating a private Azure Container Registry, see [Create a private container registry](/azure/container-registry/container-registery-get-started-azure-cli).
+    For information on creating a private Azure Container Registry, see [Create a private container registry](/azure/container-registry/container-registry-get-started-azure-cli).
 
     For information on using service principals with Azure Container Registry, see [Azure Container Registry authentication with service principals](/azure/container-registry/container-registry-auth-service-principal).
 
@@ -148,9 +148,9 @@ The steps in this section walk-through creating a custom Docker image in your Az
     Run ID: cda was successful after 2m56s
     ```
 
-For more information on building images with an Azure Container Registry, see [Build and run a container image using Azure Container Registry Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-quickstart-task-cli)
+For more information on building images with an Azure Container Registry, see [Build and run a container image using Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
 
-For more information on uploading existing images to an Azure Container Registry, see [Push your first image to a private Docker container registry](/azure/container-registry/container-registry-get-started-docker-cli.md).
+For more information on uploading existing images to an Azure Container Registry, see [Push your first image to a private Docker container registry](/azure/container-registry/container-registry-get-started-docker-cli).
 
 ## Use a custom image
 
