@@ -94,7 +94,7 @@ To troubleshoot these issues, you should:
 
 ### Error: The name 'AuthenticationContinuationHelper' does not exist in the current context
 
-This is probably because Visual Studio did not correctly update the Android.csproj* file. Sometimes the **<HintPath>** filepath incorrectly contains netstandard13 instead of **monoandroid90**.
+This is probably because Visual Studio did not correctly update the Android.csproj* file. Sometimes the **\<HintPath>** filepath incorrectly contains netstandard13 instead of **monoandroid90**.
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,
