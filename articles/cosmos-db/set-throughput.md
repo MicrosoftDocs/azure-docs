@@ -94,6 +94,7 @@ You can scale the provisioned throughput of a container or a database at any tim
 |---------|---------|---------|
 |Minimum RUs |400 (After the first four containers, each additional container requires a minimum of 100 RUs per second.) |400|
 |Minimum RUs per container|100|400|
+|Minimum RUs required to consume 1 GB of storage|40|40|
 |Maximum RUs|Unlimited, on the database.|Unlimited, on the container.|
 |RUs assigned or available to a specific container|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
 |Maximum storage for a container|Unlimited.|Unlimited.|
