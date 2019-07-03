@@ -1,5 +1,5 @@
 ---
-title: How to switch licensing model for a SQL Server VM in Azure
+title: How to change licensing model for a SQL Server VM in Azure
 description: Learn how to switch licensing for a SQL virtual machine in Azure from 'pay-as-you-go' to 'bring-your-own-license' using the Azure Hybrid Benefit. 
 services: virtual-machines-windows
 documentationcenter: na
@@ -17,13 +17,13 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# How to switch licensing model for a SQL Server virtual machine in Azure
-This article describes how to change the licensing model for a SQL Server virtual machine in Azure using the new SQL VM resource provider - **Microsoft.SqlVirtualMachine**. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-as-you-go, and bring your own license (BYOL). And now, using either the Azure portal, Azure CLI, or PowerShell you can modify which licensing model your SQL Server VM uses. 
+# How to change licensing model for a SQL Server virtual machine in Azure
+This article describes how to change the licensing model for a SQL Server virtual machine in Azure using the new SQL VM resource provider - **Microsoft.SqlVirtualMachine**.
+
+There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-as-you-go, and Azure Hybrid Benefit (AHB). And now, using either the Azure portal, Azure CLI, or PowerShell you can modify licensing model of your SQL Server VM. 
 
 The **pay-as-you-go** (PAYG) model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
-
-The [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/), also known as bring-your-own-license (BYOL), allows you to use your own SQL Server license with a VM running SQL Server. 
-
+The [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) allows you to use your own SQL Server license with a VM running SQL Server. 
 
 Microsoft Azure Hybrid Benefit for SQL Server allows using SQL Server Licenses with Software Assurance ("Qualified License") on Azure Virtual Machines. With Azure Hybrid Benefit for SQL Server, customers will not be charged for the usage of SQL Server license on the VM, but they must still pay for the cost of the underlying cloud compute (that is, the base rate), storage, and back-ups, as well as I/O associated with their use of the services (as applicable).
 
@@ -31,11 +31,11 @@ According to Microsoft Product Terms "Customers must indicate that they are usin
 
 To indicate the use of the Azure Hybrid Benefit for SQL Server on Azure VM and be compliant, there are three options:
 
-1. Provision a virtual machine using a BYOL SQL Server image from the Azure marketplace.
+1. Provision a virtual machine using a BYOL SQL Server image from the Azure marketplace, only available for customers with Enterprise Agreement.
 1. Provision a virtual machine using a PAYG SQL Server image from Azure marketplace and activate AHB.
 1. Self-install SQL Server on an Azure VM, manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-rp.md) and activate AHB.
 
-Switching between license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
+License type of SQL Server is set when the VM is provisioned and can be changed anytime afterwards. Switching between license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
 
 ## Prerequisites
 
@@ -117,20 +117,18 @@ $SqlVm | Set-AzResource -Force
 
 ## Change license for VMs not registered with resource provider
 
-SQL Server virtual machine service supports two license types as PAYG or AHB. If you provisioned a SQL Server VM from default Azure Market Place images then SQL License type will be PAYG by default. If you provisioned a SQL Server VM using a BYOL image from the Azure Marketplace then the license type will be AHB. All SQL Server VMs provisioned from default (PAYG) or BYOL Azure Marketplace images will automatically be registered with SQL VM resource provider, so they can change the [license type](#change-license-for-vms-already-registered-with-resource-provider)
+If you provisioned a SQL Server VM from PAYG Azure Market Place images then SQL License type will be PAYG. If you provisioned a SQL Server VM using a BYOL image from the Azure Marketplace then the license type will be AHB. All SQL Server VMs provisioned from default (PAYG) or BYOL Azure Marketplace images will automatically be registered with SQL VM resource provider, so they can change the [license type](#change-license-for-vms-already-registered-with-resource-provider)
 
-You are only eligible to self-install SQL Server on Azure VM via Azure Hybrid Benefit; If you self-installed SQL Server on Azure VM you should [register these VMs with SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md) by setting the SQL Server license as AHB to indicate the AHB usage according to Microsoft Product Terms or as PAYG.
+You are only eligible to self-install SQL Server on Azure VM via Azure Hybrid Benefit and you should [register these VMs with SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md) by setting the SQL Server license as AHB to indicate the AHB usage according to Microsoft Product Terms.
 
-You can change the license type of a self-installed SQL Server VM as PAYG or AHB either when registering or after registered with SQL VM resource provider. 
+You can only change the license type of a SQL Server VM as PAYG or AHB if the SQL VM is registered with SQL VM resource provider; and all SQL VM's should be registered with SQL VM RP for license compliance.
 
 ## Remarks
 
- - Azure Cloud Solution Partner (CSP) customers can utilize the Azure Hybrid Benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license. 
+ - Azure Cloud Solution Partner (CSP) customers can utilize the Azure Hybrid Benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license if they have active SA.
  - If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
- - BYOL marketplace images must register as 'AHUB' initially before changing the license type to 'PAYG'.
- - Adding a SQL Server VM to an availability set requires recreating the VM. As such, any VMs added to an availability set will go back to the default pay-as-you-go license type and AHB will need to be enabled again. 
- - The ability to change the licensing model is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-rp.md). 
-
+  - The ability to change the licensing model is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-rp.md). 
+- Adding a SQL Server VM to an availability set requires recreating the VM. As such, any VMs added to an availability set will go back to the default pay-as-you-go license type and AHB will need to be enabled again. 
 ## Limitations
 
  - Changing the licensing model is only available to customers with software assurance.
