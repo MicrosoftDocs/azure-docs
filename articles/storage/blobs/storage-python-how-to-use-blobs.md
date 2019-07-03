@@ -78,21 +78,19 @@ Add a directory by calling the [BlockBlobService.create_directory](https://www.m
 
 * The path of the new directory.
 
-The following example adds a directory named `my-directory` to a container named `my-file-system`. Then, it adds a sub-directory named `my-subdirectory` to the directory named `my-directory`.
+This example adds a directory named `my-directory` to a container named `my-file-system`. 
 
 ```python
-def create_directory():
-    try:
-
-        block_blob_service.create_directory("my-file-system", "my-directory")
-        block_blob_service.create_directory("my-file-system", "my-directory/my-sub-directory")
-
-
-    except Exception as e:
-        print(e)
+    block_blob_service.create_directory("my-file-system", "my-directory")
 ```
 
-### APIs featured in this snippet
+This example adds a sub-directory named `my-subdirectory` to the directory named `my-directory`.
+
+```python
+   block_blob_service.create_directory("my-file-system", "my-directory/my-sub-directory")
+```
+
+### APIs featured in these snippets
 
 > [!div class="checklist"]
 > * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
@@ -111,15 +109,8 @@ Move or rename a directory by calling the [BlockBlobService.rename_path](https:/
 The following example moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. Then, it renames that sub-directory to `my-new-directory-renamed`.
 
 ```python
-def rename_directory():
-  
-   try:
-
-        block_blob_service.rename_path("my-file-system", "my-directory", "my-directory-2/my-new-directory")
-        block_blob_service.rename_path("my-file-system", "my-directory-2/my-new-directory", "my-directory-2/my-new-directory-renamed")  
-
-    except Exception as e:
-        print(e)
+    block_blob_service.rename_path("my-file-system", "my-directory", "my-directory-2/my-new-directory")
+    block_blob_service.rename_path("my-file-system", "my-directory-2/my-new-directory", "my-directory-2/my-new-directory-renamed")  
 ```
 
 ### APIs featured in this snippet
@@ -138,14 +129,7 @@ The following example deletes a directory by calling the [BlockBlobService.delet
 This method deletes a directory named `my-sub-directory` from the `my-directory` directory.  
 
 ```python
-def delete_directory(container_name, directory_name):
-  
-    try:
-
-        block_blob_service.delete_directory("my-file-system","my-directory/my-sub-directory")
-
-    except Exception as e:
-        print(e)
+    block_blob_service.delete_directory("my-file-system","my-directory/my-sub-directory")
 ```
 
 ### APIs featured in this snippet
@@ -167,17 +151,10 @@ The following example returns a [PathProperties](https://www.microsoft.com) inst
 The following example gets the ACL of the `my-directory` directory and then prints the short form of ACL to the console.
 
 ```python
-def get_directory_permissions(container_name, directory_name):
-  
-    try:
-
-        path_properties = PathProperties()
-        path_properties = block_blob_service.get_path_access_control("my-file-system","my-directory")
+    path_properties = PathProperties()
+    path_properties = block_blob_service.get_path_access_control("my-file-system","my-directory")
         
-        print(path_properties.acl)
-
-    except Exception as e:
-        print(e)
+    print(path_properties.acl)
 ```
 
 The short form of an ACL might look something like the following:
@@ -205,15 +182,7 @@ Set the access permissions of a directory by calling the [BlockBlobService.set_d
 The following example gives read access to all users.
 
 ```python
-def set_directory_permissions(container_name, directory_name):
-  
-    try:
-
-        block_blob_service.set_path_access_control(container_name, directory_name, acl='other::r--')
-        
-    except Exception as e:
-        print(e)
-
+    block_blob_service.set_path_access_control(container_name, directory_name, acl='other::r--')
 ```
 
 For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
