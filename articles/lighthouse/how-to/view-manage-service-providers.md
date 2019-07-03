@@ -1,6 +1,6 @@
 ---
 title: View and manage service providers in the Azure portal
-description: As a service provider using Azure delegated resource management, your customers can view info about the resources they have delegated by going to My customers in the Azure portal. 
+description: Customers can use the Service providers page in the Azure portal to view info about service providers, service provider offers, and delegated resources. 
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
@@ -10,7 +10,7 @@ manager: carmonm
 ---
 # View and manage service providers
 
-In this article, you'll learn how, as a service provider using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), your customers can view info about the resources they have delegated by going to **Service providers** in the [Azure portal](https://portal.azure.com). While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
+Customers can use the **Service providers** page in the [Azure portal](https://portal.azure.com) to view info about service providers and service provider offers, delegate specific resources through [Azure delegated resource management](../concepts/azure-delegated-resource-management.md), and shop for additional service provider offers. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
 
 To access the **Service providers** page in the Azure portal, the customer can select **All services**, then search for **Service providers** and select it. They can also find it by entering “Service providers” in the search box near the top of the Azure portal.
 
@@ -47,9 +47,9 @@ If the customer wants to remove a service provider offer, they can select the tr
 
 ## View delegations
 
-Delegations represent the role assignments that grant permissions to the service provider for the resources you've delegated. To view this info, select **Delegations** on the left side of the **Service providers** page.
+Delegations represent the role assignments that grant permissions to the service provider for the resources a customer has delegated. To view this info, select **Delegations** on the left side of the **Service providers** page.
 
-Filters at the top of the page let you sort and group your access assignment info or filter by specific customers, offers, or keywords.
+Filters at the top of the page let you sort and group your delegation info or filter by specific customers, offers, or keywords.
 
 ## Next steps
 
