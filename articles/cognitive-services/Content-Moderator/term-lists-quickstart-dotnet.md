@@ -8,13 +8,13 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
 #As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Check text against a custom term list in C#
+# Check text against a custom term list in C#
 
 The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
