@@ -1,20 +1,20 @@
 ---
-title: Call HTTP or HTTPS endpoints from Azure Logic Apps
-description: Connect to HTTP or HTTPS endpoints in automated tasks, processes, and workflows that you create by using Azure Logic Apps
+title: Connect to HTTP or HTTPS endpoints from Azure Logic Apps
+description: Monitor HTTP or HTTPS endpoints in automated tasks, processes, and workflows by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
 ---
 
 # Call HTTP or HTTPS endpoints by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP connector, you can automate workflows that can call any HTTP or HTTPS endpoint by building logic apps. For example, you can monitor the service endpoint for your website. When an event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the specified actions.
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in HTTP connector, you can automate workflows that regularly call any HTTP or HTTPS endpoint by building logic apps. For example, you can monitor the service endpoint for your website by checking that endpoint on a specified schedule. When a specific event happens at that endpoint, such as your website going down, the event triggers your logic app's workflow and runs the specified actions.
 
 To check or *poll* an endpoint on a regular schedule, you can use the HTTP trigger as the first step in your workflow. On each check, the trigger sends a call or *request* to the endpoint. The endpoint's response determines whether your logic app's workflow runs. The trigger passes along any content from the response to the actions in your logic app.
 
@@ -30,7 +30,7 @@ Based the target endpoint's capability, the HTTP connector supports Transport La
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-* The logic app from where you want to call the target endpoint To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
+* The logic app from where you want to call the target endpoint. To start with the HTTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use the HTTP action, start your logic app with any trigger that you want. This example uses the HTTP trigger as the first step.
 
 ## Add an HTTP trigger
 
@@ -93,13 +93,13 @@ For more information about trigger and action parameters, see these sections:
 
 ### Output details
 
-The response from an HTTP call returns this information:
+Here is more information about the outputs from an HTTP trigger or action, which returns this information:
 
 | Property name | Type | Description |
 |---------------|------|-------------|
-| headers | object | The headers from the response |
-| body | object | JSON object | The content body from the response |
-| status code | int | The status code from the response |
+| headers | object | The headers from the request |
+| body | object | JSON object | The object with the body content from the request |
+| status code | int | The status code from the request |
 |||
 
 | Status code | Description |
