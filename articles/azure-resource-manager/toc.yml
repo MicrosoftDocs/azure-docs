@@ -130,6 +130,26 @@
       href: vs-resource-groups-project-devops-pipelines.md
   - name: Export template
     href: export-template-portal.md
+  - name: Move
+    items:
+    - name: Move resources
+      href: resource-group-move-resources.md
+    - name: Resource move support status
+      href: move-support-resources.md
+    - name: Limitations
+      items:
+      - name: App Service move
+        href: ./move-limitations/app-service-move-limitations.md
+      - name: Classic deployment move
+        href: ./move-limitations/classic-model-move-limitations.md
+      - name: Recovery Services move
+        href: ./move-limitations/classic-model-move-limitations.md
+      - name: Virtual Machines move
+        href: ./move-limitations/virtual-machines-move-limitations.md
+      - name: Virtual Networks move
+        href: ./move-limitations/virtual-network-move-limitations.md
+    - name: Troubleshoot move
+      href: troubleshoot-move.md
   - name: Manage
     items:
     - name: Manage resource groups
@@ -154,8 +174,6 @@
       - name: Use Azure PowerShell
         displayName: open,delete,deploy,move,lock,tag
         href: manage-resources-powershell.md
-    - name: Move resources
-      href: resource-group-move-resources.md
     - name: Organize resources
       displayName: tags
       href: resource-group-using-tags.md
@@ -235,8 +253,6 @@
     items:
     - name: Complete mode deletion
       href: complete-mode-deletion.md
-    - name: Move support
-      href: move-support-resources.md
     - name: Tag support
       href: tag-support.md
   - name: Resource providers by service
