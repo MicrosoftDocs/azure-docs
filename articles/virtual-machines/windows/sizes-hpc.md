@@ -50,7 +50,16 @@ In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is add
   "typeHandlerVersion": "1.0",
   } 
   ```
-  
+
+  The following command installs the latest version 1.0 InfiniBandDriverWindows extension on all RDMA-capable VMs in an existing VM scale set named *myVMSS* deployed in the resource group named *myResourceGroup*:
+
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverWindows" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverWindows" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+
   For more information, see [Virtual machine extensions and features](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can also work with extensions for VMs deployed in the [classic deployment model](classic/manage-extensions.md).
 
 * **RDMA network address space** - The RDMA network in Azure reserves the address space 172.16.0.0/16. To run MPI applications on instances deployed in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
@@ -63,6 +72,8 @@ Azure provides several options to create clusters of Windows HPC VMs that can co
 * **Virtual machines**  - Deploy the RDMA-capable HPC VMs in the same availability set (when you use the Azure Resource Manager deployment model). If you use the classic deployment model, deploy the VMs in the same cloud service. 
 
 * **Virtual machine scale sets** - In a virtual machine scale set, ensure that you limit the deployment to a single placement group. For example, in a Resource Manager template, set the `singlePlacementGroup` property to `true`. 
+
+* **MPI among virtual machines** - If MPI communication if required between virtual machines (VMs), ensure that the VMs are in the same availability set or the virtual machine same scale set.
 
 * **Azure CycleCloud** - Create an HPC cluster in [Azure CycleCloud](/azure/cyclecloud/) to run MPI jobs on Windows nodes.
 

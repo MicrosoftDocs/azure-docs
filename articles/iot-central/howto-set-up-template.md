@@ -294,11 +294,13 @@ If you configured a location measurement, you can visualize the location with a 
 
 You can resize the map tile. When an operator views the dashboard in the **Device Explorer**, all the dashboard tiles that you've configured, including a location map are visible.
 
+To learn more about how to use tiles in Azure IoT Central, see [Use dashboard tiles](howto-use-tiles.md).
+
 ## Next steps
 
 Now that you've learned how to set up a device template in your Azure IoT Central application, you can:
 
 > [!div class="nextstepaction"]
-> [Create a new device template version](howto-version-devicetemplate.md)
+> [Create a new device template version](howto-version-device-template.md)
 > [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md)
 > [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md)

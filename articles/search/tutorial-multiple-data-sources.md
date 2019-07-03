@@ -23,7 +23,7 @@ This tutorial uses C#, the .NET SDK for Azure Search, and the Azure portal to do
 > * Upload sample data and create data sources
 > * Identify the document key
 > * Define and create the index
-> * Index hotel data from CosmosDb
+> * Index hotel data from Azure Cosmos DB
 > * Merge hotel room data from blob storage
 
 ## Prerequisites
@@ -56,7 +56,7 @@ To interact with your Azure Search service, you need the service URL and an acce
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -129,7 +129,7 @@ When indexing data from multiple data sources, each data source key value must m
 
 Azure Search indexers can use field mappings to rename and even reformat data fields during the indexing process, so that source data can be directed to the correct index field.
 
-For example, in our sample CosmosDB data, the hotel identifier is called **HotelId**. But in the JSON blob files for the hotel rooms, the hotel identifier is  named **Id**. The program handles this by mapping the **Id** field from the blobs to the **HotelId** key field in the index.
+For example, in our sample Azure Cosmos DB data, the hotel identifier is called **HotelId**. But in the JSON blob files for the hotel rooms, the hotel identifier is  named **Id**. The program handles this by mapping the **Id** field from the blobs to the **HotelId** key field in the index.
 
 > [!NOTE]
 > In most cases auto-generated document keys, such as those created by default by some indexers, do not make good document keys for combined indexes. In general you will want to use a meaningful, unique key value that already exists in, or can be easily added to, your data sources.
@@ -141,8 +141,8 @@ Once the data and configuration settings are in place, the sample program in **A
 This simple C#/.NET console app performs the following tasks:
 * Creates a new Azure Search index based on the data structure of the C# Hotel class (which also references the Address and Room classes).
 * Creates an Azure Cosmos DB data source and an indexer that maps Azure Cosmos DB data to index fields.
-* Runs the CosmosDB indexer to load Hotel data.
-* Creates an Azure Blob Storage data source and an indexer that maps JSOn Blob data to index fields.
+* Runs the Azure Cosmos DB indexer to load Hotel data.
+* Creates an Azure Blob Storage data source and an indexer that maps JSON blob data to index fields.
 * Runs the Azure blob storage indexer to load Rooms data.
 
  Before running the program, take a minute to study the code and the index and indexer definitions for this sample. The relevant code is in two files:
