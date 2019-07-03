@@ -43,7 +43,36 @@ To create a large partition key, while you create a new container using the Azur
 
 To create a container with large partition key using PowerShell, include `"version" = 2` for the `partitionKey` object.
 
-[!code-powershell[main](../../../../powershell_scripts/cosmosdb/sql/ps-container-large-partition-key.ps1 "Create a container for SQL (Core) API with a large partition key")]
+```azurepowershell-interactive
+# Create a Cosmos SQL API container with large partition key support (version 2)
+$resourceGroupName = "myResourceGroup"
+$containerName = "mycosmosaccount" + "/sql/" + "myDatabase" + "/" + "myContainer"
+
+# Container with large partition key support (version = 2)
+$containerProperties = @{
+  "resource"=@{
+    "id"=$containerName;
+    "partitionKey"=@{
+        "paths"=@("/myPartitionKey");
+        "kind"="Hash";
+        "version" = 2
+    };
+    "indexingPolicy"=@{
+        "indexingMode"="Consistent";
+        "includedPaths"= @(@{
+            "path"="/*"
+        });
+        "excludedPaths"= @(@{
+            "path"="/myPathToNotIndex/*"
+        })
+    }
+  }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $containerName -PropertyObject $containerProperties
+```
 
 ## Supported SDK versions
 
