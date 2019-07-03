@@ -124,7 +124,7 @@ If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart
 
 1. In Solution Explorer, open the project shortcut menu, and select **Deploy** > **New**. If prompted, sign in with your Azure account.
 
-1. When prompted, select the Azure subscription, Azure resource group, and any other settings that you want to use, then select **Deploy**.
+1. When prompted, select the Azure subscription, Azure resource group, and any other settings that you want to use, and then select **Deploy**.
 
 1. If the **Edit Parameters** box appears, provide a resource name for your logic app, and select **Save**.  
 
