@@ -208,7 +208,7 @@ Software as a Service (SaaS) customers typically have encryption at rest enabled
 
 ### Encryption at rest for PaaS customers
 
-Platform as a Service (PaaS) customer’s data typically resides in an application execution environment and any Azure Resource Providers used to store customer data. To see the encryption at rest options available to you, examine the table below for the storage and application platforms that you use.
+Platform as a Service (PaaS) customer’s data typically resides in a storage service such as Blob Storage but may also be cached or stored in the application execution environment, such as a virtual machine. To see the encryption at rest options available to you, examine the table below for the storage and application platforms that you use.
 
 ### Encryption at rest for IaaS customers
 
@@ -220,7 +220,7 @@ Like PaaS, IaaS solutions can leverage other Azure services that store data encr
 
 #### Encrypted compute
 
-All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. A more complete Encryption at Rest solution ensures that the data is never persisted in unencrypted form. While in use, on a server loading the data in memory, data can be persisted locally in various ways including the Windows page file, a crash dump, and any logging the application may perform. To ensure this data is encrypted at rest, IaaS applications can use Azure Disk Encryption on an Azure IaaS virtual machine (Windows or Linux) and virtual disk.
+All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. A more complete Encryption at Rest solution ensures that the data is never persisted in unencrypted form. While in use, on a virtual machine loading the data in memory, data can be persisted to the virtual machine in various ways including the Windows page file, a crash dump, and any logging the application may perform. To ensure this data is encrypted at rest, IaaS applications can use Azure Disk Encryption on an Azure IaaS virtual machine (Windows or Linux) and virtual disk.
 
 #### Custom encryption at rest
 
@@ -236,7 +236,7 @@ Any customer using Azure Infrastructure as a Service (IaaS) features can achieve
 
 #### Azure storage
 
-All Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files) support server-side encryption at rest, with some services supporting customer-managed keys and client-side encryption. 
+All Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files) support server-side encryption at rest; some services additionally support customer-managed keys and client-side encryption. 
 
 - Server-side: All Azure Storage Services enable server-side encryption by default using service-managed keys, which is transparent to the application. For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage and Azure Files also support RSA 2048-bit customer-managed keys in Azure Key Vault. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 - Client-side: Azure Blobs, Tables, and Queues support client-side encryption. When using client-side encryption, customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
@@ -256,7 +256,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Search                     | Yes                | -                  | -                  |
 | Azure Machine Learning Service   | Yes                | -                  | -                  |
 | Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
-| Power BI                         | Yes                | -                  | -                  |
+| Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
 | **Analytics**                    |                    |                    |                    |
 | Azure Stream Analytics           | Yes                | -                  | -                  |
 | Event Hubs                       | Yes                | -                  | -                  |
@@ -265,7 +265,6 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | HDInsight                        | Yes                | Preview for Apache Kafka, All RSA Lengths | -                  |
 | Azure Data Factory               | Yes                | -                  | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
-| Power BI                         | Yes                | Preview, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
 | Azure Kubernetes Service         | Yes                | -                  | -                  |
 | Container Registry               | Yes                | -                  | -                  |
