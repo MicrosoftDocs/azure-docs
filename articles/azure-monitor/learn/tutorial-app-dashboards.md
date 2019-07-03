@@ -21,7 +21,7 @@ You can create multiple dashboards in the Azure portal that each include tiles v
 > * Add a tile from the Tile Gallery
 > * Add standard metrics in Application Insights to the dashboard
 > * Add a custom metric chart Application Insights to the dashboard
-> * Add the results of an Logs (Analytics) query to the dashboard
+> * Add the results of a Logs (Analytics) query to the dashboard
 
 
 
