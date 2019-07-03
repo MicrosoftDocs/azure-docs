@@ -15,6 +15,14 @@ monikerRange: 'vsts'
 
 Deployment center in Azure DevOps simplifies setting up of a robust DevOps pipeline for your application. By default, configures a DevOps pipeline to deploy your application updates to the kubernetes cluster. You can extend the default configured DevOps pipeline and add the richer DevOps capabilities - approvals before deploying, provisioning additional Azure resources, running scripts, upgrading your application, or even running additional validation tests.
 
+In this tutorial, you will:
+
+> [!div class="checklist"]
+> * Configure a DevOps pipeline to deploy your application updates to the k8s cluster
+> * Examine the CI pipeline
+> * Examine the CD pipeline
+> * Clean up the resources
+
 ## Prerequisites
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)
@@ -123,3 +131,17 @@ Deployment center creates and configures automatically the necessary steps from 
 1. Select **Commits**. This view shows code commits related to this deployment. Compare releases to see the commit differences between deployments.
 
 1. Select **Logs**. The logs contain useful deployment information. During and after deployments, you can view them.
+
+## Clean up resources
+
+You can delete the related resources that you created when you don't need them anymore. Use the Delete functionality on the DevOps Projects dashboard.
+
+## Next steps
+
+You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Configure a DevOps pipeline to deploy your application updates to the k8s cluster
+> * Examine the CI pipeline
+> * Examine the CD pipeline
+> * Clean up the resources
