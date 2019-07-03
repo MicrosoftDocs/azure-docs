@@ -19,11 +19,11 @@
     href: concepts-roles-permissions.md
 - name: How-to guides
   items:
-  - name: Monitor Azure Data Share 
+  - name: Monitor
     href: how-to-monitor.md
-  - name: Configure a dataset mapping
+  - name: Configure dataset mappings
     href: how-to-configure-mapping.md
-  - name: Troubleshoot Azure Data Share Preview
+  - name: Troubleshoot 
     href: data-share-troubleshoot.md
 - name: Resources
   items:

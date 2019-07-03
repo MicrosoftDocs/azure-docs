@@ -34,7 +34,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Locate the invitation that was sent to you by the Data Provider 
+## Open invitation
 
 Check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Take note of the share name to ensure you're accepting the correct share if there are multiple invitations. 
 
@@ -44,7 +44,7 @@ Select on **View invitation** to see your invitation in Azure. This takes you to
 
 Select the share you would like to view. 
 
-## Accept the invitation
+## Accept invitation
 Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you'll be required to check the box to indicate you agree. 
 
 ![Terms of use](./media/terms-of-use.png "Terms of use") 
@@ -65,7 +65,7 @@ If you prefer to accept the invitation now but configure your storage at a later
 
 If you don't want to accept the invitation, Select *Reject*. 
 
-## Configure target storage for your Data Share
+## Configure storage
 Under *Target Storage Settings*, select the Subscription, Resource group, and storage account that you'd like to receive your data into. 
 
 ![Target storage settings](./media/target-storage-settings.png "Target storage") 
@@ -88,7 +88,7 @@ To check which storage account you used, Select on **Datasets**.
 
 ![Consumer datasets](./media/consumer-datasets.png "Consumer dataset mapping") 
 
-## View a history of your snapshots
+## View history
 To view a history of your snapshots, navigate to Received Shares -> History. Here you'll find a history of all snapshots that were generated for the past 60 days. 
 
 ## Next steps
