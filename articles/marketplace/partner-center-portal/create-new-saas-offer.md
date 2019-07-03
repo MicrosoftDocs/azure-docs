@@ -315,7 +315,7 @@ SaaS offers through the Commercial Marketplace enable you to provide a one-month
 To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false.
 
 >[!Note]
->Custom meters will not be supporting free trials.
+>Free trials are not compatible with SaaS offers that leverage the marketplace metering service.
 
 #### Markets
 
