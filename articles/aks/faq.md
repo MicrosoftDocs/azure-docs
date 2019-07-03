@@ -21,7 +21,7 @@ For a complete list of available regions, see [AKS regions and availability][aks
 
 ## Does AKS support node autoscaling?
 
-Yes, you can use the [Kubernetes autoscaler][auto-scaler] (currently in preview in AKS) to manage the scaling of nodes. For more information, see [Automatically scale a cluster to meet application demands in AKS][aks-cluster-autoscaler].
+Yes, the ability to automatically scale agent nodes horizontally in AKS is currently available in preview. See [Automatically scale a cluster to meet application demands in AKS][aks-cluster-autoscaler] for instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler].
 
 ## Can I deploy AKS into my existing virtual network?
 
