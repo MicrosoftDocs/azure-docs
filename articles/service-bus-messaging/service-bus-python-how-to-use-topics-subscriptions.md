@@ -77,7 +77,7 @@ Subscriptions to topics are also created with the **ServiceBusService** object. 
 > [!NOTE]
 > By default, subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
 > 
-> You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
+> You can have the subscriptions automatically deleted by setting the [auto_delete_on_idle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### Create a subscription with the default (MatchAll) filter
 
