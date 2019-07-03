@@ -28,7 +28,7 @@ For example, actions include:
 
 * Triggers, which are special actions. All logic apps require a trigger as the first step.
 * ["Built-in" or native actions](../connectors/apis-list.md#built-in) such as HTTP, calls to Azure Functions and API Management, and so on
-* Calls to [managed connectors](#managed-connectors) such as Outlook 365, Dropbox, and so on
+* Calls to [managed connectors](../connectors/apis-list.md##managed-connectors) such as Outlook 365, Dropbox, and so on
 * Control flow steps, such as loops, conditional statements, and so on
 
 [Standard connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps). Generally available [Enterprise connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps), while public preview Enterprise connectors are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps).
@@ -39,7 +39,7 @@ Learn more about how billing works for [triggers](#triggers) and [actions](#acti
 
 ## Fixed pricing model
 
-An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for [built-in actions and triggers](../connectors/apis-list.md#built-in) and also for [Standard connectors](../connectors/apis-list.md#managed-connectors).
+An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for [built-in actions and triggers](../connectors/apis-list.md#built-in) and also for [Standard connectors](../connectors/apis-list.md#managed-connectors). Your ISE includes one free Enterprise connector, which includes as many connections as you want.
 
 > [!NOTE]
 > Within an ISE, built-in triggers and actions display the 
