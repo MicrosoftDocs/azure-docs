@@ -64,7 +64,7 @@ This procedure requires several tools that must be installed and run locally. Do
     code .
     ```
 
-1. Within the text editor, create a new file named _sentiment.yaml_ and paste the following YAML into it:
+1. Within the text editor, create a new file named _sentiment.yaml_ and paste the following YAML into it. Be sure to replace the `billing/value` and `apikey/value` with your own.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -86,9 +86,9 @@ This procedure requires several tools that must be installed and run locally. Do
             - name: EULA
               value: "accept"
             - name: billing
-              value: "https://westus2.api.cognitive.microsoft.com/"
+              value: # < Your endpoint >
             - name: apikey
-              value: "16c12e3419f54ba49a3222177cef781d"
+              value: # < Your API Key >
      
     --- 
     apiVersion: v1
@@ -110,7 +110,7 @@ This procedure requires several tools that must be installed and run locally. Do
     kuberctl apply -f sentiment.yaml
     ```
 
-    After the command has successfully applied the deployment configuration, a message similar to the following is output:
+    After the command has successfully applied the deployment configuration, a message similar to the following output:
 
     ```
     deployment.apps "sentiment" created

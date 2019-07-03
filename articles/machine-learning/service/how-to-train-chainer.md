@@ -28,7 +28,7 @@ Run this code on either of these environments:
 - Azure Machine Learning Notebook VM - no downloads or installation necessary
 
     - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples folder on the notebook server, find  find a completed notebook and files in the **how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer** folder.  The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+    - In the samples folder on the notebook server, find a completed notebook and files in the **how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer** folder.  The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 - Your own Jupyter Notebook server
 

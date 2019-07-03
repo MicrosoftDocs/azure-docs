@@ -78,16 +78,11 @@ Standard file shares are backed by hard disk drives (HDDs). Standard file shares
 Standard file shares up to 5 TiB in size are available as a GA offering. While larger file shares, which are any shares larger than 5 TiB, up to a maximum of 100 TiB, are currently available as a preview offering.
 
 > [!IMPORTANT]
-> - Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
-> - Are only available with LRS.
-> - Available in three regions: West US 2, West Europe, and SE Asia regions.
-> - LRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
-
-If you'd like to onboard to the preview of these larger file share sizes, submit this [form](https://aka.ms/azurefilesatscalesurvey). 
+> See the [Onboard to larger file shares (standard tier)](#onboard-to-larger-file-shares-standard-tier) section for steps to onboard, as well as the scope and restrictions of the preview.
 
 ### Premium file shares
 
-Premium file shares are backed by solid-state disks (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, development environments, etc. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
+Premium file shares are backed by solid-state drives (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, and development environments. Premium file shares are only available in a provisioned billing model. Premium file shares use a deployment model separate from standard file shares.
 
 Azure Backup is available for premium file shares and Azure Kubernetes Service supports premium file shares in version 1.13 and above.
 
@@ -158,7 +153,7 @@ New file shares start with the full number of credits in its burst bucket. Burst
 
 Azure Files standard shares supports three data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
 
-Azure Files premium shares only supports locally redundant storage (LRS).
+Azure Files premium shares only support locally redundant storage (LRS).
 
 The following sections describe the differences between the different redundancy options:
 
@@ -191,6 +186,48 @@ Keep these points in mind when deciding which replication option to use:
 * Zone-redundant storage (ZRS) provides highly availability with synchronous replication and may be a better choice for some scenarios than GRS. For more information on ZRS, see [ZRS](../common/storage-redundancy-zrs.md).
 * Asynchronous replication involves a delay from the time that data is written to the primary region, to when it is replicated to the secondary region. In the event of a regional disaster, changes that haven't yet been replicated to the secondary region may be lost if that data can't be recovered from the primary region.
 * With GRS, the replica isn't available for read or write access unless Microsoft initiates a failover to the secondary region. In the case of a failover, you'll have read and write access to that data after the failover has completed. For more information, please see [Disaster recovery guidance](../common/storage-disaster-recovery-guidance.md).
+
+## Onboard to larger file shares (standard tier)
+
+This section only applies to the standard file shares. All premium file shares are available with 100 TiB as a GA offering.
+
+### Restrictions
+
+- Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
+- LRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
+
+### Regional availability
+
+Standard file shares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
+
+|Region  |Supported redundancy  |Supports existing storage accounts  |
+|---------|---------|---------|
+|SouthEast Asia     |LRS|No         |
+|West Europe     |LRS|No         |
+|West US 2     |LRS, ZRS|No         |
+
+
+### Steps to onboard
+
+To enroll your subscription to the larger file shares preview, run the following PowerShell commands:
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+Your subscription is automatically approved once both commands are run.
+
+To verify your registration status, you can run the following command:
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+It may take up to 15 minutes for your status to update to "registered" however, you should be able to use the feature despite that.
+
+### Use larger file shares
+
+To begin using larger file shares, create a new general purpose v2 storage account and a new file share.
 
 ## Data growth pattern
 
