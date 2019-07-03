@@ -35,9 +35,9 @@ There are a number of advantages to using deployment slots. The following scenar
 
 ## Swap operations
 
-To perform a swap one slot is considered the source and the other the target. The source slot has the instance of the application that is applied to the target slot. The following steps ensure the target slot doesn't experience downtime during a swap:
+During a swap, one slot is considered the source and the other the target. The source slot has the instance of the application that is applied to the target slot. The following steps ensure the target slot doesn't experience downtime during a swap:
 
-1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. This includes the following settings: 
+1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. The applied settings include the following categories: 
     - [Slot-specific](#which-settings-are-swapped) app settings and connection strings (if applicable)
     - [Continuous deployment](../app-service/deploy-continuous-deployment.md) settings (if enabled)
     - [App Service authentication](../app-service/overview-authentication-authorization.md) settings (if enabled)
@@ -48,7 +48,7 @@ To perform a swap one slot is considered the source and the other the target. Th
 
 1. **Repeat operation:** Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances for the source slot.
 
-At any point of the swap operation, initialization of the swapped apps happens on the source slot. A target slot remains online while the source slot is being prepared, whether the swap succeeds or fails.
+At any point of the swap operation, initialization of the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared, whether the swap succeeds or fails.
 
 To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
 
@@ -56,7 +56,7 @@ To swap a staging slot with the production slot, make sure that the production s
 
 [!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
-You can create "sticky" settings that are not available for a swap by marking them as a deployment slot setting. To create a sticky setting, navigate to the **Configuration** page for that slot, add or edit a setting, then select the **deployment slot setting** box. 
+You can mark settings as "sticky", meaning they do not swap with the app instance. To create a sticky setting, navigate to the **Configuration** page for that slot, add or edit a setting, then select the **deployment slot setting** box. 
 
 ## Deployment
 
