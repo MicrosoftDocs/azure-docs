@@ -47,7 +47,7 @@ To change the edition of SQL Server, you will need the following:
 
 
 ## Upgrade edition
-To upgrade the edition of SQL Server, [obtain the SQL Server setup media](#obtain-installation-media) for the desired edition of SQL Server, and then do the following:
+To upgrade the edition of SQL Server, obtain the SQL Server setup media for the desired edition of SQL Server, and then do the following:
 
 1. Launch Setup.exe from the SQL Server installation media. 
 1. Navigate to **Maintenance** and choose the **Edition Upgrade** option. 
@@ -59,7 +59,7 @@ To upgrade the edition of SQL Server, [obtain the SQL Server setup media](#obtai
 ## Downgrade edition
 To downgrade the edition of SQL Server, you will need to completely uninstall SQL Server, and reinstall it again with the desired edition setup media. 
 
-To downgrade the edition of SQL Server, do the following:
+You can downgrade the edition of SQL Server by following these steps:
 
 1. Back up all databases, including the system databases. 
 1. Move system databases (master, model, and msdb) to a new location. 

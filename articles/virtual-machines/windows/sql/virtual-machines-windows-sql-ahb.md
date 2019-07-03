@@ -49,7 +49,7 @@ The use of the SQL VM resource provider requires the SQL IaaS extension. As such
 
 ## Change license for VMs already registered with resource provider
 
-#[Azure Portal](#tab/azure-portal)
+# [Azure Portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
