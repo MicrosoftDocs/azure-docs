@@ -55,7 +55,7 @@ A dashboard with static text isn't very interesting, so now add a tile from Appl
 
 
 1. Select your **Application Insights** resource on the home screen.
-2. In the **Overview** pane, click the pushpin icon ![pin icon](media/tutorial-app-dashboards/pushpin.png) to add the tile to the last dashboard that you were viewing.  
+2. In the **Overview** pane, click the pin icon ![pin icon](media/tutorial-app-dashboards/pushpin.png) to add the tile to the last dashboard that you were viewing.  
  
 3. In the top right, a notification will appear that your tile was pinned to your dashboard. Click **Pinned to dashboard** in the notification to return to your dashboard or use the dashboard pane.
 4. That tile is now added to your dashboard. Select **Edit** to change the positioning of the tile. Click and drag the it into position and then click **Done customizing**. Your dashboard now has a tile with some useful information.
