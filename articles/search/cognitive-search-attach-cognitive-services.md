@@ -36,7 +36,7 @@ Free (Limited enrichments) resources are restricted to 20 documents per day, per
 
 1. Open the Import data wizard:
 
-   ![Open the Import data wizard](media/search-get-started-portal/import-data-cmd2.png "Open the Import data wizard")
+   ![Open the Import data wizard](media/search-get-started-portal/import-data-cmd.png "Open the Import data wizard")
 
 1. Choose a data source and continue to **Add cognitive search (Optional)**. For a step-by-step walkthrough of this wizard, see [Import, index, and query by using portal tools](search-get-started-portal.md).
 
