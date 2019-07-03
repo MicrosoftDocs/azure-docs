@@ -379,7 +379,7 @@ Once you have a token through `self.accessToken`, your app can use this value in
 
 | header key    | value                 |
 | ------------- | --------------------- |
-| Authorization | Bearer <access-token> |
+| Authorization | Bearer \<access-token> |
 
 Add the following to `ViewController.swift`:
 
