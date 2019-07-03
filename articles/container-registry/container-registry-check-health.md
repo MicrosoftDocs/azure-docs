@@ -1,5 +1,5 @@
 ---
-title: Check health of an Azure container registry
+title: Check registry health in Azure Container Registry
 description: Learn how to run a quick diagnostic command to identify common problems when using an Azure container registry, including local Docker configuration and connectivity to the registry
 services: container-registry
 author: dlepow
@@ -14,7 +14,7 @@ When using an Azure container registry, you might occasionally encounter problem
 
 As a first diagnostic step, run the [az acr check-health][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
-## Run `az acr check-health`
+## Run az acr check-health
 
 The follow examples show different ways to run the `az acr check-health` command.
 
