@@ -35,7 +35,7 @@ You must have write permission on the Azure Sentinel workspace.
 
     ![AWS2](./media/connect-aws/aws-2.png)
 
-3.  Choose **Another AWS account.** In the **Account ID** field, enter the **Microsoft Account ID** (**197857026523**) that can be found in the AWS connector page in the Azure Sentinel portal.
+3.  Choose **Another AWS account.** In the **Account ID** field, enter the **Microsoft Account ID** (**123412341234**) that can be found in the AWS connector page in the Azure Sentinel portal.
 
     ![AWS3](./media/connect-aws/aws-3.png)
 
