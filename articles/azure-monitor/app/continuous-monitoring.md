@@ -44,15 +44,15 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
    | **Resource Group name for Application Insights**    | Drop down and select the resource group you want to use. |
    | **Application Insights resource name** | Drop down and select the Application Insights resource for the resource group you selected.
 
-1. In the left pane, select **Configure Application Insights Alerts**.
-
 1. To save the pipeline with default alert rule settings, select **Save** at upper right in the Azure DevOps window. Enter a descriptive comment, and then select **OK**.
 
 ## Modify alert rules
 
-Out of box, there are four alert rules: **Availability**, **Failed requests**, **Server response time**, and **Server exceptions**. You can add more rules, or change the rule settings to meet your service level needs. 
+Out of box, the **Azure App Service deployment with continuous monitoring** template has four alert rules: **Availability**, **Failed requests**, **Server response time**, and **Server exceptions**. You can add more rules, or change the rule settings to meet your service level needs. 
 
 To modify alert rule settings:
+
+1. In the left pane of the release pipeline page, select **Configure Application Insights Alerts**.
 
 1. In the **Azure Monitor Alerts** pane, select the ellipsis **...** next to **Alert rules**.
    
@@ -66,7 +66,7 @@ To modify alert rule settings:
 
 ## Add deployment conditions
 
-When you add deployment gates, an Application Insights alert that exceeds the thresholds you set guards your deployment against unwanted release promotion. Once you resolve the alert, the deployment can proceed automatically.
+When you add deployment gates to your release pipeline, an alert that exceeds the thresholds you set prevents unwanted release promotion. Once you resolve the alert, the deployment can proceed automatically.
 
 To add deployment gates:
 
@@ -78,17 +78,17 @@ To add deployment gates:
    
 1. Next to **Deployment gates**, select **Add**.
    
-1. Select **Query Azure Monitor alerts** from the dropdown menu. This option lets you access alerts from both Azure Monitor and Application Insights.
+1. Select **Query Azure Monitor alerts** from the dropdown menu. This option lets you access both Azure Monitor and Application Insights alerts.
    
    ![Query Azure Monitor alerts](media/continuous-monitoring/005.png)
    
-1. Under **Evaluation options**, change the values for settings like **The time between re-evaluation of gates** and **The timeout after which gates fail** as desired. 
+1. Under **Evaluation options**, enter the values you want for settings like **The time between re-evaluation of gates** and **The timeout after which gates fail**. 
 
 ## View release logs
 
 You can see deployment gate behavior and other release steps in the release logs. To open the logs:
 
-1. Select **Releases** from the left menu of the main pipeline page. 
+1. Select **Releases** from the left menu of the pipeline page. 
    
 1. Select any release. 
    
