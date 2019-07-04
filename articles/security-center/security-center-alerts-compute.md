@@ -19,7 +19,7 @@ ms.author: monhaber
 ---
 # Threat detection for cloud native compute in Azure Security Center
 
- As a cloud provider, Azure provides up-to-date and comprehensive information, which enables Security Center to analyze internal logs and identify attack methodology on multiple targets. This topic presents the alerts available for the following Azure services:
+As a cloud provider, Security Center leverages the unique visibility it has to analyze internal logs and identify attack methodology on multiple targets. This topic presents the alerts available for the following Azure services:
 
 * [Azure App Service](#app-services)
 * [Containers](#azure-containers) 
