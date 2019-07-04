@@ -484,9 +484,9 @@ Once you restore the disks, go to the next section to create the VM.
 
 To replace the disks and configuration information, perform the below steps:
 
-- Step 1: [Restore disks using Azure Backup](backup-azure-vms-automation.md#restore-the-disks)
-- Step 2: [Detach disks using compute](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
-- Step 3: [Attach the compute](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+- Step 1: [Restore the disks](backup-azure-vms-automation.md#restore-the-disks)
+- Step 2: [Detach a data disk using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Step 3: [Attach a data disk to a Windows VM with PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
 
 
 ## Create a VM from restored disks
