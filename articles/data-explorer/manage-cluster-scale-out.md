@@ -9,25 +9,45 @@ ms.topic: conceptual
 ms.date: 06/30/2019
 ---
 
-# Manage cluster scale-out to accommodate changing demand
+# Manage cluster horizontal scaling to accommodate changing demand
 
 Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. But demand on a cluster can’t be predicted with absolute accuracy. A static cluster size can lead to underutilization or overutilization, neither of which is ideal.
 
-A better approach is to *scale* a cluster, adding and removing capacity with changing demand. There are two workflows for scaling: scale-up and scale-out. This article explains the scale-out workflow.
+A better approach is to *scale* a cluster, adding and removing capacity with changing demand. There are two workflows for scaling: 
+1. Horizontal scaling, also called scaling out and in.
+2. Vertical scaling, also called scaling up and down.
 
-This article shows how to manage cluster scale-out, also known as autoscale. Autoscaling allows you to scale out the instance count automatically based on predefined rules and schedules. Specify your autoscale settings for your cluster in the Azure portal, as described in this article.
+This article explains the horizontal scaling workflow.
 
-## Steps to configure autoscale
+Horizontal scaling allows you to scale the instance count automatically based on predefined rules and schedules. Specify your autoscale settings for your cluster in the Azure portal, as described in this article.
 
-In the Azure portal, go to your Data Explorer cluster resource. Under the **Settings** heading, select **Scale out**. On the  **Configure** tab, select **Enable autoscale**.
+## Steps to configure horizontal scaling
 
-   ![Enable autoscale](media/manage-cluster-scaling/enable-autoscale.png)
+In the Azure portal, go to your Data Explorer cluster resource. Under the **Settings** heading, select **Scale out**. 
 
-The following graphic shows the flow of the next several steps. More details follow the graphic.
+Select your desired autoscale method: **Manual scale**, **Optimized autoscale** or **Custom autoscale**.
+
+**Manual scale**
+
+Manual scale is the default setting with cluster creation. It means that the cluster have a static cluster capacity that will not change automatically. You can choose the static capacity using the bar and it will not change until next time you will change the cluster's scale out setting.
+
+   ![Manual scale method](media/manage-cluster-scaling/manual-scale-method.png)
+
+**Optimized autoscale**
+
+Optimized autoscale is the recommended autoscale method. When Optimized autoscale is selected you need to choose a lower limit and an upper limit to the amount of instances of the cluster, the autoscaling will be done between those limits.
+
+   ![Optimized autoscale method](media/manage-cluster-scaling/optimized-autoscale-method.png)
+
+This autoscale method is optimizing the cluster performence and costs: if the cluster will start to get to a state of underutilization it will be scaled-in which leave performance the same and lower costs, and if the cluster will start to get to a state of overutilization, it will be scaled-out to make sure it's performing well. After choosing valid limits to the instances count and clicking save, Optimized autoscale mechanizem will start to work and it's actions will be visible in the Activity log of the cluster.
+
+**Custom autoscale**
+
+This method allows your cluster to scale dynamically based on metrics that you specify. The following graphic shows the flow and steps to configure Custom autoscale. More details follow the graphic.
 
 1. In the **Autoscale setting name** box, provide a name, such as *Scale-out: cache utilization*. 
 
-   ![Scale rule](media/manage-cluster-scaling/scale-rule.png)
+   ![Scale rule](media/manage-cluster-scaling/custom-autoscale-method.png)
 
 2. For **Scale mode**, select **Scale based on a metric**. This mode provides dynamic scaling. You can also select **Scale to a specific instance count**.
 
@@ -69,9 +89,7 @@ The following graphic shows the flow of the next several steps. More details fol
 
 7. Select **Save**.
 
-You've now configured a scale-out operation for your Azure Data Explorer cluster. Add another rule for a scale-in operation. This configuration allows your cluster to scale dynamically based on metrics that you specify.
-
-If you need assistance with cluster-scaling issues, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
+You've now configured a scale-out operation for your Azure Data Explorer cluster. Add another rule for a scale-in operation. If you need assistance with cluster-scaling issues, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
 
 ## Next steps
 
