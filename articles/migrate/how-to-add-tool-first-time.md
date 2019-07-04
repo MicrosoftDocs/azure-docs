@@ -1,23 +1,24 @@
 ---
-title: Create an Azure Migrate project | Microsoft Docs
-description: Describes how to create an Azure Migrate project in the Azure portal.
+title: Add an assessment/migration tool for the first time | Microsoft Docs
+description: Describes how to create an Azure Migrate project and add an assessment/migration tool
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 07/04/2019
 ms.author: raynew
 ---
 
 
 
-# Create an Azure Migrate project
+# Add an assessment/migration tool for the first time
 
-This article describes how to create an [Azure Migrate](migrate-overview.md) project. An Azure Migrate project provides a central location to discover, assess and migrate your on-premises apps and workloads running on VMs and physical servers to Azure. In a project you can track discovered assets, and orchestrate assessment and migration.
+This article describes how to add an assessment or migration tool in the [Azure Migrate](migrate-overview.md) hub for the first time. The Azure Migrate hub provides a central location to discover, assess and migrate your on-premises apps and workloads running on VMs and physical servers to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. 
 
 
-## Create a project
 
-Set up a new Azure Migrate project in an Azure subscription. 
+## Create a project and 
+
+Set up a new Azure Migrate project in an Azure subscription, and add a tool. In a project you can track discovered assets, and orchestrate assessment and migration.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
@@ -45,13 +46,15 @@ Set up a new Azure Migrate project in an Azure subscription.
 
     ![Create an Azure Migrate project](./media/tutorial-assess-vmware/migrate-project.png)
 
-6. Click **Next**.
-7. In **Select assessment tool**, select **Skip adding a migration tool for now** > **Next**.
-8. In **Select migration tool**, select **Skip adding a migration tool for now** > **Next**.
-9. In **Review + add tools**, review the settings and click **Add tools**.
+6. Click **Next**, and add an assessment or migration tool.
 
+    > [!NOTE]
+    > When you create a project you need to add at least one assessment or migration tool.
+1. In **Select assessment tool**, add an assessment tool as required. If you don't need an assessment tool, select **Skip adding a migration tool for now** > **Next**. 
+2. In **Select migration tool**, add a migration tool as required. If you don't need a migration tool, select **Skip adding a migration tool for now** > **Next**.
+3. In **Review + add tools**, review the settings and click **Add tools**.
 
-After creating the project you can select tools for assessment and migration.
+After creating the project you can select additional tools for assessment and migration.
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.author: raynew
 
 # Azure Migrate appliance
 
-This article describes the Azure Migrate appliance. The appliance is used when you use Azure Migrate(migrate-overview.md) tools to discover, assess and migrate apps, infrastructure, and workloads to Microsoft Azure. The [Azure Migrate](migrate-overview.md) hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+This article describes the Azure Migrate appliance. The appliance is used when you use Azure Migrate Assessment and Migration tools to discover, assess and migrate apps, infrastructure, and workloads to Microsoft Azure. The [Azure Migrate](migrate-overview.md) hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 
 
