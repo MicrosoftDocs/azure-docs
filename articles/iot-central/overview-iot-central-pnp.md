@@ -3,7 +3,7 @@ title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is an end-to-end SaaS solution you can use to build and manage your custom IoT solution. This article provides an overview of the features of Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/24/2019
+ms.date: 07/06/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -11,16 +11,12 @@ ms.custom: mvc
 manager: timlt
 ---
 
-<!---
-Purpose of an Overview article: 
-1. To give a TECHNICAL overview of a service/product: What is it? Why should I use it? It's a "learn" topic that describes key benefits and our competitive advantage. It's not a "do" topic.
-2. To help audiences who are new to service but who may be familiar with related concepts. 
-3. To compare the service to another service/product that has some similar functionality, ex. SQL Database / SQL Data Warehouse, if appropriate. This info can be in a short list or table. 
--->
-
 # What is Azure IoT Central (Plug and Play)?
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
+> [!WARNING]
+> The Plug and Play capabilities in Azure IoT Central are currently in public preview. Don't use a Plug and Play enabled IoT Central application for production workloads. For production environments use an IoT central application created from a current, generally available, application template.
 
 Azure IoT Central is a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds. You can bring your connected product vision to life by:
 
