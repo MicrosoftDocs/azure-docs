@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-#Customer intent: As a developer, I need to understand the Spark compute context for Machine Learning Services.
+#Customer intent: As a developer, I need to understand the Spark compute context for Machine Learning services.
 ---
 
 # Tutorial: Use R in a Spark compute context in Azure HDInsight
@@ -39,7 +39,7 @@ RStudio Server runs on the cluster’s edge node. Go to the following site (wher
 https://\<clustername>.azurehdinsight.net/rstudio/
 ```
 
-The first time you sign in, you need to authenticate twice. For the first authentication prompt, provide the cluster admin username and password (the default is *admin*). For the second authentication prompt, provide the SSH username and password (the default is *sshuser*). Subsequent sign-ins require only the SSH credentials.
+The first time you sign in, you authenticate twice. At the first authentication prompt, provide the cluster admin username and password (the default is *admin*). At the second authentication prompt, provide the SSH username and password (the default is *sshuser*). Subsequent sign-ins require only the SSH credentials.
 
 ## Download the sample data to local storage
 
