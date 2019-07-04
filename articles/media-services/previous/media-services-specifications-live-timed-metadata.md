@@ -142,13 +142,14 @@ Enabling this feature in the RTMP Group will pass SCTE-35 signals to the Adobe R
 
 The "onCuePoint" message type is defined in [Adobe-Flash-AS] and has the following payload structure when sent from the Elemental Live RTMP output.
 
-| Property | Description | 
-|----------|-------------|
-| name     | The name SHOULD be '**scte35**' by Elemental Live.|
-| time     | The time in seconds at which the cue point occurred in the video file during timeline |
+
+|Property  |Description  |
+|---------|---------|
+|name     | The name SHOULD be '**scte35**' by Elemental Live. |
+|time     |  The time in seconds at which the cue point occurred in the video file during timeline |
 | type     | The type of cue point SHOULD be set to "**event**". |
 | parameters | A associative array of name/value pair strings containing the information from the SCTE-35 message, including Id and duration. These values are parsed out by Azure Media Services and included in the manifest decoration tag.  |
----
+
 
 When this mode of ad marker is used, the HLS manifest output is similar to Adobe "Simple" mode. 
 
