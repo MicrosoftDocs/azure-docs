@@ -484,7 +484,7 @@ Smooth ingest and the time field for RTMP ingest). The mapping is necessary beca
 
 Smooth Streaming ingest [MS-SSTR-Ingest] requires that the Media Data Box (‘mdat’) **MUST** contain the **splice_info_section()** defined in [SCTE-35]. 
 
-For RTMP ingest,the cue attribute of the AMF message is set to the base64-encoded **splice_info_section()**defined in [SCTE-35].  
+For RTMP ingest,the cue attribute of the AMF message is set to the base64-encoded **splice_info_section()** defined in [SCTE-35].  
 
 When the messages have the format described above, they are sent to HLS, Smooth, and DASH clients as defined above.  
 
