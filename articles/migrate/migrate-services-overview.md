@@ -63,10 +63,12 @@ From the Azure Migrate hub you can run tools to assess and migrate on-premises S
 - **Database Migration Assistant**: Download and run the Database Migration Assistant (DMA) to assess for migration. The DMA provides information about potential blocking issues for migration, identifies unsupported features, as well as new features that you can benefit from after migration, and helps you identify the right path for database migration.
 - **Database Migration Service**: The Azure Database Migration Service helps you migrate on-premises SQL Server databases to Azure VMs running SQL, as well as to Azure SQL DB, and Azure SQL Managed Instances.
 
-## Web apps and data
+## App migration
 
+From the Azure Migrate hub you can run tools to assess and migrate on-premises apps to Azure.
 
-
+- **Assess apps online**: You can assess apps with a public URL online, using the Azure App Service Migration Assistant.
+- **.NET/PHP**: For internal .NET and PHP apps, you can download and run the Migration Assistant.
 
 ## Next steps
 
