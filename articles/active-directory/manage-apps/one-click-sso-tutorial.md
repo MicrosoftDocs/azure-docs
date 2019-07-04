@@ -1,6 +1,6 @@
 ---
-title: One-click, single sign-on (SSO) configuration of your Azure Active Directory app gallery application  | Microsoft Docs
-description: Steps for one-click configuration of  SSO for your application from the Azure AD app gallery.
+title: One-click, single sign-on (SSO) configuration of your Azure Marketplace application  | Microsoft Docs
+description: Steps for one-click configuration of  SSO for your application from the Azure Marketplace.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -20,17 +20,17 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# One-click, single sign-on configuration for Azure Active Directory Gallery applications
+# One-click app configuration of single sign-on
 
- In this tutorial, you learn how to perform one-click, single sign-on (SSO) configuration for Azure Active Directory (Azure AD) Gallery applications that support SAML.
+ In this tutorial, you learn how to perform one-click, single sign-on (SSO) configuration for SAML-supporting, Azure Active Directory (Azure AD) applications from Azure Marketplace.
 
 ## Introduction to one-click SSO
 
-The one-click SSO feature is designed to configure single sign-on for Azure AD gallery apps that support SAML protocol. On the Azure AD SSO configuration page, this option allows you to automatically configure the Azure AD metadata on the application side. In this way, you can set up SSO quickly with minimal manual effort.
+The one-click SSO feature is designed to configure single sign-on for Azure Marketplace apps that support SAML protocol. On the Azure AD SSO configuration page, this option allows you to automatically configure the Azure AD metadata on the application side. In this way, you can quickly set up SSO with minimal manual effort.
 
 ## Advantages of one-click SSO
 
-- Quick SSO configuration of Azure AD gallery applications that require manual setup on application side.
+- Quick SSO configuration of Azure Marketplace applications that require manual setup on application side.
 - More efficient and accurate SSO configuration.
 - No partner communication or support needed for  setup. The application provides the UI for SAML configuration.
 
@@ -41,9 +41,9 @@ The one-click SSO feature is designed to configure single sign-on for Azure AD g
 
 ## One-click SSO configuration step-by-step
 
-1. Add the application from the Azure AD App gallery.
+1. Add the application from the Azure Marketplace.
 
-2. Select **Single sign-sn**.
+2. Select **Single sign-on**.
 
 3. Select **Enable single sign-on**.
 
@@ -52,11 +52,11 @@ The one-click SSO feature is designed to configure single sign-on for Azure AD g
     > [!NOTE]
     > If application has custom claims that you need to configure, handle them before performing one-click SSO.
 
-5. If the one-click SSO feature is available for your gallery application, you see following screen. You may have to install the **My Apps Secure Sign-in browser extension** by selecting **Install the extension**.
+5. If the one-click SSO feature is available for your Azure Marketplace application, you see following screen. You may have to install the **My Apps Secure Sign-in browser extension** by selecting **Install the extension**.
 
    ![Install My Apps Secure Sign-in browser extension](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. After adding the extension to the browser, select **Setup \<Application Name\>**. After you're  redirected to the application admin portal, sign in as administrator to get into the application.
+6. After adding the extension to the browser, select **Setup \<Application Name\>**. After you're redirected to the application admin portal, sign in as an administrator.
 
    ![Setup application name](./media/one-click-sso-tutorial/setup-sso.png)
 
@@ -67,15 +67,15 @@ The one-click SSO feature is designed to configure single sign-on for Azure AD g
    > [!NOTE]
    > If SSO configuration for your application requires additional steps, following the prompts  to perform the steps.
 
-8. After the configuration has completed, select **Ok** to save the changes.
+8. After the configuration has completed, select **OK** to save the changes.
 
    ![Save the auto populated data](./media/one-click-sso-tutorial/save-data.png)
 
-9. A confirmation window displays to let you know that the SSO settings are successfully configured. You can then test the application.
+9. A confirmation window displays to let you know that the SSO settings are successfully configured.
 
    ![SSO Configured](./media/one-click-sso-tutorial/sso-configured.png)
 
-10. After the configuration is successfully complete, you are signed out of the application and returned to the Azure portal.
+10. After the configuration is successful, you're signed out of the application and returned to the Azure portal.
 
 11. You can select **Test** to test single sign-on.
 
