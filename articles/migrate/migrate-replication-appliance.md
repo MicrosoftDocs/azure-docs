@@ -30,9 +30,6 @@ VMware VM | VMware VM migration when doing agent-based migration with the Azure 
 [Review](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements) the deployment requirements.
 
 
-## Appliance access
-
-After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the appliance management app on port 44368 using the URL: https://<appliance-ip-or-name>:44368.
 
 ## Appliance license
 The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
