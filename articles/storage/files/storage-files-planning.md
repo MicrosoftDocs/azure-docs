@@ -222,7 +222,7 @@ To verify your registration status, you can run the following command:
 Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 ```
 
-It may take up to 15 minutes for your status to update to "registered" however, you should be able to use the feature despite that.
+It may take up to 15 minutes for your status to update to **registered**. Once your status is **registered**, you should be able to use the feature.
 
 ### Use larger file shares
 
