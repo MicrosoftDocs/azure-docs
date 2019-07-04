@@ -81,7 +81,7 @@ Typically, index creation is a code-based exercise, completed prior to loading d
 
 Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used.
 
-* **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example when fields used only in filter expressions.
+* **Retrievable** means that it shows up in search results list. You can mark individual fields as off limits for search results by clearing this checkbox, for example for fields used only in filter expressions.
 * **Key** is the unique document identifier. It's always a string, and it is required.
 * **Filterable**, **Sortable**, and **Facetable** determine whether fields are used in a filter, sort, or faceted navigation structure.
 * **Searchable** means that a field is included in full text search. Strings are searchable. Numeric fields and Boolean fields are often marked as not searchable.
@@ -196,7 +196,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 #### Example (faceted with scope reduction): `search=*&facet=Category&$top=2`
 
 * **search=*** is an empty search. Empty searches search over everything. One reason for submitting an empty query is to  filter or facet over the complete set of documents. For example, you want a faceting navigation structure to consist of all hotels in the index.
-* **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on a field conveniently called **Category**. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
+* **facet** returns a navigation structure that you can pass to a UI control. It returns categories and a count. In this case, categories are based on a field conveniently called *Category*. There is no aggregation in Azure Search, but you can approximate aggregation via `facet`, which gives a count of documents in each category.
 
 * **$top=2** brings back two documents, illustrating that you can use `top` to both reduce or increase results.
 
