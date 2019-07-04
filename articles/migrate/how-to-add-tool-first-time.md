@@ -16,7 +16,7 @@ This article describes how to add an assessment or migration tool in the [Azure 
 
 
 
-## Create a projec and add a tool
+## Create a project and add a tool
 
 Set up a new Azure Migrate project in an Azure subscription, and add a tool. In a project you can track discovered assets, and orchestrate assessment and migration.
 
