@@ -43,7 +43,7 @@ The first time you sign in, you need to authenticate twice. For the first authen
 
 ## Download the sample data to local storage
 
-The *Airline 2012 On-Time Data Set* consists of 12 comma-separated files containing information about flight arrival and departure details for all commercial flights within the US, for the year 2012. This is a big dataset, with over 6 million observations.
+The *Airline 2012 On-Time Data Set* consists of 12 comma-separated files that contain flight arrival and departure details for all commercial flights within the US for the year 2012. This dataset is large, with over 6 million observations.
 
 1. Initialize a few environment variables. In the RStudio Server console, enter the following code:
 
@@ -241,7 +241,7 @@ rxSetComputeContext(mySparkCluster)
 
 ## Use composite XDF files
 
-As you've seen, you can analyze CSV files directly with R on Hadoop, but the analysis can be done more quickly if the data is stored in a more efficient format. The R XDF file format is extremely efficient, but is modified somewhat for HDFS so that individual files remain within a single HDFS block. (The HDFS block size varies from installation to installation but is typically either 64 MB or 128 MB.) When you use [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) on Hadoop, you specify an `RxTextData` data source such as `AirDS` as the inData and an `RxXdfData` data source with fileSystem set to an HDFS file system as the outFile argument to create a set of composite XDF files. The `RxXdfData` object can then be used as the data argument in subsequent R analyses.
+As you've seen, you can analyze CSV files directly with R on Hadoop. But you can do the analysis more quickly if you store the data in a more efficient format. The R XDF file format is efficient, but it's modified somewhat for HDFS so that individual files remain within a single HDFS block. (The HDFS block size varies from installation to installation but is typically either 64 MB or 128 MB.) When you use [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) on Hadoop to create a set of composite XDF files, you specify an `RxTextData` data source such as `AirDS` as the inData and an `RxXdfData` data source with fileSystem set to an HDFS file system as the outFile argument. You can then use the `RxXdfData` object as the data argument in subsequent R analyses.
 
 1. Define an `RxXdfData` object. In RStudio, enter the following code:
 
@@ -292,11 +292,11 @@ As you've seen, you can analyze CSV files directly with R on Hadoop, but the ana
 
 ### In a Spark context
 
-If you converted your CSV to XDF to take advantage of the efficiency while running analyses, but now wish to convert your data back to CSV you can do so using [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep).
+If you converted your CSV files to XDF file format for greater efficiency while running the analyses, but now want to convert your data back to CSV, you can do so by using [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep).
 
-To create a folder of CSV files, first create an `RxTextData` object using a directory name as the file argument; this represents the folder in which to create the CSV files. This directory is created when you run the `rxDataStep`. Then, point to this `RxTextData` object in the `outFile` argument of the `rxDataStep`. Each CSV created will be named based on the directory name and followed by a number.
+To create a folder of CSV files, first create an `RxTextData` object by using a directory name as the file argument. This object represents the folder in which to create the CSV files. This directory is created when you run the `rxDataStep`. Then, point to this `RxTextData` object in the `outFile` argument of the `rxDataStep`. Each CSV that's created is named based on the directory name and followed by a number.
 
-Suppose we want to write out a folder of CSV in HDFS from our `airDataXdf` composite XDF after we performed the logistic regression and prediction, so that the new CSV files contain the predicted values and residuals. In RStudio, enter the following code:
+Suppose that you want to write out a folder of CSV files in HDFS from your `airDataXdf` composite XDF after you perform the logistic regression and prediction, so that the new CSV files contain the predicted values and residuals. In RStudio, enter the following code:
 
 ```R
 airDataCsvDir <- file.path(bigDataDirRoot,"AirDataCSV2012")
@@ -306,11 +306,11 @@ rxDataStep(inData=airDataXdf, outFile=airDataCsvDS)
 
 This step should be complete in about 2.5 minutes.
 
-The `rxDataStep` wrote out one CSV for every XDFD file in the input composite XDF file. This is the default behavior for writing CSV from composite XDF to HDFS when the compute context is set to `RxSpark`.
+The `rxDataStep` wrote out one CSV file for every XDFD file in the input composite XDF file. This is the default behavior for writing CSV files from composite XDF files to HDFS when the compute context is set to `RxSpark`.
 
 ### In a local context
 
-Alternatively, you could switch your compute context back to `local` when you are done performing your analyses and take advantage of two arguments within `RxTextData` that give you slightly more control when writing out CSV files to HDFS: `createFileSet` and `rowsPerOutFile`. When `createFileSet` is set to `TRUE`, a folder of CSV files is written to the directory you specify. When `createFileSet` is set to `FALSE` a single CSV file is written. The second argument, `rowsPerOutFile`, can be set to an integer to indicate how many rows to write to each CSV file when `createFileSet` is `TRUE`.
+Alternatively, when you're done performing your analyses, you could switch your compute context back to `local` to take advantage of two arguments within `RxTextData` that give you slightly more control when you write out CSV files to HDFS: `createFileSet` and `rowsPerOutFile`. When you set `createFileSet` to `TRUE`, a folder of CSV files is written to the directory that you specify. When you set `createFileSet` to `FALSE`, a single CSV file is written. You can set the second argument, `rowsPerOutFile`, to an integer to indicate how many rows to write to each CSV file when `createFileSet` is `TRUE`.
 
 In RStudio, enter the following code:
 
@@ -323,7 +323,7 @@ rxDataStep(inData=airDataXdf, outFile=airDataCsvRowsDS)
 
 This step should be complete in about 10 minutes.
 
-When you use an `RxSpark` compute context, `createFileSet` defaults to `TRUE` and `rowsPerOutFile` has no effect. Therefore, if you want to create a single CSV or customize the number of rows per file, perform the `rxDataStep` in a `local` compute context (data can still be in HDFS).
+When you use an `RxSpark` compute context, `createFileSet` defaults to `TRUE` and `rowsPerOutFile` has no effect. Therefore, if you want to create a single CSV or customize the number of rows per file, perform `rxDataStep` in a `local` compute context (the data can still be in HDFS).
 
 ## Final steps
 
