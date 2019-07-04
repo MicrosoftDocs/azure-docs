@@ -3,7 +3,7 @@ title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
 author: JnHs
 ms.author: jenhayes
-ms.date: 07/02/2019
+ms.date: 07/03/2019
 ms.topic: overview
 ms.service: lighthouse
 manager: carmonm
@@ -34,7 +34,7 @@ Azure Lighthouse includes multiple ways to help streamline customer engagement a
 - **New Azure portal experiences**: View cross-tenant info in the new **My customers** page in the [Azure portal](https://portal.azure.com). A corresponding **Service providers** blade lets your customers view and manage service provider access. For more info, see [View and manage customers](./how-to/view-manage-customers.md) and [View and manage service providers](./how-to/view-manage-service-providers.md).
 - **Azure Resource Manager templates**: Perform management tasks more easily, including onboarding customers for Azure delegated resource management. For more info, see our [samples repo](https://github.com/Azure/Azure-Service-Provider-Management-Toolkit-samples/tree/master/Azure-Delegated-Resource-Management/templates) and [Onboard a customer to Azure delegated resource management](how-to/onboard-customer.md).
 - **Managed Services offers in Azure Marketplace**: Offer your services to customers through private or public offers, and have them automatically onboarded to Azure delegated resource management, as an alternate to onboarding using Azure Resource Manager templates. For more info, see [Managed services offers in Azure Marketplace](./concepts/managed-services-offers.md).
-- **Azure managed applications**: Package and ship applications that are easy for your customers to deploy and use in their own subscriptions. The application is deployed into a resource group that you access from your tenant, letting you manage the service. For more info, see [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview).
+- **Azure managed applications**: Package and ship applications that are easy for your customers to deploy and use in their own subscriptions. The application is deployed into a resource group that you access from your tenant, letting you manage the service as part of the overall Azure Lighthouse experience. For more info, see [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview).
 
 > [!NOTE]
-> The capabilities described above are available in public clouds. For regional availability of individual services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+> The capabilities described above are currently available in public clouds. For regional availability of individual services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
