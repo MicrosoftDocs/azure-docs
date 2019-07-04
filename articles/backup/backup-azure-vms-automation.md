@@ -443,7 +443,7 @@ $restorejob
 >
 >
 
-Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored. 
+Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
 
 > [!NOTE]
 > It is strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. Also, from Azure Powershell Az module 1.0 onwards, this parameter is mandatory in case of a restore with managed disks
@@ -714,6 +714,14 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+## Replace disks in Azure VM
+
+To replace the disks and configuration information, perform the below steps:
+
+- Step 1: [Restore disks using Azure Backup](backup-azure-vms-automation.md#restore-the-disks)
+- Step 2: [Detach disks using compute](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Step 3: [Attach the compute](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## Restore files from an Azure VM backup
 
