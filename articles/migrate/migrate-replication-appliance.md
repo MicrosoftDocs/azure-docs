@@ -11,7 +11,9 @@ ms.author: raynew
 
 # Azure Migrate replication appliance
 
-This article describes the Azure Migrate replication appliance. The replication appliance is used when you deploy the Azure Migrate Server Migration tool to migrate apps, infrastructure, and workloads to Microsoft Azure. The [Azure Migrate](migrate-overview.md) hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+This article describes the Azure Migrate replication appliance. You deploy the replication appliance when you use the Azure Migrate Server Migration tool to migrate apps, infrastructure, and workloads to Microsoft Azure.
+
+The tool is available in The [Azure Migrate](migrate-overview.md) hub. The hub provides native tools for assessment and migration, as well as tools from other Azure services, and from third-party independent software vendors (ISVs).
 
 
 ## Appliance overview
