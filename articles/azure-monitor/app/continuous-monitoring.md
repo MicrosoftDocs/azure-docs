@@ -19,9 +19,9 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
 
 ## Configure continuous monitoring
 
-1. Select an existing Azure DevOps project.
+1. In [Azure DevOps](https://dev.azure.com), select an organization and project.
    
-1. On the left menu, select **Pipelines**, and then select **Releases**. 
+1. On the left menu of the project page, select **Pipelines** > **Releases**. 
    
 1. Drop down the arrow next to **New** and select **New release pipeline**. Or, if you don't have a pipeline yet, select **New pipeline** on the page that appears.
    
@@ -29,7 +29,7 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
 
    ![New Azure Pipelines release pipeline](media/continuous-monitoring/001.png)
 
-1. Next to the red exclamation point, select the blue text to **View stage tasks.**
+1. In the **Stage 1** box, select the hyperlink to **View stage tasks.**
 
    ![View stage tasks](media/continuous-monitoring/002.png)
 
@@ -50,9 +50,11 @@ With continuous monitoring, release pipelines can incorporate monitoring data fr
 
 ## Modify alert rules
 
-Out of box, there are four alert rules: Availability, Failed requests, Server response time, and Server exceptions. You can add more rules, or change the rule settings to meet your service level needs. 
-   
-1. To modify alert rule settings, in the **Azure Monitor Alerts** pane, select the ellipsis **...** next to **Alert rules**.
+Out of box, there are four alert rules: **Availability**, **Failed requests**, **Server response time**, and **Server exceptions**. You can add more rules, or change the rule settings to meet your service level needs. 
+
+To modify alert rule settings:
+
+1. In the **Azure Monitor Alerts** pane, select the ellipsis **...** next to **Alert rules**.
    
 1. In the **Alert rules** dialog, select the drop-down symbol next to an alert rule, such as **Availability**. 
    
@@ -64,7 +66,7 @@ Out of box, there are four alert rules: Availability, Failed requests, Server re
 
 ## Add deployment conditions
 
-When you add deployment gates, an Application Insights alert that exceeds the thresholds you set guards your deployment against unwanted release promotion. Once you resolve the alert, the deployment can proceed automatically. 
+When you add deployment gates, an Application Insights alert that exceeds the thresholds you set guards your deployment against unwanted release promotion. Once you resolve the alert, the deployment can proceed automatically.
 
 To add deployment gates:
 
@@ -78,7 +80,7 @@ To add deployment gates:
    
 1. Select **Query Azure Monitor alerts** from the dropdown menu. This option lets you access alerts from both Azure Monitor and Application Insights.
    
-   ![Azure Monitor](media/continuous-monitoring/005.png)
+   ![Query Azure Monitor alerts](media/continuous-monitoring/005.png)
    
 1. Under **Evaluation options**, change the values for settings like **The time between re-evaluation of gates** and **The timeout after which gates fail** as desired. 
 
@@ -92,9 +94,9 @@ You can see deployment gate behavior and other release steps in the release logs
    
 1. Under **Stages**, select any stage to view a release summary. 
    
-1. To view logs, select **View logs** in the release summary, select the **Succeeded** or **Failed** result text in any stage, or hover over any stage and select **Logs**. 
+1. To view logs, select **View logs** in the release summary, select the **Succeeded** or **Failed** hyperlink in any stage, or hover over any stage and select **Logs**. 
    
-   ![Logs](media/continuous-monitoring/006.png)
+   ![View release logs](media/continuous-monitoring/006.png)
 
 ## Next steps
 
