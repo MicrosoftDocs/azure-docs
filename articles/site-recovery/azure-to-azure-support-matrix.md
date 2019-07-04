@@ -77,7 +77,7 @@ Site Recovery supports replication of Azure VMs running the operating systems li
 
 **Operating system** | **Details**
 --- | ---
-Windows Server 2019 |
+Windows Server 2019 | Server Core, Server with Desktop Experience
 Windows Server 2016  | Server Core, Server with Desktop Experience
 Windows Server 2012 R2 |
 Windows Server 2012 |

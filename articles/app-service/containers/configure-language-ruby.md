@@ -63,7 +63,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard [ENV['<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
+In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard [ENV['\<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']

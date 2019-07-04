@@ -9,7 +9,7 @@ manager: jeconnoc
 
 Standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own imaging pipeline requires time, infrastructure and setup, but with Azure VM Image Builder, just provide a simple configuration describing your image, submit it to the service, and the image is built, and distributed.
  
-The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/), you can also import your existing Packer shell provisioner scripts. You can also specify where you would like your images hosted, in the Azure Shared Image Gallery (virtual-machines-common-shared-image-galleries.md), as a managed image or a VHD.
+The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows or Linux-based Azure Marketplace image, existing custom images or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Because the Image Builder is built on [HashiCorp Packer](https://packer.io/), you can also import your existing Packer shell provisioner scripts. You can also specify where you would like your images hosted, in the [Azure Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), as a managed image or a VHD.
 
 > [!IMPORTANT]
 > Azure Image Builder is currently in public preview.
@@ -46,6 +46,12 @@ AIB will support Azure Marketplace base OS images:
 - Windows 2016
 - Windows 2019
 
+AIB will support RHEL ISO's, as a source for:
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+RHEL 7.6 is not supported, but being tested.
 
 ## How it works
 
