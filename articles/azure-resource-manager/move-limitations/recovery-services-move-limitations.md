@@ -10,7 +10,7 @@ ms.author: tomfitz
 
 ### Recovery Services limitations
 
- To move a Recovery Services vault, follow these steps: [Move resources to new resource group or subscription](../backup/backup-azure-move-recovery-services-vault.md).
+ To move a Recovery Services vault, follow these steps: [Move resources to new resource group or subscription](../../backup/backup-azure-move-recovery-services-vault.md).
 
 Currently, you can move one Recovery Services vault, per region, at a time. You can't move vaults that back up Azure Files, Azure File Sync, or SQL in IaaS virtual machines.
 
@@ -23,7 +23,7 @@ Backup policies defined for the vault are kept after the vault moves. Reporting 
 To move a virtual machine to a new subscription without moving the Recovery Services vault:
 
  1. Temporarily stop backup
- 1. [Delete the restore point](#virtual-machines-limitations). This operation deletes only the instant recovery points, not the backed-up data in the vault.
+ 1. [Delete the restore point](virtual-machines-move-limitations.md). This operation deletes only the instant recovery points, not the backed-up data in the vault.
  1. Move the virtual machines to the new subscription
  1. Reprotect it under a new vault in that subscription
 

@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 07/03/2019
 ms.author: tomfitz
 ---
 
@@ -36,19 +36,19 @@ When moving a Web App _across subscriptions_, the following limitations apply:
 
 If you don't remember the original resource group, you can find it through diagnostics. For your web app, select **Diagnose and solve problems**. Then, select **Configuration and Management**.
 
-![Select diagnostics](./media/resource-group-move-resources/select-diagnostics.png)
+![Select diagnostics](./media/app-service-move-limitations/select-diagnostics.png)
 
 Select **Migration Options**.
 
-![Select migration options](./media/resource-group-move-resources/select-migration.png)
+![Select migration options](./media/app-service-move-limitations/select-migration.png)
 
 Select the option for recommended steps to move the web app.
 
-![Select recommended steps](./media/resource-group-move-resources/recommended-steps.png)
+![Select recommended steps](./media/app-service-move-limitations/recommended-steps.png)
 
 You see the recommended actions to take before moving the resources. The information includes the original resource group for the web app.
 
-![Recommendations](./media/resource-group-move-resources/recommendations.png)
+![Recommendations](./media/app-service-move-limitations/recommendations.png)
 
 ## App Service Certificate limitations
 

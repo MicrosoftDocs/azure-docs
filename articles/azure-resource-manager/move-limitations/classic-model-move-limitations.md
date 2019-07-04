@@ -23,7 +23,7 @@ When moving resources from one resource group to another resource group within t
 * Only one storage account (classic) can be moved at a time.
 * Storage account (classic) can't be moved in the same operation with a virtual machine or a cloud service.
 
-To move classic resources to a new resource group within the same subscription, use the standard move operations through the [portal](#use-portal), Azure PowerShell, Azure CLI, or REST API. You use the same operations as you use for moving Resource Manager resources.
+To move classic resources to a new resource group within the same subscription, use the [standard move operations](../resource-group-move-resources.md) through the portal, Azure PowerShell, Azure CLI, or REST API. You use the same operations as you use for moving Resource Manager resources.
 
 ## New subscription
 

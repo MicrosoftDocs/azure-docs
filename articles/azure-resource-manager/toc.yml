@@ -134,9 +134,11 @@
     items:
     - name: Move resources
       href: resource-group-move-resources.md
-    - name: Resource move support status
+    - name: Resource support
       href: move-support-resources.md
-    - name: Limitations
+    - name: Troubleshoot move
+      href: troubleshoot-move.md
+    - name: Service specific guidance
       items:
       - name: App Service move
         href: ./move-limitations/app-service-move-limitations.md
@@ -148,8 +150,6 @@
         href: ./move-limitations/virtual-machines-move-limitations.md
       - name: Virtual Networks move
         href: ./move-limitations/virtual-network-move-limitations.md
-    - name: Troubleshoot move
-      href: troubleshoot-move.md
   - name: Manage
     items:
     - name: Manage resource groups

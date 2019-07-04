@@ -15,7 +15,7 @@ ms.author: tomfitz
 You can move most resources through the self-service operations shown in this article. Use the self-service operations to:
 
 * Move Resource Manager resources.
-* Move classic resources according to the [classic deployment limitations](#classic-deployment-limitations).
+* Move classic resources according to the [classic deployment limitations](./move-limitations/classic-deployment-move-limitations.md).
 
 Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) when you need to:
 

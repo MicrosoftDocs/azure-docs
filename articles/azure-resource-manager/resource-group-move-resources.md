@@ -97,8 +97,6 @@ The following list provides a general summary of Azure services that can be move
 
 * App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
 * Azure DevOps - follow steps to [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
-* Managed Disks - Managed Disks in Availability Zones can't be moved to a different subscription
-* Recovery Services vault - see [limitations](#recovery-services-limitations).
 
 
 ### Services that cannot be moved
