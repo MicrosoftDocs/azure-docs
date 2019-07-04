@@ -4,7 +4,7 @@ description: include file
 services: functions
 author: tdykstra
 manager: cfowler
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 05/17/2018
 ms.author: tdykstra
