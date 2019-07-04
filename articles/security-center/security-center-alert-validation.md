@@ -1,5 +1,5 @@
 ---
-title: Alerts validation in Azure Security Center | Microsoft Docs
+title: Alert validation (EICAR test file) in Azure Security Center | Microsoft Docs
 description: This document helps you to validate the security alerts in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date:  7/02/2019
 ms.author: rkarlin
 
 ---
-# Alerts validation in Azure Security Center
+# Alert validation (EICAR test file) in Azure Security Center
 This document helps you learn how to verify if your system is properly configured for Azure Security Center alerts.
 
 ## What are security alerts?

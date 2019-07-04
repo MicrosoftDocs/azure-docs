@@ -123,7 +123,7 @@
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation (incidents)
       href: security-center-alerts-cloud-smart.md 
-    - name: Alert validation
+    - name: Alert validation (EICAR test file)
       href: security-center-alert-validation.md
       
   - name: Archive
