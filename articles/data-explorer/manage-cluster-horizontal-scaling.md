@@ -27,27 +27,27 @@ In the Azure portal, go to your Data Explorer cluster resource. Under the **Sett
 
 Select your desired autoscale method: **Manual scale**, **Optimized autoscale** or **Custom autoscale**.
 
-**Manual scale**
+### **Manual scale**
 
 Manual scale is the default setting with cluster creation. It means that the cluster have a static cluster capacity that will not change automatically. You can choose the static capacity using the bar and it will not change until next time you will change the cluster's scale out setting.
 
-   ![Manual scale method](media/manage-cluster-scaling/manual-scale-method.png)
+   ![Manual scale method](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
-**Optimized autoscale**
+### **Optimized autoscale**
 
 Optimized autoscale is the recommended autoscale method. When Optimized autoscale is selected you need to choose a lower limit and an upper limit to the amount of instances of the cluster, the autoscaling will be done between those limits.
 
-   ![Optimized autoscale method](media/manage-cluster-scaling/optimized-autoscale-method.png)
+   ![Optimized autoscale method](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
 This autoscale method is optimizing the cluster performence and costs: if the cluster will start to get to a state of underutilization it will be scaled-in which leave performance the same and lower costs, and if the cluster will start to get to a state of overutilization, it will be scaled-out to make sure it's performing well. After choosing valid limits to the instances count and clicking save, Optimized autoscale mechanizem will start to work and it's actions will be visible in the Activity log of the cluster.
 
-**Custom autoscale**
+### **Custom autoscale**
 
-This method allows your cluster to scale dynamically based on metrics that you specify. The following graphic shows the flow and steps to configure Custom autoscale. More details follow the graphic.
+Custom autoscale method allows you scale your cluster dynamically based on metrics that you specify. The following graphic shows the flow and steps to configure Custom autoscale. More details follow the graphic.
 
 1. In the **Autoscale setting name** box, provide a name, such as *Scale-out: cache utilization*. 
 
-   ![Scale rule](media/manage-cluster-scaling/custom-autoscale-method.png)
+   ![Scale rule](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
 
 2. For **Scale mode**, select **Scale based on a metric**. This mode provides dynamic scaling. You can also select **Scale to a specific instance count**.
 
@@ -95,4 +95,4 @@ You've now configured a scale-out operation for your Azure Data Explorer cluster
 
 * [Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md)
 
-* [Manage cluster scale-up](manage-cluster-scale-up.md) for appropriate sizing of a cluster.
+* [Manage cluster vertical scaling](manage-cluster-vertical-scaling.md) for appropriate sizing of a cluster.
