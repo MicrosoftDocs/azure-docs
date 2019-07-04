@@ -67,25 +67,25 @@ The difference in supported capabilities between the basic and standard tiers of
 | --- | ---------- | ------------- |
 | [Delete device](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Yes | Yes |
 | [Get device](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Yes | Yes |
-| [Delete module](https://docs.microsoft.com/en-us/rest/api/iothub/service/deletemodule) | Yes | Yes |
-| [Get module](https://docs.microsoft.com/en-us/rest/api/iothub/service/getmodule) | Yes | Yes |
+| [Delete module](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Yes | Yes |
+| [Get module](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Yes | Yes |
 | [Get registry statistics](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Yes | Yes |
 | [Get services statistics](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Yes | Yes |
 | [Create or update device](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Yes | Yes |
-| [Create or update module](https://docs.microsoft.com/en-us/rest/api/iothub/service/createorupdatemodule) | Yes | Yes |
+| [Create or update module](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Yes | Yes |
 | [Query IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Yes | Yes |
 | [Create file upload SAS URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
 | [Receive device bound notification](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
 | [Send device event](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
 | Send module event | AMQP and MQTT only | AMQP and MQTT only |
 | [Update file upload status](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
-| [Bulk device operation](https://docs.microsoft.com/en-us/rest/api/iothub/service/bulkcreateorupdatedevices) | Yes, except for IoT Edge capabilities | Yes |
+| [Bulk device operation](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Yes, except for IoT Edge capabilities | Yes |
 | [Purge command queue](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Yes |
 | [Get device twin](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Yes |
-| [Get module twin](https://docs.microsoft.com/en-us/rest/api/iothub/service/getmoduletwin) |   | Yes |
+| [Get module twin](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Yes |
 | [Invoke device method](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Yes |
 | [Update device twin](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Yes |
-| [Update module twin](https://docs.microsoft.com/en-us/rest/api/iothub/service/updatemoduletwin) |   | Yes |
+| [Update module twin](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Yes |
 | [Abandon device bound notification](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
 | [Complete device bound notification](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
 | [Cancel job](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Yes |

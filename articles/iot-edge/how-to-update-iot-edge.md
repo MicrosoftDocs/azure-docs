@@ -36,12 +36,14 @@ Check the version of the security daemon running on your device by using the com
 
 ### Linux devices
 
-On Linux devices, use apt-get or your appropriate package manager to update the security daemon. 
+On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon. 
 
 ```bash
 apt-get update
 apt-get install libiothsm iotedge
 ```
+
+On Linux ARM32 devices, use the steps in [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) to install the latest version of the security daemon. 
 
 ### Windows devices
 
