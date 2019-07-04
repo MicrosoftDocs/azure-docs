@@ -11,9 +11,9 @@ ms.author: raynew
 
 # Select assessment tools
 
-This article describes how to add assessment tools in the [Azure Migrate](migrate-overview.md) hub. 
+This article describes how to add assessment tools in [Azure Migrate](migrate-overview.md).
 
-The [Azure Migrate](migrate-overview.md) hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+Azure Migrate provides a hub of tools for assessment and migration to Azure. It includes native tools, tools provided by other Azure services, and third-party independent software vendor (ISV) offerings.
 
 If you want to add an assessment tool and you don't yet have an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
 
