@@ -941,6 +941,8 @@
         href: printix-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
+      - name: productboard
+        href: product-board-tutorial.md
       - name: Projectplace
         href: projectplace-tutorial.md
       - name: Promapp
