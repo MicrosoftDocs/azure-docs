@@ -480,6 +480,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 
 Once you restore the disks, go to the next section to create the VM.
 
+## Replace disks in Azure VM
+
+To replace the disks and configuration information, perform the below steps:
+
+- Step 1: [Restore disks using Azure Backup](backup-azure-vms-automation.md#restore-the-disks)
+- Step 2: [Detach disks using compute](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Step 3: [Attach the compute](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
+
 ## Create a VM from restored disks
 
 After you restore the disks, use the following steps to create and configure the virtual machine from disk.
@@ -714,13 +723,6 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
-## Replace disks in Azure VM
-
-To replace the disks and configuration information, perform the below steps:
-
-- Step 1: [Restore disks using Azure Backup](backup-azure-vms-automation.md#restore-the-disks)
-- Step 2: [Detach disks using compute](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
-- Step 3: [Attach the compute](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
 
 
 ## Restore files from an Azure VM backup
