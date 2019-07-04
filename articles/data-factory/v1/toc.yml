@@ -22,8 +22,6 @@
     items: 
     - name: Copy Wizard
       href: data-factory-copy-data-wizard-tutorial.md
-    - name: Azure portal
-      href: data-factory-copy-activity-tutorial-using-azure-portal.md
     - name: Visual Studio
       href: data-factory-copy-activity-tutorial-using-visual-studio.md
     - name: Azure PowerShell
@@ -35,8 +33,6 @@
   - name: Create a pipeline to transform data
     href: data-factory-build-your-first-pipeline.md
     items: 
-    - name: Azure portal
-      href: data-factory-build-your-first-pipeline-using-editor.md
     - name: Visual Studio
       href: data-factory-build-your-first-pipeline-using-vs.md
     - name: Azure PowerShell
