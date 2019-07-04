@@ -191,9 +191,10 @@ All of our project is encapsulated in the `MainWindow : Window` class. Let's sta
        // This sample uses the Cognitive Services subscription key for all services. To learn more about
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
+       const string BING_SPELL_CHECK_KEY = "YOUR_BING_KEY";
        // Endpoints for Translator Text and Bing Spell Check
        public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
-       const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
+       const string BING_SPELL_CHECK_API_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
 
@@ -419,7 +420,7 @@ private string CorrectSpelling(string text)
 
     // Create a request to Bing Spell Check API
     HttpWebRequest spellCheckWebRequest = (HttpWebRequest)WebRequest.Create(uri);
-    spellCheckWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
+    spellCheckWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", BING_SPELL_CHECK_KEY);
     spellCheckWebRequest.Method = "POST";
     spellCheckWebRequest.ContentType = "application/x-www-form-urlencoded"; // doesn't work without this
 
