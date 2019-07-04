@@ -1,6 +1,6 @@
 ---
-title: How to assess servers for migration to Azure using Azure Migrate | Microsoft Docs
-description: Describes how to assess servers for migration to Azure using Azure Migrate
+title: Select assessment tools in the Azure Migrate hub | Microsoft Docs
+description: Describes how to add assessment tools in the Azure Migrate hub. 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
