@@ -88,33 +88,55 @@ In the case where an abstract base class contained virtual methods, these virtua
 
 Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
-The following code is an example of a simple entity function that defines a *Counter* entity. The function defines three operations, `add`, `subtract`, and `reset`, each of which update an integer value, `currentValue`.
+### .NET programing models
+
+There are two optional programming models for authoring durable entities. The following code is an example of a simple *Counter* entity implemented as a standard function. This function defines three *operations*, `add`, `reset`, and `get`, each of which operate on an integer state value, `currentValue`.
 
 ```csharp
 [FunctionName("Counter")]
-public static async Task Counter(
-    [EntityTrigger] IDurableEntityContext ctx)
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
 }
 ```
+
+This model works best for very simple entity implementations, or implementations that have a dynamic set of operations. However, there is also a class-based programming model which is useful for entities that are static but have more complex implementations. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
+}
+```
+
+The class-based model is very similar to the programming model popularized by [Orleans](https://www.microsoft.com/en-us/research/project/orleans-virtual-actors/). In this model, an entity type is defined as a .NET class. Each method of the class is an operation that can be invoked by an external client. Unlike Orleans, however, .NET interfaces are optional. The previous *Counter* example did not use an interface, but it can still be invoked via other functions or via HTTP API calls.
 
 Entity *instances* are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of:
 
@@ -134,7 +156,6 @@ The design of Durable Entities is heavily influenced by the [actor model](https:
 
 There are some important differences, however, that are worth noting:
 
-* Durable entities are modeled as pure functions. This design is different from most object-oriented frameworks that represent actors using language-specific support for classes, properties, and methods.
 * Durable entities prioritize *durability* over *latency*, and thus may not be appropriate for applications with strict latency requirements.
 * Messages sent between entities are delivered reliably and in order.
 * Durable entities can be used in conjunction with durable orchestrations, and can serve as distributed locks, which are described later in this article.
@@ -149,8 +170,8 @@ Entity support involves several APIs. For one, there is a new API for defining e
 The execution of an operation on an entity can call these members on the context object (`IDurableEntityContext` in .NET):
 
 * **OperationName**: gets the name of the operation.
-* **GetInput\<T>**: gets the input for the operation.
-* **GetState\<T>**: gets the current state of the entity.
+* **GetInput\<TInput>**: gets the input for the operation.
+* **GetState\<TState>**: gets the current state of the entity.
 * **SetState**: updates the state of the entity.
 * **SignalEntity**: sends a one-way message to an entity.
 * **Self**: gets the ID of the entity.
