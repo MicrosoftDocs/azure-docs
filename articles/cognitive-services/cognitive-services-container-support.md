@@ -103,7 +103,7 @@ Individual containers can have their own requirements, as well, including server
 
 ## Next steps
 
-Learn about [container recipes](/containers/container-reuse-recipe.md) you can use with the Cognitive Services.
+Learn about [container recipes](/azure/cognitive-services/containers/container-reuse-recipe) you can use with the Cognitive Services.
 
 Install and explore the functionality provided by containers in Azure Cognitive Services:
 
