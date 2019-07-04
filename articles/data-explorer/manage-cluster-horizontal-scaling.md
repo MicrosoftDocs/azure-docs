@@ -35,11 +35,14 @@ Manual scale is the default setting with cluster creation. It means that the clu
 
 ### **Optimized autoscale**
 
-Optimized autoscale is the recommended autoscale method. When Optimized autoscale is selected you need to choose a lower limit and an upper limit to the amount of instances of the cluster, the autoscaling will be done between those limits.
+Optimized autoscale is the recommended autoscale method. Steps to configure Optimized autoscale:
+
+1. Selected Optimized autoscale option and choose a lower limit and an upper limit to the amount of instances of the cluster, the autoscaling will be done between those limits.
+2. Click save.
 
    ![Optimized autoscale method](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
-This autoscale method is optimizing the cluster performence and costs: if the cluster will start to get to a state of underutilization it will be scaled-in which leave performance the same and lower costs, and if the cluster will start to get to a state of overutilization, it will be scaled-out to make sure it's performing well. After choosing valid limits to the instances count and clicking save, Optimized autoscale mechanizem will start to work and it's actions will be visible in the Activity log of the cluster.
+After clicking save Optimized autoscale mechanizem will start to work and it's actions will be visible in the Activity log of the cluster. This autoscale method is optimizing the cluster performence and costs: if the cluster will start to get to a state of underutilization it will be scaled-in which leave performance the same and lower costs, and if the cluster will start to get to a state of overutilization, it will be scaled-out to make sure it's performing well
 
 ### **Custom autoscale**
 
