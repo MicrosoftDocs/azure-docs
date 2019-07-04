@@ -217,7 +217,7 @@ In Windows, an SAP ASCS/SCS instance contains SAP central services, the SAP mess
 An SAP ASCS/SCS instance has the following components:
 
 * SAP central services:
-    * Two processes, a message and enqueue server, and an <ASCS/SCS virtual host name>, which is used to access these two processes.
+    * Two processes, a message and enqueue server, and an \<ASCS/SCS virtual host name>, which is used to access these two processes.
     * File structure: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<instance number\>
 
 
@@ -225,7 +225,7 @@ An SAP ASCS/SCS instance has the following components:
   * File structure: S:\usr\sap\\&lt;SID&gt;\SYS\...
   * The sapmnt file share, which enables access to these global S:\usr\sap\\&lt;SID&gt;\SYS\... files by using the following UNC path:
 
-    \\\\<ASCS/SCS virtual host name>\sapmnt\\&lt;SID&gt;\SYS\...
+    \\\\<ASCS/SCS virtual host name\>\sapmnt\\&lt;SID&gt;\SYS\...
 
 
 ![Figure 2: Processes, file structure, and global host sapmnt file share of an SAP ASCS/SCS instance][sap-ha-guide-figure-8001]
@@ -240,7 +240,7 @@ _**Figure 3:** SAP ASCS/SCS HA architecture with shared disk_
 
 > [!IMPORTANT]
 > These two components run under the same SAP ASCS/SCS instance:
->* The same <ASCS/SCS virtual host name> is used to access the SAP message and enqueue server processes, and the SAP global host files via the sapmnt file share.
+>* The same \<ASCS/SCS virtual host name> is used to access the SAP message and enqueue server processes, and the SAP global host files via the sapmnt file share.
 >* The same cluster shared disk drive S is shared between them.
 >
 

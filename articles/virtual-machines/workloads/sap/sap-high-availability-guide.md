@@ -1329,7 +1329,7 @@ It's easy to test and monitor an SAP ASCS/SCS instance failover and SIOS disk re
 
 The **SAP PR1** cluster group is running on cluster node A. For example, on **pr1-ascs-0**. Assign the shared disk drive S, which is part of the **SAP PR1** cluster group, and which the ASCS/SCS instance uses, to cluster node A.
 
-![Figure 61: Failover Cluster Manager: The SAP <SID> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
+![Figure 61: Failover Cluster Manager: The SAP \<SID> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
 
 _**Figure 61:** Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A_
 
@@ -1358,7 +1358,7 @@ _**Figure 62:** In SIOS DataKeeper, replicate the local volume from cluster node
 
    After failover, the SAP <*SID*> cluster group is running on cluster node B. For example, it's running on **pr1-ascs-1**.
 
-   ![Figure 63: In Failover Cluster Manager, the SAP <SID> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
+   ![Figure 63: In Failover Cluster Manager, the SAP \<SID> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
 
    _**Figure 63**: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B_
 

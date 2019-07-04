@@ -342,7 +342,7 @@ ms.author: sngun
 ### <a name="1.3.0"/>1.3.0
 * Added support for modifying indexing policies.
   * New ReplaceDocumentCollectionAsync method in DocumentClient
-  * New IndexTransformationProgress property in ResourceResponse<T> for tracking percent progress of index policy changes
+  * New IndexTransformationProgress property in ResourceResponse\<T> for tracking percent progress of index policy changes
   * DocumentCollection.IndexingPolicy is now mutable
 * Added support for spatial indexing and query.
   * New Microsoft.Azure.Documents.Spatial namespace for serializing/deserializing spatial types like Point and Polygon

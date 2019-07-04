@@ -76,7 +76,7 @@ You can then import the framework file into your application by doing the follow
 #import <AZSClient/AZSClient.h>
 ```
 
-If you are using Swift, you will need to create a bridging header and import <AZSClient/AZSClient.h> there:
+If you are using Swift, you will need to create a bridging header and import \<AZSClient/AZSClient.h> there:
 
 1. Create a header file `Bridging-Header.h`, and add the above import statement.
 2. Go to the *Build Settings* tab, and search for *Objective-C Bridging Header*.

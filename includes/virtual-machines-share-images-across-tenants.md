@@ -41,7 +41,7 @@ Give the app registration permission to use the shared image gallery.
 
 ## Give Tenant 2 access
 
-Give Tenant 2 access to the application by requesting a sign-in using a browser. Replace *<Tenant2 ID>* with the tenant ID for the tenant that you would like to share your image gallery with. Replace *<Application (client) ID>* with the application ID of the app registration you created. When done making the replacements, paste the URL into a browser and follow the sign-in prompts to sign into Tenant 2.
+Give Tenant 2 access to the application by requesting a sign-in using a browser. Replace *\<Tenant2 ID>* with the tenant ID for the tenant that you would like to share your image gallery with. Replace *\<Application (client) ID>* with the application ID of the app registration you created. When done making the replacements, paste the URL into a browser and follow the sign-in prompts to sign into Tenant 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

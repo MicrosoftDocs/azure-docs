@@ -80,11 +80,11 @@ Here are some considerations you should take into account for wildcard applicati
 
 For wildcard applications, the **Internal URL** must be formatted as `http(s)://*.<domain>`.
 
-![For internal URL, use the format http(s)://*.<domain>](./media/application-proxy-wildcard/22.png)
+![For internal URL, use the format http(s)://*.\<domain>](./media/application-proxy-wildcard/22.png)
 
 When you configure an **External URL**, you must use the following format: `https://*.<custom domain>`
 
-![For external URL, use the format https://*.<custom domain>](./media/application-proxy-wildcard/21.png)
+![For external URL, use the format https://*.\<custom domain>](./media/application-proxy-wildcard/21.png)
 
 Other positions of the wildcard, multiple wildcards, or other regex strings are not supported and are causing errors.
 

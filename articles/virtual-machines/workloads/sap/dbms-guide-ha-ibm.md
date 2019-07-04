@@ -592,7 +592,7 @@ Migrate the resource back to *azibmdb01* and clear the location constraints
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **crm resource migrate \<res_name> <host>:** Creates location constraints and can cause issues with takeover
+- **crm resource migrate \<res_name> \<host>:** Creates location constraints and can cause issues with takeover
 - **crm resource clear \<res_name>**: Clears location constraints
 - **crm resource cleanup \<res_name>**: Clears all errors of the resource
 

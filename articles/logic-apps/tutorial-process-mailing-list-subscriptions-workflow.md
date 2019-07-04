@@ -148,7 +148,7 @@ that sends an email to approve or reject the request.
 Search for "approval", and select this action: 
 **<*your-email-provider*> - Send approval email**
 
-   ![Choose "<your-email-provider> - Send approval email"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-send-approval-email.png)
+   ![Choose "\<your-email-provider> - Send approval email"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-send-approval-email.png)
 
 2. Provide information for this action as shown and described: 
 

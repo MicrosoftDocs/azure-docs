@@ -195,7 +195,7 @@ In the selector, select **Controllers**.
 
 Here you can view the performance health of your controllers and ACI Virtual Node controllers or Virtual Node pods not connected to a controller.
 
-![<Name> controllers performance view](./media/container-insights-analyze/containers-controllers-view.png)
+![\<Name> controllers performance view](./media/container-insights-analyze/containers-controllers-view.png)
 
 The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill down to the node it is running on to view performance data filtered for that node. ACI pods not connected to a controller are listed last in the list.
 
@@ -236,7 +236,7 @@ In the selector, select **Containers**.
 
 Here you can view the performance health of your Azure Kubernetes and Azure Container Instances containers.  
 
-![<Name> controllers performance view](./media/container-insights-analyze/containers-containers-view.png)
+![\<Name> controllers performance view](./media/container-insights-analyze/containers-containers-view.png)
 
 From a container, you can drill down to a pod or node to view performance data filtered for that object. Click on the value under the **Pod** or **Node** column for the specific container.   
 
