@@ -308,14 +308,19 @@ The **Pricing and availability** tab enables you to configure the markets that t
 
 ##### Enabling Free Trials
 
-SaaS offers through the commercial marketplace enable you to provide a one-month free trial. Free trials support all billing models and terms across all channels, allowing customers to have a low-barrier to entry with one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of initial one month period.  During this time, customers purchasing your offer can try out any of the plans that have the free trial enabled and convert between them.  The conversion to paid subscription is done automatically.  The ability to configure a free trial is available for each plan in your offer. Simply navigate to the Pricing and Availability for each offer and check the box to allow a one-month trial.
+SaaS offers through the commercial marketplace enable you to provide a one-month free trial. Free trials support all billing models and terms across all channels, allowing customers to have a low-barrier to entry with one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of initial one month period.  During this time, customers purchasing your offer can try out any of the plans that have the free trial enabled and convert between them.  The conversion to paid subscription is done automatically.  
+
+>[!Note]
+>If the customer chooses to convert to a plan without free trials, the conversion will happen, but the free trial will be lost immediately.  Also, once a customer starts paying for a plan, they can no longer get free trial on the same subscription again, even if they convert to a SKU that does support free trials.
+
+The ability to configure a free trial is available for each plan in your offer. Simply navigate to the Pricing and Availability for each offer and check the box to allow a one-month trial.
 
 ![One month free trial checkbox](./media/free-trial-enable.png)
 
-To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false.
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. See the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) for more information.
 
 >[!Note]
->Free trials are not compatible with SaaS offers that leverage the marketplace metering service.
+>Free trials are not supported for plans that leverage the marketplace metering service.
 
 #### Markets
 
