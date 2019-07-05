@@ -63,17 +63,6 @@
           href: manage-dns.md
         - name: Update email notifications
           href: notifications.md
-        - name: Configure secure LDAP (LDAPS) in an Azure AD Domain Services domain
-          href: "configure-ldaps.md"
-          items:             
-            - name: "Task 2 Export the secure LDAP certificate"
-              href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
-            - name: "Task 3 Enable secure LDAP for the managed domain using Azure portal"
-              href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
-            - name: "Task 4 Configure DNS to access the managed domain from the internet"
-              href: active-directory-ds-ldaps-configure-dns.md
-            - name: "Task 5 Bind to the managed domain and lock down secure LDAP access"
-              href: active-directory-ds-ldaps-bind-lockdown.md
     - name: Deploy applications to Azure AD DS
       items: 
         - name: Configure support for profile synchronization for SharePoint Server
