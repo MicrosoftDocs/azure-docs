@@ -127,6 +127,14 @@
       href: sql-data-warehouse-overview-develop.md
     - name: Best practices
       href: sql-data-warehouse-best-practices-development.md
+    - name: Materialized view
+      items:
+      - name: Create materialized view as select (Transact-SQL)
+        href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest?toc=/azure/sql-data-warehouse/toc.json
+      - name: Alter materialized view as select (Transact-SQL)
+        href: /sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest?toc=/azure/sql-data-warehouse/toc.json
+    - name: Result set caching
+      href: /sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest?toc=/azure/sql-data-warehouse/toc.json  
     - name: Tables
       items:
       - name: Overview
