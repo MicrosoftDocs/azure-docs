@@ -7,7 +7,7 @@ manager: saurabhsensharma
 keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 12/03/2018
+ms.date: 07/05/2019
 ms.author: saurabhsensharma
 ---
 
