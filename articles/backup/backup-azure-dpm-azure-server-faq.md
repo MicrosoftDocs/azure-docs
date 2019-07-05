@@ -37,7 +37,7 @@ Yes. You can use Azure Backup Server to back up VMware vCenter Server and ESXi h
 - [Learn more](backup-mabs-protection-matrix.md) about supported versions.
 - [Follow these steps](backup-azure-backup-server-vmware.md) to back up a VMware server.
 
-### Do I need a separate license to recover an full on-premises VMware/Hyper-V cluster?
+### Do I need a separate license to recover a full on-premises VMware/Hyper-V cluster?
 You don't need separate licensing for VMware/Hyper-V protection.
 
 - If you're a System Center customer, use System Center Data Protection Manager (DPM) to protect VMware VMs.
