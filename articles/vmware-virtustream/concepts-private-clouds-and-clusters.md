@@ -4,7 +4,7 @@ description: Learn about the key capabilities of Azure VMware software-defined d
 services: 
 author: v-jetome
 
-ms.service: 
+ms.service: vmware-virtustream
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: v-jetome

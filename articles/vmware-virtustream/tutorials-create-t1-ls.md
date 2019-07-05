@@ -4,7 +4,7 @@ description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) t
 services: 
 author: v-jetome
 
-ms.service: 
+ms.service: vmware-virtustream
 ms.topic: tutorial
 ms.date: 7/5/2019
 ms.author: v-jetome

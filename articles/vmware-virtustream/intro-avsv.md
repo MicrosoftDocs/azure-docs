@@ -4,7 +4,7 @@ description: Learn the features and benefits of Azure VMware Solution by Virtust
 services: 
 author: v-jetome
 
-ms.service: 
+ms.service: vmware-virtustream
 ms.topic: overview
 ms.date: 7/5/2019
 ms.author: v-jetome
