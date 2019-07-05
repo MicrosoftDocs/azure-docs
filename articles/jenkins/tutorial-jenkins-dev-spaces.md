@@ -6,7 +6,7 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/19
+ms.date: 06/18/2019
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
