@@ -3,7 +3,7 @@ title: Azure PowerShell script - Create a container indexing turned off in an Az
 description: Azure PowerShell script sample - Create a container indexing turned off in an Azure Cosmos account
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
 ---

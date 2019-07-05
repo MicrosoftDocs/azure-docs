@@ -9,7 +9,7 @@ editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor-and-diagnostics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
