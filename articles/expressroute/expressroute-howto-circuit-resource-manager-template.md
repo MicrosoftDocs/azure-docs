@@ -45,7 +45,7 @@ To create an ExpressRoute Circuit by deploying a template:
     ```azurepowershell-interactive
     $circuitName = Read-Host -Prompt "Enter a circuit name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    $resourceGroupName = "${serviceBusNamespaceName}rg"
+    $resourceGroupName = "${circuitName}rg"
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-expressroute-circuit-create/azuredeploy.json"
 
     $serviceProviderName = "Equinix"
@@ -90,9 +90,9 @@ You can delete your ExpressRoute circuit by selecting the **delete** icon. Note 
 
 You can delete your ExpressRoute circuit by running the following PowerShell command:
 
-```Azure PowerShell
+```azurepowershell-interactive
 $circuitName = Read-Host -Prompt "Enter the same circuit name that you used earlier"
-$resourceGroupName = "${serviceBusNamespaceName}rg"
+$resourceGroupName = "${circuitName}rg"
 
 Remove-AzExpressRouteCircuit -ResourceGroupName $resourceGroupName -Name $circuitName
 ```
