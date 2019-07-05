@@ -75,7 +75,7 @@ Page contract packages are periodically updated to include fixes and improvement
   - The input field for the code now only takes input up to six (6) characters
   - The page will automatically attempt to verify the code entered when a 6-digit code is entered, without any button having to be clicked
   - If the code is wrong then the input field is automatically cleared
-  - After three (3) attempts with an incorrect code, B2C sends an error back to the service
+  - After three (3) attempts with an incorrect code, B2C sends an error back to the relying party
   - Accessibility fixes
   - Default CSS removed
 - Self-asserted page (selfasserted)
