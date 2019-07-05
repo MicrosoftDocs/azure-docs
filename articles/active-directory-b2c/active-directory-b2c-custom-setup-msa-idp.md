@@ -125,7 +125,7 @@ If no errors are displayed in the portal, continue to the next section.
 
 ## Register the claims provider
 
-At this point, you've setup the identity provider, but it's not yet available in any of the sign-up or sign-in screens. To make it available, create a duplicate of an existing template user journey, then modify it so that it also has the Microsoft account identity provider.
+At this point, you've set up the identity provider, but it's not yet available in any of the sign-up or sign-in screens. To make it available, create a duplicate of an existing template user journey, then modify it so that it also has the Microsoft account identity provider.
 
 1. Open the *TrustFrameworkBase.xml* file from the starter pack.
 2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
