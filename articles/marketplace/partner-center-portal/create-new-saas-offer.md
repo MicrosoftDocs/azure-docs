@@ -317,7 +317,7 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 
 **Flat rate:** Enable access to your offer with a single monthly or annual price flat rate price. This is sometimes referred to as site-based pricing.
 
-**Seat based:** Enable access to your offer with the price based on the number of users accessing the offer or occupying *seats*. This seat-based model enables you to set the minimum and maximum number of seats allowed based on the price. This way, different price points can be configured based on the number of users by configuring multiple plans.  These fields are optional. If left empty, the number of seats will be interpreted as not having a limit (min of 1 and max of as many as the system can support). These fields may be edited as part of an update to your plan.
+**Per user:** Enable access to your offer with the price based on the number of users accessing the offer or occupying seats. This user-based model enables you to set the minimum and maximum number of users allowed based on the price. This way, different price points can be configured based on the number of users by configuring multiple plans.  These fields are optional. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as the system can support). These fields may be edited as part of an update to your plan.
 
 Once published, the billing pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
 
