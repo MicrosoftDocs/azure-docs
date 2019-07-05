@@ -83,7 +83,7 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
 
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
