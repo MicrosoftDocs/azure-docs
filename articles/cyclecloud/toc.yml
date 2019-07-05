@@ -159,8 +159,10 @@
       href: ~/cyclecloud-references/running-in-locked-down-network.md
     - name: User Interface Theming
       href: ~/cyclecloud-references/theming.md
-  - name: API Reference
+  - name: REST API Reference
     href: api.md
+  - name: Python API Reference
+    href: python-api.md
   - name: Jetpack
     href: jetpack.md
   - name: Common Cookbook Reference
