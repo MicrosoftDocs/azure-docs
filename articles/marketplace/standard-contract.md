@@ -27,11 +27,11 @@ Standard Contract Amendments allow publishers to select the standard contract fo
 
 There are two kinds of amendments available for Azure Marketplace publishers:
 
-1. Universal Amendments: These amendments are applied universally to the standard contract for all customers. Universal amendments are shown to every customer of the product in the purchase flow.
+* Universal Amendments: These amendments are applied universally to the standard contract for all customers. Universal amendments are shown to every customer of the product in the purchase flow.
 
 ![Universal Amendments](media/marketplace-publishers-guide/universal-amendaments.png)
 
-2. Custom Amendments: Azure Marketplace also has a provision for custom amendments targeted to tenants. They are special amendments to the standard contract that are targeted to certain customers only. Publishers can choose the tenant they want to target. Customers from that tenant would purchase the product under Standard Contract and the targeted amendments.
+* Custom Amendments: Azure Marketplace also has a provision for custom amendments targeted to tenants. They are special amendments to the standard contract that are targeted to certain customers only. Publishers can choose the tenant they want to target. Customers from that tenant would purchase the product under Standard Contract and the targeted amendments.
 
 ![Custom Amendments](media/marketplace-publishers-guide/custom-amendaments.png)
 
@@ -43,9 +43,9 @@ There are two kinds of amendments available for Azure Marketplace publishers:
 
 ### Customer Experience
 
-During the purchase process in the Azure management portal, customers will be able to see the terms associated with the product as the Microsoft Standard Contract and the amendments.
+During the purchase process in the Azure portal, customers will be able to see the terms associated with the product as the Microsoft Standard Contract and the amendments.
 
-![The Azure management portal customer experience.](media/marketplace-publishers-guide/ibiza-customer-experience.png)
+![The Azure portal customer experience.](media/marketplace-publishers-guide/ibiza-customer-experience.png)
 
 ### API
 
