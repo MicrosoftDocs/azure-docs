@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Manage Azure Media Services accounts | Microsoft Docs
-description: To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. This article explains how to manage Azure Media Services accounts. 
+title: Manage Azure Media Services v3 accounts | Microsoft Docs
+description: To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. This article explains how to manage Azure Media Services v3 accounts. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,7 +15,7 @@ ms.date: 07/05/2019
 ms.author: juliako
 ---
 
-# Manage Azure Media Services accounts
+# Manage Azure Media Services v3 accounts
 
 To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. The Media Services account and all associated storage accounts must be in the same Azure subscription. For more information, see [Cloud upload and storage](storage-account-concept.md).
 
