@@ -68,6 +68,7 @@ Register SQL Server VM in lightweight SQL management mode using PowerShell with 
         -Properties @{virtualMachineResourceId=$vm.Id;sqlLicenseType='AHUB';sqlManagement='LightWeight'}  
   
   ```
+
 Registering with the SQL VM resource provider in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) will assure compliance and enable flexible licensing as well as in-place SQL Server edition updates. Failover Cluster Instances and multi-instance deployments can be registered with SQL VM resource provider only in lightweight mode. You can follow the directions found on Azure portal to upgrade to [full mode](virtual-machines-windows-sql-server-agent-extension.md#full-mode-installation) and enable comprehensive manageability feature set with a SQL Server restart anytime. 
 
 ## Register SQL Server 2008/R2 on Windows Server 2008 VMs
@@ -95,12 +96,10 @@ To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use
        sqlManagement='NoAgent';sqlImageSku='Standard';sqlImageOffer='SQL2008R2-WS2008'}
   ```
 
-
-
 ## Verify registration status
 You can verify if your SQL Server has already been registered with the SQL VM resource provider using the Azure portal, Azure CLI, or PowerShell. 
 
-# [Azure portal](#tab/azure-portal)
+### Azure Portal 
 To verify the status of registration using the Azure portal, do the following.
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
@@ -110,7 +109,7 @@ To verify the status of registration using the Azure portal, do the following.
 
     ![Verify status with SQL RP registration](media/virtual-machines-windows-sql-register-with-rp/verify-registration-status.png)
 
-# [AZ CLI](#tab/bash)
+### Az CLI
 
 Verify current SQL Server VM registration status with the following AZ CLI command. `ProvisioningState` will show `Succeeded` if registration was successful. 
 
@@ -119,7 +118,7 @@ Verify current SQL Server VM registration status with the following AZ CLI comma
   ```
 
 
-# [PowerShell](#tab/powershell)
+### PowerShell
 
 Verify current SQL Server VM registration status with the following PowerShell cmdlet. `ProvisioningState` will show `Succeeded` if registration was successful. 
 
@@ -134,7 +133,7 @@ An error indicates that the SQL Server VM has not been registered with the resou
 
 To register your SQL Server VM with the SQL VM resource provider, you must register the resource provider to your subscription. You can do so with the Azure portal, or Azure CLI.
 
-# [Azure portal](#tab/azure-portal)
+### Azure portal
 
 The following steps will register the SQL VM resource provider to your Azure subscription using the Azure portal. 
 
@@ -146,7 +145,7 @@ The following steps will register the SQL VM resource provider to your Azure sub
 
    ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
-# [AZ CLI](#tab/bash)
+### Az CLI
 The following code snippet will register the SQL VM resource provider to your Azure subscription. 
 
 ```azurecli-interactive
@@ -154,7 +153,7 @@ The following code snippet will register the SQL VM resource provider to your Az
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-# [PowerShell](#tab/powershell)
+### PowerShell
 
 The following PowerShell code snippet will register the SQL VM resource provider to your Azure subscription.
 
