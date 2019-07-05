@@ -166,7 +166,7 @@ Install SQL IaaS agent with *lightweight* mode using PowerShell:
 | &nbsp;             | &nbsp;                          |
 
 
-## Get Status of SQL IaaS Exstension
+## Get Status of SQL IaaS Extension
 One way to verify that the extension is installed is to view the agent status in the Azure portal. Select **All settings** in the virtual machine window, and then click on **Extensions**. You should see the **SqlIaasExtension** extension listed.
 
 ![SQL Server IaaS Agent Extension in Azure portal](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)

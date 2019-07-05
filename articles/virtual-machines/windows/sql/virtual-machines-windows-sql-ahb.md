@@ -117,11 +117,11 @@ $SqlVm | Set-AzResource -Force
 
 ## Change license for VMs not registered with resource provider
 
-If you provisioned a SQL Server VM from PAYG Azure Market Place images then SQL License type will be PAYG. If you provisioned a SQL Server VM using a BYOL image from the Azure Marketplace then the license type will be AHB. All SQL Server VMs provisioned from default (PAYG) or BYOL Azure Marketplace images will automatically be registered with SQL VM resource provider, so they can change the [license type](#change-license-for-vms-already-registered-with-resource-provider)
+If you provisioned a SQL Server VM from PAYG Azure Marketplace images then SQL license type will be PAYG. If you provisioned a SQL Server VM using a BYOL image from the Azure Marketplace then the license type will be AHUB. All SQL Server VMs provisioned from default (PAYG) or BYOL Azure Marketplace images will automatically be registered with SQL VM resource provider, so they can change the [license type](#change-license-for-vms-already-registered-with-resource-provider)
 
 You are only eligible to self-install SQL Server on Azure VM via Azure Hybrid Benefit and you should [register these VMs with SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md) by setting the SQL Server license as AHB to indicate the AHB usage according to Microsoft Product Terms.
 
-You can only change the license type of a SQL Server VM as PAYG or AHB if the SQL VM is registered with SQL VM resource provider; and all SQL VM's should be registered with SQL VM RP for license compliance.
+You can only change the license type of a SQL Server VM as PAYG or AHB if the SQL VM is registered with SQL VM resource provider; and all SQL VMs should be registered with SQL VM RP for license compliance.
 
 ## Remarks
 
@@ -129,6 +129,8 @@ You can only change the license type of a SQL Server VM as PAYG or AHB if the SQ
  - If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
   - The ability to change the licensing model is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-rp.md). 
 - Adding a SQL Server VM to an availability set requires recreating the VM. As such, any VMs added to an availability set will go back to the default pay-as-you-go license type and AHB will need to be enabled again. 
+
+
 ## Limitations
 
  - Changing the licensing model is only available to customers with software assurance.
