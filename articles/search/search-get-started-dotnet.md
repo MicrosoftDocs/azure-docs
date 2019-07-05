@@ -18,10 +18,10 @@ ms.date: 06/20/2019
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
-> * [Postman](search-fiddler.md)
+> * [Postman](search-get-started-postman.md)
 >*
 
-Create a .NET Core C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [Azure Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart).
+Create a .NET Core C# console application that creates, loads, and queries an Azure Search index using Visual Studio and the [Azure Search .NET SDK](https://aka.ms/search-sdk). This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -50,7 +50,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
    Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -64,17 +64,16 @@ The [Azure Search .NET SDK](https://aka.ms/search-sdk) consists of a few client 
 
 For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package and the latest `Microsoft.Extensions.Configuration.Json` NuGet package.
 
-1. Install `Microsoft.Azure.Search` using the Package Manager console in Visual Studio. In **Tools** > **NuGet Package Manager**, click **Package Manager Console**. 
+1. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**. 
 
-1. Copy and run the following command: `Install-Package Microsoft.Azure.Search -Version 9.0.1`
+1. Click **Browse**.
 
-   You can get command syntax for other installation methodologies on the [Microsoft.Azure.Search](https://www.nuget.org/packages/Microsoft.Azure.Search) NuGet package page.
+1. Search for `Microsoft.Azure.Search` and select version 9.0.1 or later.
 
-1. Install `Microsoft.Extensions.Configuration.Json`. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**. 
+1. Click **Install** on the right to add the assembly to your project and solution.
 
-1. Click **Browse** and then search for `Microsoft.Extensions.Configuration.Json`. 
+1. Repeat for `Microsoft.Extensions.Configuration.Json`, selecting version 2.2.0 or later.
 
-1. Once you've found it, select the package, select your project, confirm the version is the latest stable version, then click **Install**.
 
 ### Add Azure Search service information
 
@@ -86,7 +85,7 @@ For this project, use version 9 of the `Microsoft.Azure.Search` NuGet package an
 
 1. Add the file to your output directory. Right-click appsettings.json and select **Properties**. In **Copy to Output Directory**, select **Copy if newer**.
 
-1. Copy the following JSON into your new JSON file. Replace the search service name (YOUR-SEARCH-SERVICE-NAME), query API key (YOUR-QUERY-API-KEY), and admin API key (YOUR-ADMIN-API-KEY) with valid values. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
+1. Copy the following JSON into your new JSON file. Replace the search service name (YOUR-SEARCH-SERVICE-NAME) and admin API key (YOUR-ADMIN-API-KEY) with valid values. If your service endpoint is `https://mydemo.search.windows.net`, the service name would be "mydemo".
 
 ```json
 {
@@ -102,9 +101,9 @@ When printing results to the console window, individual fields from the Hotel ob
 
 1. Add two empty class definitions to your project: Address.Methods.cs, Hotel.Methods.cs
 
-1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/azure-search-quickstart/azure-search-quickstart/Address.Methods.cs/#L1-L32).
+1. In Address.Methods.cs, overwrite the default contents with the following code, [lines 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L32).
 
-1. In Hotel.Methods.cs, copy [lines 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/azure-search-quickstart/azure-search-quickstart/Hotel.Methods.cs/#L1-L66).
+1. In Hotel.Methods.cs, copy [lines 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L66).
 
 
 ## 1 - Create index
