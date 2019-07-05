@@ -6,7 +6,7 @@ author: maxluk
 ms.author: maxluk
 ms.reviewer: nibaccam
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 06/28/2019

@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/01/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to return Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 
-# Tutorial: Return Azure Data Box Heavy and verify data upload to Azure (preview)
+# Tutorial: Return Azure Data Box Heavy and verify data upload to Azure
 
 
 This tutorial describes how to return Azure Data Box Heavy and verify the data uploaded to Azure.
