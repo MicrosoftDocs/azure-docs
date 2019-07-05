@@ -64,7 +64,7 @@ Compared with general-purpose v2 and blob storage accounts, block blob storage a
 
 Block blob storage accounts do not currently support tiering to hot, cool, or archive access tiers.
 
-### FileStorage (preview) storage accounts
+### FileStorage storage accounts
 
 A FileStorage storage account is a specialized storage account used to store and create premium file shares. FileStorage storage accounts offer unique performance dedicated characteristics such as IOPS bursting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
 
@@ -84,7 +84,7 @@ General-purpose storage accounts may be configured for either of the following p
 
 Block blob storage accounts provide a premium performance tier for storing block blobs and append blobs.
 
-FileStorage (preview) storage accounts provide a premium performance tier for Azure file shares.
+FileStorage storage accounts provide a premium performance tier for Azure file shares.
 
 ## Access tiers for block blob data
 

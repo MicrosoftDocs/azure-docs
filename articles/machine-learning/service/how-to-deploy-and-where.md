@@ -35,7 +35,9 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## <a id="registermodel"></a> Register your model
 
-Register your machine learning models in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
+A registered model logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
 
 ### Register a model from an Experiment Run
 
@@ -44,11 +46,18 @@ Register your machine learning models in your Azure Machine Learning workspace. 
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
+
+  > [!TIP]
+  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+
 + **Using the CLI**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
 
 + **Using VS Code**
 
@@ -73,14 +82,22 @@ You can register an externally created model by providing a **local path** to th
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+
 + **Using the CLI**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `-p` to the directory that contains the files.
+
 **Time estimate**: Approximately 10 seconds.
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+
+For more information on working with models trained outside Azure Machine Learning service, see [How to deploy an existing model](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
@@ -106,12 +123,14 @@ The script contains two functions that load and run the model:
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
 #### What is get_model_path?
-When you register a model, you provide a model name used for managing the model in the registry. You use this name in the get_model_path API which returns the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory which contains those files.
 
-When you register a model, you give it a name which corresponds to where the model is placed, either locally or during service deployment.
+When you register a model, you provide a model name used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) to retrieve the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory that contains those files.
 
-The below example will return a path to a single file called 'sklearn_mnist_model.pkl' (which was registered with the name 'sklearn_mnist')
-```
+When you register a model, you give it a name, which corresponds to where the model is placed, either locally or during service deployment.
+
+The below example will return a path to a single file called `sklearn_mnist_model.pkl` (which was registered with the name `sklearn_mnist`):
+
+```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
@@ -238,13 +257,49 @@ For more example scripts, see the following examples:
 
 ### 2. Define your InferenceConfig
 
-The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration:
+The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration. This configuration specifies the runtime, the entry script, and (optionally) the conda environment file:
 
 ```python
-inference_config = InferenceConfig(source_directory="C:/abc",
-                                   runtime= "python",
+inference_config = InferenceConfig(runtime= "python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
+```
+
+For more information, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class reference.
+
+For information on using a custom Docker image with inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
+
+### CLI example of InferenceConfig
+
+The following JSON document is an example inference configuration for use with the machine learning CLI:
+
+```JSON
+{
+   "entryScript": "x/y/score.py",
+   "runtime": "python",
+   "condaFile": "env/myenv.yml",
+   "sourceDirectory":"C:/abc",
+}
+```
+
+The following entities are valid in this file:
+
+* __entryScript__: Path to local file that contains the code to run for the image.
+* __runtime__: Which runtime to use for the image. Current supported runtimes are 'spark-py' and 'python'.
+* __condaFile__ (optional): Path to local file containing a conda environment definition to use for the image.
+* __extraDockerFileSteps__ (optional): Path to local file containing additional Docker steps to run when setting up image.
+* __sourceDirectory__ (optional): Path to folders that contains all files to create the image.
+* __enableGpu__ (optional): Whether or not to enable GPU support in the image. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Defaults to False.
+* __baseImage__ (optional): A custom image to be used as base image. If no base image is given, then the base image will be used based off of given runtime parameter.
+* __baseImageRegistry__ (optional): Image registry that contains the base image.
+* __cudaVersion__ (optional): Version of CUDA to install for images that need GPU support. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Supported versions are 9.0, 9.1, and 10.0. If 'enable_gpu' is set, defaults to '9.1'.
+
+These entities map to the parameters for the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class.
+
+Thee following command demonstrates how to deploy a model using the CLI:
+
+```azurecli-interactive
+az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
 
 In this example, the configuration contains the following items:
@@ -253,8 +308,6 @@ In this example, the configuration contains the following items:
 * That this model requires Python
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to inference
-
-For information on InferenceConfig functionality, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class reference.
 
 For information on using a custom Docker image with inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
@@ -275,8 +328,7 @@ The following table provides an example of creating a deployment configuration f
 The following sections demonstrate how to create the deployment configuration, and then use it to deploy the web service.
 
 ### Optional: Profile your model
-Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements.
-You can do this via the SDK or CLI.
+Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements. You can do profile your model using either the SDK or CLI.
 
 For more information, you can check out our SDK documentation here: 
 https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
@@ -371,7 +423,7 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
 Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
 #### Create a new AKS cluster<a id="create-attach-aks"></a>
-**Time estimate:** Approximately 5 minutes.
+**Time estimate**: Approximately 20 minutes.
 
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
 
@@ -410,10 +462,11 @@ For more information on the `cluster_purpose` parameter, see the [AksCompute.Clu
 
 > [!IMPORTANT]
 > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
-
-**Time estimate**: Approximately 20 minutes.
+>
+> The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure portal. You can only change the node count, not the VM size of the cluster.
 
 #### Attach an existing AKS cluster
+**Time estimate:** Approximately 5 minutes.
 
 If you already have AKS cluster in your Azure subscription, and it is version 1.12.##, you can use it to deploy your image.
 
@@ -511,6 +564,34 @@ service.update(models = [new_model])
 print(service.state)
 print(service.get_logs())
 ```
+
+## Continuous model deployment 
+
+You can continuously deploy models using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). By using the Machine Learning extension for Azure DevOps, you can trigger a deployment pipeline when a new machine learning model is registered in Azure Machine Learning service workspace. 
+
+1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform/any cloud possible. Azure Pipelines [differs from ML pipelines](concept-ml-pipelines.md#compare). 
+
+1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+
+1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+
+1. Use __service Connections__ to set up a service principal connection to your Azure Machine Learning service workspace to access all your artifacts. Go to project settings, click on service connections, and select Azure Resource Manager.
+
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+
+1. Define AzureMLWorkspace as the __scope level__ and fill in the subsequent parameters.
+
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
+
+1. Next, to continuously deploy your machine learning model using the Azure Pipelines, under pipelines select __release__. Add a new artifact, select AzureML Model artifact and the service connection that was created in the earlier step. Select the model and version to trigger a deployment. 
+
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+
+1. Enable the model trigger on your model artifact. By turning on the trigger, every time the specified version (i.e the newest version) of that model is register in your workspace, an Azure DevOps release pipeline is triggered. 
+
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+For sample projects and examples, check out [the MLOps repository](https://github.com/Microsoft/MLOps)
 
 ## Clean up resources
 To delete a deployed web service, use `service.delete()`.

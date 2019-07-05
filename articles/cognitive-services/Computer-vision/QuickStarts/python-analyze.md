@@ -48,7 +48,7 @@ To create and run the sample, do the following steps:
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 import json
 from PIL import Image
@@ -73,10 +73,11 @@ analyze_url = vision_base_url + "analyze"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/" + \
     "Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
 
-headers = {'Ocp-Apim-Subscription-Key': subscription_key }
-params  = {'visualFeatures': 'Categories,Description,Color'}
-data    = {'url': image_url}
-response = requests.post(analyze_url, headers=headers, params=params, json=data)
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+params = {'visualFeatures': 'Categories,Description,Color'}
+data = {'url': image_url}
+response = requests.post(analyze_url, headers=headers,
+                         params=params, json=data)
 response.raise_for_status()
 
 # The 'analysis' object contains various fields that describe the image. The most

@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 1. Launch Notepad. Copy the following text and save it as **input.txt** file on your disk.
 
-    ```
+    ```text
     John|Doe
     Jane|Doe
     ```
@@ -47,12 +47,12 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 1. Open a terminal or command prompt with administrator privileges. 
 2. First, install the Python package for Azure management resources:
 
-    ```
+    ```python
     pip install azure-mgmt-resource
     ```
 3. To install the Python package for Data Factory, run the following command:
 
-    ```
+    ```python
     pip install azure-mgmt-datafactory
     ```
 
@@ -369,7 +369,7 @@ def main():
         }
     )
 
-    # Monitor the pipeilne run
+    # Monitor the pipeline run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))

@@ -62,6 +62,8 @@
       href: backup-azure-files-faq.md
     - name: FAQ-Back up SQL Server databases on Azure VMs
       href: faq-backup-sql-server.md
+    - name: FAQ-Azure Backup Server and DPM
+      href: backup-azure-dpm-azure-server-faq.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Role-Based Access Control
@@ -126,7 +128,7 @@
     items:
     - name: About Azure VM backup
       href: backup-azure-vms-introduction.md
-    - name: Backup and restore Azure VMs with Azure Backup Instant Restore
+    - name: Back up and restore Azure VMs with Azure Backup Instant Restore
       href: backup-instant-restore-capability.md
     - name: Back up Azure VMs
       items:
@@ -144,8 +146,6 @@
       items:
       - name: Manage Azure VM backups
         href: backup-azure-manage-vms.md
-      - name: Monitor alerts for Azure VM backups
-        href: backup-azure-monitor-vms.md
     - name: Restore Azure VMs
       items:
       - name: Restore Azure VMs in the portal
@@ -254,6 +254,8 @@
       href: troubleshoot-azure-files.md
     - name: SQL Server
       href: backup-sql-server-azure-troubleshoot.md
+    - name: SAP HANA backup in Azure VMs
+      href: backup-azure-sap-hana-database-troubleshoot.md
     - name: System State
       href: backup-azure-system-state-troubleshoot.md
   - name: Monitor Azure Backup workloads

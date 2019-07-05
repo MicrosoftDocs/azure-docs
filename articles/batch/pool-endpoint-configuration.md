@@ -49,7 +49,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 The following Python snippet shows how to configure the SSH endpoint on compute nodes in a Linux pool to deny all internet traffic. The endpoint uses a frontend pool of ports in the range *4000 - 4100*. 
 
 ```python
-pool.network_configuration=batchmodels.NetworkConfiguration(
+pool.network_configuration = batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
@@ -59,14 +59,14 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[
                 batchmodels.NetworkSecurityGroupRule(
-                priority=170,
-                access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
-                source_address_prefix='Internet'
+                    priority=170,
+                    access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
+                    source_address_prefix='Internet'
                 )
             ]
         )
         ]
-    ) 
+    )
 )
 ```
 
@@ -93,7 +93,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 The following Python snippet shows how to configure the SSH endpoint on compute nodes in a Linux pool to allow access only from the subnet *192.168.1.0/24*. The second NSG rule denies traffic that does not match the subnet.
 
 ```python
-pool.network_configuration=batchmodels.NetworkConfiguration(
+pool.network_configuration = batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
@@ -103,14 +103,14 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[
                 batchmodels.NetworkSecurityGroupRule(
-                priority=170,
-                access='allow',
-                source_address_prefix='192.168.1.0/24'
+                    priority=170,
+                    access='allow',
+                    source_address_prefix='192.168.1.0/24'
                 ),
                 batchmodels.NetworkSecurityGroupRule(
-                priority=175,
-                access='deny',
-                source_address_prefix='*'
+                    priority=175,
+                    access='deny',
+                    source_address_prefix='*'
                 )
             ]
         )

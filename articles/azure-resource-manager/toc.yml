@@ -212,7 +212,7 @@
 - name: Reference
   items:
   - name: Template reference
-    href: subtoc/toc.yml
+    href: /azure/templates/
   - name: Template functions
     items:
     - name: All functions
