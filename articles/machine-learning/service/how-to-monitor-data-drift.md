@@ -107,8 +107,7 @@ RunDetails(dd_run).show()
 ```
 
 ## Visualize drift metrics
-
-The following metrics are saved in each run iteration for a data drift task:
+After submitting your DataDriftDetector run, you are able to see the drift metrics that are saved in each run iteration for a data drift task:
 
 |Metric|Description|
 --|--|
@@ -140,7 +139,8 @@ drift_figures = datadrift.show(with_details=True)
 ## Schedule data drift scans 
 
 When you enable data drift detection, a DataDriftDetector is run at the specified, scheduled frequency. If the drift coefficient is above the given threshold, an email is sent.
-This threshold is the optional `drift_threshold` parameter that you can set in your data drift run object. Unless otherwise indicated, this parameter defaults to `None`.
+Set this threshold with the `drift_threshold = <your_threshold>` parameter of your data drift run object. 
+
 
 ```python
 datadrift.enable_schedule()
@@ -167,7 +167,12 @@ In order for you to set up custom alerts and actions, all data drift metrics are
 
 ## Retrain your model
 
-Once you detect data drift, you can go back and retrain your model. 
+When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. To do so, 
+
+* Prepare the data collected from the deployed model. 
+*	Split it into train/test data
+*	Train the model again using the new data.
+*	Deploy new model.
 
 ## Next steps
 
