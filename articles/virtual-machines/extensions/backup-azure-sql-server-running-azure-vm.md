@@ -80,7 +80,7 @@ The following JSON shows the schema for the WorkloadBackup extension.
 
 ### Property values
 
-Name | Value/Example | Data type
+Name | Value/example | Data type
  --- | --- | ---
 locale | en-us  |  string
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | string
