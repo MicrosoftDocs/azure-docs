@@ -16,6 +16,7 @@ ms.custom: seodec18
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
@@ -74,8 +75,8 @@ Make sure that you specify the correct SKU tier and SKU family:
 
 > [!IMPORTANT]
 > Your ExpressRoute circuit is billed from the moment a service key is issued. Ensure that you perform this operation when the connectivity provider is ready to provision the circuit.
-> 
-> 
+>
+>
 
 The response contains the service key. You can get detailed descriptions of all the parameters by running the following command:
 
@@ -204,8 +205,8 @@ For step-by-step instructions, see the [ExpressRoute circuit routing configurati
 
 > [!IMPORTANT]
 > These instructions only apply to circuits that are created with service providers that offer layer 2 connectivity services. If you're using a service provider that offers managed layer 3 services (typically an IP VPN, like MPLS), your connectivity provider configures and manages routing for you.
-> 
-> 
+>
+>
 
 ### 8. Link a virtual network to an ExpressRoute circuit
 Next, link a virtual network to your ExpressRoute circuit. Use the [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) article when you work with the Resource Manager deployment model.
@@ -287,7 +288,7 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported.
 * Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 
@@ -310,8 +311,8 @@ The circuit now has the ExpressRoute premium add-on features enabled. We begin b
 ### To disable the ExpressRoute premium add-on
 > [!IMPORTANT]
 > If you're using resources that are greater than what is permitted for the standard circuit, this operation can fail.
-> 
-> 
+>
+>
 
 Note the following information:
 
@@ -337,7 +338,7 @@ For supported bandwidth options for your provider, check the [ExpressRoute FAQ](
 > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
 >
 > You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
-> 
+>
 
 After you decide what size you need, use the following command to resize your circuit:
 
@@ -365,7 +366,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### To control access to the classic and Resource Manager environments
-Review the instructions in [Move ExpressRoute circuits from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md).  
+Review the instructions in [Move ExpressRoute circuits from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md).
 
 ## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit
 Note the following information:
