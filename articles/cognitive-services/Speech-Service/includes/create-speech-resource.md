@@ -10,10 +10,10 @@ ms.date: 7/5/2019
 ms.author: dapine
 ---
 
-## Create a LUIS resource
+## Create a Speech resource
 
 1. Sign into the [Azure portal](https://portal.azure.com)
-1. Click [Create **Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS)
+1. Click [Create **Speech**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 1. Enter all required settings:
 
     |Setting|Value|
@@ -29,5 +29,5 @@ ms.author: dapine
 
     |Resource Tab in Portal|Setting|Value|
     |--|--|--|
-    |**Overview**|Endpoint|Copy the endpoint. It looks similar to `https://luis.cognitiveservices.azure.com/luis/v2.0`|
+    |**Overview**|Endpoint|Copy the endpoint. It looks similar to `https://speech.cognitiveservices.azure.com/sts/v1.0/issuetoken`|
     |**Keys**|API Key|Copy 1 of the two keys. It is a 32 alphanumeric-character string with no spaces or dashes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|

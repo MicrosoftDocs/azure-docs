@@ -6,7 +6,7 @@ services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
@@ -18,7 +18,9 @@ Learn how to deploy the Cognitive Services [Face](../face-how-to-install-contain
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 
-[!INCLUDE [Request access](../../../../includes/cognitive-services-containers-request-access-only.md)]
+## Request access to the private container registry
+
+[!INCLUDE [Request access to private container registry](../../../../includes/cognitive-services-containers-request-access.md)]
 
 [!INCLUDE [Create a Cognitive Services Face resource](../includes/create-face-resource.md)]
 
