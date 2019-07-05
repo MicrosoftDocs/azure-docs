@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 ms.service: azure-functions
 ms.topic: include
