@@ -4,7 +4,7 @@ description: This article compares Azure Government and global Azure.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: Juliako
+author: dumartinmsft
 manager: femila
 
 ms.service: azure-government
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/05/2018
-ms.author: juliako
+ms.date: 5/19/2019
+ms.author: dumartin
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
 ---
@@ -51,6 +51,7 @@ For the most current list of services, see the [Products available by region](ht
 * [VPN Gateway](documentation-government-networking.md#support-for-vpn-gateway)
 * [Application Gateway](documentation-government-networking.md#support-for-application-gateway)
 * [Network Watcher](documentation-government-networking.md#support-for-network-watcher)
+* [Azure Firewall](documentation-government-networking.md#support-for-azure-firewall)
 
 ## Storage
 
@@ -85,7 +86,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## AI + Cognitive Services
 
-* [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) (Preview) (This service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us).)
+* [Cognitive Services](documentation-government-services-aiandcognitiveservices.md)
 
 ## Internet of Things
 
@@ -102,7 +103,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Security + Identity
 
-* [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center) (Preview)
+* [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center)
 * [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)
 * [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2)
 * [Key Vault](documentation-government-services-securityandidentity.md#key-vault)
@@ -110,11 +111,11 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Monitoring + Management
 
-* [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) (Preview)
+* [Advisor](documentation-government-services-monitoringandmanagement.md#advisor)
 * [Automation](documentation-government-services-monitoringandmanagement.md#automation)
 * [Backup](documentation-government-services-backup.md)
 * [Policy](documentation-government-services-monitoringandmanagement.md#policy)
-* [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics)
+* [Azure Monitor logs](documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler)
 * [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor)

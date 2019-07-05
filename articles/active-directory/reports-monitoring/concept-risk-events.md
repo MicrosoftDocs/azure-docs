@@ -3,7 +3,7 @@ title: Azure Active Directory risk events | Microsoft Docs
 description: This artice gives you a detailed overview of what risk events are.
 services: active-directory
 keywords: azure active directory identity protection, security, risk, risk level, vulnerability, security policy
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -14,9 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory risk events
 
@@ -47,9 +48,9 @@ Currently, Azure Active Directory detects six types of risk events:
 The insight you get for a detected risk event is tied to your Azure AD subscription. 
 
 * With the **Azure AD Premium P2 edition**, you get the most detailed information about all underlying detections. 
-* With the **Azure AD Premium P1 edition**, detections that are not covered by your license appear as the risk event **Sign-in with additional risk detected**.
+* With the **Azure AD Premium P1 edition**, advanced detections (such as unfamiliar sign-in properties) are not covered by your license, and will appear under the name **Sign-in with additional risk detected**. Additionally, the risk level and risk detail fields are hidden.
 
-While the detection of risk events already represents an important aspect of protecting your identities, you also have the option to either manually address them or implement automated responses by configuring conditional access policies. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+While the detection of risk events already represents an important aspect of protecting your identities, you also have the option to either manually address them or implement automated responses by configuring Conditional Access policies. For more information, see [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## Risk event types
 

@@ -1,5 +1,5 @@
 ---
-title: Multi-factor authentication (MFA) and PIM - Azure | Microsoft Docs
+title: Multi-factor authentication (MFA) and PIM - Azure Active Directory | Microsoft Docs
 description: Learn how Azure AD Privileged Identity Management (PIM) validates multi-factor authentication (MFA).
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.subservice: pim
 ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 # Multi-factor authentication (MFA) and PIM
 
 We recommend that you require multi-factor authentication (MFA) for all your administrators. This reduces the risk of an attack due to a compromised password.
 
-You can require that users complete an MFA challenge when they sign in. You can also require that users complete an MFA challenge when they activate a role in Azure AD Privileged Identity Management (PIM). This way, if the user didn't complete an MFA challenge when they signed in, they will be prompted to do so by PIM.
+You can require that users complete an MFA challenge when they sign in. You can also require that users complete an MFA challenge when they activate a role in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). This way, if the user didn't complete an MFA challenge when they signed in, they will be prompted to do so by PIM.
 
 > [!IMPORTANT]
 > Right now, Azure MFA only works with work or school accounts, not Microsoft accounts (usually a personal account that's used to sign in to Microsoft services like Skype, Xbox, Outlook.com, etc.). Because of this, anyone using a Microsoft account can't be an eligible administrator because they can't use MFA to activate their roles. If these users need to continue managing workloads using a Microsoft account, elevate them to permanent administrators for now.
@@ -34,5 +35,5 @@ Alternatively, if users authenticate on-premises you can have your identity prov
 
 ## Next steps
 
-- [Configure Azure AD directory role settings in PIM](pim-how-to-change-default-settings.md)
+- [Configure Azure AD role settings in PIM](pim-how-to-change-default-settings.md)
 - [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)

@@ -15,6 +15,7 @@ ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # TLS 1.2 enforcement for Azure AD Connect

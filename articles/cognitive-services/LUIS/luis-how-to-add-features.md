@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -39,7 +39,7 @@ LUIS allows up to 10 phrase lists per app.
 
 5. Click **These values are interchangeable** if the added phrase list values are alternatives that can be used interchangeably.
 
-    ![Phrase List Proposed Values - select interchangeable box ](./media/luis-add-features/interchangeable.png)
+    ![Phrase List Proposed Values - select interchangeable box](./media/luis-add-features/interchangeable.png)
 
 6. Click **Save**. The "Cities" phrase list is added to the **Phrase lists** page.
 

@@ -1,6 +1,6 @@
 ---
-title: Standard properties in Azure Monitor Log Analytics records | Microsoft Docs
-description: Describes properties that are common to multiple data types in Azure Monitor Log Analytics.
+title: Standard properties in Azure Monitor log records | Microsoft Docs
+description: Describes properties that are common to multiple data types in Azure Monitor logs.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -10,17 +10,17 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/20/2019
 ms.author: bwren
 ---
 
-# Standard properties in Log Analytics records
-Data in [Log Analytics](../log-query/log-query-overview.md) is stored as a set of records, each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
+# Standard properties in Azure Monitor Logs
+Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../log-query/logs-structure.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
 
 Some of these properties are still in the process of being implemented, so you may see them in some data types but not yet in others.
 
-## TimeGenerated
-The **TimeGenerated** property contains the date and time that the record was created. It provides a common property to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated to filter the results.
+## TimeGenerated and timestamp
+The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) properties contain the date and time that the record was created. It provides a common property to use for filtering or summarizing by time. When you select a time range for a view or dashboard in the Azure portal, it uses TimeGenerated or timestamp to filter the results.
 
 ### Examples
 
@@ -34,16 +34,25 @@ Event
 | sort by TimeGenerated asc 
 ```
 
-## Type
-The **Type** property holds the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple table, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
+The following query returns the number of exceptions created for each day in the previous week.
+
+```Kusto
+exceptions
+| where timestamp between(startofweek(ago(7days))..endofweek(ago(7days))) 
+| summarize count() by bin(TimeGenerated, 1day) 
+| sort by timestamp asc 
+```
+
+## Type and itemType
+The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) properties hold the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple table, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
 
 ### Examples
 The following query returns the count of records by type collected over the past hour.
 
 ```Kusto
 search * 
-| where TimeGenerated > ago(1h) 
-| summarize count() by Type 
+| where TimeGenerated > ago(1h)
+| summarize count() by Type
 ```
 
 ## \_ResourceId
@@ -79,6 +88,18 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+The following query parses **_ResourceId** and aggregates billed data volumes per Azure subscription.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+```
+
+Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute.
 
 ## \_IsBillable
 The **\_IsBillable** property specifies whether ingested data is billable. Data with **\_IsBillable** equal to _false_ are collected for free and not billed to your Azure account.
@@ -119,6 +140,26 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
 ```
 
+To see the size of billable events ingested per subscription, use the following query:
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId | sort by Bytes nulls last 
+```
+
+To see the size of billable events ingested per resource group, use the following query:
+
+```Kusto
+union withsource=table * 
+| where _IsBillable == true 
+| parse _ResourceId with "/subscriptions/" SubscriptionId "/resourcegroups/" ResourceGroupName "/" *
+| summarize Bytes=sum(_BilledSize) by  SubscriptionId, ResourceGroupName | sort by Bytes nulls last 
+
+```
+
+
 To see the count of events ingested per computer, use the following query:
 
 ```Kusto
@@ -134,7 +175,7 @@ union withsource = tt *
 | summarize count() by Computer  | sort by count_ nulls last
 ```
 
-If you want to see counts for billable data types are sending data to a specific computer, use the following query:
+To see the count of billable data types from a specific computer, use the following query:
 
 ```Kusto
 union withsource = tt *
@@ -143,9 +184,8 @@ union withsource = tt *
 | summarize count() by tt | sort by count_ nulls last 
 ```
 
-
 ## Next steps
 
-- Read more about how [Log Analytics data is stored](../log-query/log-query-overview.md).
-- Get a lesson on [writing queries in Log Analytics](../../azure-monitor/log-query/get-started-queries.md).
-- Get a lesson on [joining tables in Log Analytics queries](../../azure-monitor/log-query/joins.md).
+- Read more about how [Azure Monitor log data is stored](../log-query/log-query-overview.md).
+- Get a lesson on [writing log queries](../../azure-monitor/log-query/get-started-queries.md).
+- Get a lesson on [joining tables in log queries](../../azure-monitor/log-query/joins.md).

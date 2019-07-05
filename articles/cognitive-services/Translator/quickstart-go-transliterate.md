@@ -3,13 +3,13 @@ title: "Quickstart: Convert text script, Go - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with Go.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/05/2018
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 # Quickstart: Use the Translator Text API to transliterate text using Go
 
@@ -54,7 +54,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -134,6 +134,8 @@ if err != nil {
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Handle and print the response
 
 Add this code to the `transliterate` function to decode the JSON response, and then format and print the result.
@@ -165,7 +167,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 [
   {
     "script": "latn",
-    "text": "konnnichiha"
+    "text": "konnichiwa"
   }
 ]
 ```

@@ -1,31 +1,37 @@
 ---
-# required metadata
-title: Functions reference for Workflow Definition Language - Azure Logic Apps | Microsoft Docs
-description: Learn about Workflow Definition Language functions for Azure Logic Apps
+title: Reference for functions in Workflow Definition Language - Azure Logic Apps and Microsoft Flow
+description: Reference guide for functions in expressions created with Workflow Definition Language for Azure Logic Apps and Microsoft Flow
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
-# Functions reference for Workflow Definition Language in Azure Logic Apps
+# Functions reference for Workflow Definition Language in Azure Logic Apps and Microsoft Flow
 
-Some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions)
-in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) get their values from runtime
-actions that might not yet exist when your logic app workflow definition starts to run.
-To reference or work with these values in expressions, you can use *functions* provided by the
-[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
-For example, you can use math functions for calculations, such as the
-[add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function,
-which returns the sum from integers or floats. Here are a couple more example tasks
-you can perform with functions:
+For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), some 
+[expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
+get their values from runtime actions that might not yet exist when your 
+workflow starts running. To reference these values or process the values 
+in these expressions, you can use *functions* provided by the 
+[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
+
+> [!NOTE]
+> This reference page applies to both Azure Logic Apps and Microsoft Flow, 
+> but appears in the Azure Logic Apps documentation. Although this page refers 
+> specifically to logic apps, these functions work for both flows and logic apps. 
+> For more information about functions and expressions in Microsoft Flow, see 
+> [Use expressions in conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
+
+For example, you can calculate values by using math functions, such as the
+[add() function](../logic-apps/workflow-definition-language-functions-reference.md#add), 
+when you want the sum from integers or floats. Here are a couple other 
+example tasks that you can perform with functions:
 
 | Task | Function syntax | Result |
 | ---- | --------------- | ------ |
@@ -33,9 +39,8 @@ you can perform with functions:
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-This article describes the functions you can use when creating your logic app definitions.
 To find functions [based on their general purpose](#ordered-by-purpose),
-continue with the following tables. Or, for detailed information about each function,
+review the following tables. Or, for detailed information about each function,
 see the [alphabetical list](#alphabetical-list).
 
 > [!NOTE]
@@ -164,7 +169,7 @@ For the full reference about each function, see the
 
 To change a value's type or format, you can use these conversion functions.
 For example, you can change a value from a Boolean to an integer.
-To learn how Logic Apps handles content types during
+For more information about how Logic Apps handles content types during
 conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md).
 For the full reference about each function, see the
 [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
@@ -255,7 +260,7 @@ For the full reference about each function, see the
 These workflow functions can help you:
 
 * Get details about a workflow instance at run time.
-* Work with the inputs used for instantiating logic apps.
+* Work with the inputs used for instantiating logic apps or flows.
 * Reference the outputs from triggers and actions.
 
 For example, you can reference the outputs from
@@ -273,10 +278,11 @@ For the full reference about each function, see the
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Create an array with the values that match a key name in *form-data* or *form-encoded* action outputs. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Return a single value that matches a key name in an action's *form-data* or *form-encoded output*. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | When inside a repeating action over an array, return the current item in the array during the action's current iteration. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a for-each or do-until-loop, return the current item from the specified loop.|
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a Foreach or Until loop, return the current item from the specified loop.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | When inside an Until loop, return the index value for the current iteration. You can use this function inside nested Until loops. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Return the "callback URL" that calls a trigger or action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
-| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your logic app definition. |
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your workflow definition. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. |
@@ -469,6 +475,8 @@ And returns this result:
   }
 }
 ```
+
+## All functions - alphabaetical list
 
 <a name="actions"></a>
 
@@ -784,7 +792,7 @@ This example adds one day to the specified timestamp:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-And returns this result: `"2018-01-02T00:00:00:0000000Z"`
+And returns this result: `"2018-01-02T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -1402,7 +1410,7 @@ And returns this result: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 Return the binary version for a data uniform resource identifier (URI).
 Use this function rather than [decodeDataUri()](#decodeDataUri).
 Although both functions work the same way,
-`decodeDataUri()` is preferred.
+`dataUriBinary()` is preferred.
 
 ```
 dataUriToBinary('<value>')
@@ -1885,7 +1893,7 @@ And return these results:
 Convert a string version for a floating-point
 number to an actual floating point number.
 You can use this function only when passing custom
-parameters to an app, such as a logic app.
+parameters to an app, for example, a logic app or flow.
 
 ```
 float('<value>')
@@ -2364,6 +2372,105 @@ This example gets the current item from the specified for-each loop:
 
 ```
 items('myForEachLoopName')
+```
+
+<a name="iterationIndexes"></a>
+
+### iterationIndexes
+
+Return the index value for the current iteration inside an Until loop. 
+You can use this function inside nested Until loops. 
+
+```
+iterationIndexes('<loopName>')
+```
+
+| Parameter | Required | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*loopName*> | Yes | String | The name for the Until loop | 
+||||| 
+
+| Return value | Type | Description | 
+| ------------ | ---- | ----------- | 
+| <*index*> | Integer | The index value for the current iteration inside the specified Until loop | 
+|||| 
+
+*Example* 
+
+This example creates a counter variable and increments that 
+variable by one during each iteration in an Until loop until 
+the counter value reaches five. The example also creates a 
+variable that tracks the current index for each iteration. 
+In the Until loop, during each iteration, the example increments 
+the counter and then assigns the counter value to the current 
+index value and then increments the counter. At any time, 
+you can determine the current iteration number by 
+retrieving the current index value.
+
+```
+{
+   "actions": {
+      "Create_counter_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [ 
+               {
+                  "name": "myCounter",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {}
+      },
+      "Create_current_index_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [
+               {
+                  "name": "myCurrentLoopIndex",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {
+            "Create_counter_variable": [ "Succeeded" ]
+         }
+      },
+      "Until": {
+         "type": "Until",
+         "actions": {
+            "Assign_current_index_to_counter": {
+               "type": "SetVariable",
+               "inputs": {
+                  "name": "myCurrentLoopIndex",
+                  "value": "@variables('myCounter')"
+               },
+               "runAfter": {
+                  "Increment_variable": [ "Succeeded" ]
+               }
+            },
+            "Increment_variable": {
+               "type": "IncrementVariable",
+               "inputs": {
+                  "name": "myCounter",
+                  "value": 1
+               },
+               "runAfter": {}
+            }
+         },
+         "expression": "@equals(variables('myCounter'), 5),
+         "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+         },
+         "runAfter": {
+            "Create_current_index_variable": [ "Succeeded" ]
+         }
+      }
+   }
+}
 ```
 
 <a name="json"></a>
@@ -2872,7 +2979,7 @@ Check whether an expression is false.
 Return true when the expression is false,
 or return false when true.
 
-```
+```json
 not(<expression>)
 ```
 
@@ -2890,7 +2997,7 @@ not(<expression>)
 
 These examples check whether the specified expressions are false:
 
-```
+```json
 not(false)
 not(true)
 ```
@@ -2904,7 +3011,7 @@ And return these results:
 
 These examples check whether the specified expressions are false:
 
-```
+```json
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -2940,7 +3047,7 @@ or(<expression1>, <expression2>, ...)
 
 These examples check whether at least one expression is true:
 
-```
+```json
 or(true, false)
 or(false, false)
 ```
@@ -2954,7 +3061,7 @@ And return these results:
 
 These examples check whether at least one expression is true:
 
-```
+```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
@@ -2969,7 +3076,7 @@ And return these results:
 ### parameters
 
 Return the value for a parameter that is
-described in your logic app definition.
+described in your workflow definition.
 
 ```
 parameters('<parameterName>')
@@ -3047,7 +3154,7 @@ range(<startIndex>, <count>)
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Yes | Integer | The integer value that starts the array as the first item |
+| <*startIndex*> | Yes | Integer | An integer value that starts the array as the first item |
 | <*count*> | Yes | Integer | The number of integers in the array |
 |||||
 
@@ -3205,7 +3312,7 @@ And returns this array with the remaining items: `[1,2,3]`
 ### split
 
 Return an array that contains substrings, separated by commas,
-based on the specified delimiter charcter in the original string.
+based on the specified delimiter character in the original string.
 
 ```
 split('<text>', '<delimiter>')
@@ -3459,7 +3566,7 @@ substring('<text>', <startIndex>, <length>)
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | The string whose characters you want |
-| <*startIndex*> | Yes | Integer | A positive number for the starting position, or index value |
+| <*startIndex*> | Yes | Integer | A positive number equal to or greater than 0 that you want to use as the starting position or index value |
 | <*length*> | Yes | Integer | A positive number of characters that you want in the substring |
 |||||
 
@@ -4371,7 +4478,7 @@ character (\\) as an escape character for the double quotation mark (").
 
 * *Expression 2*
 
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
 Here are the arguments:
 
@@ -4385,9 +4492,9 @@ Here are the arguments:
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
-  * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Here is the result node that matches the `<location></location` node:
+Here is the result node that matches the `<location></location>` node:
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>

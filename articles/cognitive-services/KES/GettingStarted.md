@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use Knowledge Exploration Service (KES) API to create an engine for an interactive search experience across academic publications.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
@@ -60,7 +60,7 @@ For additional information about the schema definition, see [Schema Format](Sche
 
 ## Generate data
 
-The data file describes the list of the publications to index, with each line specifying the attribute values of a paper in [JSON format](http://json.org/).  The following example is a single line from the data file *Academic.data*, formatted for readability:
+The data file describes the list of the publications to index, with each line specifying the attribute values of a paper in [JSON format](https://json.org/).  The following example is a single line from the data file *Academic.data*, formatted for readability:
 
 ```
 ...
@@ -203,7 +203,7 @@ After you have an XML grammar specification, you can compile it into a binary gr
 
 ## Host the grammar and index in a web service
 
-For rapid prototyping, you can host the grammar and index in a web service on the local machine, by using [`kes.exe host_service`](CommandLine.md#host_service-command). You can then access the service via [web APIs](WebAPI.md) to validate the data correctness and grammar design. In this example, you host the grammar file *Academic.grammar* and index file *Academic.index* at http://localhost:8000/. Use the following command:
+For rapid prototyping, you can host the grammar and index in a web service on the local machine, by using [`kes.exe host_service`](CommandLine.md#host_service-command). You can then access the service via [web APIs](WebAPI.md) to validate the data correctness and grammar design. In this example, you host the grammar file *Academic.grammar* and index file *Academic.index* at `http://localhost:8000/`. Use the following command:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
@@ -224,7 +224,7 @@ When you are running `kes.exe` outside of Azure, the index is limited to 10,000 
 
 To allow `kes.exe` access to an Azure account, [download the Azure Publish Settings file](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) from the Azure portal. If prompted, sign into the desired Azure account. Save the file as *AzurePublishSettings.xml* in the working directory from where `kes.exe` runs.
 
-There are two ways to build and host large indices. The first is to prepare the schema and data files in a Windows VM in Azure. Then run [`kes.exe build_index`](#building-index) to build the index locally on the VM, without any size restrictions. The resulting index can be hosted locally on the VM by using [`kes.exe host_service`](#hosting-service) for rapid prototyping, again without any restrictions. For detailed steps, see the [Azure VM tutorial](../../../articles/virtual-machines/windows/quick-create-portal.md).
+There are two ways to build and host large indices. The first is to prepare the schema and data files in a Windows VM in Azure. Then run `kes.exe build_index` to build the index locally on the VM, without any size restrictions. The resulting index can be hosted locally on the VM by using `kes.exe host_service` for rapid prototyping, again without any restrictions. For detailed steps, see the [Azure VM tutorial](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
 The second method is to perform a remote Azure build, by using [`kes.exe build_index`](CommandLine.md#build_index-command) with the `--remote` parameter. This specifies an Azure VM size. When the `--remote` parameter is specified, the command creates a temporary Azure VM of that size. It then builds the index on the VM, uploads the index to the target blob storage, and deletes the VM upon completion. Your Azure subscription is charged for the cost of the VM while the index is being built.
 
@@ -234,7 +234,7 @@ In this example, you can assume that the following blob storage container has al
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Note that it might take 5-10 minutes to provision a temporay VM to build the index. For rapid prototyping, you can:
+Note that it might take 5-10 minutes to provision a temporary VM to build the index. For rapid prototyping, you can:
 - Develop with a smaller data set locally on any machine.
 - Manually [create an Azure VM](../../../articles/virtual-machines/windows/quick-create-portal.md), [connect to it](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) via Remote Desktop, install the [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488), and run [`kes.exe`](CommandLine.md) from within the VM.
 
@@ -248,7 +248,7 @@ When you have created the cloud service, you can use [`kes.exe deploy_service`](
 
 [Swap](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) the contents of the staging slot with the production slot, so that live traffic is now directed to the newly deployed service. You can repeat this process when deploying an updated version of the service with new data. As with all other Azure cloud services, you can optionally use the Azure portal to configure [auto-scaling](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
 
-In this example, you deploy the *Academic* index to the staging slot of an existing cloud service with *<vm_size>* VMs. Use the following command:
+In this example, you deploy the *Academic* index to the staging slot of an existing cloud service with *\<vm_size>* VMs. Use the following command:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

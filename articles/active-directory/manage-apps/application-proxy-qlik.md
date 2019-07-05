@@ -3,17 +3,18 @@ title: Azure AD App Proxy and Qlik Sense| Microsoft Docs
 description:  Turn on Application Proxy in the Azure  portal, and install the Connectors for the reverse proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Application Proxy and Qlik Sense 
 Azure Active Directory Application Proxy and Qlik Sense have partnered together to ensure you are easily able to use Application Proxy to provide remote access for your Qlik Sense deployment.  
@@ -35,13 +36,13 @@ Follow these steps to publish your app. For a more detailed walkthrough of steps
 2. Select **Azure Active Directory** > **Enterprise applications**. 
 3. Select **Add** at the top of the blade. 
 4. Select **On-premises application**. 
-5.       Fill out the required fields with information about your new app. Use the following guidance for the settings: 
-	- **Internal URL**: This application should have an internal URL that is the QlikSense URL itself. For example, **https&#58;//demo.qlikemm.com:4244** 
-	- **Pre-authentication method**: Azure Active Directory (Recommended but not required) 
-1.       Select **Add** at the bottom of the blade. Your application is added, and the quick start menu opens. 
-2.       In the quick start menu, select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application. 
-3.       Select **Assign** to save the test user assignment. 
-4.       (Optional) On the app management blade, select Single sign-on. Choose **Kerberos Constrained Delegation** from the drop-down menu, and fill out the required fields based on your Qlik configuration. Select **Save**. 
+5. Fill out the required fields with information about your new app. Use the following guidance for the settings: 
+   - **Internal URL**: This application should have an internal URL that is the QlikSense URL itself. For example, **https&#58;//demo.qlikemm.com:4244** 
+   - **Pre-authentication method**: Azure Active Directory (Recommended but not required) 
+1. Select **Add** at the bottom of the blade. Your application is added, and the quick start menu opens. 
+2. In the quick start menu, select **Assign a user for testing**, and add at least one user to the application. Make sure this test account has access to the on-premises application. 
+3. Select **Assign** to save the test user assignment. 
+4. (Optional) On the app management blade, select Single sign-on. Choose **Kerberos Constrained Delegation** from the drop-down menu, and fill out the required fields based on your Qlik configuration. Select **Save**. 
 
 ### Application #2: 
 Follow the same steps as for Application #1, with the following exceptions: 
@@ -54,7 +55,9 @@ Follow the same steps as for Application #1, with the following exceptions:
 Your application is now ready to test. Access the external URL you used to publish QlikSense in Application #1, and login as a user assigned to both applications.  
 
 ## Additional references
-For more information about publishing Qlik Sense with Application Proxy, refer to the Qlik Community Article: [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183).
+For more information about publishing Qlik Sense with Application Proxy, refer to following the Qlik Community Articles: 
+- [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183)
+- [Qlik Sense integration with Azure AD Application Proxy](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## Next steps
 

@@ -29,7 +29,7 @@ Classic metric alerts in Azure Monitor provide a way to get notified when one of
 
 6. Select **Email owners...** if you want administrators and co-administrators to receive email notifications when the alert fires.
 
-7. If you want to send notifications to additional email addresses when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semicolons, in the following format: *email@contoso.com;email2@contoso.com*
+7. If you want to send notifications to additional email addresses when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semicolons, in the following format: *email\@contoso.com;email2\@contoso.com*
 
 8. Put in a valid URI in the **Webhook** field if you want it to be called when the alert fires.
 
@@ -79,47 +79,49 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 ## With PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This sections shows how to use PowerShell commands create, view and manage classic metric alerts.The examples in the article illustrate how you can use Azure Monitor cmdlets for classic metric alerts.
 
-1. If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/overview). You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights).
+1. If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/overview). You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights).
 
 2. First, log in to your Azure subscription.
 
-    ```PowerShell
-    Connect-AzureRmAccount
+    ```powershell
+    Connect-AzAccount
     ```
 
 3. You'll see a sign in screen. Once you sign in your Account, TenantID, and default Subscription ID are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command:
 
-    ```PowerShell
-    Get-AzureRmSubscription
+    ```powershell
+    Get-AzSubscription
     ```
 
 4. To change your working context to a different subscription, use the following command:
 
-    ```PowerShell
-    Set-AzureRmContext -SubscriptionId <subscriptionid>
+    ```powershell
+    Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. You can retrieve all classic metric alert rules on a resource group:
 
-    ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest
+    ```powershell
+    Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. You can view details of a classic metric alert rule
 
-    ```PowerShell
-    Get-AzureRmAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
+    ```powershell
+    Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. You can retrieve all alert rules set for a target resource. For example, all alert rules set on a VM.
 
-    ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
+    ```powershell
+    Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Classic alert rules can no longer be created via PowerShell. To create an alert rule you need to use the new ['Add-AzureRmMetricAlertRule'](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0) command.
+8. Classic alert rules can no longer be created via PowerShell. To create an alert rule you need to use the new ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) command.
 
 ## Next steps
 

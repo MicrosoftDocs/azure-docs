@@ -13,12 +13,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # Reporting options for Azure AD password management
 
 After deployment, many organizations want to know how or if self-service password reset (SSPR) is really being used. The reporting feature that Azure Active Directory (Azure AD) provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
 
-![Reporting][Reporting]
+![Reporting on SSPR using the audit logs in Azure AD][Reporting]
 
 The following questions can be answered by the reports that exist in the [Azure portal](https://portal.azure.com/):
 
@@ -46,15 +47,14 @@ In the Azure portal experience, we have improved the way that you can view passw
 1. Browse to the [Azure portal](https://portal.azure.com).
 2. Select **All services** in the left pane.
 3. Search for **Azure Active Directory** in the list of services and select it.
-4. Select **Users and groups**.
-5. Select **Audit Logs** from the **Users and groups** menu. This shows you all of the audit events that occurred against all the users in your directory. You can filter this view to see all the password-related events.
-6. To filter this view to see only the password-reset-related events, select the **Filter** button at the top of the pane.
-7. From the **Filter** menu, select the **Category** drop-down list, and change it to the **Self-service Password Management** category type.
-8. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
+4. Select **Users** from the Manage section.
+5. Select **Audit Logs** from the **Users** blade. This shows you all of the audit events that occurred against all the users in your directory. You can filter this view to see all the password-related events.
+6. From the **Filter** menu at the top of the pane, select the **Service** drop-down list, and change it to the **Self-service Password Management** service type.
+7. Optionally, further filter the list by choosing the specific **Activity** you're interested in.
 
 ### Converged registration (preview)
 
-If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the category **Authentication Methods**.
+If you are participating in the public preview of converged registration, information regarding user activity in the audit logs will be found under the service **Authentication Methods**.
 
 ## Description of the report columns in the Azure portal
 
@@ -114,7 +114,7 @@ The following list explains this activity in detail:
 The following list explains this activity in detail:
 
 * **Activity description**: Indicates that an administrator performed a password reset on behalf of a user from the Azure portal.
-* **Activity actor**: The administrator who performed the password reset on behalf of another end user or administrator. Must be either a global administrator, password administrator, user administrator, or helpdesk administrator.
+* **Activity actor**: The administrator who performed the password reset on behalf of another end user or administrator. Must be a password administrator, user administrator, or helpdesk administrator.
 * **Activity target**: The user whose password was reset. The user can be an end user or a different administrator.
 * **Activity statuses**:
   * _Success_: Indicates that an admin successfully reset a user's password.
@@ -170,10 +170,10 @@ The following list explains this activity in detail:
 
      >[!NOTE]
      >Failure doesn't mean a user is unable to reset their own password. It means that they didn't finish the registration process. If there is unverified data on their account that's correct, such as a phone number that's not validated, even though they have not verified this phone number, they can still use it to reset their password.
-     >
 
 ## Next steps
 
+* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
 * [How do I complete a successful rollout of SSPR?](howto-sspr-deployment.md)
 * [Reset or change your password](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Register for self-service password reset](../user-help/active-directory-passwords-reset-register.md).

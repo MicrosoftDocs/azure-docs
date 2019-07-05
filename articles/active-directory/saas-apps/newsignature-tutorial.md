@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 4ea9f47c-25ca-42b0-a878-9e7aa6f34973
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cloud Management Portal for Microsoft Azure
 
@@ -101,23 +102,26 @@ To configure Azure AD single sign-on with Cloud Management Portal for Microsoft 
     ![Cloud Management Portal for Microsoft Azure Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
+
     | |
 	|--|
 	| `https://portal.newsignature.com/<instancename>` |   
 	| `https://portal.igcm.com/<instancename>` |
 
     b. In the **Identifier** box, type a URL using the following pattern:
+
     | |
 	|--|
 	| `https://<subdomain>.igcm.com` |
 	| `https://<subdomain>.newsignature.com` |
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
+
     | |
 	|--|
 	| `https://<subdomain>.igcm.com/<instancename>` |
 	| `https://<subdomain>.newsignature.com` |
-	| `https://<subdomain>.newsignature.com/<instancename>` |<instancename>`
+	| `https://<subdomain>.newsignature.com/<instancename>` |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Cloud Management Portal for Microsoft Azure Client support team](mailto:jczernuszka@newsignature.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -158,7 +162,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -203,9 +207,9 @@ When you click the Cloud Management Portal for Microsoft Azure tile in the Acces
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

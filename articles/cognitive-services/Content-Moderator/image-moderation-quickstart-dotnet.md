@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: How to analyze image content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 03/20/2019
 ms.author: sajagtap
 
 #As a C# developer of content management software, I want to analyze images for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Analyze image content for objectionable material in C#
+# Quickstart: Analyze images for objectionable content in C#
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). You will learn how to scan for adult or racy content, extractable text, and human faces with the aim of moderating potentially objectionable material.
 

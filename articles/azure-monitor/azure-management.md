@@ -5,7 +5,7 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -47,13 +47,3 @@ Protection refers to ensuring that your applications and data are always availab
 ## Migrate 
 Migration refers to transitioning workloads currently running on-premises to the Azure cloud.  [Azure Migrate](../migrate/migrate-overview.md) is a service that helps you assess the migration suitability, including performance-based sizing and cost estimates, of on-premises virtual machines to Azure.  Azure Site Recovery can help you perform the actual migration of virtual machines [from on-premises](../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  [Azure Database Migration](../dms/dms-overview.md) will assist you in migrating multiple database sources to Azure Data platforms.
 
-
-## Operations Management Suite
-Previous technical documentation related to Azure management included Operations Management Suite (OMS), which is a bundling of the following Azure management services:
-
-- Azure Automation
-- Azure Backup
-- Log Analytics
-- Site Recovery
-
-We are moving away from describing this bundling in our technical documentation since complete management in Azure has expanded to include other services. None of the services that are part of OMS have changed, and each still has a critical role in managing your Azure applications and resources. Your focus should be on the management tasks that you need to perform and the different Azure services that work together for each task.

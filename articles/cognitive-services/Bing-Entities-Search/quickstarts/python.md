@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using Python, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
@@ -49,18 +49,18 @@ While this application is written in Python, the API is a RESTful Web service co
 ## Send a request and get a response
 
 1. Create a function called `get_suggestions()`. Then perform the following steps.
-    1. Add your subscription key to a dictionary with `Ocp-Apim-Subscription-Key` as a key.
-    2. Use `http.client.HTTPSConnection()` to create a HTTPS client object. Send a `GET` request using `request()` with your path and parameters, and header information.
-    3. Store the response with `getresponse()`, and return `response.read()`.
+   1. Add your subscription key to a dictionary with `Ocp-Apim-Subscription-Key` as a key.
+   2. Use `http.client.HTTPSConnection()` to create a HTTPS client object. Send a `GET` request using `request()` with your path and parameters, and header information.
+   3. Store the response with `getresponse()`, and return `response.read()`.
 
-    ```python
-    def get_suggestions ():
-    	headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-    	conn = http.client.HTTPSConnection (host)
-    	conn.request ("GET", path + params, None, headers)
-    	response = conn.getresponse ()
-    	return response.read()
-    ```
+      ```python
+      def get_suggestions ():
+       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+       conn = http.client.HTTPSConnection (host)
+       conn.request ("GET", path + params, None, headers)
+       response = conn.getresponse ()
+       return response.read()
+      ```
 
 2. Call `get_suggestions()`, and print the json response.
 
@@ -109,7 +109,7 @@ A successful response is returned in JSON, as shown in the following example:
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [
@@ -140,4 +140,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
 * [What is the Bing Entity Search API](../search-the-web.md)
-* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

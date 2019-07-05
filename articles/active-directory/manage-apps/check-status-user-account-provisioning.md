@@ -3,8 +3,8 @@ title: 'Reporting on Azure Active Directory automatic user account provisioning 
 description: 'Learn how to check the status of automatic user account provisioning jobs, and how to troubleshoot the provisioning of individual users.'
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,8 +12,9 @@ ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
-ms.reviewer: asmalser
+ms.author: mimart
+ms.reviewer: arvinh
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Reporting on automatic user account provisioning
@@ -37,7 +38,7 @@ This article uses the following terms, defined below:
 
 * **Source System** - The repository of users that the Azure AD provisioning service synchronizes from. Azure Active Directory is the source system for the majority of pre-integrated provisioning connectors, however there are some exceptions (example: Workday Inbound Synchronization).
 
-* **Target System** - The repository of users that the Azure AD provisioning service synchronizes to. This is typically a SaaS application (examples: Salesforce, ServiceNow, Google Apps, Dropbox for Business), but in some cases can be an on-premises system such as Active Directory (example: Workday Inbound Synchronization to Active Directory).
+* **Target System** - The repository of users that the Azure AD provisioning service synchronizes to. This is typically a SaaS application (examples: Salesforce, ServiceNow, G Suite, Dropbox for Business), but in some cases can be an on-premises system such as Active Directory (example: Workday Inbound Synchronization to Active Directory).
 
 
 ## Getting provisioning reports from the Azure management portal
@@ -53,13 +54,13 @@ From here, you can access both the Provisioning summary report, and the provisio
 
 The provisioning summary report is visible in the **Provisioning** tab for given application. It is located in the **Synchronization Details** section underneath **Settings**, and provides the following information:
 
-* The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system
+* The total number of users and/groups that have been synchronized and are currently in scope for provisioning between the source system and the target system.
 
 * The last time the synchronization was run. Synchronizations typically occur every 20-40 minutes, after an [initial synchronization](user-provisioning.md#what-happens-during-provisioning) has completed.
 
-* Whether or not an [initial synchronization](user-provisioning.md#what-happens-during-provisioning) has been completed
+* Whether or not an [initial synchronization](user-provisioning.md#what-happens-during-provisioning) has been completed.
 
-* Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials)
+* Whether or not the provisioning process has been placed in quarantine, and what the reason for the quarantine status is (for example, failure to communicate with target system due to invalid admin credentials).
 
 The provisioning summary report should be the first place admins look to check on the operational health of the provisioning job.
 
@@ -74,7 +75,7 @@ All activities performed by the provisioning service are recorded in the Azure A
 
 * **Export events** - An "export" event is recorded each time the Azure AD provisioning service writes a user account or group object to a target system. These events record all user attributes and their values that were written by the Azure AD provisioning service at the time of the event. If there was an error while writing the user account or group object to the target system, it will be displayed here.
 
-* **Process escrow events** - Process escrows occur when the provisioning service encounters a failure while attempting an operation, and begins to retry the operation on a back-off interval of time. An "escrow" event is recorded each time a provisioning operation was retired.
+* **Process escrow events** - Process escrows occur when the provisioning service encounters a failure while attempting an operation, and begins to retry the operation on a back-off interval of time. An "escrow" event is recorded each time a provisioning operation was retried.
 
 When looking at provisioning events for an individual user, the events normally occur in this order:
 
@@ -97,7 +98,7 @@ The most common use case for the provisioning audit logs is to check the provisi
 
 2. From the **Category** menu, select **Account Provisioning**.
 
-3. In the **Date Range** menu, select the date range you want to search,
+3. In the **Date Range** menu, select the date range you want to search.
 
 4. In the **Search** bar, enter the user ID of the user you wish to search for. The format of ID value should match whatever you selected as the primary matching ID in the attribute-mapping configuration (for example, userPrincipalName or employee ID number). The ID value required will be visible in the Target(s) column.
 

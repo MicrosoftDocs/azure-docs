@@ -73,21 +73,28 @@ You can configure to receive alerts based on metrics and activity logs. Azure Mo
 
 To configure alerts:
 
-1. Select **Alerts (classic)** from the menu bar near the bottom of the page.
+1. Select **Alerts** from the menu bar near the bottom of the page.
 
-    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Select **Add metric alert**.
-3. Enter a **Name** for this alert.
-4. Select **Unauthorized Gateway Requests** as the metric to monitor.
-5. Select **Email owners, contributors, and readers**.
-6. Press **OK**.
-7. Try to call the Conference API without an API key. As the owner of this API Management service, you receive an email alert. 
+2. Click on a **New alert rule** for this alert.
+3. Click on **Add condition**.
+4. Select **Metrics** in the Signal type drop down.
+5. Select **Unauthorized Gateway Request** as the signal to monitor.
 
-    > [!TIP]
-    > The alert rule can also call a Web Hook or an Azure Logic App when it is triggered.
+    ![alerts](./media/api-management-azure-monitor/signal-type.png)
 
-    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+6. In the **Configure signal logic** view, specify a threshold after which the alert should be triggered and click **Done**.
+
+    ![alerts](./media/api-management-azure-monitor/threshold.png)
+
+7. Select an existing Action Group or create a new one. In the example below, an email will be sent to the admins. 
+
+    ![alerts](./media/api-management-azure-monitor/action-details.png)
+
+8. Provide a name, description of the alert rule and choose the severity level. 
+9. Press **Create alert rule**.
+10. Now, try to call the Conference API without an API key. The alert will be triggered and email will be sent to the admins. 
 
 ## Activity Logs
 
@@ -120,7 +127,7 @@ To configure diagnostic logs:
 
     ![diagnostic logs](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. Click **Turn on diagnostics**. You can archive diagnostic logs along with metrics to a storage account, stream them to an Event Hub, or send them to Log Analytics. 
+3. Click **Turn on diagnostics**. You can archive diagnostic logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs. 
 
 API Management currently provides diagnostics logs (batched hourly) about individual API request with each entry having the following schema:
 
@@ -180,7 +187,7 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
 | correlationId | string | Unique http request identifier assigned by API Management |
 | location | string | Name of the Azure region where the Gateway that processed the request was located |
 | httpStatusCodeCategory | string | Category of http response status code: Successful (301 or less or 304 or 307), Unauthorized (401, 403, 429), Erroneous (400, between 500 and 600), Other |
-| resourceId | string | "Id of the API Management resource /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| resourceId | string | ID of the API Management resource /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Properties of the current request |
 | method | string | HTTP method of the incoming request |
 | url | string | URL of the incoming request |

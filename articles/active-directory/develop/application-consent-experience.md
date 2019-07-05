@@ -3,8 +3,8 @@ title: Understanding Azure AD application consent experiences | Microsoft Docs
 description: Learn more about the Azure AD consent experiences to see how you can use it when managing and developing applications on Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: celested
-ms.reviewer: zawad
+ms.date: 03/27/2019
+ms.author: ryanwi
+ms.reviewer: zachowd
+ms.collection: M365-identity-device-management
 ---
 
 # Understanding Azure AD application consent experiences
@@ -80,4 +81,5 @@ Here are the consent experiences that a user may see in the common consent scena
 
 ## Next steps
 - Get a step-by-step overview of [how the Azure AD consent framework implements consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- For more depth, learn [how a multi-tenant application can use the consent framework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
+- For more depth, learn [how a multi-tenant application can use the consent framework](active-directory-devhowto-multi-tenant-overview.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
+- Learn [how to configure the app's publisher domain](howto-configure-publisher-domain.md).

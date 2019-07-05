@@ -10,10 +10,10 @@ ms.author: dacoulte
 ms.custom: include file
 ---
 
-### Express Route
+### ExpressRoute
 
 |  |  |
 |---------|---------|
-| [Allowed Express Route bandwidth](../articles/governance/policy/samples/allowed-express-route-bandwidth.md) | Requires that express routes use a specified set of bandwidths. You specify an array of SKUs that can be specified for Express Route. |
-| [Allowed Express Route SKUs](../articles/governance/policy/samples/allowed-express-route-skus.md) | Requires that express routes use an approved SKU. You specify an array of allowed SKUs. |
-| [Allowed Express Route peering locations](../articles/governance/policy/samples/allowed-express-route-peering.md) | Requires that express routes use specified peering locations. You specify an array of allowed peering locations. |
+| [Allowed ExpressRoute bandwidth](../articles/governance/policy/samples/allowed-express-route-bandwidth.md) | Requires that ExpressRoute use a specified set of bandwidths. You specify an array of SKUs that can be specified for ExpressRoute. |
+| [Allowed ExpressRoute SKUs](../articles/governance/policy/samples/allowed-express-route-skus.md) | Requires that ExpressRoute use an approved SKU. You specify an array of allowed SKUs. |
+| [Allowed ExpressRoute peering locations](../articles/governance/policy/samples/allowed-express-route-peering.md) | Requires that ExpressRoute use specified peering locations. You specify an array of allowed peering locations. |

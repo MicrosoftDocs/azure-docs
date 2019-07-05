@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 03/20/2019
 ms.author: juliako;johndeu;anilmur
 
 ---
-# Create Advanced Encoding Workflows with Workflow Designer
+# Create Advanced Encoding Workflows with Workflow Designer  
 ## Overview
 The **Workflow Designer** is a Windows desktop tool that is used to design and build custom workflows for encoding with **Media Encoder Premium Workflow**.
 By using the power of the workflow designer tool, you can design and create complex workflows that will run in **Media Encoder Premium**.  
@@ -34,8 +34,6 @@ This tool can also be used to modify any of our [published workflows](media-serv
 
 > [!NOTE]
 > To get your copy of the Workflow Designer tool, please contact mepd@microsoft.com.
-> 
-> 
 
 Once a workflow file is created, it can be uploaded as an Asset, and then be used for encoding media files. For information on how to encode with **Media Encoder Premium Workflow** using **.NET**, see [Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 

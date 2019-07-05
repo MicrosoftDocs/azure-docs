@@ -2,7 +2,6 @@
 title: 'Tutorial: Search unstructured data in Azure Blob storage'
 description: 'Tutorial: Searching unstructured data in Blob storage using Azure search.'
 author: roygara
-
 services: storage
 
 ms.service: storage
@@ -30,14 +29,14 @@ In this tutorial you learn how to:
 > * Connect a search service to a storage account
 > * Create a data source
 > * Configure the index
-> * Create a indexer
+> * Create an indexer
 > * Use the search service to search your container
 
 ## Prerequisites
 
 Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group or use an existing resource group. This tutorial creates a new resource group.
 
-Sign in to the [Azure portal](http://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -61,7 +60,7 @@ For this tutorial, you use a single container to store the text files obtained f
 
 5. Select **OK** to create the container.
 
-  ![Unstructured search](media/storage-unstructured-search/storageactinfo.png)
+   ![Unstructured search](media/storage-unstructured-search/storageactinfo.png)
 
 ## Upload the example data
 
@@ -75,7 +74,7 @@ Now that you have a container, you can upload your example data to it.
 
 4. Select **Upload** to begin the upload process.
 
-  ![Unstructured search](media/storage-unstructured-search/upload.png)
+   ![Unstructured search](media/storage-unstructured-search/upload.png)
 
 The upload process might take a moment.
 
@@ -105,7 +104,7 @@ For this tutorial, you use a search service to search the text files obtained fr
 
 8. Select **Create** to create the search service.
 
-  ![Unstructured search](media/storage-unstructured-search/createsearch2.png)
+   ![Unstructured search](media/storage-unstructured-search/createsearch2.png)
 
 ## Connect your search service to your container
 
@@ -125,13 +124,13 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 2. Because the blobs you're using are text files, set **Parsing Mode** to **Text**.
 
-  ![Unstructured search](media/storage-unstructured-search/datasources.png)
+   ![Unstructured search](media/storage-unstructured-search/datasources.png)
 
 3. Select **Storage Container** to list the available storage accounts.
 
 4. Select your storage account, and then select the container that you created previously.
 
-  ![Unstructured search](media/storage-unstructured-search/datacontainer.png)
+   ![Unstructured search](media/storage-unstructured-search/datacontainer.png)
 
 5. Click **Select** to return to **New data source**, and select **OK** to continue.
 
@@ -145,7 +144,7 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 3. Select the **Retrievable** attribute's check box under **metadata_storage_name**.
 
-  ![Unstructured search](media/storage-unstructured-search/valuestoselect.png)
+   ![Unstructured search](media/storage-unstructured-search/valuestoselect.png)
 
 4. Select **OK**, which brings up **Create an Indexer**.
 
@@ -170,7 +169,7 @@ The **FIELD NAME** column contains the parameters. The following table provides 
 
 1. Enter a name in the **Name** field and select **OK**.
 
-  ![Unstructured search](media/storage-unstructured-search/exindexer.png)
+   ![Unstructured search](media/storage-unstructured-search/exindexer.png)
 
 2. You are brought back to **Import Data**. Select **OK** to complete the connection process.
 
@@ -184,19 +183,19 @@ The following steps show you where to find the search explorer and provides you 
 
 1. Go to all resources and find your newly created search service.
 
-  ![Unstructured search](media/storage-unstructured-search/exampleurl.png)
+   ![Unstructured search](media/storage-unstructured-search/exampleurl.png)
 
 2. Select your index to open it.
 
-  ![Unstructured search](media/storage-unstructured-search/overview.png)
+   ![Unstructured search](media/storage-unstructured-search/overview.png)
 
 3. Select **Search Explorer** to open the search explorer, where you can make live queries on your data.
 
-  ![Unstructured search](media/storage-unstructured-search/indexespane.png)
+   ![Unstructured search](media/storage-unstructured-search/indexespane.png)
 
 4. Select **Search** while the query string field is empty. An empty query returns *all* the data from your blobs.
 
-  ![Unstructured search](media/storage-unstructured-search/emptySearch.png)
+   ![Unstructured search](media/storage-unstructured-search/emptySearch.png)
 
 ### Perform a full-text search
 

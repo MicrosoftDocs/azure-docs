@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/23/2019
 ms.author: aschhab
 
 ---
@@ -57,7 +57,7 @@ IP filter rules are applied in order and the first rule that matches the IP addr
 ### Creating a virtual network and firewall rule with Azure Resource Manager templates
 
 > [!IMPORTANT]
-> Virtual Networks are supported only in the **premium** tier of Service Bus.
+> Firewalls and Virtual Networks are supported only in the **premium** tier of Service Bus.
 
 The following Resource Manager template enables adding a virtual network rule to an existing Service Bus namespace.
 
@@ -108,8 +108,8 @@ Template parameters:
         "type": "Microsoft.ServiceBus/namespaces",
         "location": "[parameters('location')]",
         "sku": {
-          "name": "Standard",
-          "tier": "Standard"
+          "name": "Premium",
+          "tier": "Premium"
         },
         "properties": { }
       },

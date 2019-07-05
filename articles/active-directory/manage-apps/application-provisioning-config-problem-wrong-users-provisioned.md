@@ -3,8 +3,8 @@ title: Wrong set of users are being provisioned to an Azure AD Gallery applicati
 description: Learn how to find out why a different set of users are being provisioned to an application than those you expected
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Wrong set of users are being provisioned to an Azure AD Gallery application
@@ -29,25 +30,25 @@ Use the following resources to learn how to check which users and groups have be
 
 To assign one or more users to an application directly, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to assign a user to from the list.
+6. Select the application you want to assign a user to from the list.
 
-7.  Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
+7. Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
 
-8.  To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
+8. To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
 
-9.  click the **Users and groups** selector from the **Add Assignment** pane.
+9. click the **Users and groups** selector from the **Add Assignment** pane.
 
 10. Type in the **full name** or **email address** of the user you are interested in assigning into the **Search by name or email address** search box.
 
@@ -67,25 +68,25 @@ If provisioning is configured and already running for an app, new users should b
 
 To assign one or more groups to an application directly, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to assign a user to from the list.
+6. Select the application you want to assign a user to from the list.
 
-7.  Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
+7. Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
 
-8.  To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
+8. To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
 
-9.  click the **Users and groups** selector from the **Add Assignment** pane.
+9. click the **Users and groups** selector from the **Add Assignment** pane.
 
 10. Type in the **full group name** of the group you are interested in assigning into the **Search by name or email address** search box.
 

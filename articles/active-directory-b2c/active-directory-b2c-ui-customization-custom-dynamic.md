@@ -2,14 +2,14 @@
 title: Customize the Azure Active Directory B2C user interface (UI) dynamically by using custom policies | Microsoft Docs
 description: Support multiple branding experiences with HTML5/CSS content that changes dynamically at runtime.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -192,7 +192,7 @@ Your HTML5 template is ready to use. However, it is not available in the `Conten
     >To verify that the site where you're hosting your content has enabled CORS and can test CORS requests, go to the [test-cors.org](https://test-cors.org/) website. 
 
 * Your served content is secure over **HTTPS**.
-* You are using *absolute URLS*, such as *https://yourdomain/content*, for all links, CSS content, and images.
+* You are using *absolute URLS*, such as `https://yourdomain/content`, for all links, CSS content, and images.
 
 ## Step 5: Configure your content definition
 To configure `ContentDefinition`, do the following:

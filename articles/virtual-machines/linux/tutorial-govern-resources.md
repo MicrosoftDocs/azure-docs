@@ -63,13 +63,13 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-If you receive an error stating **Principal <guid> does not exist in the directory**, the new group hasn't propagated throughout Azure Active Directory. Try running the command again.
+If you receive an error stating **Principal \<guid> does not exist in the directory**, the new group hasn't propagated throughout Azure Active Directory. Try running the command again.
 
 Typically, you repeat the process for *Network Contributor* and *Storage Account Contributor* to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
 ## Azure Policy
 
-[Azure Policy](../../azure-policy/azure-policy-introduction.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](/cli/azure/policy/definition) command:
+[Azure Policy](../../governance/policy/overview.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use the [az policy definition list](/cli/azure/policy/definition) command:
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table

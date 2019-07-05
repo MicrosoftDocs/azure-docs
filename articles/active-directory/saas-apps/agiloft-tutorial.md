@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: aca13814-cdbd-46b8-93dc-1578099c5ee4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Agiloft
 
@@ -162,13 +163,13 @@ To configure Azure AD single sign-on with Agiloft, perform the following steps:
 
 	![Agiloft Configuration](./media/agiloft-tutorial/setup4.png)
 
-	a. In **IdP Entity Id / Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
+	a. In **IdP Entity Id / Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
 
-	b. In **IdP Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	b. In **IdP Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	c. In **IdP Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
+	c. In **IdP Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
 
-	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **IdP Provided X.509 certificate contents** textbox.
+	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **IdP Provided X.509 certificate contents** textbox.
 
 	e. Click **Finish**.
 
@@ -190,7 +191,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -235,8 +236,8 @@ When you click the Agiloft tile in the Access Panel, you should be automatically
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

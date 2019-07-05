@@ -3,14 +3,14 @@ title: "Quickstart: Bing Entity Search SDK, Python"
 titlesuffix: Azure Cognitive Services
 description: Setup for Bing Entity search SDK console application.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: v-gedod
+ms.author: aahi
 ---
 # Quickstart: Bing Entity Search SDK with Python
 

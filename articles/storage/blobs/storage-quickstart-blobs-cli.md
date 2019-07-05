@@ -2,13 +2,14 @@
 title: Azure Quickstart - Create a blob in object storage using Azure CLI | Microsoft Docs
 description: In this quickstart, you use the Azure CLI  in object (Blob) storage. Then you use the CLI to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: roygara
+author: tamram
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: rogarana
+ms.author: tamram
+ms.reviewer: seguler
 ---
 
 # Quickstart: Upload, download, and list blobs using the Azure CLI
@@ -57,7 +58,7 @@ If you used the previously described method to create a file in your Azure Cloud
 ```azurecli-interactive
 az storage blob upload \
     --container-name mystoragecontainer \
-    --name helloworld
+    --name helloworld \
     --file helloworld
 ```
 

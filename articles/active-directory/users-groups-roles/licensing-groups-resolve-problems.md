@@ -1,23 +1,22 @@
 ---
 
-  title: Resolve license assignment problems for a group - Azure Active Directory | Microsoft Docs
-  description: How to identify and resolve license assignment problems when you're using Azure Active Directory group-based licensing
-  services: active-directory
-  keywords: Azure AD licensing
-  documentationcenter: ''
-  author: curtand
-  manager: mtillman
+title: Resolve license assignment problems for an group - Azure Active Directory | Microsoft Docs
+description: How to identify and resolve license assignment problems when you're using Azure Active Directory group-based licensing
+services: active-directory
+keywords: Azure AD licensing
+documentationcenter: ''
+author: curtand
+manager: mtillman
 
-  ms.service: active-directory
-  ms.subservice: users-groups-roles
-  ms.topic: article
-  ms.workload: identity
-  ms.date: 01/31/2019
-  ms.author: curtand
-  ms.reviewer: sumitp
-
-  ms.custom: it-pro
-
+ms.service: active-directory
+ms.subservice: users-groups-roles
+ms.topic: article
+ms.workload: identity
+ms.date: 03/18/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Identify and resolve license assignment problems for a group in Azure Active Directory
@@ -31,21 +30,21 @@ When you're using group-based licensing, the same errors can occur, but they hap
 ## How to find license assignment errors
 **To find license assignment errors**
 
-   1. To find users in an error state in a specific group, open the pane for the group. Under **Licenses**, a notification appears if there are any users in an error state.
+1. To find users in an error state in a specific group, open the pane for the group. Under **Licenses**, a notification appears if there are any users in an error state.
 
-   ![Group, error notification](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Group and error notifications message](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-   2. Select the notification to open a list of all affected users. You can select each user individually to see more details.
+2. Select the notification to open a list of all affected users. You can select each user individually to see more details.
 
-   ![Group, list of users in error state](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![list of users in group licensing error state](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-   3. To find all groups that contain at least one error, on the **Azure Active Directory** blade select **Licenses**, and then select **Overview**. An information box is displayed when groups require your attention.
+3. To find all groups that contain at least one error, on the **Azure Active Directory** blade select **Licenses**, and then select **Overview**. An information box is displayed when groups require your attention.
 
-   ![Overview, information about groups in error state](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Overview and information about groups in error state](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-   4. Select the box to see a list of all groups with errors. You can select each group for more details.
+4. Select the box to see a list of all groups with errors. You can select each group for more details.
 
-   ![Overview, list of groups with errors](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Overview and list of groups with errors](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 The following sections give a description of each potential problem and the way to resolve it.
@@ -103,13 +102,19 @@ If you use Exchange Online, some users in your tenant might be incorrectly confi
 
 > [!TIP]
 > To see if there is a duplicate proxy address, execute the following PowerShell cmdlet against Exchange Online:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
+> ```
+> Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> ```
 > For more information about this problem, see ["Proxy address 
-is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx). See this article for more information [on how the proxyAddresses attribute is populated in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
 
 After you resolve any proxy address problems for the affected users, make sure to force license processing on the group to make sure that the licenses can now be applied.
+
+## Azure AD Mail and ProxyAddresses attribute change
+
+**Problem:** While updating license assignment on a user or a group, you might see that the Azure AD Mail and ProxyAddresses attribute of some users are changed.
+
+Updating license assignment on a user causes the proxy address calculation to be triggered, which can change user attributes. To understand the exact reason of the change and solve the problem, see this article on [how the proxyAddresses attribute is populated in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## What happens when there's more than one product license on a group?
 

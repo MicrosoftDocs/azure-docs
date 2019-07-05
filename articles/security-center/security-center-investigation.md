@@ -4,7 +4,7 @@ description: This document helps you use the investigation feature in Azure Secu
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
@@ -20,15 +20,18 @@ ms.author: rkarlin
 # Investigate Incidents and Alerts in Azure Security Center (Preview)
 This document helps you use the investigation feature in Azure Security Center to investigate security incidents and alerts.
 
+> [!NOTE]
+> The alerts and incidents investigation experience will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+
 ## What is investigation in Security Center?
 The Investigation feature in Security Center allows you to triage, understand the scope, and track down the root cause of a potential [security incident](https://docs.microsoft.com/azure/security-center/security-center-incident).
 
 The intent is to facilitate the investigation process by linking all entities ([security alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), users, computers and incidents) that are involved with the incident you are investigating.  Security Center can do this by correlating relevant data with any involved entities and exposing this correlation in using a live graph that helps you navigate through the objects and visualize relevant information.
 
+
 > [!NOTE]
-> [Custom alerts](security-center-custom-alert.md) are not supported in Security Center's investigation feature.
->
->
+> * [Custom alerts](security-center-custom-alert.md) are not supported in Security Center's investigation feature.
+> * Investigation is only supported for alerts based on data collected from Windows servers.
 
 
 ## How Investigation works?
@@ -92,17 +95,17 @@ The following items are going to be presented regardless of the selected time sc
 
 ## How to perform an investigation?
 
-You can start your investigation from a security incident, or from an alert, the option that you choose will vary according to your needs. The steps that follows are used to start a investigation from an alert:
+You can start your investigation from a security incident, or from an alert, the option that you choose will vary according to your needs. The steps that follows are used to start an investigation from an alert:
 
-1.	Open **Security Center** dashboard.
-2.	Click on **Security Alerts**, and select the incident that you want to investigate.
-3.	In the incident’s page, click on the **Start Investigation** button, and the **Investigation** dashboard appears.
+1.  Open **Security Center** dashboard.
+2.  Click on **Security Alerts**, and select the incident that you want to investigate.
+3.  In the incident’s page, click on the **Start Investigation** button, and the **Investigation** dashboard appears.
 
-	![Alert](./media/security-center-investigation/security-center-investigation-fig8.png)
+    ![Alert](./media/security-center-investigation/security-center-investigation-fig8.png)
 
 4. From this dashboard you can select the entity in the map, and the relevant information about this entity appears on the right side of the screen.
 
-	![Investigation dashboard](./media/security-center-investigation/security-center-investigation-fig9.png)
+    ![Investigation dashboard](./media/security-center-investigation/security-center-investigation-fig9.png)
 
 From this point you can explore the entities that were involved in this incident, and explore more details about each one of them.
 

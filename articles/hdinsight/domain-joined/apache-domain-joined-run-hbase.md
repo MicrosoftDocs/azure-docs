@@ -1,15 +1,15 @@
 ---
-title: Configure Apache HBase policies in HDInsight with Enterprise Security Package - Azure
-description: Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
-services: hdinsight
+title: Tutorial - Configure Apache HBase policies in HDInsight with Enterprise Security Package - Azure
+description: Tutorial - Learn how to configure Apache Ranger policies for HBase in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 06/18/2019
 ---
 
-# Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package (Preview)
+# Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package
 
 Learn how to configure Apache Ranger policies for Enterprise Security Package (ESP) Apache HBase clusters. ESP clusters are connected to a domain allowing users to authenticate with domain credentials. In this tutorial, you create two Ranger policies to restrict access to different column-families in an HBase table.
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 ## Create domain users
 
-Visit [Create a HDInsight cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster), to learn how to create the **sales_user1** and **marketing_user1** domain users. In a production scenario, domain users come from your Active Directory tenant.
+Visit [Create a HDInsight cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds), to learn how to create the **sales_user1** and **marketing_user1** domain users. In a production scenario, domain users come from your Active Directory tenant.
 
 ## Create HBase tables and import sample data
 
@@ -97,7 +97,7 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
     ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3.  On the **Create Policy** screen, enter the following values:
+3. On the **Create Policy** screen, enter the following values:
 
    |**Setting**  |**Suggested value**  |
    |---------|---------|
@@ -155,7 +155,7 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
    kinit sales_user1
    ```
 
-2. Open the hbase shell and scan the table `Customers`.
+2. Open the HBase shell and scan the table `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -197,7 +197,7 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
    kinit marketing_user1
    ```
 
-2. Open the hbase shell and scan the table `Customers`:
+2. Open the HBase shell and scan the table `Customers`:
 
     ```hbaseshell
     hbase shell

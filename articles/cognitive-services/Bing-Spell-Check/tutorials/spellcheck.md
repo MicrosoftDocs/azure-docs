@@ -4,18 +4,18 @@ titlesuffix: Azure Cognitive Services
 description: Shows how to use Bing Spell Check.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/28/2017
+ms.date: 02/20/2019
 ms.author: aahi
 ---
 
 # Tutorial: Build a Web page Spell Check client
 
-In this tutorial, we'll build a Web page that allows users to query the Bing Spell Check API.
+In this tutorial, we'll build a Web page that allows users to query the Bing Spell Check API. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
 This tutorial shows you how to:
 

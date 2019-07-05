@@ -100,16 +100,16 @@ The previous two cohorts were defined by using drop-down boxes. But you can also
     ![Blank users cohort](./media/usage-cohorts/001.png)
 
     There are three sections:
-    * A Markdown text section, where you describe the cohort in more detail for others on your team.
+   * A Markdown text section, where you describe the cohort in more detail for others on your team.
 
-    * A parameters section, where you make your own parameters, like **Activities** and other drop-down boxes from the previous two examples.
+   * A parameters section, where you make your own parameters, like **Activities** and other drop-down boxes from the previous two examples.
 
-    * A query section, where you define the cohort by using an analytics query.
+   * A query section, where you define the cohort by using an analytics query.
 
-    In the query section, you [write an analytics query](/azure/kusto/query). The query selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This data is previewed below the query in a table, so you can make sure your query is returning results.
+     In the query section, you [write an analytics query](/azure/kusto/query). The query selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This data is previewed below the query in a table, so you can make sure your query is returning results.
 
-    > [!NOTE]
-    > If you don’t see the query, try resizing the section to make it taller and reveal the query. The animated .gif at the beginning of this section illustrates the resizing behavior.
+     > [!NOTE]
+     > If you don’t see the query, try resizing the section to make it taller and reveal the query. The animated .gif at the beginning of this section illustrates the resizing behavior.
 
 2. Copy and paste the following text into the query editor:
 
@@ -118,13 +118,13 @@ The previous two cohorts were defined by using drop-down boxes. But you can also
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Select **Run Query**. If you don't see user IDs appear in the table, change to a country where your application has users.
+3. Select **Run Query**. If you don't see user IDs appear in the table, change to a country/region where your application has users.
 
 4. Save and name the cohort.
 
 ## Frequently asked questions
 
-_I’ve defined a cohort of users from a certain country. When I compare this cohort in the Users tool to just setting a filter on that country, I see different results. Why?_
+_I’ve defined a cohort of users from a certain country/region. When I compare this cohort in the Users tool to just setting a filter on that country/region, I see different results. Why?_
 
 Cohorts and filters are different. Suppose you have a cohort of users from the United Kingdom (defined like the previous example), and you compare its results to setting the filter “Country or region = United Kingdom.”
 

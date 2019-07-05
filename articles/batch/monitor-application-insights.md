@@ -35,7 +35,7 @@ A sample C# solution with code to accompany this article is available on [GitHub
 >
 
 ## Prerequisites
-* [Visual Studio 2017](https://www.visualstudio.com/vs)
+* [Visual Studio 2017 or later](https://www.visualstudio.com/vs)
 
 * [Batch account and linked storage account](batch-account-create-portal.md)
 

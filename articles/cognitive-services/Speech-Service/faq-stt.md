@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Get answers to the most popular questions about the Speech to Text service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -59,13 +59,13 @@ The old dataset and the new dataset must be combined in a single .zip file (for 
 
 **A**: Deployments will NOT be automatically updated.
 
-If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommision the deployed model, re-adapt using the newer version of the baseline and re-deploy.
+If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommission the deployed model, re-adapt using the newer version of the baseline and re-deploy.
 
 **Q: What if I need higher concurrency for my deployed model than what is offered in the portal?**
 
 **A**: You can scale up your model in increments of 20 concurrent requests.
 
-Contact us if you require a higher scale.
+Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) if you require a higher scale.
 
 **Q: Can I download my model and run it locally?**
 

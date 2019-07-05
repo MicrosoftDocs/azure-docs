@@ -85,6 +85,7 @@ The source VM is now customized with the Nginx web server installed. Let's creat
 
 To create an image, the VM needs to be deallocated. Deallocate the VM with [az vm deallocate](/cli//azure/vm). Then, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm) so that the Azure platform knows the VM is ready for use a custom image. You can only create an image from a generalized VM:
 
+
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroup --name myVM
 az vm generalize --resource-group myResourceGroup --name myVM

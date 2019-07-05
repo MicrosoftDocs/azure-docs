@@ -2,7 +2,7 @@
 title: Use an Azure Marketplace image to create a Terraform Linux virtual machine with a managed identity
 description: Use Marketplace image to create Terraform Linux virtual machine with a managed identity and Remote State Management to easily deploy resources to Azure.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
 author: tomarchermsft
 manager: jeconnoc
@@ -72,7 +72,7 @@ The Terraform VM image performs the following steps:
 
 ## Access and configure a Linux Terraform virtual machine
 
-After you create the VM, you can sign in to it by using SSH. Use the account credentials that you created in the "Basics" section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org/).
+After you create the VM, you can sign in to it by using SSH. Use the account credentials that you created in the "Basics" section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](https://www.putty.org/).
 
 After you use SSH to connect to the virtual machine, you need to give contributor permissions for the entire subscription to managed identities for Azure resources on the virtual machine. 
 

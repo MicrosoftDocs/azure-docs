@@ -52,19 +52,19 @@ When you access the application gateway, you receive the following error message
 
 ## Solution
 
-When you don't use a host name to access a HTTPS website, the back-end server will return the configured certificate on the default website. For an ILB ASE, the default certificate comes from the ILB certificate. If there are no configured certificates for the ILB, the certificate comes from the ASE App certificate.
+When you don't use a host name to access a HTTPS website, the back-end server will return the configured certificate on the default website, in case SNI is disabled. For an ILB ASE, the default certificate comes from the ILB certificate. If there are no configured certificates for the ILB, the certificate comes from the ASE App certificate.
 
-When you use a fully qualified domain name (FQDN) to access the ILB, the back-end server will return the correct certificate that's uploaded in the HTTP settings. In this case, consider the following options:
+When you use a fully qualified domain name (FQDN) to access the ILB, the back-end server will return the correct certificate that's uploaded in the HTTP settings. If that is not the case    , consider the following options:
 
 - Use FQDN in the back-end pool of the application gateway to point to the IP address of the ILB. This option only works if you have a private DNS zone or a custom DNS configured. Otherwise, you have to create an "A" record for a public DNS.
 
-- Use the uploaded certificate on the ILB or the default certificate in the HTTP settings. The application gateway gets the certificate when it accesses the ILB's IP for the probe.
+- Use the uploaded certificate on the ILB or the default certificate (ILB certificate) in the HTTP settings. The application gateway gets the certificate when it accesses the ILB's IP for the probe.
 
-- Use a wildcard certificate on the ILB and the back-end server.
+- Use a wildcard certificate on the ILB and the back-end server, so that for all the websites, the certificate is common. However, this solution is possible only in case of subdomains and not if each of the websites require different hostnames.
 
-- Clear the **Use for App service** option for the application gateway.
+- Clear the **Use for App service** option for the application gateway in case you are using the IP address of the ILB.
 
-To reduce overhead, you can upload the ILB certificate in the HTTP settings to make the probe path work. (This step is just for whitelisting. It won't be used for SSL communication.) You can retrieve the ILB certificate by accessing the ILB with its IP address on HTTPS then exporting the SSL certificate in a Base-64 encoded CER format and uploading the certificate on the respective HTTP settings.
+To reduce overhead, you can upload the ILB certificate in the HTTP settings to make the probe path work. (This step is just for whitelisting. It won't be used for SSL communication.) You can retrieve the ILB certificate by accessing the ILB with its IP address from your browser on HTTPS then exporting the SSL certificate in a Base-64 encoded CER format and uploading the certificate on the respective HTTP settings.
 
 ## Need help? Contact support
 

@@ -1,5 +1,5 @@
 ---
-title: Collect Linux application performance in Log Analytics | Microsoft Docs
+title: Collect Linux application performance in Azure Monitor | Microsoft Docs
 description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server. 
 services: log-analytics
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.date: 05/04/2017
 ms.author: magoedte
 ---
 
-# Collect performance counters for Linux applications in Log Analytics 
+# Collect performance counters for Linux applications in Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications into Log Analytics.  The applications included in this article are:  
+This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications into Azure Monitor.  The applications included in this article are:  
 
-- [MySQL](#MySQL)
+- [MySQL](#mysql)
 - [Apache HTTP Server](#apache-http-server)
 
 ## MySQL
@@ -109,7 +109,7 @@ These privileges can be granted by running the following grant commands.
 
 ### Define performance counters
 
-Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](data-sources-performance-counters.md) with the counters in the following table.
+Once you configure the Log Analytics agent for Linux to send data to Azure Monitor, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Azure Monitor](data-sources-performance-counters.md) with the counters in the following table.
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -145,7 +145,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### Define performance counters
 
-Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](data-sources-performance-counters.md) with the counters in the following table.
+Once you configure the Log Analytics agent for Linux to send data to Azure Monitor, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Azure Monitor](data-sources-performance-counters.md) with the counters in the following table.
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -163,4 +163,4 @@ Once you configure the Log Analytics agent for Linux to send data to Log Analyti
 
 ## Next steps
 * [Collect performance counters](data-sources-performance-counters.md) from Linux agents.
-* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 

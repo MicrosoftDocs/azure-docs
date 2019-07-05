@@ -7,29 +7,34 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 2/6/2019
+ms.date: 04/11/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Add Azure Active Directory B2B collaboration users in the Azure portal
 
-As a global administrator, or a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources.
+As a user who is assigned any of the limited administrator directory roles, you can use the Azure portal to invite B2B collaboration users. You can invite guest users to the directory, to a group, or to an application. After you invite a user through any of these methods, the invited user's account is added to Azure Active Directory (Azure AD), with a user type of *Guest*. The guest user must then redeem their invitation to access resources.
 
 After you add a guest user to the directory, you can either send the guest user a direct link to a shared app, or the guest user can click the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](redemption-experience.md).
 
 > [!IMPORTANT]
 > You should follow the steps in [How-to: Add your organization's privacy info in Azure Active Directory](https://aka.ms/adprivacystatement) to add the URL of your organization's privacy statement. As part of the first time invitation redemption process, an invited user must consent to your privacy terms to continue. 
 
+## Before you begin
+
+Make sure your organization's external collaboration settings are configured such that you're allowed to invite guests. By default, all users and admins can invite guests. But your organization's external collaboration policies might be configured to prevent certain types of users or admins from inviting guests. To find out how to view and set these policies, see [Enable B2B external collaboration and manage who can invite guests](delegate-invitations.md).
+
 ## Add guest users to the directory
 
 To add B2B collaboration users to the directory, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com) as a user who is assigned a limited administrator directory role or the Guest Inviter role.
 2. In the navigation pane, select **Azure Active Directory**.
 3. Under **Manage**, select **Users**.
 4. Select **New guest user**.
@@ -54,7 +59,7 @@ After you send the invitation, the user account is automatically added to the di
 ![Shows B2B user with Guest user type](./media/add-users-administrator/GuestUserType.png)  
 
 ## Add guest users to a group
-If you need to manually add B2B collaboration users to a group as an Azure AD administrator, follow these steps:
+If you need to manually add B2B collaboration users to a group, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. In the navigation pane, select **Azure Active Directory**.
@@ -71,7 +76,7 @@ You can also use dynamic groups with Azure AD B2B collaboration. For more inform
 
 ## Add guest users to an application
 
-To add B2B collaboration users to an application as an Azure AD administrator, follow these steps:
+To add B2B collaboration users to an application, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. In the navigation pane, select **Azure Active Directory**.

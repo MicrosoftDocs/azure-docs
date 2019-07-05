@@ -4,7 +4,7 @@ description: This document helps you to understand how Azure Security Center det
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0

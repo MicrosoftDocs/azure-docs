@@ -1,20 +1,13 @@
 ---
-title: Configure health notifications for existing problem management systems using a webhook | Microsoft Docs
+title: Configure Azure service health notifications for existing problem management systems using a webhook
 description: Get personalized notifications about service health events to your existing problem management system.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-
-ms.assetid:
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.workload: Supportability
+
 ms.date: 3/27/2018
-ms.author: shtabriz
 
 ---
 
@@ -30,6 +23,10 @@ If you want to use a preconfigured integration, see how to:
 * [Configure alerts with ServiceNow](service-health-alert-webhook-servicenow.md)
 * [Configure alerts with PagerDuty](service-health-alert-webhook-pagerduty.md)
 * [Configure alerts with OpsGenie](service-health-alert-webhook-opsgenie.md)
+
+### Watch an introductory video
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
 ## Configuring a custom notification using the service health webhook payload
 If you want to set up your own custom webhook integration, you need to parse the JSON payload that is sent during service health notifications.
@@ -63,7 +60,7 @@ From lowest severity to highest severity, the `level` property in the payload ca
 
 ## Parsing the impacted services to understand the full scope of the incident
 Service health alerts can inform you about issues across multiple Regions and services. To get the full details, you need to parse the value of `impactedServices`.
-The content inside is a [JSON escaped](http://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
+The content inside is a [JSON escaped](https://json.org/) string, when unescaped, contains another JSON object that can be parsed regularly.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

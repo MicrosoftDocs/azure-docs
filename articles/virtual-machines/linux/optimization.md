@@ -30,7 +30,7 @@ This topic assumes you already have a working Azure subscription ([free trial si
 Once you create a Linux VM in Azure, it has two disks associated with it. **/dev/sda** is your OS disk, **/dev/sdb** is your temporary disk.  Do not use the main OS disk (**/dev/sda**) for anything except the operating system as it is optimized for fast VM boot time and does not provide good performance for your workloads. You want to attach one or more disks to your VM to get persistent and optimized storage for your data. 
 
 ## Adding Disks for Size and Performance targets
-Based on the VM size, you can attach up to 16 additional disks on an A-Series, 32 disks on a D-Series and 64 disks on a G-Series machine - each up to 1 TB in size. You add extra disks as needed per your space and IOps requirements. Each disk has a performance target of 500 IOps for Standard Storage and up to 5000 IOps per disk for Premium Storage.  For more information about Premium Storage disks, see [Premium Storage: High-Performance Storage for Azure VMs](../windows/premium-storage.md)
+Based on the VM size, you can attach up to 16 additional disks on an A-Series, 32 disks on a D-Series and 64 disks on a G-Series machine - each up to 1 TB in size. You add extra disks as needed per your space and IOps requirements. Each disk has a performance target of 500 IOps for Standard Storage and up to 5000 IOps per disk for Premium Storage.
 
 To achieve the highest IOps on Premium Storage disks where their cache settings have been set to either **ReadOnly** or **None**, you must disable **barriers** while mounting the file system in Linux. You do not need barriers because the writes to Premium Storage backed disks are durable for these cache settings.
 
@@ -127,9 +127,8 @@ If your workloads require more IOps than a single disk can provide, you need to 
 ## Next Steps
 Remember, as with all optimization discussions, you need to perform tests before and after each change to measure the impact the change has.  Optimization is a step by step process that has different results across different machines in your environment.  What works for one configuration may not work for others.
 
-Some useful links to additional resources: 
+Some useful links to additional resources:
 
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md)
 * [Azure Linux Agent User Guide](../extensions/agent-linux.md)
 * [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md)
 * [Configure Software RAID on Linux](configure-raid.md)

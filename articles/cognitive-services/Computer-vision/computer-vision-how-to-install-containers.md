@@ -3,13 +3,13 @@ title: How to install and run containers - Computer Vision
 titlesuffix: Azure Cognitive Services
 description: How to download, install, and run containers for Computer Vision in this walkthrough tutorial.
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
-ms.date: 01/29/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 06/19/2019
+ms.author: dapine
 ms.custom: seodec18
 ---
 
@@ -29,7 +29,7 @@ You must meet the following prerequisites before using Recognize Text containers
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Recognize Text resource |In order to use the container, you must have:<br><br>A [_Recognize Text_](vision-api-how-to-topics/howtosubscribe.md) Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Recognize Text Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Azure `Cognitive Services` resource |In order to use the container, you must have:<br><br>A _Cognitive Services_ Azure resource and the associated billing key the billing endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container. You need to add the `vision/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example. <br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
 
 ## Request access to the private container registry
@@ -38,21 +38,21 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|
+| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|0.5, 1|
 
-Each core must be at least 2.6 gigahertz (GHz) or faster.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
-
 
 ## Get the container image with `docker pull`
 
@@ -67,8 +67,8 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ### Docker pull for the Recognize Text container
 
-```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -86,8 +86,10 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Recognize Text Keys page.  |
-|{BILLING_ENDPOINT_URI} | The billing endpoint URI value.|
+|{BILLING_KEY} | This key is used to start the container, and is available on the Azure `Cognitive Services` Keys page.  |
+|{BILLING_ENDPOINT_URI} | The billing endpoint URI value. Example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+
+You need to add the `vision/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example.
 
 Replace these parameters with your own values in the following example `docker run` command.
 
@@ -111,11 +113,14 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, https://localhost:5000, for container APIs.
+Use the host, `http://localhost:5000`, for container APIs.
 
 ### Asynchronous text recognition
 
@@ -125,6 +130,11 @@ You can use the `POST /vision/v2.0/recognizeText` and `GET /vision/v2.0/textOper
 
 You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as that for the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+
 ## Stop the container
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -133,28 +143,18 @@ You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronous
 
 If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
-## Container's API documentation
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 
 The Recognize Text containers send billing information to Azure, using a _Recognize Text_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
-
-The `docker run` command uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Recognize Text_ resource used to track billing information. |
-| `Billing` | The endpoint of the _Recognize Text_ resource used to track billing information.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

@@ -155,7 +155,7 @@ ms.custom: H1Hack27Feb2017
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -169,7 +169,7 @@ ms.custom: H1Hack27Feb2017
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -232,7 +232,6 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -246,7 +245,7 @@ ms.custom: H1Hack27Feb2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -311,7 +310,7 @@ This document covers several different areas to consider when you're deploying O
 You can find information about Oracle versions and corresponding OS versions that are supported for running SAP on Oracle on Azure in SAP Note [2039619].
 
 General information about running SAP Business Suite on Oracle can be found at [SAP on Oracle](https://www.sap.com/community/topic/oracle.html).
-Oracle software is supported by Oracle to run on Microsoft Azure. For more information about general support for Windows Hyper-V and Azure, check the [Oracle and Microsoft Azure FAQ](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle software is supported by Oracle to run on Microsoft Azure. For more information about general support for Windows Hyper-V and Azure, check the [Oracle and Microsoft Azure FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 ## SAP Notes relevant for Oracle, SAP, and Azure 
 
@@ -354,7 +353,7 @@ To determine the right amount of space for the tempfiles, you can check the size
 ### Storage configuration
 Only single-instance Oracle using NTFS formatted disks is supported. All database files must be stored on the NTFS file system on Managed Disks (recommended) or on VHDs. These disks are mounted to the Azure VM and are based on [Azure page blob storage](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) or [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
-We strongly recommend using [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). We also strongly recommend using [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) for your Oracle Database deployments.
+We strongly recommend using [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). We also strongly recommend using [premium SSDs](../../windows/disks-types.md) for your Oracle Database deployments.
 
 Network drives or remote shares like Azure file services aren't supported for Oracle Database files. For more information, see:
 
@@ -423,7 +422,7 @@ For Oracle deployments on Windows, we strongly recommend accelerated networking 
 [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) describes other important concepts related to deployments of VMs with Oracle Database, including Azure availability sets and SAP monitoring.
 
 ## Specifics for Oracle Database on Oracle Linux
-Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as the guest OS. For more information about general support for Windows Hyper-V and Azure, see the [Azure and Oracle FAQ](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as the guest OS. For more information about general support for Windows Hyper-V and Azure, see the [Azure and Oracle FAQ](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 The specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are discussed in the next part of the document.
 
@@ -441,11 +440,11 @@ In this case, we recommend installing/locating Oracle home, stage, saptrace, sap
 
 ### Storage configuration
 
-The filesystems of ext4, xfs, or Oracle ASM are supported for Oracle Database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on [Azure page blob storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+The filesystems of ext4, xfs, or Oracle ASM are supported for Oracle Database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on [Azure page blob storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure Managed Disks](../../windows/managed-disks-overview.md).
 
-For Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
+For Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support [Azure premium SSDs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching).
 
-We strongly recommend using [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). We also strongly recommend using [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) for your Oracle Database deployments.
+It is highly recommended to use [Azure managed disks](../../windows/managed-disks-overview.md). It also is highly recommended using [Azure premium SSDs](../../windows/disks-types.md) for your Oracle Database deployments.
 
 Network drives or remote shares like Azure file services aren't supported for Oracle Database files. For more information, see the following: 
 
@@ -460,12 +459,13 @@ If you're using disks based on Azure page blob storage or Managed Disks, the sta
 To identify the supported Azure VM types, see SAP Note [1928533].
 
 Minimum configuration:
+
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
-| /oracle/<SID>/origlogaB & mirrlogA | Premium | None | Not needed |
-| /oracle/<SID>/sapdata1...n | Premium | Read-only | Can be used |
-| /oracle/<SID>/oraarch | Standard | None | Not needed |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | None | Not needed |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | None | Not needed |
+| /oracle/\<SID>/sapdata1...n | Premium | Read-only | Can be used |
+| /oracle/\<SID>/oraarch | Standard | None | Not needed |
 | Oracle Home, saptrace, ... | OS disk | | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0
@@ -473,15 +473,16 @@ Minimum configuration:
 The disk selection for hosting Oracle's online redo logs should be driven by IOPS requirements. It's possible to store all sapdata1...n (tablespaces) on a single mounted disk as long as the volume, IOPS, and throughput satisfy the requirements. 
 
 Performance configuration:
+
 | Component | Disk | Caching | Stripping* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA | Premium | None | Can be used  |
-| /oracle/<SID>/origlogaB | Premium | None | Can be used |
-| /oracle/<SID>/mirrlogAB | Premium | None | Can be used |
-| /oracle/<SID>/mirrlogBA | Premium | None | Can be used |
-| /oracle/<SID>/sapdata1...n | Premium | Read-only | Recommended  |
-| /oracle/SID/sapdata(n+1)* | Premium | None | Can be used |
-| /oracle/<SID>/oraarch* | Premium | None | Not needed |
+| /oracle/\<SID>/origlogaA | Premium | None | Can be used  |
+| /oracle/\<SID>/origlogaB | Premium | None | Can be used |
+| /oracle/\<SID>/mirrlogAB | Premium | None | Can be used |
+| /oracle/\<SID>/mirrlogBA | Premium | None | Can be used |
+| /oracle/\<SID>/sapdata1...n | Premium | Read-only | Recommended  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | None | Can be used |
+| /oracle/\<SID>/oraarch* | Premium | None | Not needed |
 | Oracle Home, saptrace, ... | OS disk | Not needed |
 
 *Stripping: LVM stripe or MDADM using RAID0

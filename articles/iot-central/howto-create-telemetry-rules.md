@@ -3,7 +3,7 @@ title: Create and manage telemetry rules in your Azure IoT Central application |
 description: Azure IoT Central telemetry rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 11/02/2018
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -22,50 +22,42 @@ Devices can use telemetry measurement to send numerical data from the device. A 
 
 To create a telemetry rule, the device template must have at least one telemetry measurement defined. This example uses a refrigerated vending machine device that sends temperature and humidity telemetry. The rule monitors the temperature reported by the device and sends an email when it goes above 80 degrees.
 
-1. Using Device Explorer, navigate to the device template for which you are adding the rule for.
+1. Using the **Device Templates** page, navigate to the device template for which you are adding the rule for.
 
-1. Under the selected template, click on an existing device. 
+1. If you haven’t created any rules yet, you see the following screen:
 
-    >[!TIP] 
-    >If the template doesn't have any devices then add a new device first.
+    ![No rules yet](media/howto-create-telemetry-rules/rules_landing_page1.png)
 
-1. If you haven’t created any rules yet, you will see the following screen:
+1. On the **Rules** tab, select **+ New Rule** to see the types of rules you can create.
 
-    ![No rules yet](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
+1. Select **Telemetry** to create a rule to monitor device telemetry.
 
-1. On the **Rules** tab, click **Edit Template** and then **+ New Rule** to see the types of rules you can create.
-
-1. Click **Telemetry** to create a rule to monitor device telemetry.
-
-    ![Rule Types](media/howto-create-telemetry-rules/Rule_Types.png)
+    ![Rule Types](media/howto-create-telemetry-rules/rule_types1.png)
 
 1. Enter a name that helps you to identify the rule in this device template.
 
 1. To immediately enable the rule for all the devices created for this template, toggle **Enable rule for all devices for this template**.
 
-   ![Rule Detail](media/howto-create-telemetry-rules/Rule_Detail.png)
-    
+   ![Rule Detail](media/howto-create-telemetry-rules/rule_detail1.png)
+
     The rule automatically applies to all the devices under the device template.
-    
 
 ### Configure the rule conditions
 
 Condition defines the criteria that is monitored by the rule.
 
-1. Click **+** next to **Conditions** to add a new condition.
+1. Select **+** next to **Conditions** to add a new condition.
 
 1. Select the telemetry you want to monitor from the **Measurement** dropdown.
 
-   ![Condition](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
-
 1. Next, choose **Aggregation**, **Operator**, and provide a **Threshold** value.
-    - Aggregation is optional. Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 80 then the rule will trigger almost instantly when the device reports temperature > 80.
-    - If an aggregate function like Average, Min, Max, Count is chosen then, the user must provide an **Aggregate time window** over which the condition needs to be evaluated. For example, if you set the period as "5 minutes" and your rule looks for Average temperature above 80, the rule triggers when the average temperature is above 80 for at least 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is evaluated once every 5 minutes.
+   - Aggregation is optional. Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 80 then the rule triggers almost instantly when the device reports temperature > 80.
+   - If an aggregate function like Average, Min, Max, Count is chosen then, the user must provide an **Aggregate time window** over which the condition needs to be evaluated. For example, if you set the period as "5 minutes" and your rule looks for Average temperature above 80, the rule triggers when the average temperature is above 80 for at least 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is evaluated once every 5 minutes.
 
-    >[!NOTE]
-    >More than one telemetry measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
-    
-    
+     ![Condition](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
+
+     >[!NOTE]
+     >More than one telemetry measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
 
 ### Configure actions
 
@@ -73,18 +65,16 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. Choose the **+** next to **Actions**. Here you see the list of available actions.  
 
-    ![Add Action](media/howto-create-telemetry-rules/Add_Action.png)
+    ![Add Action](media/howto-create-telemetry-rules/add_action1.png)
 
 1. Choose the **Email** action, enter a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md) in Azure IoT Central.
 
-   ![Configure Action](media/howto-create-telemetry-rules/Configure_Action.png)
+   ![Configure Action](media/howto-create-telemetry-rules/configure_action1.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
-
-1. Choose **Done** to exit the **Edit Template** mode.
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 
@@ -117,4 +107,5 @@ Now that you have learned how to create rules in your Azure IoT Central applicat
 
 - [Add Microsoft Flow action in rules](howto-add-microsoft-flow.md)
 - [Add Webhook action in rules](howto-create-webhooks.md)
+- [Group multiple actions to run from one or more rules](howto-use-action-groups.md)
 - [How to manage your devices](howto-manage-devices.md)

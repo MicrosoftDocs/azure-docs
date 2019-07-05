@@ -1,9 +1,9 @@
 ---
-title: Create a secure LDAP certificate for an Azure AD Domain Services manage domain | Microsoft Docs
+title: Create a .PFX file with the secure LDAP (LDAPS) certificate for an Azure AD Domain Services domain
 description: Create a secure LDAP certificate for an Azure AD Domain Services manage domain
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -14,17 +14,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2017
-ms.author: ergreenl
-
+ms.date: 05/13/2019
+ms.author: iainfou
 ---
 # Create a .PFX file with the secure LDAP (LDAPS) certificate for a managed domain
 
 ## Before you begin
-Complete [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
+Complete [Task 1: obtain a certificate for secure LDAP](configure-ldaps.md).
 
 ## Task 2: Export the secure LDAP certificate to a .PFX file
+
 Before you start this task, get the secure LDAP certificate from a public certification authority or create a self-signed certificate.
 
 To export the LDAPS certificate to a .PFX file:
@@ -78,7 +78,7 @@ To export the LDAPS certificate to a .PFX file:
 
 14. On the **Security** page, select the **Password** option and type in a password to protect the .PFX file. Remember this password since it will be needed in the next task. Click **Next**.
 
-    ![Password for certificate export ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Password for certificate export](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
     > Make a note of this password. You need it while enabling secure LDAP for this managed domain in [Task 3 - enable secure LDAP for the managed domain](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
@@ -92,6 +92,6 @@ To export the LDAPS certificate to a .PFX file:
 
     ![Export certificate done](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
-
 ## Next step
+
 [Task 3: enable secure LDAP for the managed domain](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

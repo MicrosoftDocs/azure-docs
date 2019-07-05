@@ -2,9 +2,9 @@
 title: Troubleshoot errors with Azure Automation Runbooks
 description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 01/17/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -21,7 +21,7 @@ manager: carmonm
 You receive the following error when working with the `Add-AzureAccount` or `Connect-AzureRmAccount` cmdlets.
 :
 
-```
+```error
 Unknown_user_type: Unknown User Type
 ```
 
@@ -33,7 +33,7 @@ This error occurs if the credential asset name isn't valid. This error may also 
 
 To determine what's wrong, take the following steps:  
 
-1. Make sure that you don’t have any special characters. These characters include the **@** character in the Automation credential asset name that you're using to connect to Azure.  
+1. Make sure that you don’t have any special characters. These characters include the **\@** character in the Automation credential asset name that you're using to connect to Azure.  
 2. Check that you can use the username and password that stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:  
 
    ```powershell
@@ -76,7 +76,7 @@ To determine what's wrong, take the following steps:
 
 You receive the following error when working with the `Select-AzureSubscription` or `Select-AzureRmSubscription` cmdlets:
 
-```
+```error
 The subscription named <subscription name> cannot be found.
 ```
 
@@ -114,7 +114,7 @@ Take the following steps to determine if you've authenticated to Azure and have 
 
 You receive the following error when authenticating to Azure with your Azure username and password:
 
-```
+```error
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
 ```
 
@@ -128,13 +128,13 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 ## Common errors when working with runbooks
 
-###<a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
+### <a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
 
 #### Issue
 
-You receive the following error when invoking a childrunbook with the `-Wait` switch and the output stream contains and object:
+You receive the following error when invoking a child runbook with the `-Wait` switch and the output stream contains and object:
 
-```
+```error
 Object reference not set to an instance of an object
 ```
 
@@ -168,13 +168,39 @@ while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout
 $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
+### <a name="get-serializationsettings"></a>Scenario: You see an error in your job streams about the get_SerializationSettings Method
+
+#### Issue
+
+You see in your error in your job streams for a runbook with the following message:
+
+```error
+Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
+'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
+'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
+does not have an implementation.
+At line:16 char:1
++ Connect-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Connect-AzureRmAccount], TypeLoadException
+    + FullyQualifiedErrorId : System.TypeLoadException,Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### Cause
+
+This error is caused by using both AzureRM and Az cmdlets in a runbook. It occurs when you import `Az` before importing `AzureRM`.
+
+#### Resolution
+
+Az and AzureRM cmdlets can not be imported and used in the same runbook, to learn more about Az support in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
+
 ### <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
 #### Issue
 
 Your runbook fails with an error similar to the following example:
 
-```
+```error
 Exception: A task was canceled.
 ```
 
@@ -233,7 +259,7 @@ Start-AzureRmAutomationRunbook `
 
 Your runbook fails with an error similar to the following example:
 
-```
+```error
 The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
@@ -258,7 +284,7 @@ If it's a separate module, make sure the module in imported in your Automation A
 
 Your runbook fails with the error:
 
-```
+```error
 The job was tried three times but it failed
 ```
 
@@ -272,7 +298,9 @@ This error occurs due to one of the following issues:
 
 3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
-4. Your runbook attempted to call a an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
+4. Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
+
+5. Your runbook attempted to write too much exception data to the output stream.
 
 #### Resolution
 
@@ -286,13 +314,15 @@ Any of the following solutions fix the problem:
 
 * If you need to call a process (such as .exe or subprocess.call) in a runbook, you'll need to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
+* There is a 1MB limit on the job output stream. Ensure that you enclose calls to an executable or subprocess in a try/catch block. If they throw an exception, write the message from that exception into an Automation variable. This will prevent it from being written into the job output stream.
+
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 
 #### Issue
 
 Your runbook fails with the error:
 
-```
+```error
 Cannot bind parameter <ParameterName>.
 
 Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to type <ParameterType>.
@@ -344,7 +374,7 @@ If none of these solutions solve your problemReview the [job logs](../automation
 
 Your runbook job fails with the error:
 
-```
+```error
 The quota for the monthly total job run time has been reached for this subscription
 ```
 
@@ -367,7 +397,7 @@ If you want to use more than 500 minutes of processing per month, you need to ch
 
 Your runbook job fails with the error:
 
-```
+```error
 <cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program.
 ```
 
@@ -390,7 +420,7 @@ Any of the following solutions fix the problem:
 
 Your runbook shows in a **Stopped** state after running for 3 hours. You may also receive the error:
 
-```
+```error
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
@@ -438,7 +468,7 @@ If the webhook is disabled, you can re-enable the webhook through the Azure port
 
 You receive the following error message when running the `Get-AzureRmAutomationJobOutput` cmdlet:
 
-```
+```error
 429: The request rate is currently too large. Please try again
 ```
 
@@ -452,6 +482,29 @@ There are two ways to resolve this error:
 
 * Edit the runbook, and reduce the number of job streams that it emits​.
 * Reduce the number of streams to be retrieved when running the cmdlet. To follow this behavior, you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
+
+### <a name="cannot-invoke-method"></a>Scenario: PowerShell job fails with error: Cannot invoke method
+
+#### Issue
+
+You receive the following error message when starting a PowerShell Job in a runbook running in Azure:
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### Cause
+
+This error may occur when you start a PowerShell job in a runbook ran in Azure. This behavior may occur because runbooks ran in an Azure sandbox may not run in the [Full language mode](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+
+#### Resolution
+
+There are two ways to resolve this error:
+
+* Instead of using `Start-Job`, use `Start-AzureRmAutomationRunbook` to start a runbook
+* If your runbook has this error message, run it on a Hybrid Runbook Worker
+
+To learn more about this behavior and other behaviors of Azure Automation Runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
 
 ## Next steps
 

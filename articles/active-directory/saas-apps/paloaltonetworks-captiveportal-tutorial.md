@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Palo Alto Networks Captive Portal
 
@@ -77,7 +78,7 @@ To configure and test Azure AD single sign-on with Palo Alto Networks Captive Po
 2. **[Configure Palo Alto Networks Captive Portal single sign-on](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Configure the single sign-on settings in the application.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)**: Test Azure AD single sign-on with the user *Britta Simon*.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)**: Set up Britta Simon to use Azure AD single sign-on.
-5. **[Create a Palo Alto Networks Captive Portal test user](#create-palo-alto-networks-captive-portal-test-user)**: Create a counterpart user *Britta Simon* in Palo Alto Networks Captive Portal that's linked to the Azure AD user.
+5. **Create a Palo Alto Networks Captive Portal test user**: Create a counterpart user *Britta Simon* in Palo Alto Networks Captive Portal that's linked to the Azure AD user.
 6. **[Test single sign-on](#test-single-sign-on)**: Verify that the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -100,14 +101,14 @@ First, enable Azure AD single sign-on in the Azure portal:
 
     ![Palo Alto Networks Captive Portal Basic SAML Configuration pane](common/idp-intiated.png)
 
-    1. For **Identifier**, enter a URL that has the pattern
-    `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. For **Identifier**, enter a URL that has the pattern
+      `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. For **Reply URL**, enter a URL that has the pattern
-    `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. For **Reply URL**, enter a URL that has the pattern
+      `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-	> [!NOTE]
-	> Update the placeholder values in this step with the actual identifier and reply URLs. To get the actual values, contact [Palo Alto Networks Captive Portal Client support team](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > Update the placeholder values in this step with the actual identifier and reply URLs. To get the actual values, contact [Palo Alto Networks Captive Portal Client support team](https://support.paloaltonetworks.com/support).
 
 5. In the **SAML Signing Certificate** section, next to **Federation Metadata XML**, select **Download**. Save the downloaded file on your computer.
 
@@ -155,7 +156,7 @@ Next, create a test user named *Britta Simon* in the Azure portal:
 
     1. For **Name**, enter **BrittaSimon**.
   
-    2. For **User name**, enter **BrittaSimon@\<your_company_domain\>**. For example, **BrittaSimon@contoso.com**.
+    2. For **User name**, enter **BrittaSimon\@\<your_company_domain\>**. For example, **BrittaSimon\@contoso.com**.
 
     3. For **Password**, enter a password. We recommend that you keep a record of the password you enter. You can select the **Show Password** check box to display the password.
 
@@ -204,5 +205,5 @@ To learn more, see these articles:
 
 - [Tutorials about integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Conditional access in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Conditional Access in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

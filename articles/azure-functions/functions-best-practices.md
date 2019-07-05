@@ -83,7 +83,7 @@ Functions within a function app share resources. For example, memory is shared. 
 
 Be careful what you load in your production function apps. Memory is averaged across each function in the app.
 
-If you have a shared assembly referenced in multiple .Net functions, put it in a common shared folder. Reference the assembly with a statement similar to the following example if using C# Scripts (.csx): 
+If you have a shared assembly referenced in multiple .NET functions, put it in a common shared folder. Reference the assembly with a statement similar to the following example if using C# Scripts (.csx): 
 
 	#r "..\Shared\MyAssembly.dll". 
 

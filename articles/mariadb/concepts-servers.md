@@ -30,6 +30,7 @@ Within an Azure Database for MariaDB server, you can create one or multiple data
 ## How do I secure an Azure Database for MariaDB server?
 
 The following elements help ensure safe access to your database.
+
 |||
 | :--| :--|
 | **Authentication and authorization** | Azure Database for MariaDB server supports native MySQL authentication. You can connect and authenticate to a server with the server's admin login. |

@@ -1,5 +1,5 @@
 ---
-title: Password-less Azure AD sign-in with the Microsoft Authenticator app (preview)
+title: Password-less sign-in with the Microsoft Authenticator app (preview) - Azure Active Directory
 description: Sign-in to Azure AD using the Microsoft Authenticator app without using your password (public preview)
 
 services: active-directory
@@ -15,12 +15,13 @@ ms.reviewer: librown
 
 ms.custom: seo-update-azuread-jan
 
+ms.collection: M365-identity-device-management
 ---
 # Password-less phone sign-in with the Microsoft Authenticator app (public preview)
 
 The Microsoft Authenticator app can be used to sign in to any Azure AD account without using a password. Similar to the technology of [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), the Microsoft Authenticator uses key-based authentication to enable a user credential that is tied to a device and uses a biometric or PIN.
 
-![Example of a browser sign-in asking for user to approve the sign-in attempt in their Microsoft Authenticator app](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![Example of a browser sign-in asking for user to approve the sign-in](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 Instead of seeing a prompt for a password after entering a username, a person who has enabled phone sign-in in the Microsoft Authenticator app will see a message telling them to tap a number in their app. In the app, the user must match the number, choose Approve, then provide their PIN or biometric, then the authentication will complete.
 
@@ -37,17 +38,20 @@ For public preview, an admin must first add a policy via powershell to allow use
 ### Steps to enable
 
 1. Ensure you have the latest version of the Public Preview release of the Azure Active Directory V2 PowerShell Module. You may wish to uninstall and reinstall to confirm this by executing the following commands:
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. Authenticate to the Azure AD tenant to use the Azure AD V2 PowerShell module. The account used must either be a Security Administrator or Global Administrator.
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. Create the Authenticator Sign In policy:
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```
@@ -82,6 +86,6 @@ One of the prerequisites to create this new, strong credential, is that the devi
 
 ## Next steps
 
-[Learn about device registration](../devices/overview.md#getting-devices-under-the-control-of-azure-ad)
+[Learn about device registration](../devices/overview.md#getting-devices-in-azure-ad)
 
 [Learn about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

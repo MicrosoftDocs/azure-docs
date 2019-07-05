@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn how utterances can be changed before predictions in Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -31,5 +31,5 @@ See [Key limits](luis-boundaries.md#key-limits) for information.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use speech to text](luis-tutorial-speech-to-intent.md)
+> [Extracting data](luis-concept-data-extraction.md)
 

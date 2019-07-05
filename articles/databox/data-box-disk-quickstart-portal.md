@@ -7,17 +7,39 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
+::: zone target="docs"
+
 # Quickstart: Deploy Azure Data Box Disk using the Azure portal
 
-This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include how to quickly create an order, receive disks, unpack, connect, and copy data to disks so that it uploads to Azure. 
+::: zone-end
+
+::: zone target="chromeless"
+
+# Get started with Azure Data Box Disk using Azure portal
+
+::: zone-end
+
+::: zone target="docs"
+
+This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include how to quickly create an order, receive disks, unpack, connect, and copy data to disks so that it uploads to Azure.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md). 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+::: zone-end
+
+::: zone target="chromeless"
+
+This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include review prerequisites, unlock the disks, connect and copy data to disks so that uploads to Azure.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## Prerequisites
 
@@ -27,7 +49,24 @@ Before you begin:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## Prerequisites
+
+- You have placed your order for Data Box Disk using the [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md).
+- You have received your disks and the job status in the portal is updated to **Delivered**.
+- You have a client computer available from which you can copy the data. Your client computer must:
+
+    - Run a [supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Have [other required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it is a Windows client.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## Order
 
@@ -36,9 +75,9 @@ This step takes roughly 5 minutes.
 1. Create a new Azure Data Box resource in the Azure portal. 
 2. Select a subscription enabled for this service and choose transfer type as **Import**. Provide the **Source country** where the data resides and **Azure destination region** for the data transfer.
 3. Select **Data Box Disk**. The maximum solution capacity is 35 TB and you can create multiple disk orders for larger data sizes.  
-4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order. 
+4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
-Once the order is created, the disks are prepared for shipment. 
+Once the order is created, the disks are prepared for shipment.
 
 ## Unpack
 
@@ -47,7 +86,7 @@ This step takes roughly 5 minutes.
 The Data Box Disk are mailed in a UPS Express Box. Open the box and check that the box has:
 
 - 1 to 5 bubble-wrapped USB disks.
-- A connecting cable per disk. 
+- A connecting cable per disk.
 - A shipping label for return shipment.
 
 ## Connect and unlock
@@ -64,18 +103,20 @@ This step takes roughly 5 minutes.
 
 ## Copy data and validate
 
-The time to complete this operation depends upon your data size. 
+The time to complete this operation depends upon your data size.
 
-1. The drive contains *PageBlob*, *BlockBlob*, *DataBoxDiskImport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder.
+1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk*, and *DataBoxDiskImport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*. Copy the VHDs that you want to upload as managed disks to a folder under *ManagedDisk*.
 
-    A container is created in the Azure storage account for each sub-folder under *BlockBlob* and *PageBlob* folder. All files under *BlockBlob* and *PageBlob* folders are copied into a default container `$root` under the Azure Storage account.
+    A container is created in the Azure storage account for each sub-folder under *BlockBlob* and *PageBlob* folder. A file share is created for a sub-folder under *AzureFile*.
 
-    > [!NOTE] 
-    > - All the containers and blobs should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
-    > - Ensure that files do not exceed ~4.75 TiB for block blobs and ~8 TiB for page blobs.
+    All files under *BlockBlob* and *PageBlob* folders are copied into a default container `$root` under the Azure Storage account. Copy files into a folder within *AzureFile*. Any files copied directly to the *AzureFile* folder fail and are uploaded as block blobs.
 
-2. (Optional) After the copy is complete, we recommend that you run the `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder to generate checksums for validation. Depending upon the data size, this step may take time. 
-3. Unplug the drive. 
+    > [!NOTE]
+    > - All the containers, blobs, and files should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
+    > - Ensure that files do not exceed ~4.75 TiB for block blobs, ~8 TiB for page blobs, and ~1 TiB for Azure Files.
+
+2. **(Optional but recommended)** After the copy is complete, we strongly recommend that at a minimum you run the `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder and select option 1 to validate the files. We also recommend that time permitting, you use option 2 to also generate checksums for validation (may take time depending upon the data size). These steps minimize the chances of any failures when uploading the data to Azure.
+3. Safely remove the drive.
 
 ## Ship to Azure
 
@@ -90,8 +131,8 @@ Data Box Disk service sends an email notification and updates the order status o
 
 The time to complete this operation depends upon your data size.
 
-1. When the Data Box disk is connected to the Azure datacenter network, the data upload to Azure starts automatically. 
-2. Azure Data Box service notifies you that the data copy is complete via the Azure portal. 
+1. When the Data Box disk is connected to the Azure datacenter network, the data upload to Azure starts automatically.
+2. Azure Data Box service notifies you that the data copy is complete via the Azure portal.
     
     1. Check error logs for any failures and take appropriate actions.
     2. Verify that your data is in the storage account(s) before you delete it from the source.
@@ -102,17 +143,19 @@ This step takes 2-3 minutes to complete.
 
 To clean up, you can cancel the Data Box order and then delete it.
 
-- You can cancel the Data Box order in the Azure portal before the order is processed. Once the order is processed, the order cannot be canceled. The order progresses until it reaches the completed stage. 
+- You can cancel the Data Box order in the Azure portal before the order is processed. Once the order is processed, the order cannot be canceled. The order progresses until it reaches the completed stage.
 
     To cancel the order, go to **Overview** and click **Cancel** from the command bar.  
 
-- You can delete the order once the status shows as **Completed** or **Canceled** in the Azure portal. 
+- You can delete the order once the status shows as **Completed** or **Canceled** in the Azure portal.
 
     To delete the order, go to **Overview** and click **Delete** from the command bar.
 
 ## Next steps
 
-In this quickstart, you’ve deployed Azure Data Box Disk to help import your data into Azure. To learn more about Azure Data Box Disk management, advance to the following tutorial: 
+In this quickstart, you’ve deployed Azure Data Box Disk to help import your data into Azure. To learn more about Azure Data Box Disk management, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box Disk](data-box-portal-ui-admin.md)
+
+::: zone-end

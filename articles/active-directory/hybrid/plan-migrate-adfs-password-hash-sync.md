@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrate from federation to password hash synchronization for Azure AD | Microsoft Docs'
+title: 'Azure AD Connect: Migrate from federation to PHS for Azure AD | Microsoft Docs'
 description: This article has information about moving your hybrid identity environment from federation to password hash synchronization.
 services: active-directory
 author: billmath
@@ -8,9 +8,10 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Migrate from federation to password hash synchronization for Azure Active Directory
@@ -108,7 +109,7 @@ For more information, see these articles:
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> If **SupportsMfa** is set to **True**, you're using an on-premises multi-factor authentication solution to inject a second-factor challenge into the user authentication flow. This setup no longer works for Azure AD authentication scenarios. 
+> If **SupportsMfa** is set to **True**, you're using an on-premises multi-factor authentication solution to inject a second-factor challenge into the user authentication flow. This setup no longer works for Azure AD authentication scenarios after converting this domain from federated to managed authentication. After you disable federation, you sever the relationship to your on-premises federation and this includes on-premises MFA adapters. 
 >
 > Instead, use the Azure Multi-Factor Authentication cloud-based service to perform the same function. Carefully evaluate your multi-factor authentication requirements before you continue. Before you convert your domains, make sure that you understand how to use Azure Multi-Factor Authentication, the licensing implications, and the user registration process.
 
@@ -134,9 +135,9 @@ Before you convert from federated identity to managed identity, look closely at 
 |-|-|
 | You plan to keep using AD FS with other applications (other than Azure AD and Office 365). | After you convert your domains, you'll use both AD FS and Azure AD. Consider the user experience. In some scenarios, users might be required to authenticate twice: once to Azure AD (where a user gets SSO access to other applications, like Office 365), and again for any applications that are still bound to AD FS as a relying party trust. |
 | Your AD FS instance is heavily customized and relies on specific customization settings in the onload.js file (for example, if you changed the sign-in experience so that users use only a **SamAccountName** format for their username instead of a User Principal Name (UPN), or your organization has heavily branded the sign-in experience). The onload.js file can't be duplicated in Azure AD. | Before you continue, you must verify that Azure AD can meet your current customization requirements. For more information and for guidance, see the sections on AD FS branding and AD FS customization.|
-| You use AD FS to block earlier versions of authentication clients.| Consider replacing AD FS controls that block earlier versions of authentication clients by using a combination of [conditional access controls](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) and [Exchange Online Client Access Rules](http://aka.ms/EXOCAR). |
+| You use AD FS to block earlier versions of authentication clients.| Consider replacing AD FS controls that block earlier versions of authentication clients by using a combination of [Conditional Access controls](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) and [Exchange Online Client Access Rules](https://aka.ms/EXOCAR). |
 | You require users to perform multi-factor authentication against an on-premises multi-factor authentication server solution when users authenticate to AD FS.| In a managed identity domain, you can't inject a multi-factor authentication challenge via the on-premises multi-factor authentication solution into the authentication flow. However, you can use the Azure Multi-Factor Authentication service for multi-factor authentication after the domain is converted.<br /><br /> If your users don't currently use Azure Multi-Factor Authentication, a onetime user registration step is required. You must prepare for and communicate the planned registration to your users. |
-| You currently use access control policies (AuthZ rules) in AD FS to control access to Office 365.| Consider replacing the policies with the equivalent Azure AD [conditional access policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) and [Exchange Online Client Access Rules](http://aka.ms/EXOCAR).|
+| You currently use access control policies (AuthZ rules) in AD FS to control access to Office 365.| Consider replacing the policies with the equivalent Azure AD [Conditional Access policies](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) and [Exchange Online Client Access Rules](https://aka.ms/EXOCAR).|
 
 ### Common AD FS customizations
 
@@ -148,13 +149,13 @@ AD FS issues the **InsideCorporateNetwork** claim if the user who is authenticat
 
 The **InsideCorporateNetwork** claim isn't available after your domains are converted to password hash synchronization. You can use [named locations in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) to replace this functionality.
 
-After you configure named locations, you must update all conditional access policies that were configured to either include or exclude the network **All trusted locations** or **MFA Trusted IPs** values to reflect the new named locations.
+After you configure named locations, you must update all Conditional Access policies that were configured to either include or exclude the network **All trusted locations** or **MFA Trusted IPs** values to reflect the new named locations.
 
-For more information about the **Location** condition in conditional access, see [Active Directory conditional access locations](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+For more information about the **Location** condition in Conditional Access, see [Active Directory Conditional Access locations](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 #### Hybrid Azure AD-joined devices
 
-When you join a device to Azure AD, you can create conditional access rules that enforce that devices meet your access standards for security and compliance. Also, users can sign in to a device by using an organizational work or school account instead of a personal account. When you use hybrid Azure AD-joined devices, you can join your Active Directory domain-joined devices to Azure AD. Your federated environment might have been set up to use this feature.
+When you join a device to Azure AD, you can create Conditional Access rules that enforce that devices meet your access standards for security and compliance. Also, users can sign in to a device by using an organizational work or school account instead of a personal account. When you use hybrid Azure AD-joined devices, you can join your Active Directory domain-joined devices to Azure AD. Your federated environment might have been set up to use this feature.
 
 To ensure that hybrid join continues to work for any devices that are joined to the domain after your domains are converted to password hash synchronization, for Windows 10 clients, you must use Azure AD Connect to sync Active Directory computer accounts to Azure AD. 
 
@@ -314,7 +315,7 @@ First, change the sign-in method:
    * **Seamless single sign-on** is set to **Enabled**.
    * **Password Sync** is set to **Enabled**.<br /> 
 
-   ![Screenshot that shows the settings in the User sign-in section ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Screenshot that shows the settings in the User sign-in section](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Skip to [Testing and next steps](#testing-and-next-steps).
 
@@ -334,7 +335,7 @@ Use this option if you didn't initially configure your federated domains by usin
    ![Screenshot that shows the Do not configure option on the User sign-in page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
    After you enable password hash synchronization:
-   ![Screenshot that shows new options on the User sign-in page ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   ![Screenshot that shows new options on the User sign-in page](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > Starting with Azure AD Connect version 1.1.880.0, the **Seamless single sign-on** check box is selected by default.
@@ -397,7 +398,7 @@ When your tenant used federated identity, users were redirected from the Azure A
 To test password hash synchronization:
 
 1. Open Internet Explorer in InPrivate mode so that seamless SSO doesn't sign you in automatically.
-2. Go to the Office 365 sign-in page ([http://portal.office.com](http://portal.office.com/)).
+2. Go to the Office 365 sign-in page ([https://portal.office.com](https://portal.office.com/)).
 3. Enter a user UPN, and then select **Next**. Make sure that you enter the UPN of a hybrid user who was synced from your on-premises Active Directory instance, and who previously used federated authentication. A page on which you enter the username and password appears:
 
    ![Screenshot that shows the sign-in page in which you enter a username](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image18.png)

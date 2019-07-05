@@ -1,5 +1,5 @@
 ---
-title: Manage after migration - Azure SQL Database | Microsoft Docs
+title: Manage single and pooled databases after migration - Azure SQL Database | Microsoft Docs
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -9,24 +9,47 @@ ms.devlang:
 ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/13/2019
 ---
-# New DBA in the cloud – Managing your database in Azure SQL Database
+# New DBA in the cloud – Managing your single and pooled databases in Azure SQL Database
 
-Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
+Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database with single and pooled databases to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
 
-- Are evaluating migration of their application(s) to Azure SQL DB – Modernizing your application(s).
+- Are evaluating migration of their application(s) to Azure SQL Database – Modernizing your application(s).
 - Are In the process of migrating their application(s) – On-going migration scenario.
 - Have recently completed the migration to Azure SQL DB – New DBA in the cloud.
 
-This article discusses some of the core characteristics of Azure SQL DB as a platform that you can readily leverage. They are the following:
+This article discusses some of the core characteristics of Azure SQL Database as a platform that you can readily leverage when working with single databases and pooled databases in elastic pools. They are the following:
 
+- Monitor database using the Azure portal
 - Business continuity and disaster recovery (BCDR)
 - Security and compliance
 - Intelligent database monitoring and maintenance
 - Data movement
+
+> [!NOTE]
+> This article applies to the following deployment options in Azure SQL Database: single databases and elastic pools. It does not apply to the managed instance deployment option in SQL Database.
+
+## Monitor databases using the Azure portal
+
+In the [Azure portal](https://portal.azure.com/), you can monitor an individual databases utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
+
+- CPU percentage
+- DTU percentage
+- Data IO percentage
+- Database size percentage
+
+Once you've added these metrics, you can continue to view them in the **Monitoring** chart with more information on the **Metric** window. All four metrics show the average utilization percentage relative to the **DTU** of your database. See the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) articles for more information about service tiers.  
+
+![Service tier monitoring of database performance.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+You can also configure alerts on the performance metrics. Click the **Add alert** button in the **Metric** window. Follow the wizard to configure your alert. You have the option to alert if the metrics exceed a certain threshold or if the metric falls below a certain threshold.
+
+For example, if you expect the workload on your database to grow, you can choose to configure an email alert whenever your database reaches 80% on any of the performance metrics. You can use this as an early warning to figure out when you might have to switch to the next highest compute size.
+
+The performance metrics can also help you determine if you are able to downgrade to a lower compute size. Assume you are using a Standard S2 database and all performance metrics show that the database on average does not use more than 10% at any given time. It is likely that the database will work well in Standard S1. However, be aware of workloads that spike or fluctuate before making the decision to move to a lower compute size.
 
 ## Business continuity and disaster recovery (BCDR)
 
@@ -118,7 +141,7 @@ Another option is to provision [reserved IPs](../virtual-network/virtual-network
 
 ### What port do I connect to SQL Database on
 
-Port 1433. SQL Database communicates over this port. To connect from within a corporate network, you have to add an outbound rule in the firewall settings of your organization. As a guideline, avoid exposing port 1433 outside the Azure boundary. You can run SSMS in Azure using [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). This does not require you to open outgoing connections to port 1433, the IP is static, so the DB can be open to only the RemoteApp and it supports Multi Factor Authentication (MFA).
+Port 1433. SQL Database communicates over this port. To connect from within a corporate network, you have to add an outbound rule in the firewall settings of your organization. As a guideline, avoid exposing port 1433 outside the Azure boundary.
 
 ### How can I monitor and regulate activity on my server and database in SQL Database
 
@@ -151,7 +174,7 @@ For protecting your sensitive data in-flight and at rest, SQL Database provides 
 
 ### How can I limit access to sensitive data in my database
 
-Every application has a certain bit of sensitive data in the database that needs to be protected from being visible to everyone. Certain personnel within the organization need to view this data, however others shouldn’t be able to view this data. One example is employee wages. A manager would need access to the wage information of his/her direct reports however, the individual team members shouldn’t have access to the wage information of their peers. Another scenario is data developers who might be interacting with sensitive data during development stages or testing, for example, SSNs of customers. This information again doesn’t need to be exposed to the developer. In such cases, your sensitive data either needs to be masked or not be exposed at all. SQL Database offers two such approaches to prevent unauthorized users from being able to view sensitive data:
+Every application has a certain bit of sensitive data in the database that needs to be protected from being visible to everyone. Certain personnel within the organization need to view this data, however others shouldn’t be able to view this data. One example is employee wages. A manager would need access to the wage information for their direct reports however, the individual team members shouldn’t have access to the wage information of their peers. Another scenario is data developers who might be interacting with sensitive data during development stages or testing, for example, SSNs of customers. This information again doesn’t need to be exposed to the developer. In such cases, your sensitive data either needs to be masked or not be exposed at all. SQL Database offers two such approaches to prevent unauthorized users from being able to view sensitive data:
 
 [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) is a data masking feature that enables you to limit sensitive data exposure by masking it to non-privileged users on the application layer. You define a masking rule that can create a masking pattern (for example, to only show last four digits of a national ID SSN: XXX-XX-0000 and mark most of it as Xs) and identify which users are to be excluded from the masking rule. The masking happens on-the-fly and there are various masking functions available for various data categories. Dynamic data masking allows you to automatically detect sensitive data in your database and apply masking to it.
 
@@ -198,7 +221,7 @@ Express Route also allows you to burst up to 2x the bandwidth limit you purchase
 
 ### Is SQL Database compliant with any regulatory requirements, and how does that help with my own organization's compliance
 
-SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met, visit the [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
+SQL Database is compliant with a range of regulatory compliances. To view the latest set of compliances that have been met by SQL Database, visit the [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) and drill down on the compliances that are important to your organization to see if SQL Database is included under the compliant Azure services. It is important to note that although SQL Database may be certified as a compliant service, it aids in the compliance of your organization’s service but does not automatically guarantee it.
 
 ## Intelligent database monitoring and maintenance after migration
 
@@ -252,9 +275,9 @@ You can query the [sys.dm_db_resource_stats](/sql/relational-databases/system-dy
 
 ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### Azure SQL Analytics (Preview) in Log Analytics
+#### Azure SQL Analytics (Preview) in Azure Monitor logs
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) allows you to collect and visualize key Azure SQL Azure performance metrics, supporting up to 150,000 SQL Databases and 5,000 SQL Elastic pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
+[Azure Monitor logs](../azure-monitor/insights/azure-sql.md) allows you to collect and visualize key Azure SQL Azure performance metrics, supporting up to 150,000 SQL Databases and 5,000 SQL Elastic pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
 
 ### I am noticing performance issues: How does my SQL Database troubleshooting methodology differ from SQL Server
 
@@ -293,18 +316,18 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 
 - **Export**: You can export your Azure SQL database as a BACPAC file from the Azure portal
 
-   ![database export](./media/sql-database-export/database-export.png)
+   ![database export](./media/sql-database-export/database-export1.png)
 
 - **Import**: You can also import data as a BACPAC file into the database using the Azure portal.
 
-   ![database import](./media/sql-database-import/import.png)
+   ![database import](./media/sql-database-import/import1.png)
 
 ### How do I synchronize data between SQL Database and SQL Server
 
 You have several ways to achieve this:
 
 - **[Data Sync](sql-database-sync-data.md)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
-- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL DB with the on-premises being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL DB with the on-premises being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## Next steps
 

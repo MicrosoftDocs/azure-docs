@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 05/29/2019
 ms.author: apimpm
 ---
 
@@ -24,8 +24,6 @@ This guide shows you how to manage protocols and ciphers configuration for an Az
 
 ![Manage protocols and ciphers in APIM](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
 ## Prerequisites
 
 To follow the steps in this article, you must have:
@@ -35,11 +33,9 @@ To follow the steps in this article, you must have:
 ## How to manage TLS protocols and 3DES cipher
 
 1. Navigate to your **API Management instance** in the Azure portal.
-2. Select **SSL** from the menu.  
-    ![Manage protocols and ciphers in APIM - menu](./media/api-management-howto-manage-protocols-ciphers/api-management-menu.png)
+2. Select **Protocol settings** from the menu.  
 3. Enable or disable desired protocols or ciphers.
 4. Click **Save**. Changes will be applied within an hour.  
-    ![Manage protocols and ciphers in APIM - save](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers-save.png)
 
 ## Next steps
 

@@ -13,6 +13,8 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
 ms.custom: "it-pro, seodec18"
+ms.custom: fasttrack-edit
+ms.collection: M365-identity-device-management
 ---
 
 # Add branding to your organization's Azure Active Directory sign-in page
@@ -24,7 +26,7 @@ Use your organization's logo and custom color schemes to provide a consistent lo
 ## Customize your Azure AD sign-in page
 You can customize your Azure AD sign-in pages, which appear when users sign in to your organization's tenant-specific apps, such as [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), or when passing a domain variable, such as [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Your custom branding won't immediately appear when your users go to sites such as, www.office.com. Instead, the user has to sign-in before your customized branding appears.
+Your custom branding won't immediately appear when your users go to sites such as, www\.office.com. Instead, the user has to sign-in before your customized branding appears.
 
 > [!NOTE]
 > All branding elements are optional. For example, if you specify a banner logo with no background image, the sign-in page will show your logo with a default background image from the destination site (for example, Office 365).<br><br>Additionally, sign-in page branding doesn’t carry over to personal Microsoft accounts. If your users or business guests sign in using a personal Microsoft account, the sign-in page won't reflect the branding of your organization.
@@ -53,7 +55,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
         - **Banner logo.** Select a .png or .jpg version of your logo to appear on the sign-in page after the user enters a username and on the **My Apps** portal page.
             
-            The image can't be taller than 36 pixels or wider than 245 pixels. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
+            The image can't be taller than 60 pixels or wider than 280 pixels. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
 
         - **Username hint.** Type the hint text that appears to users if they forget their username. This text must be Unicode, without links or code, and can't exceed 64 characters. If guests sign in to your app, we suggest not adding this hint.
 
@@ -65,7 +67,7 @@ Your custom branding won't immediately appear when your users go to sites such a
 
         - **Sign-in page background color.** Specify the hexadecimal color (for example, white is #FFFFFF) that will appear in place of your background image in low-bandwidth connection situations. We recommend using the primary color of your banner logo or your organization color.
 
-        - **Square logo image.** Select a .png (preferred) or .jpg image of your organization’s logo to appear to users during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication and appears only on tenants that are using [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences.
+        - **Square logo image.** Select a .png (preferred) or .jpg image of your organization’s logo to appear to users during the setup process for new Windows 10 Enterprise devices. This image is only used for Windows authentication and appears only on tenants that are using [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) for deployment or for password entry pages in other Windows 10 experiences. In some cases it may also appear in the consent dialog.
         
             The image can’t be larger than 240x240 pixels in size and must have a file size of less than 10 KB. We recommend using a transparent image since the background might not match your logo background. We also recommend not adding padding around the image or it might make your logo look small.
     
@@ -98,7 +100,7 @@ After you've created your custom branding, you can go back and change anything y
 
 4. Select **Save**.
 
-  It can take up to an hour for any changes you made to the sign-in page branding to appear.
+   It can take up to an hour for any changes you made to the sign-in page branding to appear.
 
 ## Add language-specific company branding to your directory
 You can't change your original configuration's language from your default language. However, if you need a configuration in a different language, you can create a new configuration.

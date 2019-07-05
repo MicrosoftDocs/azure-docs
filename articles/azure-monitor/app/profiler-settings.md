@@ -3,15 +3,15 @@ title: Use the Azure Application Insights Profiler settings pane | Microsoft Doc
 description: See Profiler status and start profiling sessions
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 
 # Configure Application Insights Profiler
@@ -34,6 +34,9 @@ The **Configure Application Insights Profiler** pane contains four features:
 Depending on how your Azure App Service Environment is configured, the call to check on the agent status might be blocked. The pane might display a message that the agent isn't running even when it is running. To make sure that it is, check the webjob on your application. If all the app settings values are correct and the Application Insights site extension is installed on your application, Profiler is running. If your application is receiving enough traffic, recent profiling sessions should be displayed in a list.
 
 ## <a id="profileondemand"></a> Manually trigger Profiler
+
+### Minimum Requirements 
+For a user to manually trigger a profiler session they require at minimum "write" access on their role for the Application Insights component. In most cases you get this access automatically and no additional work is needed. If you are having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 You can trigger Profiler manually with a single click. Suppose you're running a web performance test. You'll need traces to help you understand how your web app is performing under load. Having control over when traces are captured is crucial, because you know when the load test will be running. But the random sampling interval might miss it.
 
@@ -106,11 +109,11 @@ If any of the preceding values aren't set, install the latest site extension by 
     ![Change and save app insights][change-and-save-appinsights]
 
 1. Go back to **App Settings** pane for the App Service to ensure that the following values are set:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET 
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+   * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
+   * **APPINSIGHTS_PORTALINFO**: ASP.NET 
+   * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-    ![App settings for Profiler][app-settings-for-profiler]
+     ![App settings for Profiler][app-settings-for-profiler]
 
 1. Optionally, select **Extensions**, and then check the extension version and determine whether an update is available.
 

@@ -1,249 +1,262 @@
 ---
-title: Copy or move data to Azure Storage with AzCopy v10 (Preview) | Microsoft Docs
-description: Use the AzCopy v10 (Preview) utility to move or copy data to or from blob, data lake, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
+title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
+description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
 services: storage
-author: artemuwka
+author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 10/09/2018
-ms.author: artemuwka
+ms.date: 05/14/2019
+ms.author: normesta
 ms.subservice: common
 ---
-# Transfer data with the AzCopy v10 (Preview)
 
-AzCopy v10 (Preview) is the next-generation command-line utility for copying data to/from Microsoft Azure Blob and File storage, which offers a redesigned command-line interface and new architecture for high-performance reliable data transfers. Using AzCopy you can copy data between a file system and a storage account, or between storage accounts.
+# Get started with AzCopy
 
-## What's new in AzCopy v10
+AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you download AzCopy, connect to your storage account, and then transfer files.
 
-- Synchronize a file system to Azure Blob or vice versa. Use `azcopy sync <source> <destination>`. Ideal for incremental copy scenarios.
-- Supports Azure Data Lake Storage Gen2 APIs. Use `myaccount.dfs.core.windows.net` as a URI to call the ADLS Gen2 APIs.
-- Supports copying an entire account (Blob service only) to another account.
-- Account to account copy is now using the new [Put from URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) APIs. No data transfer to the client is needed which makes the transfer faster!
-- List/Remove files and blobs in a given path.
-- Supports wildcard patterns in a path as well as --include and --exclude flags.
-- Improved resiliency: every AzCopy instance will create a job order and a related log file. You can view and restart previous jobs and resume failed jobs. AzCopy will also automatically retry a transfer after a failure.
-- General performance improvements.
+> [!NOTE]
+> AzCopy **V10** is the currently supported version of AzCopy.
+>
+> If you need to use AzCopy **v8.1**, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
-## Download and install AzCopy
+<a id="download-and-install-azcopy" />
 
-### Latest preview version (v10)
+## Download AzCopy
 
-Download the latest preview version of AzCopy:
-- [Windows](https://aka.ms/downloadazcopy-v10-windows)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac)
+First, download the AzCopy V10 executable file to any directory on your computer. 
 
-### Latest production version (v8.1)
+- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-Download the [latest production version of AzCopy for Windows](https://aka.ms/downloadazcopy).
+> [!NOTE]
+> If you want to copy data to and from your [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
 
-### AzCopy supporting Table storage service (v7.3)
+## Run AzCopy
 
-Download the [AzCopy v7.3 supporting copying data to/from Microsoft Azure Table storage service](https://aka.ms/downloadazcopynet).
+For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system.
 
-## Post-installation Steps
+If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in Windows PowerShell command prompts.
 
-AzCopy v10 does not require an installation. Open a preferred command-line application and navigate to the folder where the `azcopy.exe` executable is located. If desired, you can add the AzCopy folder location to your system path.
+To see a list of commands, type `azcopy -h` and then press the ENTER key.
 
-## Authentication Options
+To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
 
-AzCopy v10 allows you to use the following options when authenticating with Azure Storage:
-- **Azure Active Directory [Supported on Blob and ADLS Gen2]**. Use ```.\azcopy login``` to sign in using Azure Active Directory.  The user should have ["Storage Blob Data Contributor" role assigned](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) to write to Blob storage using Azure Active Directory authentication.
-- **SAS tokens [Supported on Blob and File service]**. Append the SAS token to the blob path on the command line to use it. You can generate SAS token using Azure Portal, [Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), or other tools of your choice. For more information, see [examples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
 
-## Getting started
+> [!NOTE] 
+> As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
 
-AzCopy v10 has a simple self-documented syntax. The general syntax looks as follows when logged into the Azure Active Directory:
+## Choose how you'll provide authorization credentials
+
+You can provide authorization credentials by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token.
+
+Use this table as a guide:
+
+| Storage type | Currently supported method of authorization |
+|--|--|
+|**Blob storage** | Azure AD & SAS |
+|**Blob storage (hierarchial namespace)** | Azure AD & SAS |
+|**File storage** | SAS only |
+
+### Option 1: Use Azure AD
+
+By using Azure AD, you can provide credentials once instead of having to append a SAS token to each command.  
+
+The level of authorization that you need is based on whether you plan to upload files or just download them.
+
+If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity or service principal. 
+
+> [!NOTE]
+> User identities and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
+
+If you want to upload files, then verify that one of these roles has been assigned to your security principal:
+
+- [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
+
+These roles can be assigned to your identity in any of these scopes:
+
+- Container (file system)
+- Storage account
+- Resource group
+- Subscription
+
+To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+> [!NOTE] 
+> Keep in mind that RBAC role assignments may take up to five minutes to propagate.
+
+You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
+
+To learn more, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+
+#### Authenticate a user identity
+
+After you've verified that your user identity has been given the necessary authorization level, open a command prompt, type the following command, and then press the ENTER key.
 
 ```azcopy
-.\azcopy <command> <arguments> --<flag-name>=<flag-value>
-# Examples if you have logged into the Azure Active Directory:
-.\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile"
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
-
-# Examples if you are using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
+azcopy login
 ```
 
-Here's how you can get a list of available commands:
+If you belong to more than one organization, include the tenant ID of the organization to which the storage account belongs.
 
 ```azcopy
-.\azcopy -help
-# Using the alias instead
-.\azcopy -h
+azcopy login --tenant-id=<tenant-id>
 ```
 
-To see the help page and examples for a specific command run the command below:
+Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
+
+This command returns an authentication code and the URL of a website. Open the website, provide the code, and then choose the **Next** button.
+
+![Create a container](media/storage-use-azcopy-v10/azcopy-login.png)
+
+A sign-in window will appear. In that window, sign into your Azure account by using your Azure account credentials. After you've successfully signed in, you can close the browser window and begin using AzCopy.
+
+<a id="service-principal" />
+
+#### Authenticate a service principal
+
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction. 
+
+Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
+
+You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration. 
+
+To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+To learn more about service principals in general, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+
+##### Using a client secret
+
+Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration. 
+
+> [!NOTE]
+> Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
+
+This example shows how you could do this in PowerShell.
 
 ```azcopy
-.\azcopy <cmd> -help
-# Example:
-.\azcopy cp -h
-```
-
-## Create a Blob container or File share 
-
-**Create a Blob container**
-
-```azcopy
-.\azcopy make "https://account.blob.core.windows.net/container-name"
-```
-
-**Create a File share**
-
-```azcopy
-.\azcopy make "https://account.file.core.windows.net/share-name"
-```
-
-**Create a Blob container using ADLS Gen2**
-
-If you've enabled hierarchical namespaces on your blob storage account, you can use the following command to create a new file system (Blob container) so that you can upload files to it.
-
-```azcopy
-.\azcopy make "https://account.dfs.core.windows.net/top-level-resource-name"
-```
-
-## Copy data to Azure Storage
-
-Use the copy command to transfer data from the source to the destination. The source/destination can be a:
-- Local file system
-- Azure Blob/Virtual Directory/Container URI
-- Azure File/Directory/File Share URI
-- Azure Data Lake Storage Gen2 Filesystem/Directory/File URI
-
-```azcopy
-.\azcopy copy <source path> <destination path> --<flag-name>=<flag-value>
-# Using alias instead
-.\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
-```
-
-The following command uploads all files under the folder `C:\local\path` recursively to the container `mycontainer1` creating `path` directory in the container:
-
-```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
-```
-
-The following command uploads all files under the folder `C:\local\path` (without recursing into the subdirectories) to the container `mycontainer1`:
-
-```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
-```
-
-To get more examples, use the following command:
-
-```azcopy
-.\azcopy cp -h
-```
-
-## Copy data between two storage accounts
-
-Copying data between two storage accounts uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API and does not utilize the client machine's network bandwidth. Data is copied between two Azure Storage servers directly while AzCopy simply orchestrates the copy operation. This option currently is only available for Blob storage.
-
-To copy the data between two storage accounts, use the following command:
-```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> The command will enumerate all blob containers and copy them to the destination account. At this time AzCopy v10 supports copying only block blobs between two storage accounts. All other storage account objects (append blobs, page blobs, files, tables and queues) will be skipped.
+> Consider using a prompt as shown in this example. That way, the client secret won't appear in your console's command history. 
 
-## Copy a VHD image to a storage account
+Next, type the following command, and then press the ENTER key.
 
-AzCopy v10 by default uploads data into block blobs. However, if a source file has vhd extension, AzCopy v10 will by default upload it to a page blob. This behavior currently isn't configurable.
+```azcopy
+azcopy login --service-principal --application-id <application-id>
+```
 
-## Sync: incremental copy and delete (Blob storage only)
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration.
+
+##### Using a certificate
+
+If you prefer to use your own credentials for authorization, you can upload a certificate to your app registration, and then use that certificate to login.
+
+In addition to uploading your certificate to your app registration, you'll also need to have a copy of the certificate saved to the machine or VM where AzCopy will be running. This copy of the certificate should be in .PFX or .PEM format, and must include the private key. The private key should be password-protected. If you're using Windows, and your certificate exists only in a certificate store, make sure to export that certificate to a PFX file (including the private key). For guidance, see [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+
+Next, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate password.
 
 > [!NOTE]
-> Sync command synchronizes contents from source to destination and this includes DELETION of destination files if those do not exist in the source. Make sure you use the destination you intend to synchronize.
+> Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
 
-To sync your local file system to a storage account, use the following command:
-
-```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
-```
-
-In the same way you can sync a Blob container down to a local file system:
+This example shows how you could do this in PowerShell.
 
 ```azcopy
-# If you're using Azure Active Directory authentication the sastoken is not required
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
 ```
 
-The command allows you to incrementally sync the source to the destination based on last modified timestamps. If you add or delete a file in the source, AzCopy v10 will do the same in the destination. Before deletion, AzCopy will prompt to confirm the deletion of the files.
-
-## Advanced configuration
-
-### Configure proxy settings
-
-To configure the proxy settings for AzCopy v10, set the environment variable https_proxy using the following command:
-
-```cmd
-# For Windows:
-set https_proxy=<proxy IP>:<proxy port>
-# For Linux:
-export https_proxy=<proxy IP>:<proxy port>
-# For MacOS
-export https_proxy=<proxy IP>:<proxy port>
-```
-
-### Optimize throughput
-
-Set the environment variable AZCOPY_CONCURRENCY_VALUE to configure the number of concurrent requests and control the throughput performance and resource consumption. The value is set to 300 by default. Reducing the value will limit the bandwidth and CPU used by AzCopy v10.
-
-```cmd
-# For Windows:
-set AZCOPY_CONCURRENCY_VALUE=<value>
-# For Linux:
-export AZCOPY_CONCURRENCY_VALUE=<value>
-# For MacOS
-export AZCOPY_CONCURRENCY_VALUE=<value>
-```
-
-## Troubleshooting
-
-AzCopy v10 creates log files and plan files for all the jobs. You can use the logs to investigate and troubleshoot any potential problems. The logs will contain the status of failure (UPLOADFAILED, COPYFAILED, and DOWNLOADFAILED), the full path, and the reason of the failure. The job logs and plan files are located in the %USERPROFILE\\.azcopy folder.
-
-### Review the logs for errors
-
-The following command will get all errors with UPLOADFAILED status from the 04dc9ca9-158f-7945-5933-564021086c79 log:
+Next, type the following command, and then press the ENTER key.
 
 ```azcopy
-cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
+azcopy login --service-principal --certificate-path <path-to-certificate-file>
 ```
 
-### View and resume jobs
+Replace the `<path-to-certificate-file>` placeholder with the relative or fully-qualified path to the certificate file. AzCopy saves the path to this certificate but it doesn't save a copy of the certificate, so make sure to keep that certificate in place.
 
-Each transfer operation will create an AzCopy job. You can view the history of jobs using the following command:
+> [!NOTE]
+> Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
+
+### Option 2: Use a SAS token
+
+You can append a SAS token to each source or destination URL that use in your AzCopy commands.
+
+This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container URL.
 
 ```azcopy
-.\azcopy jobs list
+azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-To view the job statistics, use the following command:
+To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
 
-```azcopy
-.\azcopy jobs show <job-id>
-```
+## Transfer files
 
-To filter the transfers by status, use the following command:
+After you've authenticated your identity or obtained a SAS token, you can begin transferring files.
 
-```azcopy
-.\azcopy jobs show <job-id> --with-status=Failed
-```
+To find example commands, see any of these articles.
 
-You can resume a failed/cancelled job using its identifier along with the SAS token (it is not persistent for security reasons):
+- [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
 
-```azcopy
-.\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
-```
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
-### Change the default log level
+- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
 
-By default AzCopy log level is set to INFO. If you would like to reduce the log verbosity to save disk space, overwrite the setting using ``--log-level`` option. Available log levels are: DEBUG, INFO, WARNING, ERROR, PANIC, and FATAL
+- [Transfer data with AzCopy and Azure Stack storage](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+
+## Use AzCopy in a script
+
+Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information. For examples, see the [Authenticate your service principal](#service-principal) section of this article.
+
+Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon. 
+
+To avoid these issues, obtain a static (un-changing) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
+
+To obtain the link, run this command:
+
+| Operating system  | Command |
+|--------|-----------|
+| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+
+> [!NOTE]
+> For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
+
+The URL appears in the output of this command. Your script can then download AzCopy by using that URL.
+
+| Operating system  | Command |
+|--------|-----------|
+| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
+
+## Use AzCopy in Storage Explorer
+
+If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer. 
+
+In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
+
+![Enable AzCopy as a transfer engine in Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
+
+> [!NOTE]
+> You don't have to enable this setting if you've enabled a hierarchical namespace on your storage account. That's because Storage Explorer automatically uses AzCopy on storage accounts that have a hierarchical namespace.  
+
+Storage Explorer uses your account key to perform operations, so after you sign into Storage Explorer, you won't need to provide additional authorization credentials.
+
+<a id="previous-version" />
+
+## Use the previous version of AzCopy
+
+If you need to use the previous version of AzCopy (AzCopy v8.1), see either of the following links:
+
+- [AzCopy on Windows (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy)
+
+- [AzCopy on Linux (v8)](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+## Configure, optimize, and troubleshoot AzCopy
+
+See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Next steps
 
-Your feedback is always welcomed. If you have any questions, issues or general feedback submit them at https://github.com/Azure/azure-storage-azcopy. Thank you!
+If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy) page.

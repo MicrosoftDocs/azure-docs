@@ -3,7 +3,7 @@ title: Monitor your devices in Azure IoT Central | Microsoft Docs
 description: As an operator, use your Azure IoT Central application to monitor your devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/12/2018
+ms.date: 06/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -36,7 +36,7 @@ Azure IoT Central sends notifications about devices as email messages. The build
 
 Open the email message you received at the end of the [Configure rules and actions for your device](tutorial-configure-rules.md) tutorial. In the email, choose **Click here to open your device**:
 
-![Application Builder rules](media/tutorial-monitor-devices/email.png)
+![Alert notification email](media/tutorial-monitor-devices/email.png)
 
 The **Device** page for the **Connected Air Conditioner-1** simulated device you created in the previous tutorials opens in your browser:
 
@@ -50,13 +50,13 @@ Choose the **Dashboard** view to see information about the device.
 
 ![Device dashboard](media/tutorial-monitor-devices/initial_screen.png)
 
-The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Set target temperature** tile. You decide that the target temperature is too high.
+The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Device properties** tile. You decide that the target temperature is too high.
 
 ## Remediate an issue
 
 To change the target temperature of the device, use the **Settings** page:
 
-1. Choose **Settings**. Change **Set Temperature** to 75. Choose **Update** to send the new target temperature to the device. When the device acknowledges the settings change, the status of the setting value changes to **synced**:
+1. Choose **Settings**. Change **Set Temperature** to 75. Choose **Update** to send the new target temperature to the device. When the device confirms the settings change, the status of the setting changes to **synced**:
 
     ![Update settings](media/tutorial-monitor-devices/change_settings.png)
 

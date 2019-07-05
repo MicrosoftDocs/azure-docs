@@ -1,32 +1,43 @@
 ---
-title: Seller Insights Release Notes | Microsoft Docs
+title: Seller Insights Release Notes 
 description: Provides information on changes to the Seller Insights feature.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
-author: v-miclar
-manager: Patrick.Butler  
-editor:
 
-ms.assetid: 
+author: v-miclar
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.date: 3/3/2019
+ms.author: pabutler
 ---
 
+# Seller Insights release notes 
 
-Seller Insights release notes 
-===============================
-(Release date: July 28, 2018)
+(Release date: March 1, 2019)
 
 This article provides information on changes to the Seller Insights feature in the [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
+## Release highlights for March 1, 2019
 
-Release highlights
-------------------
+* *Customer Trend* added to Summary
+* *Top five Customers* on Summary reflect all Azure subscriptions a customer has
+* *Normalized Usage Trend & Active Orders Trend* on Summary moved under *Monthly Orders at a Glance*
+* *Payout Reconciliation Report* updated
+* *Top five Customers* on Payout reflect all Azure subscriptions a customer has
+* *Usage Report* updated with Customer ID
+* *Customer Tenure* on Orders & Usage reflects all Azure subscriptions a customer has
+
+
+(Release date: July 28, 2018)
+
+## Release highlights for July 28, 2018
+
 
 -   *Estimated prices* provide a view of customer charges with currency conversion implications.
 -   *Forecasted payouts* provide an earlier view into potential payouts.
@@ -34,8 +45,7 @@ Release highlights
 -   *Usage at a daily grain* provides more granularity and better insights into customer usage.
 
 
-Changes to data structure and taxonomy
---------------------------------------
+### Changes to data structure and taxonomy
 
 The following table lists the metrics that have been added or substantially changed with this release. 
 

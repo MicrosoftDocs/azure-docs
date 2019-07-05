@@ -8,10 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-
 ---
+
 # .NET Change Feed Processor SDK: Download and release notes
+
 > [!div class="op_single_selector"]
+>
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
@@ -36,11 +38,16 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.2.7"/>2.2.7
+* Improved load balancing strategy for scenario when getting all leases takes longer than lease expiration interval, e.g. due to network issues:
+  * In this scenario load balancing algorithm used to falsely consider leases as expired, causing stealing leases from active owners. This could trigger unnecessary re-balancing a lot of leases.
+  * This issue is fixed in this release by avoiding retry on conflict while acquiring expired lease which owner hasn't changed and posponing acquiring expired lease to next load balancing iteration.
+
 ### <a name="2.2.6"/>2.2.6
 * Improved handling of Observer exceptions.
 * Richer information on Observer errors:
- * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
- * Added traces to identify errors within user code in an Observer.
+  * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
+  * Added traces to identify errors within user code in an Observer.
 
 ### <a name="2.2.5"/>2.2.5
 * Added support for handling split in collections that use shared database throughput.
@@ -125,7 +132,7 @@ ms.author: maquaran
 
 ### <a name="1.3.1"/>1.3.1
 * Stability improvements.
-  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
+  * Fix for handling canceled tasks issue that might lead to stopped observers on some partitions.
 * Support for manual checkpointing.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 
@@ -146,8 +153,8 @@ ms.author: maquaran
 * GA SDK
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.14.1 and below.
 
-
 ## Release & Retirement dates
+
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
@@ -158,6 +165,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |May 14, 2019 |--- |
 | [2.2.6](#2.2.6) |January 29, 2019 |--- |
 | [2.2.5](#2.2.5) |December 13, 2018 |--- |
 | [2.2.4](#2.2.4) |November 29, 2018 |--- |
@@ -172,10 +180,10 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [1.1.0](#1.1.0) |August 13, 2017 |--- |
 | [1.0.0](#1.0.0) |July 07, 2017 |--- |
 
-
 ## FAQ
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

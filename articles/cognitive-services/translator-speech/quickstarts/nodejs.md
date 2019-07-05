@@ -3,16 +3,16 @@ title: "Quickstart: Translator Speech API Node.js"
 titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Translator Speech API.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: swmachan
+ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Quickstart: Translator Speech API with Node.js 
+# Quickstart: Translator Speech API with Node.js
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -101,7 +101,7 @@ https://stackoverflow.com/questions/44473868/node-js-fs-writefile-err-returns-nu
 }
 
 function send(connection, filename) {
-	
+
 	var myReadableStreamBuffer = new streamBuffers.ReadableStreamBuffer({
 		frequency: 100,
 		chunkSize: 32000
@@ -130,12 +130,12 @@ function connect() {
 	ws.on('connectFailed', function (error) {
 		console.log('Connection error: ' + error.toString());
 	});
-							
+
 	ws.on('connect', function (connection) {
 		console.log('Connected.');
 
 		connection.on('message', receive);
-		
+
 		connection.on('close', function (reasonCode, description) {
 			console.log('Connection closed: ' + reasonCode);
 		});
@@ -143,7 +143,7 @@ function connect() {
 		connection.on('error', function (error) {
 			console.log('Connection error: ' + error.toString());
 		});
-		
+
 		send(connection, input_path);
 	});
 
@@ -164,7 +164,7 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 > [!div class="nextstepaction"]
 > [Translator Speech tutorial](../tutorial-translator-speech-csharp.md)
 
-## See also 
+## See also
 
 [Translator Speech overview](../overview.md)
 [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

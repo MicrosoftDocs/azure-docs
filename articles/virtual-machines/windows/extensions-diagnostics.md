@@ -55,13 +55,17 @@ az vm extension set \
 
 ## PowerShell deployment
 
-The `Set-AzureRmVMDiagnosticsExtension` command can be used to add the Azure Diagnostics extension to an existing virtual machine. See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](ps-extensions-diagnostics.md).
+The `Set-AzVMDiagnosticsExtension` command can be used to add the Azure Diagnostics extension to an existing virtual machine. See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](ps-extensions-diagnostics.md).
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
+
 ```powershell
 $vm_resourcegroup = "myvmresourcegroup"
 $vm_name = "myvm"
 $diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
 
-Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
+Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
   -VMName $vm_name `
   -DiagnosticsConfigurationPath $diagnosticsconfig_path
 ```

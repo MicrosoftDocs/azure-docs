@@ -2,15 +2,16 @@
 title: How to configure password single sign-on for a non-gallery applicationn | Microsoft Docs
 description: How to configure an custom non-gallery application for secure password-based single sign-on when it is not listed in the Azure AD Application Gallery
 services: active-directory
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: barbkess
+ms.author: mimart
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to configure password single sign-on for a non-gallery application
@@ -83,25 +84,25 @@ After a short period, you be able to see the application’s configuration pane.
 
 To configure single sign-on for an application, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to configure single sign-on.
+6. Select the application you want to configure single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
-8.  Select the mode **Password-based Sign-on.**
+8. Select the mode **Password-based Sign-on.**
 
-9.  Enter the **Sign-on URL**. This is the URL where users enter their username and password to sign in to. Ensure the sign-in fields are visible at the URL.
+9. Enter the **Sign-on URL**. This is the URL where users enter their username and password to sign in to. Ensure the sign-in fields are visible at the URL.
 
 10. Assign users to the application.
 
@@ -112,25 +113,25 @@ To configure single sign-on for an application, follow these steps:
 
 To assign one or more users to an application directly, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to assign a user to from the list.
+6. Select the application you want to assign a user to from the list.
 
-7.  Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
+7. Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
 
-8.  To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
+8. To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
 
-9.  click the **Users and groups** selector from the **Add Assignment** pane.
+9. click the **Users and groups** selector from the **Add Assignment** pane.
 
 10. Type in the **full name** or **email address** of the user you are interested in assigning into the **Search by name or email address** search box.
 
@@ -148,25 +149,25 @@ To assign one or more users to an application directly, follow these steps:
 
 To assign one or more groups to an application directly, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+   * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you want to assign a user to from the list.
+6. Select the application you want to assign a user to from the list.
 
-7.  Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
+7. Once the application loads, click **Users and Groups** from the application’s left-hand navigation menu.
 
-8.  To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
+8. To open the **Add Assignment** pane, click the **Add** button on top of the **Users and Groups** list.
 
-9.  click the **Users and groups** selector from the **Add Assignment** pane.
+9. click the **Users and groups** selector from the **Add Assignment** pane.
 
 10. Type in the **full group name** of the group you are interested in assigning into the **Search by name or email address** search box.
 

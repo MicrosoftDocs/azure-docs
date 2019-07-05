@@ -5,12 +5,11 @@ description: Learn how to formulate a sharp data science question in Data Scienc
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: garyericson
-ms.author: garye
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.date: 01/03/2018
+author: sdgilley
+ms.author: sgilley
+ms.date: 03/22/2019
 ---
 # Ask a question you can answer with data
 ## Video 3: Data Science for Beginners series
@@ -44,7 +43,7 @@ We've talked about how data science is the process of using names (also called c
 
 A vague question doesn't have to be answered with a name or a number. A sharp question must.
 
-Imagine you found a magic lamp with a genie who will truthfully answer any question you ask. But it's a mischievous genie, and he'll try to make his answer as vague and confusing as he can get away with. You want to pin him down with a question so airtight that he can't help but tell you what you want to know.
+Imagine you found a magic lamp with a genie who will truthfully answer any question you ask. But it's a mischievous genie, who will try to make their answer as vague and confusing as they can get away with. You want to pin them down with a question so airtight that they can't help but tell you what you want to know.
 
 If you were to ask a vague question, like "What's going to happen with my stock?", the genie might answer, "The price will change". That's a truthful answer, but it's not very helpful.
 
@@ -84,8 +83,8 @@ But, most important, ask that sharp question - the question that you can answer 
 
 We've talked about some basic principles for asking a question you can answer with data.
 
-Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning.
+Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning Studio.
 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](what-is-machine-learning.md)
+* [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

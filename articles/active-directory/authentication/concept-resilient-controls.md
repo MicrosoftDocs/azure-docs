@@ -1,5 +1,5 @@
 ---
-title: Create a resilient access control management strategy with Azure Active Directory
+title: Create a resilient access control management strategy - Azure Active Directory
 description: This document provides guidance on strategies an organization should adopt to provide resilience to reduce the risk of lockout during unforeseen disruptions
 services: active-directory
 author: martincoetzer
@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
+ms.collection: M365-identity-device-management
 ---
 # Create a resilient access control management strategy with Azure Active Directory
 
@@ -30,8 +31,8 @@ This document provides guidance on strategies an organization should adopt to pr
 There are four key takeaways in this document:
 
 * Avoid administrator lockout by using emergency access accounts.
-* Implement MFA using conditional access (CA) rather than per-user MFA.
-* Mitigate user lockout by using multiple conditional access (CA) controls.
+* Implement MFA using Conditional Access (CA) rather than per-user MFA.
+* Mitigate user lockout by using multiple Conditional Access (CA) controls.
 * Mitigate user lockout by provisioning multiple authentication methods or equivalents for each user.
 
 ## Before a disruption
@@ -51,11 +52,11 @@ To unlock admin access to your tenant, you should create emergency access accoun
 
 ### Mitigating user lockout
 
- To mitigate the risk of user lockout, use conditional access policies with multiple controls to give users a choice of how they will access apps and resources. By giving a user the choice between, for example, signing in with MFA **or** signing in from a managed device **or** signing in from the corporate network, if one of the access controls is unavailable the user has other options to continue to work.
+ To mitigate the risk of user lockout, use Conditional Access policies with multiple controls to give users a choice of how they will access apps and resources. By giving a user the choice between, for example, signing in with MFA **or** signing in from a managed device **or** signing in from the corporate network, if one of the access controls is unavailable the user has other options to continue to work.
 
 #### Microsoft recommendations
 
-Incorporate the following access controls in your existing conditional access policies for organization:
+Incorporate the following access controls in your existing Conditional Access policies for organization:
 
 1. Provision multiple authentication methods for each user that rely on different communication channels, for example the Microsoft Authenticator app (internet-based), OATH token (generated on-device), and SMS (telephonic).
 2. Deploy Windows Hello for Business on Windows 10 devices to satisfy MFA requirements directly from device sign-in.
@@ -71,7 +72,7 @@ This example policy set will grant selected users in **AppUsers**, access to sel
 **CA mitigation policies set:**
 
 * Policy 1: Block access to people outside target groups
-  * Users and Groups: Include all users. Exclude AppAccess, CoreAdmins, and EmergencyAccess
+  * Users and Groups: Include all users. Exclude AppUsers, CoreAdmins, and EmergencyAccess
   * Cloud Apps: Include all apps
   * Conditions: (None)
   * Grant Control: Block
@@ -87,22 +88,22 @@ Alternatively, your organization can also create contingency policies. To create
  Understanding your exposure during a disruption helps reduce your risk and is a critical part of your planning process. To create your contingency plan, first determine the following business requirements of your organization:
 
 1. Determine your mission critical apps ahead of time: What are the apps that you must give access to, even with a lower risk/security posture? Build a list of these apps and make sure your other stakeholders (business, security, legal, leadership) all agree that if all access control goes away, these apps still must continue to run. You are likely going to end up with categories of:
-  * **Category 1 mission critical apps** that cannot be unavailable for more than a few minutes, for example Apps that directly affect the revenue of the organization.
-  * **Category 2 important apps** that the business needs to be accessible within a few hours.
-  * **Category 3 low-priority apps** that can withstand a disruption of a few days.
+   * **Category 1 mission critical apps** that cannot be unavailable for more than a few minutes, for example Apps that directly affect the revenue of the organization.
+   * **Category 2 important apps** that the business needs to be accessible within a few hours.
+   * **Category 3 low-priority apps** that can withstand a disruption of a few days.
 2. For apps in category 1 and 2, Microsoft recommends you pre-plan what type of level of access you want to allow:
-  * Do you want to allow full access or restricted session, like limiting downloads?
-  * Do you want to allow access to part of the app but not the whole app?
-  * Do you want to allow information worker access and block administrator access until the access control is restored?
+   * Do you want to allow full access or restricted session, like limiting downloads?
+   * Do you want to allow access to part of the app but not the whole app?
+   * Do you want to allow information worker access and block administrator access until the access control is restored?
 3. For those apps, Microsoft also recommends you plan which avenues of access you will deliberately open and which ones you will close:
-  * Do you want to allow browser only access and block rich clients that can save offline data?
-  * Do you want to allow access only for users inside the corporate network and keep outside users blocked?
-  * Do you want to allow access from certain countries or regions only during the disruption?
-  * Do you want policies to the contingency policies, especially for mission critical apps, to fail or succeed if an alternative access control is not available?
+   * Do you want to allow browser only access and block rich clients that can save offline data?
+   * Do you want to allow access only for users inside the corporate network and keep outside users blocked?
+   * Do you want to allow access from certain countries or regions only during the disruption?
+   * Do you want policies to the contingency policies, especially for mission critical apps, to fail or succeed if an alternative access control is not available?
 
 #### Microsoft recommendations
 
-A contingency conditional access policy is a **disabled policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. Then, when your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
+A contingency Conditional Access policy is a **disabled policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. Then, when your organization decides to activate your contingency plan, administrators can enable the policy and disable the regular control-based policies.
 
 >[!IMPORTANT]
 > Disabling policies that enforce security on your users, even temporarily, will reduce your security posture while the contingency plan is in place.
@@ -124,9 +125,9 @@ A contingency conditional access policy is a **disabled policy** that omits Azur
   
 This naming standard for the contingency policies will be as follows: 
 
-`
+```
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
-`
+```
 
 The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. The targeted users will then gain access to Exchange Online and SharePoint Online, while other users will still not have access to the apps due to the outage. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access. 
 
@@ -240,11 +241,11 @@ Undo the changes you made as part of the activated contingency plan once the ser
 
 ## Emergency options
 
- In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use conditional access policies to enforce MFA.
+ In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use Conditional Access policies to enforce MFA.
  If your organization is using per-user MFA legacy policies, then you can consider the following alternative:
 
 1. If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
- 2. If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs by specifying 0.0.0.0/1 and 128.0.0.0/1.
+   1. If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs by specifying 0.0.0.0/1 and 128.0.0.0/1.
 
 >[!IMPORTANT]
  > If you broaden the trusted IP addresses to unblock access, risk events associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.
@@ -257,9 +258,9 @@ Undo the changes you made as part of the activated contingency plan once the ser
 * [Azure AD Authentication Documentation](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Manage emergency-access administrative accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Configure named locations in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [How to configure hybrid Azure Active Directory joined devices](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Windows Hello for Business Deployment Guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
- * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [What are conditions in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [What are access controls in Azure Active Directory conditional access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+  * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+* [What are conditions in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [What are access controls in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

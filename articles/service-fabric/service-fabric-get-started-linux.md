@@ -4,7 +4,7 @@ description: Install the runtime and SDK and create a local development cluster 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -71,7 +71,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
 2. Add the Service Fabric repo to your sources list.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. Add the `dotnet` repo to your sources list.
@@ -84,8 +84,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
 4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 5. Add the official Docker GPG key to your APT keyring.
@@ -104,8 +103,8 @@ To install the SDK and associated runtime package via the apt-get command-line t
 7. Add Azul JDK Key to your APT keyring and setup its repository.
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
+    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
+    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. Refresh your package lists based on the newly added repositories.
@@ -159,7 +158,7 @@ After you update your sources, you can install the SDK. Install the Service Fabr
 sudo apt-get install servicefabricsdkcommon
 ```
 
->   [!TIP]
+> [!TIP]
 >   The following commands automate accepting the license for Service Fabric packages:
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
@@ -214,19 +213,20 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 1. Install Node.js and npm on your machine.
 
     ```bash
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-    nvm install node
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo apt-get update
+    sudo apt-get install nodejs
     ```
-2. Install the [Yeoman](http://yeoman.io/) template generator from npm on your machine.
+2. Install the [Yeoman](https://yeoman.io/) template generator from npm on your machine.
 
     ```bash
-    npm install -g yo
+    sudo npm install -g yo
     ```
 3. Install the Service Fabric Yeo container generator and guest executable generator from npm.
 
     ```bash
-    npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 After you install the generators, create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.
@@ -274,7 +274,7 @@ You can install the Eclipse plug-in for Service Fabric from within the Eclipse I
 
 2. To install the Service Fabric plug-in, select **Help** > **Install New Software**.
 
-3. In the **Work with** box, enter **http://dl.microsoft.com/eclipse**.
+3. In the **Work with** box, enter **https://dl.microsoft.com/eclipse**.
 
 4. Select **Add**.
 
@@ -331,7 +331,6 @@ To remove the Service Fabric SDKs, run the following commands.
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Manage your applications by using the Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows and Linux differences](service-fabric-linux-windows-differences.md)
-* [Automate operating system patching on your Linux cluster](service-fabric-patch-orchestration-application-linux.md)
 * [Get started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->

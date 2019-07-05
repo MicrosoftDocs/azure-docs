@@ -1,7 +1,6 @@
 ---
 title: Understand and resolve WebHCat errors on HDInsight - Azure 
 description: Learn how to about common errors returned by WebHCat on HDInsight and how to resolve them.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -25,12 +24,10 @@ Learn about errors received when using WebHCat with HDInsight, and how to resolv
 > [!IMPORTANT]  
 > Several of the errors listed in this document occur because a configured maximum has been exceeded. When the resolution step mentions that you can change a value, you must use one of the following to perform the change:
 
-* For **Windows** clusters: Use a script action to configure the value during cluster creation. For more information, see [Develop script actions](hdinsight-hadoop-script-actions.md).
+* For **Windows** clusters: Use a script action to configure the value during cluster creation. For more information, see [Develop script actions](hdinsight-hadoop-script-actions-linux.md).
 
 * For **Linux** clusters: Use Apache Ambari (web or REST API) to modify the value. For more information, see [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### Default configuration
 
@@ -66,7 +63,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | --- | --- |
 | Job details have been cleaned up by the job history cleaner |The default retention period for job history is 7 days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
 | Job has been killed due to a failover |Retry job submission for up to two minutes |
-| An Invalid job id was used |Check if the job id is correct |
+| An Invalid job ID was used |Check if the job ID is correct |
 
 ## Bad gateway
 
@@ -76,7 +73,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | --- | --- |
 | Internal garbage collection is occurring within the WebHCat process |Wait for garbage collection to finish or restart the WebHCat service |
 | Time out waiting on a response from the ResourceManager service. This error can occur when the number of active applications goes the configured maximum (default 10,000) |Wait for currently running jobs to complete or increase the concurrent job limit by modifying `yarn.scheduler.capacity.maximum-applications`. For more information, see the [Modifying configuration](#modifying-configuration) section. |
-| Attempting to retrieve all jobs through the [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) call while `Fields` is set to `*` |Do not retrieve *all* job details. Instead use `jobid` to retrieve details for jobs only greater than certain job id. Or, do not use `Fields` |
+| Attempting to retrieve all jobs through the [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) call while `Fields` is set to `*` |Do not retrieve *all* job details. Instead use `jobid` to retrieve details for jobs only greater than certain job ID. Or, do not use `Fields` |
 | The WebHCat service is down during HeadNode failover |Wait for two minutes and retry the operation |
 | There are more than 500 pending jobs submitted through WebHCat |Wait until currently pending jobs have completed before submitting more jobs |
 

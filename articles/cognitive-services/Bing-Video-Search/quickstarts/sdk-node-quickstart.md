@@ -3,14 +3,14 @@ title: "Quickstart: Search for videos using the Bing Video Search SDK for Node.j
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests using the Bing Video Search SDK for Node.js
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: rosh
+ms.author: aahi
 ---
 
 # Quickstart: Perform a video search with the Bing Video Search SDK for Node.js

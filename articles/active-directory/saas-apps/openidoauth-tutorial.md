@@ -8,14 +8,15 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 05/30/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Configure an OpenID/OAuth application from the Azure AD app gallery
 
@@ -93,7 +94,25 @@ The Graph API also provides access to users and groups from Azure AD and other d
 
 The following steps show you how the consent experience works for the application developer and user:
 
-1. Assume you have a web client application that needs to request specific permissions to access a resource or API. The Azure portal is used to declare permission requests at configuration time. Like other configuration settings, they become part of the application's Azure AD registration:
+1. Assume you have a web client application that needs to request specific permissions to access a resource or API. The Azure portal is used to declare permission requests at configuration time. Like other configuration settings, they become part of the application's Azure AD registrations. For the Permission request path you need the follow the below steps:
+
+	a. Click on the **App registrations** from the left side of menu and open your application by typing the application name in search box.
+
+	![Graph API](./media/openidoauth-tutorial/application.png)
+
+	b. Click **View API Permissions**.
+
+	![Graph API](./media/openidoauth-tutorial/api-permission.png)
+
+	c. Click on **Add a permission**.
+
+	![Graph API](./media/openidoauth-tutorial/add-permission.png)
+
+	d. Click On **Microsoft Graph**.
+
+	![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+
+	e. Select required options from **Delegated permissions** and **Application Permissions**.
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
@@ -113,12 +132,12 @@ A regular user can consent to some permissions. Other permissions require a tena
 
 ## Difference between admin consent and user consent
 
-As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog box from appearing for every user in the tenant. Users who have the administrator role can provide consent in the Azure portal. From the **Settings** page for your application, select **Required Permissions** > **Grant Permissions**.
+As an administrator, you can also consent to an application's delegated permissions on behalf of all the users in your tenant. Administrative consent prevents the consent dialog box from appearing for every user in the tenant. Users who have the administrator role can provide consent in the Azure portal. From the **Settings** page for your application, select **Required Permissions** > **Grant admin consent**.
 
 ![Grant Permissions button](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Granting explicit consent by using the **Grant Permissions** button is now required for single-page applications (SPAs) that use ADAL.js. Otherwise, the application fails when the access token is requested.
+> Granting explicit consent by using the **Grant admin consent** button is now required for single-page applications (SPAs) that use ADAL.js. Otherwise, the application fails when the access token is requested.
 
 App-only permissions always require a tenant administrator’s consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message appears. The message says the user isn’t able to consent.
 

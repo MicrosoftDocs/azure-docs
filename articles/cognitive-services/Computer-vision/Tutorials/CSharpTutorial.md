@@ -1,19 +1,19 @@
 ---
-title: "Tutorial: Build an image processing app - C#"
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
+title: "Sample: Explore an image processing app in C#"
+titleSuffix: Azure Cognitive Services
+description: Explore a basic Windows app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
-ms.date: 08/28/2018
+ms.topic: sample
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Tutorial: Build an image processing app - C&#35;
+# Sample: Explore an image processing app with C#
 
 Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Computer Vision API and Windows Presentation Foundation (WPF), a part of .NET Framework.
 
@@ -28,7 +28,7 @@ Explore a basic Windows application that uses Computer Vision to perform optical
 Before exploring the sample app, ensure that you've met the following prerequisites:
 
 * You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-* You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 ## Get the sample app
 

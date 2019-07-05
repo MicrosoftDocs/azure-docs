@@ -4,15 +4,15 @@ titleSuffix: Azure Cognitive Services
 description: In this tutorial, extract machine-learned data of employment job name from an utterance using the Simple entity. To increase the extraction accuracy, add a phrase list of terms specific to the simple entity.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the simple entity.  
---- 
+---
 
 # Tutorial: Extract names with simple entity and a phrase list
 
@@ -44,7 +44,7 @@ The simple entity is a good fit for this type of data when:
 * Data is not well-formatted such as a regular expression.
 * Data is not common such as a prebuilt entity of phone number or data.
 * Data is not matched exactly to a list of known words, such as a list entity.
-* Data does not contain other data items such as a composite entity or hierarchical entity.
+* Data does not contain other data items such as a composite entity or contextual roles.
 
 Consider the following utterances from a chat bot:
 
@@ -123,7 +123,7 @@ Simple entities need many examples in order to have a high confidence of predict
     |Apply for tile work.|tile|
     |Attached resume for landscape architect.|landscape architect|
     |My curriculum vitae for professor of biology is enclosed.|professor of biology|
-    |I would like to apply for the position in photography.|photography|git 
+    |I would like to apply for the position in photography.|photography|
 
 ## Mark job entity in other intents
 
@@ -229,7 +229,9 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
     [![Screenshot of create new phrase list dialog pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    If you want more words added to the phrase list, review the **Related Values** and add any that are relevant. 
+    If you want more words added to the phrase list, select **Recommand** then review the new **Related Values** and add any that are relevant. 
+
+    Make sure to keep the **These values are interchangeable** checked because these values should all be treated as synonyms for jobs. Learn more about interchangeable and noninterchangeable [phrase list concepts](luis-concept-feature.md#how-to-use-phrase-lists).
 
 1. Select **Save** to activate the phrase list.
 

@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cisco Umbrella
 
@@ -142,7 +143,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 6. In the **Option A: Upload XML file**,  upload the **Federation Metadata XML** file that you downloaded from the Azure portal and after uploading metadata the below values get auto populated automatically then click **NEXT**.
 
-	![The choosefile ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
+	![The choosefile](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
 7. Under **Validate SAML Configuration** section, click **TEST YOUR SAML CONFIGURATION**.
 
@@ -168,7 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -224,7 +225,7 @@ In the case of Cisco Umbrella, provisioning is a manual task.
 
 	c. From the **Choose Delegated Admin Role**, select your role.
   
-    d. In the **Email Address** field, enter the emailaddress of user like **brittasimon@contoso.com**.
+    d. In the **Email Address** field, enter the emailaddress of user like **brittasimon\@contoso.com**.
 
     e. In the **Password** field, enter your password.
 
@@ -240,8 +241,8 @@ When you click the Cisco Umbrella tile in the Access Panel, you should be automa
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

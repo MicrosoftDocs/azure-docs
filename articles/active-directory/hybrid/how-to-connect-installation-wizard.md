@@ -17,6 +17,7 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Running the installation wizard a second time
 The first time you run the Azure AD Connect installation wizard, it walks you through how to configure your installation. If you run the installation wizard again, it offers options for maintenance.
@@ -67,7 +68,7 @@ When you select this option, all the directories in your configuration are liste
 ![Page with a list of all directories in the environment](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## Configure staging mode
-This option allows you to enable and disable staging mode on the server. More information about staging mode and how it is used can be found in [Operations](how-to-connect-sync-operations.md#staging-mode).
+This option allows you to enable and disable staging mode on the server. More information about staging mode and how it is used can be found in [Operations](how-to-connect-sync-staging-server.md).
 
 The option shows if staging is currently enabled or disabled:  
 ![Option that is also showing the current state of staging mode](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)

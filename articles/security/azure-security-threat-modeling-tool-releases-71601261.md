@@ -22,7 +22,7 @@ ms.author: jegeib
 
 Version 7.1.60126.1 of the Microsoft Threat Modeling Tool was released on January 29 2019 and contains the following changes:
 
-- The minimum required version of .NET has been increased to [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262).
+- The minimum required version of .NET has been increased to [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262).
 - The minimum required version of Windows has been increased to [Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) due to the .NET dependency.
 - A model validation toggle feature has been added to the tool's Options menu.
 - Several links in the Threat Properties were updated.
@@ -44,7 +44,7 @@ The option to toggle model validation on and off can be found in the File->Setti
 - Supported Operating Systems
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) or later
 - .NET Version Required
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) or later
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
 - Additional Requirements
   - An Internet connection is required to receive updates to the tool as well as templates.
 

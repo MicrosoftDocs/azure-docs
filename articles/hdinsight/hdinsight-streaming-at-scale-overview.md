@@ -1,7 +1,6 @@
 ---
 title: Streaming at scale in Azure HDInsight
 description: How to use data streaming with scalable HDInsight clusters.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
@@ -11,7 +10,7 @@ ms.date: 01/19/2018
 ---
 # Streaming at scale in HDInsight
 
-Realtime big data solutions  act on data that is in motion. Typically, this data is most valuable at its time of arrival. If the incoming data stream becomes greater than can be handled at that moment, you may need to throttle down resources. Alternatively, an HDInsight cluster can   scale up to meet your streaming solution by adding nodes on demand.
+Real-time big data solutions  act on data that is in motion. Typically, this data is most valuable at its time of arrival. If the incoming data stream becomes greater than can be handled at that moment, you may need to throttle down resources. Alternatively, an HDInsight cluster can   scale up to meet your streaming solution by adding nodes on demand.
 
 
 In a streaming application, one or more data sources are generating events (sometimes in the millions per second) that need to be ingested  quickly  without dropping any useful information. The incoming events are handled with *stream buffering*, also called *event queuing*, by a service such as [Apache Kafka](kafka/apache-kafka-introduction.md) or [Event Hubs](https://azure.microsoft.com/services/event-hubs/). After you collect the events, you can then analyze the data using a real-time analytics system within the *stream processing* layer, such as [Apache Storm](storm/apache-storm-overview.md) or [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). The processed data can be stored in long-term storage systems, like [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), and displayed in real time on a business intelligence dashboard, such as [Power BI](https://powerbi.microsoft.com), Tableau, or a custom web page.
@@ -39,7 +38,7 @@ For more information, see [What is Apache Spark Streaming?](hdinsight-spark-stre
 
 ## Scaling a cluster
 
-Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match the workload. All HDInsight clusters allow you to [change the number of nodes in the cluster](hdinsight-administer-use-management-portal.md#scale-clusters). Spark clusters can be dropped with no loss of data, as all  data is stored in Azure Storage or Data Lake Storage.
+Although you can specify the number of nodes in your cluster during creation, you may want to grow or shrink the cluster to match the workload. All HDInsight clusters allow you to [change the number of nodes in the cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). Spark clusters can be dropped with no loss of data, as all  data is stored in Azure Storage or Data Lake Storage.
 
 There are advantages to decoupling technologies. For instance, Kafka is an event buffering technology, so it is very IO intensive and does not need much processing power. In comparison, stream processors such as Spark Streaming are compute-intensive, requiring more powerful VMs. By having these technologies decoupled into different clusters, you can scale them independently while best utilizing the VMs.
 
@@ -59,7 +58,7 @@ These three  parameters can be configured at the cluster level, for all applicat
 
 ## Next steps
 
-* [Get started with Apache Storm on HDInsight](storm/apache-storm-tutorial-get-started-linux.md)
+* [Create and monitor an Apache Storm topology in Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Example topologies for Apache Storm on HDInsight](storm/apache-storm-example-topology.md)
 * [Introduction to Apache Spark on HDInsight](spark/apache-spark-overview.md)
 * [Start with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)

@@ -4,7 +4,7 @@ description: This article provides a curated collection of Azure security relate
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: f1d7da18-bfd1-4338-abbb-2c558fb780f9

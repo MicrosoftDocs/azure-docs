@@ -4,7 +4,7 @@ description: FAQs and known issues with identity protection (refreshed) in Azure
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: mtillman
 
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
@@ -15,22 +15,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2019
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 
+ms.collection: M365-identity-device-management
 ---
 # FAQs and known issues with identity protection (refreshed) in Azure Active Directory
 
 
-## Dismiss user risk
+## Dismiss user risk known issues
 
 **Dismiss user risk** in classic Identity Protection sets the actor in the user’s risk history in Identity Protection (refreshed) to **Azure AD**.
 
 
 **Dismiss user risk** in Identity Protection (refreshed) sets the actor in the user’s risk history in Identity Protection (refreshed) to **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
 
+There is a current known issue causing latencies in the user risk dismissal flow. If you have a "User risk policy", this policy will stop applying to dismissed users within minutes of clicking on "Dismiss user risk". However, there are known delays with the UX refreshing the "Risk state" of dismissed users. As a workaround, refresh the page on the browser level to see the latest user "Risk state".
 
-## Risky users report
+
+## Risky users report known issues
 
 Queries on the **username** field are case-sensitive, while queries on the **Name** field are case-agnostic.
 
@@ -38,14 +41,10 @@ Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the 
 
 **Dismiss all events** in classic Identity Protection sets the status of the risk events to **Closed (resolved)**.
 
-If you attempt to access the risky users report by clicking **Risky users report** within a sign-in record in the risky sign-ins report, it may sometimes show **Something went wrong. Please retry**. To remedy this, click **Apply** or **Reset** at the top of the screen and the risky user(s) data will populate.
 
-
-## Risky sign-ins report
+## Risky sign-ins report known issues
 
 **Resolve** on a risk event sets the status to **Users passed MFA driven by risk-based policy**.
-
-**Reset** in the **Risky Sign-ins** report does not clear the value of the **Risk event type**.
 
 
 ## Frequently asked questions

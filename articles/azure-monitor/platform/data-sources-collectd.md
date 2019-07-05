@@ -1,6 +1,6 @@
 ---
-title: Collect data from CollectD in Log Analytics | Microsoft Docs
-description: CollectD is an open source Linux daemon that periodically collects data from applications and system level information.  This article provides information on collecting data from CollectD in Log Analytics.
+title: Collect data from CollectD in Azure Monitor | Microsoft Docs
+description: CollectD is an open source Linux daemon that periodically collects data from applications and system level information.  This article provides information on collecting data from CollectD in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,8 +15,8 @@ ms.date: 11/27/2018
 ms.author: magoedte
 ---
 
-# Collect data from CollectD on Linux agents in Log Analytics
-[CollectD](https://collectd.org/) is an open source Linux daemon that periodically collects performance metrics from applications and system level information. Example applications include the Java Virtual Machine (JVM), MySQL Server, and Nginx. This article provides information on collecting performance data from CollectD in Log Analytics.
+# Collect data from CollectD on Linux agents in Azure Monitor
+[CollectD](https://collectd.org/) is an open source Linux daemon that periodically collects performance metrics from applications and system level information. Example applications include the Java Virtual Machine (JVM), MySQL Server, and Nginx. This article provides information on collecting performance data from CollectD in Azure Monitor.
 
 A full list of available plugins can be found at [Table of Plugins](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
@@ -52,7 +52,7 @@ The CollectD configuration uses the default`write_http` plugin to send performan
 > [!NOTE]
 > This port can be configured to a custom-defined port if needed.
 
-The Log Analytics agent for Linux also listens on port 26000 for CollectD metrics and then converts them to Log Analytics schema metrics. The following is the Log Analytics agent for Linux configuration  `collectd.conf`.
+The Log Analytics agent for Linux also listens on port 26000 for CollectD metrics and then converts them to Azure Monitor schema metrics. The following is the Log Analytics agent for Linux configuration  `collectd.conf`.
 
     <source>
       type http
@@ -66,12 +66,12 @@ The Log Analytics agent for Linux also listens on port 26000 for CollectD metric
 
 
 ## Versions supported
-- Log Analytics currently supports CollectD version 4.8 and above.
+- Azure Monitor currently supports CollectD version 4.8 and above.
 - Log Analytics agent for Linux v1.1.0-217 or above is required for CollectD metric collection.
 
 
 ## Configuration
-The following are basic steps to configure collection of CollectD data in Log Analytics.
+The following are basic steps to configure collection of CollectD data in Azure Monitor.
 
 1. Configure CollectD to send data to the Log Analytics agent for Linux using the write_http plugin.  
 2. Configure the Log Analytics agent for Linux to listen for the CollectD data on the appropriate port.
@@ -103,20 +103,20 @@ The following are basic steps to configure collection of CollectD data in Log An
     sudo service collectd restart
     sudo /opt/microsoft/omsagent/bin/service_control restart
 
-## CollectD metrics to Log Analytics schema conversion
+## CollectD metrics to Azure Monitor schema conversion
 To maintain a familiar model between infrastructure metrics already collected by Log Analytics agent for Linux and the new metrics collected by CollectD the following schema mapping is used:
 
-| CollectD Metric field | Log Analytics field |
+| CollectD Metric field | Azure Monitor field |
 |:--|:--|
-| host | Computer |
-| plugin | None |
-| plugin_instance | Instance Name<br>If **plugin_instance** is *null* then InstanceName="*_Total*" |
-| type | ObjectName |
-| type_instance | CounterName<br>If **type_instance** is *null* then CounterName=**blank** |
-| dsnames[] | CounterName |
-| dstypes | None |
-| values[] | CounterValue |
+| `host` | Computer |
+| `plugin` | None |
+| `plugin_instance` | Instance Name<br>If **plugin_instance** is *null* then InstanceName="*_Total*" |
+| `type` | ObjectName |
+| `type_instance` | CounterName<br>If **type_instance** is *null* then CounterName=**blank** |
+| `dsnames[]` | CounterName |
+| `dstypes` | None |
+| `values[]` | CounterValue |
 
 ## Next steps
-* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
-* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
+* Use [Custom Fields](custom-fields.md) to parse data from syslog records into individual fields.

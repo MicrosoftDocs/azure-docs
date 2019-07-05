@@ -90,7 +90,7 @@ For more information, see [Create Partitioned Tables and Indexes](https://msdn.m
 
 ## Bulk import the data for each individual partition table
 
-* You may use BCP, BULK INSERT, or other methods such as [SQL Server Migration Wizard](http://sqlazuremw.codeplex.com/). The example provided uses the BCP method.
+* You may use BCP, BULK INSERT, or other methods such as [SQL Server Migration Wizard](https://sqlazuremw.codeplex.com/). The example provided uses the BCP method.
 * [Alter the database](https://msdn.microsoft.com/library/bb522682.aspx) to change transaction logging scheme to BULK_LOGGED to minimize overhead of logging, for example:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED

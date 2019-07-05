@@ -1,14 +1,14 @@
 ---
-title: Install the Mobility Service for disaster recovery of VMware VMs and physical servers to Azure | Microsoft Docs
-description: Learn how to install the Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
+title: Prepare source machines to install the Mobility Service through push installation for disaster recovery of VMware VMs and physical servers to Azure | Microsoft Docs
+description: Learn how to prepare your server to install Mobility agent through push installation for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
 ---
 
-# Install the Mobility service for disaster recovery of VMware VMs and physical servers
+# Prepare source machine for push installation of mobility agent
 
 When you set up disaster recovery for VMware VMs and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) on each on-premises VMware VM and physical server.  The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server.
 
@@ -54,6 +54,10 @@ On each Linux machine that you want to protect, do the following:
 11. On the **Manage Accounts** tab, select **Add Account**.
 12. Add the account you created.
 13. Enter the credentials you use when you enable replication for a computer.
+
+## Anti-virus on replicated machines
+
+If machines you want to replicate have active anti-virus software running, make sure you exclude the Mobility service installation folder from anti-virus operations (*C:\ProgramData\ASR\agent*). This ensures that replication works as expected.
 
 ## Next steps
 

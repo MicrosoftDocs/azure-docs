@@ -1,6 +1,6 @@
 ---
 title: Collecting custom JSON data in Azure Monitor | Microsoft Docs
-description: Custom JSON data sources can be collected into Log Analytics using the Log Analytics Agent for Linux.  These custom data sources can be simple scripts returning JSON such as curl or one of FluentD's 300+ plugins. This article describes the configuration required for this data collection.
+description: Custom JSON data sources can be collected into Azure Monitor using the Log Analytics Agent for Linux.  These custom data sources can be simple scripts returning JSON such as curl or one of FluentD's 300+ plugins. This article describes the configuration required for this data collection.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -18,7 +18,7 @@ ms.author: magoedte
 # Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Custom JSON data sources can be collected into [Log Analytics](data-collection.md) using the Log Analytics agent for Linux.  These custom data sources can be simple scripts returning JSON such as [curl](https://curl.haxx.se/) or one of [FluentD's 300+ plugins](http://www.fluentd.org/plugins/all). This article describes the configuration required for this data collection.
+Custom JSON data sources can be collected into [Azure Monitor](data-platform.md) using the Log Analytics agent for Linux.  These custom data sources can be simple scripts returning JSON such as [curl](https://curl.haxx.se/) or one of [FluentD's 300+ plugins](https://www.fluentd.org/plugins/all). This article describes the configuration required for this data collection.
 
 
 > [!NOTE]
@@ -28,7 +28,7 @@ Custom JSON data sources can be collected into [Log Analytics](data-collection.m
 
 ### Configure input plugin
 
-To collect JSON data in Log Analytics, add `oms.api.` to the start of a FluentD tag in an input plugin.
+To collect JSON data in Azure Monitor, add `oms.api.` to the start of a FluentD tag in an input plugin.
 
 For example, following is a separate configuration file `exec-json.conf` in `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  This uses the FluentD plugin `exec` to run a curl command every 30 seconds.  The output from this command is collected by the JSON output plugin.
 
@@ -82,9 +82,9 @@ Restart the Log Analytics agent for Linux service with the following command.
 	sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## Output
-The data will be collected in Log Analytics with a record type of `<FLUENTD_TAG>_CL`.
+The data will be collected in Azure Monitor with a record type of `<FLUENTD_TAG>_CL`.
 
-For example, the custom tag `tag oms.api.tomcat` in Log Analytics with a record type of `tomcat_CL`.  You could retrieve all records of this type with the following log query.
+For example, the custom tag `tag oms.api.tomcat` in Azure Monitor with a record type of `tomcat_CL`.  You could retrieve all records of this type with the following log query.
 
 	Type=tomcat_CL
 
@@ -101,4 +101,4 @@ Nested JSON data sources are supported, but are indexed based off of parent fiel
 
 
 ## Next steps
-* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 

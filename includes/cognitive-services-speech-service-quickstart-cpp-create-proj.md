@@ -2,11 +2,11 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/12/2018
+ms.date: 2/20/2019
 ms.author: erhopf
 ---
 
-1. Start Visual Studio 2017.
+1. Start Visual Studio 2019.
 
 1. Make sure the **Desktop development with C++** workload is available. Choose **Tools** > **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, skip to the next step.
 
@@ -37,7 +37,7 @@ ms.author: erhopf
     ![Screenshot of Manage Packages for Solution dialog box](../articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > The current version of the Cognitive Services Speech SDK is `1.2.0`.
+    > The current version of the Cognitive Services Speech SDK is `1.5.0`.
 
 1. Accept the displayed license to begin installation of the NuGet package.
 

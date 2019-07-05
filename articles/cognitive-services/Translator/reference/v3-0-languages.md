@@ -3,14 +3,14 @@ title: Translator Text API Languages Method
 titlesuffix: Azure Cognitive Services
 description: Use the Translator Text API Languages method.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: swmachan
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
+ms.author: swmachan
 ---
 
 # Translator Text API 3.0: Languages
@@ -33,7 +33,7 @@ Request parameters passed on the query string are:
   <th>Description</th>
   <tr>
     <td>api-version</td>
-    <td>*Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
+    <td><em>Required parameter</em>.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
   </tr>
   <tr>
     <td>scope</td>
@@ -259,7 +259,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
   <tr>
     <td>429</td>
-    <td>The caller is sending too many requests.</td>
+    <td>The server rejected the request because the client has exceeded request limits.</td>
   </tr>
   <tr>
     <td>500</td>

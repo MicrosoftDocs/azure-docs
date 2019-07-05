@@ -13,7 +13,7 @@ ms.author: mihansen
 
 ## Storage location
 
-**Are the data behind the FHIR&reg; APIs stored in Azure?** Yes, the data are stored in managed databases in Azure. The Azure API for FHIR does not provide direct access to the underlying data store.
+**Is the data behind the FHIR&reg; APIs stored in Azure?** Yes, the data is stored in managed databases in Azure. The Azure API for FHIR does not provide direct access to the underlying data store.
 
 ## Identity providers
 
@@ -21,7 +21,11 @@ We currently support Microsoft Azure Active Directory as the identity provider.
 
 ## Supported FHIR version
 
-Currently we support version 3.0.1. See [Supported Features](fhir-features-supported.md) for details.
+Azure API for FHIR (PaaS): We support version 3.0.1
+
+FHIR Server for Azure (OSS): We support version 4.0.0, the most recent version of the FHIR specification, in addition to version 3.0.1.
+
+See [Supported Features](fhir-features-supported.md) for details. Read about what has changed between versions in [HL7 FHIR's Version History](http://hl7.org/fhir/R4/history.html)
 
 ## OSS and Azure API for FHIR
 

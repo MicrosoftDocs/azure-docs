@@ -3,8 +3,8 @@ title: Enable remote access to SharePoint with Azure AD Application Proxy | Micr
 description: Covers the basics about how to integrate an on-premises SharePoint server with Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Enable remote access to SharePoint with Azure AD Application Proxy
@@ -45,7 +46,7 @@ To set up KCD for a SharePoint server, use the procedures in the following seque
 First, make sure that SharePoint web application is running under a domain account--not local system, local service, or network service. Do this so that you can attach service principal names (SPNs) to this account. SPNs are how the Kerberos protocol identifies different services. And you will need the account later to configure the KCD.
 
 > [!NOTE]
-You need to have a previously created Azure AD account for the service. We suggest that you allow for an automatic password change. For more information about the full set of steps and troubleshooting issues, see [Configure automatic password change in SharePoint](https://technet.microsoft.com/library/ff724280.aspx).
+> You need to have a previously created Azure AD account for the service. We suggest that you allow for an automatic password change. For more information about the full set of steps and troubleshooting issues, see [Configure automatic password change in SharePoint](https://technet.microsoft.com/library/ff724280.aspx).
 
 To ensure that your sites are running under a defined service account, perform the following steps:
 
@@ -53,7 +54,7 @@ To ensure that your sites are running under a defined service account, perform t
 2. Go to **Security** and select **Configure service accounts**.
 3. Select **Web Application Pool - SharePoint - 80**. The options may be slightly different based on the name of your web pool, or if the web pool uses SSL by default.
 
-  ![Choices for configuring a service account](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
+   ![Choices for configuring a service account](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
 4. If **Select an account for this component** field is set to **Local Service** or **Network Service**, you need to create an account. If not, you're finished and can move to the next section.
 5. Select **Register new managed account**. After your account is created, you must set **Web Application Pool** before you can use the account.
@@ -103,13 +104,13 @@ To configure the KCD, repeat the following steps for each connector machine:
 6. In the list of SPNs, select the one that you created earlier for the service account.
 7. Click **OK**. Click **OK** again to save the changes.
   
-  ![Delegation settings](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
+   ![Delegation settings](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
 ## Step 2: Configure Azure AD Proxy
 
 Now that you’ve configured KCD, you're ready to configure Azure AD Application Proxy.
 
-1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
+1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
    * **Internal URL**: SharePoint Internal URL that was chosen earlier, such as **<https://SharePoint/>**.
    * **Pre-authentication Method**: Azure Active Directory
    * **Translate URL in Headers**: NO
@@ -124,7 +125,7 @@ Now that you’ve configured KCD, you're ready to configure Azure AD Application
    1. On the application page in the portal, select **Single sign-on**.
    2. For Single Sign-on Mode, select **Integrated Windows Authentication**.
    3. Set Internal Application SPN to the value that you set earlier. For this example, that would be **HTTP/SharePoint**.
-   4. In "Delegated Login Identity", select **On-premises SAM account name**.
+   4. In "Delegated Login Identity", select the most suitable option for your Active Directory forest configuration. For example if you have a single AD domain in your forest, select **On-premises SAM account name** (as shown below), but if your users are not in the same domain as SharePoint and the App Proxy Connector servers then select **On-premises user principal name** (not shown).
 
    ![Configure Integrated Windows Authentication for SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
@@ -137,18 +138,18 @@ Next step is to extend SharePoint web application to a new zone, configured with
 1. Start the **SharePoint Management Shell**.
 2. Run the following script to extend the web application to Extranet zone and enable Kerberos authentication:
 
-  ```powershell
-  # Replace "http://spsites/" with the URL of your web application
-  # Replace "https://sharepoint-f128.msappproxy.net/" with the External URL in your Azure AD proxy application
-  $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
-  Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
-  ```
+   ```powershell
+   # Replace "http://spsites/" with the URL of your web application
+   # Replace "https://sharepoint-f128.msappproxy.net/" with the External URL in your Azure AD proxy application
+   $winAp = New-SPAuthenticationProvider -UseWindowsIntegratedAuthentication -DisableKerberos:$false
+   Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
+   ```
 
 3. Open the **SharePoint Central Administration** site.
 4. Under **System Settings**, select **Configure Alternate Access Mappings**. The Alternate Access Mappings box opens.
 5. Select your site, for example **SharePoint - 80**. For the moment, Extranet zone doesn't have the Internal URL properly set yet:
 
-  ![Alternate Access Mappings box](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+   ![Alternate Access Mappings box](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
 6. Click **Add Internal URLs**.
 7. In **URL protocol, host and port** textbox, type the **Internal URL** configured in Azure AD proxy, for example <https://SharePoint/>.
@@ -156,7 +157,7 @@ Next step is to extend SharePoint web application to a new zone, configured with
 9. Click **Save**.
 10. The Alternate Access Mappings should now look like this:
 
-  ![Correct Alternate Access Mappings](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
+    ![Correct Alternate Access Mappings](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
 ## Step 4: Ensure that an HTTPS certificate is configured for the IIS site of the Extranet zone
 
@@ -165,13 +166,13 @@ SharePoint configuration is now finished, but since the Internal URL of the Extr
 1. Open Windows PowerShell console.
 2. Run the following script to generate a self-signed certificate and add it to the computer MY store:
 
-  ```powershell
-  # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
-  New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
-  ```
+   ```powershell
+   # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
+   New-SelfSignedCertificate -DnsName "SharePoint" -CertStoreLocation "cert:\LocalMachine\My"
+   ```
 
-  > [!NOTE]
-  Self-signed certificates are suitable only for test purposes. In production environments, it is strongly recommended to use certificates issued by a certificate authority instead.
+   > [!NOTE]
+   > Self-signed certificates are suitable only for test purposes. In production environments, it is strongly recommended to use certificates issued by a certificate authority instead.
 
 3. Open "Internet Information Services Manager" console.
 4. Expand the server in the tree view, expand "Sites", select the site "SharePoint - AAD Proxy" and click on **Bindings**.

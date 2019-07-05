@@ -4,7 +4,7 @@ description: Connect to Azure Data Lake Storage Gen1 from Azure VNETs
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5

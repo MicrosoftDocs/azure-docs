@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Grant access for a group using RBAC and Azure PowerShell | Microsoft Docs
-description: Use role-based access control (RBAC) to grant a group access to view everything in a subscription and manage everything in a resource group using Azure PowerShell.
+title: Tutorial - Grant a group access to Azure resources using RBAC and Azure PowerShell | Microsoft Docs
+description: Learn how to grant a group access to Azure resources using role-based access control (RBAC) and Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -19,9 +19,9 @@ ms.author: rolyon
 
 ---
 
-# Tutorial: Grant access for a group using RBAC and Azure PowerShell
+# Tutorial: Grant a group access to Azure resources using RBAC and Azure PowerShell
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. In this tutorial, you grant a group access to view everything in a subscription and manage everything in a resource group using Azure PowerShell.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In this tutorial, you grant a group access to view everything in a subscription and manage everything in a resource group using Azure PowerShell.
 
 In this tutorial, you learn how to:
 
@@ -69,7 +69,7 @@ To assign a role, you need a user, group, or service principal. If you don't alr
    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
    ```
 
-If you don't have permissions to create groups, you can try the [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
+If you don't have permissions to create groups, you can try the [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
 
 ## Create a resource group
 
@@ -123,7 +123,7 @@ To grant access for the group, you use the [New-AzRoleAssignment](/powershell/mo
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. Get the ID of your subscription using the [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) command.
+1. Get the ID of your subscription using the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) command.
 
     ```azurepowershell
     Get-AzSubscription
@@ -293,4 +293,4 @@ To clean up the resources created by this tutorial, delete the resource group an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage access using RBAC and PowerShell](role-assignments-powershell.md)
+> [Manage access to Azure resources using RBAC and Azure PowerShell](role-assignments-powershell.md)

@@ -9,10 +9,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 03/01/2019
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
+ms.collection: M365-identity-device-management
 ---
 
 # Create a basic group and add members using Azure Active Directory
@@ -26,32 +27,32 @@ You can create a basic group and add your members at the same time.
 
 2. Select **Azure Active Directory**, **Groups**, and then select **New group**.
 
-    ![Azure AD with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Azure AD page, with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. In the **Group** page, fill out the required information.
 
     ![New group page, filled out with example info](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
-    - **Group type (required).** Select a pre-defined group type. This includes:
+   - **Group type (required).** Select a pre-defined group type. This includes:
         
-        - **Security**. Used to manage member and computer access to shared resources for a group of users. For example, you can create a security group for a specific security policy. By doing it this way, you can give a set of permissions to all the members at once, instead of having to add permissions to each member individually. For more info about managing access to resources, see [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md).
+       - **Security**. Used to manage member and computer access to shared resources for a group of users. For example, you can create a security group for a specific security policy. By doing it this way, you can give a set of permissions to all the members at once, instead of having to add permissions to each member individually. For more info about managing access to resources, see [Manage access to resources with Azure Active Directory groups](active-directory-manage-groups.md).
         
-        - **Office 365**. Provides collaboration opportunities by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. For more info about Office 365 Groups, see [Learn about Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+       - **Office 365**. Provides collaboration opportunities by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. For more info about Office 365 Groups, see [Learn about Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-    - **Group name (required).** Add a name for the group, something that you'll remember and that makes sense.
+   - **Group name (required).** Add a name for the group, something that you'll remember and that makes sense. A check will be performed to determine if the name is already used for another group. If the name is already in use, to avoid duplicate naming, you'll be asked to modify the name of your group.
 
-    - **Group description.** Add an optional description to your group.
+   - **Group description.** Add an optional description to your group.
 
-    - **Membership type (required).** Select a pre-defined membership type. This includes:
+   - **Membership type (required).** Select a pre-defined membership type. This includes:
 
-        - **Assigned.** Lets you add specific users to be members of this group and to have unique permissions. For the purposes of this article, we're using this option.
+     - **Assigned.** Lets you add specific users to be members of this group and to have unique permissions. For the purposes of this article, we're using this option.
 
-        - **Dynamic user.** Lets you use dynamic group rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
+     - **Dynamic user.** Lets you use dynamic membership rules to automatically add and remove members. If a member's attributes change, the system looks at your dynamic group rules for the directory to see if the member meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
 
-        - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
+     - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
 
-        >[!Important]
-        >You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions. For more info about creating a dynamic group for users and devices, see [Create a dynamic group and check status](../users-groups-roles/groups-create-rule.md).
+       >[!Important]
+       >You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions. For more info about creating a dynamic group for users and devices, see [Create a dynamic group and check status](../users-groups-roles/groups-create-rule.md).
 
 4. Select **Create**.
 
@@ -66,6 +67,10 @@ You can create a basic group and add your members at the same time.
     The **Group Overview** page updates to show the number of members who are now added to the group.
 
     ![Group Overview page with number of members highlighted](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
+
+## Turn on or off welcome email
+
+When any new Office 365 group is created, whether with dynamic or static membership, a welcome notification is sent to all users who are added to the group. When any attributes of a user or device change, all dynamic group rules in the organization are processed for potential membership changes. Users who are added then also receive the welcome notification. You can turn this behavior off in [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## Next steps
 Now that you've added a group and at least one user, you can:

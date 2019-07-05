@@ -15,7 +15,6 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-
 ---
 
 # Advanced usage of authentication and authorization in Azure App Service
@@ -171,7 +170,7 @@ From your server code, the provider-specific tokens are injected into the reques
 From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me`. The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
-> Access tokens are for accessing provider resources, so they are present only if you configure your provider with a client secret. To see how to get refresh tokens, see [Refresh access tokens](#refresh-access-tokens).
+> Access tokens are for accessing provider resources, so they are present only if you configure your provider with a client secret. To see how to get refresh tokens, see Refresh access tokens.
 
 ## Refresh identity provider tokens
 
@@ -199,7 +198,7 @@ To refresh your access token at anytime, just call `/.auth/refresh` in any langu
 
 ```JavaScript
 function refreshTokens() {
-  var refreshUrl = "/.auth/refresh";
+  let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
     console.log("Token refresh completed successfully.");
   }) .fail(function() {

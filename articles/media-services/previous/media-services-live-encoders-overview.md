@@ -4,7 +4,7 @@ description: This topic lists on-premises live encoders that you can use to capt
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 0ec6f046-0841-4673-9057-883bdbc30d5c
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
@@ -24,19 +24,19 @@ This topic lists on-premises live encoders that you can use to capture your live
 > When streaming via RTMP, check firewall and/or proxy settings to confirm that outbound TCP ports 1935 and 1936 are open.
 
 ## Flash Media Live Encoder
-For information on how to configure the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring FMLE](media-services-configure-fmle-live-encoder.md).
+For information on how to configure the [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring FMLE](media-services-configure-fmle-live-encoder.md).
 
 ## Haivision KB Encoder
 For information on how to configure the [Haivision KB Encoder](https://www.haivision.com/products/kb-series/) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Haivision KB Encoder](media-services-configure-kb-live-encoder.md).
 
 ## Telestream Wirecast
-For information on how to configure the [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Wirecast](media-services-configure-wirecast-live-encoder.md).
+For information on how to configure the [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## NewTek TriCaster
-For information on how to configure the [Tricaster](http://newtek.com/products/tricaster-40.html) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Tricaster](media-services-configure-tricaster-live-encoder.md).
+For information on how to configure the [Tricaster](https://newtek.com/products/tricaster-40.html) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## Elemental Live
-For more information, see [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live).
+For more information, see [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

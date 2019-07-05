@@ -76,9 +76,9 @@ Azure API Management provides you the ability to customize the content of develo
   
 |Property|Type|Description|  
 |--------------|----------|-----------------|  
-|Paging|[Paging](api-management-template-data-model-reference.md#Paging) entity.|The paging information for the applications collection.|  
-|Applications|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications visible to the current user.|  
-|CategoryName|string|The category of application.|  
+|`Paging`|[Paging](api-management-template-data-model-reference.md#Paging) entity.|The paging information for the applications collection.|  
+|`Applications`|Collection of [Application](api-management-template-data-model-reference.md#Application) entities.|The applications visible to the current user.|  
+|`CategoryName`|string|The category of application.|  
   
 ### Sample template data  
   

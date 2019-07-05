@@ -1,17 +1,17 @@
 ---
 title: An introduction to Apache Kafka on HDInsight - Azure 
 description: 'Learn about Apache Kafka on HDInsight: What it is, what it does, and where to find examples and getting started information.'
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 04/11/2018
-# As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
+ms.date: 06/13/2019
+#Customer intent: As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
 ---
-# What is Apache Kafka on HDInsight?
+
+# What is Apache Kafka in Azure HDInsight
 
 [Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams. 
 
@@ -33,7 +33,7 @@ The following are specific characteristics of Kafka on HDInsight:
 
     For more information, see [High availability with Apache Kafka on HDInsight](apache-kafka-high-availability.md).
 
-* Azure Log Analytics can be used to monitor Kafka on HDInsight. Log Analytics surfaces virtual machine level information, such as disk and NIC metrics, and JMX metrics from Kafka.
+* Azure Monitor logs can be used to monitor Kafka on HDInsight. Azure Monitor logs surfaces virtual machine level information, such as disk and NIC metrics, and JMX metrics from Kafka.
 
     For more information, see [Analyze logs for Apache Kafka on HDInsight](apache-kafka-log-analytics-operations-management.md).
 

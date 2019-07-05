@@ -1,14 +1,12 @@
 ---
 title: Use C# with Apache Hive and Apache Pig on Apache Hadoop in HDInsight - Azure 
 description: Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig streaming in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
 
 ---
@@ -42,8 +40,6 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 * __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6.
 
     For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
-
-    To use a specific version of Mono, see the [Install or update Mono](../hdinsight-hadoop-install-mono.md) document.
 
 * __Windows-based HDInsight__ clusters use the Microsoft .NET CLR to run .NET applications.
 
@@ -168,13 +164,13 @@ For more information on the version of the .NET framework and Mono included with
 
 6. To upload the .exe files, use one of the following methods:
 
-    * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **HiveCSharp** project. Finally, select the **HiveCSharp.exe** file and click **Ok**.
+   * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **HiveCSharp** project. Finally, select the **HiveCSharp.exe** file and click **Ok**.
 
-        ![upload icon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![upload icon](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **HiveCSharp.exe** file and click **Open**.
+   * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **HiveCSharp.exe** file and click **Open**.
 
-    Once the __HiveCSharp.exe__ upload has finished, repeat the upload process for the __PigUDF.exe__ file.
+     Once the __HiveCSharp.exe__ upload has finished, repeat the upload process for the __PigUDF.exe__ file.
 
 ## Run an Apache Hive query
 
@@ -189,8 +185,10 @@ For more information on the version of the .NET framework and Mono included with
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
     -- add file wasb:///HiveCSharp.exe;
-    -- Uncomment the following if you are using Azure Data Lake Storage
+    -- Uncomment the following if you are using Azure Data Lake Storage Gen1
     -- add file adl:///HiveCSharp.exe;
+    -- Uncomment the following if you are using Azure Data Lake Storage Gen2
+    -- add file abfs:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'HiveCSharp.exe' AS
@@ -210,11 +208,7 @@ For more information on the version of the .NET framework and Mono included with
 
 ## Run an Apache Pig job
 
-1. Use one of the following methods to connect to your HDInsight cluster:
-
-    * If you are using a __Linux-based__ HDInsight cluster, use SSH. For example, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. For more information, see [Use SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * If you are using a __Windows-based__ HDInsight cluster, [Connect to the cluster using Remote Desktop](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+1. Use SSH to connect to your HDInsight cluster. For example, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. For more information, see [Use SSH withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Use one the following command to start the Pig command line:
 

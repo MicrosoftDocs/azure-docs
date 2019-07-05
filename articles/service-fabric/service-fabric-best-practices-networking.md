@@ -4,7 +4,7 @@ description: Best practices for managing Service Fabric networking.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock 
+manager: chackdan 
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -67,6 +67,8 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 * To run Windows container workloads, use [open networking mode](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) to make service-to-service communication easier.
 
 * Use a reverse proxy such as [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) or the [Service Fabric reverse proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) to expose common application ports such as 80 or 443.
+
+* For Windows Containers hosted on air-gapped machines that can't pull base layers from Azure cloud storage, override the foreign layer behavior, by using the [--allow-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flag in the Docker daemon.
 
 ## Next steps
 

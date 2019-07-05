@@ -1,5 +1,5 @@
 ---
-title: Change priciing tier of Notification Hubs namespace | Microsoft Docs
+title: Change pricing tier of Notification Hubs namespace | Microsoft Docs
 description: Learn how to change pricing tier of an Azure Notification Hubs namespace.
 services: notification-hubs
 author: jwargo
@@ -73,7 +73,7 @@ To **update the namespace tier**, send a PUT command as shown in the following e
 
 ```REST
 PUT: https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/notificationhubplan
-Body: <NotificationHubPlan xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"><SKU>Standard</SKU></NotificationHubPlan>
+Body: <NotificationHubPlan xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"><SKU>Standard</SKU></NotificationHubPlan>
 ```
 
 

@@ -36,7 +36,7 @@ A public IP address is associated with the following resource types:
 * Application gateways
 
 ### Allocation method
-When a public IP address needs to be assigned to an Azure resource, it is *dynamically* allocated from a pool of available public IP address within the location the resource is created. This IP address is released when the resource is stopped. With cloud service, this happens when all the role instances are stopped, which can be avoided by using a *static* (reserved) IP address (see [Cloud Services](#Cloud-services)).
+When a public IP address needs to be assigned to an Azure resource, it is *dynamically* allocated from a pool of available public IP address within the location the resource is created. This IP address is released when the resource is stopped. With cloud service, this happens when all the role instances are stopped, which can be avoided by using a *static* (reserved) IP address (see [Cloud Services](#cloud-services)).
 
 > [!NOTE]
 > The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -160,13 +160,13 @@ Below is a comparison of IP addressing features in Resource Manager and the clas
 |  | Resource | Classic | Resource Manager |
 | --- | --- | --- | --- |
 | **Public IP Address** |***VM*** |Referred to as an ILPIP (dynamic only) |Referred to as a public IP (dynamic or static) |
-|  ||Assigned to an IaaS VM or a PaaS role instance |Associated to the VM's NIC | |
-|  |***Internet facing load balancer*** |Referred to as VIP (dynamic) or Reserved IP (static) |Referred to as a public IP (dynamic or static) | |
-|  ||Assigned to a cloud service |Associated to the load balancer's front end config | |
+|  ||Assigned to an IaaS VM or a PaaS role instance |Associated to the VM's NIC |
+|  |***Internet facing load balancer*** |Referred to as VIP (dynamic) or Reserved IP (static) |Referred to as a public IP (dynamic or static) |
+|  ||Assigned to a cloud service |Associated to the load balancer's front end config |
 |  | | | |
 | **Private IP Address** |***VM*** |Referred to as a DIP |Referred to as a private IP address |
-|  ||Assigned to an IaaS VM or a PaaS role instance |Assigned to the VM's NIC | |
-|  |***Internal load balancer (ILB)*** |Assigned to the ILB (dynamic or static) |Assigned to the ILB's front end configuration (dynamic or static) | |
+|  ||Assigned to an IaaS VM or a PaaS role instance |Assigned to the VM's NIC |
+|  |***Internal load balancer (ILB)*** |Assigned to the ILB (dynamic or static) |Assigned to the ILB's front end configuration (dynamic or static) |
 
 ## Next steps
 * [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the Azure portal.

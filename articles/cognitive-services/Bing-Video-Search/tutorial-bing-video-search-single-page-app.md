@@ -3,14 +3,14 @@ title: "Tutorial: Build a single-page Bing Video Search app"
 titlesuffix: Azure Cognitive Services
 description: Explains how to use the Bing Video Search API in a single-page Web application.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.author: rosh
+ms.author: aahi
 ---
 # Tutorial: Single-page Video Search app
 The Bing Video Search API lets you search the Web and get video results relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
@@ -276,7 +276,7 @@ function renderSearchResults(results) {
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
 
-    // Render the resuts to the mainline section
+    // Render the results to the mainline section
     for (section in { mainline: 0 }) {
          showDiv(section, renderResultsItems(section, results));
     }

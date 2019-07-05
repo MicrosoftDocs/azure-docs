@@ -1,5 +1,5 @@
 ---
-title: Approve or deny requests for Azure resource roles in PIM | Microsoft Docs
+title: Approve or deny requests for Azure resource roles in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to approve or deny requests for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,14 +11,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/31/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Approve or deny requests for Azure resource roles in PIM
 
-With Azure AD Privileged Identity Management (PIM), you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Follow the steps in this article to approve or deny requests for Azure resource roles.
+With Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
+
+Follow the steps in this article to approve or deny requests for Azure resource roles.
 
 ## View pending requests
 
@@ -30,15 +33,15 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 1. Click **Approve requests**.
 
-    ![Azure resources - Approve requests](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Approve requests - Azure resources page showing request to review](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
 ## Approve requests
 
-1. Find and click the request that you want to approve. An approval pane appears.
+1. Find and click the request that you want to approve. An approve or deny pane appears.
 
-    ![Approve requests pane](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. In the **Justification** box, type a reason.
 
@@ -46,13 +49,13 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
     A notification appears with your approval.
 
-    ![Approve notification](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Approve notification showing request was approved](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## Deny requests
 
-1. Find and click the request that you want to deny. An approval pane appears.
+1. Find and click the request that you want to deny. An approve or deny pane appears.
 
-    ![Approve requests pane](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. In the **Justification** box, type a reason.
 
@@ -76,4 +79,4 @@ Here's some information about workflow notifications:
 
 - [Extend or renew Azure resource roles in PIM](pim-resource-roles-renew-extend.md)
 - [Email notifications in PIM](pim-email-notifications.md)
-- [Approve or deny requests for Azure AD directory roles in PIM](azure-ad-pim-approval-workflow.md)
+- [Approve or deny requests for Azure AD roles in PIM](azure-ad-pim-approval-workflow.md)

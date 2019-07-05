@@ -1,20 +1,20 @@
 ---
-title: How to create Dynamics 365 for Operations offer via Cloud Partner portal | Microsoft Docs
+title: How to create Dynamics 365 for Operations offer via Cloud Partner portal 
 description: How to create Dynamics 365 for Operations offer via Cloud Partner portal
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # How to create Dynamics 365 for Operations offer via Cloud Partner portal
@@ -27,7 +27,7 @@ Before an offer can be published on behalf of a publisher account, one of indivi
 
 Once all the pre-requisites have been met, you are ready to start authoring your Dynamics 365 for Operations offer.
 
-1. Sign in to the [Cloud Partner Portal](http://cloudpartner.azure.com/).
+1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. From the left navigation bar, click on \"+ New offer\" and select \"Dynamics 365 for Operations\".
 3. A new offer \"Editor\" view is now opened for you, and we are ready to start authoring.
 4. The \"forms\" that need to be filled out are visible on the left within the \"Editor\" view. Each \"form\" consists of a set of fields that are to be filled out. Required fields are marked with a red asterisk (\*).
@@ -48,8 +48,7 @@ The offer settings form is a basic form to specify the offer settings. The diffe
 This is a unique identifier for the offer within a publisher profile. This ID will be visible in product URLs. It can only be composed of lowercase alphanumeric characters or dashes (-). The ID cannot end in a
 dash and can have a maximum of 50 characters. This field is locked once an offer goes live.
 
-for example, if a publisher contoso publisher creates an offer with offer ID *sample-dynamics365 for operations*, it will show up in AppSource as \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics
-365 for operations*?tab=Overview\"
+for example, if a publisher contoso publisher creates an offer with offer ID *sample-dynamics365 for operations*, it will show up in AppSource as `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`.
 
 ### Publisher ID
 

@@ -3,25 +3,25 @@ title: Install and run containers
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: IEvangelist
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: article
-ms.date: 01/02/2019
-ms.author: diberry
+ms.topic: conceptual
+ms.date: 06/21/2019
+ms.author: dapine
 ---
 
 # Install and run Text Analytics containers
 
-The Text Analytics containers provide advanced natural language processing over raw text, and includes three main functions: sentiment analysis, key phrase extraction, and language detection. Entity linking is not currently supported in a container. 
+The Text Analytics containers provide advanced natural language processing over raw text, and includes three main functions: sentiment analysis, key phrase extraction, and language detection. Entity linking is not currently supported in a container.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-In order to run any of the Text Analytics containers, you must have the following:
+In order to run any of the Text Analytics containers, you must have the host computer and container environments.
 
 ## Preparation
 
@@ -31,23 +31,26 @@ You must meet the following prerequisites before using Text Analytics containers
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Text Analytics resource |In order to use the container, you must have:<br><br>A [_Text Analytics_](text-analytics-how-to-access-key.md) Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Text Analytics Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|`Cognitive Services` resource |In order to use the container, you must have:<br><br>A [_Cognitive Services_](text-analytics-how-to-access-key.md) Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Cognitive Services Overview and Keys pages and are required to start the container. You need to add the `text/analytics/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |
+| Container | Minimum | Recommended | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
+|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
+|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |15, 30|
 
-Core and memory correspond to the `--cpus` and `--memory` settings which are used as part of the `docker run` command.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
+
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
@@ -59,7 +62,7 @@ Container images for Text Analytics are available from Microsoft Container Regis
 |Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry..
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
 
 For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
 
@@ -72,19 +75,19 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ### Docker pull for the Key phrase extraction container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
 ### Docker pull for the language detection container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
 ### Docker pull for the sentiment container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
@@ -104,8 +107,10 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Text Analytics Keys page.  |
-|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Text Analytics Overview page.|
+|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's `Cognitive Services` Keys page.  |
+|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure `Cognitive Services` Overview page. <br><br>Example:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+
+You need to add the `text/analytics/v2.0` routing to the endpoint URI as shown in the preceding BILLING_ENDPOINT_URI example.
 
 Replace these parameters with your own values in the following example `docker run` command.
 
@@ -120,7 +125,7 @@ ApiKey={BILLING_KEY}
 This command:
 
 * Runs a key phrase container from the container image
-* Allocates one CPU cores and 4 gigabytes (GB) of memory
+* Allocates one CPU core and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
 
@@ -129,11 +134,17 @@ More [examples](../text-analytics-resource-container-config.md#example-docker-ru
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, https://localhost:5000, for container APIs.
+Use the host, `https://localhost:5000`, for container APIs.
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
@@ -143,28 +154,17 @@ Use the host, https://localhost:5000, for container APIs.
 
 If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
-## Container's API documentation
-
-[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
-
 ## Billing
 
-The Text Analytics containers send billing information to Azure, using a _Text Analytics_ resource on your Azure account. 
+The Text Analytics containers send billing information to Azure, using a _Cognitive Services_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
-
-The `docker run` command uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Text Analytics_ resource used to track billing information. |
-| `Billing` | The endpoint of the _Text Analytics_ resource used to track billing information.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](../text-analytics-resource-container-config.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

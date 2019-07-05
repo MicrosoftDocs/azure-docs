@@ -1,29 +1,28 @@
 ---
-title: Manage logic apps with Visual Studio - Azure Logic Apps | Microsoft Docs
+title: Manage logic apps by using Visual Studio - Azure Logic Apps
 description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 03/15/2018
+ms.date: 05/07/2019
 ---
 
 # Manage logic apps with Visual Studio
 
-Although you can create, edit, manage, and deploy logic apps 
-in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-you can also use Visual Studio when you want to add logic apps to source control, 
-publish different versions, and create 
+Although you can create, edit, manage, and deploy logic apps in the 
+[Azure portal](https://portal.azure.com), 
+you can also use Visual Studio when you want to add your logic apps 
+to source control, publish different versions, and create 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
-templates for different deployment environments. With Visual Studio Cloud Explorer, 
+templates for various deployment environments. With Visual Studio Cloud Explorer, 
 you can find and manage your logic apps along with other Azure resources. 
-For example, you can open, download, edit, run, view run history, 
-disable, and enable logic apps that are already deployed in the Azure portal. 
+For example, you can open, download, edit, run, view run history, disable, 
+and enable logic apps that are already deployed in the Azure portal. 
 If you're new to working with Azure Logic Apps in Visual Studio, learn 
 [how to create logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
@@ -38,23 +37,39 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+* An Azure subscription. If you don't have an Azure subscription, 
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * Download and install these tools, if you don't have them already: 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 or Visual Studio 2015 - Community edition or greater</a>. 
+  * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). 
   This quickstart uses Visual Studio Community 2017, which is free.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 or later)</a> 
-  and <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+    > [!IMPORTANT]
+    > When you install Visual Studio 2019 or 2017, make sure that 
+    > you select the **Azure development** workload.
+    > For more information, see 
+    > [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Azure Logic Apps Tools for Visual Studio 2017</a> 
-  or the <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 version</a> 
-  
+    To install Cloud Explorer for Visual Studio 2015, 
+    [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+    For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+
+  * [Azure SDK (2.9.1 or later)](https://azure.microsoft.com/downloads/) 
+
+  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
+
+  * Azure Logic Apps Tools for the Visual Studio version you want:
+
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
+
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
+
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
+
     You can either download and install Azure Logic Apps Tools 
     directly from the Visual Studio Marketplace, or learn 
-    <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">how to install this extension from inside Visual Studio</a>. 
+    [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Make sure that you restart Visual Studio after you finish installing.
 
 * Access to the web while using the embedded Logic Apps Designer
@@ -76,13 +91,13 @@ and are deployed in the Azure portal by using Cloud Explorer.
 1. Open Visual Studio. On the **View** menu, 
 select **Cloud Explorer**.
 
-2. In Cloud Explorer, choose **Account Management**. 
+1. In Cloud Explorer, choose **Account Management**. 
 Select the Azure subscription associated with your logic apps, 
 then choose **Apply**. For example:
 
    ![Choose "Account Management"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
-2. Based on whether you're searching by **Resource Groups** 
+1. Based on whether you're searching by **Resource Groups** 
 or **Resource Types**, follow these steps:
 
    * **Resource Groups**: Under your Azure subscription, 
@@ -106,13 +121,16 @@ or as Azure Resource Manager projects with Visual Studio.
 
 1. Open Cloud Explorer, and find your logic app. 
 
-2. On the logic app's shortcut menu, 
+1. On the logic app's shortcut menu, 
 select **Open with Logic App Editor**.
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
 
-  ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
+   ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
    After the logic app opens in Logic Apps Designer, 
    at the bottom of the designer, you can choose **Code View** 
@@ -127,7 +145,7 @@ select **Open with Logic App Editor**.
 ## Download from Azure
 
 You can download logic apps from the 
-<a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+[Azure portal](https://portal.azure.com) 
 and save them as [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 
 templates. You can then locally edit the templates with Visual Studio 
 and customize logic apps for different deployment environments. 
@@ -141,6 +159,9 @@ that you want to download from Azure.
 
 2. On that app's shortcut menu, 
 select **Open with Logic App Editor**.
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
    The Logic App Designer opens and shows the logic app. 
    To review logic app's underlying definition and structure, 
@@ -175,7 +196,7 @@ make sure that you refresh that app's version in Visual Studio with those change
   -or-
 
 * In Visual Studio Cloud Explorer, open your logic app's shortcut menu, 
-and select **Refresh**. 
+and select **Refresh**.
 
 ![Refresh logic app with updates](./media/manage-logic-apps-with-visual-studio/refresh-logic-app.png)
 
@@ -204,7 +225,7 @@ and select **Open run history**.
 
    ![Open run history](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-2. To view the details for a specific run, 
+1. To view the details for a specific run, 
 double-click a run. For example:
 
    ![Detailed run history](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
@@ -213,7 +234,7 @@ double-click a run. For example:
    > To sort the table by property, 
    > choose the column header for that property. 
 
-3. Expand the steps whose inputs and outputs you want to review. 
+1. Expand the steps whose inputs and outputs you want to review. 
 For example:
 
    ![View inputs and outputs for each step](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
@@ -264,10 +285,11 @@ open a logic app's .json file, Visual Studio caches the first
 selected subscription for future use. To resolve this problem, 
 try one of these steps:
 
-* Rename the logic app's .json file. The subscription cache depends on the file name. 
+* Rename the logic app's .json file. The subscription cache depends on the file name.
+
 * To remove previously selected subscriptions for *all* logic apps in your solution, 
-delete the *hidden* .vs folder in your solution's directory. This location stores 
-your subscription information. 
+delete the hidden Visual Studio settings folder (.vs) in your solution's directory. 
+This location stores your subscription information.
 
 ## Next steps
 

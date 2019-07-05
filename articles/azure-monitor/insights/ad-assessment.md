@@ -1,5 +1,5 @@
 ---
-title: Optimize your Active Directory environment with Azure Log Analytics | Microsoft Docs
+title: Optimize your Active Directory environment with Azure Monitor | Microsoft Docs
 description: You can use the Active Directory Health Check solution to assess the risk and health of your environments on a regular interval.
 services: log-analytics
 documentationcenter: ''
@@ -14,9 +14,11 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ---
-# Optimize your Active Directory environment with the Active Directory Health Check solution in Log Analytics
+# Optimize your Active Directory environment with the Active Directory Health Check solution in Azure Monitor
 
 ![AD Health Check symbol](./media/ad-assessment/ad-assessment-symbol.png)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 You can use the Active Directory Health Check solution to assess the risk and health of your server environments on a regular interval. This article helps you install and use the solution so that you can take corrective actions for potential problems.
 
@@ -34,22 +36,22 @@ After you've added the solution and a check is completed, summary information fo
 
 ## Prerequisites
 
-* The Active Directory Health Check solution requires a supported version of .NET Framework 4.5.2 or above installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and the Log Analytics service.
+* The Active Directory Health Check solution requires a supported version of .NET Framework 4.5.2 or above installed on each computer that has the Microsoft Monitoring Agent (MMA) installed.  The MMA agent is used by System Center 2016 - Operations Manager and Operations Manager 2012 R2, and Azure Monitor.
 * The solution supports domain controllers running Windows Server 2008 and 2008 R2, Windows Server 2012 and 2012 R2, and Windows Server 2016.
 * A Log Analytics workspace to add the Active Directory Health Check solution from the Azure marketplace in the Azure portal.  There is no further configuration required.
 
   > [!NOTE]
-  > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the Log Analytics service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
+  > After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to Azure Monitor in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
   >
   >
 
-To perform the health check against your domain controllers that are members of the domain to be evaluated, they require an agent and connectivity to Log Analytics using one of the following supported methods:
+To perform the health check against your domain controllers that are members of the domain to be evaluated, they require an agent and connectivity to Azure Monitor using one of the following supported methods:
 
 1. Install the [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md) if the domain controller is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
-2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with the Log Analytics service, the domain controller can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
-3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics) after you enable the solution in your workspace.  
+2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with Azure Monitor, the domain controller can be multi-homed with Azure Monitor to collect data and forward to the service and still be monitored by Operations Manager.  
+3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor) after you enable the solution in your workspace.  
 
-The agent on your domain controller which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to the Log Analytics service.  The data is not written to the Operations Manager databases.  
+The agent on your domain controller which reports to an Operations Manager management group, collects data, forwards to its assigned management server, and then is sent directly from a management server to Azure Monitor.  The data is not written to the Operations Manager databases.  
 
 ## Active Directory Health Check data collection details
 
@@ -67,7 +69,7 @@ Active Directory Health Check collects data from the following sources using the
 - File Replication Service (NTFRS) API
 - Custom C# code
 
-Data is collected on the domain controller and forwarded to Log Analytics every seven days.  
+Data is collected on the domain controller and forwarded to Azure Monitor every seven days.  
 
 ## Understanding how recommendations are prioritized
 Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the 10 most important recommendations are shown.
@@ -101,30 +103,33 @@ After it is installed, you can view the summary of recommendations by using the 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
 ### To view recommendations for a focus area and take corrective action
-3. Click the **Overview** tile for your Log Analytics workspace in the Azure portal.
-4. On the **Overview** page, click the **Active Directory Health Check** tile.
-5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
-6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of Health Check recommendations](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
+1. On the **Overview** page, click the **Active Directory Health Check** tile.
+1. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
+1. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of Health Check recommendations](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+1. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
-If you have recommendations that you want to ignore, you can create a text file that Log Analytics will use to prevent recommendations from appearing in your assessment results.
+If you have recommendations that you want to ignore, you can create a text file that Azure Monitor will use to prevent recommendations from appearing in your assessment results.
 
 ### To identify recommendations that you will ignore
-1. In the Azure portal on the Log Analytics workspace page for your selected workspace, click the **Log Search** tile.
-2. Use the following query to list recommendations that have failed for computers in your environment.
+[!INCLUDE [azure-monitor-log-queries](../../../includes/azure-monitor-log-queries.md)]
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
-    Here's a screen shot showing the Log Search query:<br><br> ![failed recommendations](./media/ad-assessment/ad-failed-recommendations.png)
+Use the following query to list recommendations that have failed for computers in your environment.
 
-3. Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
+
+Here's a screenshot showing the log query:<br><br> ![failed recommendations](media/ad-assessment/ad-failed-recommendations.png)
+
+Choose recommendations that you want to ignore. You’ll use the values for RecommendationId in the next procedure.
 
 ### To create and use an IgnoreRecommendations.txt text file
 1. Create a file named IgnoreRecommendations.txt.
-2. Paste or type each RecommendationId for each recommendation that you want Log Analytics to ignore on a separate line and then save and close the file.
-3. Put the file in the following folder on each computer where you want Log Analytics to ignore recommendations.
+2. Paste or type each RecommendationId for each recommendation that you want Azure Monitor to ignore on a separate line and then save and close the file.
+3. Put the file in the following folder on each computer where you want Azure Monitor to ignore recommendations.
    * On computers with the Microsoft Monitoring Agent (connected directly or through Operations Manager) - *SystemDrive*:\Program Files\Microsoft Monitoring Agent\Agent
    * On the Operations Manager 2012 R2 management server - *SystemDrive*:\Program Files\Microsoft System Center 2012 R2\Operations Manager\Server
    * On the Operations Manager 2016 management server - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
@@ -132,7 +137,7 @@ If you have recommendations that you want to ignore, you can create a text file 
 ### To verify that recommendations are ignored
 After the next scheduled health check runs, by default every seven days, the specified recommendations are marked *Ignored* and will not appear on the dashboard.
 
-1. You can use the following Log Search queries to list all the ignored recommendations.
+1. You can use the following log queries to list all the ignored recommendations.
 
     ```
     ADAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation
@@ -171,11 +176,11 @@ After the next scheduled health check runs, by default every seven days, the spe
 
 *Why display only the top 10 recommendations?*
 
-* Instead of giving you an exhaustive overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using Log Search.
+* Instead of giving you an exhaustive overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using a log query.
 
 *Is there a way to ignore a recommendation?*
 
 * Yes, see [Ignore recommendations](#ignore-recommendations) section above.
 
 ## Next steps
-* Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to learn how to analyze detailed AD Health Check data and recommendations.
+* Use [Azure Monitor log queries](../log-query/log-query-overview.md) to learn how to analyze detailed AD Health Check data and recommendations.

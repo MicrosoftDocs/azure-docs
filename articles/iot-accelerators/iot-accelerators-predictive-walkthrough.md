@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
 ---
 
@@ -22,7 +22,7 @@ The following diagram outlines the logical components of the solution accelerato
 
 ![Logical architecture][img-architecture]
 
-The blue items are Azure services provisioned in the region where you deployed the solution accelerator. The list of regions where you can deploy the solution accelerator displays on the [provisioning page][lnk-azureiotsuite].
+The blue items are Azure services provisioned in the region where you deployed the solution accelerator. The list of regions where you can deploy the solution accelerator displays on the [provisioning page][lnk-azureiotsolutions].
 
 The green item is a simulated aircraft engine. You can learn more about these simulated devices in the [Simulated devices](#simulated-devices) section.
 
@@ -34,7 +34,7 @@ In the Azure portal, navigate to the resource group with the solution name you c
 
 ![Accelerator resources][img-resource-group]
 
-When you provision the solution accelerator, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the [Microsoft Azure IoT Solution Accelerators][lnk-azureiotsuite] page. A tile is available on this page when the solution is in the **Ready** state.
+When you provision the solution accelerator, you receive an email with a link to the Machine Learning workspace. You can also navigate to the Machine Learning workspace from the [Microsoft Azure IoT Solution Accelerators][lnk-azureiotsolutions] page. A tile is available on this page when the solution is in the **Ready** state.
 
 ![Machine learning model][img-machine-learning]
 
@@ -66,7 +66,7 @@ IoT Hub provides device command acknowledgment.
 The **event processor host** runs in an Azure Web Job. The **event processor** takes the average sensor values for a completed cycle. It then passes those values to a trained model that calculates the RUL for an engine. An API provides access to the model in a Machine Learning workspace that's part of the solution.
 
 ## Machine Learning
-The Machine Learning component uses a model derived from data collected from real aircraft engines. You can navigate to the Machine Learning workspace from your solution's tile on the [azureiotsuite.com][lnk-azureiotsuite] page. The tile is available when the solution is in the **Ready** state.
+The Machine Learning component uses a model derived from data collected from real aircraft engines. You can navigate to the Machine Learning workspace from your solution's tile on the [azureiotsolutions.com][lnk-azureiotsolutions] page. The tile is available when the solution is in the **Ready** state.
 
 The Machine Learning model is available as a template that shows how to work with telemetry collected through IoT solution accelerator services. Microsoft has built a [regression model][lnk_regression_model] of an aircraft engine based on publicly available data<sup>\[1\]</sup>, and step-by-step guidance on how to use the model.
 
@@ -88,7 +88,7 @@ You can also explore some of the other features of the IoT solution accelerators
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-azureiotsolutions]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

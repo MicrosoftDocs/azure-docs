@@ -1,6 +1,6 @@
 ---
-title: Configure Azure AD directory role settings in PIM | Microsoft Docs
-description: Learn how to configure Azure AD directory role settings in Azure AD Privileged Identity Management (PIM).
+title: Configure Azure AD role settings in PIM - Azure Active Directory | Microsoft Docs
+description: Learn how to configure Azure AD role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,31 +11,32 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/30/2018
+ms.date: 05/31/2019
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
-# Configure Azure AD directory role settings in PIM
+# Configure Azure AD role settings in PIM
 
-A privileged role administrator can customize Azure AD Privileged Identity Management (PIM) in their organization, including changing the experience for a user who is activating an eligible role assignment.
+A privileged role administrator can customize Azure Active Directory (Azure AD) Privileged Identity Management (PIM) in their organization, including changing the experience for a user who is activating an eligible role assignment.
 
 ## Open role settings
 
-Follow these steps to open the settings for an Azure AD directory role.
+Follow these steps to open the settings for an Azure AD role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Click **Azure AD directory roles**.
+1. Click **Azure AD roles**.
 
 1. Click **Settings**.
 
-    ![Azure AD directory roles - Settings](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+    ![Azure AD roles - Settings](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
 1. Click **Roles**.
 
 1. Click the role whose settings you want to configure.
 
-    ![Azure AD directory roles - Settings Roles](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Azure AD roles - Settings Roles](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
     On the settings page for each role, there are several settings you can configure. These settings only affect users who are **eligible** assignments, not **permanent** assignments.
 
@@ -66,6 +67,7 @@ Use the **Multi-Factor Authentication** switch to specify whether to require use
 * Users who have Microsoft accounts for their email addresses (typically @outlook.com, but not always) cannot register for Azure MFA. If you want to assign roles to users with Microsoft accounts, you should either make them permanent admins or disable MFA for that role.
 * You cannot disable MFA for highly privileged roles for Azure AD and Office365. This is a safety feature because these roles should be carefully protected:  
   
+  * Azure Information Protection Administrator
   * Billing Administrator
   * Cloud Application Administrator
   * Compliance Administrator
@@ -75,7 +77,6 @@ Use the **Multi-Factor Authentication** switch to specify whether to require use
   * Directory Writers
   * Exchange Administrator
   * Global Administrator
-  * Information Protection Administrator
   * Intune Service Administrator
   * Power BI Service Administrator
   * Privileged Role Administrator
@@ -92,13 +93,13 @@ If you want to require approval to activate a role, follow these steps.
 
 1. Set the **Require approval** switch to **Enabled**. The pane expands with options to select approvers.
 
-    ![Azure AD directory roles - Settings - Require approval](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Azure AD roles - Settings - Require approval](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     If you **DO NOT** specify any approvers, the Privileged Role Administrators become the default approvers. Privileged Role Administrators would be required to approve **ALL** activation requests for this role.
 
 1. To specify approvers, click **Select approvers**.
 
-    ![Azure AD directory roles - Settings - Require approval](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Azure AD roles - Settings - Require approval](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
 1. Select one or more approvers and then click **Select**. You can select users or groups. At least 2 approvers is recommended. Self-approval is not allowed.
 
@@ -111,5 +112,5 @@ If you want to require approval to activate a role, follow these steps.
 
 ## Next steps
 
-- [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
-- [Configure security alerts for Azure AD directory roles in PIM](pim-how-to-configure-security-alerts.md)
+- [Assign Azure AD roles in PIM](pim-how-to-add-role-to-user.md)
+- [Configure security alerts for Azure AD roles in PIM](pim-how-to-configure-security-alerts.md)

@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
@@ -34,13 +34,13 @@ Configuring you Azure storage for use by Cloudyn is straightforward. Gather deta
 2. Click **All Services**, select **Storage accounts**, scroll to the storage account that you want to use, and then select the account.
 3. On your storage account page under **Settings**, click **Access Keys**.
 4. Copy your **Storage account name** and **Connection string** under key1.  
-![Copy storage account name and connection string](./media/storage-accounts/azure-storage-access-keys.png)  
+   ![Copy storage account name and connection string](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com and sign in.
 6. Click the cog symbol and then select **Reports Storage Management**.
 7. Click **Add new +** and ensure that Microsoft Azure is selected. Paste your Azure storage account name in the **Name** area. Paste your **connection string** in the corresponding area. Enter a container name and then click **Save**.  
-![Paste Azure storage account name and connection string in the Add a new report storage box](./media/storage-accounts/azure-cloudyn-storage.png)
+   ![Paste Azure storage account name and connection string in the Add a new report storage box](./media/storage-accounts/azure-cloudyn-storage.png)
 
-  Your new Azure report storage entry appears in the storage account list.  
+   Your new Azure report storage entry appears in the storage account list.  
     ![New Azure report storage entry in list](./media/storage-accounts/azure-storage-entry.png)
 
 
@@ -63,8 +63,8 @@ bucket.
 4. Click the **JSON** tab.
 5. The following policy allows you to save a report to a S3 bucket. Copy and paste the following policy example to the **JSON** tab. Replace &lt;bucketname&gt; with your bucket name.
 
-  ```json
-{
+   ```json
+   {
 	"Version": "2012-10-17",
 	"Statement": [
 	  {
@@ -78,8 +78,8 @@ bucket.
 		]
 	  }
     ]
-}
-```
+   }
+   ```
 
 6. Click **Review policy**.  
     ![AWS JSON policy showing example information](./media/storage-accounts/aws-policy.png)  
@@ -118,11 +118,11 @@ You can also set permission to create reports on your S3 bucket using a bucket p
 2. Select the **Permissions** tab and then click **Bucket policy**.
 3. Copy and paste the following policy sample. Replace &lt;bucket\_name&gt; and &lt;Cloudyn\_principle&gt; with the ARN of your bucket. Replace the ARN of either the role or user used by Cloudyn.
 
-  ```
-{
-  "Id": "Policy1485775646248",
-  "Version": "2012-10-17",
-  "Statement": [
+   ```
+   {
+   "Id": "Policy1485775646248",
+   "Version": "2012-10-17",
+   "Statement": [
     {
       "Sid": "SaveReport2S3",
       "Action": [
@@ -136,9 +136,9 @@ You can also set permission to create reports on your S3 bucket using a bucket p
         ]
       }
     }
-  ]
-}
-```
+   ]
+   }
+   ```
 
 4. In the Bucket policy editor, click **Save**.
 

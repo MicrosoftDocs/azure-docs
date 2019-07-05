@@ -1,7 +1,6 @@
 ---
 title: Use Caffe on Azure HDInsight Spark for distributed deep learning
 description: Use Caffe on Azure HDInsight Spark for distributed deep learning
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
@@ -58,7 +57,7 @@ There are two steps in the script action. The first step is to install all the r
 
 The second step is to download, compile, and install protobuf 2.5.0 for Caffe during runtime. Protobuf 2.5.0 [is required](https://github.com/yahoo/CaffeOnSpark/issues/87), however this version is not available as a package on Ubuntu 16, so you need to compile it from the source code. There are also a few resources on the Internet on how to compile it. For more information, see [here](https://jugnu-life.blogspot.com/2013/09/install-protobuf-25-on-ubuntu.html).
 
-To get started, you can just run this script action against your cluster to all the worker nodes and head nodes (for HDInsight 3.5). You can either run the script actions on an existing cluster, or use script actions during the cluster creation. For more information on the script actions, see the documentation [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux#view-history-promote-and-demote-script-actions).
+To get started, you can just run this script action against your cluster to all the worker nodes and head nodes (for HDInsight 3.5). You can either run the script actions on an existing cluster, or use script actions during the cluster creation. For more information on the script actions, see the documentation [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
 ![Script Actions to Install Dependencies](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 

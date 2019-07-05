@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Spatial Anchors Documentation
+metadata:
+  document_id: 8ba93ac8-1984-48d5-8944-329e6653e39d
+  title: Azure Spatial Anchors Documentation - Tutorials, API Reference
+  meta.description: Learn how to use Azure Spatial Anchors to build apps with durable spatial anchors.
+  services: azure-spatial-anchors
+  author: craigktreasure
+  manager: aliemami
+  ms.service: azure-spatial-anchors
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/24/2019
+  ms.author: crtreasu
+abstract:
+  description: Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create your first application using Azure Spatial Anchors:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /media/logos/logo_android.svg
+        alt:
+      text: Android
+      href: quickstarts/get-started-android.md
+    - image:
+        src: /media/logos/logo_Windows.svg
+        alt:
+      text: HoloLens
+      href: quickstarts/get-started-hololens.md
+    - image:
+        src: /media/logos/logo_ios.svg
+        alt:
+      text: iOS
+      href: quickstarts/get-started-ios.md
+    - image:
+        src: /media/logos/logo_android.svg
+        alt:
+      text: Unity Android
+      href: quickstarts/get-started-unity-android.md
+    - image:
+        src: /media/logos/logo_Windows.svg
+        alt:
+      text: Unity HoloLens
+      href: quickstarts/get-started-unity-hololens.md
+    - image:
+        src: /media/logos/logo_ios.svg
+        alt:
+      text: Unity iOS
+      href: quickstarts/get-started-unity-ios.md
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to setup, manage, build, and deploy an app using Azure Spatial Anchors.
+  - type: list
+    style: ordered
+    items:
+      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Sharing in Unity.</a>
+      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Sharing in Unity with Azure Cosmos DB.</a>

@@ -2,14 +2,14 @@
 title: Frequently asked questions for Azure Active Directory B2C | Microsoft Docs
 description: Frequently asked questions (FAQ) about Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -23,7 +23,7 @@ There are two common reasons for why the Azure AD extension is not working for y
 Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant.  An Azure AD tenant represents an organization.  An Azure AD B2C tenant represents a collection of identities to be used with relying party applications.  With custom policies (in public preview), Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
 ### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Office 365?
-Azure AD B2C can't be used to authenticate users for Microsoft Office 365.  Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and conditional access.  Azure AD B2C provides an identity and access management platform for building web and mobile applications.  When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
+Azure AD B2C can't be used to authenticate users for Microsoft Office 365.  Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and Conditional Access.  Azure AD B2C provides an identity and access management platform for building web and mobile applications.  When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
 
 ### What are local accounts in Azure AD B2C? How are they different from work or school accounts in Azure AD?
 In an Azure AD tenant, users that belong to the tenant sign-in with an email address of the form `<xyz>@<tenant domain>`.  The `<tenant domain>` is one of the verified domains in the tenant or the initial `<...>.onmicrosoft.com` domain. This type of account is a work or school account.
@@ -60,7 +60,7 @@ You can use the [company branding feature](../active-directory/fundamentals/cust
 * **Banner Logo**: Shown at the bottom-right.
 * **Background color**: Shown at the top.
 
-    ![Screen shot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
+    ![Screenshot of a customized verification email](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
 The email signature contains the Azure AD B2C tenant's name that you provided when you first created the Azure AD B2C tenant. You can change the name using these instructions:
 
@@ -76,10 +76,10 @@ Currently there is no way to change the "From:" field on the email.
 You can use the Azure AD Graph API to write your migration tool. See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
 ### What password user flow is used for local accounts in Azure AD B2C?
-The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. Read the [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+The Azure AD B2C password user flow for local accounts is based on the policy for Azure AD. Azure AD B2C's sign-up, sign-up or sign-in and password reset user flows use the "strong" password strength and don't expire any passwords. Read the [Azure AD password policy](/previous-versions/azure/jj943764(v=azure.100)) for more details. For information about account lockouts and passwords, see [Manages threats to resources and data in Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
-No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.  See the [User migration guide](active-directory-b2c-user-migration.md) for details.
+No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) for user migration.  See the [User migration guide](active-directory-b2c-user-migration.md) for details.
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 No, for security reasons, Azure AD B2C pages cannot be opened within an iFrame.  Our service communicates with the browser to prohibit iFrames.  The security community in general and the OAUTH2 specification, recommend against using iFrames for identity experiences due to the risk of click-jacking.
@@ -109,7 +109,8 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 ### How do I delete my Azure AD B2C tenant?
 Follow these steps to delete your Azure AD B2C tenant:
 
-1. Delete all the policies in your Azure AD B2C tenant.
+1. Delete all the user flows (policies) in your Azure AD B2C tenant.
+1. Delete all the applications you registered in your Azure AD B2C tenant.
 1. Now sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. (Use the same work or school account or the same Microsoft account that you used to sign up for Azure.)
 1. Switch to the Azure AD B2C tenant you want to delete.
 2. Navigate to the Active Directory menu on the left.

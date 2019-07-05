@@ -1,22 +1,14 @@
 ---
-title: Marketplace FAQ | Azure
+title: Azure Marketplace FAQ 
 description: Answers to common questions about the Microsoft Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
 author: qianw211
-manager: Patrick.Butler
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 03/02/2019
 ms.author: ellacroi
-
 ---
+
 # Marketplace FAQs
 
 Answers to common questions about the Microsoft Azure Marketplace.
@@ -62,14 +54,15 @@ With Azure Marketplace, customers can discover technical applications built for 
 
 Azure Marketplace offers can be purchased through:
 
-* [web-based storefront](https://azuremarketplace.microsoft.com/marketplace/apps).
-* [Microsoft Azure Management portal](https://portal.azure.com/), or via the [Azure Marketplace Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* [web-based storefront](https://azuremarketplace.microsoft.com/marketplace/apps)
+* [Microsoft Azure Management portal](https://portal.azure.com/), or via the [Azure Marketplace Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-Note: Prepaid credits and other forms of monetary commitment cannot be used to pay for software license fees, but can be used to pay associated Azure usage charges.  Exceptions are listed in [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+>[!Note]
+>Prepaid credits and other forms of monetary commitment cannot be used to pay for software license fees, but can be used to pay associated Azure usage charges.  Exceptions are listed in [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 **Can I choose which Microsoft Azure region(s) to deploy my Azure Marketplace purchase?**
 
-The publishers have the option of deploying to any Azure data center region they enable. We recommend selecting the data center locations closest to your services to optimize performance and control budget.
+The customer has the option of deploying to any Azure data center region they enable. We recommend selecting the data center locations closest to your services to optimize performance and control budget.
 
 **If I accidentally delete an Azure Marketplace purchase, can I "undo" the action?**
 
@@ -85,13 +78,15 @@ Dependencies are not automatically managed for Azure Marketplace offerings. Care
 
 **Can I buy Azure Marketplace solutions from an Azure Cloud Solution Provider?**
 
-Currently, only free and bring-your-own-license (BYOL) Marketplace offers are available via Azure CSP and Open customers.
+If the publisher has configured their offering to be available through the CSP channel, it will be available through your reseller.
 
-**What countries are supported for purchasing applications and services sold/provisioned through the Azure Marketplace?**
+**What countries/regions are supported for purchasing applications and services sold/provisioned through the Azure Marketplace?**
 
-Azure Marketplace is available to Microsoft Azure customers in the following countries:
+Azure Marketplace is available to Microsoft Azure customers in the countries/regions listed in the [participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
-Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgium, Brazil, Bulgaria, Canada, Chile, Colombia, Costa Rica, Croatia, Cyprus, Czech Republic, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Finland, France, Germany, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, Macedonia, Malaysia, Malta, Mexico, Montenegro, Morocco, Netherlands, New Zealand, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Saudi Arabia, Serbia, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Thailand, Trinidad and Tobago, Tunisia, Turkey, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Venezuela.
+**What currencies are supported by Azure Marketplace?**
+
+Transactions can be conducted in the following 17 currencies: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD, RMB.
 
 ### Deploying a solution from Azure Marketplace
 
@@ -127,7 +122,7 @@ Azure subscription is included with the publisher’s Independent Software Vendo
 
 *Monthly Fee:* Rates are charged or billed a fixed monthly fee for a subscription to the offering (from the start date of the subscription for that plan). The monthly fee may be prorated for mid-month cancellations or unused services.
 
-Offer specific pricing details can be found on the solution details page on [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/) or within the [Microsoft Azure Management portal](https://portal.azure.com/).
+Offer specific pricing details can be found on the solution details page on [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) or within the [Microsoft Azure Management portal](https://portal.azure.com/).
 
 >[!Note]
 > Except for monthly fees, Azure usage charges are applicable to all pricing models unless otherwise stated.
@@ -176,17 +171,17 @@ No. The publisher that owns solutions in Azure Marketplace can set pricing.  Sta
 
 **How do I pay for these subscriptions? Do my Azure Marketplace purchases appear on the Azure bill, or is there another bill?**
 
-Azure Marketplace purchases inherit the same payment method as the Azure subscription.  They are billed separately from Azure usage unless they are enabled to consume monetary commitment.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (i.e. web-direct) customers are charged against the same credit card that is on file for their Azure subscription profile. If you do not have a credit card on file, then you cannot purchase from the Azure Marketplace. In this case, you received a special waiver to have your Azure charges invoiced to you instead.
 
-MOSP - Microsoft Online Subscription Program (web-direct) customers are charged against the same credit card that is on file for their Azure subscription profile. If the customer does not have a credit card on file (a special waiver to have Azure charges invoiced), then they cannot purchase from the Azure Marketplace.
-
-Enterprise Agreement (EA) customers are charged against their EA. Specific Azure Marketplace offers listed in [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) are first deducted from any available monetary commitment, then billed as an overage on a single quarterly invoice. EA indirect, education, and government customers are billed by their Licensing Solution Provider (LSP).
+Enterprise Agreement (EA) customers are charged against their EA. Specific Azure Marketplace offers listed here are first deducted from any available monetary commitment, then billed as an overage on a single quarterly invoice. EA indirect, education, and government customers are billed by their Licensing Solution Provider (LSP).
 
 **Where can I view my Azure Marketplace subscription details and billing information?**
 
-MOSP - Microsoft Online Subscription Program (web direct) customers can view Marketplace subscription details under the ‘Marketplace’ menu in the Azure billing portal. Customers who have purchased Virtual Machines from the Marketplace can view their estimated accrued charges in the Microsoft Azure Management portal.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (web direct) customers can view Marketplace purchase details in the Invoices tab of the Cost Management + Billing section of the Azure management portal.
 
-Enterprise Agreement (EA) customers can view Marketplace subscription details in the ‘Azure Marketplace’ tab in the Enterprise portal billing and account management view. Note: EA Indirect customers can only see offer and usage information. Pricing details are not available in the Enterprise portal.
+Enterprise Agreement (EA) customers can view Marketplace purchase details in the Invoices tab of the Cost Management + Billing section of the Azure management portal.
+
+Cloud Solution Provider (CSP) partners can view Marketplace purchase details for each customer in Partner Center within the Order History tab after selecting a company in the Customers view.
 
 **How do I cancel an Azure Marketplace add-on to Azure VM?**
 
@@ -194,9 +189,9 @@ Since the add-on is associated to the Azure Virtual Machine (VM), to cancel the 
 
 **How often am I billed for my Azure Marketplace purchases?**
 
-Enterprise Agreement customers, for the [specific services outlined](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/), first have available monetary commitment funds reduced by the total cost for these services in the month they are consumed. All Azure Marketplace offers that do not deduct from monetary commitment, are billed monthly in arrears.
+Enterprise Agreement customers, for the specific services outlined, first have available monetary commitment funds reduced by the total cost for these services in the month they are consumed. All Azure Marketplace offers that do not deduct from monetary commitment, are billed monthly in arrears. Annual SaaS subscriptions are billed once for a full year’s services.
 
-MOSP, that is web-direct customers, are charged monthly against the same credit card that is on file for their Azure subscription profile.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (web direct) customers are charged monthly against the same credit card that is on file for their Azure subscription profile. Annual SaaS subscriptions are billed once for a full year’s services.
 
 **How can I move my Azure Marketplace purchases from my MOSP subscription to my direct Enterprise Agreement (EA) subscription?**
 
@@ -242,7 +237,7 @@ Contact the publisher provider for all technical product support. Publisher cont
 
 **If I am not satisfied, can I return a purchase?**
 
-Purchases made from the Azure Marketplace cannot be returned but can be canceled/deleted. Once a subscription is canceled/deleted, it is not charged for subsequent months.
+Purchases made from [Azure Marketplace](https://azuremarketplace.microsoft.com/) cannot be returned but can be canceled/deleted. Consumption based offers are billed according to usage, so when it stops, charges stop as well. Subscriptions are canceled and will not be billed past the current billing period. If a subscription is canceled shortly after purchase (24 hours for monthly and 14 days for annual), a full refund is provided.
 
 Customers must directly contact the publisher for any technical issues relating to their Marketplace service or purchase. Publisher contact information and/or a link to the support website can be found on their solution details page on Azure Marketplace.
 
@@ -310,7 +305,7 @@ Review the [Publisher Guide](https://docs.microsoft.com/azure/marketplace/market
 
 **How do I begin to publish in Azure Marketplace?**
 
-Start your Azure Marketplace listing by reviewing the [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Next, submit your application by completing the [Azure Marketplace Nomination Form](https://azuremarketplace.microsoft.com/sell/signup).
+Start your Azure Marketplace listing by reviewing the [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Next, submit your application by [submitting your offer](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
 
 **Do I have to be a member of the Microsoft Partner Network (MPN) to list my applications and services in the Azure Marketplace?**
 
@@ -332,6 +327,10 @@ There are no publishing fees when uploading a List, Trial, or BYOL (Bring Your O
 
 When the solution license is purchased via Azure Marketplace, revenues for the software license are split between the publisher and Microsoft.  This is done in accordance to the terms and conditions in the [Marketplace Publisher Agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Additionally, solutions with BYOL (Bring Your Own License) publishers do not incur transaction fees.
 
+**What is a Standard Contract?**
+
+Microsoft offers Standard Contract terms that a publisher can select to leverage, so that customers have a simplified procurement and legal review process.
+
 **Where do I find guidelines for integrating my application with Azure Active Directory (AAD)?**
 
 Microsoft authenticates all Marketplace users with AAD.  You can be directly provisioned into a Trial without requiring an additional sign-in step.  For example, an authenticated user clicks through a Trial listing in Marketplace, and gets redirected to a Trial environment.
@@ -346,7 +345,7 @@ If you don’t already have a Microsoft account, you can [create an account](htt
 
 **Why is Dev Center account required?**
 
-A Dev Center account is required to enable Microsoft to bill customers on the publisher's behalf for Transact listing types. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information. For more information, see [register in Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center).
+A Dev Center account is required to enable Microsoft to bill customers on the publisher's behalf for Transact listing types. Dev Center account registration enables Microsoft to validate the legal, tax, and banking information. For more information, see [register in Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Which publishers require a Dev Center account registration?**
 
@@ -370,7 +369,7 @@ After completing the offer and setting up a lead destination, the listing can pr
 
 **What countries/regions are Azure Marketplace available for publishers to sell from?**
 
-Publishers based in the following countries can currently sell in the Azure Marketplace: Afghanistan, Albania, Algeria, Angola, Antigua and Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Belarus, Belgium, Benin, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Central African Republic, Chad, Chile, Colombia, Comoros, Congo, Congo (DRC), Costa Rica, Cote D'Ivoire, Croatia, Cyprus, Czech Republic, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Eritrea, Estonia, Ethiopia, Fiji Islands, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Hungary, Iceland, India, Indonesia, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Korea (South), Kuwait, Laos, Latvia, Lebanon, Liberia, Liechtenstein, Lithuania, Luxembourg, Madagascar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexico, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Nepal, The Netherlands, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saudi Arabia, Senegal, Serbia, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, Spain, Sri Lanka, Sweden, Switzerland, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Uganda, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, and Zimbabwe.
+Publishers based in the following countries/regions can currently sell in the Azure Marketplace: Afghanistan, Albania, Algeria, Angola, Antigua and Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Belarus, Belgium, Benin, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Central African Republic, Chad, Chile, Colombia, Comoros, Congo, Congo (DRC), Costa Rica, Cote D'Ivoire, Croatia, Cyprus, Czech Republic, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Eritrea, Estonia, Ethiopia, Fiji Islands, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Hungary, Iceland, India, Indonesia, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Korea (South), Kuwait, Laos, Latvia, Lebanon, Liberia, Liechtenstein, Lithuania, Luxembourg, Madagascar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexico, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Nepal, The Netherlands, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saudi Arabia, Senegal, Serbia, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, Spain, Sri Lanka, Sweden, Switzerland, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Uganda, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, and Zimbabwe.
 
 **How do I delete a listing from the Azure Marketplace?**
 
@@ -461,10 +460,6 @@ Azure Marketplace is the store for IT Pros and Developers to discover technical 
 
 You can find Azure Marketplace offers via the [web-based storefront](https://azuremarketplace.microsoft.com/marketplace/), in the [Microsoft Azure Management portal](https://portal.azure.com/), or via the [Azure Marketplace Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Once logged into the Azure Marketplace, you can discover and buy Microsoft and Partner solutions. Note: Prepaid credits and other forms of Monetary Commitment are not used for software license fees.  Instead, they cover associated Azure usage charges. Exceptions are listed in [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
-**Can I choose which Microsoft Azure regions my Azure Marketplace purchase is deployed?**
-
-Customers have the option of deploying to any Azure data center region that a publisher enables. You can select data center locations closest to their services to optimize performance and manage budget.
-
 **If I accidentally delete an Azure Marketplace purchase, can I “undo” the action?**
 
 No, deletions are final. If you accidentally delete a subscription, you can easily restart it by purchasing again.  However, any unused functionality or prepaid services are lost, so take care when deleting a subscription.
@@ -477,15 +472,40 @@ No, Azure does not warn you when you delete a purchase that your application dep
 
 Dependencies are not automatically managed for Azure Marketplace offerings. Carefully review the description of your Azure Marketplace purchase before using it.  You should determine if there are any dependencies before deploying the solution.
 
-**Can I buy Azure Marketplace solutions from an Azure Cloud Solution Provider (CSP)?**
-
-Currently, only free and bring-your-own-license (BYOL) Marketplace offers are available to Azure CSP and Open customers.
-
 **Who can purchase applications and services sold/provisioned through the Azure Marketplace?**
 
-The Azure Marketplace is available to Microsoft Azure customers in the following countries:
+The Azure Marketplace is available to Microsoft Azure customers in the following countries/regions:
 
-Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgium, Brazil, Bulgaria, Canada, Chile, Colombia, Costa Rica, Croatia, Cyprus, Czech Republic, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Finland, France, Germany, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, Macedonia, Malaysia, Malta, Mexico, Montenegro, Morocco, Netherlands, New Zealand, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Saudi Arabia, Serbia, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Thailand, Trinidad and Tobago, Tunisia, Turkey, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Venezuela.
+Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgium, Brazil, Bulgaria, Canada, Chile, Colombia, Costa Rica, Croatia, Cyprus, Czech Republic, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Finland, France, Germany, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, North Macedonia, Malaysia, Malta, Mexico, Montenegro, Morocco, Netherlands, New Zealand, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Saudi Arabia, Serbia, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Thailand, Trinidad and Tobago, Tunisia, Turkey, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Venezuela.
+
+**How do I define my geographic availability to enable selling in different countries/regions?**
+
+1.  In the Cloud Partner Portal, navigate to the SKU to which you want to add new countries/regions.  Within the "SKU Details" navigate to "Country/Region availability" and click "Select regions."
+
+    ![Select regions](media/marketplace-publishers-guide/FAQ-choose-geo.png)
+
+1.  A list will pop up with all available countries/regions to sell to.  Click the checkbox next to each country/region you want to make this SKU available. Click "OK".
+
+    ![Select country/region list](media/marketplace-publishers-guide/FAQ-select-countries.png)
+
+1.  Finally for the changes to be applied to your live offer, click "Publish."  
+
+>[!Note]
+>It will take 24 hours for the changes to take effect.
+
+<!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
+
+**How can a publisher change the geographic availability for an existing offer?**
+
+The publisher can edit an existing offer, select the new countries/regions, and use the spreadsheet download/upload function to set pricing.
+
+**In what countries/regions can customers purchase Azure Marketplace offerings?**
+
+Azure Marketplace supports 141 buy-from geographies as defined by the customer’s billing address. See [participation policies](https://docs.microsoft.com/legal/marketplace/participation-policy) for a list of countries/regions.
+
+**What currencies are supported by Azure Marketplace?**
+
+Transactions can be conducted in the following 17 currencies: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, JPY, KRW, NOK, NZD, RUB, SEK, TWD, USD.
 
 ### Deploying a solution from Azure Marketplace
 
@@ -513,7 +533,7 @@ Pricing varies based on product types and publisher specifications. Software lic
 
 * **Monthly Fee**: You are charged or billed a fixed monthly fee for a subscription to the offering, from start of that particular plan. The monthly fee may be prorated for mid-month cancellations or unused services.
 
-Pricing details can be found on the solution details page on [https://azure.microsoft.com/en-us/pricing/](https://azure.microsoft.com/pricing/), or within the Microsoft Azure Management portal.
+Pricing details can be found on the solution details page on [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/), or within the Microsoft Azure Management portal.
 
 >[!Note]
 >Except for monthly fees, Azure usage charges are applicable to all pricing models unless otherwise stated.

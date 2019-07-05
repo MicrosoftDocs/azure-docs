@@ -117,8 +117,8 @@ DevOps Projects automatically creates and configures the necessary steps to depl
     
 1. At the left, select **Variables**. 
 
-  > [!NOTE]
-  > Perform the following step only if you changed the SQL Server password. There is a single password variable.
+   > [!NOTE]
+   > Perform the following step only if you changed the SQL Server password. There is a single password variable.
   
 1. Next to the **Value** box, select the padlock icon, enter the new password, and then select **Save**.
 
@@ -131,13 +131,13 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 1. At the right, select **View releases** to display a history of releases.
 
 1. Select the ellipsis (...) next to a release, and then select **Open**.  
-	You can explore several menus, such as a release summary, associated work items, and tests.
+     You can explore several menus, such as a release summary, associated work items, and tests.
 
 1. Select **Commits**.  
-	This view shows code commits that are associated with this deployment. Compare releases to view the commit differences between deployments.
+     This view shows code commits that are associated with this deployment. Compare releases to view the commit differences between deployments.
 
 1. Select **Logs**.  
-	The logs contain useful information about the deployment process. You can view them both during and after deployments.
+     The logs contain useful information about the deployment process. You can view them both during and after deployments.
 
 ## Commit changes to Azure Repos and automatically deploy them to Azure 
 
@@ -177,10 +177,10 @@ You need appropriate permissions to connect to the Azure SQL database.
 
     You may now optionally use client tools such as SQL Server Management Studio or Visual Studio to connect to SQL Server and the Azure SQL database. Use the **Server name** property to connect.
 
-    If you didn't change the database username when you initially configured the project in DevOps Projects, your username is the local part of your email address. For example, if your email address is *johndoe@microsoft.com*, your username is *johndoe*.
+    If you didn't change the database username when you initially configured the project in DevOps Projects, your username is the local part of your email address. For example, if your email address is *johndoe\@microsoft.com*, your username is *johndoe*.
 
- > [!NOTE]
- > If you change your password for the SQL login, you must change the password in the release pipeline variable, as described in the "Examine the CD pipeline" section.
+   > [!NOTE]
+   > If you change your password for the SQL login, you must change the password in the release pipeline variable, as described in the "Examine the CD pipeline" section.
 
 ## Clean up resources
 

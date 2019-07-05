@@ -4,7 +4,7 @@ description: This article helps you to get started protecting your App Services 
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Protect App Service with Azure Security Center
@@ -43,9 +43,8 @@ Security Center is natively integrated with App Service, eliminating the need fo
 ## Enabling monitoring and protection of App Service
 
 1. In Azure, choose Security Center.
-2. Go to **Security policy** and choose a subscription.
-3. At the end of the row of the subscription, click **Edit settings**.
-4. Under **Pricing tier**, in the **App service** row, toggle your plan to **Enabled**.
+2. Go to **Pricing & settings** and choose a subscription.
+3. Under **Pricing tier**, in the **App service** row, toggle your plan to **Enabled**.
 
 ![app service toggle](./media/security-center-app-services/app-services-toggle.png)
 
@@ -64,4 +63,4 @@ In this article, you learned how to use monitoring capabilities in Azure Securit
 * [App services](security-center-virtual-machine-protection.md#app-services):  View a list of your App service environments with health summaries.
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md): Find frequently asked questions about using the service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.

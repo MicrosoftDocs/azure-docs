@@ -3,8 +3,8 @@ title: Restrict network access to PaaS resources - Azure CLI | Microsoft Docs
 description: In this article, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: 
 ---
 
@@ -68,7 +68,7 @@ az network vnet list-endpoint-services \
   --out table
 ``` 
 
-Create an additional subnet in the virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). In this example, a service endpoint for *Microsoft.Storage* is created for the subnet: 
+Create an additional subnet in the virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). In this example, a service endpoint for *Microsoft.Storage* is created for the subnet: 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -81,7 +81,7 @@ az network vnet subnet create \
 
 ## Restrict network access for a subnet
 
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNsgPrivate*.
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -89,7 +89,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Associate the network security group to the *Private* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update). The following example associates the *myNsgPrivate* network security group to the *Private* subnet:
+Associate the network security group to the *Private* subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet). The following example associates the *myNsgPrivate* network security group to the *Private* subnet:
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -114,9 +114,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Storage" \
   --destination-port-range "*"
+```
 
 Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -129,9 +131,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Internet" \
   --destination-port-range "*"
+```
 
 The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -152,7 +156,7 @@ The steps necessary to restrict network access to resources created through Azur
 
 ### Create a storage account
 
-Create an Azure storage account with [az storage account create](/cli/azure/storage/account#az_storage_account_create). Replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.
+Create an Azure storage account with [az storage account create](/cli/azure/storage/account). Replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters.
 
 ```azurecli-interactive
 storageAcctName="<replace-with-your-unique-storage-account-name>"
@@ -193,7 +197,7 @@ az storage share create \
 
 ### Deny all network access to a storage account
 
-By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account#az_storage_account_update). Once network access is denied, the storage account is not accessible from any network.
+By default, storage accounts accept network connections from clients in any network. To limit access to selected networks, change the default action to *Deny* with [az storage account update](/cli/azure/storage/account). Once network access is denied, the storage account is not accessible from any network.
 
 ```azurecli-interactive
 az storage account update \
@@ -204,7 +208,7 @@ az storage account update \
 
 ### Enable network access from a subnet
 
-Allow network access to the storage account from the *Private* subnet with [az storage account network-rule add](/cli/azure/storage/account/network-rule#az_storage_account_network_rule_add).
+Allow network access to the storage account from the *Private* subnet with [az storage account network-rule add](/cli/azure/storage/account/network-rule).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -264,7 +268,7 @@ The VM takes a few minutes to create. After creation, take note of the **publicI
 
 ## Confirm access to storage account
 
-SSH into the *myVmPrivate* VM. Replace *<publicIpAddress>* with the public IP address of your *myVmPrivate* VM.
+SSH into the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your *myVmPrivate* VM.
 
 ```bash 
 ssh <publicIpAddress>
@@ -330,7 +334,7 @@ Access is denied and you receive a *This request is not authorized to perform th
 
 ## Clean up resources
 
-When no longer needed, use [az group delete](/cli/azure#az_group_delete) to remove the resource group and all of the resources it contains.
+When no longer needed, use [az group delete](/cli/azure) to remove the resource group and all of the resources it contains.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes

@@ -178,7 +178,7 @@ sudo dpkg -i grafana_4.5.1_amd64.deb
 sudo service grafana-server start
 ```
 
-For additional installation information, see [Installing on Debian / Ubuntu](http://docs.grafana.org/installation/debian/).
+For additional installation information, see [Installing on Debian / Ubuntu](https://docs.grafana.org/installation/debian/).
 
 #### Add the ElasticSearch server as a data source
 

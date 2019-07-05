@@ -8,14 +8,16 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2018
+
+ms.date: 02/14/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zendesk
 
@@ -105,8 +107,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.zendesk.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `<subdomain>.zendesk.com`
+   b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: `https://<subdomain>.zendesk.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zendesk Client support team](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -160,7 +161,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
 11. After adding extension to the browser, click on **Setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate section **Configure Zendesk Single Sign-On**.
 
-	 ![image](./media/zendesk-tutorial/d2_saml.png)
+	![image](./media/zendesk-tutorial/d2_saml.png)
 
 ### Configure Zendesk Single Sign-On
 
@@ -188,7 +189,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
     f. Click **Save**.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -206,7 +207,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -270,11 +271,10 @@ When you click the Zendesk tile in the Access Panel, you should be automatically
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configure User Provisioning](zendesk-provisioning-tutorial.md) 
-
+- [Configure User Provisioning](zendesk-provisioning-tutorial.md)

@@ -1,15 +1,15 @@
 ---
-title: Point a company Internet domain to a Azure Traffic Manager domain name
+title: Point a company Internet domain to an Azure Traffic Manager domain name
 description: This article will help you point your company domain name to a Traffic Manager domain name.
 services: traffic-manager
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Point a company Internet domain to an Azure Traffic Manager domain
@@ -20,7 +20,7 @@ For example, to point name `www.contoso.com` to the Traffic Manager DNS name `co
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-All traffic requests to *www.contoso.com* get directed to *contoso.trafficmanager.net*.
+All traffic requests to *www\.contoso.com* get directed to *contoso.trafficmanager.net*.
 
 > [!IMPORTANT]
 > You cannot point a second-level domain, such as *contoso.com*, to the Traffic Manager domain. DNS protocol standards do not allow CNAME records for second-level domain names.

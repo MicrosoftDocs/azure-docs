@@ -53,9 +53,9 @@ When the deployment process for the Remote Monitoring solution finishes, click *
 
 For a device to connect to the solution accelerator, it must identify itself to IoT Hub using valid credentials. You have the opportunity to save the device connection string that contains these credentials when you add the device to the solution. You include the device connection string in your client application later in this tutorial.
 
-To add a device to your Remote Monitoring solution, complete the following steps on the **Devices** page in the solution:
+To add a device to your Remote Monitoring solution, complete the following steps on the **Device Explorer** page in the solution:
 
-1. Choose **+ New device**, and then choose **Physical** as the **Device type**:
+1. Choose **+ New device**, and then choose **Real** as the **Device type**:
 
     ![Add a real device](media/iot-suite-selector-connecting/devicesprovision.png)
 

@@ -3,16 +3,16 @@ title: "Quickstart: Translator Speech API Java"
 titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the  Translator Speech API.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: swmachan
+ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Quickstart: Translator Speech API with Java 
+# Quickstart: Translator Speech API with Java
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -98,7 +98,7 @@ import org.eclipse.jetty.websocket.common.scopes.*;
     https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html
     https://docs.oracle.com/javaee/7/api/javax/websocket/RemoteEndpoint.Basic.html
     https://docs.oracle.com/javaee/7/api/javax/websocket/OnMessage.html
-    http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html
+    https://www.oracle.com/technetwork/articles/java/jsr356-1937161.html
 */
 
 @ClientEndpoint(configurator = Config.class)
@@ -272,7 +272,7 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 > [!div class="nextstepaction"]
 > [Translator Speech tutorial](../tutorial-translator-speech-csharp.md)
 
-## See also 
+## See also
 
 [Translator Speech overview](../overview.md)
 [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

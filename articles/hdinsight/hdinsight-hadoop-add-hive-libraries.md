@@ -1,7 +1,6 @@
 ---
 title: Add Apache Hive libraries during HDInsight cluster creation - Azure 
 description: Learn how to add Apache Hive libraries (jar files,) to an HDInsight cluster during cluster creation.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -36,9 +35,6 @@ For **Linux-based clusters**: [https://hdiconfigactions.blob.core.windows.net/li
 
 For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 **Requirements**
 
 * The scripts must be applied to both the **Head nodes** and **Worker nodes**.
@@ -47,7 +43,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
 * The storage account containing the library of jar files **must** be linked to the HDInsight cluster during creation. It must either be the default storage account, or an account added through __optional configuration__.
 
-* The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named **libs** on a storage account named **mystorage**, the parameter would be **wasb://libs@mystorage.blob.core.windows.net/**.
+* The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named **libs** on a storage account named **mystorage**, the parameter would be **wasb://libs\@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]  
   > This document assumes that you have already created a storage account, blob container, and uploaded the files to it.
@@ -75,7 +71,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
    * **ZOOKEEPER**: Leave this blank.
 
-   * **PARAMETERS**: Enter the WASB address to the container and storage account that contains the jars. For example, **wasb://libs@mystorage.blob.core.windows.net/**.
+   * **PARAMETERS**: Enter the WASB address to the container and storage account that contains the jars. For example, **wasb://libs\@mystorage.blob.core.windows.net/**.
 
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration.
 

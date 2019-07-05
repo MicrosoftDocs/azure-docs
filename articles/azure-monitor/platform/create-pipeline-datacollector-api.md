@@ -1,6 +1,6 @@
 ---
-title: Create a data pipeline with the Azure Log Analytics Data Collector API | Microsoft Docs
-description: You can use the Log Analytics HTTP Data Collector API to add POST JSON data to the Log Analytics repository from any client that can call the REST API. This article describes how to upload data stored in files in an automated way.
+title: Create a data pipeline with the Azure Monitor Data Collector API | Microsoft Docs
+description: You can use the Azure Monitor HTTP Data Collector API to add POST JSON data to the Log Analytics workspace from any client that can call the REST API. This article describes how to upload data stored in files in an automated way.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -17,10 +17,12 @@ ms.author: magoedte
 
 # Create a data pipeline with the Data Collector API
 
-The [Log Analytics Data Collector API](../../azure-monitor/platform/data-collector-api.md) allows you to import any custom data into Log Analytics. The only requirements are that the data be JSON-formatted and split into 30 MB or less segments. This is a completely flexible mechanism that can be plugged into in many ways: from data being sent directly from your application, to one-off adhoc uploads. This article will outline some starting points for a common scenario: the need to upload data stored in files on a regular, automated basis. While the pipeline presented here will not be the most performant or otherwise optimized, it is intended to serve as a starting point towards building a production pipeline of your own.
+The [Azure Monitor Data Collector API](data-collector-api.md) allows you to import any custom log data into a Log Analytics workspace in Azure Monitor. The only requirements are that the data be JSON-formatted and split into 30 MB or less segments. This is a completely flexible mechanism that can be plugged into in many ways: from data being sent directly from your application, to one-off adhoc uploads. This article will outline some starting points for a common scenario: the need to upload data stored in files on a regular, automated basis. While the pipeline presented here will not be the most performant or otherwise optimized, it is intended to serve as a starting point towards building a production pipeline of your own.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Example problem
-For the remainder of this article, we will examine page view data in Application Insights. In our hypothetical scenario, we want to correlate geographical information collected by default by the Application Insights SDK to custom data containing the population of every country in the world, with the goal of identifying where we should be spending the most marketing dollars. 
+For the remainder of this article, we will examine page view data in Application Insights. In our hypothetical scenario, we want to correlate geographical information collected by default by the Application Insights SDK to custom data containing the population of every country/region in the world, with the goal of identifying where we should be spending the most marketing dollars. 
 
 We use a public data source such as the [UN World Population Prospects](https://esa.un.org/unpd/wpp/) for this purpose. The data will have the following simple schema:
 
@@ -37,13 +39,13 @@ This article will not cover how to create data or [upload it to an Azure Blob St
 
 1. A process will detect that new data has been uploaded.  Our example uses an [Azure Logic App](../../logic-apps/logic-apps-overview.md), which has available a trigger to detect new data being uploaded to a blob.
 
-2. A processor reads this new data and converts it to JSON, the format required by Log Analytics.  In this example, we use an [Azure Function](../../azure-functions/functions-overview.md) as a lightweight, cost-efficient way of executing our processing code. The function is kicked off by the same Logic App that we used to detect a the new data.
+2. A processor reads this new data and converts it to JSON, the format required by Azure Monitor  In this example, we use an [Azure Function](../../azure-functions/functions-overview.md) as a lightweight, cost-efficient way of executing our processing code. The function is kicked off by the same Logic App that we used to detect a the new data.
 
-3. Finally, once the JSON object is available, it is sent to Log Analytics. The same Logic App sends the data to Log Analytics using the built in Log Analytics Data Collector activity.
+3. Finally, once the JSON object is available, it is sent to Azure Monitor. The same Logic App sends the data to Azure Monitor using the built in Log Analytics Data Collector activity.
 
 While the detailed setup of the blob storage, Logic App, or Azure Function is not outlined in this article, detailed instructions are available on the specific products’ pages.
 
-To monitor this pipeline, we use Application Insights to monitor our Azure Function [details here](../../azure-functions/functions-monitoring.md), and Log Analytics to monitor our Logic App [details here](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+To monitor this pipeline, we use Application Insights to monitor our Azure Function [details here](../../azure-functions/functions-monitoring.md), and Azure Monitor to monitor our Logic App [details here](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
 
 ## Setting up the pipeline
 To set the pipeline, first make sure you have your blob container created and configured. Likewise, make sure that the Log Analytics workspace where you’d like to send the data to is created.
@@ -131,10 +133,10 @@ Now we need to go back and modify the Logic App we started building earlier to i
 ![Logic Apps workflow complete example](./media/create-pipeline-datacollector-api/logic-apps-workflow-example-02.png)
 
 ## Testing the pipeline
-Now you can upload a new file to the blob configured earlier and have it monitored by your  Logic App. Soon, you should see a new instance of the Logic App kick off, call out to your Azure Function, and then successfully send the data to Log Analytics. 
+Now you can upload a new file to the blob configured earlier and have it monitored by your  Logic App. Soon, you should see a new instance of the Logic App kick off, call out to your Azure Function, and then successfully send the data to Azure Monitor. 
 
 >[!NOTE]
->It can take up to 30 minutes for the data to appear in Log Analytics the first time you send a new data type.
+>It can take up to 30 minutes for the data to appear in Azure Monitor the first time you send a new data type.
 
 
 ## Correlating with other data in Log Analytics and Application Insights
@@ -158,7 +160,7 @@ This article presented a working prototype, the logic behind which can be applie
 
 * Add error handling and retry logic in your Logic App and Function.
 * Add logic to ensure that the 30MB/single Log Analytics Ingestion API call limit is not exceeded. Split the data into smaller segments if needed.
-* Set up a clean-up policy on your blob storage. Once successfully sent to Log Analytics, unless you’d like to keep the raw data available for archival purposes, there is no reason to continue storing it. 
+* Set up a clean-up policy on your blob storage. Once successfully sent to the Log Analytics workspace, unless you’d like to keep the raw data available for archival purposes, there is no reason to continue storing it. 
 * Verify monitoring is enabled across the full pipeline, adding trace points and alerts as appropriate.
 * Leverage source control to manage the code for your function and Logic App.
 * Ensure that a proper change management policy is followed, such that if the schema changes, the function and Logic Apps are modified accordingly.
@@ -166,4 +168,4 @@ This article presented a working prototype, the logic behind which can be applie
 
 
 ## Next steps
-Learn more about the  [Data Collector API](../../azure-monitor/platform/data-collector-api.md) to write data to Log Analytics from any REST API client.
+Learn more about the  [Data Collector API](data-collector-api.md) to write data to Log Analytics workspace from any REST API client.

@@ -10,7 +10,7 @@ ms.topic: include
 ms.custom: include file
 ms.date: 09/24/2018
 ms.author: diberry
---- 
+---
 
 > [!NOTE] 
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).

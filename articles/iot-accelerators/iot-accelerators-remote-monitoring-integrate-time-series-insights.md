@@ -91,7 +91,8 @@ Create a new event source to connect to your IoT hub. Make sure that you use the
     | Iot hub policy name | **iothubowner** Ensure the policy used is an owner policy. |
     | Iot hub policy key | This field is populated automatically. |
     | Iot hub consumer group | **timeseriesinsights** |
-    | Event serialization format | **JSON**     | Timestamp property name | Leave blank |
+    | Event serialization format | **JSON**     | 
+    | Timestamp property name | Leave blank |
 
     ![Create Event Source](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
@@ -230,6 +231,9 @@ Configure the environment of `basic` deployment for the updated microservices.
 1. Navigate to the **ASA manager service** and edit the docker compose file by adding `PCS_TELEMETRY_STORAGE_TYPE`.
 
 1. Restart the docker containers using `sudo ./start.sh` from the VM.
+
+> [!NOTE]
+> The above configuration of environment variables is valid for Remote Monitoring versions before 1.0.2
 
 ### Standard deployments
 

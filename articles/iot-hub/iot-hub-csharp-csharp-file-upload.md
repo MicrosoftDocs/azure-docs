@@ -1,13 +1,14 @@
 ---
 title: Upload files from devices to Azure IoT Hub with .NET | Microsoft Docs
 description: How to upload files from a device to the cloud using Azure IoT device SDK for .NET. Uploaded files are stored in an Azure storage blob container.
-author: fsautomata
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: elioda
+ms.author: robinsh
 ---
 
 # Upload files from your device to the cloud with IoT Hub using .NET
@@ -40,7 +41,7 @@ At the end of this tutorial you run two .NET console apps:
 
 To complete this tutorial, you need the following:
 
-* Visual Studio 2017
+* Visual Studio
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]

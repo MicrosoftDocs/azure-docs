@@ -1,5 +1,5 @@
 ---
-title: Secure access to Azure Logic Apps | Microsoft Docs
+title: Secure access to Azure Logic Apps
 description: Add security for Azure Logic Apps, including triggers, inputs and outputs, parameters, and other services
 services: logic-apps
 ms.service: logic-apps
@@ -7,7 +7,6 @@ ms.suite: integration
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
 ---
@@ -35,7 +34,7 @@ encrypted and secured with Secure Sockets Layer (SSL) protocol.
 Here are different ways you can secure access to this trigger type:
 
 * [Generate shared access signatures](#sas)
-* [Restrict incoming IP addresses](#restrict-incoming-IP)
+* [Restrict incoming IP addresses](#restrict-incoming-ip-addresses)
 * [Add Azure Active Directory, OAuth, or other security](#add-authentication)
 
 <a name="sas"></a>
@@ -61,7 +60,7 @@ Here's more information about securing access with
 Shared Access Signature:
 
 * [Regenerate access keys](#access-keys)
-* [Create expiring callback URLs](#expiring-URLs)
+* [Create expiring callback URLs](#expiring-urls)
 * [Create URLs with primary or secondary key](#primary-secondary-key)
 
 <a name="access-keys"></a>
@@ -212,10 +211,9 @@ Logic Apps supports [Azure Role-Based Access Control (RBAC)](../role-based-acces
 which you can customize or assign built-in roles to members in 
 your subscription, for example:
 
-* **Logic App Contributor**: Users can view, edit, and update your logic app. 
-This role can't delete the logic app or run administrator operations.
-* **Logic App Operator**: Users can view your logic app and the run history, 
-and enable or disable your logic app. This role can't edit or update your logic app.
+* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
+
+* [Logic App Operator](../role-based-access-control/built-in-roles.md#logic-app-operator): Lets you read, enable, and disable logic apps, but you can't edit or update them.
 
 To prevent others from changing or deleting your logic app, you can use 
 [Azure Resource Lock](../azure-resource-manager/resource-group-lock-resources.md). 
@@ -350,7 +348,7 @@ a separate parameters file, for example:
          "type": "Http",
          "inputs": {
             "method": "GET",
-            "uri": "http://www.microsoft.com",
+            "uri": "https://www.microsoft.com",
             "authentication": {
                "type": "Basic",
                "username": "@parameters('usernameParam')",
@@ -473,7 +471,7 @@ values for parameters, you can use a separate parameters file.
                      "type": "Http",
                      "inputs": {
                         "method": "GET",
-                        "uri": "http://www.microsoft.com",
+                        "uri": "https://www.microsoft.com",
                         "authentication": {
                            "type": "Basic",
                            "username": "@parameters('usernameParam')",

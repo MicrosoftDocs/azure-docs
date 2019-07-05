@@ -61,7 +61,7 @@ If you don't have an Azure subscription, you can get one for free through [Visua
 
    	![Dashboard view](_img/azure-devops-project-php/dashboardnopreview.png) 
 	
- DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a PHP app with a CI/CD process that automatically deploys your latest work to your web site.
+   DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a PHP app with a CI/CD process that automatically deploys your latest work to your web site.
 
 ## Commit code changes and execute CI/CD
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the CalcHistogram method to calculate the distribution of attribute values for a set of paper entities.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: academic-knowledge
@@ -23,7 +23,7 @@ The **calchistogram** REST API is used to calculate the distribution of attribut
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
 <br>
-  
+
 ## Request Parameters
 
 Name  |Value | Required?  |Description

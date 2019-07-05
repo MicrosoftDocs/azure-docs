@@ -14,10 +14,11 @@ manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable password reset for Windows 10 users on the login screen to reduce helpdesk calls?
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure AD password reset from the login screen
 
-In this tutorial, you enable users to reset their passwords from the Windows 10 login screen. With the new Windows 10 April 2018 Update, users with **Azure AD joined** or **hybrid Azure AD joined** devices can use a “Reset password” link on their login screen. When users click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with.
+In this tutorial, you enable users to reset their passwords from the Windows 10 login screen. With the new Windows 10 April 2018 Update, users with **Azure AD joined** or **hybrid Azure AD joined** devices can use a “Reset password” link on their login screen. When users click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with. If a user is locked out this process does not unlock accounts in on-premises Active Directory.
 
 > [!div class="checklist"]
 > * Configure Reset password link using Intune
@@ -26,13 +27,15 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
 
 ## Prerequisites
 
-* You must running at least Windows 10, version April 2018 Update, and the devices must be either:
+* You must running at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
    * [Azure AD-joined](../device-management-azure-portal.md)
    or
    * [Hybrid Azure AD-joined](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
 * You must enable Azure AD self-service password reset.
-* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com` to your HTTPS traffic (port 443) Allowed URLs list.
+* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com` to your HTTPS traffic (port 443) allowed URLs list.
+* SSPR for Windows 10 is only supported with machine-level proxies
 * Review limitations below before trying this feature in your environment.
+* If using an image, prior to sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## Configure Reset password link using Intune
 
@@ -110,6 +113,8 @@ When users reset their password from the login screen of a Windows 10 device, a 
 
 ## Limitations
 
+Account unlock, mobile app notification, and mobile app code are not supported by SSPR for Windows 10.
+
 When testing this functionality using Hyper-V, the "Reset password" link does not appear.
 
 * Go to the VM you are using to test click on **View** and then uncheck **Enhanced session**.
@@ -118,7 +123,7 @@ When testing this functionality using Remote Desktop or an Enhanced VM Session, 
 
 * Password reset is not currently supported from a Remote Desktop.
 
-If Ctrl+Alt+Del is required by policy in versions of Windows 10 before 1809, **Reset password** will not work.
+If Ctrl+Alt+Del is required by policy in versions of Windows 10 before v1809, **Reset password** will not work.
 
 If lock screen notifications are turned off, **Reset password** will not work.
 

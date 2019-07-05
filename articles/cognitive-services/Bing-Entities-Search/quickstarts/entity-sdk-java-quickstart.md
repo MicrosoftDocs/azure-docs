@@ -3,14 +3,14 @@ title: "Quickstart: Search for entities with the Bing Entity Search SDK for Java
 titlesuffix: Azure Cognitive Services
 description: Use this quickstart to search for entities with the Bing Entity Search SDK for Java
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: v-gedod
+ms.author: aahi
 ---
 # Quickstart: Send a search request with the Bing Entity Search SDK for Java
 
@@ -62,7 +62,7 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
 
 ## Create a search client
 
-2. Implement the `dominantEntityLookup` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
+1. Implement the `dominantEntityLookup` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -75,47 +75,47 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
 
     To implement the `ServiceClientCredentials`, follow these steps:
 
-    1. override the `applyCredentialsFilter()` function, with a `OkHttpClient.Builder` object as a parameter. 
+   1. override the `applyCredentialsFilter()` function, with a `OkHttpClient.Builder` object as a parameter. 
         
-        ```java
-        //...
-        new ServiceClientCredentials() {
-                @Override
-                public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                //...
-                }
-        //...
-        ```
+       ```java
+       //...
+       new ServiceClientCredentials() {
+               @Override
+               public void applyCredentialsFilter(OkHttpClient.Builder builder) {
+               //...
+               }
+       //...
+       ```
     
-    2. Within `applyCredentialsFilter()`, call `builder.addNetworkInterceptor()`. Create a new `Interceptor` object, and override its `intercept()` method to take a `Chain` interceptor object.
+   2. Within `applyCredentialsFilter()`, call `builder.addNetworkInterceptor()`. Create a new `Interceptor` object, and override its `intercept()` method to take a `Chain` interceptor object.
 
-        ```java
-        //...
-        builder.addNetworkInterceptor(
-            new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                //...    
-                }
-            });
-        ///...
-        ```
+       ```java
+       //...
+       builder.addNetworkInterceptor(
+           new Interceptor() {
+               @Override
+               public Response intercept(Chain chain) throws IOException {
+               //...    
+               }
+           });
+       ///...
+       ```
 
-    3. Within the `intercept` function, create variables for your request. Use `Request.Builder()` to build your request. Add your subscription key to the `Ocp-Apim-Subscription-Key` header, and return `chain.proceed()` on the request object.
+   3. Within the `intercept` function, create variables for your request. Use `Request.Builder()` to build your request. Add your subscription key to the `Ocp-Apim-Subscription-Key` header, and return `chain.proceed()` on the request object.
             
-        ```java
-        //...
-        public Response intercept(Chain chain) throws IOException {
-            Request request = null;
-            Request original = chain.request();
-            Request.Builder requestBuilder = original.newBuilder()
-                    .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request = requestBuilder.build();
-            return chain.proceed(request);
-        }
-        //...
-        ```
-## Send a request and receive a response
+       ```java
+       //...
+       public Response intercept(Chain chain) throws IOException {
+           Request request = null;
+           Request original = chain.request();
+           Request.Builder requestBuilder = original.newBuilder()
+                   .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+           request = requestBuilder.build();
+           return chain.proceed(request);
+       }
+       //...
+       ```
+      ## Send a request and receive a response
 
 1. Create a new instance of the search client with your subscription key. use `client.entities().search()` to send a search request for the search query `satya nadella`, and get a response. 
     
@@ -125,7 +125,7 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
             "satya nadella", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
     ```
 
-2. If any entities were returned, convert them into a list. Iterate through them, and print the dominant entity.
+1. If any entities were returned, convert them into a list. Iterate through them, and print the dominant entity.
 
     ```java
     if (entityData.entities().value().size() > 0){
@@ -140,6 +140,7 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
             }
         }
     }
+    ```
 
 ## Next steps
 

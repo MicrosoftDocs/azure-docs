@@ -8,7 +8,7 @@ manager: jeconnoc
 
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: howto
+ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -23,7 +23,7 @@ This article steps through enabling Hyper-V on an Azure VM and configuring Inter
 
 ## Create a nesting capable Azure VM
 
-Create a new Windows Server 2016 Azure VM.  For quick refernce, all v3 virtual machines support nested virtualization. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](acu.md).
+Create a new Windows Server 2016 Azure VM.  For quick reference, all v3 virtual machines support nested virtualization. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](acu.md).
 
 Remember to choose a VM size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
 
@@ -78,7 +78,7 @@ Create a new virtual network adapter for the guest virtual machine and configure
 2. Create an internal switch.
 
     ```powershell
-    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNAT" -SwitchType Internal
     ```
 
 3. View the properties of the switch and note the ifIndex for the new adapter.

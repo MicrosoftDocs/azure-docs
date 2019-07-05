@@ -28,7 +28,7 @@ Follow these steps to add an email action to an existing rule:
 
 1. From the **Dashboard**, navigate to the **Rules** page:
 
-    ![Rules page](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Rules page](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Click the checkbox next to the existing rule to modify, and then click **Edit** at the top. An editable **Rule** panel appears.
 
@@ -38,7 +38,7 @@ Follow these steps to add an email action to an existing rule:
 
 1. Enter an email address into the recipient box and press the **Enter** key for each email address to add:
 
-    ![Address entry](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Address entry](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Enter a subject for the email.
 
@@ -56,7 +56,7 @@ Follow these steps to add an email action when you create a new rule:
 
 1. From the **Dashboard**, navigate to the **Rules** page:
 
-    ![Rules page](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Rules page](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Follow the steps in the [create a rule section](iot-accelerators-remote-monitoring-automate.md#create-a-rule). The follow the steps in the [create an advanced rule](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) section up to the point where you set a **Severity level**. Don't click **Apply** yet.
 
@@ -66,7 +66,7 @@ Follow these steps to add an email action when you create a new rule:
 
 1. Enter an email address into the recipient box and press the **Enter** key for each email address to add:
 
-    ![Address entry](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Address entry](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Enter a subject for the email.
 
@@ -99,11 +99,11 @@ The following steps show you how to set up and verify the email actions manually
 
 1. Click the **office365-connector**:
 
-    ![API Connection](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![API Connection](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. Click the banner to begin the authorization process:
 
-    ![authorize](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![authorize](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. Click **Authorize**. You're prompted to sign in. The account you use to sign in should be the email address the application uses to send email notifications:
 
@@ -113,7 +113,7 @@ The following steps show you how to set up and verify the email actions manually
 
 1. To change the email address from which the notifications are sent from, click **Edit API connection**.
 
-    ![change email](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![change email](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### Owner role Outlook setup
 
@@ -125,7 +125,7 @@ The following steps help you to sign in and set up email actions:
 
 1. Click to sign in to Outlook. You're taken to the Azure portal:
 
-  ![Sign in to Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+   ![Sign in to Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Click **Authorize**. You're prompted to sign in. The account you use to sign in should be the email address the application uses to send email notifications:
 
@@ -133,13 +133,13 @@ The following steps help you to sign in and set up email actions:
 
 1. If you've successfully configured the email notification, you see this message:
 
-  ![Successful Outlook sign in](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+   ![Successful Outlook sign in](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Customize the email HTML <a name="htmledit"></a>
 
 Out-of-the-box, the Remote Monitoring solution accelerator provides a basic HTML template for action emails. The email template uses values from the email action settings. Here's an example email:
 
-![email example](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![email example](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 The following steps show you how to edit the HTML email template. For example, you can include more information or add custom images:
 
@@ -167,7 +167,7 @@ The following steps show you how to edit the HTML email template. For example, y
 
 The Remote Monitoring solution accelerator uses Outlook to send email notifications. Outlook limits the number of emails sent to [30 emails per 1 minute](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Email clients receiving the emails may also throttle the number of emails received per minute. Check with your specific email client on limitations. When you set up email notification for a rule, the rule should calculate average values over a period of at least one minute, and not use instant values:
 
-![Average calculation](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
+![Average calculation](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## Next steps
 

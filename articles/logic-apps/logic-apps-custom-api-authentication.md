@@ -121,14 +121,16 @@ when you leave the **Keys** page.
 
 **Create the application identity for your logic app in PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 You can perform this task through Azure Resource Manager with PowerShell. 
 In PowerShell, run these commands:
 
-1. `Add-AzureRmAccount`
+1. `Add-AzAccount`
 
 2. `$SecurePassword = Read-Host -AsSecureString` (Enter a password and hit enter)
 
-3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
+3. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Make sure to copy the **Tenant ID** (GUID for your Azure AD tenant), 
 the **Application ID**, and the password that you used.

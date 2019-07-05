@@ -9,14 +9,15 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, I want to reduce overusing the Global Administrator role by delegating app access management to lower-privilege roles.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Delegate app administrator roles in Azure Active Directory
@@ -34,8 +35,8 @@ To grant the ability to manage application access in the Azure portal:
 1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator role in the tenant.
 2. When you have sufficient permissions, open the [Roles and administrators page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Open one of the following roles to see its member assignments:
-  * **Application administrator**
-  * **Cloud application administrator**
+   * **Application administrator**
+   * **Cloud application administrator**
 4. On the **Members** page for the role, select **Add member**.
 5. Select one or more members to add to the role. <!--Members can be users or groups.-->
 
@@ -47,15 +48,15 @@ By default, all users can create application registrations, but you can selectiv
 
 1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator role in the tenant.
 2. When you have obtained sufficient permissions, set one or both of the following:
-  * On the [User settings page for your tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set **Users can register applications** to No.
-  * On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set **Users can consent to applications accessing company data on their behalf** to No.
+   * On the [User settings page for your tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set **Users can register applications** to No.
+   * On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set **Users can consent to applications accessing company data on their behalf** to No.
 3. Then assign users needing this permission to be members of the Application developer role as needed.
 
 When a user registers an application, they are automatically added as the first owner for the application.
 
 ## Delegate app ownership
 
-App owners and app registration owners can each manage only the app applications or app registrations that they own. For example, when you add an owner for the Salesforce application, that owner can manage access to and configuration for Salesforce but not any other applications. An app can have many owners, and a user can be the owner of many apps.
+App owners and app registration owners can each manage only the applications or app registrations that they own. For example, when you add an owner for the Salesforce application, that owner can manage access to and configuration for Salesforce but not any other applications. An app can have many owners, and a user can be the owner of many apps.
 
 An application owner can:
 

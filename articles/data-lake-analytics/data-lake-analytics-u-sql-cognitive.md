@@ -24,7 +24,7 @@ The following samples using cognitive capabilities are available:
 * Text: [Key Phrase Extraction & Sentiment Analysis](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## Registering Cognitive Extensions in U-SQL
-Before you begin, follow the steps in this article to register Cognitive Extensions in U-SQL: [Registering Cognitive Extensions in U-SQL](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/cognitive-capabilities-in-u-sql#registeringExtensions).
+Before you begin, follow the steps in this article to register Cognitive Extensions in U-SQL: [Registering Cognitive Extensions in U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
 
 ## Next steps
 * [U-SQL/Cognitive Samples](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)

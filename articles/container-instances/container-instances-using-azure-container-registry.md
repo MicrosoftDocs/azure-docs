@@ -29,7 +29,7 @@ In the following section, you create an Azure key vault and a service principal,
 
 ### Create key vault
 
-If you don't already have a vault in [Azure Key Vault](/azure/key-vault/), create one with the Azure CLI using the following commands.
+If you don't already have a vault in [Azure Key Vault](../key-vault/key-vault-overview.md), create one with the Azure CLI using the following commands.
 
 Update the `RES_GROUP` variable with the name of an existing resource group in which to create the key vault, and `ACR_NAME` with the name of your container registry. Specify a name for your new key vault in `AKV_NAME`. The vault name must be unique within Azure and must be 3-24 alphanumeric characters in length, begin with a letter, end with a letter or digit, and cannot contain consecutive hyphens.
 
@@ -159,7 +159,7 @@ For more information about Azure Container Registry authentication, see [Authent
 
 <!-- LINKS - External -->
 [cloud-shell-bash]: https://shell.azure.com/bash
-[cloud-shell-powershell]: https://shell.azure.com/powershell
+[cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
 [az-acr-show]: /cli/azure/acr#az-acr-show

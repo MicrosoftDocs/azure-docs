@@ -70,9 +70,9 @@
 - name: Reference
   items:
   - name: Bing Web Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference
   - name: Bing Web Search API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
+    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
@@ -93,8 +93,6 @@
     href: Use-display-requirements.md
 - name: Resources
   items:
-  - name: FAQ
-    href: bing-web-search-resource-faq.md
   - name: Get API key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
   - name: Bing Web Search endpoint
@@ -107,6 +105,8 @@
     href: language-support.md
   - name: Analytics for Bing Web Search API
     href: bing-web-stats.md
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support
     items:
     - name: User Voice Forum

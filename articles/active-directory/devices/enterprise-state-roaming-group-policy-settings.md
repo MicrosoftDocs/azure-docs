@@ -1,23 +1,19 @@
 ---
 title: Group Policy and MDM settings | Microsoft Docs
-description: Provides information about group policy and mobile device management (MDM) settings that should be used on corporate-owned devices. These policies are applied to the user’s entire device.
+description: Provides information about group policy and mobile device management (MDM) settings that should be used on corporate-owned devices.
+
 services: active-directory
-keywords: what are group Policy and MDM settings for Enterprise State Roaming, Enterprise State Roaming, windows cloud
-documentationcenter: ''
-author: MarkusVi
-manager: daveba
-editor: curtand
-
-ms.subservice: devices
-ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: markvi
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: na
+
+ms.collection: M365-identity-device-management
 ---
 # Group Policy and MDM settings
 Use these group policy and mobile device management (MDM) settings only on corporate-owned devices because these policies are applied to the user’s entire device. Applying an MDM policy to disable settings sync for a personal, user-owned device will negatively impact the use of that device. Additionally, other user accounts on the device will also be affected by the policy.

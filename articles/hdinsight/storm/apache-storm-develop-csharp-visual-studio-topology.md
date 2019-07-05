@@ -1,7 +1,6 @@
 ---
 title: Apache Storm topologies with Visual Studio and C# - Azure HDInsight 
 description: Learn how to create Storm topologies in C#. Create a simple word count topology in Visual Studio by using the Hadoop tools for Visual Studio.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -427,7 +426,7 @@ Transactional topologies implement the following to support replay of data:
 
 * **Metadata caching**: The spout must store metadata about the data emitted, so that the data can be retrieved and emitted again if a failure occurs. Because the data emitted by the sample is small, the raw data for each tuple is stored in a dictionary for replay.
 
-* **Ack**: Each bolt in the topology can call `this.ctx.Ack(tuple)` to acknowledge that it has successfully processed a tuple. When all bolts have acked the tuple, the `Ack` method of the spout is invoked. The `Ack` method allows the spout to remove data that was cached for replay.
+* **Ack**: Each bolt in the topology can call `this.ctx.Ack(tuple)` to acknowledge that it has successfully processed a tuple. When all bolts have acknowledged the tuple, the `Ack` method of the spout is invoked. The `Ack` method allows the spout to remove data that was cached for replay.
 
 * **Fail**: Each bolt can call `this.ctx.Fail(tuple)` to indicate that processing has failed for a tuple. The failure propagates to the `Fail` method of the spout, where the tuple can be replayed by using cached metadata.
 
@@ -554,7 +553,7 @@ For Linux-based HDInsight clusters, make sure that your project uses binaries co
 
 ### Test a topology locally
 
-Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this tutorial locally in your development environment.
+Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this article locally in your development environment.
 
 > [!WARNING]  
 > Local testing only works for basic, C#-only topologies. You cannot use local testing for hybrid topologies or topologies that use multiple streams.

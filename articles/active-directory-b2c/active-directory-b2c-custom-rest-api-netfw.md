@@ -2,14 +2,14 @@
 title: Integrate REST API claim exchanges in your Azure Active Directory B2C user journey | Microsoft Docs
 description: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -245,10 +245,10 @@ A claims provider can have multiple technical profiles for various reasons. For 
 The following XML snippet contains a claims provider node with two technical profiles:
 
 * **TechnicalProfile Id="REST-API-SignUp"**: Defines your RESTful service.
-   * `Proprietary` is described as the protocol for a RESTful-based provider.
-   * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service.
+  * `Proprietary` is described as the protocol for a RESTful-based provider.
+  * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service.
 
-   In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
+    In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
 
 * **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (a conflict error), the error message is displayed to the user.
 

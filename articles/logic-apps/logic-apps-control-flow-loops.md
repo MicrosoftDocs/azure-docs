@@ -21,8 +21,8 @@ For limits on the number of array items that "Foreach" loops can process, see
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
 
 To repeat actions until a condition gets met or a state changes, 
-you can create an ["Until" loop](#until-loop). Your logic app runs all 
-the actions inside the loop, and then checks the condition or state. 
+you can create an ["Until" loop](#until-loop). Your logic app first runs 
+all the actions inside the loop, and then checks the condition or state. 
 If the condition is met, the loop stops. Otherwise, the loop repeats. 
 For limits on the number of "Until" loops in a logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
@@ -196,9 +196,12 @@ you can use the `Sequential` option by adding the
 
 ## "Until" loop
   
-To repeat actions until a condition gets met or a state changes, 
-put those actions in an "Until" loop. Here are some common 
-scenarios where you can use an "Until" loop:
+To run and repeat actions until a condition gets met or a state changes, 
+put those actions in an "Until" loop. Your logic app first runs any and 
+all actions inside the loop, and then checks the condition or state. 
+If the condition is met, the loop stops. Otherwise, the loop repeats.
+
+Here are some common scenarios where you can use an "Until" loop:
 
 * Call an endpoint until you get the response you want.
 
@@ -217,13 +220,13 @@ then sends an email that confirms the current value.
 > but your UI might look slightly different. 
 
 1. Create a blank logic app. In Logic App Designer, 
-under the search box, choose **All**. Search for "recurrence". 
-From the triggers list, select this trigger: **Recurrence - Schedule**
+   under the search box, choose **All**. Search for "recurrence". 
+   From the triggers list, select this trigger: **Recurrence - Schedule**
 
    ![Add "Recurrence - Schedule" trigger](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
 1. Specify when the trigger fires by setting the interval, frequency, 
-and hour of the day. To set the hour, choose **Show advanced options**.
+   and hour of the day. To set the hour, choose **Show advanced options**.
 
    ![Set up recurrence schedule](./media/logic-apps-control-flow-loops/do-until-loop-set-trigger-properties.png)
 
@@ -235,8 +238,8 @@ and hour of the day. To set the hour, choose **Show advanced options**.
    ||| 
 
 1. Under the trigger, choose **New step**. 
-Search for "variables", and select this action: 
-**Initialize variable - Variables**
+   Search for "variables", and select this action: 
+   **Initialize variable - Variables**
 
    ![Add "Initialize variable - Variables" action](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -254,58 +257,58 @@ Search for "variables", and select this action:
 1. Under the **Initialize variable** action, choose **New step**. 
 
 1. Under the search box, choose **All**. Search for "until", 
-and select this action: **Until - Control**
+   and select this action: **Until - Control**
 
    ![Add "Until" loop](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
 1. Build the loop's exit condition by selecting 
-the **Limit** variable and the **is equal** operator. 
-Enter **10** as the comparison value.
+   the **Limit** variable and the **is equal** operator. 
+   Enter **10** as the comparison value.
 
    ![Build exit condition for stopping loop](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
 1. Inside the loop, choose **Add an action**. 
 
 1. Under the search box, choose **All**. Search for "variables", 
-and select this action: **Increment variable - Variables**
+   and select this action: **Increment variable - Variables**
 
    ![Add action for incrementing variable](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
 1. For **Name**, select the **Limit** variable. For **Value**, 
-enter "1". 
+     enter "1". 
 
-   ![Increment "Limit" by 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+     ![Increment "Limit" by 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. Outside and under the loop, choose **New step**. 
 
 1. Under the search box, choose **All**. 
-Find and add an action that sends email, 
-for example: 
+     Find and add an action that sends email, 
+     for example: 
 
-   ![Add action that sends email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+     ![Add action that sends email](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. If prompted, sign in to your email account.
 
 1. Set the email action's properties. Add the **Limit** 
-variable to the subject. That way, you can confirm the 
-variable's current value meets your specified condition, 
-for example:
+     variable to the subject. That way, you can confirm the 
+     variable's current value meets your specified condition, 
+     for example:
 
-    ![Set up email properties](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+      ![Set up email properties](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Property | Value | Description |
-    | -------- | ----- | ----------- | 
-    | **To** | *<email-address@domain>* | The recipient's email address. For testing, use your own email address. | 
-    | **Subject** | Current value for "Limit" is **Limit** | Specify the email subject. For this example, make sure that you include the **Limit** variable. | 
-    | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
-    |||| 
+      | Property | Value | Description |
+      | -------- | ----- | ----------- | 
+      | **To** | *\<email-address\@domain>* | The recipient's email address. For testing, use your own email address. | 
+      | **Subject** | Current value for "Limit" is **Limit** | Specify the email subject. For this example, make sure that you include the **Limit** variable. | 
+      | **Body** | <*email-content*> | Specify the email message content you want to send. For this example, enter whatever text you like. | 
+      |||| 
 
 1. Save your logic app. To manually test your logic app, 
-on the designer toolbar, choose **Run**.
+     on the designer toolbar, choose **Run**.
 
-    After your logic starts running, you get an email with the content that you specified:
+      After your logic starts running, you get an email with the content that you specified:
 
-    ![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+      ![Received email](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## Prevent endless loops
 

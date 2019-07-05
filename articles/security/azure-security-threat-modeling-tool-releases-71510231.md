@@ -35,7 +35,7 @@ As originally noted in the [GA release notes](./azure-security-threat-modeling-t
 - Supported Operating Systems
   - Microsoft Windows 10
 - .NET Version Required
-  - .Net 3.5.2
+  - .NET 3.5.2
 - Additional Requirements
   - An Internet connection is required to receive updates to the tool as well as templates.
 

@@ -5,14 +5,13 @@ metadata:
   title: Azure Data Factory Documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to use Data Factory to set up automated data pipelines to and from on-premises and cloud sources in order to move and process data for analysis. 
   services: data-factory
-  author: douglaslMS
+  author: sharonlo101
+  ms.author: shlo
   manager: craigg
   ms.service: data-factory
   ms.tgt_pltfrm: na
-  
   ms.topic: overview
   ms.date: 08/06/2018
-  ms.author: douglasl
 abstract:
   description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, and how to move and transform data for analysis. <p>If you are using V1 of the Data Factory service, see <a href=/azure/data-factory/v1/data-factory-introduction>V1 documentation.</a></p> 
   aside:
@@ -75,6 +74,7 @@ sections:
     - html: Transform data in virtual network - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
     - html: Add branching and chaining - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a> 
     - html: Run SSIS packages in Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+    - html: Continuous integration and delivery (CI/CD) in Azure Data Factory - <a href="/azure/data-factory/continuous-integration-deployment">Data Factory UI</a>
 - title: Samples
   items:
   - type: paragraph
@@ -91,7 +91,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/az.datafactory/">Azure PowerShell</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
     - title: REST

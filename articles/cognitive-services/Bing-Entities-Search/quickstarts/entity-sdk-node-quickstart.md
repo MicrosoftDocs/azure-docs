@@ -3,14 +3,14 @@ title: "Quickstart: Send a search request with the Bing Entity Search SDK for No
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for entities with the Bing Entity Search SDK for Node.js
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: v-gedod
+ms.author: aahi
 ---
 
 # Quickstart: Send a search request with the Bing Entity Search SDK for Node.js
@@ -49,7 +49,7 @@ To install the Bing Entity Search SDK:
 
 ## Send a request and receive a response
 
-2. Send an entities search request with `entitiesOperations.search()`. After receiving a response, print out the `queryContext`, number of returned results, and the description of the first result.
+1. Send an entities search request with `entitiesOperations.search()`. After receiving a response, print out the `queryContext`, number of returned results, and the description of the first result.
       
     ```javascript
     entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {

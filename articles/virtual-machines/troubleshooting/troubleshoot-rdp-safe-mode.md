@@ -44,7 +44,7 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 ### Use Serial control
 
 1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). If the Serial Console is not enabled on your VM, see [repair the VM offline](#repair-the-vm-offline).
+   ). If the Serial Console is not enabled on your VM, see [repair the VM offline](#repair-the-vm-offline).
 2. Check the boot configuration data:
 
         bcdedit /enum
@@ -52,12 +52,12 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
     If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, the VM is not in Safe Mode. This article does not apply to your scenario.
 
     The **safeboot** flag could appear with the following values:
-    - Minimal
-    - Network
+   - Minimal
+   - Network
 
-    In either of these two modes, RDP will not be started. Therefore, the fix remains the same.
+     In either of these two modes, RDP will not be started. Therefore, the fix remains the same.
 
-    ![Image about the Safe Mode flag](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
+     ![Image about the Safe Mode flag](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. Delete the **safemoade** flag, so the VM will boot into normal mode:
 

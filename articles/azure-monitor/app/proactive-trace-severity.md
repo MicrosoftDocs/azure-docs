@@ -21,7 +21,7 @@ Traces are widely used in applications, as they help tell the story of what happ
 This feature requires no special setup, other than configuring trace logging for your app (see how to configure a trace log listener for [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) or [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). It is active when your app generates enough exception telemetry.
 
 ## When would I get this type of smart detection notification?
-You might get this type of notification if the ratio between “good” traces (traces logged with a level of *Info* or *Verbose*) and “bad” traces (traces logged with a level of *Warning*, *Error, or *Fatal*) is degrading in a specific day, compared to a baseline calculated over the previous seven days.
+You might get this type of notification if the ratio between “good” traces (traces logged with a level of *Info* or *Verbose*) and “bad” traces (traces logged with a level of *Warning*, *Error*, or *Fatal*) is degrading in a specific day, compared to a baseline calculated over the previous seven days.
 
 ## Does my app definitely have a problem?
 No, a notification doesn't mean that your app definitely has a problem. Although a degradation in the ratio between “good” and “bad” traces might indicate an application issue, this change in ratio might be benign. For example, the increase might be due to a new flow in the application emitting more “bad” traces than existing flows).

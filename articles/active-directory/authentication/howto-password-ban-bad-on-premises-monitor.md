@@ -1,5 +1,5 @@
 ---
-title: Monitoring and logging in Azure AD Password Protection preview
+title: Monitoring and logging in Azure AD Password Protection - Azure Active Directory
 description: Understand Azure AD Password Protection monitoring and logging
 
 services: active-directory
@@ -12,18 +12,15 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
+ms.collection: M365-identity-device-management
 ---
-
-# Preview: Azure AD Password Protection monitoring and logging
-
-|     |
-| --- |
-| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# Azure AD Password Protection monitoring and logging
 
 After the deployment of Azure AD Password Protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Azure AD Password Protection.
 
-# DC agent event logging
+Monitoring and reporting are done either by event log messages or by running PowerShell cmdlets. The DC agent and proxy services both log event log messages. All PowerShell cmdlets described below are only available on the proxy server (see the AzureADPasswordProtection PowerShell module). The DC agent software does not install a PowerShell module.
+
+## DC agent event logging
 
 On each domain controller, the DC agent service software writes the results of each individual password validation operation (and other status) to a local event log:
 
@@ -80,7 +77,7 @@ When a pair of events is logged together, both events are explicitly associated 
 
 The `Get-AzureADPasswordProtectionSummaryReport` cmdlet may be used to produce a summary view of password validation activity. An example output of this cmdlet is as follows:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -253,7 +250,7 @@ The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to display basic i
 
 An example output of this cmdlet is as follows:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com
@@ -313,7 +310,7 @@ Text logging is disabled by default. A restart of the Proxy service is required 
 
 PowerShell cmdlets that result in a state change (for example, Register-AzureADPasswordProtectionProxy) will normally log an outcome event to the Operational log.
 
-In addtional, most of the Azure AD Password Protection PowerShell cmdlets will write to a text log located under:
+In addition, most of the Azure AD Password Protection PowerShell cmdlets will write to a text log located under:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
@@ -325,7 +322,7 @@ The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to display basic inf
 
 An example output of this cmdlet is as follows:
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionProxy
 ServerFQDN            : bplProxy.bplchild2.bplRootDomain.com
 Domain                : bplchild2.bplRootDomain.com

@@ -4,7 +4,7 @@ description: Learn how unblock users that were blocked by an Azure Active Direct
 services: active-directory
 keywords: azure active directory identity protection, unblock user
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
@@ -15,9 +15,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2018
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 
+ms.collection: M365-identity-device-management
 ---
 # How To: Unblock users
 

@@ -3,7 +3,7 @@ title: Azure Active Directory Identity Protection FAQ | Microsoft Docs
 description: 'Frequently asked questions about Azure AD Identity Protection'
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection FAQ
 

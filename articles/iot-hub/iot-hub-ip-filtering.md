@@ -1,12 +1,12 @@
 ﻿---
 title: Azure IoT Hub IP connection filters | Microsoft Docs
 description: How to use IP filtering to block connections from specific IP addresses for to your Azure IoT hub. You can block connections from individual or ranges of IP addresses.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: rezas
+ms.author: robinsh
 ---
 
 # Use IP filters
@@ -67,7 +67,7 @@ To delete an IP filter rule, select one or more rules in the grid and click **De
 
 ## Retrieve and update IP filters using Azure CLI
 
-Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). 
+Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). 
 
 To retrieve current IP filters of your IoT Hub, run:
 
@@ -116,11 +116,13 @@ Note that `<ipFilterIndexToRemove>` must correspond to the ordering of IP filter
 
 ## Retrieve and update IP filters using Azure PowerShell
 
-Your IoT Hub's IP filters can be retrieved and set through [Azure  PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.2.0). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Your IoT Hub's IP filters can be retrieved and set through [Azure PowerShell](/powershell/azure/overview). 
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
-$iothubResource = Get-AzureRmResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+$iothubResource = Get-AzResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
 
 # Access existing IP filter rules
 $iothubResource.Properties.ipFilterRules |% { Write-host $_ }
@@ -135,12 +137,12 @@ $iothubResource.Properties.ipFilterRules += $filter
 $iothubResource.Properties.ipFilterRules = @($iothubResource.Properties.ipFilterRules | Where 'filterName' -ne 'GoodIP')
 
 # Update your IoT Hub resource with your updated IP filters
-$iothubResource | Set-AzureRmResource -Force
+$iothubResource | Set-AzResource -Force
 ```
 
 ## Update IP filter rules using REST
 
-You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/createorupdate).
+You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
 
 
 ## IP filter rule evaluation

@@ -3,8 +3,8 @@ title: Network topology considerations when using Azure Active Directory Applica
 description: Covers network topology considerations when using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,9 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2017
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Network topology considerations when using Azure Active Directory Application Proxy
@@ -34,7 +35,7 @@ When an application is published through Azure AD Application Proxy, traffic fro
 
 ## Tenant location and Application Proxy service
 
-When you sign up for an Azure AD tenant, the region of your tenant is determined by the country you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are chosen or created in the same region as your Azure AD tenant, or the closest region to it.
+When you sign up for an Azure AD tenant, the region of your tenant is determined by the country/region you specify. When you enable Application Proxy, the Application Proxy service instances for your tenant are chosen or created in the same region as your Azure AD tenant, or the closest region to it.
 
 For example, if your Azure AD tenant’s country or region is the United Kingdom, all your Application Proxy connectors use service instances in EU data centers. When your users access published applications, their traffic goes through the Application Proxy service instances in this location.
 
@@ -73,7 +74,7 @@ If you have a dedicated VPN or ExpressRoute link between Azure and your corporat
 
 ## Focus your optimization strategy
 
-There's little that you can do to control the connection between your users and the Application Proxy service. Users may access your apps from a home network, a coffee shop, or a different country. Instead, you can optimize the connections from the Application Proxy service to the Application Proxy connectors to the apps. Consider incorporating the following patterns in your environment.
+There's little that you can do to control the connection between your users and the Application Proxy service. Users may access your apps from a home network, a coffee shop, or a different country/region. Instead, you can optimize the connections from the Application Proxy service to the Application Proxy connectors to the apps. Consider incorporating the following patterns in your environment.
 
 ### Pattern 1: Put the connector close to the application
 
@@ -97,7 +98,7 @@ Latency is not compromised because traffic is flowing over a dedicated connectio
 
 Although the focus of this article is connector placement, you can also change the placement of the application to get better latency characteristics.
 
-Increasingly, organizations are moving their networks into hosted environments. This enables them to place their apps in a hosted environment that is also part of their corporate network, and still be within the domain. In this case, the patterns discussed in the preceding sections can be applied to the new application location. If you're considering this option, see [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
+Increasingly, organizations are moving their networks into hosted environments. This enables them to place their apps in a hosted environment that is also part of their corporate network, and still be within the domain. In this case, the patterns discussed in the preceding sections can be applied to the new application location. If you're considering this option, see [Azure AD Domain Services](../../active-directory-domain-services/overview.md).
 
 Additionally, consider organizing your connectors using [connector groups](application-proxy-connector-groups.md) to target apps that are in different locations and networks. 
 
@@ -171,5 +172,5 @@ You can also consider using one other variant in this situation. If most users i
 
 - [Enable Application Proxy](application-proxy-add-on-premises-application.md)
 - [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Enable conditional access](application-proxy-integrate-with-sharepoint-server.md)
+- [Enable Conditional Access](application-proxy-integrate-with-sharepoint-server.md)
 - [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)

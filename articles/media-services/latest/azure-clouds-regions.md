@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ---
 
@@ -32,12 +32,9 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 ## Regions/geographies/locations
 
-* [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Product by region](https://azure.microsoft.com/global-infrastructure/services/)
-* [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
+[Regions in which the Azure Media Services service is deployed](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
-## Region code name 
+### Region code name 
 
 When you need to supply the **location** parameter, you need to provide the region code name as the **location** value. To get the code name of the region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -59,6 +56,48 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
       "subscriptionId": null
     }
 ```
+
+## Endpoints  
+
+The following endpoints are important to know when connecting to Media Services accounts from different national Azure clouds.
+
+### Global Azure
+
+|Endpoints ||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| Token audience | `https://management.core.windows.net/` |
+
+### Azure Government
+
+|Endpoints||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| Token audience | `https://management.core.usgovcloudapi.net/` |
+
+### Azure Germany
+
+| Endpoints ||
+| --- | --- |  
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| Token audience | `https://management.core.cloudapi.de/`|
+
+### Azure China 21Vianet
+
+|Endpoints||
+| --- | --- | 
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| Token audience |  `https://management.core.chinacloudapi.cn/` |
+
+## See also
+
+* [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## Next steps
 

@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ---
 
@@ -20,8 +20,8 @@ This article helps you to understand and prepare for network mapping when you re
 ## Prepare network mapping for replication to Azure
 
 When you're replicating to Azure, network mapping maps between VM networks on a source VMM server, and target Azure virtual networks. Mapping does the following:
-    -  **Network connection**—Ensures that replicated Azure VMs are connected to the mapped network. All machines which fail over on the same network can connect to each other, even if they failed over in different recovery plans.
-    - **Network gateway**—If a network gateway is set up on the target Azure network, VMs can connect to other on-premises virtual machines.
+-  **Network connection**—Ensures that replicated Azure VMs are connected to the mapped network. All machines which fail over on the same network can connect to each other, even if they failed over in different recovery plans.
+- **Network gateway**—If a network gateway is set up on the target Azure network, VMs can connect to other on-premises virtual machines.
 
 Network mapping works as follows:
 

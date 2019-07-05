@@ -2,18 +2,14 @@
 title: Authentication, requests and responses
 description: Authenticate to AD for using Key Vault
 services: key-vault
-documentationcenter:
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 
@@ -28,17 +24,17 @@ This topic covers specifics for the Azure Key Vault service. For general informa
 
  To work with objects in the Azure Key Vault, the following are example URLs:  
 
--   To CREATE a key called TESTKEY in a Key Vault use - `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- To CREATE a key called TESTKEY in a Key Vault use - `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
--   To IMPORT a key called IMPORTEDKEY into a Key Vault use - `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- To IMPORT a key called IMPORTEDKEY into a Key Vault use - `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
--   To GET a secret called MYSECRET in a Key Vault use - `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- To GET a secret called MYSECRET in a Key Vault use - `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
--   To SIGN a digest using a key called TESTKEY in a Key Vault use - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- To SIGN a digest using a key called TESTKEY in a Key Vault use - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
- The authority for a request to a Key Vault is always as follows,  `https://{keyvault-name}.vault.azure.net/`  
+  The authority for a request to a Key Vault is always as follows,  `https://{keyvault-name}.vault.azure.net/`  
 
- Keys are always stored under the /keys path, Secrets are always stored under the /secrets path.  
+  Keys are always stored under the /keys path, Secrets are always stored under the /secrets path.  
 
 ## API Version  
  The Azure Key Vault Service supports protocol versioning to provide compatibility with down-level clients, although not all capabilities will be available to those clients. Clients must use the `api-version` query string parameter to specify the version of the protocol that they support as there is no default.  
@@ -61,17 +57,17 @@ This topic covers specifics for the Azure Key Vault service. For general informa
 ## Error Responses  
  Error handling will use HTTP status codes. Typical results are:  
 
--   2xx – Success: Used for normal operation. The response body will contain the expected result  
+- 2xx – Success: Used for normal operation. The response body will contain the expected result  
 
--   3xx – Redirection: The 304 "Not Modified" may be returned to fulfill a conditional GET. Other 3xx codes may be used in the future to indicate DNS and path changes.  
+- 3xx – Redirection: The 304 "Not Modified" may be returned to fulfill a conditional GET. Other 3xx codes may be used in the future to indicate DNS and path changes.  
 
--   4xx – Client Error: Used for bad requests, missing keys, syntax errors, invalid parameters, authentication errors, etc. The response body will contain detailed error explanation.  
+- 4xx – Client Error: Used for bad requests, missing keys, syntax errors, invalid parameters, authentication errors, etc. The response body will contain detailed error explanation.  
 
--   5xx – Server Error: Used for internal server errors. The response body will contain summarized error information.  
+- 5xx – Server Error: Used for internal server errors. The response body will contain summarized error information.  
 
- The system is designed to work behind a proxy or firewall. Therefore, a client might receive other error codes.  
+  The system is designed to work behind a proxy or firewall. Therefore, a client might receive other error codes.  
 
- Azure Key Vault also returns error information in the response body when a problem occurs. The response body is JSON formatted and takes the form:  
+  Azure Key Vault also returns error information in the response body when a problem occurs. The response body is JSON formatted and takes the form:  
 
 ```  
 
@@ -89,7 +85,7 @@ This topic covers specifics for the Azure Key Vault service. For general informa
 ```  
 
 ## Authentication  
- All requests to Azure Key Vault MUST be authenticated. Azure Key Vault supports Azure Active Directory access tokens that may be obtained using OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
+ All requests to Azure Key Vault MUST be authenticated. Azure Key Vault supports Azure Active Directory access tokens that may be obtained using OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  For more information on registering your application and authenticating to use Azure Key Vault, see [Register your client application with Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
  

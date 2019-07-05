@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user
+ms.collection: M365-identity-device-management
 ---
 
 # Reset your work or school password

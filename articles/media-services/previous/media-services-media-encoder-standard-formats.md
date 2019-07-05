@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
 
 ---
@@ -26,7 +26,7 @@ This document contains a list of the most common import and export file formats 
 
 ## Input container/file Formats
 | File formats (file extensions) | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (with H.264 and AAC codecs) (.flv) |Yes |
 | MXF    (.mxf) |Yes |
 | GXF    (.gxf) |Yes |
@@ -55,7 +55,7 @@ or
 
 ## Input video codecs
 | Input video codecs | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra |8 bit 4:2:0 and 4:2:2 |
 | Avid DNxHD (in MXF) |Yes |
 | DVCPro/DVCProHD (in MXF) |Yes |
@@ -74,11 +74,11 @@ or
 | Apple ProRes Proxy |Yes |
 | Apple ProRes 4444 |Yes |
 | Apple ProRes 4444 XQ |Yes |
-| HEVC/H.265| Main Profile|
+| HEVC/H.265| Main and Main 10 (&#42;) Profiles<br/>Main 10 Profile support is intended for 8bit 4:2:0 content. |
 
 ## Input audio codecs
 | Input Audio Codecs | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1) |Yes |
 | MPEG Layer 2 |Yes |
 | MP3 (MPEG-1 Audio Layer 3) |Yes |

@@ -26,13 +26,13 @@ Geo-restore is the lowest-cost disaster recovery solution for Azure SQL Database
 
 This tutorial explores both restore and repatriation workflows. You learn how to:
 > [!div class="checklist"]
-
->* Sync database and elastic pool configuration info into the tenant catalog.
->* Set up a mirror image environment in a recovery region that includes application, servers, and pools.   
->* Recover catalog and tenant databases by using geo-restore.
->* Use geo-replication to repatriate the tenant catalog and changed tenant databases after the outage is resolved.
->* Update the catalog as each database is restored (or repatriated) to track the current location of the active copy of each tenant's database.
->* Ensure that the application and tenant database are always co-located in the same Azure region to reduce latency. 
+> 
+> * Sync database and elastic pool configuration info into the tenant catalog.
+> * Set up a mirror image environment in a recovery region that includes application, servers, and pools.   
+> * Recover catalog and tenant databases by using geo-restore.
+> * Use geo-replication to repatriate the tenant catalog and changed tenant databases after the outage is resolved.
+> * Update the catalog as each database is restored (or repatriated) to track the current location of the active copy of each tenant's database.
+> * Ensure that the application and tenant database are always co-located in the same Azure region to reduce latency. 
  
 
 Before you start this tutorial, complete the following prerequisites:
@@ -189,13 +189,13 @@ While the application endpoint is disabled in Traffic Manager, the application i
 
 * After the catalog database has been recovered but before the tenants are back online, refresh the Wingtip Tickets events hub in your web browser.
 
-	* In the footer, notice that the catalog server name now has a -recovery suffix and is located in the recovery region.
+  * In the footer, notice that the catalog server name now has a -recovery suffix and is located in the recovery region.
 
-	* Notice that tenants that are not yet restored are marked as offline and are not selectable.   
+  * Notice that tenants that are not yet restored are marked as offline and are not selectable.   
  
 	![Recovery process](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)	
 
-	* If you open a tenant's events page directly while the tenant is offline, the page displays a tenant offline notification. For example, if Contoso Concert Hall is offline, try to open http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
+  * If you open a tenant's events page directly while the tenant is offline, the page displays a tenant offline notification. For example, if Contoso Concert Hall is offline, try to open http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
 
 	![Recovery process](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -240,13 +240,13 @@ When the recovery process finishes, the application and all tenants are fully fu
 
 4. Open the recovery resource group and notice the following items:
 
-	* The recovery versions of the catalog and tenants1 servers, with the -recovery suffix. The restored catalog and tenant databases on these servers all have the names used in the original region.
+   * The recovery versions of the catalog and tenants1 servers, with the -recovery suffix. The restored catalog and tenant databases on these servers all have the names used in the original region.
 
-	* The tenants2-dpt-&lt;user&gt;-recovery SQL server. This server is used for provisioning new tenants during the outage.
+   * The tenants2-dpt-&lt;user&gt;-recovery SQL server. This server is used for provisioning new tenants during the outage.
 
-	* The app service named events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt;, which is the recovery instance of the events app.
+   * The app service named events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;user&gt;, which is the recovery instance of the events app.
 
-	![Contoso resources in the recovery region](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png)	
+     ![Contoso resources in the recovery region](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
 	
 5. Open the tenants2-dpt-&lt;user&gt;-recovery SQL server. Notice that it contains the database hawthornhall and the elastic pool Pool1. The hawthornhall database is configured as an elastic database in the Pool1 elastic pool.
 
@@ -362,12 +362,12 @@ Tenant databases might be spread across recovery and original regions for some t
 
 In this tutorial, you learned how to:
 > [!div class="checklist"]
-
->* Use the tenant catalog to hold periodically refreshed configuration information, which allows a mirror image recovery environment to be created in another region.
->* Recover Azure SQL databases into the recovery region by using geo-restore.
->* Update the tenant catalog to reflect restored tenant database locations. 
->* Use a DNS alias to enable an application to connect to the tenant catalog throughout without reconfiguration.
->* Use geo-replication to repatriate recovered databases to their original region after an outage is resolved.
+> 
+> * Use the tenant catalog to hold periodically refreshed configuration information, which allows a mirror image recovery environment to be created in another region.
+> * Recover Azure SQL databases into the recovery region by using geo-restore.
+> * Update the tenant catalog to reflect restored tenant database locations. 
+> * Use a DNS alias to enable an application to connect to the tenant catalog throughout without reconfiguration.
+> * Use geo-replication to repatriate recovered databases to their original region after an outage is resolved.
 
 Try the [Disaster recovery for a multitenant SaaS application using database geo-replication](saas-dbpertenant-dr-geo-replication.md) tutorial to learn how to use geo-replication to dramatically reduce the time needed to recover a large-scale multitenant application.
 

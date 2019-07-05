@@ -4,7 +4,7 @@ description: This topic shows how to configure different asset delivery policies
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 3ec46f58-6cbb-4d49-bac6-1fd01a5a456b
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---

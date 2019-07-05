@@ -1,5 +1,5 @@
 ---
-title: View activity and audit history for Azure resource roles in PIM | Microsoft Docs
+title: View activity and audit history for Azure resource roles in PIM - Azure Active Directory | Microsoft Docs
 description: View activity and audit history for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,9 +14,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 01/24/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 
+ms.collection: M365-identity-device-management
 ---
 # View activity and audit history for Azure resource roles in PIM
 
@@ -38,11 +39,11 @@ To see what actions a specific user took in various resources, you can view the 
 
     You see a graphical view of the user's actions in Azure resources by date. It also shows the recent role activations over that same time period.
 
-    ![User details](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![User details with resource activity summary and role activations](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Click a specific role activation to see details and corresponding Azure resource activity that occurred while that user was active.
 
-    ![Select role activation](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![Role activation selected and activity details displayed by date](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## Export role assignments with children
 
@@ -58,11 +59,11 @@ You may have a compliance requirement where you must provide a complete list of 
 
 1. Click **Export** to open the Export membership pane.
 
-    ![Export membership pane](media/azure-pim-resource-rbac/export-membership.png)
+    ![Export membership pane to export all members](media/azure-pim-resource-rbac/export-membership.png)
 
 1. Click **Export all members** to export all role assignments in a CSV file.
 
-    ![Export CSV file](media/azure-pim-resource-rbac/export-csv.png)
+    ![Exported role assignments in CSV fil as display in Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## View resource audit history
 
@@ -78,15 +79,15 @@ Resource audit gives you a view of all role activity for a resource.
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Filter resource audit](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Resource audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. For **Audit type**, select **Activate (Assigned + Activated)**.
 
-    ![Activity detail](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![Resource audit list that is filtered by Activate audit type](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. Under **Action**, click **(activity)** for a user to see that user's activity detail in Azure resources.
 
-    ![User activity detail](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![User activity details for a particular action](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## View my audit
 
@@ -102,10 +103,10 @@ My audit enables you to view your personal role activity.
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Personal role activity](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## Next steps
 
 - [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)
 - [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)
-- [View audit history for Azure AD directory roles in PIM](pim-how-to-use-audit-log.md)
+- [View audit history for Azure AD roles in PIM](pim-how-to-use-audit-log.md)

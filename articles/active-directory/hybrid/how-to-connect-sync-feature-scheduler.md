@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Scheduler
-This topic describes the built-in scheduler in Azure AD Connect sync (a.k.a. sync engine).
+This topic describes the built-in scheduler in Azure AD Connect sync (sync engine).
 
 This feature was introduced with build 1.1.105.0 (released February 2016).
 
@@ -50,7 +51,7 @@ If you see **The sync command or cmdlet is not available** when you run this cmd
 * **PurgeRunHistoryInterval**. The time operation logs should be kept. These logs can be reviewed in the synchronization service manager. The default is to keep these logs for 7 days.
 * **SyncCycleEnabled**. Indicates if the scheduler is running the import, sync, and export processes as part of its operation.
 * **MaintenanceEnabled**. Shows if the maintenance process is enabled. It updates the certificates/keys and purges the operations log.
-* **StagingModeEnabled**. Shows if [staging mode](how-to-connect-sync-operations.md#staging-mode) is enabled. If this setting is enabled, then it suppresses the exports from running but still run import and synchronization.
+* **StagingModeEnabled**. Shows if [staging mode](how-to-connect-sync-staging-server.md) is enabled. If this setting is enabled, then it suppresses the exports from running but still run import and synchronization.
 * **SchedulerSuspended**. Set by Connect during an upgrade to temporarily block the scheduler from running.
 
 You can change some of these settings with `Set-ADSyncScheduler`. The following parameters can be modified:
@@ -87,29 +88,62 @@ When you've made your changes, do not forget to enable the scheduler again with 
 ## Start the scheduler
 The scheduler is by default run every 30 minutes. In some cases, you might want to run a sync cycle in between the scheduled cycles or you need to run a different type.
 
-**Delta sync cycle**  
+### Delta sync cycle
 A delta sync cycle includes the following steps:
 
-* Delta import on all Connectors
-* Delta sync on all Connectors
-* Export on all Connectors
 
-It could be that you have an urgent change that must be synchronized immediately, which is why you need to manually run a cycle. If you need to manually run a cycle, then from PowerShell run `Start-ADSyncSyncCycle -PolicyType Delta`.
+- Delta import on all Connectors
+- Delta sync on all Connectors
+- Export on all Connectors
 
-**Full sync cycle**  
-If you have made one of the following configuration changes, you need to run a full sync cycle (a.k.a. Initial):
+### Full sync cycle
+A full sync cycle includes the following steps:
 
-* Added more objects or attributes to be imported from a source directory
-* Made changes to the Synchronization rules
-* Changed [filtering](how-to-connect-sync-configure-filtering.md) so a different number of objects should be included
+- Full Import on all Connectors
+- Full Sync on all Connectors
+- Export on all Connectors
 
-If you have made one of these changes, then you need to run a full sync cycle so the sync engine has the opportunity to reconsolidate the connector spaces. A full sync cycle includes the following steps:
+It could be that you have an urgent change that must be synchronized immediately, which is why you need to manually run a cycle. 
 
-* Full Import on all Connectors
-* Full Sync on all Connectors
-* Export on all Connectors
+If you need to manually run a sync cycle, then from PowerShell run `Start-ADSyncSyncCycle -PolicyType Delta`.
 
-To initiate a full sync cycle, run `Start-ADSyncSyncCycle -PolicyType Initial` from a PowerShell prompt. This command starts a full sync cycle.
+To initiate a full sync cycle, run `Start-ADSyncSyncCycle -PolicyType Initial` from a PowerShell prompt.   
+
+Running a full sync cycle can be very time consuming, read the next section to read how to optimize this process.
+
+### Sync steps required for different configuration changes
+Different configuration changes require different sync steps to ensure the changes are correctly applied to all objects.
+
+- Added more objects or attributes to be imported from a source directory (by adding/modifying the sync rules)
+    - A Full Import is required on the Connector for that source directory
+- Made changes to the Synchronization rules
+    - A Full Sync is required on the Connector for the changed Synchronization rules
+- Changed [filtering](how-to-connect-sync-configure-filtering.md) so a different number of objects should be included
+    - A Full Import is required on the Connector for each AD Connector UNLESS you are using Attribute-based filtering based on attributes that are already being imported into the sync engine
+
+### Customizing a sync cycle run the right mix of Delta and Full sync steps
+To avoid running a full sync cycle you can mark specific Connectors to run a Full step using the following cmdlets.
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullSyncRequired $true`
+
+`Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
+
+Example:  If you made changes to the synchronization rules for Connector “AD Forest A” that don’t require any new attributes to be imported you would run the following cmdlets to run a delta sync cycle which also did a Full Sync step for that Connector.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
+Example:  If you made changes to the synchronization rules for Connector “AD Forest A” so that they now require a new attribute to be imported you would run the following cmdlets to run a delta sync cycle which also did a Full Import, Full Sync step for that Connector.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
 
 ## Stop the scheduler
 If the scheduler is currently running a synchronization cycle, you might need to stop it. For example if you start the installation wizard and you get this error:

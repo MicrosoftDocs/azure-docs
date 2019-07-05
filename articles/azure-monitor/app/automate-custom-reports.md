@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ---
@@ -89,6 +89,9 @@ availabilityResults
 
 5. Select the **_Application Insights scheduled digest template_**.
 
+     > [!NOTE]
+     > By default, function apps are created with runtime version 2.x. You must [target Azure Functions runtime version](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x to use the Application Insights scheduled digest template.
+
    ![New Function Application Insights Template screenshot](./media/automate-custom-reports/function-app-04.png)
 
 6. Enter an appropriate recipient e-mail address for your report and select **Create**.
@@ -105,12 +108,12 @@ availabilityResults
     
     (The AI_ values can be found under API Access for the Application Insights Resource you want to report on. If you don't have an Application Insights API Key, there is the option to **Create API Key**.)
     
-    * AI_APP_ID = Application ID
-    * AI_APP_KEY = API Key
-    * SendGridAPI =SendGrid API Key
+   * AI_APP_ID = Application ID
+   * AI_APP_KEY = API Key
+   * SendGridAPI =SendGrid API Key
 
-    > [!NOTE]
-    > If you don't have a SendGrid account you can create one. SendGrid's documentation for Azure Functions is [here](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). If just want a minimal explanation of how to setup SendGrid and generate an API key one is provided at the end of this article. 
+     > [!NOTE]
+     > If you don't have a SendGrid account you can create one. SendGrid's documentation for Azure Functions is [here](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). If just want a minimal explanation of how to setup SendGrid and generate an API key one is provided at the end of this article. 
 
 9. Select **Integrate** and under Outputs click **SendGrid ($return)**.
 

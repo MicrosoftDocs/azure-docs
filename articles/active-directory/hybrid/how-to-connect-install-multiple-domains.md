@@ -17,6 +17,7 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Multiple Domain Support for Federating with Azure AD
 The following documentation provides guidance on how to use multiple top-level domains and subdomains when federating with Office 365 or Azure AD domains.
@@ -64,7 +65,7 @@ Another thing that `-SupportMultipleDomain` does is that it ensures that the AD 
 
 Thus during authentication to Azure AD or Office 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD.  If, a match cannot be found, the authentication will fail.
 
-For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token, AD FS issues, will be set to http://bmcontoso.com/adfs/services/trust. This element will match the Azure AD configuration, and authentication will succeed.
+For example, if a user’s UPN is bsimon@bmcontoso.com, the IssuerUri element in the token, AD FS issues, will be set to <http://bmcontoso.com/adfs/services/trust>. This element will match the Azure AD configuration, and authentication will succeed.
 
 The following is the customized claim rule that implements this logic:
 

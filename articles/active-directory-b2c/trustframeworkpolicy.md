@@ -2,14 +2,14 @@
 title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: Specify the TrustFrameworkPolicy element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -112,7 +112,7 @@ The following example shows how to specify a base policy. This **B2C_1A_TrustFra
 
 ## Policy execution
 
-A relying party application, such as a web, mobile, or desktop application, calls the [relying party (RP) policy](relyingparty.md). The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. The RP policy configures the list of claims the relying party application receives as part of the token that is issued. Multiple applications can use the same policy. All applications receive the same token with claims and the user goes through the same user journey. A single application can use multiple policies.
+A relying party application, such as a web, mobile, or desktop application, calls the [relying party (RP) policy](relyingparty.md). The RP policy file executes a specific task, such as signing in, resetting a password, or editing a profile. The RP policy configures the list of claims the relying party application receives as part of the token that is issued. Multiple applications can use the same policy. All applications receive the same token with claims, and the user goes through the same user journey. A single application can use multiple policies.
 
 Inside the RP policy file, you specify the **DefaultUserJourney** element, which points to the [UserJourney](userjourneys.md). The user journey usually is defined in the Base or Extensions policy.
 
@@ -128,13 +128,13 @@ B2C_1A_TrustFrameWorkBase or B2C_1A_TrustFrameworkExtensionPolicy:
 
 ```XML
 <UserJourneys>
-  <UserJourney Id="SignOrSignIn">
+  <UserJourney Id="SignUpOrSignIn">
   ...
 ```
 
 A user journey defines the business logic of what a user goes through. Each user journey is a set of orchestration steps that performs a series of actions, in sequence in terms of authentication and information collection. 
 
-The **SocialAndLocalAccounts** policy file in the [starter pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for another scenarios, such as changing an email address, link and unlink a social account, or resetting a password. 
+The **SocialAndLocalAccounts** policy file in the [starter pack](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contains the SignUpOrSignIn, ProfileEdit, PasswordReset user journeys. You can add more user journeys for other scenarios, such as changing an email address or linking and unlinking a social account. 
 
 The orchestration steps may call a [Technical Profile](technicalprofiles.md). A technical profile provides a framework with a built-in mechanism to communicate with different types of parties. For example, a technical profile can perform these actions among others:
 
@@ -153,4 +153,3 @@ The orchestration steps may call a [Technical Profile](technicalprofiles.md). A 
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

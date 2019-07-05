@@ -3,8 +3,8 @@ title: Problems signing in to a Microsoft application | Microsoft Docs
 description: Troubleshoot common problems faced when signing in to first-party Microsoft Applications using Azure AD (like Office 365)
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to a Microsoft application
@@ -27,9 +28,9 @@ There are three main ways that a user can get access to a Microsoft-published ap
 
 -   For applications in the Office 365 or other paid suites, users are granted access through **license assignment** either directly to their user account, or through a group using our group-based license assignment capability.
 
--   For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through **user consent**. This0 means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
+-   For applications that Microsoft or a Third Party publishes freely for anyone to use, users may be granted access through **user consent**. This means that they sign in to the application with their Azure AD Work or School account and allow it to have access to some limited set of data on their account.
 
--   For applications that Microsoft or a 3rd Party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
+-   For applications that Microsoft or a 3rd party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
 
 To troubleshoot your issue, start with the [General Problem Areas with Application Access to consider](#general-problem-areas-with-application-access-to-consider) and then read the Walkthrough: Steps to troubleshoot Microsoft Application access to get into the details.
 
@@ -41,7 +42,7 @@ Following is a list of the general problem areas that you can drill into if you 
 
 -   [Problems with groups](#problems-with-groups)
 
--   [Problems with conditional access policies](#problems-with-conditional-access-policies)
+-   [Problems with Conditional Access policies](#problems-with-conditional-access-policies)
 
 -   [Problems with application consent](#problems-with-application-consent)
 
@@ -49,7 +50,7 @@ Following is a list of the general problem areas that you can drill into if you 
 
 Following are some common issues folks run into when their users cannot sign in to a Microsoft application.
 
--   General issues to check first
+- General issues to check first
 
   * Make sure the user is signing in to the **correct URL** and not a local application URL.
 
@@ -61,31 +62,31 @@ Following are some common issues folks run into when their users cannot sign in 
 
   * Make sure the user’s **password is not expired or forgotten.** [Reset a user’s password](#reset-a-users-password) or [Enable self-service password reset](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
-   * Make sure **Multi-Factor Authentication** is not blocking user access. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
+  * Make sure **Multi-Factor Authentication** is not blocking user access. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
 
-   * Make sure a **Conditional Access policy** or **Identity Protection** policy is not blocking user access. [Check a specific conditional access policy](#problems-with-conditional-access-policies) or [Check a specific application’s conditional access policy](#check-a-specific-applications-conditional-access-policy) or [Disable a specific conditional access policy](#disable-a-specific-conditional-access-policy)
+  * Make sure a **Conditional Access policy** or **Identity Protection** policy is not blocking user access. [Check a specific Conditional Access policy](#problems-with-conditional-access-policies) or [Check a specific application’s Conditional Access policy](#check-a-specific-applications-conditional-access-policy) or [Disable a specific Conditional Access policy](#disable-a-specific-conditional-access-policy)
 
-   * Make sure that a user’s **authentication contact info** is up to date to allow Multi-Factor Authentication or Conditional Access policies to be enforced. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
+  * Make sure that a user’s **authentication contact info** is up to date to allow Multi-Factor Authentication or Conditional Access policies to be enforced. [Check a user’s multi-factor authentication status](#check-a-users-multi-factor-authentication-status) or [Check a user’s authentication contact info](#check-a-users-authentication-contact-info)
 
--   For **Microsoft** **applications that require a license** (like Office365), here are some specific issues to check once you have ruled out the general issues above:
+- For **Microsoft** **applications that require a license** (like Office365), here are some specific issues to check once you have ruled out the general issues above:
 
-   * Ensure the user or has a **license assigned.** [Check a user’s assigned licenses](#check-a-users-assigned-licenses) or [Check a group’s assigned licenses](#check-a-groups-assigned-licenses)
+  * Ensure the user or has a **license assigned.** [Check a user’s assigned licenses](#check-a-users-assigned-licenses) or [Check a group’s assigned licenses](#check-a-groups-assigned-licenses)
 
-   * If the license is **assigned to a** **static group**, ensure that the **user is a member** of that group. [Check a user’s group memberships](#check-a-users-group-memberships)
+  * If the license is **assigned to a** **static group**, ensure that the **user is a member** of that group. [Check a user’s group memberships](#check-a-users-group-memberships)
 
-   * If the license is **assigned to a** **dynamic group**, ensure that the **dynamic group rule is set correctly**. [Check a dynamic group’s membership criteria](#check-a-dynamic-groups-membership-criteria)
+  * If the license is **assigned to a** **dynamic group**, ensure that the **dynamic group rule is set correctly**. [Check a dynamic group’s membership criteria](#check-a-dynamic-groups-membership-criteria)
 
-   * If the license is **assigned to a** **dynamic group**, ensure that the dynamic group has **finished processing** its membership and that the **user is a member** (this can take some time). [Check a user’s group memberships](#check-a-users-group-memberships)
+  * If the license is **assigned to a** **dynamic group**, ensure that the dynamic group has **finished processing** its membership and that the **user is a member** (this can take some time). [Check a user’s group memberships](#check-a-users-group-memberships)
 
-   *  Once you make sure the license is assigned, make sure the license is **not expired**.
+  *  Once you make sure the license is assigned, make sure the license is **not expired**.
 
-   *  Make sure the license is **for the application** they are accessing.
+  *  Make sure the license is **for the application** they are accessing.
 
--   For **Microsoft** **applications that don’t require a license**, here are some other things to check:
+- For **Microsoft** **applications that don’t require a license**, here are some other things to check:
 
-   * If the application is requesting **user-level permissions** (for example “Access this user’s mailbox”), make sure that the user has signed in to the application and has performed a **user-level consent operation** to let the application access her data.
+  * If the application is requesting **user-level permissions** (for example “Access this user’s mailbox”), make sure that the user has signed in to the application and has performed a **user-level consent operation** to let the application access their data.
 
-   * If the application is requesting **administrator-level permissions** (for example “Access all user’s mailboxes”), make sure that a Global Administrator has performed an **administrator-level consent operation on behalf of all users** in the organization.
+  * If the application is requesting **administrator-level permissions** (for example “Access all user’s mailboxes”), make sure that a Global Administrator has performed an **administrator-level consent operation on behalf of all users** in the organization.
 
 ## Problems with the user’s account
 
@@ -183,25 +184,25 @@ To enable self-service password reset, follow the deployment steps below:
 
 To check a user’s multi-factor authentication status, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Users and groups** in the navigation menu.
+4. click **Users and groups** in the navigation menu.
 
-5.  click **All users**.
+5. click **All users**.
 
-6.  click the **Multi-Factor Authentication** button at the top of the pane.
+6. click the **Multi-Factor Authentication** button at the top of the pane.
 
-7.  Once the **Multi-Factor Authentication Administration portal** loads, ensure you are on the **Users** tab.
+7. Once the **Multi-Factor Authentication Administration portal** loads, ensure you are on the **Users** tab.
 
-8.  Find the user in the list of users by searching, filtering, or sorting.
+8. Find the user in the list of users by searching, filtering, or sorting.
 
-9.  Select the user from the list of users and **Enable**, **Disable**, or **Enforce** multi-factor authentication as desired.
+9. Select the user from the list of users and **Enable**, **Disable**, or **Enforce** multi-factor authentication as desired.
 
-  * **Note**: If a user is in an **Enforced** state, you may set them to **Disabled** temporarily to let them back into their account. Once they are back in, you can then change their state to **Enabled** again to require them to re-register their contact information during their next sign in. Alternatively, you can follow the steps in the [Check a user’s authentication contact info](#check-a-users-authentication-contact-info) to verify or set this data for them.
+   * **Note**: If a user is in an **Enforced** state, you may set them to **Disabled** temporarily to let them back into their account. Once they are back in, you can then change their state to **Enabled** again to require them to re-register their contact information during their next sign in. Alternatively, you can follow the steps in the [Check a user’s authentication contact info](#check-a-users-authentication-contact-info) to verify or set this data for them.
 
 ### Check a user’s authentication contact info
 
@@ -361,21 +362,21 @@ To check a group’s assigned licenses, follow these steps:
 
 To reprocess a group’s assigned licenses, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Users and groups** in the navigation menu.
+4. click **Users and groups** in the navigation menu.
 
-5.  click **All groups**.
+5. click **All groups**.
 
-6.  **Search** for the group you are interested in and **click the row** to select.
+6. **Search** for the group you are interested in and **click the row** to select.
 
-7.  click **Licenses** to see which licenses the group currently has assigned.
+7. click **Licenses** to see which licenses the group currently has assigned.
 
-8.  click the **Reprocess** button to ensure that the licenses assigned to this group’s members are up-to-date. This may take a long time, depending on the size and complexity of the group.
+8. click the **Reprocess** button to ensure that the licenses assigned to this group’s members are up-to-date. This may take a long time, depending on the size and complexity of the group.
 
    >[!NOTE]
    >To do this faster, consider temporarily assigning a license to the user directly. [Assign a user a license](#problems-with-application-consent).
@@ -386,61 +387,61 @@ To reprocess a group’s assigned licenses, follow these steps:
 
 To assign a license to a group, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Users and groups** in the navigation menu.
+4. click **Users and groups** in the navigation menu.
 
-5.  click **All groups**.
+5. click **All groups**.
 
-6.  **Search** for the group you are interested in and **click the row** to select.
+6. **Search** for the group you are interested in and **click the row** to select.
 
-7.  click **Licenses** to see which licenses the group currently has assigned.
+7. click **Licenses** to see which licenses the group currently has assigned.
 
-8.  click the **Assign** button.
+8. click the **Assign** button.
 
-9.  Select **one or more products** from the list of available products.
+9. Select **one or more products** from the list of available products.
 
 10. **Optional** click the **assignment options** item to granularly assign products. Click **Ok** when this is completed.
 
 11. Click the **Assign** button to assign these licenses to this group. This may take a long time, depending on the size and complexity of the group.
 
-   >[!NOTE]
-   >To do this faster, consider temporarily assigning a license to the user directly. [Assign a user a license](#problems-with-application-consent).
-   > 
-   >
+    >[!NOTE]
+    >To do this faster, consider temporarily assigning a license to the user directly. [Assign a user a license](#problems-with-application-consent).
+    > 
+    >
 
-## Problems with conditional access policies
+## Problems with Conditional Access policies
 
-### Check a specific conditional access policy
+### Check a specific Conditional Access policy
 
-To check or validate a single conditional access policy:
+To check or validate a single Conditional Access policy:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise applications** in the navigation menu.
+4. click **Enterprise applications** in the navigation menu.
 
-5.  click the **Conditional access** navigation item.
+5. click the **Conditional Access** navigation item.
 
-6.  click the policy you are interested in inspecting.
+6. click the policy you are interested in inspecting.
 
-7.  Review that there are no specific conditions, assignments, or other settings which may be blocking user access.
+7. Review that there are no specific conditions, assignments, or other settings that may be blocking user access.
 
    >[!NOTE]
    >You may wish to temporarily disable this policy to ensure it is not affecting sign ins. To do this, set the **Enable policy** toggle to **No** and click the **Save** button.
    >
    >
 
-### Check a specific application’s conditional access policy
+### Check a specific application’s Conditional Access policy
 
-To check or validate a single application’s currently configured conditional access policy:
+To check or validate a single application’s currently configured Conditional Access policy:
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
@@ -452,14 +453,14 @@ To check or validate a single application’s currently configured conditional a
 
 5.  click **All applications**.
 
-6.  Search for the application you are interested in, or the user is attempting to sign in to by application display name or application id.
+6.  Search for the application you are interested in, or the user is attempting to sign in to by application display name or application ID.
 
      >[!NOTE]
      >If you don’t see the application you are looking for, click the **Filter** button and expand the scope of the list to **All applications**. If you want to see more columns, click the **Columns** button to add additional details for your applications.
      >
      >
 
-7.  click the **Conditional access** navigation item.
+7.  click the **Conditional Access** navigation item.
 
 8.  click the policy you are interested in inspecting.
 
@@ -470,9 +471,9 @@ To check or validate a single application’s currently configured conditional a
      >
      >
 
-### Disable a specific conditional access policy
+### Disable a specific Conditional Access policy
 
-To check or validate a single conditional access policy:
+To check or validate a single Conditional Access policy:
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
@@ -482,7 +483,7 @@ To check or validate a single conditional access policy:
 
 4.  click **Enterprise applications** in the navigation menu.
 
-5.  click the **Conditional access** navigation item.
+5.  click the **Conditional Access** navigation item.
 
 6.  click the policy you are interested in inspecting.
 

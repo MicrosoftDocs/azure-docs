@@ -17,6 +17,7 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: 
+ms.collection: M365-identity-device-management
 ---
 # Manage AD FS trust with Azure AD using Azure AD Connect
 
@@ -98,7 +99,7 @@ Azure AD Connect makes sure that the Azure AD trust is always configured with th
 
 Azure AD Connect version 1.1.873.0 or later makes a backup of the Azure AD trust settings whenever an update is made to the Azure AD trust settings. The Azure AD trust settings are backed up at **%ProgramData%\AADConnect\ADFS**. The file name is in the following format AadTrust-&lt;date&gt;-&lt;time&gt;.txt, for example - AadTrust-20180710-150216.txt
 
-![A sanpshot of example back up of Azure AD trust](./media/how-to-connect-azure-ad-trust/backup.png)
+![A screenshot of example back up of Azure AD trust](./media/how-to-connect-azure-ad-trust/backup.png)
 
 You can restore the issuance transform rules using the suggested steps below
 

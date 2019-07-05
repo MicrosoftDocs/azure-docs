@@ -4,7 +4,7 @@ description: Learn how to add app roles in an application registered in Azure Ac
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -17,6 +17,7 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Add app roles in your application and receive them in the token
@@ -46,7 +47,9 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 1. Edit the app manifest by locating the `appRoles` setting and adding all your Application Roles.
 
      > [!NOTE]
-     > Each role definition in this manifest must have a different valid **Guid** for the "Id" property. The `"value"` property of each role should exactly match the strings are used in the code in the application.
+     > Each app role definition in this manifest must have a different valid GUID for the `id` property. 
+     > 
+     > The `value` property of each app role definition should exactly match the strings that are used in the code in the application. The `value` property can't contain spaces. If it does, you'll receive an error when you save the manifest.
      
 1. Save the manifest.
 
@@ -55,7 +58,7 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 The following example shows the `appRoles` that you can assign to `users`.
 
 > [!NOTE]
->  The `id` must be a unique GUID.
+>The `id` must be a unique GUID.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -74,6 +77,9 @@ The following example shows the `appRoles` that you can assign to `users`.
 "availableToOtherTenants": false,
 ```
 
+> [!NOTE]
+>The `displayName` cannot contain spaces.
+
 You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions in the **Required Permissions** blade. The following example shows an app role targeted towards an `Application`.
 
 ```Json
@@ -83,7 +89,7 @@ You can define app roles to target `users`, `applications`, or both. When availa
       "allowedMemberTypes": [
         "Application"
       ],
-      "displayName": "Consumer Apps",
+      "displayName": "ConsumerApps",
       "id": "47fbb575-859a-4941-89c9-0f7a6c30beac",
       "isEnabled": true,
       "description": "Consumer apps have access to the consumer data.",
@@ -92,6 +98,8 @@ You can define app roles to target `users`, `applications`, or both. When availa
   ],
 "availableToOtherTenants": false,
 ```
+
+The number of roles defined affects the limits that the application manifest has. They have been discussed in detail on the [manifest limits](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) page.
 
 ### Assign users and groups to roles
 

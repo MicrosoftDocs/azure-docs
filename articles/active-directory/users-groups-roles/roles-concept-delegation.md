@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, I want to know how to organize my approach to delegating roles
+ms.collection: M365-identity-device-management
 ---
 
 # Delegate administration in Azure Active Directory
@@ -83,7 +84,7 @@ When an Application Developer creates a new application registration, they are a
 
 For even finer-grained app access delegation, you can assign ownership to individual enterprise applications. This complements the existing support for assigning application registration owners. Ownership is assigned on a per-enterprise application basis in the Enterprise Applications blade. The benefit is owners can manage only the enterprise applications they own. For example, you can assign an owner for the Salesforce application, and that owner can manage access to and configuration for Salesforce, and no other applications. An enterprise application can have many owners, and a user can be the owner for many enterprise applications. There are two app owner roles:
 
-* The **Enterprise Application Owner** role grants the ability to manage the ‘enterprise applications that the user owns, including single sign-on settings, user and group assignments, and adding additional owners. It doesn't grant the ability to manage Application Proxy settings or conditional access.
+* The **Enterprise Application Owner** role grants the ability to manage the ‘enterprise applications that the user owns, including single sign-on settings, user and group assignments, and adding additional owners. It doesn't grant the ability to manage Application Proxy settings or Conditional Access.
 * The **Application Registration Owner** role grants the ability to manage application registrations for app that the user owns, including the application manifest and adding additional owners.
 
 ## Develop a security plan
@@ -101,7 +102,7 @@ Attackers who get control of privileged accounts can do tremendous damage, so pr
 * Global administrator
 * SharePoint administrator
 * Exchange administrator
-* Conditional access administrator
+* Conditional Access administrator
 * Security administrator
 
 ## Elevate privilege temporarily

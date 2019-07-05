@@ -14,6 +14,7 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Assign or remove licenses using the Azure Active Directory portal
@@ -42,7 +43,7 @@ You can view your available products, including the individual licenses, checkin
 
     The **Licenses** page appears.
 
-    ![Licenses page, showing the number of purchased products and assigned licenses](media/license-users-groups/license-details-blade.png)
+    ![Licenses page, with number of purchased products and assigned licenses](media/license-users-groups/license-details-blade.png)
     
 3. Select the **Purchased products** link to view the **Products** page and to see the **Assigned**, **Available**, and **Expiring soon** details for each specific product edition.
 
@@ -71,7 +72,7 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 4. Select **Assignment options**, make sure you have the appropriate license options turned on, and then select **OK**.
 
-    ![License option page showing all of the options available in the edition](media/license-users-groups/license-option-blade-assignments.png)
+    ![License option page, with all options available in the edition](media/license-users-groups/license-option-blade-assignments.png)
 
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
@@ -97,7 +98,7 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 4. Select **Assignment options**, make sure you have the appropriate license options turned on, and then select **OK**.
 
-    ![License option page showing all of the options available in the edition](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![License option page, with all options available in the edition](media/license-users-groups/license-option-blade-group-assignments.png)
 
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
@@ -107,7 +108,6 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 5. Select **Assign**.
 
     The group is added to the list of licensed groups and all of the members have access to the included Azure AD services.
-
 
 ## Remove a license
 You can remove a license from either a user or a group from the **Licenses** page.

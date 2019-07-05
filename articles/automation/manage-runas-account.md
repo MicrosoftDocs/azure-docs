@@ -4,9 +4,9 @@ description: This article describes how to manage your Run As accounts with Powe
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
-ms.date: 09/12/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -19,34 +19,43 @@ When you create a Run As account, it creates a new service principal user in Azu
 
 There are two types of Run As Accounts:
 
-* **Azure Run As Account** - This account is used to manage Resource Manager deployment model resources.
+* **Azure Run As Account** - This account is used to manage [Resource Manager deployment model](../azure-resource-manager/resource-manager-deployment-model.md) resources.
   * Creates an Azure AD application with a self-signed certificate, creates a service principal account for the application in Azure AD, and assigns the Contributor role for the account in your current subscription. You can change this setting to Owner or any other role. For more information, see [Role-based access control in Azure Automation](automation-role-based-access-control.md).
   * Creates an Automation certificate asset named *AzureRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key that's used by the Azure AD application.
   * Creates an Automation connection asset named *AzureRunAsConnection* in the specified Automation account. The connection asset holds the applicationId, tenantId, subscriptionId, and certificate thumbprint.
 
-* **Azure Classic Run As Account** - This account is used to manage Classic deployment model resources.
+* **Azure Classic Run As Account** - This account is used to manage [Classic deployment model](../azure-resource-manager/resource-manager-deployment-model.md) resources.
+  * Creates a management certificate in the subscription
   * Creates an Automation certificate asset named *AzureClassicRunAsCertificate* in the specified Automation account. The certificate asset holds the certificate private key used by the management certificate.
   * Creates an Automation connection asset named *AzureClassicRunAsConnection* in the specified Automation account. The connection asset holds the subscription name, subscriptionId, and certificate asset name.
+  * Must be a co-administrator on the subscription to create or renew
   
   > [!NOTE]
   > Azure Cloud Solution Provider (Azure CSP) subscriptions support only the Azure Resource Manager model, non-Azure Resource Manager services are not available in the program. When using a CSP subscription the Azure Classic Run As Account does not get created. The Azure Run As Account still gets created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
+  > [!NOTE]
+  > The service principal for a Run as Account does not have permissions to read Azure Active Directory by default. If you want to add permissions to read or manage Azure Active directory, you'll need to grant that permission on the service principal under **API permissions**. To learn more, see [Add permissions to access web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+
 ## <a name="permissions"></a>Permissions to configure Run As accounts
 
-To create or update a Run As account, you must have specific privileges and permissions. A Global Administrator/Co-Administrator can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet and permissions needed:
+To create or update a Run As account, you must have specific privileges and permissions. A Global Administrator in Azure Active Directory and an Owner in a subscription can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet and permissions needed:
 
 |Task|Cmdlet  |Minimum Permissions  |Where you set the permissions|
 |---|---------|---------|---|
 |Create Azure AD Application|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Application Developer Role<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations |
 |Add a credential to the application.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Application administrator or GLOBAL ADMIN<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations|
-|Create and Get an Azure AD service principal|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Application administrator or GLOBAL ADMIN        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations|
-|Assign or get the RBAC role for the specified principal|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | User Access Administrator or Owner        | [Subscription](../role-based-access-control/role-assignments-portal.md)</br>Home > Subscriptions > \<subscription name\> - Access Control (IAM)|
+|Create and Get an Azure AD service principal|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Application administrator or GLOBAL ADMIN<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations|
+|Assign or get the RBAC role for the specified principal|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | You must have the following permissions:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>Or be a:</br></br>User Access Administrator or Owner        | [Subscription](../role-based-access-control/role-assignments-portal.md)</br>Home > Subscriptions > \<subscription name\> - Access Control (IAM)|
 |Create or remove an Automation certificate|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributor on Resource Group         |Automation Account Resource Group|
 |Create or remove an Automation connection|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributor on Resource Group |Automation Account Resource Group|
 
-<sup>1</sup> Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD.
+<sup>1</sup> Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be what is defined in the preceding table.
 
-If you aren't a member of the subscription’s Active Directory instance before you're added to the global administrator/co-administrator role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation Account** page. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and readded to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
+If you aren't a member of the subscription’s Active Directory instance before you're added to the **Global Administrator** role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation Account** page. Users who were added to the **Global Administrator** role first can be removed from the subscription's Active Directory instance and re-added to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
+
+## <a name="permissions-classic"></a>Permissions to configure Classic Run As accounts
+
+To configure or renew Classic Run As accounts, you must have the **Co-administrator** role at the subscription level. To learn more about Classic permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
 ## Create a Run As account in the Portal
 
@@ -192,6 +201,12 @@ This PowerShell script includes support for the following configurations:
         return
     }
 
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous 8 lines that import the AzureRM modules to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+
+    # Import-Module Az.Automation
+    # Enable-AzureRmAlias
+
+
     Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
@@ -315,13 +330,13 @@ This section describes how to delete and re-create a Run As or Classic Run As ac
 
 3. On the **Run As Accounts** properties page, select either the Run As account or Classic Run As account that you want to delete. Then, on the **Properties** pane for the selected account, click **Delete**.
 
- ![Delete Run As account](media/manage-runas-account/automation-account-delete-runas.png)
+   ![Delete Run As account](media/manage-runas-account/automation-account-delete-runas.png)
 
 1. While the account is being deleted, you can track the progress under **Notifications** from the menu.
 
 1. After the account has been deleted, you can re-create it on the **Run As Accounts** properties page by selecting the create option **Azure Run As Account**.
 
- ![Re-create the Automation Run As account](media/manage-runas-account/automation-account-create-runas.png)
+   ![Re-create the Automation Run As account](media/manage-runas-account/automation-account-create-runas.png)
 
 ## <a name="cert-renewal"></a>Self-signed certificate renewal
 
@@ -346,7 +361,7 @@ To renew the certificate, do the following:
 
     ![Renew certificate for Run As account](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu. 
+1. While the certificate is being renewed, you can track the progress under **Notifications** from the menu.
 
 ## Limiting Run As account permissions
 
@@ -383,4 +398,3 @@ You can quickly resolve these Run As account issues by deleting and re-creating 
 
 * For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * For more information about certificates and Azure services, see [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
-

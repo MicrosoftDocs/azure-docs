@@ -56,7 +56,7 @@ Service principals enable headless connectivity to a registry in both pull and p
 
 You can also log in directly with a service principal. When you run the following command, interactively provide the service principal appID (username) and password when prompted. For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference:
 
-```Docker
+```
 docker login myregistry.azurecr.io
 ```
 
@@ -76,7 +76,7 @@ Each container registry includes an admin user account, which is disabled by def
 
 The admin account is provided with two passwords, both of which can be regenerated. Two passwords allow you to maintain connection to the registry by using one password while you regenerate the other. If the admin account is enabled, you can pass the username and either password to the `docker login` command when prompted for basic authentication to the registry. For example:
 
-```Docker
+```
 docker login myregistry.azurecr.io 
 ```
 

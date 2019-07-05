@@ -3,13 +3,13 @@ title: "Quickstart: Look up words with bilingual dictionary, Java - Translator T
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to get alternate translations for a term, and also usage examples of those alternate translations, using Java and the Translator Text API.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Look up words with bilingual dictionary using Java
@@ -69,7 +69,7 @@ Take note that this sample has dependencies on OkHttp for HTTP requests, and Gso
 Let's create a folder for your sample app. From your working directory, run:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 Next, in this folder, create a file named `AltTranslation.java`.
@@ -103,6 +103,8 @@ Add these lines to the `AltTranslation` class. You'll notice that along with the
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es";
 ```
+
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## Create a client and build a request
 
@@ -166,6 +168,12 @@ That's it, you're ready to run your sample app. From the command line (or termin
 
 ```console
 gradle build
+```
+
+When the build completes, run:
+
+```console
+gradle run
 ```
 
 ## Sample response

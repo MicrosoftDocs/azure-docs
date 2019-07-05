@@ -22,12 +22,12 @@ This article covers the behavior of the SMS alerts and the response actions the 
 ## Receiving an SMS Alert
 An SMS receiver configured as part of an action group receives an SMS when an alert is triggered. The SMS contains the following information:
 * Shortname of the action group this alert was sent to
-- Title of the alert
+* Title of the alert
 
 | REPLY | Description |
 | ----- | ----------- |
-| DISABLE <Action Group Short name> | Disables further SMS from the Action Group |
-| ENABLE <Action Group Short name> | Re-enables SMS from the Action Group |
+| DISABLE `<Action Group Short name>` | Disables further SMS from the Action Group |
+| ENABLE `<Action Group Short name>` | Re-enables SMS from the Action Group |
 | STOP | Disables further SMS from all Action Groups |
 | START | Re-enables SMS from ALL Action Groups |
 | HELP | A response is sent to the user with a link to this article. |

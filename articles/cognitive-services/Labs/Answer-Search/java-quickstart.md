@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Start using Project Answer Search in Java.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: answer-search

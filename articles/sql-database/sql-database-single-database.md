@@ -7,24 +7,24 @@ ms.subservice: single-database
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 04/08/2019
 ---
 # What is a single database in Azure SQL Database
 
-The single database deployment option creates a standalone database in Azure SQL Database with its own set of resources and is managed via a SQL Database server. With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size.
+The single database deployment option creates a database in Azure SQL Database with its own set of resources and is managed via a SQL Database server. With a single database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size.
 
 > [!IMPORTANT]
 > Single database is one of three deployment options for Azure SQL Database. The other two are [elastic pools](sql-database-elastic-pool.md) and [managed instance](sql-database-managed-instance.md).
 > [!NOTE]
 > For a glossary of terms in Azure SQL Database, see [SQL Database terms glossary](sql-database-glossary-terms.md)
 
-## Dynamic scalabilty
+## Dynamic scalability
 
-You can build your first app on a small, single database at a low cost per month in low price/performance service tier and then [change its service tier](sql-database-single-database-scale.md) manually or programmatically at any time to thehigher price/performance service tier to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+You can build your first app on a small, single database at low cost in the serverless (preview) compute tier or a small compute size in the provisioned compute tier. You change the [compute or service tier](sql-database-single-database-scale.md) manually or programmatically at any time to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
 ## Single databases and elastic pools
 
@@ -36,7 +36,7 @@ You use the built-in [performance monitoring](sql-database-performance.md) and [
 
 ## Availability capabilities
 
-Single databases, elastic pools, and managed instances all provide many availability characterics. For information, see [Availability characteristics](sql-database-technical-overview.md#availability-capabilities).
+Single databases, elastic pools, and managed instances all provide many availability characteristics. For information, see [Availability characteristics](sql-database-technical-overview.md#availability-capabilities).
 
 ## Transact-SQL differences
 
@@ -49,8 +49,11 @@ For more information, see [Resolving Transact-SQL differences during migration t
 
 SQL Database provides a range of [built-in security and compliance](sql-database-security-overview.md) features to help your application meet various security and compliance requirements.
 
+> [!IMPORTANT]
+> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
+
 ## Next steps
 
 - To quickly get started with a single database, start with the [Single database quickstart guide.md](sql-database-single-database-quickstart-guide.md).
-- To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-cloud-migrate.md).
+- To learn about migrating a SQL Server database to Azure, see [Migrate to Azure SQL Database](sql-database-single-database-migrate.md).
 - For information about supported features, see [Features](sql-database-features.md).

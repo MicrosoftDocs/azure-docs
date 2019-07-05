@@ -1,22 +1,13 @@
 ---
-title: Create Azure Containers image technical assets | Microsoft Docs
+title: Create Azure Containers image technical assets | Azure Marketplace
 description: Create the technical assets for an Azure container.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
-
 
 # Prepare your container technical assets
 
@@ -57,9 +48,10 @@ We also suggest reviewing the available tools in the [Azure Developer Tools](htt
 
 ## Create the container image
 
-- Create and configure the virtual hard disk (VHD) for your container virtual machine (VM). This VHD contains the operating system (Windows, Linux, or Ubuntu) for the container. Additional data disks may be required.
-- Configure the VM OS, VM size, ports to open, and any attached data disks.
-- Install the application and other software that's needed for your offer. For example: database software, third party software, or a custom application.
+See the following for more information:
+
+* [Tutorial: Create a container image for deployment to Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## Next steps
 

@@ -34,7 +34,7 @@ Data Factory currently supports only moving data from Amazon Redshift to a [supp
 > To achieve the best performance when copying large amounts of data from Amazon Redshift, consider using the built-in Redshift **UNLOAD** command through Amazon Simple Storage Service (Amazon S3). For details, see [Use UNLOAD to copy data from Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## Prerequisites
-* If you are moving data to an on-premises data store, install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises machine. Grant access for a gateway to the Amazon Redshift cluster by using the on-premises machine IP address. For instructions, see [Authorize access to the cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
+* If you are moving data to an on-premises data store, install [Data Management Gateway](data-factory-data-management-gateway.md) on an on-premises machine. Grant access for a gateway to the Amazon Redshift cluster by using the on-premises machine IP address. For instructions, see [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * To move data to an Azure data store, see the [Compute IP address and SQL ranges that are used by the Microsoft Azure Datacenters](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## Getting started
@@ -98,7 +98,7 @@ Alternatively, you can use the **RelationalSource** type, which includes Amazon 
 
 ## Use UNLOAD to copy data from Amazon Redshift
 
-The Amazon Redshift [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) command unloads the results of a query to one or more files on Amazon S3. This command is recommended by Amazon for copying large datasets from Redshift.
+The Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) command unloads the results of a query to one or more files on Amazon S3. This command is recommended by Amazon for copying large datasets from Redshift.
 
 **Example: Copy data from Amazon Redshift to Azure SQL Data Warehouse**
 

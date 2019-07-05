@@ -95,7 +95,7 @@ az network application-gateway create \
 
 ### Add image and video backend pools and port
 
-You can add backend pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address-pool_create). You add the frontend port for the pools using [az network application-gateway frontend-port create](/cli/azure/network/application-gatewaywork_application_gateway_frontend_port_create). 
+You can add backend pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create). You add the frontend port for the pools using [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -153,7 +153,7 @@ az network application-gateway url-path-map rule create \
 
 ### Add routing rule
 
-The routing rule associates the URL maps with the listener that you created. You can add the rule named *rule2* using [az network application-gateway rule create](/cli/azure/network/application-gatewaywork_application_gateway_rule_create).
+The routing rule associates the URL maps with the listener that you created. You can add the rule named *rule2* using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -216,7 +216,7 @@ done
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip). Copy the public IP address, and then paste it into the address bar of your browser. Such as, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, or *http://40.121.222.19:8080/video/test.htm*.
+To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip). Copy the public IP address, and then paste it into the address bar of your browser. Such as, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, or `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -228,11 +228,11 @@ az network public-ip show \
 
 ![Test base URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-Change the URL to http://<ip-address>:8080/video/test.html to the end of the base URL and you should see something like the following example:
+Change the URL to `http://<ip-address>:8080/video/test.html` to the end of the base URL and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-Change the URL to http://<ip-address>:8080/video/test.html and you should see something like the following example.
+Change the URL to `http://<ip-address>:8080/video/test.html` and you should see something like the following example.
 
 ![Test video URL in application gateway](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

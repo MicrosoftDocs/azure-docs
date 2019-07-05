@@ -4,7 +4,7 @@ description: This document explains the Azure Security Center recommendations fo
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: f5ce7f62-7b12-4bc0-b418-4a2f9ec49ca1

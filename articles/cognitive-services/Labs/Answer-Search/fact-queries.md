@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Queries for facts using Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: answer-search
@@ -76,22 +76,22 @@ The `value/description` field contains the knowledge or information requested by
       {
         "_type": "ContractualRules/LinkAttribution",
         "text": "en.wikipedia.org/wiki/Diffuse_sky_radiation",
-        "url": "http://en.wikipedia.org/wiki/Diffuse_sky_radiation"
+        "url": "https://en.wikipedia.org/wiki/Diffuse_sky_radiation"
       },
       {
         "_type": "ContractualRules/LinkAttribution",
         "text": "spaceplace.nasa.gov/blue-sky/en/",
-        "url": "http://spaceplace.nasa.gov/blue-sky/en/"
+        "url": "https://spaceplace.nasa.gov/blue-sky/en/"
       }
     ],
     "attributions": [
       {
         "providerDisplayName": "en.wikipedia.org/wiki/Diffuse_sky_radiation",
-        "seeMoreUrl": "http://en.wikipedia.org/wiki/Diffuse_sky_radiation"
+        "seeMoreUrl": "https://en.wikipedia.org/wiki/Diffuse_sky_radiation"
       },
       {
         "providerDisplayName": "spaceplace.nasa.gov/blue-sky/en/",
-        "seeMoreUrl": "http://spaceplace.nasa.gov/blue-sky/en/"
+        "seeMoreUrl": "https://spaceplace.nasa.gov/blue-sky/en/"
       }
     ],
     "value": [
@@ -188,7 +188,7 @@ The `facts` results include the following rows and cells:
           ],
           "seeMoreUrl": {
             "text": "8 more rows",
-            "url": "http://www.diffen.com/difference/Coffee_vs_Tea"
+            "url": "https://www.diffen.com/difference/Coffee_vs_Tea"
           }
         }
       }

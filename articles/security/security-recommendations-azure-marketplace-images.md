@@ -4,7 +4,7 @@ description: This article provides recommendations for images included in the ma
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 ms.assetid: 
 ms.service: security
 ms.devlang: na

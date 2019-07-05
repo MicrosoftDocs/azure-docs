@@ -3,13 +3,13 @@ title: "Quickstart: Detect text language, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to identify the language of provided text using Python and the Translator Text REST API.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/01/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to detect text language using Python
@@ -31,7 +31,10 @@ Create a new Python project using your favorite IDE or editor. Then copy this co
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -85,6 +88,8 @@ headers = {
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Create a request to detect text language
 
 Define the string (or strings) that you want to detect the language for:
@@ -108,7 +113,8 @@ response = request.json()
 The last step is to print the results. This code snippet prettifies the results by sorting the keys, setting indentation, and declaring item and key separators.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## Put it all together
@@ -122,6 +128,8 @@ python detect.py
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## Sample response
+
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

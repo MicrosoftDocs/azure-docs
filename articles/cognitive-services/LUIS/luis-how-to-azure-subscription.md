@@ -4,43 +4,28 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: You do not need to create subscription keys to use your free first-1000 endpoint queries. If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 06/18/2019
 ms.author: diberry
 ---
 
 # Using subscription keys with your LUIS app
 
-You do not need to create subscription keys to use your free first-1000 endpoint queries. Once those endpoint queries are used, create an Azure resource in the [Azure portal](http://portal.azure.com), then assign that resource to a LUIS app in the [LUIS portal](https://www.luis.ai).
-
-If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app. 
+When you first use Language Understanding (LUIS), you do not need to create subscription keys. You are given 1000 endpoint queries to begin with. 
 
 For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
+
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## Create Language Understanding endpoint key in the Azure portal
+## Create prediction endpoint runtime resource in the Azure portal
 
-This procedure creates a **Language Understanding** resource. If you want a resource that can be used across Cognitive Services, create the all-in-one key **[Cognitive Service](../cognitive-services-apis-create-account.md)** instead of the Language Understanding resource. 
-
-This key should only be used for endpoint prediction queries. Do not use this key for changes to the model or app. 
-
-1. Sign in to the **[Azure portal](https://ms.portal.azure.com/)**. 
-1. Select the green **+** sign in the upper left-hand panel and search for `Language Understanding` in the marketplace, then select on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
-
-    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
-
-1. Configure the subscription with settings including account name, pricing tiers, etc. 
-
-    ![Azure API Choice](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. Once you create the Language Understanding resource, you can view the access keys generated in **Resource Management->Keys**. The next section will show you how to connect this new resource to a LUIS app in the LUIS portal. You need the name of the LUIS resource from step 3.
-
-    ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
+You create the [prediction endpoint resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -58,23 +43,7 @@ This key should only be used for endpoint prediction queries. Do not use this ke
 
 ## Assign resource key to LUIS app in LUIS Portal
 
-1. Sign in to the LUIS portal, choose an app to add the new key to, then select **Manage** in the top-right menu, then select **Keys and endpoints**.
-
-    [ ![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. In order to add the LUIS, select **Assign Resource +**.
-
-    ![Assign a resource to your app](./media/luis-manage-keys/assign-key.png)
-
-1. Select a Tenant in the dialog associated with the email address your used to sign in with to the LUIS website.  
-
-1. Choose the **Subscription Name** associated with the Azure resource you want to add.
-
-1. Select the **LUIS resource name**. 
-
-1. Select **Assign resource**. 
-
-1. Find the new row in the table and copy the endpoint URL. It is correctly constructed to make an HTTP GET request to the LUIS endpoint for a prediction. 
+Every time you create a new resource for LUIS, you need to [assign the resource to the LUIS app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal). After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -180,10 +149,30 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
 1. Remember to [assign this endpoint key](#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
 
-## How to fix out-of-quota errors when the key exceeds pricing tier usage
-Each tier allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an HTTP error of "429: Too Many Requests."
+## Fix HTTP status code 403 and 429
 
-Each tier allows accumulative requests per month. If the total requests are higher than the allowed rate, requests receive an HTTP error of "403: forbidden".  
+You get 403 and 429 error status codes when you exceed the transactions per second or transactions per month for your pricing tier.
+
+### When you receive an HTTP 403 error status code
+
+When you use all those free 1000 endpoint queries or you exceed your pricing tier's monthly transactions quota, you receive an HTTP 403 error status code. 
+
+To fix this error, you need to either [change your pricing tier](luis-how-to-azure-subscription.md#change-pricing-tier) to a higher tier or [create a new resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) and [assign it to your app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+
+Solutions for this error include:
+
+* In the [Azure portal](https://portal.azure.com), on your Language Understanding resource, on the **Resource Management -> Pricing tier**, change your pricing tier to a higher TPS tier. You don't need to do anything in the Language Understanding portal if your resource is already assigned to your Language Understanding app.
+*  If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
+
+### When you receive an HTTP 429 error status code
+
+This status code is returned when your transactions per second exceeds your pricing tier.  
+
+Solutions include:
+
+* You can [increase your pricing tier](#change-pricing-tier), if you are not at the highest tier.
+* If your usage exceeds the highest pricing tier, add more Language Understanding resources with a load balancer in front of them. The [Language Understanding container](luis-container-howto.md) with Kubernetes or Docker Compose can help with this.
+* You can gate your client application requests with a [retry policy](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) you implement yourself when you get this status code. 
 
 ## Viewing summary usage
 You can view LUIS usage information in Azure. The **Overview** page shows recent summary information including calls and errors. If you make a LUIS endpoint request, then immediately watch the **Overview page**, allow up to five minutes for the usage to show up.

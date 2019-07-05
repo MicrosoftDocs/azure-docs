@@ -2,16 +2,16 @@
 title: Go-To-Market Services - Offer listing best practices | Azure
 description: Go-To-Market Services - this section describes the listing best practices for an offer
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
-author: qianw211
-manager: Patrick.Butler
-editor:
 
-ms.assetid: 
+author: qianw211
+
+
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
@@ -54,7 +54,7 @@ When you link from the AppSource or Azure Marketplace badge on your site to your
 The following example URL contains both of the preceding query parameters:
 `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-By adding the parameters to your AppSource URL, you can review the effectiveness of your campaign in the analytics dashboard in [Cloud Partner portal](http://cloudpartner.azure.com/#insights).
+By adding the parameters to your AppSource URL, you can review the effectiveness of your campaign in the analytics dashboard in [Cloud Partner portal](https://cloudpartner.azure.com/#insights).
 
 ## Next steps
 

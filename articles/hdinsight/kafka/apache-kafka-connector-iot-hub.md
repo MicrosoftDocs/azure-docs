@@ -1,7 +1,6 @@
 ---
 title: Use Apache Kafka on HDInsight with Azure IoT Hub 
 description: Learn how to use Apache Kafka on HDInsight with Azure IoT Hub. The Kafka Connect Azure IoT Hub project provides a source and sink connector for Kafka. The source connector can read data from IoT Hub, and the sink connector writes to IoT Hub.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -34,7 +33,7 @@ For more information on the Connect API, see [https://kafka.apache.org/documenta
 
 * An edge node in the Kafka cluster. For more information, see the [Use edge nodes with HDInsight](../hdinsight-apps-use-edge-node.md) document.
 
-* An Azure IoT Hub. For this tutorial, I recommend the [Connect Raspberry Pi online simulator to Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) document.
+* An Azure IoT Hub. For this article, I recommend the [Connect Raspberry Pi online simulator to Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) document.
 
 * An SSH client. The steps in this document use SSH to connect to the cluster. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
@@ -123,7 +122,7 @@ From an SSH connection to the edge node, use the following steps to configure Ka
 
     * Change the `key.converter=` and `value.converter=` lines to the following values:
 
-        ```text
+        ```ini
         key.converter=org.apache.kafka.connect.storage.StringConverter
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
@@ -164,32 +163,32 @@ To retrieve IoT hub information used by the connector, use the following steps:
 
 1. Get the Event Hub-compatible endpoint and Event Hub-compatible endpoint name for your IoT hub. To get this information, use one of the following methods:
 
-    * __From the [Azure portal](https://portal.azure.com/)__, use the following steps:
+   * __From the [Azure portal](https://portal.azure.com/)__, use the following steps:
 
-        1. Navigate to your IoT Hub and select __Endpoints__.
-        2. From __Built-in endpoints__, select __Events__.
-        3. From __Properties__, copy the value of the following fields:
+     1. Navigate to your IoT Hub and select __Endpoints__.
+     2. From __Built-in endpoints__, select __Events__.
+     3. From __Properties__, copy the value of the following fields:
 
-            * __Event Hub-compatible name__
-            * __Event Hub-compatible endpoint__
-            * __Partitions__
+         * __Event Hub-compatible name__
+         * __Event Hub-compatible endpoint__
+         * __Partitions__
 
         > [!IMPORTANT]  
         > The endpoint value from the portal may contain extra text that is not needed in this example. Extract the text that matches this pattern `sb://<randomnamespace>.servicebus.windows.net/`.
 
-    * __From the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, use the following command:
+   * __From the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, use the following command:
 
-        ```azure-cli
-        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
-        ```
+       ```azure-cli
+       az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
+       ```
 
-        Replace `myhubname` with the name of your IoT hub. The response is similar to the following text:
+       Replace `myhubname` with the name of your IoT hub. The response is similar to the following text:
 
-        ```text
-        "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
-        "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
-        "Partitions": 2
-        ```
+       ```json
+       "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
+       "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
+       "Partitions": 2
+       ```
 
 2. Get the __shared access policy__ and __key__. For this example, use the __service__ key. To get this information, use one of the following methods:
 
@@ -235,16 +234,16 @@ To configure the source to work with your IoT Hub, perform the following actions
 
     In the editor, find and change the following entries:
 
-    * `Kafka.Topic=PLACEHOLDER`: Replace `PLACEHOLDER` with `iotin`. Messages received from IoT hub are placed in the `iotin` topic.
-    * `IotHub.EventHubCompatibleName=PLACEHOLDER`: Replace `PLACEHOLDER` with the Event Hub-compatible name.
-    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: Replace `PLACEHOLDER` with the Event Hub-compatible endpoint.
-    * `IotHub.Partitions=PLACEHOLDER`: Replace `PLACEHOLDER` with the number of partitions from the previous steps.
-    * `IotHub.AccessKeyName=PLACEHOLDER`: Replace `PLACEHOLDER` with `service`.
-    * `IotHub.AccessKeyValue=PLACEHOLDER`: Replace `PLACEHOLDER` with the primary key of the `service` policy.
-    * `IotHub.StartType=PLACEHOLDER`: Replace `PLACEHOLDER` with a UTC date. This date is when the connector starts checking for messages. The date format is `yyyy-mm-ddThh:mm:ssZ`.
-    * `BatchSize=100`: Replace `100` with `5`. This change causes the connector to read messages into Kafka once there are five new messages in IoT hub.
+   * `Kafka.Topic=PLACEHOLDER`: Replace `PLACEHOLDER` with `iotin`. Messages received from IoT hub are placed in the `iotin` topic.
+   * `IotHub.EventHubCompatibleName=PLACEHOLDER`: Replace `PLACEHOLDER` with the Event Hub-compatible name.
+   * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: Replace `PLACEHOLDER` with the Event Hub-compatible endpoint.
+   * `IotHub.Partitions=PLACEHOLDER`: Replace `PLACEHOLDER` with the number of partitions from the previous steps.
+   * `IotHub.AccessKeyName=PLACEHOLDER`: Replace `PLACEHOLDER` with `service`.
+   * `IotHub.AccessKeyValue=PLACEHOLDER`: Replace `PLACEHOLDER` with the primary key of the `service` policy.
+   * `IotHub.StartType=PLACEHOLDER`: Replace `PLACEHOLDER` with a UTC date. This date is when the connector starts checking for messages. The date format is `yyyy-mm-ddThh:mm:ssZ`.
+   * `BatchSize=100`: Replace `100` with `5`. This change causes the connector to read messages into Kafka once there are five new messages in IoT hub.
 
-    For an example configuration, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
+     For an example configuration, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
 3. To save changes, use __Ctrl + X__, __Y__, and then __Enter__.
 
@@ -268,10 +267,10 @@ To configure the sink connection to work with your IoT Hub, perform the followin
 
     In the editor, find and change the following entries:
 
-    * `topics=PLACEHOLDER`: Replace `PLACEHOLDER` with `iotout`. Messages written to `iotout` topic are forwarded to the IoT hub.
-    * `IotHub.ConnectionString=PLACEHOLDER`: Replace `PLACEHOLDER` with the connection string for the `service` policy.
+   * `topics=PLACEHOLDER`: Replace `PLACEHOLDER` with `iotout`. Messages written to `iotout` topic are forwarded to the IoT hub.
+   * `IotHub.ConnectionString=PLACEHOLDER`: Replace `PLACEHOLDER` with the connection string for the `service` policy.
 
-    For an example configuration, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+     For an example configuration, see [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 3. To save changes, use __Ctrl + X__, __Y__, and then __Enter__.
 
@@ -345,7 +344,7 @@ To send messages through the connector, use the following steps:
     > [!IMPORTANT]  
     > You must set the value of the `"deviceId"` entry to the ID of your device. In the following example, the device is named `fakepi`:
 
-    ```text
+    ```json
     {"messageId":"msg1","message":"Turn On","deviceId":"fakepi"}
     ```
 

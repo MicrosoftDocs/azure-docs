@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
@@ -18,7 +18,7 @@ This article helps you understand and use Cost Management alerts to monitor your
 
 ## Budget alerts
 
-Budget alerts notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the [alert condition of the budget](tutorial-acm-create-budgets.md). Cost Management budgets are created using the Azure portal or the [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API. 
+Budget alerts notify you when spending, based on usage or cost, reaches or exceeds the amount defined in the [alert condition of the budget](tutorial-acm-create-budgets.md). Cost Management budgets are created using the Azure portal or the [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API.
 
 In the Azure portal, budgets are defined by cost. Using the Azure Consumption API, budgets are defined by cost or by consumption usage. Budget alerts support both cost-based and usage-based budgets. Budget alerts are generated automatically whenever the budget alert conditions are met. You can view all cost alerts in the Azure portal. Whenever an alert is generated, it's shown in cost alerts. An alert email is also sent to the people in the alert recipients list of the budget.
 
@@ -30,9 +30,21 @@ Credit alerts notify you when your Azure credit monetary commitments are consume
 
 Department spending quota alerts notify you when department spending reaches a fixed threshold of the quota. Spending quotas are configured in the EA portal. Whenever a threshold is met it generates an email to department owners and is shown in cost alerts. For example, 50% or 75% of the quota.
 
+## Supported alert features by offer categories
+
+Support for alert types depends on the type of Azure account that you have (Microsoft offer). The following table shows the alert features that are supported by various Microsoft offers. You can view the full list of Microsoft offers at [Understand Cost Management data](understand-cost-mgt-data.md).
+
+| Alert type | Enterprise Agreement | Microsoft Customer Agreement | Web direct/Pay-As-You-Go |
+|---|---|---|---|
+| Budget | ✔ | ✔ | ✔ |
+| Credit | ✔ |✘ | ✘ |
+| Department spending quota | ✔ | ✘ | ✘ |
+
+
+
 ## View cost alerts
 
-In the Azure portal, click **Cost Management + Billing** in the list of services. Then in the list under  **Cost Management**, select  **Cost alerts**.
+To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 ![Example image of alerts shown in Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

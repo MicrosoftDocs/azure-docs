@@ -3,21 +3,21 @@ title: SAML token encryption in Azure Active Directory
 description: Learn how to configure Azure Active Directory SAML token encryption.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: paulgarn
+ms.collection: M365-identity-device-management
 ---
-
 # How to: Configure Azure AD SAML token encryption (Preview)
 
 > [!NOTE]
@@ -29,19 +29,19 @@ Encrypting the SAML assertions between Azure AD and the application provides add
 
 Even without token encryption, Azure AD SAML tokens are never passed on the network in the clear. Azure AD requires token request/response exchanges to take place over encrypted HTTPS/TLS channels so that communications between the IDP, browser, and application take place over encrypted links. Consider the value of token encryption for your situation compared with the overhead of managing additional certificates.   
 
-To configure token encryption, you need to upload an X509 certificate file that contains the public key to the Azure AD application object that represents the application. To obtain the X509 certificate, you can download it from the application itself, or get it from the application vendor in cases where the application vendor provides encryption keys or in cases where the application expects you to provide a private key, it can be created using cryptography tools, the private key portion uploaded to the application’s key store and the matching public key certificate uploaded to Azure AD.
+To configure token encryption, you need to upload an X.509 certificate file that contains the public key to the Azure AD application object that represents the application. To obtain the X.509 certificate, you can download it from the application itself, or get it from the application vendor in cases where the application vendor provides encryption keys or in cases where the application expects you to provide a private key, it can be created using cryptography tools, the private key portion uploaded to the application’s key store and the matching public key certificate uploaded to Azure AD.
 
 Azure AD uses AES-256 to encrypt the SAML assertion data.
 
 ## Configure SAML token encryption
 
-To configure SAML token encryption, follow these steps.
+To configure SAML token encryption, follow these steps:
 
 1. Obtain a public key certificate that matches a private key that's configured in the application.
 
-    Create an asymmetric key pair to use for encryption. Or, if the application supplies a public key to use for encryption, follow the application's instructions to download the X509 certificate.
+    Create an asymmetric key pair to use for encryption. Or, if the application supplies a public key to use for encryption, follow the application's instructions to download the X.509 certificate.
 
-    The public key should be stored in an X509 certificate file in .cer format.
+    The public key should be stored in an X.509 certificate file in .cer format.
 
     If the application uses a key that you create for your instance, follow the instructions provided by your application for installing the private key that the application will use to decrypt tokens from your Azure AD tenant.
 
@@ -62,9 +62,9 @@ You can add the public cert to your application configuration within the Azure p
     > [!NOTE]
     > The **Token encryption** option is only available for SAML applications that have been set up from the **Enterprise applications** blade in the Azure portal, either from the Application Gallery or a Non-Gallery app. For other applications, this menu option is disabled. For applications registered through the **App registrations** experience in the Azure portal, you can configure encryption for SAML tokens using the application manifest, through Microsoft Graph or through PowerShell.
 
-1. On the **Token encryption** page, select **Import Certificate** to import the .cer file that contains your public X509 certificate.
+1. On the **Token encryption** page, select **Import Certificate** to import the .cer file that contains your public X.509 certificate.
 
-    ![Import the .cer file that contains the X509 certificate](./media/howto-saml-token-encryption/import-certificate-small.png)
+    ![Import the .cer file that contains the X.509 certificate](./media/howto-saml-token-encryption/import-certificate-small.png)
 
 1. Once the certificate is imported, and the private key is configured for use on the application side, activate encryption by selecting the **...** next to the thumbprint status, and then select **Activate token encryption** from the options in the dropdown menu.
 
@@ -90,7 +90,7 @@ When you configure a keyCredential using Graph, PowerShell, or in the applicatio
 
 ### To configure token encryption using Microsoft Graph
 
-1. Update the application's `keyCredentials` with an X509 certificate for encryption. The following example shows how to do this.
+1. Update the application's `keyCredentials` with an X.509 certificate for encryption. The following example shows how to do this.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>
@@ -131,11 +131,12 @@ This functionality is coming soon.
 
 1. Read the token encryption settings using the following commands.
 
-    ```
+    ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
+
 -->
 
 ### To configure token encryption using the application manifest
@@ -150,7 +151,7 @@ This functionality is coming soon.
 
     The following example shows an application manifest configured with two encryption certificates, and with the second selected as the active one using the tokenEnryptionKeyId.
 
-    ```
+    ```json
     { 
       "id": "3cca40e2-367e-45a5-8440-ed94edd6cc35",
       "accessTokenAcceptedVersion": null,

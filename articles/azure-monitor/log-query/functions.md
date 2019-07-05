@@ -1,6 +1,6 @@
 ---
-title: Functions Azure Log Analytics | Microsoft Docs
-description: This article describes how to use functions to call a query from another query in Log Analytics.
+title: Functions in Azure Monitor log queries | Microsoft Docs
+description: This article describes how to use functions to call a query from another log query in Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -16,19 +16,13 @@ ms.author: bwren
 ---
 
 
-# Using functions in Azure Monitor Log Analytics
+# Using functions in Azure Monitor log queries
 
-> [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
-
-To use a Log Analytics query with another query you can save it as a function. This allows you to simplify complex queries by breaking them into parts and allows you to reuse common code with multiple queries.
+To use a log query with another query you can save it as a function. This allows you to simplify complex queries by breaking them into parts and allows you to reuse common code with multiple queries.
 
 ## Create a function
 
-Create a function in the Azure portal by clicking **Save** and then providing the information in the following table.
+Create a function with Log Analytics in the Azure portal by clicking **Save** and then providing the information in the following table.
 
 | Setting | Description |
 |:---|:---|
@@ -38,10 +32,10 @@ Create a function in the Azure portal by clicking **Save** and then providing th
 | Category       | A category to organize saved queries and functions in **Query explorer**. |
 
 > [!NOTE]
-> A function in Log Analytics cannot contain another function.
+> A function in Azure Monitor cannot contain another function.
 
 > [!NOTE]
-> Saving a function is possible in Log Analytics queries, but currently not for Application Insights queries.
+> Saving a function is possible in Azure Monitor log queries, but currently not for Application Insights queries.
 
 
 
@@ -65,7 +59,7 @@ security_updates_last_day | where Title contains "SQL"
 ```
 
 ## Next steps
-See other lessons for using the Log Analytics query language:
+See other lessons for writing Azure Monitor log queries:
 
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)

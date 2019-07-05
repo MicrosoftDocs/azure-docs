@@ -3,18 +3,18 @@ title: "Quickstart: Search for videos using the Bing Video Search SDK for Java"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests using the Bing Video Search SDK for Java.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
-ms.author: rosh
+ms.date: 06/26/2019
+ms.author: aahi
 ---
 # Quickstart: Perform a video search with the Bing Video Search SDK for Java
 
-Use this quickstart to begin searching for news with the Bing Video Search SDK for Java. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), which contains more annotations and Bing Video Search features.
+Use this quickstart to begin searching for news with the Bing Video Search SDK for Java. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), with additional annotations, and features.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Install the Bing Video Search SDK dependencies by using Maven, Gradle, or anothe
   </dependencies> 
 ```
 
-## Create and initalize a project
+## Create and initialize a project
 
 
 Create a new Java project in your favorite IDE or editor, and import the following libraries.
@@ -56,7 +56,7 @@ Create a new Java project in your favorite IDE or editor, and import the followi
 
 ## Create a search client
 
-2. Implement the `VideoSearchAPIImpl` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
+1. Implement the `VideoSearchAPIImpl` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -110,7 +110,7 @@ Create a new Java project in your favorite IDE or editor, and import the followi
         //...
         ```
 
-## Send a search request and recieve the response 
+## Send a search request and receive the response 
 
 1. Create a function called `VideoSearch()` that takes your subscription key as a string. Instantiate the search client created earlier.
     

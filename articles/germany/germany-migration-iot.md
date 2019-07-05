@@ -27,12 +27,12 @@ To migrate Azure Cosmos DB resources, we recommend that you complete the followi
 1. Clone the account configurations from Azure Germany to the new region by running the data migration tool.
 1. If using a maintenance window is possible, copy data from the source to the destination by running the data migration tool.
 1. If using a maintenance window isn't an option, copy data from the source to the destination by running the tool, and then complete these steps:
-  1. Use a config-driven approach to make changes to read/write in an application.
-  1. Complete a first-time sync.
-  1. Set up an incremental sync and catch up with the change feed.
-  1. Point reads to the new account and validate the application.
-  1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new account.
-  1. Stop the tool and delete the old account.
+   1. Use a config-driven approach to make changes to read/write in an application.
+   1. Complete a first-time sync.
+   1. Set up an incremental sync and catch up with the change feed.
+   1. Point reads to the new account and validate the application.
+   1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new account.
+   1. Stop the tool and delete the old account.
 1. Run the tool to validate that data is consistent across old and new accounts.
 
 For more information:
@@ -50,9 +50,8 @@ Migrating Azure Functions resources from Azure Germany to global Azure isn't sup
 For more information:
 
 - Refresh your knowledge by completing the [Functions tutorials](https://docs.microsoft.com/azure/azure-functions/#step-by-step-tutorials).
-- Learn how to [export a Resource Manager template](../azure-resource-manager/resource-manager-export-template.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read the overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Review the [Azure Functions overview](../azure-functions/functions-overview.md).
-- Learn how to [export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
 - Read an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 - Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -60,9 +59,9 @@ For more information:
 
 To migrate settings from one instance of Azure Notification Hubs to another instance, export and then import all registration tokens and tags:
 
-1. [Export the existing notification hub registrations](https://msdn.microsoft.com/library/azure/dn790624.aspx) to an Azure Blob storage container.
+1. [Export the existing notification hub registrations](/previous-versions/azure/azure-services/dn790624(v=azure.100)) to an Azure Blob storage container.
 1. Create a new notification hub in the target environment.
-1. [Import your registration tokens](https://msdn.microsoft.com/library/azure/dn790624.aspx) from Blob storage to your new notification hub.
+1. [Import your registration tokens](/previous-versions/azure/azure-services/dn790624(v=azure.100)) from Blob storage to your new notification hub.
 
 For more information:
 
@@ -78,7 +77,7 @@ Although you can migrate Azure IoT Hub instances from Azure Germany to global Az
 
 ### Step 1: Re-create the IoT hub
 
-IoT Hub doesn’t support cloning natively. However, you can use the Azure Resource Manager feature to [export a resource group as a template](../azure-resource-manager/resource-manager-export-template-powershell.md) to export your IoT Hub metadata. Configured routes and other IoT hub settings are included in the exported metadata. Then, redeploy the template in global Azure. You might find it easier to re-create the IoT hub in the Azure portal by looking at the details in the exported JSON.
+IoT Hub doesn’t support cloning natively. However, you can use the Azure Resource Manager feature to [export a resource group as a template](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) to export your IoT Hub metadata. Configured routes and other IoT hub settings are included in the exported metadata. Then, redeploy the template in global Azure. You might find it easier to re-create the IoT hub in the Azure portal by looking at the details in the exported JSON.
 
 ### Step 2: Migrate device identities
 

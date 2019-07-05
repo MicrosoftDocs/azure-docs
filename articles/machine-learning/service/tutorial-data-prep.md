@@ -7,17 +7,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-author: cforbe
-ms.author: cforbe
+author: sihhu
+ms.author: MayMSFT
 ms.reviewer: trbye
-ms.date: 02/04/2018
+ms.date: 03/29/2019
 ms.custom: seodec18
 # As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
 
 # Tutorial: Prepare data for regression modeling
 
-In this tutorial, you learn how to prepare data for regression modeling by using the Azure Machine Learning Data Prep SDK. You run various transformations to filter and combine two different NYC taxi data sets.
+In this tutorial, you learn how to prepare data for regression modeling by using the [data prep package](https://aka.ms/data-prep-sdk) from the  [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). You run various transformations to filter and combine two different NYC taxi data sets.
 
 This tutorial is **part one of a two-part tutorial series**. After you complete the tutorial series, you can predict the cost of a taxi trip by training a model on data features. These features include the pickup day and time, the number of passengers, and the pickup location.
 
@@ -35,28 +35,26 @@ In this tutorial, you:
 Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server. To run the notebook you will need:
 
 * A Python 3.6 notebook server with the following installed:
-    * The Azure Machine Learning Data Prep SDK for Python
+    * The `azureml-dataprep` package from the Azure Machine Learning SDK
 * The tutorial notebook
 
-Get all these prerequisites from either of the sections below.
-
-* Use [Azure Notebooks](#azure)
+* Use a [cloud notebook server in your workspace](#azure) 
 * Use [your own notebook server](#server)
 
-### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
+### <a name="azure"></a>Use a cloud notebook server in your workspace
 
-It's easy to get started with Azure Notebooks! The [Azure Machine Learning Data Prep SDK for Python](https://aka.ms/data-prep-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
-
-After you complete the steps below, run the **tutorials/regression-part1-data-prep.ipynb** notebook in your **Getting Started** project.
+It's easy to get started with your own cloud-based notebook server. The Azure Machine Learning SDK for Python is already installed and configured for you once you create this cloud resource.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* After you launch the notebook webpage, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
 ### <a name="server"></a>Use your own Jupyter notebook server
 
 Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
-1. Complete the [Azure Machine Learning Python quickstart](quickstart-create-workspace-with-python.md) to create a Miniconda environment.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
-1. Install the Data Prep SDK in your environment using `pip install azureml-dataprep`.
+1. Complete the installation steps in [Azure Machine Learning Python quickstart](setup-create-workspace.md#sdk) to create a Miniconda environment and install the SDK.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
+1. The `azureml-dataprep` package is automatically installed when you install the SDK.
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
     ```
@@ -67,6 +65,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.  Aft
 
     ```shell
     jupyter notebook
+    ```
 
 ## <a name="start"></a>Set up your development environment
 
@@ -80,14 +79,17 @@ All the setup for your development work can be accomplished in a Python notebook
 Use the following to install necessary packages if you don't already have them.
 
 ```shell
-pip install azureml-dataprep
+pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
-Import the SDK.
+Import the package.
 
 ```python
 import azureml.dataprep as dprep
 ```
+
+> [!IMPORTANT]
+> Ensure you install the latest azureml.dataprep package version. This tutorial will not work with version number lower than 1.1.0
 
 ## Load data
 
@@ -662,7 +664,7 @@ Notice that the data profile output in the `store_forward` column shows that the
 replaced_stfor_vals_df = latlong_filtered_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-Execute the `replace` function on the `distance` field. The function reformats distance values that are incorrectly labeled as `.00`, and fills any nulls with zeros. Convert the `distance` field to numerical format. These incorrect data points are likely anomolies in the data collection system on the taxi cabs.
+Execute the `replace` function on the `distance` field. The function reformats distance values that are incorrectly labeled as `.00`, and fills any nulls with zeros. Convert the `distance` field to numerical format. These incorrect data points are likely anomalies in the data collection system on the taxi cabs.
 
 
 ```python
@@ -1087,10 +1089,9 @@ You now have a fully transformed and prepared dataflow object to use in a machin
 
 ```python
 import os
-file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-package = dprep.Package([final_df])
-package.save(file_path)
+file_path = os.path.join(os.getcwd(), "dflows.dprep")
+final_df.save(file_path)
 ```
 
 ## Clean up resources

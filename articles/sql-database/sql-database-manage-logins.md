@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 03/26/2019
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
 
@@ -31,11 +31,14 @@ There are two administrative accounts (**Server admin** and **Active Directory a
 
 - **Server admin**
 
-When you create an Azure SQL server, you must designate a **Server admin login**. SQL server creates that account as a login in the master database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.   
+  When you create an Azure SQL server, you must designate a **Server admin login**. SQL server creates that account as a login in the master database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.
 
-- **Azure Active Directory admin**   
+  > [!NOTE]
+  > To reset the password for the server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**.
 
-One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+- **Azure Active Directory admin**
+
+  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 The **Server admin** and **Azure AD admin** accounts has the following characteristics:
 
@@ -55,7 +58,7 @@ When the server-level firewall is configured for an individual IP address or ran
 
 When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
 
-![Administrator access path](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![configuration of the two administration accounts](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 When using an open port in the server-level firewall, administrators can connect to any SQL Database.
 
@@ -66,7 +69,6 @@ For a walk-through of creating a server, a database, server-level IP firewall ru
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-
 ## Additional server-level administrative roles
 
 >[!IMPORTANT]
@@ -76,10 +78,10 @@ In addition to the server-level administrative roles discussed previously, SQL D
 
 ### Database creators
 
-One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. To create a database, the user must be a user based on a SQL Server login in the master database or contained database user based on an Azure Active Directory user.
+One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. To create a database, the user must be a user based on a SQL Server login in the `master` database or contained database user based on an Azure Active Directory user.
 
-1. Using an administrator account, connect to the master database.
-2. Optional step: Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
+1. Using an administrator account, connect to the `master` database.
+2. Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -90,7 +92,7 @@ One of these administrative roles is the **dbmanager** role. Members of this rol
 
    To improve performance, logins (server-level principals) are temporarily cached at the database level. To refresh the authentication cache, see [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx).
 
-3. In the master database, create a user by using the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
+3. In the `master` database, create a user by using the [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) statement. The user can be an Azure Active Directory authentication contained database user (if you have configured your environment for Azure AD authentication), or a SQL Server authentication contained database user, or a SQL Server authentication user based on a SQL Server authentication login (created in the previous step.) Sample statements:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -98,7 +100,7 @@ One of these administrative roles is the **dbmanager** role. Members of this rol
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Add the new user, to the **dbmanager** database role by using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
+4. Add the new user, to the **dbmanager** database role in `master` using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -110,7 +112,7 @@ One of these administrative roles is the **dbmanager** role. Members of this rol
 
 5. If necessary, configure a firewall rule to allow the new user to connect. (The new user might be covered by an existing firewall rule.)
 
-Now the user can connect to the master database and can create new databases. The account creating the database becomes the owner of the database.
+Now the user can connect to the `master` database and can create new databases. The account creating the database becomes the owner of the database.
 
 ### Login managers
 
@@ -133,11 +135,19 @@ Initially, only one of the administrators or the owner of the database can creat
 GRANT ALTER ANY USER TO Mary;
 ```
 
-To give additional users full control of the database, make them a member of the **db_owner** fixed database role using the `ALTER ROLE` statement.
+To give additional users full control of the database, make them a member of the **db_owner** fixed database role.
+
+In Azure SQL Database use the `ALTER ROLE` statement.
 
 ```sql
-ALTER ROLE db_owner ADD MEMBER Mary; 
+ALTER ROLE db_owner ADD MEMBER Mary;
 ```
+
+In Azure SQL Data Warehouse use [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+```sql
+EXEC sp_addrolemember 'db_owner', 'Mary';
+```
+
 
 > [!NOTE]
 > One common reason to create a database user based on a SQL Database server login is for users that need access to multiple databases. Since contained database users are individual entities, each database maintains its own user and its own password. This can cause overhead as the user must then remember each password for each database, and it can become untenable when having to change multiple passwords for many databases. However, when using SQL Server Logins and high availability (active geo-replication and failover groups), the SQL Server logins must be set manually at each server. Otherwise, the database user will no longer be mapped to the server login after a failover occurs, and will not be able to access the database post failover. For more information on configuring logins for geo-replication, please see  [Configure and manage Azure SQL Database security for geo-restore or failover](sql-database-geo-replication-security-config.md).
@@ -187,6 +197,12 @@ When managing logins and users in SQL Database, consider the following:
            WHERE  [name] = N'database_name')
   DROP DATABASE [database_name];
   GO
+  ```
+  
+  Instead, use the following Transact-SQL statement:
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
   ```
 
 - When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.

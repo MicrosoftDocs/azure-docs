@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to use the Custom Vision website to create an image classification model.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/03/2019
 ms.author: anroth
 ---
 
@@ -19,26 +19,28 @@ To use the Custom Vision Service for image classification, you must first build 
 
 ## Prerequisites
 
-- A valid [Microsoft account](https://account.microsoft.com/account) or an Azure Active Directory (AAD) account ("work or school account").
-
-    > [!IMPORTANT] 
-    > The login for AAD users from [Microsoft National Clouds](https://www.microsoft.com/en-us/trustcenter/cloudservices/nationalcloud) is not currently supported.
+- A valid Azure subscription. [Create an account](https://azure.microsoft.com/free/) for free.
 - A set of images with which to train your classifier. See below for tips on choosing images.
-- Optionally: An Azure subscription associated with your Microsoft account or AAD account. If you don’t have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. Without an Azure subscription, you will only be able to create two __limited trial__ projects.
+
+
+## Create Custom Vision resources in the Azure portal
+To use Custom Vision Service, you will need to create Custom Vision Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). This will create both a Training and Prediction resource. 
 
 ## Create a new project
 
-In your web browser, navigate to the [Custom Vision web page](https://customvision.ai) and select __Sign in__.
+In your web browser, navigate to the [Custom Vision web page](https://customvision.ai) and select __Sign in__. Sign in with the same account you used to sign into the Azure portal.
 
 ![Image of the sign-in page](./media/browser-home.png)
 
-If you have an Azure account, you will be prompted to create Custom Vision Service Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) during project creation.
 
 1. To create your first project, select **New Project**. The **Create new project** dialog box will appear.
 
     ![The new project dialog box has fields for name, description, and domains.](./media/getting-started-build-a-classifier/new-project.png)
 
-1. Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. In either case, you can also select __limited trial__ from this dropdown.
+1. Enter a name and a description for the project. Then select a Resource Group. If your signed-in account is associated with an Azure account, the Resource Group dropdown will display all of your Azure Resource Groups that include a Custom Vision Service Resource. 
+
+   > [!NOTE]
+   > If no resource group is available, please confirm that you have logged into [customvision.ai](https://customvision.ai) with the same account as you used to log into the [Azure portal](https://portal.azure.com/). Also, please confirm you have selected the same “Directory” in the Custom Vision portal as the directory in the Azure portal where your Custom Vision resources are located. In both sites, you may select your directory from the drop down account menu at the top right corner of the screen. 
 
 1. Select __Classification__ under __Project Types__. Then, under __Classification Types__, choose either **Multilabel** or **Multiclass**, depending on your use case. Multilabel classification applies any number of your tags to an image (zero or more), while multiclass classification sorts images into single categories (every image you submit will be sorted into the most likely tag). You will be able to change the classification type later if you wish.
 
@@ -50,9 +52,8 @@ If you have an Azure account, you will be prompted to create Custom Vision Servi
     |__Food__|Optimized for photographs of dishes as you would see them on a restaurant menu. If you want to classify photographs of individual fruits or vegetables, use the Food domain.|
     |__Landmarks__|Optimized for recognizable landmarks, both natural and artificial. This domain works best when the landmark is clearly visible in the photograph. This domain works even if the landmark is slightly obstructed by people in front of it.|
     |__Retail__|Optimized for images that are found in a shopping catalog or shopping website. If you want high precision classifying between dresses, pants, and shirts, use this domain.|
-    |__Adult__|Optimized to better define adult content and non-adult content. For example, if you want to block images of people in bathing suits, this domain allows you to build a custom classifier to do that.|
     |__Compact domains__| Optimized for the constraints of real-time classification on mobile devices. The models generated by compact domains can be exported to run locally.|
-    
+
 1. Finally, select __Create project__.
 
 ## Choose training images
@@ -90,7 +91,7 @@ In this section you will upload and manually tag images to help train the classi
 
     ![The progress bar shows all tasks completed.](./media/getting-started-build-a-classifier/add-images04.png)
 
-To upload another set of images, return to the top of this section and repeat the steps. At some point in your project, you may need to add _negative samples_ to help make your classifier more accurate. Negative samples are those which do not match any of the other tags. When you upload these images, apply the special **Negative** label to them.
+To upload another set of images, return to the top of this section and repeat the steps.
 
 ## Train the classifier
 
@@ -119,9 +120,7 @@ Interpreting prediction calls with a high probability threshold tends to return 
 
 ## Manage training iterations
 
-Each time you train your classifier, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. When you select one, you have the option of making it the _default iteration_ by clicking the **Make default** button at the top. The _default iteration_ is the model that will be used by default when you query it through the Prediction API (from an app, for instance). If you decline to update the _default iteration_, you can continue to train your model without affecting your app's current behavior; then, once you are satisfied with the improved model, you can update the default.
-
-In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
+Each time you train your classifier, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
 
 ## Next steps
 

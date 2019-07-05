@@ -3,13 +3,13 @@ title: "Quickstart: Translate text, Go - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll translate text from one language to another using the Translator Text API with Go in less than 10 minutes.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/05/2018
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to translate a string using Go
@@ -55,7 +55,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -134,6 +134,8 @@ if err != nil {
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+
 ## Handle and print the response
 
 Add this code to the `translate` function to decode the JSON response, and then format and print the result.
@@ -186,10 +188,10 @@ A successful response is returned in JSON as shown in the following example:
 
 ## Next steps
 
-Explore Go packages for Cognitive Services APIs from the [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) on GitHub.
+Explore Go examples for Cognitive Services APIs from the [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) on GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore Go packages on GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Explore Go examples on GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
 ## See also
 

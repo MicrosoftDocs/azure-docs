@@ -21,6 +21,8 @@ ms.author: delhan
 
 This article helps you resolve the issue when your virtual machine (VM) is stuck on the "Getting Windows Ready. Don't turn off your computer" stage during startup.
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 ## Symptoms
 
 When you use **Boot diagnostics** to get the screenshot of a VM, the operating system doesn't fully start up. The VM displays the message "Getting Windows ready. Don't turn off your computer."
@@ -56,7 +58,7 @@ If the OS disk is encrypted, unlock the encrypted disk. To unlock the disk, foll
 4. Run the following cmdlet to get the secret name.
 
     ```Powershell
-    Login-AzureRmAccount
+    Login-AzAccount
  
     $vmName = “VirtualMachineName”
     $vault = “AzureKeyVaultName”
@@ -126,46 +128,46 @@ After you collect the memory dump file, follow these steps to rebuild the VM.
 
 **For non-managed disks**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
-Login-AzureRmAccount
+Login-AzAccount
 
 # To view all subscriptions for your account
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # To select a default subscription for your current session
-Get-AzureRmSubscription –SubscriptionID “SubscriptionID” | Select-AzureRmSubscription
+Get-AzSubscription –SubscriptionID “SubscriptionID” | Select-AzSubscription
 
 $rgname = "RGname"
 $loc = "Location"
 $vmsize = "VmSize"
 $vmname = "VmName"
-$vm = New-AzureRmVMConfig -VMName $vmname -VMSize $vmsize;
+$vm = New-AzVMConfig -VMName $vmname -VMSize $vmsize;
 
-$nic = Get-AzureRmNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
+$nic = Get-AzNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
 $nicId = $nic.Id;
 
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nicId;
+$vm = Add-AzVMNetworkInterface -VM $vm -Id $nicId;
 
 $osDiskName = "OSdiskName"
 $osDiskVhdUri = "OSdiskURI"
 
-$vm = Set-AzureRmVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
+$vm = Set-AzVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
 
-New-AzureRmVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
+New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 ```
 
 **For managed disks**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
-Login-AzureRmAccount
+Login-AzAccount
 
 # To view all subscriptions for your account
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # To select a default subscription for your current session
-Get-AzureRmSubscription –SubscriptionID "SubscriptionID" | Select-AzureRmSubscription
+Get-AzSubscription –SubscriptionID "SubscriptionID" | Select-AzSubscription
 
 #Fill in all variables
 $subid = "SubscriptionID"
@@ -183,28 +185,28 @@ $DataDiskName = "DataDiskName"
 $osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
 $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
 
-$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
+$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize;
 
 #Uncomment to add Availability Set
-#$avSet = Get-AzureRmAvailabilitySet –Name $avName –ResourceGroupName $rgName;
-#$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
+#$avSet = Get-AzAvailabilitySet –Name $avName –ResourceGroupName $rgName;
+#$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
 
 #Get NIC Resource Id and add
-$nic1 = Get-AzureRmNetworkInterface -Name $nic1Name -ResourceGroupName $rgName;
-$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
+$nic1 = Get-AzNetworkInterface -Name $nic1Name -ResourceGroupName $rgName;
+$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
 
 #Uncomment to add a secondary NIC
-#$nic2 = Get-AzureRmNetworkInterface -Name $nic2Name -ResourceGroupName $rgName;
-#$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic2.Id;
+#$nic2 = Get-AzNetworkInterface -Name $nic2Name -ResourceGroupName $rgName;
+#$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic2.Id;
 
 #Windows VM
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Windows;
+$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Windows;
 
 #Linux VM
-#$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Linux;
+#$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Linux;
 
 #Uncomment to add additional Data Disk
-#Add-AzureRmVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
+#Add-AzVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
 
-New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;
+New-AzVM -ResourceGroupName $rgName -Location $loc -VM $vm;
 ```

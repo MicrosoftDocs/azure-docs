@@ -12,7 +12,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 12/10/2018
+ms.date: 02/15/2019
 ms.author: tomfitz
 
 ---
@@ -41,13 +41,21 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you're using, but not all. If you haven't used a particular resource provider before, you may need to register that provider.
 
+Or, when disabling auto-shutdown for virtual machines, you may receive an error message similar to:
+
+```
+Code: AuthorizationFailed
+Message: The client '<identifier>' with object id '<identifier>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope ...
+```
+
 ## Cause
 
-You receive these errors for one of three reasons:
+You receive these errors for one of these reasons:
 
-* The resource provider hasn't been registered for your subscription
+* The required resource provider hasn't been registered for your subscription
 * API version not supported for the resource type
 * Location not supported for the resource type
+* For auto-shutdown of VMs, the Microsoft.DevTestLab resource provider must be registered.
 
 ## Solution 1 - PowerShell
 

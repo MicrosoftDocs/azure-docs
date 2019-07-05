@@ -1,9 +1,8 @@
 ---
 title: 'Quickstart: Query data in Azure Data Explorer'
-description: 'In this quickstart, you learn how to query and share data in Azure Data Explorer.'
-services: data-explorer
+description: In this quickstart, you learn how to query and share data in Azure Data Explorer.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
@@ -36,7 +35,11 @@ You must add a connection to at least one cluster before you can start running q
 
 1. In the upper-left of the application, select **Add cluster**.
 
-1. In the **Add cluster** dialog box, enter `https://help.kusto.windows.net`, then select **Add**.
+1. In the **Add cluster** dialog box, enter the URI, then select **Add**.
+
+   You may use the help cluster URI, `https://help.kusto.windows.net`. If you have your own cluster, provide the URI of your cluster. For example, `https://mydataexplorercluster.westus.kusto.windows.net` as in the following image:
+
+    ![Server URI in Portal](media/web-query-data/server-uri.png)
 
 1. In the left pane, you should now see the **help** cluster. Expand the **Samples** database so that you can see the sample tables that you have access to.
 

@@ -3,7 +3,7 @@ title: Introduction to Terraform on Azure.
 description: Get started with Terraform on Azure by deploying an Azure Cosmos DB and Azure Container Instances.
 services: terraform
 author: neilpeterson
-ms.service: terraform
+ms.service: azure
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
@@ -11,7 +11,7 @@ ms.author: nepeters
 
 # Create a Terraform configuration for Azure
 
-In this example, you gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB instance, an Azure Container Instances, and an application that works across these two resources. This document assumes that all work is completed in Azure Cloud Shell, which has Terraform tooling pre-installed. If you would like to work through the example on your own system, Terraform can be installed using the instructions found [here](../virtual-machines/linux/terraform-install-configure.md).
+In this example, you gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB instance, an Azure Container Instance, and an application that works across these two resources. This document assumes that all work is completed in Azure Cloud Shell, which has Terraform tooling pre-installed. If you would like to work through the example on your own system, Terraform can be installed using the instructions found [here](../virtual-machines/linux/terraform-install-configure.md).
 
 ## Create first configuration
 
@@ -25,7 +25,7 @@ code .
 
 Copy and paste in the following Terraform configuration.
 
-This configuration models an Azure resource group, a random integer, and an Azure Cosmos DB instances. The random integer is used in Cosmos DB instances name. Several Cosmos DB settings are also configured. For a complete list of Cosmos DB Terraform configurations, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
+This configuration models an Azure resource group, a random integer, and an Azure Cosmos DB instance. The random integer is used in Cosmos DB instance name. Several Cosmos DB settings are also configured. For a complete list of Cosmos DB Terraform configurations, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
 
 Save the file as `main.tf` when done. This operation can be done using the ellipses in the upper right-hand portion of the code editor.
 
@@ -82,13 +82,13 @@ terraform apply plan.out
 
 Once done, you can see that the resource group has been created and an Azure Cosmos DB instance placed in the resource group.
 
-## Update Configuration
+## Update configuration
 
 Update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB.
 
 Copy the following configuration to the bottom of the `main.tf` file. Save the file when done.
 
-Two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
+Two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the last step. This process is known as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
 
 
 The configuration also includes an output block, which returns the fully qualified domain name (FQDN) of the container instance.
@@ -107,7 +107,7 @@ resource "azurerm_container_group" "vote-aci" {
     image  = "microsoft/azure-vote-front:cosmosdb"
     cpu    = "0.5"
     memory = "1.5"
-    ports  = {
+    ports {
       port     = 80
       protocol = "TCP"
     }
