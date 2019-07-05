@@ -50,7 +50,7 @@ You learn how to use Azure IoT Tools for Visual Studio Code to monitor device-to
 5. The device list will be shown in **Azure IoT Hub Devices** tab in a few seconds.
 
    > [!Note]
-   > You can also complete the set up by choosing **Set IoT Hub Connection String**. Enter the connection string for the IoT hub that your IoT device connects to in the pop-up window.
+   > You can also complete the set up by choosing **Set IoT Hub Connection String**. Enter the **iothubowner** policy connection string for the IoT hub that your IoT device connects to in the pop-up window.
 
 ## Monitor device-to-cloud messages
 
