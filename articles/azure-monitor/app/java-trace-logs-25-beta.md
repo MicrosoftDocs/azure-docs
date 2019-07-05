@@ -1,6 +1,6 @@
 ---
-title: Explore Java trace logs in Azure Application Insights | Microsoft Docs
-description: Search Log4J or Logback traces in Application Insights
+title: Explore Java trace logs in Azure Application Insights (2.5-beta) | Microsoft Docs
+description: Search Log4J or Logback traces in Application Insights (2.5-beta)
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -13,8 +13,29 @@ ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
 ---
-# Explore Java trace logs in Application Insights
+
+
+# Explore Java trace logs in Application Insights (2.5-beta)
 If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
+
+## Note: if you are using the Application Insights Java agent
+
+You can configure the Application Insights Java agent to automatically capture your logs,
+by enabling the feature in the `AI-Agent.xml` file:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
+         <Logging enabled="true" />
+      </BuiltIn>
+   </Instrumentation>
+   <AgentLogger />
+</ApplicationInsightsAgent>
+```
+
+Otherwise...
 
 ## Install the Java SDK
 
