@@ -39,9 +39,9 @@ In this diagram:
 
 If you apply NSGs to the **AzureBastionSubnet**, allow the following two service tags for Azure Control plane and Infrastructure:
 
-* **GatewayManager (Resource Manager only)**: This tag denotes the address prefixes of the Azure Gateway Manager service. If you specify GatewayManager for the value, traffic is allowed or denied to GatewayManager.
+* **GatewayManager (Resource Manager only)**: This tag denotes the address prefixes of the Azure Gateway Manager service. If you specify GatewayManager for the value, traffic is allowed or denied to GatewayManager.  If you are creating NSGs on the AzureBastionSubnet, enable the GatewayManager tag for inbound traffic.
 
-* **AzureCloud (Resource Manager only)**: This tag denotes the IP address space for Azure including all datacenter public IP addresses. If you specify AzureCloud for the value, traffic is allowed or denied to Azure public IP addresses. If you only want to allow access to AzureCloud in a specific region, you can specify the region. For example, if you want to allow access only to Azure AzureCloud in the East US region, you could specify AzureCloud.EastUS as a service tag.
+* **AzureCloud (Resource Manager only)**: This tag denotes the IP address space for Azure including all datacenter public IP addresses. If you specify AzureCloud for the value, traffic is allowed or denied to Azure public IP addresses. If you want to allow access only to AzureCloud in a specific region, you can specify the region. For example, if you want to allow access only to Azure AzureCloud in the East US region, you could specify AzureCloud.EastUS as a service tag. If you are creating NSGs on the AzureBastionSubnet, enable the AzureCloud tag for outbound traffic.
 
 ## Next steps
 
