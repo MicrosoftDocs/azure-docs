@@ -24,9 +24,9 @@ To give your users easy access to your cloud apps, Azure Active Directory (Azure
 
 Today, the majority of all compromising sign-in attempts come from legacy authentication. Legacy authentication does not support multi-factor authentication (MFA). Even if you have an MFA policy enabled on your directory, a bad actor can authenticate using a legacy protocol and bypass MFA.
 
-The best way to protect your account from malicious authentication requests made by legacy protocols is to block these attempts altogether. In an effort to make it easier for you to secure your environment, we created this Baseline Policy to prevent users to gain access by using a Legacy Authentication.
+The best way to protect your account from malicious authentication requests made by legacy protocols is to block these attempts altogether. In an effort to make it easier for you to secure your environment, we created this Baseline Policy to block legacy authentication.
 
-**Block legacy authentication** is [baseline policy](concept-baseline-protection.md) that blocks all authentication requests made from legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, all requests coming from legacy protocols will be blocked and all users will be required to MFA whenever required. This policy does not block Exchange ActiveSync.
+**Block legacy authentication** is a [baseline policy](concept-baseline-protection.md) that blocks all authentication requests made from legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, all requests coming from legacy protocols will be blocked and all users will be required to MFA whenever required. This policy does not block Exchange ActiveSync.
 
 ## Identify legacy authentication use
 
