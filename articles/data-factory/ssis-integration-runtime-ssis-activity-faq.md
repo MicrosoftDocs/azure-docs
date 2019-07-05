@@ -57,12 +57,28 @@ This article includes the most common errors that you might hit when executing S
 * Potential cause & recommended action:
   * This error may be because a known issue in old version SSMS. If the package contains a custom component (For example, SSIS Azure Feature Pack or 3rd party components) which isn't installed on the machine where SSMS is used to do the deployment, the component will be removed by SSMS and cause the error. Upgrade [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to the latest version that has the issue fixed.
 
+### Error message：“SSIS Executor exit code: -1073741819.”
+
+* Potential cause & recommended action:
+  * Package execution may fail with this exit code when multiple Excel source components are executing concurrently to retrieve data. You can workaround this limitation by change your Excel components to execute in sequence, or separate them into different packages.
+
 ### Error message: "There is not enough space on the disk"
 
 * Potential cause & recommended action:
   * This error means the local disk is used up in SSIS Integration Runtime node. Check whether your package or Custom Setup would consume many disk spaces.
     * If the disk is consumed by your package, it will be freed up after the package execution finishes.
     * If the disk is consumed by your Custom Setup, you'll need to stop SSIS Integration Runtime, modify your Script, and start the SSIS Integration Runtime again. The whole Azure Blob Container you specified for Custom Setup will be copied over to SSIS IR node, so verify whether there is any unnecessary content under that container.
+
+### Error message: "Failed to retrieve resource from master. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Code:300004. Description:Load file "***" failed."
+
+* Potential cause & recommended action:
+  * If the SSIS Activity is executing package from file system (package file or project file), this error will occur if the project, package or configuration file is not accessible with the package access credential you provided in the SSIS Activity
+    * If you are using Azure File:
+      * The file path should start with \\\\\<storage account name\>.file.core.windows.net\\\<file share path\>
+      * The domain should be "Azure"
+      * The username should be \<storage account name\>
+      * The password should be \<storage access key\>
+    * If your are using on-premise file, please check if VNet, package access credential and permission are configured properly so that your Azure-SSIS integration runtime can access your on-premise file share
 
 ### Error message: "The file name '...' specified in the connection was not valid"
 
