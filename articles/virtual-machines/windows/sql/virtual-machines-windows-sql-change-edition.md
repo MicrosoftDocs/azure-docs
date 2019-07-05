@@ -36,7 +36,7 @@ If you updated SQL Server edition with the installation media after registering 
 
 ## Prerequisites
 
-To in=place update the edition of SQL Server, you will need the following: 
+To in-place update the edition of SQL Server, you will need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A Windows [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md).
