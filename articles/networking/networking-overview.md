@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2019
+ms.date: 07/05/2019
 ms.author: kumud
 
 ---
@@ -73,7 +73,7 @@ Azure DNS is a hosting service for DNS domains that provides name resolution by 
 ### <a name="bastion"></a>Azure Bastion (Preview)
 The Azure Bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](/bastion/bastion-overview.md).
 
-![Azure Bastion architecture](../bastion/media/bastion-overview/architecture.png))
+![Azure Bastion architecture](../bastion/media/bastion-overview/architecture.png)
 
 
 ## <a name="protect"></a>Application protection services
@@ -134,7 +134,7 @@ This section describes networking services in Azure that help deliver applicatio
 |[Azure Front Door Service](#frontdoor)|Enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability.|<p>[Add a custom domain to your Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Configure HTTPS on a Front Door custom domain](../frontdoor/front-door-custom-domain-https.md)</p><p>[Set up geo-filtering Web Application Firewall policy](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Traffic Manager](#trafficmanager)|Distributes traffic based on DNS to services across global Azure regions, while providing high availability and responsiveness|<p> [Route traffic for low latency](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Route traffic to a priority endpoint](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Control traffic with weighted endpoints](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Route traffic based on geographic location of the endpoint](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Route traffic based on user's subnet](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
 |[Load Balancer](#loadbalancer)|Provides regional load-balancing by routing traffic across availability zones and into your VNets. Provides internal load-balancing by routing traffic across and between your resources to build your regional application.|<p> [Load balance internet traffic to VMs](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Load-balance traffic across VMs inside a virtual network](../load-balancer/tutorial-load-balancer-basic-internal-portal.md)<p>[Port forward traffic to a specific port on specific VMs](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Configure load balancing and outbound rules](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
-|[Application Gateway](#applicationgateway)|Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.|<p>[Direct web traffic with Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Configure an application gateway with SSL termination](../application-gateway/create-ssl-portal.md)</p><p>[Create an application gateway with URL path-based redirection](../application-gateway/create-url-route-portal.md</p>)|
+|[Application Gateway](#applicationgateway)|Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.|<p>[Direct web traffic with Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Configure an application gateway with SSL termination](../application-gateway/create-ssl-portal.md)</p><p>[Create an application gateway with URL path-based redirection](../application-gateway/create-url-route-portal.md </p>)|
 |
 
 ### <a name="cdn"></a>Content Delivery Network
