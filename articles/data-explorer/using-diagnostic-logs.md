@@ -13,7 +13,7 @@ ms.date: 07/04/2019
 
 Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a table in a database so that you can run queries against it. 
 
-Azure Data Explorer logs insights on ingestion success rate, latency, and detailed information on failures. Export operation logs to Azure Storage, Event Hub, or Log Analytics to monitor ingestion detailed status. Logs from Azure Storage and Azure Event Hub can be routed to a table in your Azure Data Explorer cluster for further analysis.
+[Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) describe the operation of services or resources. Azure Data Explorer logs insights on ingestion success rate, latency, and detailed information on failures. Export operation logs to Azure Storage, Event Hub, or Log Analytics to monitor ingestion detailed status. Logs from Azure Storage and Azure Event Hub can be routed to a table in your Azure Data Explorer cluster for further analysis.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ See [ingestion logs schema](#ingestion-logs-schema) for more information
 
 ## Diagnostic logs schema
 
-All logs are stored in a JSON format.
+All [Azure Monitor diagnostic logs share a common top-level schema](/azure/azure-monitor/platform/diagnostic-logs-schema). Azure Data Explorer has unique properties for their own events. All logs are stored in a JSON format.
 
 ### Ingestion logs schema
 
