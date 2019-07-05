@@ -4,7 +4,7 @@ description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Ente
 services: active-directory 
 keywords: 
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
