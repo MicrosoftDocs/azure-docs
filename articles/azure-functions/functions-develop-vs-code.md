@@ -1,6 +1,6 @@
 ---
-title: Develop Azure Functions using Visual Studio Code | Microsoft Docs
-description: Learn how to develop and test Azure Functions by using Azure Functions extension for Visual Studio Code.
+title: Develop Azure Functions by using Visual Studio Code | Microsoft Docs
+description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 services: functions
 author: ggailey777  
 manager: jeconnoc
@@ -9,20 +9,20 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: glenga
-#Customer intent: As an Azure Functions developer, I want understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my functions projects.
+#Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
 
-# Develop Azure Functions using Visual Studio Code
+# Develop Azure Functions by using Visual Studio Code
 
-The [Azure Functions extension for Visual Studio Code] lets you locally develop and deploy functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
+The [Azure Functions extension for Visual Studio Code] lets you locally develop functions and deploy them to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
-The Azure Functions extension provides the following benefits: 
+The Azure Functions extension provides these benefits:
 
-* Edit, build, and run functions on your local development computer. 
-* Publish your Azure Functions project directly to Azure. 
-* Write your functions in various languages while having all of the benefits of Visual Studio Code. 
+* Edit, build, and run functions on your local development computer.
+* Publish your Azure Functions project directly to Azure.
+* Write your functions in various languages while taking advantage of the benefits of Visual Studio Code.
 
-The extension can be used with the following languages supported by the Azure Functions version 2.x runtime: 
+The extension can be used with the following languages, which are supported by the Azure Functions version 2.x runtime:
 
 * [C# compiled](functions-dotnet-class-library.md) 
 * [C# script](functions-reference-csharp.md)<sup>*</sup>
@@ -33,16 +33,16 @@ The extension can be used with the following languages supported by the Azure Fu
 
 <sup>*</sup>Requires you that you [set C# script as your default project language](#c-script-projects).
 
-In this article, examples are currently only available for JavaScript (Node.js) and C# class library functions.  
+In this article, examples are currently available only for JavaScript (Node.js) and C# class library functions.  
 
-This article provides details about how to use the Azure Functions extension to develop functions and publish them to Azure. Before you read this article, you should [Create your first function using Visual Studio Code](functions-create-first-function-vs-code.md).
+This article provides details about how to use the Azure Functions extension to develop functions and publish them to Azure. Before you read this article, you should [create your first function by using Visual Studio Code](functions-create-first-function-vs-code.md).
 
 > [!IMPORTANT]
 > Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
 
 ## Prerequisites
 
-Before you install and run the [Azure Functions extension][Azure Functions extension for Visual Studio Code], you must meet the following requirements:
+Before you install and run the [Azure Functions extension][Azure Functions extension for Visual Studio Code], you must meet these requirements:
 
 * [Visual Studio Code](https://code.visualstudio.com/) installed on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
@@ -50,10 +50,10 @@ Before you install and run the [Azure Functions extension][Azure Functions exten
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Other resources that you need, such as an Azure Storage account, are created in your subscription when you [publish using Visual Studio Code](#publish-to-azure).
+Other resources that you need, like an Azure storage account, are created in your subscription when you [publish by using Visual Studio Code](#publish-to-azure).
 
 > [!IMPORTANT]
-> You can develop functions locally and publish to Azure without having to start and run them locally. There are additional requirements for running your functional locally, including an automatic download of the Azure Functions Core Tools. To learn more, see [Additional requirements to run locally](#additional-requirements-to-run-locally). 
+> You can develop functions locally and publish them to Azure without having to start and run them locally. There are additional requirements for running your functional locally, including an automatic download of the Azure Functions Core Tools. To learn more, see [Additional requirements to run locally](#additional-requirements-to-run-locally).
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
