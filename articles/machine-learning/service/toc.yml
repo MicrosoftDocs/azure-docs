@@ -78,6 +78,9 @@
     - name: "Predict churn"
       displayName: Basic Sample, training, classification, sample 5
       href:  ui-sample-classification-predict-churn.md
+    - name: "Predict flight delays"
+      displayName: Basic Sample, training, classification, sample 6
+      href:  ui-sample-classification-predict-flight-delay.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
@@ -174,12 +177,16 @@
       href: how-to-set-up-training-targets.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
+    - name: Use Scikit-learn
+      href: how-to-train-scikit-learn.md  
     - name: Use TensorFlow
       href: how-to-train-tensorflow.md
     - name: Use Keras
       href: how-to-train-keras.md
     - name: Use PyTorch
       href: how-to-train-pytorch.md
+    - name: Use Chainer
+      href: how-to-train-chainer.md
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
@@ -193,6 +200,9 @@
     - name: Track experiments with MLflow
       displayName: log, monitor, metrics
       href: how-to-use-mlflow.md
+    - name: Visualize runs with TensorBoard
+      displayName: log, monitor, metrics
+      href: how-to-monitor-tensorboard.md      
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
@@ -222,6 +232,9 @@
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Custom Docker image
       href: how-to-deploy-custom-docker-image.md
+    - name: Deploy existing models
+      displayName: publish existing model
+      href: how-to-deploy-existing-model.md
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
@@ -297,6 +310,8 @@
         href: ../algorithm-module-reference/add-rows.md
       - name: Remove Duplicate Rows
         href: ../algorithm-module-reference/remove-duplicate-rows.md
+      - name: Join Data
+        href: ../algorithm-module-reference/join-data.md
       - name: Split Data
         href: ../algorithm-module-reference/split-data.md
       - name: Normalize Data
@@ -345,12 +360,14 @@
         href: ../algorithm-module-reference/two-class-support-vector-machine.md
       - name: K-Means Clustering
         href: ../algorithm-module-reference/k-means-clustering.md
-    - name: Python language modules
+    - name: Python and R language modules
       items:  
       - name: Execute Python Script
         href: ../algorithm-module-reference/execute-python-script.md
       - name: Create Python Model
         href: ../algorithm-module-reference/create-python-model.md
+      - name: Execute R Script
+        href: ../algorithm-module-reference/execute-r-script.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources

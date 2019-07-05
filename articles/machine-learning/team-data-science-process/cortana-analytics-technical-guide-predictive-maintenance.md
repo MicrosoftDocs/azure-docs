@@ -128,7 +128,7 @@ This document does not describe how to ingest your data, but you can
 easily send events or data to an Azure Event Hub using the Event Hub
 APIs.
 
-### Azure Stream Analytics
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Use the Azure Stream Analytics service to provide near real-time
 analytics by reading from data streams and outputting data to any number
 of sources.

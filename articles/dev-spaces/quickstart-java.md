@@ -4,7 +4,6 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
@@ -189,7 +188,7 @@ return "Hello from webfrontend in Azure while debugging!";
 
 Save the file. Click *Debug* then *Restart Debugging* or in the *Debug toolbar*, click the *Restart Debugging* button.
 
-![Refresh Debugging](media/get-started-java/debug-action-refresh.png)
+![Refresh Debugging](media/common/debug-action-refresh.png)
 
 Open your service in a browser and notice your updated message is displayed.
 
