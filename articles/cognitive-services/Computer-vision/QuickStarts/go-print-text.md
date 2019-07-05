@@ -13,7 +13,7 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract printed text (OCR) using the REST API and Go in Computer Vision
+# Quickstart: Extract printed text (OCR) using the Computer Vision REST API with Go
 
 In this quickstart, you extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -59,7 +59,7 @@ func main() {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the "westus" region.
+    // Free trial subscription keys are generated in the "westcentralus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     const uriBase =
