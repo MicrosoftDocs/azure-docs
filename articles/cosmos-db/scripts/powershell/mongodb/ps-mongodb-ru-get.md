@@ -3,7 +3,7 @@ title: Azure PowerShell script - Azure Cosmos DB Get Throughput (RU/s) for Mongo
 description: Azure PowerShell script - Azure Cosmos DB Get Throughput (RU/s) for MongoDB API
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
 ---
