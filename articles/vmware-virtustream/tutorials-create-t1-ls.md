@@ -35,13 +35,13 @@ Using a browser, navigate to the IP address of the NSX-T Manager and sign in as 
 
 On first sign in to the NSX-T manager, the details on the home page should have match the following initial configuration.
 
-![Image of NSX-T Manager initial configuration](./media/NSX-initial-config.png)
+![Image of NSX-T Manager initial configuration](./media/nsx-t1-ls/nsx-initial-config.png)
 
 ## Create a logical switch
 
 Select **Networking > Switching**.
 
-![Select NSX-T Switching](./media/NSX-select-switching.png)
+![Select NSX-T Switching](./media/nsx-t1-ls/nsx-select-switching.png)
 
 Select **+ ADD** and in the form enter a name for the logical switch.
 Select the **TNTXX-OVRLAY-TZ** Transport Zone.
@@ -50,39 +50,39 @@ Enter an Uplink Teaming Policy Name.
 Select Admin Status of **Up**.
 Select **Hierarchical Two-Tier replication**.
 
-![Add a new NSX-T Logical Switch form](./media/NSX-add-switch.png)
+![Add a new NSX-T Logical Switch form](./media/nsx-t1-ls/nsx-add-switch.png)
 
-![Add a new NSX-T Logical Switch form detail](./media/NSX-add-switch-form.png)
+![Add a new NSX-T Logical Switch form detail](./media/nsx-t1-ls/nsx-add-switch-form.png)
 
 Select the **ADD** button to show results.
 
-![Add a new NSX-T Logical Switch result](./media/NSX-add-switch-results.png)
+![Add a new NSX-T Logical Switch result](./media/nsx-t1-ls/nsx-add-switch-results.png)
 
 ## Create a T1 router
 
 Select **Networking > Routers**.
 
-![Select NSX-T Routing](./media/NSX-select-routers.png)
+![Select NSX-T Routing](./media/nsx-t1-ls/nsx-select-routers.png)
 
 Select **+ ADD**, and then select **Tier-1 Router**.
 Enter a **Name** and select **Non-preemptive** Failover Mode.
 
-![Add NSX-T T1 router](./media/NSX-add-router.png)
+![Add NSX-T T1 router](./media/nsx-t1-ls/nsx-add-router.png)
 
-![Add NSX-T T1 router form](./media/NSX-add-router-form.png)
+![Add NSX-T T1 router form](./media/nsx-t1-ls/nsx-add-router-form.png)
 
 > [!NOTE]
 > There is only a single Tier-0 Router and a single NSX-T Edge Node cluster to select.
 
 Select **ADD**.
 
-![Add a new NSX-T DHCP server Router result](./media/NSX-add-router-results.png)
+![Add a new NSX-T DHCP server Router result](./media/nsx-t1-ls/nsx-add-router-results.png)
 
 ## Add the logical switch to a port on the T1 router
 
 Select **Networking > Routers** and then choose the T1 router that was just created.
 
-![Select Router for Logical Switch](./media/NSX-show-router-overview.png)
+![Select Router for Logical Switch](./media/nsx-t1-ls/nsx-show-router-overview.png)
 
 > [!WARNING]
 > Never select or edit the T0 router.
@@ -92,13 +92,13 @@ Select **+ ADD**.
 
 Complete the form with a new name for the router port, the **Logical Switch** name created in a previous section, an **IP address/mask** in CIDR notation, and the following selections for **Type**, **URPF Mode**, and **Logical Switch Port**.
 
-![Select router port for configuration](./media/NSX-add-router-port.png)
+![Select router port for configuration](./media/nsx-t1-ls/nsx-add-router-port.png)
 
-![Configure router port form](./media/NSX-add-router-port-form.png)
+![Configure router port form](./media/nsx-t1-ls/nsx-add-router-port-form.png)
 
 Select **ADD**.
 
-![Add a router port result](./media/NSX-add-router-port-results.png)
+![Add a router port result](./media/nsx-t1-ls/nsx-add-router-port-results.png)
 
 ## Add DHCP service to the logical switch
 
@@ -106,53 +106,53 @@ Select **Networking > DHCP > Server Profiles**.
 Select **+ ADD**.
 Enter a **Name** and select the **Edge Cluster** on the form.
 
-![Add a DHCP server profile](./media/NSX-add-dhcp-server-profile.png)
+![Add a DHCP server profile](./media/nsx-t1-ls/nsx-add-dhcp-server-profile.png)
 
-![Add a DHCP server profile](./media/NSX-add-dhcp-server-profile-form.png)
+![Add a DHCP server profile](./media/nsx-t1-ls/nsx-add-dhcp-server-profile-form.png)
 
 Select **ADD**.
 
-![Add  DHCP server profile result](./media/NSX-add-dhcp-server-profile-results.png)
+![Add  DHCP server profile result](./media/nsx-t1-ls/nsx-add-dhcp-server-profile-results.png)
 
 Use this profile to create a DHCP server for the logical switch.
 
 Select **Networking > DHCP > Servers**.
 Select **+ ADD** to add a DHCP server. Enter a name and other details on the form.
 
-![Add an NSX-T DHCP server form](./media/NSX-associate-dhcp-server.png)
+![Add an NSX-T DHCP server form](./media/nsx-t1-ls/nsx-associate-dhcp-server.png)
 
 Select "+ ADD", choose Tier-1 Router, and then enter a name and other details in the form (what's shown are examples):
 
-![Add NSX-T DHCP server](./media/NSX-add-dhcp-server.png)
+![Add NSX-T DHCP server](./media/nsx-t1-ls/nsx-add-dhcp-server.png)
 
-![Add NSX-T DHCP server form](./media/NSX-add-dhcp-server-form.png)
+![Add NSX-T DHCP server form](./media/nsx-t1-ls/nsx-add-dhcp-server-form.png)
 
 Select **ADD**.
 
-![Add an NSX-T DHCP server result](./media/NSX-add-dhcp-server-form-results.png)
+![Add an NSX-T DHCP server result](./media/nsx-t1-ls/nsx-add-dhcp-server-form-results.png)
 
 Select the new DHCP server in **DHCP > Servers**.
 Select **IP Pools > + ADD**.
 Enter the required information in the form.
 
-![Add IP pools to a DHCP server](./media/NSX-add-dhcp-ip-pools.png)
+![Add IP pools to a DHCP server](./media/nsx-t1-ls/nsx-add-dhcp-ip-pools.png)
 
-![Add IP pools to a DHCP server form](./media/NSX-add-dhcp-ip-pools-form.png)
+![Add IP pools to a DHCP server form](./media/nsx-t1-ls/nsx-add-dhcp-ip-pools-form.png)
 
 Select **ADD**.
 
-![Add IP pools to a DHCP server result](./media/nsx-add-dhcp-ip-pools-results.png)
+![Add IP pools to a DHCP server result](./media/nsx-t1-ls/nsx-add-dhcp-ip-pools-results.png)
 
 Select **Actions (the gear icon) > Attach to Logical Switch**.
 
-![Select Attach a Logical Switch to a DHCP server](./media/NSX-attach-switch-to-dhcp-server.png)
+![Select Attach a Logical Switch to a DHCP server](./media/nsx-t1-ls/nsx-attach-switch-to-dhcp-server.png)
 
 Select the new **Logical Switch** from the pulldown list.
 Select **ATTACH**.
 
-![Attach a Logical Switch to a DHCP server](./media/NSX-attach-switch-to-dhcp-form.png)
+![Attach a Logical Switch to a DHCP server](./media/nsx-t1-ls/nsx-attach-switch-to-dhcp-form.png)
 
-![Attach a Logical Switch to a DHCP server result](./media/NSX-attach-switch-to-dhcp-server-results.png)
+![Attach a Logical Switch to a DHCP server result](./media/nsx-t1-ls/nsx-attach-switch-to-dhcp-server-results.png)
 
 With DHCP services enabled on the NSX-T logical switch, virtual machines deployed on the network can now receive a default gateway and an IP address.
 
