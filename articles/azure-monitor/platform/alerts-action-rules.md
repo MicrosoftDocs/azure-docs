@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Action rules (preview)
