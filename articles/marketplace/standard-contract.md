@@ -4,11 +4,9 @@ description: Standard Contract in Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 
 author: qianw211
-
-
 ms.service: marketplace
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 07/05/2019
 ms.author: ellacroi
 
 ---
@@ -25,20 +23,29 @@ The terms and conditions for an offering are defined on the Marketplace tab when
 
 ## Standard Contract Amendments
 
-Standard Contract Amendments allow publishers to select the standard contract for simplicity, and also customize the terms of the offering. Customers can trust the standard contract if they have reviewed it previously, and can focus on the amendment delta to reduce procurement time.  
+Standard Contract Amendments allow publishers to select the standard contract for simplicity, and with customized terms for their product or business.  Customers only need to review the amendments to the contract, if they have already reviewed and accepted the Microsoft Standard Contract.
 
-Standard Contract Amendments add unique terms and conditions to the standard contract:
+There are two kinds of amendments available for Azure Marketplace publishers:
 
-* Enable publishers to offer software under a standardized set of common terms and conditions to simplify procurement for customers.
-* Alternatively, publishers can submit their own language for customer agreements.
-* Standard contract terms can also be applied when the offer is sold through CSP Partners.
+1. Universal Amendments: These amendments are applied universally to the standard contract for all customers. Universal amendments are shown to every customer of the product in the purchase flow.
 
-When entering html text terms of use, **Get-AzureRmMarketplaceTerms** will return blob url to a text file that includes Standard Contract and Amendments.  In Ibiza, AMP UX, three separate links will be shown: 
+![Universal Amendments](media/marketplace-publishers-guide/universal-amendaments.png)
 
-* Standard Contract. 
-* Universal Amendment: applicable to all customers.
-* Custom Amendment: customer specific, returned only to users related to the **TenantIds**. 
+2. Custom Amendments: Azure Marketplace also has a provision for custom amendments targeted to tenants. They are special amendments to the standard contract that are targeted to certain customers only. Publishers can choose the tenant they want to target. Customers from that tenant would purchase the product under Standard Contract and the targeted amendments.
 
-Here is a [sample **Get-AzureRmMarketplaceTerms** output](https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_COGNOSYS%253a24UBUNTU%253a2D16%253a2D04%253a2DLTS%253a24UBUNTU%253a2D16%253a2D04%253a2DLTS%253a2427FVO2MPC55MPGBEJRXXQM4W2VTE3GBGVC7UGJDAHK2JBTXIJGX2BCNPFKKHZ6JSDNI722BEZU67VEK5UVZPE5NWOM6MWNUPNKST4JY.txt ) for an offer with Standard Contract.
+![Custom Amendments](media/marketplace-publishers-guide/custom-amendaments.png)
+
+>[!Note] 
+>Customers targeted with custom amendments will also get the universal amendment to the standard terms during purchase.
+
+### Customer Experience
+
+During the purchase process in Ibiza, customers will be able to see the terms associated with the product as the Microsoft Standard Contract and the amendments.
+
+![Ibiza customer experience](media/marketplace-publishers-guide/ibiza-customer-experience.png)
+
+### API
+
+Customers may use `Get-AzureRmMarketplaceTerms` to retrieve the terms of an offer and accept it. The standard contract and associated amendments will be returned in the output of the cmdlet.
 
 ---
