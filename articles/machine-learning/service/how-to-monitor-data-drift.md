@@ -17,7 +17,7 @@ In this article, you learn how to monitor for data drift between the training da
 
 ## What is data drift?
 
-Data drift, also referred to as concept drift, happens when data served to a model in production is different from the data used to train the model. It is one of the top reasons where model accuracy degrades over time, so monitoring data drift can help detect a model performance issues. 
+Data drift, also referred to as concept drift, happens when data served to a model in production is different from the data used to train the model. It is one of the top reasons where model accuracy degrades over time, thus monitoring data drift helps detect model performance issues. 
 
 ## What can I monitor?
 
@@ -48,7 +48,7 @@ Using Azure Machine Learning service, data drift is monitored through datasets o
 
 - Install the data drift SDK using the following command:
 
-    ```
+    ```shell
     pip install azureml-contrib-datadrift
     ```
 
@@ -88,7 +88,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## Submit a DataDriftDetector run
 
-With the `DataDriftDetector` object configured, you can submit a [data drift run](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) on a given date for the model. 
+With the `DataDriftDetector` object configured, you can submit a [data drift run](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) on a given date for the model. Also as part of the run,  you can set the `drift_threshold` parameter, which can be used to enable DataDrift Detector alerts. 
 
 ```python
 # adhoc run today
@@ -138,8 +138,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## Schedule data drift scans 
 
-When you enable data drift detection, a DataDriftDetector is run at the specified, scheduled frequency. If the drift coefficient is above the given threshold, an email is sent.
-Set this threshold with the `drift_threshold = <your_threshold>` parameter of your data drift run object. 
+When you enable data drift detection, a DataDriftDetector is run at the specified, scheduled frequency. If the drift coefficient is above the given `drift_threshold`, an email is sent.
 
 
 ```python
@@ -159,7 +158,7 @@ To view results in the Azure ML Workspace UI, navigate to the model page. On the
 
 ## Receiving drift alerts
 
-By setting the drift coefficient alerting threshol dand providing an email address, an [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) email alert is automatically sent whenever the drift coefficient is above the threshold. 
+By setting the drift coefficient alerting threshold and providing an email address, an [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) email alert is automatically sent whenever the drift coefficient is above the threshold. 
 
 In order for you to set up custom alerts and actions, all data drift metrics are stored in the [Application Insights](how-to-enable-app-insights.md) resource that was created along with the Azure Machine Learning service workspace. You can follow the link in the email alert to the Application Insights query.
 
@@ -170,9 +169,9 @@ In order for you to set up custom alerts and actions, all data drift metrics are
 When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. To do so, 
 
 * Prepare the data collected from the deployed model. 
-*	Split it into train/test data
-*	Train the model again using the new data.
-*	Deploy new model.
+* Split it into train/test data
+* Train the model again using the new data.
+* Deploy new model.
 
 ## Next steps
 
