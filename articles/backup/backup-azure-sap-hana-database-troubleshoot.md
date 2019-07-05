@@ -41,7 +41,7 @@ What the preregistration script does:
 
 ### Setting up BackInt parameters
 
-After a database is chosen for backup, the Azure Backup service  configures backInt parameters at DATABASE level:
+After a database is chosen for backup, the Azure Backup service  configures ackInt parameters at DATABASE level:
 
 - [catalog_backup_using_backint:true]
 - [enable_accumulated_catalog_backup:false]
@@ -64,4 +64,4 @@ After a database is chosen for backup, the Azure Backup service  configures back
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Detected Invalid Backint Configuration. Stop protection and reconfigure the database.| The backint parameters are incorrectly specified for Azure Backup. | Check whether [the parameters are set](#setting-up-backint-parameters). If backint-based parameters are present in HOST, remove them. If parameters are not present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described above. Or, run **stop protection with retain data** from the Azure portal, and then run **resume backup**.|
+| Detected Invalid Backint Configuration. Stop protection and reconfigure the database.| The backInt parameters are incorrectly specified for Azure Backup. | Check whether [the parameters are set](#setting-up-backint-parameters). If backInt-based parameters are present in HOST, remove them. If parameters are not present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described above. Or, run **stop protection with retain data** from the Azure portal, and then run **resume backup**.|
