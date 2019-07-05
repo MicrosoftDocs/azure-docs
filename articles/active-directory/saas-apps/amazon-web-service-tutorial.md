@@ -226,35 +226,22 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	b. In the policy document, add the below JSON.
 
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                "iam:ListRoles"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
     ```
 
-	{
-
-	"Version": "2012-10-17",
-
-	"Statement": [
-
-	{
-
-	"Effect": "Allow",
-
-	"Action": [
-
-	"iam:ListRoles"
-
-	],
-
-	"Resource": "*"
-
-	}
-
-	]
-
-	}
-
-    ```
-
-	c. Click on **Review Policy button** to validate the policy.
+    c. Click on **Review Policy button** to validate the policy.
 
 	![Define the new policy](./media/amazon-web-service-tutorial/policy5.png)
 
