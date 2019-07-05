@@ -176,11 +176,11 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
 
     Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/Source: _&lt;source&gt;:_** Location of the folder or storage container URL that contains the VHD.
-   * **/SourceKey: _&lt;source-account-key&gt;:_** Storage account key of the source storage account.
-   * **/Dest: _&lt;destination&gt;:_** Storage container URL to copy the VHD to.
-   * **/DestKey: _&lt;dest-account-key&gt;:_** Storage account key of the destination storage account.
-   * **/Pattern: _&lt;file-name&gt;:_** Specify the file name of the VHD to copy.
+   * **/Source:** _&lt;source&gt;:_ Location of the folder or storage container URL that contains the VHD.
+   * **/SourceKey:** _&lt;source-account-key&gt;:_ Storage account key of the source storage account.
+   * **/Dest:** _&lt;destination&gt;:_ Storage container URL to copy the VHD to.
+   * **/DestKey:** _&lt;dest-account-key&gt;:_ Storage account key of the destination storage account.
+   * **/Pattern:** _&lt;file-name&gt;:_ Specify the file name of the VHD to copy.
 
 For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
@@ -273,12 +273,12 @@ Using AzCopy, you can easily upload the VHD over the Internet. Depending on the 
 
     Here are descriptions of the parameters used in the AzCopy command:
 
-   * **/Source: _&lt;source&gt;:_** Location of the folder or storage container URL that contains the VHD.
-   * **/SourceKey: _&lt;source-account-key&gt;:_** Storage account key of the source storage account.
-   * **/Dest: _&lt;destination&gt;:_** Storage container URL to copy the VHD to.
-   * **/DestKey: _&lt;dest-account-key&gt;:_** Storage account key of the destination storage account.
+   * **/Source:** _&lt;source&gt;:_ Location of the folder or storage container URL that contains the VHD.
+   * **/SourceKey:** _&lt;source-account-key&gt;:_ Storage account key of the source storage account.
+   * **/Dest:** _&lt;destination&gt;:_ Storage container URL to copy the VHD to.
+   * **/DestKey:** _&lt;dest-account-key&gt;:_ Storage account key of the destination storage account.
    * **/BlobType: page:** Specifies that the destination is a page blob.
-   * **/Pattern: _&lt;file-name&gt;:_** Specify the file name of the VHD to copy.
+   * **/Pattern:** _&lt;file-name&gt;:_ Specify the file name of the VHD to copy.
 
 For details on using AzCopy tool, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).
 
