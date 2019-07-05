@@ -6,7 +6,7 @@ author: saurabhsensharma
 manager: saurabhsensharma
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 07/05/2019
 ms.author: saurabhsensharma
 ---
 # Troubleshoot slow backup of files and folders in Azure Backup
