@@ -71,4 +71,4 @@ The output of the command is `Running...` if valid, after sometime the output ch
 
 [repositories-and-images]: ../../cognitive-services-container-support.md#container-repositories-and-images
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md#availability---general
-[secure-values]: ../../../container-instances/container-instances-environment-variables.md#securing-values
+[secure-values]: ../../../container-instances/container-instances-environment-variables.md#secure-values
