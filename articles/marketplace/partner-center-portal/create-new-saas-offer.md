@@ -110,12 +110,8 @@ Promote your business with Microsoft by creating a marketplace listing. Selectin
 ##### Get it now (Free)
 List your offer to customers for free by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/saas-app`
 
-##### Free trial
-List your offer to customers on a free trial basis by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/trial/saas-app`
-
-A free trial period allows your customers to experience the software, validate alignment between business needs and solution, and seamlessly convert to a paid subscription. It is a low risk option that requires minimal commitment.  Customers can find the product on AppSource or Azure Marketplace, try the solution as a trial, and buy a subscription once their trial is complete. 
-
-Trials last one month at the beginning of a monthly or annual SaaS subscription.  They can be cancelled at any time before the first billing period. After the trial duration, free trials will automatically convert to a standard paid subscription. 
+##### Free trial (Listing)
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with http or https) where they can access your app.  For example: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 ##### Contact me
 Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
@@ -308,7 +304,7 @@ The **Pricing and availability** tab enables you to configure the markets that t
 
 ##### Enabling Free Trials
 
-SaaS offers through the commercial marketplace enable you to provide a one-month free trial. Free trials support all billing models and terms across all channels, allowing customers to have a low-barrier to entry with one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of initial one month period.  During this time, customers purchasing your offer can try out any of the plans that have the free trial enabled and convert between them.  The conversion to paid subscription is done automatically.  
+SaaS offers through the commercial marketplace enable you to provide a one-month free trial when selling through Microsoft. For all billing models and terms except metered plans, free trials are supported. This option allows customers to have a low-barrier to entry through one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of the initial one month period.  During this time, customers purchasing your offer can try out any of the supported plans that have the free trial enabled and convert between them.  The conversion to a paid subscription is done automatically at the end of the term.
 
 >[!Note]
 >If the customer chooses to convert to a plan without free trials, the conversion will happen, but the free trial will be lost immediately.  Also, once a customer starts paying for a plan, they can no longer get free trial on the same subscription again, even if they convert to a SKU that does support free trials.
