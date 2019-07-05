@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <title>AvereFXTEdgeFiler</title>
+  <g>
+    <path d="M3,36a2,2,0,0,1-2-2V1H15.049L20,6H42V9l2,0v24.91A2.087,2.087,0,0,1,41.914,36H3Z" fill="#fee087"/>
+    <path d="M5,34a2,2,0,0,1-4,0L1,1H15.05L20,6H42V9H5Z" fill="#1e1e1e" opacity="0.2"/>
+    <path d="M10,16H44a0,0,0,0,1,0,0V36a0,0,0,0,1,0,0H9a0,0,0,0,1,0,0V17A1,1,0,0,1,10,16Z" fill="#fff" opacity="0.4"/>
+    <g>
+      <path d="M48,17H11a1,1,0,0,0-1,1v8a1,1,0,0,0,1,1H48a1,1,0,0,0,1-1V18A1,1,0,0,0,48,17Z" fill="#ff8c00"/>
+      <rect x="45" y="19" width="2" height="2" rx="0.5" ry="0.5" fill="#0072c6"/>
+      <rect x="45" y="23" width="2" height="2" rx="0.5" ry="0.5" fill="#0072c6"/>
+      <path d="M48,28H11a1,1,0,0,0-1,1v8a1,1,0,0,0,1,1H48a1,1,0,0,0,1-1V29A1,1,0,0,0,48,28Z" fill="#ff8c00"/>
+      <rect x="45" y="30" width="2" height="2" rx="0.5" ry="0.5" fill="#0072c6"/>
+      <rect x="45" y="34" width="2" height="2" rx="0.5" ry="0.5" fill="#0072c6"/>
+      <path d="M48,39H11a1,1,0,0,0-1,1v8a1,1,0,0,0,1,1H48a1,1,0,0,0,1-1V40A1,1,0,0,0,48,39Z" fill="#ff8c00"/>
+      <rect x="45" y="41" width="2" height="2" rx="0.5" ry="0.5" fill="#0072c6"/>
+      <rect x="45" y="45" width="2" height="2" rx="0.5" ry="0.5" fill="#0072c6"/>
+    </g>
+  </g>
+</svg>

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
 ---
 
@@ -86,4 +86,3 @@ In the dialogs that follow, make the following selections:
 
 > [!div class="nextstepaction"]
 > [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
-
