@@ -50,7 +50,7 @@ For more information:
 
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
-**Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server. | DPM/MABS must be running on-premises.
+**Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server.<br/> The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is > 2.0.8719.0.  | DPM/MABS must be running on-premises.
 **Back up of Azure VMs/workloads** | DPM/MABS protection agent on protected machine.<br/><br/> The MARS agent on DPM/MABS server. | DPM/MABS must be running on an Azure VM.
 
 ## Supported deployments

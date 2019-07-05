@@ -56,5 +56,5 @@ Because SharePoint databases are configured in SQL AlwaysOn, they cannot be modi
 
 Read the other FAQs:
 
-- [Learn more](backup-support-matrix-mabs-dpm.md) about Azure Backup Server and DPM Support Matrix.
-- [Learn more](backup-azure-mabs-troubleshoot.md) about the Azure Backup Server and DPM troubleshooting guidelines
+- [Learn more](backup-support-matrix-mabs-dpm.md) about Azure Backup Server and DPM support matrix.
+- [Learn more](backup-azure-mabs-troubleshoot.md) about the Azure Backup Server and DPM troubleshooting guidelines.
