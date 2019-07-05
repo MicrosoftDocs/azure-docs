@@ -127,98 +127,34 @@ az storage account create -n <storage-account-name> -g <resource-group-name> --f
 
 ## Assign access permissions to an identity 
 
-To access Azure Files resources using Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
+To access Azure Files resources using Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows Share permissions, where you specify the type of access that a given user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
+
+We have introduced two Azure Built-in roles for granting share level permissions to users: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor. Storage File Data SMB Share Reader allows read access in Azure Storage file shares over SMB
+Storage File Data SMB Share Contributor allows read, write, and delete access in Azure Storage file shares over SMB. 
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials. 
 
-### Define a custom role
+You can use Azure Portal, PowerShell or Azure CLI to assign the built-in roles to the Azure AD identity of an user for granting share level permissions. 
 
-To grant share-level permissions, define a custom RBAC role and assign it to an identity, scoping it to a specific file share. This process is similar to specifying Windows Share permissions, where you specify the type of access that a given user has to a file share.  
+#### Azure Portal
+To assign a RBAC role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
 
-The templates shown in the following sections provide either Read or Change permissions for a file share. To define a custom role, create a JSON file and copy the appropriate template to that file. For more information about defining custom RBAC roles, see [Custom roles in Azure](../../role-based-access-control/custom-roles.md).
-
-**Role definition for share-level Change permissions**  
-The following custom role template provides share-level Change permissions, granting an identity read, write, and delete access to the share.
-
-```json
-{
-  "Name": "<Custom-Role-Name>",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows for read, write and delete access to Azure File Share over SMB",
-  "Actions": [
-   	"Microsoft.Storage/storageAccounts/fileServices/*"
-  ],
-  "DataActions": [
-   	"Microsoft.Storage/storageAccounts/fileServices/*"
-  ],
-  "NotDataActions": [
-   	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
-	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actassuperuser/action"
-  ],
-  "AssignableScopes": [
-    	"/subscriptions/<Subscription-ID>"
-  ]
-}
-```
-
-**Role definition for share-level Read permissions**  
-The following custom role template provides share-level Read permissions, granting an identity read access to the share.
-
-```json
-{
-  "Name": "<Custom-Role-Name>",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows for read access to Azure File Share over SMB",
-  "Actions": [
-   	"Microsoft.Storage/storageAccounts/fileServices/*/read"
-  ],
-  "DataActions": [
-  	"Microsoft.Storage/storageAccounts/fileServices/*/read"
-  ],
-  "AssignableScopes": [
-    	"/subscriptions/<Subscription-ID>"
-  ]
-}
-```
-
-### Create the custom role
-
-To create the custom role, use PowerShell or Azure CLI. 
+1. In the Azure portal, navigate to your file share, or [create a file share in Azure Files](storage-how-to-create-file-share.md).
+2. Select **Access Control (IAM)**.
+3. Click **Add a role assignment**
+4. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** dropdown list. Keep the **Assign access to** as default: "Azure AD user, group, or service principal", and select the target Azure AD identity by name or email address. 
+5. Lastly, click **Save** to complete the role assignment operation.
 
 #### PowerShell
 
-The following PowerShell command creates a custom role based on one of the sample templates.
-
-```powershell
-#Create a custom role based on the sample template above
-New-AzRoleDefinition -InputFile "<custom-role-def-json-path>"
-```
-
-#### CLI 
-
-The following Azure CLI command creates a custom role based on one of the sample templates.
-
-```azurecli-interactive
-#Create a custom role based on the sample templates above
-az role definition create --role-definition "<Custom-role-def-JSON-path>"
-```
-
-### Assign the custom role to the target identity
-
-Next, use PowerShell or Azure CLI to assign the custom role to an Azure AD identity. 
-
-#### PowerShell
-
-The following PowerShell command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+The following PowerShell command shows how to assign a RBAC role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 When running the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
 ```powershell
 #Get the name of the custom role
-$FileShareContributorRole = Get-AzRoleDefinition "<role-name>"
+$FileShareContributorRole = Get-AzRoleDefinition "<role-name>" #Use one of the built-in roles: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
 #Constrain the scope to the target file share
 $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 #Assign the custom role to the target identity with the specified scope.
@@ -227,15 +163,13 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 #### CLI
   
-The following CLI 2.0 command shows how to list the available custom roles and then assign a custom role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+The following CLI 2.0 command shows how to assign a RBAC role to an Azure AD identity, based on sign-in name. For more information about assigning RBAC roles with Azure CLI, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 When running the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
 ```azurecli-interactive
-#List the custom roles
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
-#Assign the custom role to the target identity
-az role assignment create --role "<custom-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
+#Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
+az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 ```
 
 ## Configure NTFS permissions over SMB 
