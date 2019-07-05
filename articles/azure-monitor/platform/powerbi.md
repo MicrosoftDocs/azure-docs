@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/219
+ms.date: 05/01/2019
 ms.author: bwren
 ---
 # Import Azure Monitor log data into Power BI
