@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -84,21 +84,24 @@ For details about how to track asynchronous Azure operations, see [Async operati
 
 Media Services has the following long-running operations:
 
-* Create LiveEvent
-* Update LiveEvent
-* Delete LiveEvent
-* Start LiveEvent
-* Stop LiveEvent
-* Reset LiveEvent
-* Create LiveOutput
-* Delete LiveOutput
-* Create StreamingEndpoint
-* Update StreamingEndpoint
-* Delete StreamingEndpoint
-* Start StreamingEndpoint
-* Stop StreamingEndpoint
-* Scale StreamingEndpoint
+* [Create Live Events](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Update Live Events](https://docs.microsoft.com/rest/api/media/liveevents/update)
+* [Delete Live Event](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Start Live Event](https://docs.microsoft.com/rest/api/media/liveevents/start)
+* [Stop LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
+* [Reset LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
+* [Create LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
+* [Delete LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)
+* [Create StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)
+* [Update StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/update)
+* [Delete StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/delete)
+* [Start StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/start)
+* [Stop StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
+* [Scale StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
+Only one long-running operation is supported for a given Live Event or any of its associated Live Outputs. Once started, a long running operation must complete before starting a subsequent long-running operation on the same LiveEvent or any associated Live Outputs. For Live Events with multiple Live Outputs, you must await the completion of a long running operation on one Live Output before triggering a long running operation on another Live Output. 
+
+Stopping a Live Event has a parameter to delete all associated Live Outputs. On successful submission of a long operation you receive a '202 Accepted' and must poll for operation completion using the returned operation ID. 
 
 ## SDKs
 
