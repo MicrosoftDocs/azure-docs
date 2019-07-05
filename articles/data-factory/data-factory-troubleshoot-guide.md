@@ -6,7 +6,7 @@ author: abnarain
 manager: craigg
 ms.service: data-factory
 ms.topic: troubleshoot
-ms.subservice: troubleshoot
+
 ms.date: 6/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
