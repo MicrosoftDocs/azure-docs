@@ -55,7 +55,7 @@ Diagnostic logs are disabled by default. To enable diagnostic logs, perform the 
     
     1. Select metrics to be collected.
     
-    1. Save the new diagnostics settings and [metrics](using-metrics.md)
+    1. Select **Save** to save the new diagnostics settings and [metrics](using-metrics.md)
 
 New settings will be set in a few minutes. Logs then appear in the configured archival target, in the **Diagnostics logs** pane.
 
