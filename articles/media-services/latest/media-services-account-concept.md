@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ---
 
@@ -21,23 +21,10 @@ To start managing, encrypting, encoding, analyzing, and streaming media content 
 
 ## Moving a Media Services account between subscriptions 
 
-If you need to move a Media Services account to a new subscription, you need to first move the entire resource group that contains the Media Services account to the new subscription. You must move all attached resources: Azure Storage accounts, Azure CDN profiles, etc. 
+If you need to move a Media Services account to a new subscription, you need to first move the entire resource group that contains the Media Services account to the new subscription. You must move all attached resources: Azure Storage accounts, Azure CDN profiles, etc. For more information, see [Move resources to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). As with any resources in Azure, resource group moves can take some time to complete.
 
 > [!NOTE]
 > Media Services v3 supports multi-tenancy model.
-
-You can do the move using the Azure portal or scripts:
-
-* The Azure portal 
-
-    In your Media Services account, select Overview > Subscription name (change)
-
-    ![Subscription](./media/accounts/subscription.png)
-* Scripts 
-
-    For more information, see [Move resources to new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). 
-
-As with any resources in Azure, resource group moves can take some time to complete.
 
 ### Considerations
 
