@@ -22,6 +22,8 @@
   items:
   - name: Glossary
     href: iot-plug-and-play-glossary.md
+  - name: Developer guide
+    href: concepts-developer-guide.md
 - name: How-to guides
   items:
   - name: Onboard to the IoT portal
