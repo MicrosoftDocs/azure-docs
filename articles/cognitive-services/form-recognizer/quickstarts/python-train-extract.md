@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
