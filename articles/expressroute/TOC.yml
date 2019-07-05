@@ -191,7 +191,7 @@
   - name: REST (classic)
     href: https://msdn.microsoft.com/library/azure/dn606310
   - name: Resource Manager template
-    href: /azure/templates/microsoft.network/allversions
+    href: /azure/templates/microsoft.network/expressroutecircuits
 - name: Resources
   items:
   - name: ExpressRoute FAQ
