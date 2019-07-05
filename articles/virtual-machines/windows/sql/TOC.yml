@@ -59,7 +59,7 @@
     - name: Use Azure PowerShell
       href: virtual-machines-windows-ps-sql-create.md
   - name: Register with the resource provider
-    href: virtual-machines-windows-sql-register-with-rp.md
+    href: virtual-machines-windows-sql-register-with-resource-provider.md
   - name: Change licensing model for SQL VM
     href: virtual-machines-windows-sql-ahb.md
   - name: Change edition of SQL Server 

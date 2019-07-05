@@ -39,7 +39,7 @@ If you updated the edition of SQL Server using the installation media after regi
 To do an in-place change of the edition of SQL Server, you will need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- A Windows [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md).
+- A Windows [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md).
 - Setup media with the desired edition of SQL Server. Customers who have [software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers do not have software assurance can use the setup media from a marketplace SQL Server VM image that has their desired edition.
 
 
@@ -83,7 +83,7 @@ Once the SQL Server edition is downgraded, you should modify the 'Edition' prope
 
  - The edition property for the SQL Server VM must match the edition of the SQL Server installed to the virtual machine for all SQL Virtual Machines including both PAYG and BYOL license types.
  - If you drop your SQL Server VM resource, you will go back to the hard-coded edition setting of the image.
-  - The ability to change the edition is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-rp.md).
+  - The ability to change the edition is a feature of the SQL VM resource provider. Deploying a marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md).
 - Adding a SQL Server VM to an availability set requires recreating the VM. As such, any VMs added to an availability set will go back to the default edition and the edition will need to be modified again.
 
 ## Next steps

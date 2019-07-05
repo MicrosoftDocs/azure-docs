@@ -23,7 +23,7 @@ This article describes how to use [Azure SQL VM CLI](/cli/azure/sql/vm?view=azur
 To automate the setup of an Always On availability group using Azure SQL VM CLI, you must already have the following prerequisites: 
 - An [Azure Subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same availability set or different availability zones* that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same availability set or different availability zones* that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - [Azure CLI](/cli/azure/install-azure-cli). 
 - Two available (not used by any entity) IP addresses, one for the Internal Load Balancer, and one for the availability group listener within the same subnet as the availability group. If an existing load balancer is being used, then only one available IP address is needed for the availability group listener. 
 

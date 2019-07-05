@@ -34,7 +34,7 @@ There are three SQL manageability modes for the SQL IaaS extension: **Full**, **
 
 - **Lightweight** does not require the restart of SQL Server, but only supports changing the license type and edition of SQL Server. This option should be used for SQL Server VMs with multiple instances, or participating in a failover cluster instance (FCI). 
 
-- **NoAgent** is dedicated for SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008. For information on utilizing `NoAgent` mode for your Windows Server 2008 image, see [Windows Server 2008 registration](virtual-machines-windows-sql-register-with-rp.md#register-sql-server-2008r2-on-windows-server-2008-vms). 
+- **NoAgent** is dedicated for SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008. For information on utilizing `NoAgent` mode for your Windows Server 2008 image, see [Windows Server 2008 registration](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008r2-on-windows-server-2008-vms). 
 
 ## Supported services
 The SQL Server IaaS Agent Extension supports the following administration tasks:
@@ -100,7 +100,7 @@ To upgrade agent mode to *full*, do the following:
     ![Enable full management for IaaS extension](media/virtual-machines-windows-sql-server-agent-extension/enable-full-mode-iaas.png)
 
 ##  Installation
-The SQL IaaS extension is installed when you register your SQL Server VM with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#register-with-sql-vm-resource-provider). However, if necessary, the SQL IaaS agent can also be installed manually using *full* or *lightweight* mode installation. 
+The SQL IaaS extension is installed when you register your SQL Server VM with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider). However, if necessary, the SQL IaaS agent can also be installed manually using *full* or *lightweight* mode installation. 
 
 The *full* SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images using the Azure portal. 
 
