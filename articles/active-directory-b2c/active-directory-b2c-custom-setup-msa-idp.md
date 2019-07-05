@@ -128,17 +128,17 @@ If no errors are displayed in the portal, continue to the next section.
 At this point, you've set up the identity provider, but it's not yet available in any of the sign-up or sign-in screens. To make it available, create a duplicate of an existing template user journey, then modify it so that it also has the Microsoft account identity provider.
 
 1. Open the *TrustFrameworkBase.xml* file from the starter pack.
-2. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
-3. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
-4. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
-5. Rename the ID of the user journey. For example, `SignUpSignInMSA`.
+1. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
+1. Open the *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
+1. Paste the entire content of the **UserJourney** element that you copied as a child of the **UserJourneys** element.
+1. Rename the ID of the user journey. For example, `SignUpSignInMSA`.
 
 ### Display the button
 
 The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up or sign-in screen. If you add a **ClaimsProviderSelection** element for a Microsoft account, a new button is displayed when a user lands on the page.
 
 1. In the *TrustFrameworkExtensions.xml* file, find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
-2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `MicrosoftAccountExchange`:
+1. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `MicrosoftAccountExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
@@ -149,7 +149,7 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with a Microsoft account to receive a token.
 
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
-2. Add the following **ClaimsExchange** element making sure that you use the same value for the ID that you used for **TargetClaimsExchangeId**:
+1. Add the following **ClaimsExchange** element making sure that you use the same value for the ID that you used for **TargetClaimsExchangeId**:
 
     ```xml
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
@@ -157,52 +157,53 @@ Now that you have a button in place, you need to link it to an action. The actio
 
     Update the value of **TechnicalProfileReferenceId** to match that of the `Id` value in the **TechnicalProfile** element of the claims provider you added earlier. For example, `MSA-OIDC`.
 
-3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
+1. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
 ## Create an Azure AD B2C application
 
 Communication with Azure AD B2C occurs through an application that you create in your Azure AD B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications**, and then select **Add**.
-5. Enter a name for the application, for example *testapp1*.
-6. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
-7. Click **Create**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Applications**, and then select **Add**.
+1. Enter a name for the application, for example *testapp1*.
+1. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
+1. Click **Create**.
 
 ## Update and test the relying party file
 
 Update the relying party (RP) file that initiates the user journey that you created.
 
 1. Make a copy of *SignUpOrSignIn.xml* in your working directory, and rename it. For example, rename it to *SignUpSignInMSA.xml*.
-2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInMSA`.
-3. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_msa`
-4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the user journey that you created earlier (SignUpSignInMSA).
-5. Save your changes, upload the file, and then select the new policy in the list.
-6. Make sure that Azure AD B2C application that you created in the previous section or by completing the prerequisites (for example, *webapp1* or *testapp1*) is selected in the **Select application** field, and then test it by clicking **Run now**.
+1. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInMSA`.
+1. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_msa`
+1. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the user journey that you created earlier (SignUpSignInMSA).
+1. Save your changes, upload the file, and then select the new policy in the list.
+1. Make sure that Azure AD B2C application that you created in the previous section or by completing the prerequisites (for example, *webapp1* or *testapp1*) is selected in the **Select application** field, and then test it by clicking **Run now**.
+1. Select the **Microsoft Account** button and sign in.
 
-Select the "Microsoft Account" button and to sign in. If the sign in operation is successful, you're redirected to `jwt.ms` which displays the Decoded Token, similar to:
+    If the sign-in operation is successful, you're redirected to `jwt.ms` which displays the Decoded Token, similar to:
 
-```json
-{
-  "typ": "JWT",
-  "alg": "RS256",
-  "kid": "<key-ID"
-}.{
-  "exp": 1562365200,
-  "nbf": 1562361600,
-  "ver": "1.0",
-  "iss": "https://your-b2c-tenant.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
-  "sub": "20000000-0000-0000-0000-000000000000",
-  "aud": "30000000-0000-0000-0000-000000000000",
-  "acr": "b2c_1a_signupsigninmsa",
-  "nonce": "defaultNonce",
-  "iat": 1562361600,
-  "auth_time": 1562361600,
-  "idp": "live.com",
-  "name": "Azure User",
-  "email": "azureuser@contoso.com",
-  "tid": "6fc3b573-7b38-4c0c-b627-2e8684f6c575"
-}.[Signature]
-```
+    ```json
+    {
+      "typ": "JWT",
+      "alg": "RS256",
+      "kid": "<key-ID"
+    }.{
+      "exp": 1562365200,
+      "nbf": 1562361600,
+      "ver": "1.0",
+      "iss": "https://your-b2c-tenant.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
+      "sub": "20000000-0000-0000-0000-000000000000",
+      "aud": "30000000-0000-0000-0000-000000000000",
+      "acr": "b2c_1a_signupsigninmsa",
+      "nonce": "defaultNonce",
+      "iat": 1562361600,
+      "auth_time": 1562361600,
+      "idp": "live.com",
+      "name": "Azure User",
+      "email": "azureuser@contoso.com",
+      "tid": "6fc3b573-7b38-4c0c-b627-2e8684f6c575"
+    }.[Signature]
+    ```
