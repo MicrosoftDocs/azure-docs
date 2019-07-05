@@ -88,7 +88,7 @@ Use the following procedure.
 6. To enable the rules after you create them, select **Yes** for the **Enable rule upon creation** option.
 7. Select **Create alert rule**.
 
-    The new alert rule for the activity log is created and a confirmation message appears in the upper-right corner of the window.
+    The new alert rule for the activity log is created, and a confirmation message appears in the upper-right corner of the window.
 
     You can enable, disable, edit, or delete a rule. Learn more about how to manage activity log rules.
 
@@ -114,17 +114,17 @@ A simple analogy for understanding conditions on which alert rules can be create
 
    > [!NOTE]
    > 
-   > You can only edit **Description**, **Target criteria**, and **Action groups**.
+   > You can edit only **Description**, **Target criteria**, and **Action groups**.
 
-3. Select the rule and double-click to edit the rule options. Make the required changes, and then select **Save**.
+3. Select the rule, and double-click to edit the rule options. Make the required changes, and then select **Save**.
 
    ![Manage alert rules](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-4. You can enable, disable, or delete a rule. Select the appropriate option at the top of the window after you select the rule as detailed in step 2.
+4. You can enable, disable, or delete a rule. Select the appropriate option at the top of the window after you select the rule as described in step 2.
 
 
 ## Azure Resource Manager template
-To create an activity log alert by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert.
+To create an activity log alert by using an Azure Resource Manager template, you create a resource of the type `microsoft.insights/activityLogAlerts`. Then you fill in all related properties. Here's a template that creates an activity log alert:
 
 ```json
 {
@@ -191,7 +191,7 @@ To create an activity log alert by using an Azure Resource Manager template, you
   ]
 }
 ```
-The previous sample JSON can be saved as, for example, sampleActivityLogAlert.json for the purpose of this walkthrough and can be deployed by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+The previous sample JSON can be saved as, for example, sampleActivityLogAlert.json for the purpose of this walk-through and can be deployed by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 > [!NOTE]
 > It might take up to 5 minutes for the new activity log alert rule to become active.
