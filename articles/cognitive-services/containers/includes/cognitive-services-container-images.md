@@ -15,9 +15,9 @@ The tables below are a comprehensive listing of the available container images o
 
 | Service | Container | Repository/Image Name |
 |--|--|--|
-| [Anomaly detector](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) | Anomaly Detector | `microsoft/cognitive-services-anomaly-detector` |
+| [Anomaly detector](../../anomaly-detector/anomaly-detector-container-howto.md) | Anomaly Detector | `microsoft/cognitive-services-anomaly-detector` |
 | [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | Recognize Text | `microsoft/cognitive-services-recognize-text` |
-| [Face](../../Face/face-how-to-install-containers.md) | Face | `microsoft/cognitive-services-face` |
+| [Face](../../face/face-how-to-install-containers.md) | Face | `microsoft/cognitive-services-face` |
 | [Form recognizer](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `microsoft/cognitive-services-form-recognizer` |
-| [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) | Speech-to-text | `microsoft/cognitive-services-speech-to-text` |
-| [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) | Text-to-speech | `microsoft/cognitive-services-text-to-speech` |
+| [Speech Service API](../../speech-service/speech-container-howto.md) | Speech-to-text | `microsoft/cognitive-services-speech-to-text` |
+| [Speech Service API](../../speech-service/speech-container-howto.md) | Text-to-speech | `microsoft/cognitive-services-text-to-speech` |
