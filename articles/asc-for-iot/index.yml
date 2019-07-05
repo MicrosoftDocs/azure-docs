@@ -7,7 +7,7 @@ metadata:
   services: asc-for-iot
   author: mlottner
   manager: rkarlin
-  ms.service: ascforiot
+  ms.service: asc-for-iot
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
