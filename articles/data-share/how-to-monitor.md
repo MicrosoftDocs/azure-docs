@@ -1,6 +1,6 @@
 ---
-title: How to monitor my Azure Data Share Preview
-description: How to monitor my Azure Data Share Preview
+title: How to monitor Azure Data Share Preview
+description: How to monitor Azure Data Share Preview
 author: joannapea
 
 ms.service: data-share
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
 ---
-# Monitoring my Azure Data Share Preview 
+# Monitor Azure Data Share Preview 
 
 This article explains how you can monitor your data shares using Azure Data Share Preview. As a data provider, you are able to monitor various aspects of your data sharing relationships. Details such as whether your data consumers have accepted your invitation to the data share, as well as whether they have created a share subscription and started to use your data are all available to monitor. 
 
@@ -20,11 +20,11 @@ View the status of your data share invitations by navigating to Sent shares -> I
 
 ![Invitation status](./media/invitation-status.png "Invitation status") 
 
-There are 3 states that your invitation can be in:
+There are three states that your invitation can be in:
 
-1. Pending - Data share recipient has not yet accepted the invitation
-1. Accepted - Data share recipient has accepted the invitation
-1. Rejected - Data share recipient has rejected the invitation 
+* Pending - Data share recipient has not yet accepted the invitation.
+* Accepted - Data share recipient has accepted the invitation.
+* Rejected - Data share recipient has rejected the invitation.
 
 > [!IMPORTANT]
 > If you delete an invitation after it has already been accepted, it is not equivalent to revoking access. If you would like to stop future snapshots from being copied into your data consumers storage account, you must revoke access through the *Share subscriptions* tab. 
@@ -37,7 +37,7 @@ View the status of your share subscriptions by navigating to Sent Shares -> Shar
 
 In the history tab, you are able to view the snapshots that have been copied in to your data consumer's tenant. You are able to monitor the frequency and duration of each snapshot interval. 
 
-![Snapshit history](./media/sent-shares.png "Snapshot history") 
+![Snapshot history](./media/sent-shares.png "Snapshot history") 
 
 You can view more details about each snapshot run by clicking on the run start date. 
 

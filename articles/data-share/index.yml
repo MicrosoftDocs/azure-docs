@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Data Share Preview Documentation
+title: Azure Data Share Preview documentation
 metadata:
-  title: Azure Data Share Preview Documentation - Tutorials, how to guides
+  title: Azure Data Share Preview documentation - Tutorials, how-to guides
   description: Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations.
   author: joannapea
   ms.author: joanpo
@@ -41,7 +41,7 @@ sections:
         src: /azure/data-share/media/index/portal.svg
       text: Troubleshoot Azure Data Share
       href: /azure/data-share/data-share-troubleshoot
-- title: Step-by-Step Tutorials
+- title: Step-by-Step tutorials
   items:
   - type: paragraph
     text: 'Learn how to start sharing your data using Azure Data Share'
