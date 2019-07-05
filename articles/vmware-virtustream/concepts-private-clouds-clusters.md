@@ -22,7 +22,7 @@ Figure 1 shows a logical relationship between subscriptions, private clouds, clu
 
 Private cloud interconnectivity and networking concepts are described in detail in the <!-- [Interconnectivity and Networking Concepts article][concepts-networking] -->.
 
-## Private Clouds
+## Private clouds
 
 AVS by Virtustream private clouds contain vSAN clusters that are built with dedicated, bare-metal hosts in Azure. Each private cloud can have multiple clusters, all controlled by the same vCenter server and NSX-T manager. You can deploy and manage private clouds in the portal, from the CLI, or with PowerShell. As with other resources, private clouds are installed and managed from within an Azure subscription. 
 
@@ -70,7 +70,7 @@ Host maintenance and lifecycle management are done without impact on the capacit
 
 ## Backup and restoration
 
-Private cloud vCenter and NSX-T configurations are backed up hourly. Backups are retained for three days. Restoration from backups is initiated through a Service Request, submitted in the Azure Portal.
+Private cloud vCenter and NSX-T configurations are backed up hourly. Backups are retained for three days. Restoration from backups is initiated through a Service Request, submitted in the Azure portal.
 
 ## Next steps
 

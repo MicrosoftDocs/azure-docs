@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: About AVS by Virtustream
-    href: intro-avsv.md
+    href: introduction.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,7 +15,7 @@
 - name: Concepts
   items:
   - name: Private clouds and clusters
-    href: concepts-private-clouds-and-clusters.md
+    href: concepts-private-clouds-clusters.md
 - name: Reference
   items:
 - name: Resources

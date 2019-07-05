@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solution by Virtustream tutorial - Create an NSX-T network
-description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you create an NSX-T T1 router with a logical. You then create a DHCP server and associate it with the logical switch.
+description: In this Azure VMware Solution by Virtustream (AVS by Virtustream) tutorial, you create an NSX-T T1 router with a logical switch. You then create a DHCP server and associate it with the logical switch.
 services: 
 author: v-jetome
 
@@ -15,17 +15,17 @@ ms.custom:
 
 # Tutorial: Create an NSX-T network on an Azure VMware Solution by Virtustream private cloud
 
-AVS by Virtustream private clouds provide Azure-based environments to run VMware workload virtual machines (VMs). You can quickly create networks in a private cloud and then deploy or migrate VMs on those networks. In this tutorial you create an NSX-T T1 router and a logical switch with DHCP services. Using NSX-T Manager, you learn how to:
+AVS by Virtustream private clouds provide Azure-based environments to run VMware workload virtual machines (VMs). You can quickly create networks in a private cloud and then deploy or migrate VMs on those networks. In this tutorial you create an NSX-T T1 router and a logical switch with DHCP services. Using NSX-T Manager, you learn how to create:
 
 > [!div class="checklist"]
-> * Create a logical switch
-> * Create a T1 router
-> * Add the logical switch to a port on the router
-> * Add DHCP services to the logical switch
+> * T1 router
+> * Logical switch
+> * Port on a router
+> * DHCP services
 
 ## Prerequisites
 
-In previous tutorials, you created a private cloud in Azure and recieved the credentials for access vCenter and NSX-T manager. If you haven't created a private cloud and want to follow along step-by-step with this tutorial, start at <!-- [Tutorial 1 – Create a private cloud][tutorials-create-private-cloud] -->.
+In previous tutorials, you created a private cloud in Azure and received the credentials for access vCenter and NSX-T manager. If you haven't created a private cloud and want to follow along step-by-step with this tutorial, start at <!-- [Tutorial 1 – Create a private cloud][tutorials-create-private-cloud] -->.
 
 This tutorial requires that you have access to vCenter and NSX-T Manager in your private cloud. If you need to establish access, see <!-- [Tutorial 3 -- Access private cloud][tutorial-access-private-cloud] -->.
 
@@ -78,7 +78,7 @@ Select **ADD**.
 
 ![Add a new NSX-T DHCP server Router result](./media/NSX-add-router-results.png)
 
-## Add the Logical Switch to a port on the T1 router
+## Add the logical switch to a port on the T1 router
 
 Select **Networking > Routers** and then choose the T1 router that was just created.
 
