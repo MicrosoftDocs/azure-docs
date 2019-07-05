@@ -138,7 +138,7 @@ You can either use non-vanity URLs or vanity URLs.
 
 ## Live Event preview URL
 
-Once the **Live Event** starts receiving the contribution feed, you can use its preview endpoint to preview and validate that you are receiving the live stream before further publishing. After you have checked that the preview stream is good, you can use the Live Event to make the live stream available for delivery through one or more (pre-created) **Streaming Endpoints**. To accomplish this, you create a new [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) on the **Live Event**. 
+Once the Live Event starts receiving the contribution feed, you can use its preview endpoint to preview and validate that you are receiving the live stream before further publishing. After you have checked that the preview stream is good, you can use the Live Event to make the live stream available for delivery through one or more (pre-created) Streaming Endpoints. To accomplish this, you create a new [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) on the Live Event. 
 
 > [!IMPORTANT]
 > Make sure that the video is flowing to the preview URL before continuing!
