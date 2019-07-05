@@ -128,7 +128,7 @@
     items:
     - name: About Azure VM backup
       href: backup-azure-vms-introduction.md
-    - name: Backup and restore Azure VMs with Azure Backup Instant Restore
+    - name: Back up and restore Azure VMs with Azure Backup Instant Restore
       href: backup-instant-restore-capability.md
     - name: Back up Azure VMs
       items:
