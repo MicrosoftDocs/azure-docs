@@ -5,8 +5,7 @@ services: data-factory
 author: abnarain
 manager: craigg
 ms.service: data-factory
-ms.topic: troubleshoot
-
+ms.topic: troubleshooting
 ms.date: 6/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
