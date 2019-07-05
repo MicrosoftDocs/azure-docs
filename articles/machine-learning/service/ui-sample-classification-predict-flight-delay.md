@@ -55,6 +55,7 @@ A dataset usually requires some pre-processing before it can be analyzed.
 ### Flight data
 
 The columns **Carrier**, **OriginAirportID**, and **DestAirportID** are saved as integers. However, they're  categorical attributes, use the **Edit Metadata** module to convert them to categorical.
+
 ![edit-metadata](media/ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
 Then use the **Select Columns** in Dataset module to exclude from the dataset columns that are possible target leakers: **DepDelay**, **DepDel15**, **ArrDelay**, **Canceled**, **Year**. 
