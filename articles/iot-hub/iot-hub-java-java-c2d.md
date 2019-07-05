@@ -15,11 +15,11 @@ ms.date: 06/28/2017
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to a Hub (Java)](quickstart-send-telemetry-java.md) tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Send telemetry from a device to a Hub](quickstart-send-telemetry-java.md) quickstart shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-This tutorial builds on [Send telemetry from a device to an IoT Hub (Java)](quickstart-send-telemetry-java.md). It shows you how to do the following:
+This tutorial builds on [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.md). It shows you how to do the following:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
 
@@ -31,7 +31,7 @@ You can find more information on [cloud-to-device messages in the IoT Hub develo
 
 At the end of this tutorial, you run two Java console apps:
 
-* **simulated-device**, a modified version of the app created in [Send telemetry from a device to a Hub (Java)](quickstart-send-telemetry-java.md), which connects to your IoT hub and receives cloud-to-device messages.
+* **simulated-device**, a modified version of the app created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.md), which connects to your IoT hub and receives cloud-to-device messages.
 
 * **send-c2d-messages**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
 
@@ -40,7 +40,7 @@ At the end of this tutorial, you run two Java console apps:
 
 To complete this tutorial, you need the following:
 
-* A complete working version of the [Send telemetry from a device to a Hub (Java)](quickstart-send-telemetry-java.md) or the [Configure message routing with IoT Hub](tutorial-routing.md) tutorial.
+* A complete working version of the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.md) quickstart or the [Configure message routing with IoT Hub](tutorial-routing.md) tutorial.
 
 * The latest [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
@@ -50,7 +50,7 @@ To complete this tutorial, you need the following:
 
 ## Receive messages in the simulated device app
 
-In this section, you modify the simulated device app you created in [Send telemetry from a device to a Hub (Java)](quickstart-send-telemetry-java.md) to receive cloud-to-device messages from the IoT hub.
+In this section, you modify the simulated device app you created in [Send telemetry from a device to a Hub](quickstart-send-telemetry-java.md) to receive cloud-to-device messages from the IoT hub.
 
 1. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java file.
 
@@ -61,16 +61,17 @@ In this section, you modify the simulated device app you created in [Send teleme
       public IotHubMessageResult execute(Message msg, Object context) {
         System.out.println("Received message from hub: "
           + new String(msg.getBytes(), Message.DEFAULT_IOTHUB_MESSAGE_CHARSET));
-    
+
         return IotHubMessageResult.COMPLETE;
       }
     }
     ```
+
 3. Modify the **main** method to create an **AppMessageCallback** instance and call the **setMessageCallback** method before it opens the client as follows:
 
     ```java
     client = new DeviceClient(connString, protocol);
-   
+
     MessageCallback callback = new AppMessageCallback();
     client.setMessageCallback(callback, null);
     client.open();
@@ -87,7 +88,7 @@ In this section, you modify the simulated device app you created in [Send teleme
 
 ## Send a cloud-to-device message
 
-In this section, you create a Java console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Send telemetry from a device to a Hub (Java)](quickstart-send-telemetry-java.md) quickstart. You also need the IoT Hub connection string for your hub that you can find in the [Azure portal](https://portal.azure.com).
+In this section, you create a Java console app that sends cloud-to-device messages to the simulated device app. You need the device ID of the device you added in the [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.md) quickstart. You also need the IoT Hub connection string for your hub that you can find in the [Azure portal](https://portal.azure.com).
 
 1. Create a Maven project called **send-c2d-messages** using the following command at your command prompt. Note this command is a single, long command:
 
@@ -132,31 +133,31 @@ In this section, you create a Java console app that sends cloud-to-device messag
     ```
 
 8. Replace the **main** method with the following code. This code connects to your IoT hub, sends a message to your device, and then waits for an acknowledgment that the device received and processed the message:
-   
+
     ```java
     public static void main(String[] args) throws IOException,
         URISyntaxException, Exception {
       ServiceClient serviceClient = ServiceClient.createFromConnectionString(
         connectionString, protocol);
-   
+
       if (serviceClient != null) {
         serviceClient.open();
         FeedbackReceiver feedbackReceiver = serviceClient
           .getFeedbackReceiver();
         if (feedbackReceiver != null) feedbackReceiver.open();
-   
+
         Message messageToSend = new Message("Cloud to device message.");
         messageToSend.setDeliveryAcknowledgement(DeliveryAcknowledgement.Full);
-   
+
         serviceClient.send(deviceId, messageToSend);
         System.out.println("Message sent to device");
-   
+
         FeedbackBatch feedbackBatch = feedbackReceiver.receive(10000);
         if (feedbackBatch != null) {
           System.out.println("Message feedback received, feedback time: "
             + feedbackBatch.getEnqueuedTimeUtc().toString());
         }
-   
+
         if (feedbackReceiver != null) feedbackReceiver.close();
         serviceClient.close();
       }
@@ -164,8 +165,7 @@ In this section, you create a Java console app that sends cloud-to-device messag
     ```
 
     > [!NOTE]
-    > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
-
+    > For simplicity, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 9. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
 
@@ -180,7 +180,7 @@ You are now ready to run the applications.
 1. At a command prompt in the simulated-device folder, run the following command to begin sending telemetry to your IoT hub and to listen for cloud-to-device messages sent from your hub:
 
     ```cmd/sh
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
     ![Run the simulated device app](./media/iot-hub-java-java-c2d/receivec2d.png)
@@ -195,7 +195,7 @@ You are now ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages. 
+In this tutorial, you learned how to send and receive cloud-to-device messages.
 
 To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Solution Accelerators](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
