@@ -128,11 +128,13 @@ The following example shows the response for the document collection in this art
 
 ## Sentiment analysis V3 public preview
 
-The [next version of Sentiment Analysis (needs updated link)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) is now available for Public Preview, providing significant improvements in the accuracy and detail of the API's text categorization and scoring. 
+The [next version of Sentiment Analysis](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) is now available for Public Preview, providing significant improvements in the accuracy and detail of the API's text categorization and scoring. 
 
 > [!NOTE]
-> * At this time, sentiment analysis V3 currently only supports the English language.  Additional languages will be available in subsequent releases.
 > * The sentiment analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
+> * At this time, Sentiment analysis V3: 
+>    * Currently only supports the English language.  
+>    * Is available in the following regions: `Central US`, `Central Canada`, ` East Asia` 
 
 |Feature |Description  |
 |---------|---------|
@@ -249,7 +251,7 @@ While the request format is the same as the previous version, the response forma
 
 ### Example C# code
 
-You can find an example C# application that calls this version of sentiment analysis on [github](https://github.com)
+You can find an example C# application that calls this version of sentiment analysis on [github](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs)
 
 ## Summary
 
