@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detection
 ms.topic: conceptual
-ms.date: 7/5/2019
+ms.date: 7/3/2019
 ms.author: dapine
 ---
 
@@ -16,14 +16,16 @@ ms.author: dapine
 
 Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detector-container-howto.md) container to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). This procedure demonstrates the creation of an Anomaly Detector resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
-[!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
+## Prerequisites
 
-[!INCLUDE [Request access](../../../../includes/cognitive-services-containers-request-access-only.md)]
+* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 [!INCLUDE [Create a Cognitive Services Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
 
-[!INCLUDE [Create an Anomaly Detector container on Azure Container Instances](../../containers/includes/create-aci-resource-from-azure-cli.md)]
+// TODO...
 
-[!INCLUDE [API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-[!INCLUDE [Containers Next Steps](../../containers/includes/containers-next-steps.md)]
+## Next steps
+
+* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)

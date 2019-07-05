@@ -147,6 +147,8 @@
       href: computer-vision-how-to-install-containers.md
     - name: Configure containers
       href: computer-vision-resource-container-config.md
+    - name: Use container instances (ACI)
+      href: use-computer-vision-on-aci.md
   - name: Use the Computer Vision Connected Service
     href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
