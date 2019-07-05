@@ -1,5 +1,5 @@
 ---
-title: Install and use Azure IoT explorer | Microsoft Docs'
+title: Install and use Azure IoT explorer | Microsoft Docs
 description: Install the Azure IoT explorer tool and use it to interact with the Plug and Play devices connected to my IoT hub.
 author: miagdp
 ms.author: miag
@@ -25,8 +25,8 @@ This article shows you how to:
 
 To use the Azure IoT explorer tool, you need:
 
-- An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub's connection string to run the Azure IoT explorer tool. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- A device registered in your IoT hub. You can use the following Azure CLI command to register a device, be sure to replace the `{YourIoTHubName}` and `{YourDeviceID}` placeholders with your values:
+- An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Creating an IoT hub by using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub connection string to run the Azure IoT explorer tool. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- A device registered in your IoT hub. You can use the following Azure CLI command to register a device. Be sure to replace the `{YourIoTHubName}` and `{YourDeviceID}` placeholders with your values:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -34,9 +34,9 @@ To use the Azure IoT explorer tool, you need:
 
 ## Install Azure IoT explorer
 
-Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. The following instructions assume that the most recent release is 0.8.4, if there's a more recent version use that. Download and run the appropriate file for your operating, for example:
+Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. The following instructions assume that the most recent release is 0.8.4. If there's a more recent version, use that version instead. Download and run the appropriate file for your operating system, for example:
 
-- For Windows, download and run `Azure.IoT.Explorer.Setup.0.8.4.exe`. IF you see a **Windows Security Alert** from **Windows Firewall**, select **Allow Access**.
+- For Windows, download and run `Azure.IoT.Explorer.Setup.0.8.4.exe`. If you see a **Windows Security Alert** from **Windows Firewall**, select **Allow Access**.
 - For iOS, download and run `Azure.IoT.Explorer.Setup.0.8.4.dmg`.
 
 ## Use Azure IoT explorer
@@ -60,13 +60,13 @@ To remove a source, select **X** to delete it.
 
 #### Device overview
 
-After the tool connects to your IoT hub, it displays an overview page that lists of all the device identities registered with your Azure IoT Hub. Select a device to view more detail.
+After the tool connects to your IoT hub, it displays an overview page that lists of all the device identities registered with your Azure IoT hub. Select a device to view more details.
 
 #### Device management
 
 - To register a new device with your hub, select **Add**. Enter a device ID. Use the default settings to autogenerate authentication keys and enable the connection to your hub.
 - To delete a device identity, select **Delete**. Review the device details before you complete this action to be sure you're deleting the right device identity.
-- You can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to find devices in the IoT hub's registry. The tool also supports querying by `capabilityID` and `interfaceID`:
+- You can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to find devices in the IoT hub's registry. The tool also supports querying by `capabilityID` and `interfaceID`.
 
 
 ## Interact with a device
@@ -75,7 +75,7 @@ Double-click a device on the overview page to view the next level of detail. The
 
 ### Device
 
-This section includes the **Device Identity**, **Telemetry**, and **Device Twin** tabs:
+This section includes the **Device Identity**, **Telemetry**, and **Device Twin** tabs.
 
 - You can view and update the device identity information on the **Device identity** tab.
 - If a device is connected and actively sending data, you can view the telemetry on the **Telemetry** tab.
@@ -83,41 +83,41 @@ This section includes the **Device Identity**, **Telemetry**, and **Device Twin*
 
 ### Digital twin
 
-You can use the tool to a view digital twin instance of the device. For a Plug and Play device, all the interfaces associated with the device capability model are displayed here. Select an interface to expand its corresponding [Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+You can use the tool to a view digital twin instance of the device. For a Plug and Play device, all the interfaces associated with the device capability model are displayed in this article. Select an interface to expand its corresponding [Plug and Play primitives](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 #### Properties
 
-You can view the read-only properties defined in an interface on the **Properties** page. You can update the writeable properties defined in an interface on the **Writeable properties** page:
+You can view the read-only properties defined in an interface on the **Properties** page. You can update the writeable properties defined in an interface on the **Writeable properties** page.
 
-- Go to **Writable properties** page.
-- Click the property you'd like to update.
-- Enter the new value for the property.
-- Preview the payload to be sent to the device.
-- Submit the change.
+1. Go to the **Writable properties** page.
+1. Click the property you'd like to update.
+1. Enter the new value for the property.
+1. Preview the payload to be sent to the device.
+1. Submit the change.
 
-After you submit a change, you can track the update status: **synching**, **success**, or **error**. When the synching is complete, you see the new value of your property in the **Reported Property** column. If you navigate to other pages before the synching completes, the tool still notifies you when the update is complete. You can also use the tool's notification center to see the notification history:
+After you submit a change, you can track the update status: **synching**, **success**, or **error**. When the synching is complete, you see the new value of your property in the **Reported Property** column. If you navigate to other pages before the synching completes, the tool still notifies you when the update is complete. You can also use the tool's notification center to see the notification history.
 
 #### Commands
 
 To send a command to a device, go to the **Commands** page:
 
 1. In the list of commands, expand the command you want to trigger.
-2. Enter any required values for the command.
-3. Preview the payload to be sent to the device.
-4. Submit the command.
+1. Enter any required values for the command.
+1. Preview the payload to be sent to the device.
+1. Submit the command.
 
 #### Telemetry
 
-To view the telemetry for the selected interface, go to its **Telemetry** page:
+To view the telemetry for the selected interface, go to its **Telemetry** page.
 
 ## Clean up resources
 
-If you plan to continue with other articles, you can keep the Azure resources you created. Otherwise you can delete the resources you've created for this article to avoid additional charges.
+If you plan to continue with other articles, you can keep the Azure resources you created. Otherwise, you can delete the resources you created for this article to avoid additional charges.
 
-1. Log into the [Azure portal](https://portal.azure.com).
-1. Go to Resource Groups and type your resource group name that contains your hub in ``Filter by name`` textbox.
-1. To the right of your resource group, click `...` and select ``Delete resource group``.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to **Resource Groups**. In the **Filter by name** textbox, enter the resource group name that contains your hub.
+1. To the right of your resource group, click the elippsis (...) and select **Delete resource group**.
 
 ## Next steps
 
-In this how-to article, you've learned how to install and use Azure IoT explorer to interact with your Plug and Play devices. To learn about the Plug and Play CLI utilities, continue to the next article.
+In this how-to article, you learned how to install and use Azure IoT explorer to interact with your Plug and Play devices. To learn about the Plug and Play CLI utilities, continue to the next article.
