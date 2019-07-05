@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.subservice: hybrid
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
 ---
 
