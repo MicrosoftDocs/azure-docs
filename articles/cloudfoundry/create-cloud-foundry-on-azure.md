@@ -60,7 +60,7 @@ For more information, see [Use SSH keys with Windows on Azure](https://docs.micr
 
     > [!NOTE]
     >
-    > Choose your own application home page and identifier URI, for example, [http://www.contoso.com](http://www.contoso.com).
+    > Choose your own application home page and identifier URI, for example, http\://www\.contoso.com.
 
 4. Create a service principal with your new app ID.
 
