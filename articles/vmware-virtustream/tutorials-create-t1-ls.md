@@ -72,7 +72,7 @@ Enter a **Name** and select **Non-preemptive** Failover Mode.
 ![Add NSX-T T1 router form](./media/NSX-add-router-form.png)
 
 > [!NOTE]
-> There is only a single Tier-0 Router and a single Edge Cluster to select.
+> There is only a single Tier-0 Router and a single NSX-T Edge Node cluster to select.
 
 Select **ADD**.
 

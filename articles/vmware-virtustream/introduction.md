@@ -34,7 +34,7 @@ Private management, provisioning, and vMotion networks are created when a privat
 
 Access to the internet and Azure services are provisioned when a private cloud is deployed. The access is provided so that VMs on production workload networks can consume Azure or internet-based services. Internet access is disabled by default for new private clouds, and it can be enabled or disabled at any time.
 
-For more information on networking and interconnectivity, see <!-- [Interconnectivity Concepts][network-concepts-networking] -->.
+For more information on networking and interconnectivity, see <!-- [Interconnectivity Concepts][concepts-networking] -->.
 
 ## Access and security
 
