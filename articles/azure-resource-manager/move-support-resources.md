@@ -4,16 +4,14 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 7/3/2019
+ms.date: 7/5/2019
 ms.author: tomfitz
 ---
 
 # Move operation support for resources
 This article lists whether an Azure resource type supports the move operation. It also provides information about special conditions to consider when moving a resource.
 
-To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
-
-Jump to a resource provider:
+Jump to a resource provider namespace:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
 > - [microsoft.aadiam](#microsoftaadiam)
@@ -184,7 +182,7 @@ Jump to a resource provider:
 | gateways | No | No |
 
 > [!IMPORTANT]
-> See [App Service move limitations](./move-limitations/app-service-move-limitations.md).
+> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
 
 ## Microsoft.Authorization
 | Resource type | Resource group | Subscription |
@@ -273,6 +271,9 @@ Jump to a resource provider:
 | ------------- | ----------- | ---------- |
 | certificateorders | Yes | Yes |
 
+> [!IMPORTANT]
+> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
+
 ## Microsoft.ClassicCompute
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -280,7 +281,7 @@ Jump to a resource provider:
 | virtualmachines | Yes | No |
 
 > [!IMPORTANT]
-> See [Classic deployment limitations](./move-limitations/classic-model-move-limitations.md).
+> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
 
 ## Microsoft.ClassicNetwork
 | Resource type | Resource group | Subscription |
@@ -290,7 +291,7 @@ Jump to a resource provider:
 | virtualnetworks | No | No |
 
 > [!IMPORTANT]
-> See [Classic deployment limitations](./move-limitations/classic-model-move-limitations.md).
+> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
 
 ## Microsoft.ClassicStorage
 | Resource type | Resource group | Subscription |
@@ -298,7 +299,7 @@ Jump to a resource provider:
 | storageaccounts | Yes | No |
 
 > [!IMPORTANT]
-> See [Classic deployment limitations](./move-limitations/classic-model-move-limitations.md).
+> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
 
 ## Microsoft.CognitiveServices
 | Resource type | Resource group | Subscription |
@@ -326,7 +327,7 @@ Jump to a resource provider:
 | virtualmachinescalesets | Yes | Yes |
 
 > [!IMPORTANT]
-> See [Virtual Machines move limitations](./move-limitations/virtual-machine-moves-limitations.md).
+> See [Virtual Machines move guidance](./move-limitations/virtual-machine-moves-limitations.md).
 
 ## Microsoft.Container
 | Resource type | Resource group | Subscription |
@@ -759,7 +760,7 @@ Jump to a resource provider:
 | webapplicationfirewallpolicies | Yes | Yes |
 
 > [!IMPORTANT]
-> See [Virtual Networks move limitations](./move-limitations/virtual-network-move-limitations.md).
+> See [Virtual Networks move guidance](./move-limitations/virtual-network-move-limitations.md).
 
 ## Microsoft.NotificationHubs
 | Resource type | Resource group | Subscription |
@@ -818,7 +819,7 @@ Jump to a resource provider:
 | vaults | Yes | Yes |
 
 > [!IMPORTANT]
-> See [Recovery Services limitations](recovery-services-move-limitations.md).
+> See [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.Relay
 | Resource type | Resource group | Subscription |
@@ -891,6 +892,9 @@ Jump to a resource provider:
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | siterecoveryvault | No | No |
+
+> [!IMPORTANT]
+> See [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.Solutions
 | Resource type | Resource group | Subscription |
@@ -1003,6 +1007,9 @@ Jump to a resource provider:
 | account/extension | Yes | Yes |
 | account/project | Yes | Yes |
 
+> [!IMPORTANT]
+> follow steps to [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+
 ## Microsoft.VMwareCloudSimple
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -1024,7 +1031,7 @@ Jump to a resource provider:
 | sites/slots | Yes | Yes |
 
 > [!IMPORTANT]
-> See [App Service move limitations](./move-limitations/app-service-move-limitations.md).
+> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
 
 ## Microsoft.WindowsIoT
 | Resource type | Resource group | Subscription |
@@ -1044,3 +1051,5 @@ Third-party services currently don't support the move operation.
 
 ## Next steps
 For commands to move resources, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+
+To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

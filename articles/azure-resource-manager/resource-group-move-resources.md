@@ -6,27 +6,21 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: tomfitz
-
 ---
+
 # Move resources to new resource group or subscription
 
 This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
 
 Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups, but it doesn't mean the resources are frozen. For example, if you move a SQL Server and its database to a new resource group, an application that uses the database experiences no downtime. It can still read and write to the database.
 
-Moving a resource only moves it to a new resource group. The move operation can't change the location of the resource. The new resource group may have a different location, but that doesn't change the location of the resource.
-
-> [!NOTE]
-> This article describes how to move resources between existing Azure subscriptions. If you actually want to upgrade your Azure subscription (such as switching from free to pay-as-you-go), you need to convert your subscription.
-> * To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](..//billing/billing-upgrade-azure-subscription.md).
-> * To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
-> * If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
 ## Checklist before moving resources
 
 There are some important steps to do before moving a resource. By verifying these conditions, you can avoid errors.
+
+1. The resources you want to move must support the move operation. For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
 
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
@@ -86,28 +80,12 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-1. When possible, break large moves into separate move operations. Resource Manager immediately returns an error when there are more than 800 resources in a single operation. However, moving less than 800 resources may also fail by timing out.
+If you actually want to upgrade your Azure subscription (such as switching from free to pay-as-you-go), you need to convert your subscription.
 
-1. The service must enable the ability to move resources. To determine whether the move will succeed, [validate your move request](#validate-move). See the sections below in this article of which [services enable moving resources](#services-that-can-be-moved) and which [services don't enable moving resources](#services-that-cannot-be-moved).
+* To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md).
+* To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
 
-
-## Services that can be moved
-
-The following list provides a general summary of Azure services that can be moved to a new resource group and subscription. For a list of which resource types support move, see [Move operation support for resources](move-support-resources.md).
-
-* Azure DevOps - follow steps to [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
-
-## Limitations
-
-The section provides descriptions of how to handle complicated scenarios for moving resources. The limitations are:
-
-* [Virtual Machines limitations](#virtual-machines-limitations)
-* [Virtual Networks limitations](#virtual-networks-limitations)
-* [App Service limitations](#app-service-limitations)
-* [App Service Certificate limitations](#app-service-certificate-limitations)
-* [Classic deployment limitations](#classic-deployment-limitations)
-* [Recovery Services limitations](#recovery-services-limitations)
-* [HDInsight limitations](#hdinsight-limitations)
+If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
 ## Validate move
 
@@ -121,7 +99,7 @@ The [validate move operation](/rest/api/resources/resources/validatemoveresource
 Send the following request:
 
 ```
-POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2019-05-10
 Authorization: Bearer <access-token>
 Content-type: application/json
 ```
@@ -162,9 +140,7 @@ While the operation is still running, you continue to receive the 202 status cod
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## Move resources
-
-### <a name="use-portal" />By using Azure portal
+## Move by using portal
 
 To move resources, select the resource group with those resources, and then select the **Move** button.
 
@@ -184,7 +160,7 @@ When it has completed, you're notified of the result.
 
 ![show move result](./media/resource-group-move-resources/show-result.png)
 
-### By using Azure PowerShell
+## Move by using Azure PowerShell
 
 To move existing resources to another resource group or subscription, use the [Move-AzResource](/powershell/module/az.resources/move-azresource) command. The following example shows how to move several resources to a new resource group.
 
@@ -196,7 +172,7 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 To move to a new subscription, include a value for the `DestinationSubscriptionId` parameter.
 
-### By using Azure CLI
+## Move by using Azure CLI
 
 To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
@@ -208,7 +184,7 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 To move to a new subscription, provide the `--destination-subscription-id` parameter.
 
-### By using REST API
+## Move by using REST API
 
 To move existing resources to another resource group or subscription, run:
 
@@ -220,7 +196,11 @@ In the request body, you specify the target resource group and the resources to 
 
 ## Next steps
 
-* To learn about the PowerShell cmdlets for managing your resources, see [Using Azure PowerShell with Resource Manager](manage-resources-powershell.md).
-* To learn about the Azure CLI commands for managing your resources, see [Using the Azure CLI with Resource Manager](manage-resources-cli.md).
-* To learn about portal features for managing your subscription, see [Using the Azure portal to manage resources](resource-group-portal.md).
-* To learn about applying a logical organization to your resources, see [Using tags to organize your resources](resource-group-using-tags.md).
+Some services require additional considerations when moving resources. See guidance for:
+
+* [App Services](./move-limitations/app-service-move-limitations.md)
+* [Azure DevOps](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+* [Classic deployment model](./move-limitations/classic-model-move-limitations.md)
+* [Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+* [Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
+* [Virtual Networks](./move-limitations/virtual-network-move-limitations.md)

@@ -142,10 +142,12 @@
       items:
       - name: App Service move
         href: ./move-limitations/app-service-move-limitations.md
+      - name: Azure DevOps
+        href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
       - name: Classic deployment move
         href: ./move-limitations/classic-model-move-limitations.md
       - name: Recovery Services move
-        href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.yml
+        href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
       - name: Virtual Machines move
         href: ./move-limitations/virtual-machines-move-limitations.md
       - name: Virtual Networks move
