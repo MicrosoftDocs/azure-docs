@@ -12,7 +12,7 @@ ms.author: pullabhk
 
 # Troubleshoot backup of SAP HANA Server on Azure
 
-This article provides troubleshooting information for protecting SAP HANA databases on Azure virtual machines. First, let's cover a few key points about permissions and settings.
+This article provides troubleshooting information for backing up SAP HANA databases on Azure virtual machines. First, let's cover a few key points about permissions and settings.
 
 ## Understanding prerequisites
 
@@ -41,7 +41,7 @@ What the preregistration script does:
 
 ### Setting up BackInt parameters
 
-After a database is chosen for backup, the Azure Backup service  configures ackInt parameters at DATABASE level:
+After a database is chosen for backup, the Azure Backup service  configures backInt parameters at DATABASE level:
 
 - [catalog_backup_using_backint:true]
 - [enable_accumulated_catalog_backup:false]
