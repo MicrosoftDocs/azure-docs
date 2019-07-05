@@ -79,6 +79,9 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
     <add key="ClientId" value="Enter_the_Application_Id_here" />
 	<add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.	
 
 > [!div renderon="docs"]
 > Where:
