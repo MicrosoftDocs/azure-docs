@@ -122,7 +122,12 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Keep this in mind when choosing this popular option. You can run out of cluster node resources if you are combining many large source files into a single output file partition.
 * To avoid exhausting compute node resources, you can keep the default or explicit partitioning scheme in ADF, which optimizes for performance, and then add a subsequent Copy Activity in the pipeline that merges all of the PART files from the output folder to a new single file. Essentially, this technique separates the action of transformation from file merging and achieves the same result as setting "output to single file".
 
+### Looping through file lists
+
+In most instances, Data Flows in ADF will execute better from a pipeline that allows the Data Flow Source transformation to iterate over multiple files. In other words, it is preferred to use wildcards or file lists inside of your Source in Data Flow that to iterate over a large list of files using ForEach in the pipeline, calling an Execute Data Flow on each iteration. The Data Flow process will execute faster by allowing the looping to occur inside the Data Flow.
+
 ## Next steps
+
 See the other Data Flow articles related to performance:
 
 - [Data Flow Optimize Tab](concepts-data-flow-optimize-tab.md)
