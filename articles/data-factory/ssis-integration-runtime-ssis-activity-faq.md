@@ -60,7 +60,7 @@ This article includes the most common errors that you might hit when executing S
 ### Error message：“SSIS Executor exit code: -1073741819.”
 
 * Potential cause & recommended action:
-  * Package execution may fail with this exit code when multiple Excel source components are executing concurrently to retrieve data. You can workaround this limitation by change your Excel components to execute in sequence, or separate them into different packages.
+  * This error may be because of the limitation for Excel source and destination when multiple Excel sources or destinations are executing in parallel in multi-thread. You can workaround this limitation by change your Excel components to execute in sequence, or separate them into different packages and trigger through "Execute Package Task" with ExecuteOutOfProcess property set as True.
 
 ### Error message: "There is not enough space on the disk"
 
