@@ -38,11 +38,14 @@ There are two kinds of amendments available for Azure Marketplace publishers:
 >[!Note] 
 >Customers targeted with custom amendments will also get the universal amendment to the standard terms during purchase.
 
+>[!Note]
+>The following offer types support Standard Contract Amendments: Azure Applications (Solution Templates and Managed Applications), Virtual Machines, Containers, Container Applications.
+
 ### Customer Experience
 
-During the purchase process in Ibiza, customers will be able to see the terms associated with the product as the Microsoft Standard Contract and the amendments.
+During the purchase process in Azure management portal, customers will be able to see the terms associated with the product as the Microsoft Standard Contract and the amendments.
 
-![Ibiza customer experience](media/marketplace-publishers-guide/ibiza-customer-experience.png)
+![Azure management portal customer experience](media/marketplace-publishers-guide/ibiza-customer-experience.png)
 
 ### API
 
