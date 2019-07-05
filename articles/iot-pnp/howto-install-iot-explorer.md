@@ -116,7 +116,7 @@ If you plan to continue with other articles, you can keep the Azure resources yo
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to **Resource Groups**. In the **Filter by name** textbox, enter the resource group name that contains your hub.
-1. To the right of your resource group, click the elippsis (...) and select **Delete resource group**.
+1. To the right of your resource group, click the ellipsis (...) and select **Delete resource group**.
 
 ## Next steps
 
