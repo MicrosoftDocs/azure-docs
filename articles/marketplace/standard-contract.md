@@ -43,9 +43,9 @@ There are two kinds of amendments available for Azure Marketplace publishers:
 
 ### Customer Experience
 
-During the purchase process in Azure management portal, customers will be able to see the terms associated with the product as the Microsoft Standard Contract and the amendments.
+During the purchase process in the Azure management portal, customers will be able to see the terms associated with the product as the Microsoft Standard Contract and the amendments.
 
-![Azure management portal customer experience](media/marketplace-publishers-guide/ibiza-customer-experience.png)
+![The Azure management portal customer experience.](media/marketplace-publishers-guide/ibiza-customer-experience.png)
 
 ### API
 
