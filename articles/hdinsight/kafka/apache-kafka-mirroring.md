@@ -55,11 +55,23 @@ This architecture features two clusters in different resource groups and virtual
 
 ### Creation steps
 
-1. Create two new resource groups **kafka-primary-rg** in **Central US** and **kafka-secondary-rg** in **North Central US**
+1. Create two new resource groups:
+
+    |Resource Group | Location |
+    |---|---|
+    | kafka-primary-rg | Central US |
+    | kafka-secondary-rg | North Central US |
+
 1. Create a new virtual network **kafka-primary-vnet** in **kafka-primary-rg**. Leave the default settings.
-1. Create a new virtual network **kafka-secondary-vnet** in **kafka-secondary-rg**
-1. Create a new Kafka cluster **kafka-primary-cluster** in the **kafka-primary-rg** resource group, using the **kafka-primary-vnet** virtual network. Create a new storage account **kafkaprimarystorage**.
-1. Create a second Kafka cluster **kafka-secondary-cluster** in the **kafka-secondary-rg** resource group, using the **kafka-secondary-vnet** virtual network. Create a new storage account **kafkasecondarystorage**.
+1. Create a new virtual network **kafka-secondary-vnet** in **kafka-secondary-rg**, also with default settings.
+
+1. Create two new Kafka clusters:
+
+    | Cluster name | Resource Group | Virtual Network | Storage Account |
+    |---|---|---|---|
+    | kafka-primary-cluster | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
+    | kafka-secondary-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
+
 1. Create virtual network peerings. This step will create two peerings: one from **kafka-primary-vnet** to **kafka-secondary-vnet** and one back from **kafka-secondary-vnet** to **kafka-primary-vnet**.
     1. Select the **kafka-primary-vnet** virtual network.
     1. Click **Peerings** under **Settings**.
@@ -89,15 +101,15 @@ This architecture features two clusters in different resource groups and virtual
         ![restart kafka nodes](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 1. Configure Kafka to listen on all network interfaces.
-    1. In the **Kafka Broker** section set the **listeners** property to `PLAINTEXT://0.0.0.0:9092`.
+    1. Stay on the **Configs** tab under **Services** > **Kafka**. In the **Kafka Broker** section set the **listeners** property to `PLAINTEXT://0.0.0.0:9092`.
     1. Click **Save**.
     1. Click **Restart**, and **Confirm Restart All**.
 
 1. Record Broker IP addresses and Zookeeper addresses for primary cluster.
     1. Click **Hosts** on the Ambari dashboard.
-    1. Make a note of the IP Addresses for the Brokers and Zookeepers.
+    1. Make a note of the IP Addresses for the Brokers and Zookeepers. The broker nodes have **wn** as the first two letters of the host name, and the zookeeper nodes have **zk** as the first two letters of the host name.
 
-        ![view ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses.png)
+        ![view ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. Repeat the previous three steps for the second cluster **kafka-secondary-cluster**: configure IP advertising, set listeners and make a note of the Broker and Zookeeper IP addresses.
 
@@ -180,12 +192,12 @@ This architecture features two clusters in different resource groups and virtual
 3. Before configuring the producer that communicates with the secondary cluster, setup a variable for the broker IP addresses of the **secondary** cluster. Use the following commands to create this variable:
 
     ```bash
-    export SECONDARY_BROKERHOSTS='BROKER_IP_ADDRESS1:2181,BROKER_IP_ADDRESS2:2181,BROKER_IP_ADDRESS2:2181'
+    export SECONDARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
     ```
 
     The command `echo $SECONDARY_BROKERHOSTS` should return information similar to the following text:
 
-    `10.23.0.14:2181,10.23.0.4:2181,10.23.0.12:2181`
+    `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
 4. A `producer.properties` file is used to communicate the **secondary** cluster. To create the file, use the following command:
 
@@ -233,6 +245,8 @@ This architecture features two clusters in different resource groups and virtual
         6. Change the value of `auto.create.topics.enable` to true, and then select __Save__. Add a note, and then select __Save__ again.
         7. Select the __Kafka__ service, select __Restart__, and then select __Restart all affected__. When prompted, select __Confirm restart all__.
 
+        ![configure topic auto creation](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+
 ## Start MirrorMaker
 
 1. From the SSH connection to the **secondary** cluster, use the following command to start the MirrorMaker process:
@@ -251,18 +265,12 @@ This architecture features two clusters in different resource groups and virtual
 
     * **--num.streams**: The number of consumer threads to create.
 
-   On startup, MirrorMaker returns information similar to the following text:
-
-    ```json
-    {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
-    metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
-    metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
-    ```
+    The consumer on the secondary node is now waiting to receive messages.
 
 2. From the SSH connection to the **primary** cluster, use the following command to start a producer and send messages to the topic:
 
     ```bash
-    SOURCE_BROKERHOSTS=`BROKER_IP_ADDRESS1:2181,BROKER_IP_ADDRESS2:2181,BROKER_IP_ADDRESS2:2181`
+    export PRIMARY_BROKERHOSTS=BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
@@ -271,10 +279,10 @@ This architecture features two clusters in different resource groups and virtual
 3. From the SSH connection to the **secondary** cluster, use **Ctrl + C** to end the MirrorMaker process. It may take several seconds to end the process. To verify that the messages were replicated to the secondary, use the following command:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the primary cluster to the secondary. The messages retrieved from the topic are the same as entered on the primary cluster.
+    The list of topics now includes `testtopic`, which is created when MirrorMaster mirrors the topic from the primary cluster to the secondary. The messages retrieved from the topic are the same as the ones you entered on the primary cluster.
 
 ## Delete the cluster
 
