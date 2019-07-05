@@ -18,11 +18,11 @@ ms.reviewer: jroth
 ---
 # How to perform an in-place upgrade of SQL Server edition on Azure VM
 
-This article describes how to change the edition of SQL Server for an existing SQL Server on Windows virtual machine in Azure. 
+This article describes how to change the edition of SQL Server for an existing SQL Server on a Windows virtual machine in Azure. 
 
-SQL Server edition is determined by the product key, and is specified with the installation process. The edition dictates what [features](/sql/sql-server/editions-and-components-of-sql-server-2017) are available within the SQL Server product. You can change the SQL Server edition with the installation media and either downgrade to reduce cost or upgrade to enable more features.
+The edition of SQL Server is determined by the product key, and is specified with the installation process. The edition dictates what [features](/sql/sql-server/editions-and-components-of-sql-server-2017) are available within the SQL Server product. You can change the SQL Server edition with the installation media and either downgrade to reduce cost or upgrade to enable more features.
 
-If you updated SQL Server edition with the installation media after registering with the SQL VM resource provider, then to update the Azure billing accordingly you should set the SQL Server Edition Property of the SQL VM resource as follows:
+If you updated the edition of SQL Server using the installation media after registering with the SQL VM resource provider, then to update the Azure billing accordingly you should set the SQL Server Edition Property of the SQL VM resource as follows:
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
 1. Navigate to your SQL Server virtual machine resource. 
@@ -36,7 +36,7 @@ If you updated SQL Server edition with the installation media after registering 
 
 ## Prerequisites
 
-To in-place update the edition of SQL Server, you will need the following: 
+To do an in-place change of the edition of SQL Server, you will need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A Windows [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md).
@@ -46,7 +46,7 @@ To in-place update the edition of SQL Server, you will need the following:
 ## Upgrade edition
 
   > [!WARNING]
-  > - **Upgrading edition of SQL Server will restart the service for SQL Server, as well as any associated services, such as Analysis Services and R Services.** 
+  > - **Upgrading the edition of SQL Server will restart the service for SQL Server, as well as any associated services, such as Analysis Services and R Services.** 
 
 To upgrade the edition of SQL Server, obtain the SQL Server setup media for the desired edition of SQL Server, and then do the following:
 
@@ -62,7 +62,7 @@ After SQL Server edition is upgraded, you should modify the "Edition" property o
 ## Downgrade edition
 
   > [!WARNING]
-  > - **Downgrading edition of SQL Server requires completely uninstalling SQL Server, which may incur additional downtime**. 
+  > - **Downgrading the edition of SQL Server requires completely uninstalling SQL Server, which may incur additional downtime**. 
 
 
 To downgrade the edition of SQL Server, you will need to completely uninstall SQL Server, and reinstall it again with the desired edition setup media. 
@@ -77,7 +77,7 @@ You can downgrade the edition of SQL Server by following these steps:
 1. Install the latest service packs and cumulative updates.  
 1. Replace the new system databases that were created during installation with the system databases you previously moved to a different location. 
 
-After SQL Server edition is downgraded, you should modify the "Edition" property of the Sql Virtual Machine on Azure Portal as shown above; this will update the metadata and billing associated with this VM.
+Once the SQL Server edition is downgraded, you should modify the 'Edition' property of the SQL virtual machine within the Azure Portal as shown above; this will update the metadata and billing associated with this VM.
 
 ## Remarks
 

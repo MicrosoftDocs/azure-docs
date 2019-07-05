@@ -25,9 +25,9 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **New SQL IaaS installation modes** | It's now possible to install the SQL IaaS extension in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#modes) to avoid restarting SQL Server service.  |
-| **SQL Server edition modification** | You can now change the [edition metadata](virtual-machines-windows-sql-change-edition.md) for your SQL Server VM. |
-| **SQL VM RP changes** | You can [register your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#register-sql-vm-in-full-management-mode) - even [Windows 2008 images](virtual-machines-windows-sql-register-with-rp.md#register-windows-server-2008-instances)- using the new SQL IaaS modes. |
+| **New SQL IaaS installation modes** | It's now possible to install the SQL IaaS extension in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md) to avoid restarting SQL Server service.  |
+| **SQL Server edition modification** | You can now change the [edition property](virtual-machines-windows-sql-change-edition.md) for your SQL Server VM. |
+| **SQL VM RP changes** | You can r[egister your SQL Server VM with the SQL VM resource provider](virtual-machines-windows-sql-register-with-rp.md#register-with-sql-vm-resource-provider) - even [Windows 2008 images](virtual-machines-windows-sql-register-with-rp.md#register-sql-server-2008r2-on-windows-server-2008-vms) - using the new SQL IaaS modes. |
 | **BYOL images using AHUB** | BYOL images deployed from the marketplace can now switch their [license type to 'PAYG'](virtual-machines-windows-sql-ahb.md#remarks), though they'll need to register as 'AHUB' initially. | 
 | &nbsp; | &nbsp; |
 
