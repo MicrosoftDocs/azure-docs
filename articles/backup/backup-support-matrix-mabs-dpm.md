@@ -50,7 +50,7 @@ For more information:
 
 **Scenario** | **Agent** | **Location**
 --- | --- | ---
-**Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server.<br/> The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is > 2.0.8719.0.  | DPM/MABS must be running on-premises.
+**Back up on-premises machines/workloads** | DPM/MABS protection agent runs on the machines that you want to back up.<br/><br/> The MARS agent on DPM/MABS server.<br/> The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is 2.0.8719.0.  | DPM/MABS must be running on-premises.
 **Back up of Azure VMs/workloads** | DPM/MABS protection agent on protected machine.<br/><br/> The MARS agent on DPM/MABS server. | DPM/MABS must be running on an Azure VM.
 
 ## Supported deployments
@@ -147,7 +147,7 @@ From DPM 2016/MABS v2 (running on Windows Server 2016) and later, you can take a
 - MBS backups are stored on a Resilient File System (ReFS) disk.
 - MBS uses ReFS block cloning for faster backup and more efficient use of storage space.
 - When you add volumes to the local DPM/MABS storage pool, you configure them with drive letters. You can then configure workload storage on different volumes.
-- When you create protection groups to back up data to DPM/MABS, you select the drive you want to use. For example, you might store backups for SQL or other high IOPS workloads a high-performance drive, and store workloads that are backed up less frequently on a lower performance drive.
+- When you create protection groups to back up data to DPM/MABS, you select the drive you want to use. For example, you might store backups for SQL or other high IOPS workloads on a high-performance drive, and store workloads that are backed up less frequently on a lower performance drive.
 
 
 ## Supported backups to MABS
@@ -201,7 +201,7 @@ The following table summarizes what can be backed up to DPM from on-premises mac
 **VMware VMs: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 needs System Center Update Rollup 1) <br/><br/>On-premises. | Back up VMware VMs on CSVs, NFS, and SAN storage.<br/><br/> Recover entire VM.<br/><br/> Windows/Linux backup.<br/><br/> Item-level recovery of folder/files for Windows VMs only.<br/><br/> VMware vApps aren't supported.<br/><br/> Recovery for Linux VMs is for the entire machine.
 
 
-- Note that clustered workloads backed up by DPM/MABS should be in the same domain as DPM/MABS or in a child/trusted domain.
+- Clustered workloads backed up by DPM/MABS should be in the same domain as DPM/MABS or in a child/trusted domain.
 - You can use NTLM/certificate authentication to back up data in untrusted domains or workgroups.
 
 
