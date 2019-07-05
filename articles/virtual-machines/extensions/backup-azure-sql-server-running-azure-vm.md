@@ -50,7 +50,7 @@ The extension schema and property values are the configuration values (runtime s
 
 The following JSON shows the schema for the WorkloadBackup extension.  
 
-  ``json
+  ```json
   {
     "type": "extensions",
     "name": "WorkloadBackup",
