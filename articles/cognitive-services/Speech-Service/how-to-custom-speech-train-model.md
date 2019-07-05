@@ -20,11 +20,11 @@ Training a speech-to-text is necessary to improve recognition accuracy for both 
 
 If you're encountering recognition issues with your model, using human-labeled transcripts and related data for additional training can help to improve accuracy. Use this table to determine which dataset to use to address your issue(s):
 
-| Use case | Data type | Data quantity |
-|----------|-----------|---------------|
-| Proper names are misrecognized | Related text (sentences/utterances) | 10 MB to 500 MB |
-| Words are misrecognized because of an accent | Related text (pronunciation) | Provide the misrecognized words |
-| Common words are deleted or misrecognized | Audio + human-labeled transcripts | 10 to 1,000 transcription hours |
+| Use case | Data type |
+|----------|-----------|
+| Proper names and jargons are misrecognized | Related text (sentences/utterances) |
+| Out-of-vocabulary words with nonstandard pronunciations are misrecognized | Related text (pronunciation) |
+| Words are misrecognized because of speaking stype, accent or noise | Audio + human-labeled transcripts |
 
 > [!IMPORTANT]
 > If you haven't uploaded a data set, please see [Prepare and test your data](how-to-custom-speech-test-data.md). This document provides instructions for uploading data, and guidelines for creating high-quality datasets.
