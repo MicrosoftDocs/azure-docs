@@ -89,7 +89,7 @@ If you can't convert the subscription, [create an Azure support request](../azur
 
 ## Validate move
 
-The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to determine if the move will succeed. To run this operation, you need the:
+The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move will succeed. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
 
 * name of the source resource group
 * resource ID of the target resource group
@@ -140,7 +140,7 @@ While the operation is still running, you continue to receive the 202 status cod
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## Move by using portal
+## Use portal
 
 To move resources, select the resource group with those resources, and then select the **Move** button.
 
@@ -160,7 +160,7 @@ When it has completed, you're notified of the result.
 
 ![show move result](./media/resource-group-move-resources/show-result.png)
 
-## Move by using Azure PowerShell
+## Use Azure PowerShell
 
 To move existing resources to another resource group or subscription, use the [Move-AzResource](/powershell/module/az.resources/move-azresource) command. The following example shows how to move several resources to a new resource group.
 
@@ -172,7 +172,7 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 To move to a new subscription, include a value for the `DestinationSubscriptionId` parameter.
 
-## Move by using Azure CLI
+## Use Azure CLI
 
 To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
 
@@ -184,7 +184,7 @@ az resource move --destination-group newgroup --ids $webapp $plan
 
 To move to a new subscription, provide the `--destination-subscription-id` parameter.
 
-## Move by using REST API
+## Use REST API
 
 To move existing resources to another resource group or subscription, run:
 
@@ -196,10 +196,12 @@ In the request body, you specify the target resource group and the resources to 
 
 ## Next steps
 
+For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
+
 Some services require additional considerations when moving resources. See guidance for:
 
 * [App Services](./move-limitations/app-service-move-limitations.md)
-* [Azure DevOps](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+* [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [Classic deployment model](./move-limitations/classic-model-move-limitations.md)
 * [Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
 * [Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)

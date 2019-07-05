@@ -327,7 +327,7 @@ Jump to a resource provider namespace:
 | virtualmachinescalesets | Yes | Yes |
 
 > [!IMPORTANT]
-> See [Virtual Machines move guidance](./move-limitations/virtual-machine-moves-limitations.md).
+> See [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md).
 
 ## Microsoft.Container
 | Resource type | Resource group | Subscription |
@@ -583,7 +583,7 @@ Jump to a resource provider namespace:
 | workbooks | Yes | Yes |
 
 > [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits)
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## Microsoft.IoTCentral
 | Resource type | Resource group | Subscription |
@@ -774,7 +774,7 @@ Jump to a resource provider namespace:
 | workspaces | Yes | Yes |
 
 > [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits)
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## Microsoft.OperationsManagement
 | Resource type | Resource group | Subscription |
@@ -1008,7 +1008,7 @@ Jump to a resource provider namespace:
 | account/project | Yes | Yes |
 
 > [!IMPORTANT]
-> follow steps to [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+> To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.VMwareCloudSimple
 | Resource type | Resource group | Subscription |

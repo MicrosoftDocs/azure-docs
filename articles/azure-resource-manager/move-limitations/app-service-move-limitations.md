@@ -8,7 +8,7 @@ ms.date: 07/05/2019
 ms.author: tomfitz
 ---
 
-# Move App Service resources
+# Move guidance for App Service resources
 
 The steps to move App Service resources differ based on whether you're moving the resources within a subscription or to a new subscription.
 

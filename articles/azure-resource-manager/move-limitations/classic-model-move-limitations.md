@@ -8,7 +8,7 @@ ms.date: 07/05/2019
 ms.author: tomfitz
 ---
 
-# Move Classic deployment model resources
+# Move guidance for Classic deployment model resources
 
 The steps to move resources deployed through the classic model differ based on whether you're moving the resources within a subscription or to a new subscription.
 

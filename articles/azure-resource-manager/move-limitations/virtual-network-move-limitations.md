@@ -8,7 +8,7 @@ ms.date: 07/05/2019
 ms.author: tomfitz
 ---
 
-# Move Virtual Networks
+# Move guidance for Virtual Networks
 
 This article describes how to move virtual networks for specific scenarios.
 

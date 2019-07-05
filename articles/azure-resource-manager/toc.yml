@@ -138,19 +138,19 @@
       href: move-support-resources.md
     - name: Troubleshoot move
       href: troubleshoot-move.md
-    - name: Service specific guidance
+    - name: Move guidance for services
       items:
-      - name: App Service move
+      - name: App Service
         href: ./move-limitations/app-service-move-limitations.md
       - name: Azure DevOps
         href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
-      - name: Classic deployment move
+      - name: Classic deployment
         href: ./move-limitations/classic-model-move-limitations.md
-      - name: Recovery Services move
+      - name: Recovery Services
         href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
-      - name: Virtual Machines move
+      - name: Virtual Machines
         href: ./move-limitations/virtual-machines-move-limitations.md
-      - name: Virtual Networks move
+      - name: Virtual Networks
         href: ./move-limitations/virtual-network-move-limitations.md
   - name: Manage
     items:
