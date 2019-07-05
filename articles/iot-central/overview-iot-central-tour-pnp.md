@@ -3,7 +3,7 @@ title: Take a tour of the Azure IoT Central UI | Microsoft Docs
 description: As a builder, become familiar with the key areas of the Azure IoT Central UI that you use to create an IoT solution.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/09/2019
+ms.date: 07/05/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -36,7 +36,7 @@ Use the left navigation menu to access the different areas of the application. Y
 
 | Menu | Description |
 | ---- | ----------- |
-| ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png) | <ul><li>The **Dashboard** button displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.</li><li>The **Device Explorer** button lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.</li><li>The **Device Sets** button enables you to view and create device sets. As an operator, you can create device sets as a logical collection of devices specified by a query.</li><li>The **Analytics** button shows analytics derived from device telemetry for devices and device sets. As an operator, you can create custom views on top of device data to derive insights from your application.</li><li>The **Jobs** button enables bulk device management by having you create and run jobs to perform updates at scale.</li><li>The **Device Templates** button shows the tools a builder uses to create and manage device templates.</li><li>The **Continuous Data Export** button an administrator to configure a continuous export to other Azure services such as storage and queues.</li><li>The **Administration** button shows the application administration pages where an administrator can manage application settings, users, and roles.</li></ul> |
+| ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar.png) | <ul><li>The **Dashboard** button displays your application dashboard. As a builder, you can customize the dashboard for your operators. Users can also create their own  dashboards.</li><li>The **Device Explorer** button lists the simulated and real devices associated with each device template in the application. As an operator, you use the **Device Explorer** to manage your connected devices.</li><li>The **Device Groups** button lets you view and create device groups. As an operator, you can create device groups as a logical collection of devices specified by a query.</li><li>The **Analytics** button shows analytics derived from device telemetry for devices and device groups. As an operator, you can create custom views on top of device data to derive insights from your application.</li><li>The **Jobs** button enables bulk device management by having you create and run jobs to perform updates at scale.</li><li>The **Rules** button lets you edit rules that fire based on device telemetry and trigger customizable actions.</li><li>The **Device Templates** button shows the tools a builder uses to create and manage device templates.</li><li>The **Continuous Data Export** button an administrator to configure a continuous export to other Azure services such as storage and queues.</li><li>The **Administration** button shows the application administration pages where an administrator can manage application settings, users, and roles.</li></ul> |
 
 ## Search, help, and support
 
@@ -73,11 +73,11 @@ The explorer page shows the _devices_ in your Azure IoT Central application grou
 * A device template defines a type of device that can connect to your application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 * A device represents either a real or simulated device in your application. To learn more, see the [Add a new device to your Azure IoT Central application](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-## Device sets
+## Device groups
 
-![Device Sets page](media/overview-iot-central-tour-pnp/devicesets.png)
+![Device Groups page](media/overview-iot-central-tour-pnp/devicesets.png)
 
-The _device sets_ page shows device sets created by the builder. A device set is a collection of related devices. A builder defines a query to identify the devices that are included in a device set. You use device sets when you customize the analytics in your application. To learn more, see the [Use device sets in your Azure IoT Central application](howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
+The _device groups_ page shows device groups created by the builder. A device group is a collection of related devices. A builder defines a query to identify the devices that are included in a device group. You use device groups when you customize the analytics in your application. To learn more, see the [Use device groups in your Azure IoT Central application](howto-use-device-sets-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ## Analytics
 
@@ -89,7 +89,13 @@ The analytics page shows charts that help you understand how the devices connect
 
 ![Jobs page](media/overview-iot-central-tour-pnp/jobs.png)
 
-The jobs page allows you to run bulk device management operations on your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
+The jobs page lets you run bulk device management operations on your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
+
+## Rules
+
+![Rules page](media/overview-iot-central-tour-pnp/rules.png)
+
+The rules page lets you define rules based on telemetry, device state, or device events. When a rule fires, it can trigger an action such as sending an email to an operator. The builder uses this page to create and manage rules, see the [Configure rules and actions for your devices in Azure IoT Central](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
 
 ## Device templates
 
@@ -98,9 +104,10 @@ The jobs page allows you to run bulk device management operations on your device
 The device templates page is where a builder creates and manages the device templates in the application. A device template specifies device characteristics such as:
 
 - Telemetry, state, and event measurements.
-- Settings and properties.
+- Properties.
 - Commands.
-- Rules based on events or telemetry values.
+
+The builder can also create forms and dashboards for operators to use to manage devices.
 
 To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
 
