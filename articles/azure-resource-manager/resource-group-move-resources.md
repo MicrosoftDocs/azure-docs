@@ -95,16 +95,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 The following list provides a general summary of Azure services that can be moved to a new resource group and subscription. For a list of which resource types support move, see [Move operation support for resources](move-support-resources.md).
 
-* App Service Certificates - see [App Service Certificate limitations](#app-service-certificate-limitations)
 * Azure DevOps - follow steps to [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
-
-
-### Services that cannot be moved
-
-The following list provides a general summary of Azure services that can't be moved to a new resource group and subscription. For greater detail, see [Move operation support for resources](move-support-resources.md).
-
-* Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
-* Lab Services - Classroom Labs can't be moved to a new resource group or subscription. DevTest Labs can be moved to a new resource group in the same subscription, but not across subscriptions.
 
 ## Limitations
 

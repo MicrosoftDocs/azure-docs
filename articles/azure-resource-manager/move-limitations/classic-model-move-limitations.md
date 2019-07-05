@@ -1,18 +1,18 @@
 ---
-title: Move Azure resources to new subscription or resource group | Microsoft Docs
-description: Use Azure Resource Manager to move resources to a new resource group or subscription.
+title: Move Azure Classic deployment resources to new subscription or resource group
+description: Use Azure Resource Manager to move Classic deployment resources to a new resource group or subscription.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 07/05/2019
 ms.author: tomfitz
 ---
 
-# Classic deployment model move limitations
+# Move Classic deployment model resources
 
-The options for moving resources deployed through the classic model differ based on whether you're moving the resources within a subscription or to a new subscription.
+The steps to move resources deployed through the classic model differ based on whether you're moving the resources within a subscription or to a new subscription.
 
-## Same subscription
+## Move in same subscription
 
 When moving resources from one resource group to another resource group within the same subscription, the following restrictions apply:
 
@@ -25,7 +25,7 @@ When moving resources from one resource group to another resource group within t
 
 To move classic resources to a new resource group within the same subscription, use the [standard move operations](../resource-group-move-resources.md) through the portal, Azure PowerShell, Azure CLI, or REST API. You use the same operations as you use for moving Resource Manager resources.
 
-## New subscription
+## Move across subscriptions
 
 When moving resources to a new subscription, the following restrictions apply:
 
@@ -61,7 +61,7 @@ To move classic resources to a new subscription, use the REST operations that ar
    }
    ```
 
-2. Check if the destination subscription can participate in a cross-subscription move. Use the following operation:
+1. Check if the destination subscription can participate in a cross-subscription move. Use the following operation:
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
@@ -76,7 +76,7 @@ To move classic resources to a new subscription, use the REST operations that ar
    ```
 
      The response is in the same format as the source subscription validation.
-3. If both subscriptions pass validation, move all classic resources from one subscription to another subscription with the following operation:
+1. If both subscriptions pass validation, move all classic resources from one subscription to another subscription with the following operation:
 
    ```HTTP
    POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
@@ -91,3 +91,7 @@ To move classic resources to a new subscription, use the REST operations that ar
    ```
 
 The operation may run for several minutes.
+
+## Next steps
+
+For commands to move resources, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).

@@ -1,18 +1,18 @@
 ---
-title: Move Azure resources to new subscription or resource group | Microsoft Docs
-description: Use Azure Resource Manager to move resources to a new resource group or subscription.
+title: Move Azure App Service resources to new subscription or resource group
+description: Use Azure Resource Manager to move App Service resources to a new resource group or subscription.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/05/2019
 ms.author: tomfitz
 ---
 
-# App Service limitations
+# Move App Service resources
 
-The limitations for moving App Service resources differ based on whether you're moving the resources within a subscription or to a new subscription. If your web app uses an App Service Certificate, see [App Service Certificate limitations](#app-service-certificate-limitations)
+The steps to move App Service resources differ based on whether you're moving the resources within a subscription or to a new subscription.
 
-## Moving within the same subscription
+## Move in same subscription
 
 When moving a Web App _within the same subscription_, you can't move third-party SSL certificates. However, you can move a Web App to the new resource group without moving its third-party certificate, and your app's SSL functionality still works.
 
@@ -22,7 +22,7 @@ If you want to move the SSL certificate with the Web App, follow these steps:
 2. Move the Web App.
 3. Upload the third-party certificate to the moved Web App.
 
-## Moving across subscriptions
+## Move across subscriptions
 
 When moving a Web App _across subscriptions_, the following limitations apply:
 
@@ -32,7 +32,7 @@ When moving a Web App _across subscriptions_, the following limitations apply:
     - Uploaded or imported SSL certificates
     - App Service Environments
 - All App Service resources in the resource group must be moved together.
-- App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group first, and then it can be moved across subscriptions.
+- App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, move it back to its original resource group. Then, move the resource across subscriptions.
 
 If you don't remember the original resource group, you can find it through diagnostics. For your web app, select **Diagnose and solve problems**. Then, select **Configuration and Management**.
 
@@ -50,6 +50,19 @@ You see the recommended actions to take before moving the resources. The informa
 
 ![Recommendations](./media/app-service-move-limitations/recommendations.png)
 
-## App Service Certificate limitations
+## Move App Service Certificate
 
 You can move your App Service Certificate to a new resource group or subscription. If your App Service Certificate is bound to a web app, you must take some steps before moving the resources to a new subscription. Delete the SSL binding and private certificate from the web app before moving the resources. The App Service Certificate doesn't need to be deleted, just the private certificate in the web app.
+
+## Move support
+
+To determine which App Service resources can be moved, see move support status for:
+
+- [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
+- [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
+- [Microsoft.DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
+- [Microsoft.Web](../move-support-resources.md#microsoftweb)
+
+## Next steps
+
+For commands to move resources, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).
