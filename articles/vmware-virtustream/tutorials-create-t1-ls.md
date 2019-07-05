@@ -141,7 +141,7 @@ Enter the required information in the form.
 
 Select **ADD**.
 
-![Add IP pools to a DHCP server result](./media/NSX-add-dhcp-ip-pools-results.png)
+![Add IP pools to a DHCP server result](./media/nsx-add-dhcp-ip-pools-results.png)
 
 Select **Actions (the gear icon) > Attach to Logical Switch**.
 
