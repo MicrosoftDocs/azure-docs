@@ -18,6 +18,8 @@ Learn how to deploy the Cognitive Services [Computer Vision](computer-vision-how
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
+## Request access to the private container registry
+
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access.md)]
 
 [!INCLUDE [Create a Cognitive Services Computer Vision resource](includes/create-computer-vision-resource.md)]

@@ -14,7 +14,7 @@ ms.author: dapine
 
 # Deploy the Speech Service container to Azure Container Instances (ACI)
 
-Learn how to deploy the Cognitive Services [Speech Service](form-recognizer-container-howto.md) container to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). This procedure demonstrates the creation of an Azure Speech Service resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
+Learn how to deploy the Cognitive Services [Speech Service](speech-container-howto.md) container to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). This procedure demonstrates the creation of an Azure Speech Service resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

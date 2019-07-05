@@ -11,6 +11,10 @@ ms.author: dapine
 
 ## Prerequisites
 
-* Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Install the [Azure CLI][https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest] (az).
-* [Docker engine](https://www.docker.com/products/docker-engine) and validate that the Docker CLI works in a console window.
+* Use an Azure subscription. If you don't have an Azure subscription, create a [free account][free-account] before you begin.
+* Install the [Azure CLI][azure-cli] (az).
+* [Docker engine][docker-engine] and validate that the Docker CLI works in a console window.
+
+[free-account]: https://azure.microsoft.com/free
+[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[docker-engine]: https://www.docker.com/products/docker-engine
