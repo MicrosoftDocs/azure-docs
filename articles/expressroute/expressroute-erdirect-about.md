@@ -56,7 +56,6 @@ ExpressRoute Direct supports massive data ingestion scenarios into Azure storage
 | --- | --- |
 | **Subscribed Bandwidth**: 200 Gbps | **Subscribed Bandwidth**: 20 Gbps
 <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul> | <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul>
-| | 
 
 ## VLAN Tagging
 
