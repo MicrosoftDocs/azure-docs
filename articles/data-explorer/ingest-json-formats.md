@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 07/04/2019
 ---
 
 # Ingest json formatted sample data into Azure Data Explorer
