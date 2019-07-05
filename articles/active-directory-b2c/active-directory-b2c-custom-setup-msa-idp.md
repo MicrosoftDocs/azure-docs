@@ -180,7 +180,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
 1. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_msa`
 1. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the user journey that you created earlier (SignUpSignInMSA).
 1. Save your changes, upload the file, and then select the new policy in the list.
-1. Make sure that Azure AD B2C application that you created in the previous section or by completing the prerequisites (for example, *webapp1* or *testapp1*) is selected in the **Select application** field, and then test it by clicking **Run now**.
+1. Make sure that Azure AD B2C application that you created in the previous section (or by completing the prerequisites, for example *webapp1* or *testapp1*) is selected in the **Select application** field, and then test it by clicking **Run now**.
 1. Select the **Microsoft Account** button and sign in.
 
     If the sign-in operation is successful, you're redirected to `jwt.ms` which displays the Decoded Token, similar to:
