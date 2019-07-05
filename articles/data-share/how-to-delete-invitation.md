@@ -1,32 +1,25 @@
 ---
-title: Delete an invitation | Microsoft Docs
-description: You can revoke the invitation of a recipient before they accept it to prevent giving them access to your data. Additionally, you can delete the share subscription of a consumer, preventing them from updating the data they currently have.
-services: data-share
-documentationcenter: ''
-author: t-maadam
-manager: joanpo
-ms.reviewer: 
+title: Delete an invitation
+description: Delete an invitation
+author: madams0013
 
 ms.service: data-share
-ms.workload: data-services
-ms.topic: how-to
-ms.date: 06/19/2019
+ms.topic: conceptual
+ms.date: 07/10/2019
 ms.author: t-maadam
 ---
-# How To: Delete an invitation to a recipient before they accept it
+# How to delete an invitation to a recipient
 
-> This will prevent the recipient from creating a share subscription, and they will never receive the shared data. If you delete the invitation to a consumer they will be able to view the invitation, but not accept it.
+This article explains how to delete an invitation to a recipient before they accept it. This will prevent them from creating a share subscription and they will never receive any shared data. If you delete the invitation to a consumer who has already created a share subscription, deleting their invitation won't have any impact.
 
-1. Navigate to your **Data Share Account** and go to **Sent Shares**.
-2. Select the share from which you would like to delete a recipient. 
-3. Click on the **Invitations** tab. Listed here are all of the recipients of invitations to this data share. 
-4. Check the boxes next to the recipients whose invitations you would like to delete.
-5. Click **Delete**
-   
-   ![Invitations page for a data share](./media/how-to/how-to-delete-invitation/delete-invitation.png)
+## Navigate to a sent data share
+
+In the Azure Data Share service, navigate to your sent share and select the **Invitations** tab. Listed here are all of the recipients of invitations to this data share. Click the boxes next to the recipients whose invitations you would like to delete and then click **Delete**.
+
+![Delete Invitation](./media/how-to/how-to-delete-invitation/delete-invitation.png)
 
 ## Next steps
-In this how-to guide, you learned about deleting an invitation to a share. To learn about how to revoke a share subscription, continue to the next how-to guide.
+To learn about how to revoke a share subscription, continue to the next how-to guide.
 
 > [!div class="nextstepaction"]
 > [How To: Revoke a Share Subscription](how-to-revoke-share-subscription.md)

@@ -1,29 +1,27 @@
 ---
-title: Delete an invitation or a share subscription to an existing data share | Microsoft Docs
-description: You can revoke the invitation of a recipient before they accept it to prevent giving them access to your data. Additionally, you can delete the share subscription of a consumer, preventing them from updating the data they currently have.
-services: data-share
-documentationcenter: ''
-author: t-maadam
-manager: joanpo
-ms.reviewer: 
+title: Revoke a share subscription
+description: Revoke a share subscription
+author: madams0013
 
 ms.service: data-share
-ms.workload: data-services
-ms.topic: how-to
-ms.date: 06/19/2019
+ms.topic: conceptual
+ms.date: 07/10/2019
 ms.author: t-maadam
 ---
-# How To: Revoke a consumer's share subscription
+# How to revoke a consumer's share subscription
 
-> This will prevent the consumer from triggering any more snapshots. If the consumer has not yet triggered a snapshot, they will never receive the data once the share subscription is deleted. If they have previously triggered a snapshot, the latest data that they have will remain in their account.
+This article explains how to revoke a share subscription from one or more of your consumers using Azure Data Share Preview. This prevents a consumer from triggering any more snapshots. If the consumer has not yet triggered a snapshot, they will never receive the data once the share subscription is revoked. If they have previously triggered a snapshot, the latest data that they have will stay in their account.
 
-1. Navigate to your **Data Share Account** and go to **Sent Shares**. 
-2. Select the share from which you would like to delete a share subscription. 
-3. Click on the **Share Subscriptions** tab. Listed here are all of the share subscriptions to this data share.
-4. Check the boxes next to the recipients whose share subscriptions you would like to delete.
-5. Click **Revoke**
+## Navigate to a sent data share
 
-   ![Share subscriptions page for a data share](./media/how-to/how-to-revoke-share-subscription/revoke-share-subscription.png)
+In the Azure Data Share service, navigate to your sent share and select the **Share Subscriptions** tab.
+
+![Revoke Share Subscription](./media/how-to/how-to-revoke-share-subscription/revoke-share-subscription.png) 
+
+Check the boxes next to the recipients whose share subscriptions you would like to delete and then click **Revoke**. The consumer will no longer get updates to their data.
 
 ## Next steps
-In this how-to guide, you learned about adding datasets to a pre-existing share. See Tutorials, Concepts, or Resources to learn more.
+To learn about how to delete an invitation, continue to the next how-to guide.
+
+> [!div class="nextstepaction"]
+> [How To: Delete an invitation to an existing data share](how-to-delete-invitation.md)
