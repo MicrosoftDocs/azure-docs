@@ -57,7 +57,7 @@ The following table applies to U-SQL.
 | Error code | Error message                           | Description                                                  | Recommendation                           |
 | ------------ | --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 3600         | Response Content is not a valid JObject. | The Azure function that was called didn't return a JSON payload in the response. Azure function activity in Data Factory supports only JSON response content. | Update the Azure function to return a valid JSON payload. For example, a C# function can return `(ActionResult)new<OkObjectResult("{`\"Id\":\"123\"`}");`. |
-| 3600         | Invalid HttpMethod: '..'.               | The HTTP method specified in the   activity payload is not supported by the Azure function activity. | Use a supported HTTP method, such as PUT, POST, GET, DELETE, OPTIONS, HEAD, or TRACE. |
+| 3600         | Invalid HttpMethod: '...'.               | The HTTP method specified in the   activity payload is not supported by the Azure function activity. | Use a supported HTTP method, such as PUT, POST, GET, DELETE, OPTIONS, HEAD, or TRACE. |
 
 
 
@@ -83,15 +83,15 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 | Error code | Error message                                                | Description                                                  | Recommendation                        |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2300,   2310 | Hadoop job submission failed. Error: The remote name could not be resolved. <br/><br/>The cluster not found. | Provided cluster URI is invalid                              | Make sure the cluster has not been deleted, and the provided URI is correct. You can open the URI in any browser, and you   should see the Ambari UI. If the cluster is in a vNet, then the URI should be   the private URI, and you should try to open it from a VM that is part of the same vNet. More info for [Virtual Network in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services). |
-| 2300         | Hadoop   job submission failed. Job: …, Cluster: …/. Error: A task was canceled. | The submission of the job timed out.                         | This could be either general HDInsight connectivity issue or network   connectivity issue. First confirm that HDInsight Ambari UI is available via any   browser and your credentials are still valid. Make sure to do this from the   VM/machine where self-hosted IR is installed if using self-hosted IR. Then   try submitting the job from ADF again. If it still fails, contact ADF team   for support. |
-| 2300         | Unauthorized:   Ambari user name or password is incorrect  <br/><br/>Unauthorized:   User admin is locked out in Ambari   <br/><br/>403 -   Forbidden: Access is denied | Provided credentials for the HDInsight are incorrect or are expired | Please correct them and redeploy the linked service. Make sure the   credentials work on HDInsight first by opening the cluster URI on any browser and   trying to login. If they don't work, you can reset them from Azure Portal. |
-| 2300,   2310 | 502 - Web server received an invalid response while acting as a gateway or proxy server       <br/>Bad Gateway | Error is coming from HDInsight                               | This error is coming from HDInsight cluster. Refer [HDInsight troubleshooter](https://hdinsight.github.io/ambari/ambari-ui-502-error.html) with common errors .    <br/>For Spark clusters it could be also caused due to [this](https://hdinsight.github.io/spark/spark-thriftserver-errors.html). <br/><br/>[Additional link](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502) |
-| 2300         | Hadoop job submission failed. Job: …, Cluster: ... Error:   {\"error\":\"Unable to service the submit job request as   templeton service is busy with too many submit job requests. Please wait for   some time before retrying the operation. Please refer to the config   templeton.parallellism.job.submit to configure concurrent requests.  <br/><br/>Hadoop   job submission failed. Job: 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/.   Error: {\"error\":\"java.io.IOException:   org.apache.hadoop.yarn.exceptions.YarnException: Failed to submit   application_1561147195099_3730 to YARN :   org.apache.hadoop.security.AccessControlException: Queue root.joblauncher   already has 500 applications, cannot accept submission of application:   application_1561147195099_3730\ | Too many jobs are being submitted to HDInsight at the same time | Consider limiting the number of concurrent jobs being   submitted to the HDI. Please refer to ADF activity concurrency if they are   being submitted by the same activity. Change the triggers so the concurrent   pipeline runs are spread out over time. Also refer to HDInsight docs in order to   tweak the "templeton.parallellism.job.submit" as error suggests. |
-| 2303,   2347 | Hadoop job failed with exit code '5'. See   'wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr'   for more details.  <br/><br/>Hive execution failed with error code 'UserErrorHiveOdbcCommandExecutionFailure'.   See 'wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out'   for more details | The job was submitted to HDInsight, and it failed on HDInsight | The job has been submitted to HDInsight successfully. It failed on the   cluster. Please either open the job on HDInsight Ambari UI, and open the logs   there, or open the file from storage as the error message points out. The details of the error will be in that file. |
-| 2328         | Internal server error occurred while processing the request. Please retry the request   or contact support | Happens on HDInsight on Demand.                              | This error is coming from HDInsight service when the HDInsight provisioning fails. Please contact the HDInsight team and provide them the on demand cluster name. |
-| 2310         | java.lang.NullPointerException                               | Error happened when submitting the job to Spark cluster      | This exception is coming from HDInsight and is hiding the actual issue.   Please contact the HDInsight team for support, and provide them with cluster name,   and the activity run time range. |
-|              | All other errors                                             |                                                              | Refer to [HDInsight  troubleshooter](../hdinsight/hdinsight-troubleshoot-guide.md) and [HDInsight FAQ](https://hdinsight.github.io/) |
+| 2300,   2310 | Hadoop job submission failed. Error: The remote name could not be resolved. <br/><br/>The cluster is not found. | The provided cluster URI is invalid.                              | Make sure that the cluster hasn't been deleted and that the provided URI is correct. When you open the URI in a browser you should see the Ambari UI. If the cluster is in a virtual network, the URI should be the private URI. To open it, use a VM that's part of the same virtual network. For more information, see [Directly connect to Apache Hadoop services](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services). |
+| 2300         | Hadoop   job submission failed. Job: …, Cluster: …/. Error: A task was canceled. | The job submission timed out.                         | The issue could be either general HDInsight connectivity or network   connectivity. First confirm that the HDInsight Ambari UI is available from any   browser. Confirm that your credentials are still valid. If you're using self-hosted integrated runtime (IR), make sure you do this from the VM or machine where the self-hosted IR is installed. Then try submitting the job from Data Factory again. If it still fails, contact the Data Factory team for support. |
+| 2300         | Unauthorized:   Ambari user name or password is incorrect.  <br/><br/>Unauthorized:   User admin is locked out in Ambari.   <br/><br/>403 - Forbidden: Access is denied. | The provided credentials for HDInsight are incorrect or expired. | Correct the credentials and redeploy the linked service. Make sure the   credentials work on HDInsight first by opening the cluster URI on any browser and trying to sign in. If they don't work, you can reset them from the Azure portal. |
+| 2300,   2310 | 502 - Web server received an invalid response while acting as a gateway or proxy server.       <br/>Bad gateway. | The error is from HDInsight.                               | This error is from the HDInsight cluster. For more information, see [HDInsight troubleshooter](https://hdinsight.github.io/ambari/ambari-ui-502-error.html).    <br/>For more information, see [502 errors connecting to Spark Thrift server](https://hdinsight.github.io/spark/spark-thriftserver-errors.html) and [Troubleshooting bad gateway errors in Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502). |
+| 2300         | Hadoop job submission failed. Job: …, Cluster: ... Error:   {\"error\":\"Unable to service the submit job request as   templeton service is busy with too many submit job requests. Please wait for   some time before retrying the operation. Please refer to the config   templeton.parallellism.job.submit to configure concurrent requests.  <br/><br/>Hadoop   job submission failed. Job: 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`.   Error: {\"error\":\"java.io.IOException:   org.apache.hadoop.yarn.exceptions.YarnException: Failed to submit   application_1561147195099_3730 to YARN :   org.apache.hadoop.security.AccessControlException: Queue root.joblauncher   already has 500 applications, cannot accept submission of application:   application_1561147195099_3730\ | Too many jobs are being submitted to HDInsight at the same time. | Consider limiting the number of concurrent jobs submitted to HDInsight. Refer to Data Factory activity concurrency if the jobs are   being submitted by the same activity. Change the triggers so the concurrent   pipeline runs are spread out over time. Also refer to HDInsight documentation to adjust `templeton.parallellism.job.submit` as the error suggests. |
+| 2303,   2347 | Hadoop job failed with exit code '5'. See   'wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr'   for more details.  <br/><br/>Hive execution failed with error code 'UserErrorHiveOdbcCommandExecutionFailure'.   See 'wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out'   for more details. | The job was submitted to HDInsight, and it failed on HDInsight. | The job was submitted to HDInsight successfully, but it failed on the cluster. Either open the job and the logs in the HDInsight Ambari UI, or open the file from storage as the error message suggests. The file contains the details of the error. |
+| 2328         | Internal server error occurred while processing the request. Please retry the request   or contact support. | This happens in HDInsight on-demand clusters.                              | This error comes from an HDInsight service when the HDInsight provisioning fails. Contact the HDInsight team and provide them the on-demand cluster name. |
+| 2310         | java.lang.NullPointerException                               | This error happens when the job is submitted to a Spark cluster.      | This exception comes from HDInsight, and it hides the actual issue. Contact the HDInsight team for support. Provide the cluster name and the activity run time range. |
+|              | All other errors                                             |                                                              | Refer to [Troubleshoot by using HDInsight](../hdinsight/hdinsight-troubleshoot-guide.md) and [HDInsight FAQ](https://hdinsight.github.io/). |
 
 
 
@@ -99,51 +99,47 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 | Error code | Error message                                                | Description                                                  | Recommendation                          |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2108         | Invalid HttpMethod: '..'.                                    | Web Activity doesn't support the Http method specified in the activity payload. | The Http methods that are supported are: <br/>PUT, POST, GET, DELETE |
-| 2108         | Invalid Server Error 500                                     | Internal error on the endpoint                               | Check the functionality on the URL (with Fiddler or Postman). For more information, see [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application). |
-| 2108         | Unauthorized 401                                             | Missing valid authentication on request                      | Provide valid authentication method (token may have expired).   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Forbidden 403                                                | Missing required permissions                                 | Check user permissions on the accessed resource.   <br/><br/>Check the functionality on the URL (with Fiddler/Postman): [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Bad Request 400                                              | Invalid Http request                                         | Check the URL, verb and body of the request.   <br/><br/>Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Not found 404                                                | Resource was not found                                       | Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Service unavailable                                          | Service is unavailable                                       | Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Unsupported Media Type                                       | Mismatched Content-Type with the Web activity body           | Specify the correct Content-Type that matches the payload format   Use Fiddler/Postman to validate the request: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | The resource you are looking for has been removed, had its name changed, or is temporarily unavailable. | The resource is not available                                | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | The page you are looking for cannot be displayed because an invalid method (HTTP   verb) is being used. | Incorrect Web activity method was specified in the request   | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | invalid_payload                                              | The body for Web activity is incorrect                       | Use Fiddler/Postman to check the endpoint: [How to use Fiddler to create an HTTP session](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | Invalid HttpMethod: '...'.                                    | Web Activity doesn't support the HTTP method specified in the activity payload. | The supported HTTP methods are PUT, POST, GET, and DELETE. |
+| 2108         | Invalid Server Error 500.                                     | Internal error on the endpoint.                               | Use Fiddler or Postman to check the functionality on the URL. |
+| 2108         | Unauthorized 401.                                             | Missing valid authentication on request.                      | The token might have expired. Provide a valid authentication method. Use Fiddler or Postman to check the functionality on the URL. |
+| 2108         | Forbidden 403.                                                | Missing required permissions.                                 | Check user permissions on the accessed resource. Use Fiddler or Postman to check the functionality on the URL.  |
+| 2108         | Bad Request 400.                                              | Invalid HTTP request                                         | Check the URL, verb, and body of the request. Use Fiddler or Postman to validate the request.  |
+| 2108         | Not found 404.                                                | The resource was not found.                                       | Use Fiddler or Postman to validate the request.  |
+| 2108         | Service unavailable.                                          | The service is unavailable.                                       | Use Fiddler or Postman to validate the request.  |
+| 2108         | Unsupported Media Type.                                       | The content type is mismatched with the Web Activity body.           | Specify the content type that matches the payload format. Use Fiddler or Postman to validate the request. |
+| 2108         | The resource you are looking for has been removed, had its name changed, or is temporarily unavailable. | The resource is not available.                                | Use Fiddler or Postman to check the endpoint. |
+| 2108         | The page you are looking for cannot be displayed because an invalid method (HTTP verb) is being used. | An incorrect Web Activity method was specified in the request.   | Use Fiddler or Postman to check the endpoint. |
+| 2108         | invalid_payload                                              | The Web Activity body is incorrect.                       | Use Fiddler or Postman to check the endpoint. |
 
-### Use Fiddler to create an HTTP session of the monitored web application
+To use Fiddler to create an HTTP session of the monitored web application:
 
-1. Download and install [Fiddler](https://www.telerik.com/download/fiddler).
+1. Download, install, and open [Fiddler](https://www.telerik.com/download/fiddler).
 
-2. If your web application uses HTTPS:
+1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**. Select **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**. 
+   
+   ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
-   1. Open Fiddler.
+1. If your application uses SSL certificates, add the Fiddler certificate to your device. Go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
 
-   2. Go to **Tools > Fiddler Options** and select as in below screenshot. 
+1. Turn off capturing by going to **File** > **Capture Traffic**. Or press **F12**.
 
-      ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
+1. Clear your browser's cache so that all cached items are removed and must be downloaded again.
 
-3. If your application uses SSL certificates, you must also add the Fiddler certificate to your device.
+1. Create a request: 
 
-4. To add the Fiddler certificate to your device, go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop** to obtain the Fiddler certificate.
+   a. Select the **Composer** tab.
 
-5. Turn off capturing so that the browser's cache can be cleared in order to start a fresh trace.
+   b. Set the HTTP method and URL.
 
-6. 1. Go to **File** > **Capture Traffic**. Or press **F12**.
-   2. Clear your browser's cache so that all cached items are removed and must be re-downloaded.
+   c. Add headers and a request body if you need to.
 
-7. Create a request : 
+   d. Select **Execute**.
 
-   1. Select the Composer tab
-   2. Set the Http method and URL
-   3. Add headers and request body if required
-   4. Click Execute
+9. Turn on traffic capturing again, and complete the problematic transaction on your page.
 
-9. Start capturing traffic again and complete the problematic transaction on your page.
+10. Go to **File** > **Save** > **All Sessions**.
 
-10. Once completed, go to **File** > **Save** > **All Sessions**.
-
-For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)
+For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
 ## Next steps
 
