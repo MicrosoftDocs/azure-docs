@@ -14,8 +14,8 @@ ms.date: 06/30/2019
 Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. But demand on a cluster can’t be predicted with absolute accuracy. A static cluster size can lead to underutilization or overutilization, neither of which is ideal.
 
 A better approach is to *scale* a cluster, adding and removing capacity with changing demand. There are two workflows for scaling: 
-1. Horizontal scaling, also called scaling out and in.
-2. Vertical scaling, also called scaling up and down.
+* Horizontal scaling, also called scaling out and in.
+* Vertical scaling, also called scaling up and down.
 
 This article explains the horizontal scaling workflow.
 
@@ -27,13 +27,13 @@ In the Azure portal, go to your Data Explorer cluster resource. Under the **Sett
 
 Select your desired autoscale method: **Manual scale**, **Optimized autoscale** or **Custom autoscale**.
 
-### **Manual scale**
+### Manual scale
 
 Manual scale is the default setting with cluster creation. It means that the cluster have a static cluster capacity that will not change automatically. You can choose the static capacity using the bar and it will not change until next time you will change the cluster's scale out setting.
 
    ![Manual scale method](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
-### **Optimized autoscale**
+### Optimized autoscale
 
 Optimized autoscale is the recommended autoscale method. Steps to configure Optimized autoscale:
 
@@ -42,9 +42,9 @@ Optimized autoscale is the recommended autoscale method. Steps to configure Opti
 
    ![Optimized autoscale method](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
-After clicking save Optimized autoscale mechanizem will start to work and it's actions will be visible in the Activity log of the cluster. This autoscale method is optimizing the cluster performence and costs: if the cluster will start to get to a state of underutilization it will be scaled-in which leave performance the same and lower costs, and if the cluster will start to get to a state of overutilization, it will be scaled-out to make sure it's performing well
+After clicking save Optimized autoscale mechanism will start to work and it's actions will be visible in the Activity log of the cluster. This autoscale method is optimizing the cluster performance and costs: if the cluster will start to get to a state of underutilization it will be scaled-in which leave performance the same and lower costs, and if the cluster will start to get to a state of overutilization, it will be scaled-out to make sure it's performing well
 
-### **Custom autoscale**
+### Custom autoscale
 
 Custom autoscale method allows you scale your cluster dynamically based on metrics that you specify. The following graphic shows the flow and steps to configure Custom autoscale. More details follow the graphic.
 
@@ -97,5 +97,4 @@ You've now configured a scale-out operation for your Azure Data Explorer cluster
 ## Next steps
 
 * [Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md)
-
 * [Manage cluster vertical scaling](manage-cluster-vertical-scaling.md) for appropriate sizing of a cluster.
