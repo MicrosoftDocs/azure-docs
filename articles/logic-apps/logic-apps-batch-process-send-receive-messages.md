@@ -228,7 +228,7 @@ batch sender because they're not visible to each other.
 
    4. Select this action: **Batch_messages - <*your-batch-receiver*>**
 
-      ![Select this action: "Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![Select this action: "Batch_messages - \<your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. Set the batch sender's properties:
 
