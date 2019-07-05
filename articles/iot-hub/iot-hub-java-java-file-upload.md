@@ -21,7 +21,7 @@ This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT 
 
 * Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-The [Send telemetry to IoT Hub (Java)](quickstart-send-telemetry-java.md) and [Send Cloud-to-Device messages with IoT Hub (Java)](iot-hub-java-java-c2d.md) tutorials show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure message routing with IoT Hub](tutorial-routing.md) tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.md) quickstart and [Send Cloud-to-Device messages with IoT Hub](iot-hub-java-java-c2d.md) tutorial show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure message routing with IoT Hub](tutorial-routing.md) tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Large files that contain images
 * Videos
@@ -260,7 +260,9 @@ You can use the portal to view the uploaded file in the storage container you co
 In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
 
 * [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
+
 * [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
+
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 To further explore the capabilities of IoT Hub, see:

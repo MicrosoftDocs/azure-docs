@@ -17,11 +17,11 @@ ms.author: robinsh
 
 This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) tutorial to show you how to use the file upload capabilities of IoT Hub. It shows you how to:
 
-- Securely provide a device with an Azure blob URI for uploading a file.
+* Securely provide a device with an Azure blob URI for uploading a file.
 
-- Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
+* Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md) and [Send Cloud-to-Device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) articles show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md) quickstart and [Send Cloud-to-Device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) tutorial show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Large files that contain images
 * Videos
@@ -42,6 +42,7 @@ At the end of this tutorial you run two .NET console apps:
 To complete this tutorial, you need the following:
 
 * Visual Studio
+
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
@@ -139,7 +140,7 @@ In this section, you write a .NET console app that receives file upload notifica
 
             await notificationReceiver.CompleteAsync(fileUploadNotification);
         }
-    }   
+    }
     ```
 
     Note this receive pattern is the same one used to receive cloud-to-device messages from the device app.
@@ -169,10 +170,11 @@ Now you are ready to run the applications.
 In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
 
 * [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
+
 * [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
+
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 To further explore the capabilities of IoT Hub, see:
 
 * [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-
