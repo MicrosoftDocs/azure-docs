@@ -6,11 +6,11 @@ author: v-jetome
 
 ms.service: vmware-virtustream
 ms.topic: tutorial
-ms.date: 7/5/2019
+ms.date: 07/12/2019
 ms.author: v-jetome
 ms.custom: 
 
-#Customer intent: As a VMware administrator or user of an AVSV private cloud, I want to learn how to create an NSX-T T1 router, a logical swith on the router, and configure DHCP in preparation for deploying a VM on the network that has been created.
+#Customer intent: As a VMware administrator or user of an AVS by Virtustream private cloud, I want to learn how to create an NSX-T T1 router, a logical swith on the router, and configure DHCP in preparation for deploying a VM on the network that has been created.
 ---
 
 # Tutorial: Create an NSX-T network on an Azure VMware Solution by Virtustream private cloud
@@ -25,9 +25,9 @@ AVS by Virtustream private clouds provide Azure-based environments to run VMware
 
 ## Prerequisites
 
-In previous tutorials, you created a private cloud in Azure and recieved the credentials for access vCenter and NSX-T manager. If you haven't created a private cloud and want to follow along step-by-step with this tutorial, start at [Tutorial 1 – Create a private cloud][tutorials-create-private-cloud].
+In previous tutorials, you created a private cloud in Azure and recieved the credentials for access vCenter and NSX-T manager. If you haven't created a private cloud and want to follow along step-by-step with this tutorial, start at <!-- [Tutorial 1 – Create a private cloud][tutorials-create-private-cloud] -->.
 
-This tutorial requires that you have access to vCenter and NSX-T Manager in your private cloud. If you need to establish access, see [Tutorial 3 -- Access private cloud][tutorial-access-private-cloud].
+This tutorial requires that you have access to vCenter and NSX-T Manager in your private cloud. If you need to establish access, see <!-- [Tutorial 3 -- Access private cloud][tutorial-access-private-cloud] -->.
 
 Ensure that you have the IP address and admin credentials for the NSX-T Manager. These items were provided when the private cloud was deployed and are available in the Azure portal.
 
@@ -158,7 +158,7 @@ With DHCP services enabled on the NSX-T logical switch, virtual machines deploye
 
 ## Next steps
 
-[Deploy a virtual machine on the NSX-T logical switch network.][tutorials-deploy-vm]
+<!-- [Deploy a virtual machine on the NSX-T logical switch network.][tutorials-deploy-vm] -->
 
 <!-- LINKS - external-->
 

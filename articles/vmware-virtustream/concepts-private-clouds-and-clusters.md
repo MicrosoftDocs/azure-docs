@@ -1,12 +1,12 @@
 ---
-title: Concepts - Software-defined data center and clusters for Azure VMware Solution by Virtustream (AVSV)
+title: Concepts - Software-defined data center and clusters for Azure VMware Solution by Virtustream (AVS by Virtustream)
 description: Learn about the key capabilities of Azure VMware software-defined data centers and vSphere clusters in VMware Solution on Azure by VMware. 
 services: 
 author: v-jetome
 
 ms.service: vmware-virtustream
 ms.topic: conceptual
-ms.date: 7/5/2019
+ms.date: 07/12/2019
 ms.author: v-jetome
 ms.custom: 
 
@@ -14,13 +14,13 @@ ms.custom:
 
 # VMware Solution on Azure by Virtustream Private Cloud and vSphere Cluster Concepts
 
-The Azure VMware Solution by Virtustream (AVS by Virtustream) delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. The deployment of the hardware and software in AVSV private clouds is fully integrated and automated in Azure.
+The Azure VMware Solution by Virtustream (AVS by Virtustream) delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. The deployment of the hardware and software in AVS by Virtustream private clouds is fully integrated and automated in Azure.
 
 Figure 1 shows a logical relationship between subscriptions, private clouds, clusters, and hosts. In the diagram, there are two private clouds in a single Azure subscription. The private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters, with smaller cluster sizes in the development environment. To show the lower potential needs of a development environment, lower capacity hosts are used in that environment. All of these concepts are described in the sections below.
 
 ![Image of two private clouds in a customer subscription](./media/subs-clouds-clusters-hosts.png)
 
-Private cloud interconnectivity and networking concepts are described in detail in the [Interconnectivity and Networking Concepts article][concepts-networking].
+Private cloud interconnectivity and networking concepts are described in detail in the <!-- [Interconnectivity and Networking Concepts article][concepts-networking] -->.
 
 ## Private Clouds
 
@@ -74,7 +74,7 @@ Private cloud vCenter and NSX-T configurations are backed up hourly. Backups are
 
 ## Next steps
 
-[Learn about networking and interconnectivity concepts.][concepts-networking]
+<!-- [Learn about networking and interconnectivity concepts.][concepts-networking] -->
 
 <!-- LINKS - internal -->
 
