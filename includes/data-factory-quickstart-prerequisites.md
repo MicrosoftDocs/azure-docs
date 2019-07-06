@@ -54,22 +54,23 @@ In this section, you create a blob container named **adftutorial** in Azure Blob
    ![List of containers](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
 #### Add an input folder and file for the blob container
-In this section, you create a folder named **input** in the container you just created, and then upload a sample file to the input folder.
+In this section, you create a folder named **input** in the container you just created, and then upload a sample file to the input folder. Before you begin, open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
 
-1. In the *\<Account name>* - **Blobs** page, select **adftutorial** from the updated list of containers. 
+```emp.txt
+John, Doe
+Jane, Doe
+```
+
+Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't already exist, create it.) Then follow these steps:
+
+1. In the *\<Account name>* - **Blobs** page where you left off, select **adftutorial** from the updated list of containers. (If you closed the window or went to another page, sign in to the [Azure portal](https://portal.azure.com) again, select **All services** > **Storage** > **Storage accounts**, select your storage account, and then select **Blobs** > **adftutorial**.)
 2. On the **adftutorial** container page's toolbar, select **Upload**.
-3. On the **Upload blob** page, expand the **Advanced** heading.
+3. In the **Upload blob** page, select the **Files** box, and then browse to and select the **emp.txt** file.
+4. Expand the **Advanced** heading. The page now displays as shown:
 
    ![Select Advanced link](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
-4. In a text editor such as **Notepad**, create a file named **emp.txt** with the following content. Save it in the **C:\ADFv2QuickStartPSH** folder. Create the **ADFv2QuickStartPSH** folder if it does not already exist.
-
-   ```text
-   John, Doe
-   Jane, Doe
-   ```
-5. In the Azure portal's **Upload blob** page, select the **Files** box, and then browse to and select the **emp.txt** file.
-6. In the **Upload to folder** box, enter **input**.
-7. Select **Upload**. You should see the **emp.txt** file and the status of the upload in the list.
-8. Select the **Close** icon (an **X**) to close the **Upload blob** page.
+5. In the **Upload to folder** box, enter **input**.
+6. Select the **Upload** button. You should see the **emp.txt** file and the status of the upload in the list.
+7. Select the **Close** icon (an **X**) to close the **Upload blob** page.
 
 Keep the **adftutorial** container page open. You use it to verify the output at the end of this quickstart.
