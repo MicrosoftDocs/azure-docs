@@ -37,7 +37,7 @@ Start by cloning the [active-directory-b2c-dotnet-webapp-and-webapi][sample-repo
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Direct download: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
+Direct download:  [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
 
 ## Get issuer URLs
 
@@ -61,14 +61,14 @@ You should now have two URIs recorded that are similar to:
 
 ```
 https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
-https://your-b2c-tenant.b2clogin.com/ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
+https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 ```
 
 ## Update the code with issuer URLs
 
 In this section, you update the sample code to enable support for both well-known URIs.
 
-1. Open the **B2C-WebAPI-DotNet.sln** solution Visual Studio
+1. Open the **B2C-WebAPI-DotNet.sln** solution in Visual Studio
 1. In the **TaskService** project, open the **Startup.Auth.cs** file in your editor (`TaskService\App_Start\Startup.Auth.cs`)
 1. Add the `ValidIssuers` property to the `TokenValidationParameters` definition and specify both URIs you recorded in the previous section:
 
@@ -80,7 +80,7 @@ In this section, you update the sample code to enable support for both well-know
         AuthenticationType = Startup.DefaultPolicy,
         ValidIssuers = new List<string> {
             "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/",
-            "https://{your-b2c-tenant-name}.b2clogin.com/ xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
+            "https://{your-b2c-tenant-name}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
         }
     };
     ```
