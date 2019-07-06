@@ -24,12 +24,7 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
 ## Languages - community-supported
-* [F#](https://safe-stack.github.io/docs/template-azure-ai/)
-* [Go](https://github.com/Microsoft/ApplicationInsights-go)
-* [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
-* [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-* [Ruby](https://rubygems.org/gems/application_insights)
-* [Anything else](#projects)
+
 
 ## Platforms and frameworks
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
@@ -78,5 +73,3 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 
-## <a name="projects"></a> Build your own SDK
-If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home).
