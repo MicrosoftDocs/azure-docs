@@ -25,9 +25,9 @@ For more details about versioning, you can refer [Versioning in Durable Function
 # Three Strategies
 There are three main strategies for zero downtime deployment for Durable Functions: 
 
-* [Versioning strategy](#VersioningStrategy)
-* [Status check with slot](#Statuscheckwithslot)
-* [Application routing](#Applicationrouting)
+* [Versioning strategy](#Versioning-Strategy)
+* [Status check with slot](#Status-check-with-slot)
+* [Application routing](#Application-routing)
 
 >[!NOTE]
 >All the strategies described in this article use Deployment slots. For more detailed information about how to create and use new deployment slots refer to [Deployment technologies in Azure Functions](../functions-deployment-technologies#deployment-slots)
