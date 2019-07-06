@@ -39,13 +39,17 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### Retrieve connection string for IoT hub
-
-[!INCLUDE [iot-hub-find-include-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+## Get connection string for IoT hub
+
+In this article you create a backend service to invoke a direct method on a device. To invoke a direct method on a device through IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## Trigger a remote reboot on the device using a direct method
 
@@ -68,7 +72,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
    using Microsoft.Azure.Devices.Shared;
    ```
         
-5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the section "Create an IoT hub." 
+5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string you copied previously in [Get IoT hub connection string](#get-iot-hub-connection-string).
    
    ```csharp
    static RegistryManager registryManager;
