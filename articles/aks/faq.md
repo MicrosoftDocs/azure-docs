@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 07/03/2019
-ms.author:mlearned
+ms.author: mlearned
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
