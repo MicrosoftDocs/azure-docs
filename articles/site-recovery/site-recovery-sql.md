@@ -36,7 +36,7 @@ SQL Server on Azure IaaS VM or at on-premises| **Replication with Azure Site Rec
 > * Ensure that the data change rate observed on the machine is within [Site Recovery limits](vmware-physical-azure-support-matrix.md#churn-limits). The change rate is measured in write bytes per second. For Windows machines, you can view this change rate by selecting the **Performance** tab in Task Manager. Observe the write speed for each disk.
 > * Site Recovery supports replication of Failover Cluster Instances on Storage Spaces Direct. To learn more, see [how to enable Storage Spaces Direct replication](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 
-## Disaster recovery of application
+## Disaster recovery of an application
 
 Site Recovery orchestrates both the test failover and the failover of your entire application with the help of recovery plans.
 
