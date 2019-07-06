@@ -61,7 +61,7 @@ John, Doe
 Jane, Doe
 ```
 
-Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't already exist, create it.) Then follow these steps:
+Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't already exist, create it.) Then return to the Azure portal and follow these steps:
 
 1. In the *\<Account name>* - **Blobs** page where you left off, select **adftutorial** from the updated list of containers. (If you closed the window or went to another page, sign in to the [Azure portal](https://portal.azure.com) again, select **All services** > **Storage** > **Storage accounts**, select your storage account, and then select **Blobs** > **adftutorial**.)
 2. On the **adftutorial** container page's toolbar, select **Upload**.
