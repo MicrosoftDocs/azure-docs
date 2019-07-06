@@ -95,9 +95,11 @@ In this section, you modify the device app you created in [Send cloud-to-device 
 
 ## Get IoT hub connection string
 
-In this article you create a backend service to receive file upload notification messages from your IoT hub. To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission. For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
+In this article you create a backend service to receive file upload notification messages from your IoT hub. To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission. 
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## Receive a file upload notification
 
