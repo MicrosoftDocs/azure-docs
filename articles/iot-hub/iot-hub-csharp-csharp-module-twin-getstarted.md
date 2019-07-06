@@ -34,14 +34,15 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### Retrieve connection string for IoT hub
+## Get IoT hub connection string
 
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+In this article, you create a backend service that adds a device in the identity registry and then adds a module to that device. To perform these operations your service requires the **registry write** permission. By default, every IoT Hub is created with a shared access policy named **registryReadWrite** that grants this permission.
 
-You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
 
 [!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
-
 
 ## Update the module twin using .NET device SDK
 
