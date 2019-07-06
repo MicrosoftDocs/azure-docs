@@ -12,7 +12,7 @@ ms.author: pullabhk
 
 # Troubleshoot backup of SAP HANA databases on Azure
 
-This article provides troubleshooting information for backing up SAP HASA databases on Azure virtual machines.
+This article provides troubleshooting information for backing up SAP HANA databases on Azure virtual machines.
 
 ## Understanding prerequisites
 
@@ -58,7 +58,7 @@ After a database is chosen for backup, the Azure Backup service  configures back
 
 data| Error message | Possible causes | Recommended action |
 |---|---|---|
-| Failed to connect to HANA system. Verify that your system is up and running.| The Azure Backup service can't connect to HANA because HANA database is down. Or HANA is running but not allowing the Azure Backup service to connect. | Check whether the HANA database or service is down. If the HANA database or service is up and running, check whether [all permissions are set](#setting-up-permissions). If the key is missing, rerun the preregistration script to create a new key. |
+| Failed to connect to HANA system. Verify that your system is up and running.| The Azure Backup service can't connect to HANA because the HANA database is down. Or HANA is running but not allowing the Azure Backup service to connect. | Check whether the HANA database or service is down. If the HANA database or service is up and running, check whether [all permissions are set](#setting-up-permissions). If the key is missing, rerun the preregistration script to create a new key. |
 
 ### UserErrorInvalidBackintConfiguration
 
