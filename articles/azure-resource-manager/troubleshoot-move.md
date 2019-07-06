@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/06/2019
 ms.author: tomfitz
 ---
 
@@ -15,7 +15,9 @@ ms.author: tomfitz
 You can move most resources through the [self-service operations](resource-group-move-resources.md). Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) when you need to:
 
 * Move your resources to a new Azure account (and Azure Active Directory tenant) and you need help with the instructions in the preceding section.
-* Move classic resources but are having trouble with the [limitations](classic-model-move-limitations.md).
+* Move classic resources but are having trouble with the [limitations](./move-limitations/classic-model-move-limitations.md).
+
+If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
 ## move
 

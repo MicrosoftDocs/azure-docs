@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 07/06/2019
 ms.author: tomfitz
 ---
 
@@ -80,13 +80,6 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-If you actually want to upgrade your Azure subscription (such as switching from free to pay-as-you-go), you need to convert your subscription.
-
-* To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md).
-* To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
-
-If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
-
 ## Validate move
 
 The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to check if the move will succeed. Validation is automatically called when you send a move request. Use this operation only when you need to predetermine the results. To run this operation, you need the:
@@ -98,7 +91,7 @@ The [validate move operation](/rest/api/resources/resources/validatemoveresource
 
 Send the following request:
 
-```
+```HTTP
 POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2019-05-10
 Authorization: Bearer <access-token>
 Content-type: application/json
@@ -115,7 +108,7 @@ With a request body:
 
 If the request is formatted correctly, the operation returns:
 
-```
+```HTTP
 Response Code: 202
 cache-control: no-cache
 pragma: no-cache
@@ -129,7 +122,7 @@ The 202 status code indicates the validation request was accepted, but it hasn't
 
 To check the status, send the following request:
 
-```
+```HTTP
 GET <location-url>
 Authorization: Bearer <access-token>
 ```
@@ -186,17 +179,29 @@ To move to a new subscription, provide the `--destination-subscription-id` param
 
 ## Use REST API
 
-To move existing resources to another resource group or subscription, run:
+To move existing resources to another resource group or subscription, use the [Move resources](/rest/api/resources/Resources/MoveResources) operation.
 
 ```HTTP
 POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version}
 ```
 
-In the request body, you specify the target resource group and the resources to move. For more information about the move REST operation, see [Move resources](/rest/api/resources/Resources/MoveResources).
+In the request body, you specify the target resource group and the resources to move.
+
+```json
+{
+ "resources": ["<resource-id-1>", "<resource-id-2>"],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
 
 ## Next steps
 
 For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
+
+If you actually want to upgrade your Azure subscription (such as switching from free to pay-as-you-go), you need to convert your subscription.
+
+* To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md).
+* To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
 
 Some services require additional considerations when moving resources. See guidance for:
 

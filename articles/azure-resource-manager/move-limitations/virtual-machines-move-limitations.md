@@ -12,7 +12,7 @@ ms.author: tomfitz
 
 This article describes the scenarios that aren't currently supported and the steps to move virtual machines with backup.
 
-## Not supported scenarios
+## Scenarios not supported
 
 The following scenarios aren't yet supported:
 
