@@ -135,13 +135,13 @@ Select the new DHCP server in **DHCP > Servers**.
 Select **IP Pools > + ADD**.
 Enter the required information in the form.
 
-![Add IP pools to a DHCP server](./media/nsx-t1-ls/nsx-add-dhcp-ip-pools.png)
+![Add IP pools to a DHCP server](./media/nsx-t1-ls/nsx-add-dhcp-ip-pools-2.png)
 
 ![Add IP pools to a DHCP server form](./media/nsx-t1-ls/nsx-add-dhcp-ip-pools-form.png)
 
 Select **ADD**.
 
-![Add IP pools to a DHCP server result](./media/nsx-t1-ls/nsx-add-dhcp-ip-pools-results.png)
+![Add IP pools to a DHCP server result](./media/nsx-t1-ls/nsx-add-dhcp-ip-pools-results-2.png)
 
 Select **Actions (the gear icon) > Attach to Logical Switch**.
 
