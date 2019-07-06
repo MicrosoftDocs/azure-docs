@@ -21,7 +21,7 @@ This tutorial shows you how to:
 
 * Receive cloud-to-device messages on a device.
 
-* From your solution back end, request delivery acknowledgement (*feedback*) for messages sent to a device from IoT Hub.
+* From your solution back end, request delivery acknowledgment (*feedback*) for messages sent to a device from IoT Hub.
 
 You can find more information on cloud-to-device messages in the [messaging section of the IoT Hub developer guide](iot-hub-devguide-messaging.md).
 
@@ -29,7 +29,7 @@ At the end of this article, you run two Swift iOS projects:
 
 * **sample-device**, the same app created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-ios.md), which connects to your IoT hub and receives cloud-to-device messages.
 
-* **sample-service**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
+* **sample-service**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgment.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://www.azure.com/develop/iot).

@@ -27,7 +27,7 @@ This tutorial builds on [Send telemetry from a device to an IoT hub](quickstart-
 
 * Receive cloud-to-device messages on a device.
 
-* From your solution back end, request delivery acknowledgement (*feedback*) for messages sent to a device from IoT Hub.
+* From your solution back end, request delivery acknowledgment (*feedback*) for messages sent to a device from IoT Hub.
 
 You can find more information on cloud-to-device messages in [D2C and C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
 
@@ -35,7 +35,7 @@ At the end of this tutorial, you run two .NET console apps.
 
 * **SimulatedDevice**, a modified version of the app created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md), which connects to your IoT hub and receives cloud-to-device messages.
 
-* **SendCloudToDevice**, which sends a cloud-to-device message to the device app through IoT Hub, and then receives its delivery acknowledgement.
+* **SendCloudToDevice**, which sends a cloud-to-device message to the device app through IoT Hub, and then receives its delivery acknowledgment.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through [Azure IoT device SDKs](iot-hub-devguide-sdks.md). For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
@@ -166,7 +166,7 @@ Now you write a .NET console app that sends cloud-to-device messages to the devi
 
 ## Receive delivery feedback
 
-It is possible to request delivery (or expiration) acknowledgements from IoT Hub for each cloud-to-device message. This option enables the solution back end to easily inform retry or compensation logic. For more information about cloud-to-device feedback, see [D2C and C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
+It is possible to request delivery (or expiration) acknowledgments from IoT Hub for each cloud-to-device message. This option enables the solution back end to easily inform retry or compensation logic. For more information about cloud-to-device feedback, see [D2C and C2D Messaging with IoT Hub](iot-hub-devguide-messaging.md).
 
 In this section, you modify the **SendCloudToDevice** app to request feedback, and receive it from the IoT hub.
 
