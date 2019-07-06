@@ -53,48 +53,48 @@ Before you install and run the [Azure Functions extension][Azure Functions exten
 Other resources that you need, like an Azure storage account, are created in your subscription when you [publish by using Visual Studio Code](#publish-to-azure).
 
 > [!IMPORTANT]
-> You can develop functions locally and publish them to Azure without having to start and run them locally. There are additional requirements for running your functional locally, including an automatic download of the Azure Functions Core Tools. To learn more, see [Additional requirements to run locally](#additional-requirements-to-run-locally).
+> You can develop functions locally and publish them to Azure without having to start and run them locally. To run your functions locally, you'll need to mee some additional requirements, including an automatic download of the Azure Functions Core Tools. To learn more, see [Additional requirements to run locally](#additional-requirements-to-run-locally).
 
 [!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
 
 ## Create an Azure Functions project
 
-The Functions extension lets you create a function app project, along with your first function. The following steps show how to create an HTTP triggered function in a new functions project. [HTTP trigger](functions-bindings-http-webhook.md) is the simplest function trigger template to demonstrate.
+The Functions extension lets you create a function app project, along with your first function. The following steps show how to create an HTTP-triggered function in a new functions project. [HTTP trigger](functions-bindings-http-webhook.md) is the simplest function trigger template to demonstrate.
 
-1. From **Azure: Functions**, choose the Create Function icon.
+1. From **Azure: Functions**, select the **Create Function** icon:
 
     ![Create a function](./media/functions-develop-vs-code/create-function.png)
 
-1. Select the folder for your function app project, and then **Select a language for your function project**. 
+1. Select the folder for your function app project, and then **Select a language for your function project**.
 
-1. Select the **HTTP trigger** function template, or you can choose to **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) at a later time. 
+1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
     ![Choose the HTTP trigger template](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Type `HTTPTrigger` for the function name and press Enter, then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook.md#authorization-keys) when calling the function endpoint.
+1. Type **HTTPTrigger** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook.md#authorization-keys) when you call the function endpoint.
 
-    ![Choose function authentication](./media/functions-develop-vs-code/create-function-auth.png)
+    ![Select Function authorization](./media/functions-develop-vs-code/create-function-auth.png)
 
-    A function is created in your chosen language using the template for an HTTP-triggered function.
+    A function is created in your chosen language and in the template for an HTTP-triggered function.
 
-    ![HTTP triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
+    ![HTTP-triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
 
-The project template creates a project in your chosen language, installs required dependencies. For any language, the new project has the following files:
+The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
 
-* **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
+* **host.json**: Lets you configure the Functions host. These settings apply when you're running functions locally and when you're running them in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are only used when running locally. For more information, see [Local settings file](#local-settings-file).
+* **local.settings.json**: Maintains settings used when you're running functions locally. These settings are used only when you're running functions locally. For more information, see [Local settings file](#local-settings-file).
 
     >[!IMPORTANT]
-    >Because the local.settings.json file can contain secrets, you must excluded it from your project source control.
+    >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
 
-At this point, you can add input and output bindings to your function by [modifying the function.json file](#javascript-2), or by [adding a parameter to a C# class library function](#c-class-library-2).
+At this point, you can add input and output bindings to your function by [modifying the function.json file](#javascript-2) or by [adding a parameter to a C# class library function](#c-class-library-2).
 
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
 ## Install binding extensions
 
-Except for HTTP and Timer triggers, bindings are implemented in extension packages. You must install the extension packages for the triggers and bindings that require them. The way that you install binding extensions depends on your project language.
+Except for HTTP and timer triggers, bindings are implemented in extension packages. You must install the extension packages for the triggers and bindings that require them. The process for installing binding extensions depends on your project language.
 
 ### JavaScript
 
