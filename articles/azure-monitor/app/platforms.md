@@ -32,7 +32,7 @@ There are a number of community supported Application Insights SDKs, many of whi
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
-* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)&#151;including both web and worker roles
+* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md) (Web and worker roles)
 * [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
