@@ -1,6 +1,6 @@
 ---
 title: Zero downtime deployment for Durable Functions
-description: Learn how to enable zero downtime deploymet 
+description: Learn how to enable zero downtime deployment 
 services: functions
 author: tsushi
 manager: jeconnoc
@@ -25,12 +25,12 @@ For more details about versioning, you can refer [Versioning in Durable Function
 # Three Strategies
 There are three main strategies for zero downtime deployment for Durable Functions: 
 
-* [Versioning strategy](#Versioning-Strategy)
-* [Status check with slot](#Status-check-with-slot)
-* [Application routing](#Application-routing)
+* [Versioning strategy](#versioning-strategy)
+* [Status check with slot](#status-check-with-slot)
+* [Application routing](#application-routing)
 
 >[!NOTE]
->All the strategies described in this article use Deployment slots. For more detailed information about how to create and use new deployment slots refer to [Deployment technologies in Azure Functions](../functions-deployment-technologies#deployment-slots)
+>All the strategies described in this article use Deployment slots. For more detailed information about how to create and use new deployment slots refer to [Deployment technologies in Azure Functions](../functions-deployment-technologies.md#deployment-slots)
 
 # Versioning Strategy
 Add new versions of your Durable Functions and leave the old versions in your function app. As you can see on the diagram, the functions of the previous versions are preserved, and a new version resides in the same function app. 
@@ -50,14 +50,14 @@ Applications that don't experience frequent breaking changes.
 # Status Check with Slot
 Before you deploy a new version, check if there are running orchestrations. If all orchestrations are completed, you can deploy. This strategy works when you don't have long-running or frequently overlaping orchestrations.  
 
-## Function App Configration
+## Function App Configuration
 We can configure your Function App with Deployment Slot. Configure the Storage Account for each slot. However, share the Storage Account for management. The storage account store the function keys for each slot. 
 
 ![Deployment slot](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-For changing Storage Account, you can configure `azureStorageConnectionStringName` to host.json and change the value of each slots. For more details, [host.json settings](durable-functions-bindings.md#host-json). Also, keep the same storage account for `AzureWebJobsStorage` for stagin/production slots. It manages the function key. For more details, [App settings reference for Azure Functions](../functions-app-settings.md#azurewebjobsstorage)
+For changing Storage Account, you can configure `azureStorageConnectionStringName` to host.json and change the value of each slot. For more details, [host.json settings](durable-functions-bindings.md#host-json). Also, keep the same storage account for `AzureWebJobsStorage` for stagin/production slots. It manages the function key. For more details, [App settings reference for Azure Functions](../functions-app-settings.md#azurewebjobsstorage)
 
-## CI/CD pipeline configuration
+## CI/CD pipeline configurationn
 Make sure that there is no running orchestration. If you use Azure DevOps, you can create a function for status checking on your App.
 
 ```csharp
