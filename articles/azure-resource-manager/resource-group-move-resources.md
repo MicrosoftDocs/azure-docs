@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/06/2019
+ms.date: 07/08/2019
 ms.author: tomfitz
 ---
 
@@ -197,11 +197,6 @@ In the request body, you specify the target resource group and the resources to 
 ## Next steps
 
 For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
-
-If you actually want to upgrade your Azure subscription (such as switching from free to pay-as-you-go), you need to convert your subscription.
-
-* To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md).
-* To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
 
 Some services require additional considerations when moving resources. See guidance for:
 

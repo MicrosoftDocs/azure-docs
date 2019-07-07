@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move Classic deployment resources to 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/08/2019
 ms.author: tomfitz
 ---
 
@@ -93,5 +93,7 @@ To move classic resources to a new subscription, use the REST operations that ar
 The operation may run for several minutes.
 
 ## Next steps
+
+If you have trouble moving classic resources, contact [Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 For commands to move resources, see [Move resources to new resource group or subscription](../resource-group-move-resources.md).

@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 7/5/2019
+ms.date: 7/8/2019
 ms.author: tomfitz
 ---
 
