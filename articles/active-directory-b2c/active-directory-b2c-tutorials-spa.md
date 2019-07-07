@@ -64,20 +64,10 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ## Update the sample
 
-Now that you've obtained the sample, update the code with the application ID and key you recorded in earlier steps.
+Now that you've obtained the sample, update the code with your Azure AD B2C tenant name the application ID you recorded in an earlier step.
 
 1. Open the `index.html` file in the root of the sample directory.
-1. Modify the `appConfig` definition with the names of your Azure AD B2C tenant and API:
-
-    ```javascript
-    // The current application coordinates were pre-registered in a B2C directory.
-    var appConfig = {
-      b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"],
-      webApi: "https://fabrikamb2chello.azurewebsites.net/hello"
-    };
-    ```
-
-1. Next, update the `msalConfig` definition. Modify the **clientId** value with the application ID you recorded in an earlier step. Also update the **authority** URI value with your name of your B2C tenant and the name of the sign-up/sign-in user flow you created in one of the prerequisites (for example, "B2C_1_signupsignin1").
+1. In the `msalConfig` definition, modify the **clientId** value with the Application ID you recorded in an earlier step. Next, update the **authority** URI value with your Azure AD B2C tenant name. Also update the URI with the name of the sign-up/sign-in user flow you created in one of the prerequisites (for example, *B2C_1_signupsignin1*).
 
     ```javascript
     var msalConfig = {
@@ -93,7 +83,7 @@ Now that you've obtained the sample, update the code with the application ID and
     };
     ```
 
-    The name of the user flow used in this tutorial is **B2C_1_signupsignin1**. If you're using a different user flow name, use your user flow name in `authority` value.
+    The name of the user flow used in this tutorial is **B2C_1_signupsignin1**. If you're using a different user flow name, specify that name in the `authority` value.
 
 ## Run the sample
 
