@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
 ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
