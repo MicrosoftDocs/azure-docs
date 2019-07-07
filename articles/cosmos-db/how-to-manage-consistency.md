@@ -69,7 +69,7 @@ Consistency level can be set on a per request, which overrides the default consi
 
 ```csharp
 // Override consistency at the client level
-documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, ConsistencyLevel.BoundedStaleness);
+documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, ConsistencyLevel.Eventual);
 
 // Override consistency at the request level via request options
 RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
