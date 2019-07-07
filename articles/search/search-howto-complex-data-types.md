@@ -42,12 +42,12 @@ The following JSON document is composed of simple fields and complex fields. Com
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
       "Type": "Budget Room",
-      "BaseRate": 96.99,
+      "BaseRate": 96.99
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99,
+      "BaseRate": 150.99
     },
   ]
 }
