@@ -4,8 +4,10 @@ description: Use a mainframe emulator and other services from Microsoft partners
 services: virtual-machines-linux
 documentationcenter:
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
 tags:
 keywords:
 ---
