@@ -125,7 +125,7 @@ Potential causes:
 * **Tor Anomaly**: This alert indicates that this account has been accessed successfully from an IP address that is known as an active exit node of Tor (an anonymizing proxy). The severity of this alert considers the authentication type used (if any), and whether this is the first case of such access.
 Potential causes:
    * An attacker has accessed your storage account using Tor.
-   *A legitimate user has accessed your storage account using Tor.
+   * A legitimate user has accessed your storage account using Tor.
 
 
 ### Anomalous extract/upload alerts
