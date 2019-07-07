@@ -182,7 +182,7 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **Q: What is the size of the local OS Disks?**
 
-A: We will support platform and custom images, up to the VM cache size, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. 
+A: We support platform and custom images, up to the VM cache size, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. 
 
 **Q: Can the ephemeral OS disk be resized?**
 
