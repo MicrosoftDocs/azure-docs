@@ -42,7 +42,7 @@ Additionally, you need the following in your local development environment:
 
 ## Update the application
 
-In the tutorial that you completed as part of the prerequisites, you added a web application in Azure AD B2C. To enable communication with the sample in the tutorial, you need to add a redirect URI to the application in Azure AD B2C.
+In the second tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the sample in the tutorial, you need to add a redirect URI to the application in Azure AD B2C.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
@@ -64,7 +64,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ## Update the sample
 
-Now that you've obtained the sample, update the code with your Azure AD B2C tenant name the application ID you recorded in an earlier step.
+Now that you've obtained the sample, update the code with your Azure AD B2C tenant name and the application ID you recorded in an earlier step.
 
 1. Open the `index.html` file in the root of the sample directory.
 1. In the `msalConfig` definition, modify the **clientId** value with the Application ID you recorded in an earlier step. Next, update the **authority** URI value with your Azure AD B2C tenant name. Also update the URI with the name of the sign-up/sign-in user flow you created in one of the prerequisites (for example, *B2C_1_signupsignin1*).
@@ -87,7 +87,11 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
 
 ## Run the sample
 
-1. Open a console and change to the directory containing the sample.
+1. Open a console window and change to the directory containing the sample. For example:
+
+    ```console
+    cd active-directory-b2c-javascript-msal-singlepageapp
+    ```
 1. Run the following commands:
 
     ```
@@ -95,19 +99,19 @@ Now that you've obtained the sample, update the code with your Azure AD B2C tena
     node server.js
     ```
 
-    The console window displays the port number of the running Node.js server:
+    The console window displays the port number of the locally running Node.js server:
 
     ```
     Listening on port 6420...
     ```
 
-1. Use a browser to navigate to the address `http://localhost:6420` to view the application.
+1. Navigate to `http://localhost:6420` in your browser to view the application.
 
 The sample supports sign-up, sign-in, profile editing, and password reset. This tutorial highlights how a user signs up using an email address.
 
 ### Sign up using an email address
 
-1. Click **Login** to sign up as a user of the application. This uses the **B2C_1_signupsignin1** user flow you defined in a previous step.
+1. Click **Login** to sign up as a user of the application. This uses the **B2C_1_signupsignin1** user flow you specified in a previous step.
 1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, click the **Sign up now** link.
 1. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
 
@@ -125,9 +129,7 @@ You can now use your email address and password to sign in to the application.
 
 After you sign in, the app displays an insufficient permissions error - this is **expected**:
 
-```
-ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
-```
+`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
 
 You receive this error because you're attempting to access a resource from the demo directory, but your access token is valid only for your Azure AD directory. The API call is therefore unauthorized.
 
@@ -141,6 +143,8 @@ In this article, you learned how to:
 > * Update the application in Azure AD B2C
 > * Configure the sample to use the application
 > * Sign up using the user flow
+
+Now move on to the next tutorial in the series to grant access to a protected web API from the SPA:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Grant access to an ASP.NET Core web API from a single-page app using Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
