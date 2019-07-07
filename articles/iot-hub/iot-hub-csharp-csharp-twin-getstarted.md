@@ -41,9 +41,11 @@ To complete this tutorial you need the following:
 
 ## Get IoT hub connection string
 
-In this article, you create a backend service that adds desired properties to a device twin and then queries the identity registry to find all devices with reported properties that have been updated accordingly. To modify desired properties of a device twin your service needs the **service connect** permission. To query the identity registry, your service needs the **registry read** permission. There is no default shared access policy that contains only these two permissions, so you need to create a custom policy.
+In this article, you create a backend service that adds desired properties to a device twin and then queries the identity registry to find all devices with reported properties that have been updated accordingly. To modify desired properties of a device twin your service needs the **service connect** permission. To query the identity registry, your service needs the **registry read** permission. There is no default shared access policy that contains only these two permissions, so you need to create one.
 
 [!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
+
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## Create the service app
 

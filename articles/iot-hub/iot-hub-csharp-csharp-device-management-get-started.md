@@ -45,7 +45,7 @@ To complete this tutorial, you need the following:
 
 ## Get IoT hub connection string
 
-In this article you create a backend service to invoke a direct method on a device. To invoke a direct method on a device through IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+In this article you create a backend service that invokes a direct method on a device. To invoke a direct method on a device through IoT Hub, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
