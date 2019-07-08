@@ -3,19 +3,19 @@ title: 'Azure Active Directory Domain Services: Update DNS settings for the Azur
 description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
-manager: mtillman
+author: iainfoulds
+manager: daveba
 editor: curtand
 
 ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: ergreenl
+ms.author: iainfou
 
 ---
 # Enable Azure Active Directory Domain Services

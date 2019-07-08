@@ -1,45 +1,43 @@
 ---
-title: "Quickstart: Detect faces in an image using the REST API and Node.js"
+title: "Quickstart: Detect faces in an image with the Azure REST API and Node.js"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you detect faces from an image using the Face API with Node.js in Cognitive Services.
+description: In this quickstart, you will use the Azure Face REST API with Node.js to detect faces in an image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 06/08/2018
+ms.date: 07/03/2019
 ms.author: pafarley
+#Customer intent: As a Node.js developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
-# Quickstart: Detect faces in an image using the REST API and Node.js
 
-In this quickstart, you detect human faces in an image using the Face API.
+# Quickstart: Detect faces in an image using the Face REST API and Node.js
+
+In this quickstart, you will use the Azure Face REST API with Node.js to detect human faces in an image.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
 
-You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
 
-## Face - Detect request
+## Set up the Node environment
 
-Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-method to detect faces in an image and return face attributes including:
+Go to the folder where you'd like to create your project and create a new file, *facedetection.js*. Then install the `requests` module to this project. This allows your scripts to make HTTP requests.
 
-* Face ID: Unique ID used in several Face API scenarios.
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair.
+```shell
+npm install request --save
+```
 
-To run the sample, do the following steps:
+## Write the Node.js script
 
-1. Copy the following code into an editor.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you obtained your subscription keys, if necessary.
-1. Optionally, set `imageUri` to the image you want to analyze.
-1. Save the file with an `.js` extension.
-1. Open the Node.js command prompt and run the file, for example: `node myfile.js`.
+Paste the following code into *facedetection.js*. These fields specify how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). You may wish to change the `imageUrl` field to point to your own input image.
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');
@@ -54,7 +52,12 @@ const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/det
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+```
 
+Then, add the following code to call the Face API and get face attribute data from the input image. The `returnFaceAttributes` field specifies which face attributes to retrieve. You may wish to change this string depending on your intended use.
+
+
+```javascript
 // Request parameters.
 const params = {
     'returnFaceId': 'true',
@@ -84,9 +87,15 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## Face - Detect response
+## Save and run the script
 
-A successful response is returned in JSON, for example:
+After you've made your changes, open a command prompt and run the file with the `node` command.
+
+```
+node facedetection.js
+```
+
+You should see the face information displayed as JSON data in the console window. For example:
 
 ```json
 [
@@ -269,7 +278,7 @@ A successful response is returned in JSON, for example:
 
 ## Next steps
 
-Explore the Face APIs used to detect human faces in an image, demarcate the faces with rectangles, and return attributes such as age and gender.
+In this quickstart, you wrote a Node.js script that calls the Azure Face API to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more.
 
 > [!div class="nextstepaction"]
-> [Face APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

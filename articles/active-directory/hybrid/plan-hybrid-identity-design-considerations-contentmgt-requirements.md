@@ -1,28 +1,29 @@
-﻿---
+---
 title: Hybrid identity design - content management requirements Azure | Microsoft Docs
 description: Provides insight into how to determine the content management requirements of your business. Usually when a user has their own device, they might also have multiple credentials that will be alternating according to the application that they use. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure their privacy and increase the protection against data leakage.
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
-ms.component: hybrid
+ms.date: 04/29/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Determine content management requirements for your hybrid identity solution
 Understanding the content management requirements for your business may direct affect your decision on which hybrid identity solution to use. With the proliferation of multiple devices and the capability of users to bring their own devices ([BYOD](https://aka.ms/byodcg)), the company must protect its own data but it also must keep user’s privacy intact. Usually when a user has their own device, they might also have multiple credentials that will be alternating according to the application that they use. It is important to differentiate what content was created using personal credentials versus the ones created using corporate credentials. Your identity solution should be able to interact with cloud services to provide a seamless experience to the end user while ensure their privacy and increase the protection against data leakage. 
 
 Your identity solution will be leveraged by different technical controls in order to provide content management as shown in the figure below:
 
-![](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![security controls](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Security controls that will be leveraging your identity management system**
 
@@ -33,7 +34,7 @@ In general, content management requirements will leverage your identity manageme
 * Data Leakage Protection: security controls responsible for protecting data to avoid leakage will need to interact with the identity system to validate the user’s identity. This is also important for auditing trail purpose.
 
 > [!NOTE]
-> Read [data classification for cloud readiness](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) for more information about best practices and guidelines for data classification.
+> Read [data classification for cloud readiness](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) for more information about best practices and guidelines for data classification.
 > 
 > 
 

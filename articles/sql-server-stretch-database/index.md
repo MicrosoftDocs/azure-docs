@@ -8,7 +8,6 @@ layout: LandingPage
 ms.assetid: 
 ms.service: sql-server-stretch-database
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/23/2017
 ms.author: carolz

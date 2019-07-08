@@ -3,27 +3,30 @@ title: How to use the Azure AD Graph API
 description: The Azure Active Directory (Azure AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use Azure AD Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects.
 services: active-directory
 documentationcenter: n/a
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 tags: ''
 
 ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Use the Azure AD Graph API
 
 The Azure Active Directory (Azure AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use Azure AD Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, you can use Azure AD Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable, or delete the user. For more information on Azure AD Graph API features and application scenarios, see [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) and [Azure AD Graph API Prerequisites](https://msdn.microsoft.com/library/hh974476.aspx).
+
+This article applies to Azure AD Graph API. For similar info related to Microsoft Graph API, see [Use the Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/use_the_api).
 
 > [!IMPORTANT]
 > We strongly recommend that you use [Microsoft Graph](https://developer.microsoft.com/graph) instead of Azure AD Graph API to access Azure Active Directory resources. Our development efforts are now concentrated on Microsoft Graph and no further enhancements are planned for Azure AD Graph API. There are a very limited number of scenarios for which Azure AD Graph API might still be appropriate; for more information, see the [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blog post in the Office Dev Center.
@@ -58,7 +61,7 @@ You can use the Azure AD Graph Explorer for the Azure AD Graph API to query the 
 
 The following screenshot is the output you would see if you were to navigate to the Azure AD Graph Explorer, sign in, and enter `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` to display all the users in the signed-in user's directory:
 
-![Azure AD graph api explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Example output in Azure AD Graph API Explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **Load the Azure AD Graph Explorer**: To load the tool, navigate to [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Click **Login** and sign-in with your Azure AD account credentials to run the Azure AD Graph Explorer against your tenant. If you run Azure AD Graph Explorer against your own tenant, either you or your administrator needs to consent during sign-in. If you have an Office 365 subscription, you automatically have an Azure AD tenant. The credentials you use to sign in to Office 365 are, in fact, Azure AD accounts, and you can use these credentials with Azure AD Graph Explorer.
 
@@ -76,7 +79,7 @@ Note the following features and limitations of the Azure AD Graph Explorer:
 
 ## Using Fiddler to write to the directory
 
-For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger to practice performing ‘write’ operations against your Azure AD directory. For example, you can get and upload a user's profile photo (which is not possible with Azure AD Graph Explorer). For more information and to install Fiddler, see [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler).
+For the purposes of this Quickstart guide, you can use the Fiddler Web Debugger to practice performing ‘write’ operations against your Azure AD directory. For example, you can get and upload a user's profile photo (which is not possible with Azure AD Graph Explorer). For more information and to install Fiddler, see [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler).
 
 In the example below, you use Fiddler Web Debugger to create a new security group ‘MyTestGroup’ in your Azure AD directory.
 

@@ -4,7 +4,7 @@ description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Ente
 services: active-directory 
 keywords: 
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 
 This article begins a series of articles that help organizations implement a complete Azure Active Directory (Azure AD) hybrid identity solution. This solution was outlined as the [Hybrid Identity Digital Transformation Framework](https://aka.ms/aadframework). It covers the business outcomes and goals organizations can focus on to implement a robust and secure hybrid identity solution. 
 
-The first business outcome of the framework spells out the requirements for organizations to secure the authentication process when users access cloud apps. The first business goal in the authentication secured business outcome is users' ability to sign in to cloud apps by using their on-premises usernames and passwords. This sign-in process to and how users authenticate make everything in the cloud possible.
+The first business outcome of the framework spells out the requirements for organizations to secure the authentication process when users access cloud apps. The first business goal in the authentication secured business outcome is users' ability to sign in to cloud apps by using their on-premises usernames and passwords. This sign-in and authentication process makes everything in the cloud possible.
 
 Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud. Don't take this decision lightly, for the following reasons:
 
@@ -43,7 +43,7 @@ Azure AD supports the following authentication methods for hybrid identity solut
 ### Cloud authentication
 When you choose this authentication method, Azure AD handles users' sign-in process. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication, you can choose from two options: 
 
-**Azure AD password hash synchronization**. The simplest way to enable authentication for on-premises directory objects in Azure AD. Users can use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, like Identity Protection, require password hash synchronization for no matter which authentication method you choose.
+**Azure AD password hash synchronization**. The simplest way to enable authentication for on-premises directory objects in Azure AD. Users can use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, like Identity Protection and [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), require password hash synchronization, no matter which authentication method you choose.
 
 > [!NOTE] 
 > Passwords are never stored in clear text or encrypted with a reversible algorithm in Azure AD. For more information on the actual process of password hash synchronization, see [Implement password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -63,6 +63,21 @@ The following section helps you decide which authentication method is right for 
 
 ![Azure AD authentication decision tree](media/azure-ad/azure-ad-authn-image1.png)
 
+Details on decision questions:
+
+1. Azure AD can handle sign-in for users without relying on on-premises components to verify passwords.
+2. Azure AD can hand off user sign-in to a trusted authentication provider such as Microsoft’s AD FS.
+3. If you need to apply user-level Active Directory security policies such as account expired, disabled account, password expired, account locked out, and sign-in hours on each user sign-in, Azure AD requires some on-premises components.
+4. Sign-in features not natively supported by Azure AD:
+   * Sign-in using smartcards or certificates.
+   * Sign-in using on-premises MFA Server.
+   * Sign-in using 3rd party authentication solution.
+   * Multi-site on-premises authentication solution.
+5. Azure AD Identity Protection requires Password Hash Sync regardless of which sign-in method you choose, to provide the *Users with leaked credentials* report. Organizations can failover to Password Hash Sync if their primary sign-in method fails and it was configured before the failure event.
+
+> [!NOTE]
+> Azure AD Identity Protection require [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
+
 ## Detailed considerations
 
 ### Cloud authentication: Password hash synchronization
@@ -71,16 +86,19 @@ The following section helps you decide which authentication method is right for 
 
 * **User experience**. To improve users' sign-in experience, deploy seamless SSO with password hash synchronization. Seamless SSO eliminates unnecessary prompts when users are signed in.
 
-* **Advanced scenarios**. If organizations choose to, it's possible to use insights from identities with Azure AD Identity Protection reports. An example is as the leaked credentials report. Windows Hello for Business is another option that has [specific requirements when you use password hash synchronization](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). 
+* **Advanced scenarios**. If organizations choose to, it's possible to use insights from identities with Azure AD Identity Protection reports with Azure AD Premium P2. An example is the leaked credentials report. Windows Hello for Business has [specific requirements when you use password hash synchronization](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) require password hash synchronization to provision users with their corporate credentials in the managed domain.
 
-	Organizations that require multifactor authentication with password hash synchronization must use Azure AD multifactor authentication. Those organizations can't use third-party or on-premises multifactor authentication methods.
+	Organizations that require multifactor authentication with password hash synchronization must use Azure AD multifactor authentication or [Conditional Access custom controls](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Those organizations can't use third-party or on-premises multifactor authentication methods that relies on federation.
+
+> [!NOTE]
+> Azure AD Conditional Access require [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenses.
 
 * **Business continuity**. Using password hash synchronization with cloud authentication is highly available as a cloud service that scales to all Microsoft datacenters. To make sure password hash synchronization does not go down for extended periods, deploy a second Azure AD Connect server in staging mode in a standby configuration.
 
 * **Considerations**. Currently, password hash synchronization doesn't immediately enforce changes in on-premises account states. In this situation, a user has access to cloud apps until the user account state is synchronized to Azure AD. Organizations might want to overcome this limitation by running a new synchronization cycle after administrators do bulk updates to on-premises user account states. An example is disabling accounts.
 
 > [!NOTE]
-> The password expired and account locked-out states aren't currently synced to Azure AD with Azure AD Connect. 
+> The password expired and account locked-out states aren't currently synced to Azure AD with Azure AD Connect. When you change a user's password and set the *user must change password at next logon* flag, the password hash will not be synced to Azure AD with Azure AD Connect, until the user change their password.
 
 Refer to [implementing password hash synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) for deployment steps.
 
@@ -94,7 +112,7 @@ Refer to [implementing password hash synchronization](https://docs.microsoft.com
 
 * **Advanced scenarios**. Pass-through Authentication enforces the on-premises account policy at the time of sign in. For example, access is denied when an on-premises user’s account state is disabled, locked out, or [password expired](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) or falls outside the hours when the user is allowed to sign in. 
 
-	Organizations that require multifactor authentication with pass-through authentication must use Azure Multi-Factor Authentication (MFA). Those organizations can't use a third-party or on-premises multifactor authentication method. Advanced features require that password hash synchronization is deployed whether or not you choose pass-through authentication. An example is the leaked credentials report of Identity Protection.
+	Organizations that require multifactor authentication with pass-through authentication must use Azure Multi-Factor Authentication (MFA) or [Conditional Access custom controls](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Those organizations can't use a third-party or on-premises multifactor authentication method that relies on federation. Advanced features require that password hash synchronization is deployed whether or not you choose pass-through authentication. An example is the leaked credentials report of Identity Protection.
 
 * **Business continuity**. We recommend that you deploy two extra pass-through authentication agents. These extras are in addition to the first agent on the Azure AD Connect server. This additional deployment ensures high availability of authentication requests. When you have three agents deployed, one agent can still fail when another agent is down for maintenance. 
 
@@ -114,10 +132,10 @@ Refer to [implementing pass-through authentication](https://docs.microsoft.com/a
 
 * **Advanced scenarios**. A federated authentication solution is usually required when customers have an authentication requirement that Azure AD doesn't support natively. See detailed information to help you [choose the right sign-in option](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Consider the following common requirements:
 
-	* Authentication that requires smartcards or certificates.
-	* On-premises MFA servers or third-party multifactor providers.
-	* Authentication by using third-party authentication solutions. See the [Azure AD federation compatibility list](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
-	* Sign in that requires an sAMAccountName, for example, DOMAIN\username, instead of a User Principal Name (UPN), for example, user@domain.com.
+  * Authentication that requires smartcards or certificates.
+  * On-premises MFA servers or third-party multifactor providers requiring a federated identity provider.
+  * Authentication by using third-party authentication solutions. See the [Azure AD federation compatibility list](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
+  * Sign in that requires an sAMAccountName, for example, DOMAIN\username, instead of a User Principal Name (UPN), for example, user@domain.com.
 
 * **Business continuity**. Federated systems typically require a load-balanced array of servers, known as a farm. This farm is configured in an internal network and perimeter network topology to ensure high availability for authentication requests.
 
@@ -140,7 +158,7 @@ The following diagrams outline the high-level architecture components required f
 
 	![Azure AD hybrid identity with Password hash synchronization](media/azure-ad/azure-ad-authn-image2.png)
 
-* Agent requirements of pass-through authentication:
+* Agent requirements of pass-through authentication, using two agents for redundancy:
 
 	![Azure AD hybrid identity with Pass-through Authentication](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -159,16 +177,16 @@ The following diagrams outline the high-level architecture components required f
 |Is there a health monitoring solution?|Not required|Agent status provided by [Azure Active Directory admin center](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
 |Do users get single sign-on to cloud resources from domain-joined devices within the company network?|Yes with [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Yes with [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Yes|
 |What sign-in types are supported?|UserPrincipalName + password<br><br>Windows Integrated Authentication by using [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Alternate login ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + password<br><br>Windows Integrated Authentication by using [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[Alternate login ID](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + password<br><br>sAMAccountName + password<br><br>Windows Integrated Authentication<br><br>[Certificate and smart card authentication](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternate login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
-|Is Windows Hello for Business supported?|[Key trust model](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Certificate trust model with Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Key trust model](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Certificate trust model with Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Key trust model](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Certificate trust model](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
-|What are the multifactor authentication options?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Custom Controls with conditional access*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Custom Controls with conditional access*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-1)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[Third-party MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Custom Controls with conditional access*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-1)|
+|Is Windows Hello for Business supported?|[Key trust model](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Key trust model](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Requires Windows Server 2016 Domain functional level*|[Key trust model](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Certificate trust model](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
+|What are the multifactor authentication options?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Custom Controls with Conditional Access*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Custom Controls with Conditional Access*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA server](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[Third-party MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Custom Controls with Conditional Access*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
 |What user account states are supported?|Disabled accounts<br>(up to 30-minute delay)|Disabled accounts<br><br>Account locked out<br><br>Account expired<br><br>Password expired<br><br>Sign-in hours|Disabled accounts<br><br>Account locked out<br><br>Account expired<br><br>Password expired<br><br>Sign-in hours|
-|What are the conditional access options?|[Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS claim rules](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Is blocking legacy protocols supported?|[Yes](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Yes](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Yes](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|What are the Conditional Access options?|[Azure AD Conditional Access, with Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD Conditional Access, with Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD Conditional Access, with Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS claim rules](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
+|Is blocking legacy protocols supported?|[Yes](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[Yes](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions)|[Yes](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Can you customize the logo, image, and description on the sign-in pages?|[Yes, with Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Yes, with Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Yes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
-|What advanced scenarios are supported?|[Smart password lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Leaked credentials reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Smart password lockout](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Multisite low-latency authentication system<br><br>[AD FS extranet lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integration with third-party identity systems](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
+|What advanced scenarios are supported?|[Smart password lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Leaked credentials reports, with Azure AD Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Smart password lockout](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Multisite low-latency authentication system<br><br>[AD FS extranet lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integration with third-party identity systems](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
 > [!NOTE] 
-> Custom controls in Azure AD conditional access does not currently support device registration.
+> Custom controls in Azure AD Conditional Access does not currently support device registration.
 
 ## Recommendations
 Your identity system ensures your users' access to cloud apps and the line-of-business apps that you migrate and make available in the cloud. To keep authorized users productive and bad actors out of your organization’s sensitive data, authentication controls access to apps.
@@ -183,9 +201,9 @@ Use or enable password hash synchronization for whichever authentication method 
 
    * Organizations that previously turned on password hash synchronization changed their authentication method to use password hash synchronization. They were back online in a matter of hours. By using access to email via Office 365, they worked to resolve issues and access other cloud-based workloads.
 
-   * Organizations that didn’t previously enable password hash synchronization had to resort to untrusted external consumer email systems for communications and resolving issues. In those cases, it took them weeks or more to be up and running again.
+   * Organizations that didn’t previously enable password hash synchronization had to resort to untrusted external consumer email systems for communications to resolve issues. In those cases, it took them weeks to restore their on-premises identity infrastructure, before users were able to sign-in to cloud-based apps again.
 
-3. **Identity protection**. One of the best ways to protect users in the cloud is Azure AD Identity Protection. Microsoft continually scans the Internet for user and password lists that bad actors sell and make available on the dark web. Azure AD can use this information to verify if any of the usernames and passwords in your organization are compromised. So it's critical to enable password hash synchronization no matter what authentication method you use, whether that's federated or pass-through authentication. Leaked credentials are presented as a report. Use this information to block or force users to change their passwords when they try to sign in with leaked passwords.
+3. **Identity protection**. One of the best ways to protect users in the cloud is Azure AD Identity Protection with Azure AD Premium P2. Microsoft continually scans the Internet for user and password lists that bad actors sell and make available on the dark web. Azure AD can use this information to verify if any of the usernames and passwords in your organization are compromised. So it's critical to enable password hash synchronization no matter what authentication method you use, whether that's federated or pass-through authentication. Leaked credentials are presented as a report. Use this information to block or force users to change their passwords when they try to sign in with leaked passwords.
 
 Lastly, according to [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html), Microsoft has the most full-featured set of identity and access management functions. Microsoft handles [450 billion authentication requests](https://www.microsoft.com/en-us/security/intelligence-report) every month to provide access to thousands of SaaS applications like Office 365 from virtually any device. 
 
@@ -201,4 +219,4 @@ In today’s world, threats are present 24 hours a day and come from everywhere.
 
 [Get started](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) with Azure AD and deploy the right authentication solution for your organization.
 
-If you're thinking about migrating from federated to cloud authentication, learn more about [changing the sign-in method](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). To help you plan and implement the migration, use [these project deployment plans](http://aka.ms/deploymentplans).
+If you're thinking about migrating from federated to cloud authentication, learn more about [changing the sign-in method](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). To help you plan and implement the migration, use [these project deployment plans](https://aka.ms/deploymentplans).

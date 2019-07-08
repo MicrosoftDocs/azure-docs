@@ -3,13 +3,13 @@ title: Managing user data with Conversation Learner - Microsoft Cognitive Servic
 titleSuffix: Azure
 description: Learn how to manage user data with Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
 
 # Managing user data
@@ -43,8 +43,8 @@ cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManag
     var sessionData = memoryManager.SessionInfo();
 
     // sessionData.sessionId is the ID of this logged dialog.
-    // In your bot-specific datastore, store an association
-    // bewteen your user identifier and this session ID.
+    // In your bot-specific data store, store an association
+    // between your user identifier and this session ID.
     console.log(sessionData.logDialogId)
 
     // sessionData.userId and sessionData.userName are the 

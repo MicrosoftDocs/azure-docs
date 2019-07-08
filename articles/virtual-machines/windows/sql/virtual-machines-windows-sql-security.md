@@ -3,7 +3,7 @@ title: Security Considerations for SQL Server in Azure | Microsoft Docs
 description: This topic provides general guidance for securing SQL Server running in an Azure Virtual Machine.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
-ms.author: jroth
-
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Security Considerations for SQL Server in Azure Virtual Machines
 
@@ -49,7 +49,7 @@ The selected options in the portal use inbound security rules on the VM's [netwo
 
 In addition to NSG rules to restrict network traffic, you can also use the Windows Firewall on the virtual machine.
 
-If you are using endpoints with the classic deployment model, remove any endpoints on the virtual machine if you do not use them. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint). This is not necessary for VMs that use the Resource Manager.
+If you are using endpoints with the classic deployment model, remove any endpoints on the virtual machine if you do not use them. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). This is not necessary for VMs that use the Resource Manager.
 
 Finally, consider enabling encrypted connections for the instance of the SQL Server Database Engine in your Azure virtual machine. Configure SQL server instance with a signed certificate. For more information, see [Enable Encrypted Connections to the Database Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) and [Connection String Syntax](https://msdn.microsoft.com/library/ms254500.aspx).
 
@@ -57,9 +57,11 @@ Finally, consider enabling encrypted connections for the instance of the SQL Ser
 
 By default, SQL Server listens on a well-known port, 1433. For increased security, configure SQL Server to listen on a non-default port, such as 1401. If you provision a SQL Server gallery image in the Azure portal, you can specify this port in the **SQL Server settings** blade.
 
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
 To configure this after provisioning, you have two options:
 
-- For Resource Manager VMs, you can select **SQL Server configuration** from the VM overview blade. This provides an option to change the port.
+- For Resource Manager VMs, you can select **Security** from the [SQL virtual machines resource](virtual-machines-windows-sql-manage-portal.md#access-sql-virtual-machine-resource). This provides an option to change the port.
 
   ![TCP port change in portal](./media/virtual-machines-windows-sql-security/sql-vm-change-tcp-port.png)
 

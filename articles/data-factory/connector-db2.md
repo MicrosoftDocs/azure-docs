@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 08/17/2018
 
@@ -32,6 +32,7 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 
 * IBM DB2 for z/OS 11.1
 * IBM DB2 for z/OS 10.1
+* IBM DB2 for i 7.3
 * IBM DB2 for i 7.2
 * IBM DB2 for i 7.1
 * IBM DB2 for LUW 11

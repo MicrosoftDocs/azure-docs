@@ -68,7 +68,7 @@ let's start at the top. We must use a **Request** trigger because the parent log
 
 We are using a **Request** trigger as shown in the following example:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -101,7 +101,7 @@ We are using a **Request** trigger as shown in the following example:
         }
       },
 
-````
+```
 
 
 ## Steps

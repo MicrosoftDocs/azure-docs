@@ -1,85 +1,65 @@
 ---
 title: How to configure the multi-factor authentication registration policy in Azure Active Directory Identity Protection | Microsoft Docs
 description: Learn how to configure the Azure AD Identity Protection multi-factor authentication registration policy.
+
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
-
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: identity-protection
 ms.topic: article
-ms.date: 09/13/2018
-ms.author: markvi
-ms.reviewer: raluthra
+ms.date: 05/01/2019
 
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.author: joflore
+ms.reviewer: sahandle
+
+ms.collection: M365-identity-device-management
 ---
+# How To: Configure the Azure Multi-Factor Authentication registration policy
 
-# How To: Configure the multi-factor authentication registration policy
+Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what app you are signing in to. This article explains what the policy can be used for and how to configure it.
 
-Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a policy. This article explains what the policy can be used for an how to configure it.
+## What is the Azure Multi-Factor Authentication registration policy?
 
-## What is the multi-factor authentication registration policy?
+Azure Multi-Factor Authentication provides a means to verify who you are using more than just a username and password. It provides a second layer of security to user sign-ins. In order for users to be able to respond to MFA prompts, they must first register for Azure Multi-Factor Authentication.
 
-Azure multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions.  
-
-We recommend that you require Azure multi-factor authentication for user sign-ins because it:
+We recommend that you require Azure Multi-Factor Authentication for user sign-ins because it:
 
 - Delivers strong authentication with a range of easy verification options
+- Plays a key role in preparing your organization to protect and recover from risk events in Identity Protection
 
-- Plays a key role in preparing your organization to protect and recover from account compromises
+For more details on MFA, see [What is Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
+## How do I access the registration policy?
 
-For more details, see [What is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
-
-
-## How do I access the MFA registration policy?
-   
 The MFA registration policy is in the **Configure** section on the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
-   
+
 ![MFA policy](./media/howto-mfa-policy/1014.png)
-
-
-
 
 ## Policy settings
 
-When you configure the sign-in risk policy, you need to set:
+When you configure the MFA registration policy, you need to make the following configuration changes:
 
-- The users and groups the policy applies to:
+- The users and groups the policy applies to. Remember to exclude your organization's [emergency access accounts](../users-groups-roles/directory-emergency-access.md).
 
     ![Users and groups](./media/howto-mfa-policy/11.png)
 
-- The type of access you want to be enforced:  
+- The control you want to enforce - **Require Azure MFA registration**
 
-    ![Users and groups](./media/howto-mfa-policy/12.png)
+    ![Access](./media/howto-mfa-policy/12.png)
 
-- The state of your policy:
+- Enforce Policy should be set to **On**.
 
     ![Enforce policy](./media/howto-mfa-policy/14.png)
 
-
-The policy configuration dialog provides you with an option to estimate the impact of your configuration.
-
-![Estimated impact](./media/howto-mfa-policy/15.png)
-
-
-
+- **Save** your policy
 
 ## User experience
 
-
 For an overview of the related user experience, see:
 
-* [Multi-factor authentication registration flow](flows.md#multi-factor-authentication-registration).  
-* [Sign-in experiences with Azure AD Identity Protection](flows.md).  
-
-
+- [Multi-factor authentication registration flow](flows.md#multi-factor-authentication-registration).  
+- [Sign-in experiences with Azure AD Identity Protection](flows.md).  
 
 ## Next steps
 

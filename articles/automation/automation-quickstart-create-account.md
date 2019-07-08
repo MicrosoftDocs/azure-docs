@@ -4,10 +4,10 @@ description: Learn how to create an Azure Automation account and run a runbook
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 10/18/2018
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 ms.custom: mvc
 ---
 
@@ -27,14 +27,14 @@ Sign in to Azure at https://portal.azure.com
 
 1. Select **Management Tools**, and then select **Automation**.
 
-1. Enter the account information. For **Create Azure Run As account**, choose **Yes** so that the artifacts to simplify authentication to Azure are enabled automatically. It is important to note, that when creating an Automation Account, the name cannot be changed after it is chosen. One Automation Account can manage resources across all regions and subscriptions for a given tenant. When complete, click **Create**, to start the Automation account deployment.
+1. Enter the account information. For **Create Azure Run As account**, choose **Yes** so that the artifacts to simplify authentication to Azure are enabled automatically. It is important to note, that when creating an Automation Account, the name cannot be changed after it is chosen. *Automation Account names are unique per region and resource group. Names for Automation Accounts that were deleted may not be immediately available.* One Automation Account can manage resources across all regions and subscriptions for a given tenant. When complete, click **Create**, to start the Automation account deployment.
 
     ![Enter information about your Automation account in the page](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
     > [!NOTE]
-    > For an updated list of locations that you can deploy an Automation Account to see, [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
+    > For an updated list of locations that you can deploy an Automation Account to see, [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 
-1. When the deployment has completed, click ** **All Services**, select **Automation Accounts** and select the Automation Account you created.
+1. When the deployment has completed, click **All Services**, select **Automation Accounts** and select the Automation Account you created.
 
     ![Automation account overview](./media/automation-quickstart-create-account/automation-account-overview.png)
 
@@ -56,13 +56,10 @@ Run one of the tutorial runbooks.
 
 1. After the **Job status** becomes **Running**, click **Output** or **All Logs** to view the runbook job output. For this tutorial runbook, the output is a list of your Azure resources.
 
-## Clean up resources
-
-When no longer needed, delete the resource group, Automation account, and all related resources. To do so, select the resource group for the Automation account and click **Delete**.
-
 ## Next steps
 
 In this quickstart, you’ve deployed an Automation account, started a runbook job, and viewed the job results. To learn more about Azure Automation, continue to the quickstart for creating your first runbook.
 
 > [!div class="nextstepaction"]
 > [Automation Quickstart - Create Runbook](./automation-quickstart-create-runbook.md)
+

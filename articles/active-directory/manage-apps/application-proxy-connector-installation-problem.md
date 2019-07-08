@@ -3,20 +3,21 @@ title: Problem installing the Application Proxy Agent Connector | Microsoft Docs
 description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector 
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: barbkess
-ms.reviewer: asteen
+ms.author: mimart
+ms.reviewer: japere
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem installing the Application Proxy Agent Connector
@@ -60,13 +61,13 @@ When the installation of a connector fails, the root cause is usually one of the
 
 ## Verify admin is used to install the connector
 
-**Objective:** Verify that the user who tries to install the connector is an administrator with correct credentials. Currently, the user must be a global administrator for the installation to succeed.
+**Objective:** Verify that the user who tries to install the connector is an administrator with correct credentials. Currently, the user must be at least an application administrator for the installation to succeed.
 
 **To verify the credentials are correct:**
 
 Connect to <https://login.microsoftonline.com> and use the same credentials. Make sure the login is successful. You can check the user role by going to **Azure Active Directory** -&gt; **Users and Groups** -&gt; **All Users**. 
 
-Select your user account, then “Directory Role” in the resulting menu. Verify that the selected role is “Global administrator”. If you are unable to access any of the pages along these steps, you are not a global administrator.
+Select your user account, then “Directory Role” in the resulting menu. Verify that the selected role is "Application Administrator". If you are unable to access any of the pages along these steps, you do not have the required role.
 
 ## Next steps
 [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)

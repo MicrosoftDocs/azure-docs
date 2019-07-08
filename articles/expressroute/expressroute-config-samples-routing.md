@@ -1,24 +1,18 @@
 ---
-title: ExpressRoute customer router configuration samples | Microsoft Docs
+title: Router configuration samples - Azure ExpressRoute | Microsoft Docs
 description: This page provides router config samples for Cisco and Juniper routers.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
 
-ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 12/06/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # Router configuration samples to set up and manage routing
-This page provides interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
+This page provides interface and routing configuration samples for Cisco IOS-XE and Juniper MX series routers when working with ExpressRoute. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
 
 > [!IMPORTANT]
 > Samples in this page are intended to be purely for guidance. You must work with your vendor's sales / technical team and your networking team to come up with appropriate configurations to meet your needs. Microsoft will not support issues related to configurations listed in this page. You must contact your device vendor for support issues.

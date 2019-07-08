@@ -1,0 +1,101 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Custom Vision API Documentation 
+metadata:
+  title: Custom Vision API Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  description: Learn how to use Custom Vision to build, deploy, and improve custom image classifications. Tutorials show you how to build apps that use the API.
+  services: cognitive-services
+  author: nitinme
+  manager: cgronlun
+
+  ms.service: cognitive-services
+  ms.subservice: custom-vision
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 12/20/2018
+  ms.author: nitinme
+abstract:
+  description: The cloud-based Custom Vision API provides developers with the ability to build, deploy and improve custom image classifiers. An image classifier is an AI service that sorts images into tags according to certain characteristics.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/custom-vision-landing-page-video.png
+      width: 250  
+    title: Train and identify unique images (26:10)
+    href: https://channel9.msdn.com/Shows/AI-Show/Azure-Custom-Vision-How-to-Train-and-Identify-Unique-Designs-or-Image-Content
+    width: 250
+sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/Custom-Vision-Service/home
+          html: <p>Learn about the Custom Vision API.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is Custom Vision?
+        - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
+          html: <p>Learn how to build a classifier.</p>
+          image:
+            src: ../media/index/i_tasks.svg
+          title: Build a classifier
+        - href: /azure/cognitive-services/Custom-Vision-Service/export-your-model
+          html: <p>Learn how to export a model to a mobile device.</p>
+          image:
+            src: ../media/index/i_tasks.svg
+          title: Export model to mobile devices
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to get started with Custom Vision by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_csharp.svg
+      - image:
+          src: media/index/logo_python.svg
+      - image:
+          src: media/index/logo_java.svg
+    rows:
+      - title: Image classification
+        values:
+        - href: csharp-tutorial
+        - href: python-tutorial
+        - href: java-tutorial
+      - title: Object detection
+        values:
+        - href: csharp-tutorial-od
+        - href: python-tutorial-od
+        - href: java-tutorial-od
+- title: Samples
+  items:
+  - type: paragraph
+    text: 'Find samples for Custom Vision API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?sort=Relevance&service=cognitive-services&term=Custom+Vision">Code Samples</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: APIs
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=865446">Training</a></p>
+            <p><a href="https://go.microsoft.com/fwlink/?linkid=865445">Prediction</a></p>
+    - title: SDK
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet">.NET</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable">Java</a></p>
+            <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/?view=azure-python">Python</a></p>
+            <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training">Go - Training</a></p>
+            <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction">Go - Prediction</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

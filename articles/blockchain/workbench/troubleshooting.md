@@ -1,11 +1,11 @@
 ---
 title: Azure Blockchain Workbench troubleshooting
-description: How to troubleshoot a Azure Blockchain Workbench application.
+description: How to troubleshoot an Azure Blockchain Workbench application.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -19,9 +19,9 @@ A PowerShell script is available to assist with developer debugging or support. 
 * Blockchain network, such as Ethereum
 * Blockchain Workbench microservices
 * Application Insights
-* Azure Monitoring (Log Analytics)
+* Azure Monitoring (Azure Monitor logs)
 
-You can use the information to determine next steps and determine root cause of issues. 
+You can use the information to determine next steps and determine root cause of issues.
 
 ## Troubleshooting script
 
@@ -47,9 +47,9 @@ The script accepts the following parameters:
 | ResourceGroupName | Name of the Azure Resource Group where Blockchain Workbench has been deployed. | Yes |
 | OutputDirectory | Path to create the output .ZIP file. If not specified, defaults to the current directory. | No |
 | LookbackHours | Number of hours to use when pulling telemetry. Default value is 24 hours. Maximum value is 90 hours | No |
-| OmsSubscriptionId | The subscription ID where Log Analytics is deployed. Only pass this parameter if the Log Analytics for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
-| OmsResourceGroup |The resource group where Log Analytics is deployed. Only pass this parameter if the Log Analytics for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
-| OmsWorkspaceName | The Log Analytics workspace name. Only pass this parameter if the Log Analytics for the blockchain network is deployed outside of Blockchain Workbench's resource group | No |
+| OmsSubscriptionId | The subscription ID where Azure Monitor logs is deployed. Only pass this parameter if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
+| OmsResourceGroup |The resource group where Azure Monitor logs is deployed. Only pass this parameter if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group.| No |
+| OmsWorkspaceName | The Log Analytics workspace name. Only pass this parameter if the Azure Monitor logs for the blockchain network is deployed outside of Blockchain Workbench's resource group | No |
 
 ## What is collected?
 
@@ -71,4 +71,4 @@ The **Details** folder contains detailed logs for troubleshooting specific issue
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench architecture](architecture.md)
+> [Azure Blockchain Workbench Application Insights troubleshooting guide](https://aka.ms/workbenchtroubleshooting)

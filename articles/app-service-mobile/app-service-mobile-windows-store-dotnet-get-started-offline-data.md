@@ -2,7 +2,7 @@
 title: Enable offline sync for your Universal Windows Platform (UWP) app with Mobile Apps| Microsoft Docs
 description: Learn how to use an Azure Mobile App to cache and sync offline data in your Universal Windows Platform (UWP) app.
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -13,12 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Enable offline sync for your Windows app
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-offline-data) today.
+>
 
 ## Overview
 This tutorial shows you how to add offline support to a Universal Windows Platform (UWP) app using an Azure Mobile App
@@ -44,7 +47,7 @@ This tutorial requires the following pre-requisites:
 ## Update the client app to support offline features
 Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use these features in your app, you initialize a [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
 
-1. Install the [SQLite runtime for the Universal Windows Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+1. Install the [SQLite runtime for the Universal Windows Platform](https://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. In Visual Studio, open the NuGet package manager for the UWP app project that you completed in the [Create a Windows app] tutorial.
     Search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package.
 3. In Solution Explorer, right-click **References** > **Add Reference...** > **Universal Windows** > **Extensions**, then enable
@@ -107,7 +110,7 @@ the local store with the server:
 * **[PullAsync]**
    A pull is started from a [IMobileServiceSyncTable]. When there are tracked changes in the table, an implicit push is run to make sure
    that all tables in the local store along with relationships remain consistent. The *pushOtherTables* parameter controls whether other
-   tables in the context are pushed in an implicit push. The *query* parameter takes an [IMobileServiceTableQuery<T>][IMobileServiceTableQuery]
+   tables in the context are pushed in an implicit push. The *query* parameter takes an [IMobileServiceTableQuery\<T>][IMobileServiceTableQuery]
    or OData query string to filter the returned data. The *queryId* parameter is used to define incremental sync. For more information, see
    [Offline Data Sync in Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
 * **[PurgeAsync]**
@@ -137,9 +140,9 @@ The following topics provide additional background information on the offline sy
 <!-- URLs. -->
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [create a windows app]: app-service-mobile-windows-store-dotnet-get-started.md
-[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
-[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
-[SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
+[SQLite for Windows 8.1]: https://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite for Windows Phone 8.1]: https://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite for Windows 10]: https://go.microsoft.com/fwlink/?LinkID=716921
 [synccontext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [IMobileServiceSyncTable]: https://msdn.microsoft.com/library/azure/mt691742(v=azure.10).aspx

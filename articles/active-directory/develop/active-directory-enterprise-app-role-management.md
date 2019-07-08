@@ -4,7 +4,7 @@ description: Learn how to configure the role claim issued in the SAML token for 
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure the role claim issued in the SAML token for enterprise applications
@@ -147,25 +148,32 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
 8. Update the **Attributes** table to define a customized mapping of the role claim.
 
-9. In the **User Attributes** section of the **Single sign-on** dialog box, configure the SAML token attribute as shown in the image and perform the following steps.
+9. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
     | Attribute name | Attribute value |
     | -------------- | ----------------|
     | Role name  | user.assignedroles |
 
-    a. Select **Add attribute** to open the **Add Attribute** pane.
+	>[!NOTE]
+	>If the role claim value is null, then Azure AD will not send this value in the token and this is default as per design.
+
+    a. click **Edit** icon to open **User Attributes & Claims** dialog.
+
+      !["Add attribute" button](./media/active-directory-enterprise-app-role-management/editattribute.png)
+
+    b. In the **Manage user claims** dialog, add the SAML token attribute by clicking on **Add new claim**.
 
       !["Add attribute" button](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
       !["Add Attribute" pane](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. In the **Name** box, type the attribute name as needed. This example uses **Role Name** as the claim name.
-
-    c. From the **Value** list, type the attribute value shown for that row.
+    c. In the **Name** box, type the attribute name as needed. This example uses **Role Name** as the claim name.
 
     d. Leave the **Namespace** box blank.
 
-    e. Select **Ok**.
+    e. From the **Source attribute** list, type the attribute value shown for that row.
+
+    f. Select **Save**.
 
 10. To test your application in a single sign-on that's initiated by an identity provider, sign in to the [Access Panel](https://myapps.microsoft.com) and select your application tile. In the SAML token, you should see all the assigned roles for the user with the claim name that you have given.
 

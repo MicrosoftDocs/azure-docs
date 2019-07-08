@@ -1,13 +1,10 @@
 ---
 title: Azure CLI script - Restore an Azure Database for MySQL server to a previous point in time
 description: This sample CLI script restores Azure Database for MySQL server to a previous point in time.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
@@ -22,7 +19,7 @@ If you choose to install and use the CLI locally, this sample requires that you 
 
 ## Sample script
 In this sample script, change the highlighted lines to customize the admin username and password. Replace the subscription ID used in the az monitor commands with your own subscription ID.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/backup-restore.sh?highlight=18-19 "Restore Azure Database for MySQL.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/backup-restore-pitr/backup-restore.sh?highlight=15-16 "Restore Azure Database for MySQL.")]
 
 ## Clean up deployment
 After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
@@ -33,10 +30,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az mysql server create](/cli/azure/mysql/server#create) | Creates a MySQL server that hosts the databases. |
-| [az mysql server restore](/cli/azure/mysql/server#restore) | Restore a server from backup. |
-| [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az mysql server create](/cli/azure/mysql/server) | Creates a MySQL server that hosts the databases. |
+| [az mysql server restore](/cli/azure/mysql/server) | Restore a server from backup. |
+| [az group delete](/cli/azure/group) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 - Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).

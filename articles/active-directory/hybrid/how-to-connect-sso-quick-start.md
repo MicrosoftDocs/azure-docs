@@ -5,16 +5,17 @@ services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/21/2018
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 04/16/2019
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Seamless Single Sign-On: Quick start
@@ -45,7 +46,7 @@ Ensure that the following prerequisites are in place:
     * You synchronize to Azure AD through Azure AD Connect.
     * Contains users you want to enable for Seamless SSO.
     
-* **Enable modern authentication**: You need to enable [modern authentication](https://aka.ms/modernauthga) on your tenant for this feature to work.
+* **Enable modern authentication**: You need to enable [modern authentication](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant for this feature to work.
 
 * **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
 
@@ -68,8 +69,9 @@ If you already have an installation of Azure AD Connect, select the **Change use
 ![Azure AD Connect: Change the user sign-in](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Continue through the wizard until you get to the **Enable single sign on** page. Provide domain administrator credentials for each Active Directory forest that:
-    * You synchronize to Azure AD through Azure AD Connect.
-    * Contains users you want to enable for Seamless SSO.
+
+* You synchronize to Azure AD through Azure AD Connect.
+* Contains users you want to enable for Seamless SSO.
 
 After completion of the wizard, Seamless SSO is enabled on your tenant.
 
@@ -86,13 +88,16 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 ![Azure portal: Azure AD Connect pane](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Seamless SSO creates a computer account named `AZUREADSSOACC` (which represents Azure AD) in your on-premises Active Directory (AD) in each AD forest. This computer account is needed for the feature to work. Move the `AZUREADSSOACC` computer account to an Organization Unit (OU) where other computer accounts are stored to ensure that it is managed in the same way and is not deleted.
+> Seamless SSO creates a computer account named `AZUREADSSOACC` in your on-premises Active Directory (AD) in each AD forest. The `AZUREADSSOACC` computer account needs to be strongly protected for security reasons. Only Domain Admins should be able to manage the computer account. Ensure that Kerberos delegation on the computer account is disabled, and that no other account in Active Directory has delegation permissions on the `AZUREADSSOACC` computer account. Store the computer account in an Organization Unit (OU) where they are safe from accidental deletions and where only Domain Admins have access.
+
+>[!NOTE]
+> If you are using Pass-the-Hash and Credential Theft Mitigation architectures in your on-premises environment, make appropriate changes to ensure that the `AZUREADSSOACC` computer account doesn't end up in the Quarantine container. 
 
 ## Step 3: Roll out the feature
 
 You can gradually roll out Seamless SSO to your users using the instructions provided below. You start by adding the following Azure AD URL to all or selected users' Intranet zone settings by using Group Policy in Active Directory:
 
-- https://autologon.microsoftazuread-sso.com
+- `https://autologon.microsoftazuread-sso.com`
 
 In addition, you need to enable an Intranet zone policy setting called **Allow updates to status bar via script** through Group Policy. 
 
@@ -101,7 +106,7 @@ In addition, you need to enable an Intranet zone policy setting called **Allow u
 
 ### Why do you need to modify users' Intranet zone settings?
 
-By default, the browser automatically calculates the correct zone, either Internet or Intranet, from a specific URL. For example, "http://contoso/" maps to the Intranet zone, whereas "http://intranet.contoso.com/" maps to the Internet zone (because the URL contains a period). Browsers will not send Kerberos tickets to a cloud endpoint, like the Azure AD URL, unless you explicitly add the URL to the browser's Intranet zone.
+By default, the browser automatically calculates the correct zone, either Internet or Intranet, from a specific URL. For example, `http://contoso/` maps to the Intranet zone, whereas `http://intranet.contoso.com/` maps to the Internet zone (because the URL contains a period). Browsers will not send Kerberos tickets to a cloud endpoint, like the Azure AD URL, unless you explicitly add the URL to the browser's Intranet zone.
 
 There are two ways to modify users' Intranet zone settings:
 
@@ -114,17 +119,17 @@ There are two ways to modify users' Intranet zone settings:
 
 1. Open the Group Policy Management Editor tool.
 2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
-3. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
+3. Browse to **User Configuration** > **Policy** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Enable the policy, and then enter the following values in the dialog box:
    - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
    - **Value** (Data): **1** indicates the Intranet zone.
 
-    The result looks like this:
+     The result looks like this:
 
-    Value name: https://autologon.microsoftazuread-sso.com
+     Value name: `https://autologon.microsoftazuread-sso.com`
   
-    Value (Data): 1
+     Value (Data): 1
 
    >[!NOTE]
    > If you want to disallow some users from using Seamless SSO (for instance, if these users sign in on shared kiosks), set the preceding values to **4**. This action adds the Azure AD URL to the Restricted zone, and fails Seamless SSO all the time.
@@ -134,7 +139,7 @@ There are two ways to modify users' Intranet zone settings:
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
+6. Browse to **User Configuration** > **Administrative Templates** **Policy** > **> **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
 
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -156,17 +161,9 @@ There are two ways to modify users' Intranet zone settings:
    - **Value type**: ***REG_DWORD***.
    - **Value data**: ***00000001***.
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. Enable the policy setting, and then select **OK**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### Browser considerations
 
@@ -176,7 +173,7 @@ Mozilla Firefox doesn't automatically use Kerberos authentication. Each user mus
 1. Run Firefox and enter `about:config` in the address bar. Dismiss any notifications that you see.
 2. Search for the **network.negotiate-auth.trusted-uris** preference. This preference lists Firefox's trusted sites for Kerberos authentication.
 3. Right-click and select **Modify**.
-4. Enter https://autologon.microsoftazuread-sso.com in the field.
+4. Enter `https://autologon.microsoftazuread-sso.com` in the field.
 5. Select **OK** and then reopen the browser.
 
 #### Safari (macOS)
@@ -185,9 +182,9 @@ Ensure that the machine running the macOS is joined to AD. Instructions for AD-j
 
 #### Google Chrome (all platforms)
 
-If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (https://autologon.microsoftazuread-sso.com) to them as well.
+If you have overridden the [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) or the [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to them as well.
 
-#### Google Chrome (macOS only)
+#### Google Chrome (macOS and other non-Windows platforms)
 
 For Google Chrome on Mac OS and other non-Windows platforms, refer to [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) for information on how to whitelist the Azure AD URL for integrated authentication.
 
@@ -195,7 +192,7 @@ The use of third-party Active Directory Group Policy extensions to roll out the 
 
 #### Known browser limitations
 
-Seamless SSO doesn't work in private browsing mode on Firefox and Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode.
+Seamless SSO doesn't work in private browsing mode on Firefox and Microsoft Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode.
 
 ## Step 4: Test the feature
 
@@ -206,11 +203,11 @@ To test the feature for a specific user, ensure that all the following condition
   - You have [rolled out the feature](##step-3-roll-out-the-feature) to this user through Group Policy.
 
 To test the scenario where the user enters only the username, but not the password:
-   - Sign in to https://myapps.microsoft.com/ in a new private browser session.
+   - Sign in to `https://myapps.microsoft.com/` in a new private browser session.
 
 To test the scenario where the user doesn't have to enter the username or the password, use one of these steps: 
-   - Sign in to https://myapps.microsoft.com/contoso.onmicrosoft.com in a new private browser session. Replace *contoso* with your tenant's name.
-   - Sign in to https://myapps.microsoft.com/contoso.com in a new private browser session. Replace *contoso.com* with a verified domain (not a federated domain) on your tenant.
+   - Sign in to `https://myapps.microsoft.com/contoso.onmicrosoft.com` in a new private browser session. Replace *contoso* with your tenant's name.
+   - Sign in to `https://myapps.microsoft.com/contoso.com` in a new private browser session. Replace *contoso.com* with a verified domain (not a federated domain) on your tenant.
 
 ## Step 5: Roll over keys
 

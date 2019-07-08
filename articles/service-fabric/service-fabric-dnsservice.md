@@ -3,8 +3,8 @@ title: Azure Service Fabric DNS service | Microsoft Docs
 description: Use Service Fabric's dns service for discovering microservices from inside the cluster.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
-ms.author: msfussell
+ms.author: aljo
 
 ---
 # DNS Service in Azure Service Fabric
@@ -39,6 +39,9 @@ The following diagram shows how the DNS service works for partitioned stateful s
 Dynamic ports are not supported by the DNS service. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md).
 
 ## Enabling the DNS service
+> [!NOTE]
+> DNS service for Service Fabric services is not yet supported on Linux.
+
 When you create a cluster using the portal, the DNS service is enabled by default in the **Include DNS service** check box on the **Cluster configuration** menu:
 
 ![Enabling DNS service through the portal](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -46,7 +49,7 @@ When you create a cluster using the portal, the DNS service is enabled by defaul
 If you're not using the portal to create your cluster or if you're updating an existing cluster, you'll need to enable the DNS service in a template:
 
 - To deploy a new cluster, you can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) or create your own Resource Manager template. 
-- To update an existing cluster, you can navigate to the cluster's resource group on the portal and click **Automation Script** to work with a template that reflects the current state of the cluster and other resources in the group. To learn more, see [Export the template from resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+- To update an existing cluster, you can navigate to the cluster's resource group on the portal and click **Automation Script** to work with a template that reflects the current state of the cluster and other resources in the group. To learn more, see [Export the template from resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
 After you have a template, you can enable the DNS service with the following steps:
 
@@ -247,6 +250,8 @@ public class ValuesController : Controller
 
 ## Known Issues
 * For Service Fabric versions 6.3 and higher, there is a problem with DNS lookups for service names containing a hyphen in the DNS name. For more information on this issue, please track the following [GitHub Issue](https://github.com/Azure/service-fabric-issues/issues/1197). A fix for this is coming in the next 6.3 update. 
+
+* DNS service for Service Fabric services is not yet supported on Linux. DNS service is supported for containers on Linux. Manual resolution using Fabric Client/ServicePartitionResolver is the available alternative.
 
 ## Next steps
 Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)

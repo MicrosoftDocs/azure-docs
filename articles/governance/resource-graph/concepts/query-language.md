@@ -1,13 +1,13 @@
 ---
-title: Understanding the Azure Resource Graph query language
-description: Describes how the query language for Azure Resource Graph works.
-services: resource-graph
+title: Understand the query language
+description: Describes the available Kusto operators and functions usable with Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
+ms.custom: seodec18
 ---
 # Understanding the Azure Resource Graph query language
 
@@ -49,6 +49,41 @@ Here is the list of supported functions in Resource Graph:
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
+- [zip()](/azure/kusto/query/zipfunction)
+
+## Escape characters
+
+Some property names, such as those that include a `.` or `$`, must be wrapped or escaped in the
+query or the property name is interpreted incorrectly and doesn't provide the expected results.
+
+- `.` - Wrap the property name as such: `['propertyname.withaperiod']`
+  
+  Example query that wraps the property _odata.type_:
+
+  ```kusto
+  where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
+  ```
+
+- `$` - Escape the character in the property name. The escape character used depends on the shell
+  Resource Graph is run from.
+
+  - **bash** - `\`
+
+    Example query that escapes the property _\$type_ in bash:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
+    ```
+
+  - **cmd** - Don't escape the `$` character.
+
+  - **PowerShell** - ``` ` ```
+
+    Example query that escapes the property _\$type_ in PowerShell:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
+    ```
 
 ## Next steps
 

@@ -48,7 +48,7 @@ To learn more about storage account types, see [Introducing the Azure Storage Se
 
 ## Next steps
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+While the Azure portal makes it easy to create and try out Functions, we recommend [local development](functions-develop-local.md). After creating a function app in the portal, you still need to add a function. 
 
-
-
+> [!div class="nextstepaction"]
+> [Add an HTTP triggered function](functions-create-first-azure-function.md#create-function)

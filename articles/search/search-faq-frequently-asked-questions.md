@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions (FAQ) about Azure Search | Microsoft Docs
-description: Get answers to common questions about Microsoft Azure Search Service
+title: Frequently asked questions (FAQ) - Azure Search
+description: Get answers to common questions about Microsoft Azure Search Service, a cloud hosted search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Azure Search - frequently asked questions (FAQ)
@@ -58,7 +59,7 @@ There are no restrictions on the use of primary or secondary replicas as a data 
 
 No, this operation is not supported. Search is always scoped to a single index.
 
-### Can I restrict search corpus access by user identity?
+### Can I restrict search index access by user identity?
 
 You can implement [security filters](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) with `search.in()` filter. The filter composes well with [identity management services like Azure Active Directory(AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) to trim search results based on defined user group membership.
 

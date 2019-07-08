@@ -22,7 +22,7 @@ This article describes how authentication and authorization works when developin
 
 This article focuses on mobile app development. To get started quickly with App Service authentication and authorization for your mobile app, see one of the following tutorials [Add authentication to your iOS app][iOS] (or [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], or [Cordova]). 
 
-For information on how authentication and authorization work in App Service, see [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md).
+For information on how authentication and authorization work in App Service, see [Authentication and authorization in Azure App Service](../app-service/overview-authentication-authorization.md).
 
 ## Authentication with provider SDK
 
@@ -40,7 +40,7 @@ When you use a provider SDK, users can sign in to an experience that integrates 
 
 After a provider token is obtained, it needs to be sent to App Service for validation. After App Service validates the token, App Service creates a new App Service token that is returned to the client. The Mobile Apps client SDK has helper methods to manage this exchange and automatically attach the token to all requests to the application back end. Developers can also keep a reference to the provider token.
 
-For more information on the authentication flow, see [App Service authentication flow](../app-service/app-service-authentication-overview.md#authentication-flow). 
+For more information on the authentication flow, see [App Service authentication flow](../app-service/overview-authentication-authorization.md#authentication-flow). 
 
 ## Authentication without provider SDK
 
@@ -48,10 +48,10 @@ If you do not want to set up a provider SDK, you can allow the Mobile Apps featu
 
 Code to start this flow is included in the authentication tutorial for each platform. At the end of the flow, the client SDK has an App Service token, and the token is automatically attached to all requests to the application backend.
 
-For more information on the authentication flow, see [App Service authentication flow](../app-service/app-service-authentication-overview.md#authentication-flow). 
+For more information on the authentication flow, see [App Service authentication flow](../app-service/overview-authentication-authorization.md#authentication-flow). 
 ## More resources
 
-The following tutorials show how to add authentication to your mobile clients by using the [server-directed flow](../app-service/app-service-authentication-overview.md#authentication-flow):
+The following tutorials show how to add authentication to your mobile clients by using the [server-directed flow](../app-service/overview-authentication-authorization.md#authentication-flow):
 
 * [Add authentication to your iOS app][iOS]
 * [Add Authentication to your Android app][Android]
@@ -61,21 +61,21 @@ The following tutorials show how to add authentication to your mobile clients by
 * [Add authentication to your Xamarin.Forms app][Xamarin.Forms]
 * [Add Authentication to your Cordova app][Cordova]
 
-Use the following resources if you want to use the [client-directed flow](../app-service/app-service-authentication-overview.md#authentication-flow) for Azure Active Directory:
+Use the following resources if you want to use the [client-directed flow](../app-service/overview-authentication-authorization.md#authentication-flow) for Azure Active Directory:
 
 * [Use the Active Directory Authentication Library for iOS][ADAL-iOS]
 * [Use the Active Directory Authentication Library for Android][ADAL-Android]
 * [Use the Active Directory Authentication Library for Windows and Xamarin][ADAL-dotnet]
 
-Use the following resources if you want to use the [client-directed flow](../app-service/app-service-authentication-overview.md#authentication-flow) for Facebook:
+Use the following resources if you want to use the [client-directed flow](../app-service/overview-authentication-authorization.md#authentication-flow) for Facebook:
 
 * [Use the Facebook SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
-Use the following resources if you want to use the [client-directed flow](../app-service/app-service-authentication-overview.md#authentication-flow) for Twitter:
+Use the following resources if you want to use the [client-directed flow](../app-service/overview-authentication-authorization.md#authentication-flow) for Twitter:
 
 * [Use Twitter Fabric for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
 
-Use the following resources if you want to use the [client-directed flow](../app-service/app-service-authentication-overview.md#authentication-flow) for Google:
+Use the following resources if you want to use the [client-directed flow](../app-service/overview-authentication-authorization.md#authentication-flow) for Google:
 
 * [Use the Google Sign-In SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
@@ -87,11 +87,11 @@ Use the following resources if you want to use the [client-directed flow](../app
 [Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
 [Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: ../app-service/configure-authentication-provider-aad.md
+[Facebook]: ../app-service/configure-authentication-provider-facebook.md
+[Google]: configure-authentication-provider-google.md
+[MSA]: ../app-service/configure-authentication-provider-microsoft.md
+[Twitter]: ../app-service/configure-authentication-provider-twitter.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

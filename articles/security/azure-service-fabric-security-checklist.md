@@ -5,16 +5,16 @@ description: This article provides a set of checklist for Azure fabric security 
 services: security
 documentationcenter: na
 author: unifycloud
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 01/16/2019
 ms.author: tomsh
 
 ---
@@ -45,6 +45,8 @@ Use the following checklist to help you make sure that you haven’t overlooked 
 
 
 ## Next steps
+
+- [Service Fabric security best practices](azure-service-fabric-security-best-practices.md)
 - [Service Fabric Cluster upgrade process and expectations from you](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade)
 - [Managing your Service Fabric applications in Visual Studio](https://docs.microsoft.com/azure/service-fabric/service-fabric-manage-application-in-visual-studio).
 - [Service Fabric Health model introduction](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction).

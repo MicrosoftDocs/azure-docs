@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Media Services fragmented MP4 live ingest specification | Microsoft Docs
 description: This specification describes the protocol and format for fragmented MP4-based live streaming ingestion for Azure Media Services. You can use Azure Media Services to stream live events and broadcast content in real time by using Azure as the cloud platform. This document also discusses best practices for building highly redundant and robust live ingest mechanisms.
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
-ms.author: cenkd;juliako
+ms.date: 03/18/2019
+ms.author: juliako
 
 ---
-# Azure Media Services fragmented MP4 live ingest specification
+# Azure Media Services fragmented MP4 live ingest specification 
+
 This specification describes the protocol and format for fragmented MP4-based live streaming ingestion for Azure Media Services. Media Services provides a live streaming service that customers can use to stream live events and broadcast content in real time by using Azure as the cloud platform. This document also discusses best practices for building highly redundant and robust live ingest mechanisms.
 
 ## 1. Conformance notation
@@ -34,7 +35,7 @@ The following diagram shows the high-level architecture of the live streaming se
 ![ingest flow][image1]
 
 ## 3. Bitstream format – ISO 14496-12 fragmented MP4
-The wire format for live streaming ingest discussed in this document is based on [ISO-14496-12]. For a detailed explanation of fragmented MP4 format and extensions both for video-on-demand files and live streaming ingestion, see [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+The wire format for live streaming ingest discussed in this document is based on [ISO-14496-12]. For a detailed explanation of fragmented MP4 format and extensions both for video-on-demand files and live streaming ingestion, see [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### Live ingest format definitions
 The following list describes special format definitions that apply to live ingest into Azure Media Services:

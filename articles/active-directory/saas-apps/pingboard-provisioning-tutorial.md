@@ -4,21 +4,20 @@ title: 'Tutorial: Configure Pingboard for automatic user provisioning with Azure
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Pingboard.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: sakula
+author: ArvindHarinder1
+manager: CelesteDG
 
 ms.assetid: 0b38ee73-168b-42cb-bd8b-9c5e5126d648
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
-ms.author: asmalser
-ms.reviewer: asmalser
+ms.date: 03/27/2019
+ms.author: arvinh
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Pingboard for automatic user provisioning
@@ -29,11 +28,11 @@ The purpose of this tutorial is to show you the steps you need to follow to enab
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-*   An Azure AD tenant
-*   A Pingboard tenant [Pro account](https://pingboard.com/pricing) 
-*   A user account in Pingboard with admin permissions 
+* An Azure AD tenant
+* A Pingboard tenant [Pro account](https://pingboard.com/pricing)
+* A user account in Pingboard with admin permissions
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD provisioning integration relies on the [Pingboard API](https://pingboard.docs.apiary.io/#), which is available to your account.
 
 ## Assign users to Pingboard
@@ -66,7 +65,7 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 1. Set **Provisioning Mode** to **Automatic**.
 
     ![Pingboard Provisioning](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
-    
+
 1. Under the **Admin Credentials** section, use the following steps:
 
     a. In **Tenant URL**, enter `https://your_domain.pingboard.com/scim/v2`, and replace "your_domain" with your real domain.
@@ -83,7 +82,7 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 
 1. Enter the email address of a person or group that you want to receive provisioning error notifications in **Notification Email**. Select the check box underneath.
 
-1. Select **Save**. 
+1. Select **Save**.
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Pingboard**.
 

@@ -35,7 +35,7 @@ The example domain used for this tutorial is contoso.com, but use your own domai
 
 ## Create the network infrastructure
 First, create a virtual network and a subnet to place your web servers in.
-1. Sign in to the Azure portal at http://portal.azure.com.
+1. Sign in to the Azure portal at https://portal.azure.com.
 2. In the upper left in the portal, select **Create a resource**. Enter *resource group* in the search box, and create a resource group named **RG-DNS-Alias-TM**.
 3. Select **Create a resource** > **Networking** > **Virtual network**.
 4. Create a virtual network named **VNet-Servers**. Place it in the **RG-DNS-Alias-TM** resource group, and name the subnet **SN-Web**.
@@ -117,4 +117,4 @@ When you no longer need the resources created for this tutorial, delete the **RG
 In this tutorial, you created an alias record to use your apex domain name to reference a Traffic Manager profile. To learn about Azure DNS and web apps, continue with the tutorial for web apps.
 
 > [!div class="nextstepaction"]
-> [Create DNS records for a web app in a custom domain](./dns-web-sites-custom-domain.md)
+> [Host load-balanced web apps at the zone apex](./dns-alias-appservice.md)

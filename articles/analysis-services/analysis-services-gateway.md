@@ -5,16 +5,16 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ---
-# Connecting to on-premises data sources with Azure On-premises Data Gateway
-The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. 
+# Connecting to on-premises data sources with On-premises Data Gateway
+The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. 
 
 Getting setup with the gateway the first time is a four-part process:
 
-- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD. Azure B2B (guest) accounts are not supported.
+- **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
 - **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but we recommend it be in the same region as your Analysis Services servers. 
 
@@ -138,6 +138,9 @@ the service runs with the Service SID, NT SERVICE\PBIEgwService.
 
 ### <a name="high-availability"></a>High availability and disaster recovery
 
+**Q**: How can we have high-availability?  
+**A**: You can install a gateway on another computer to create a cluster. To learn more, see [High availability clusters for On-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters) in the Power BI Gateway docs.
+
 **Q**: What options are available for disaster recovery? <br/>
 **A**: You can use the recovery key to restore or move a gateway. 
 When you install the gateway, specify the recovery key.
@@ -186,30 +189,9 @@ Log files are an important resource when troubleshooting.
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### Event logs
 
 You can find the Data Management Gateway and PowerBIGateway logs under **Application and Services Logs**.
-
-
-## <a name="telemetry"></a>Telemetry
-Telemetry can be used for monitoring and troubleshooting. By default
-
-**To turn on telemetry**
-
-1.	Check the On-premises data gateway client directory on the computer. Typically, it is **%systemdrive%\Program Files\On-premises data gateway**. Or, you can open a Services console and check the Path to executable: A property of the On-premises data gateway service.
-2.	In the Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config file from client directory. Change the SendTelemetry setting to true.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.	Save your changes and restart the Windows service: On-premises data gateway service.
-
-
-
 
 ## Next steps
 * [Install and configure on-premises data gateway](analysis-services-gateway-install.md).   

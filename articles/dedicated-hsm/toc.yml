@@ -1,0 +1,33 @@
+- name: Dedicated HSM Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: Dedicated HSM overview
+    href: overview.md
+- name: Tutorials
+  items:
+  - name: Deploying HSMs into an existing virtual network using CLI
+    href: tutorial-deploy-hsm-cli.md
+  - name: Deploying HSMs into an existing virtual network using PowerShell
+    href: tutorial-deploy-hsm-powershell.md
+- name: Concepts
+  items:
+  - name: High availability
+    href: high-availability.md
+  - name: Monitoring
+    href: monitoring.md
+  - name: Networking
+    href: Networking.md
+  - name: Physical security
+    href: physical-security.md
+  - name: Supportability
+    href: supportability.md
+- name: How-to guides
+  items:
+  - name: Deciding on deployment architecture
+    href: deployment-architecture.md
+- name: Resources
+  items:
+  - name: Frequently asked questions
+    href: faq.md
+  

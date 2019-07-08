@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/04/2018
 ---
 # Restore a single tenant with a database-per-tenant SaaS application
 
@@ -20,10 +20,8 @@ The database-per-tenant model makes it easy to restore a single tenant to a prio
 In this tutorial, you learn two data recovery patterns:
 
 > [!div class="checklist"]
-
 > * Restore a database into a parallel database (side by side).
 > * Restore a database in place, replacing the existing database.
-
 
 |||
 |:--|:--|
@@ -38,13 +36,13 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Introduction to the SaaS tenant restore patterns
 
-There are two simple patterns for restoring an individual tenant's data. Because tenant databases are isolated from each other, restoring one tenant has no impact on any other tenant's data. The Azure SQL Database point-in-time-restore (PITR) feature is used in both patterns. PITR always creates a new database.   
+There are two simple patterns for restoring an individual tenant's data. Because tenant databases are isolated from each other, restoring one tenant has no impact on any other tenant's data. The Azure SQL Database point-in-time-restore (PITR) feature is used in both patterns. PITR always creates a new database.
 
-* **Restore in parallel**: In the first pattern, a new parallel database is created alongside the tenant's current database. The tenant is then given read-only access to the restored database. The restored data can be reviewed and potentially used to overwrite current data values. It's up to the app designer to determine how the tenant accesses the restored database and what options for recovery are provided. Simply allowing the tenant to review their data at an earlier point might be all that's required in some scenarios. 
+* **Restore in parallel**: In the first pattern, a new parallel database is created alongside the tenant's current database. The tenant is then given read-only access to the restored database. The restored data can be reviewed and potentially used to overwrite current data values. It's up to the app designer to determine how the tenant accesses the restored database and what options for recovery are provided. Simply allowing the tenant to review their data at an earlier point might be all that's required in some scenarios.
 
 * **Restore in place**: The second pattern is useful if data was lost or corrupted and the tenant wants to revert to an earlier point. The tenant is taken off line while the database is restored. The original database is deleted, and the restored database is renamed. The backup chain of the original database remains accessible after the deletion, so you can restore the database to an earlier point in time, if necessary.
 
-If the database uses [geo-replication](sql-database-geo-replication-overview.md) and restoring in parallel, we recommend that you copy any required data from the restored copy into the original database. If you replace the original database with the restored database, you need to reconfigure and resynchronize geo-replication.
+If the database uses [active geo-replication](sql-database-active-geo-replication.md) and restoring in parallel, we recommend that you copy any required data from the restored copy into the original database. If you replace the original database with the restored database, you need to reconfigure and resynchronize geo-replication.
 
 ## Get the Wingtip Tickets SaaS database-per-tenant application scripts
 
@@ -68,7 +66,6 @@ To demonstrate these recovery scenarios, first "accidentally" delete an event in
 
    ![Last event appears](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-
 ### "Accidentally" delete the last event
 
 1. In the PowerShell ISE, open ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1*, and set the following value:
@@ -82,15 +79,13 @@ To demonstrate these recovery scenarios, first "accidentally" delete an event in
    ```
 
 3. The Contoso events page opens. Scroll down and verify that the event is gone. If the event is still in the list, select **Refresh** and verify that it's gone.
-
    ![Last event removed](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
-
 
 ## Restore a tenant database in parallel with the production database
 
 This exercise restores the Contoso Concert Hall database to a point in time before the event was deleted. This scenario assumes that you want to review the deleted data in a parallel database.
 
- The *Restore-TenantInParallel.ps1* script creates a parallel tenant database named *ContosoConcertHall\_old*, with a parallel catalog entry. This pattern of restore is best suited for recovering from a minor data loss. You also can use this pattern if you need to review data for compliance or auditing purposes. It's the recommended approach when you use [geo-replication](sql-database-geo-replication-overview.md).
+ The *Restore-TenantInParallel.ps1* script creates a parallel tenant database named *ContosoConcertHall\_old*, with a parallel catalog entry. This pattern of restore is best suited for recovering from a minor data loss. You also can use this pattern if you need to review data for compliance or auditing purposes. It's the recommended approach when you use [active geo-replication](sql-database-active-geo-replication.md).
 
 1. Complete the [Simulate a tenant accidentally deleting data](#simulate-a-tenant-accidentally-deleting-data) section.
 2. In the PowerShell ISE, open ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_.
@@ -109,7 +104,6 @@ Exposing the restored tenant as an additional tenant, with its own Events app, i
 2. To run the script, press F5.
 3. The *ContosoConcertHall\_old* entry is now deleted from the catalog. Close the events page for this tenant in your browser.
 
-
 ## Restore a tenant in place, replacing the existing tenant database
 
 This exercise restores the Contoso Concert Hall tenant to a point before the event was deleted. The *Restore-TenantInPlace* script restores a tenant database to a new database and deletes the original. This restore pattern is best suited to recovering from serious data corruption, and the tenant might have to accommodate significant data loss.
@@ -122,14 +116,13 @@ The script restores the tenant database to a point before the event was deleted.
 
 You successfully restored the database to a point in time before the event was deleted. When the **Events** page opens, confirm that the last event was restored.
 
-After you restore the database, it takes another 10 to 15 minutes before the first full backup is available to restore from again. 
+After you restore the database, it takes another 10 to 15 minutes before the first full backup is available to restore from again.
 
 ## Next steps
 
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-
 > * Restore a database into a parallel database (side by side).
 > * Restore a database in place.
 

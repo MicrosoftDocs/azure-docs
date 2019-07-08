@@ -3,7 +3,7 @@ title: CONCEPT SUCH AS Web Services in Azure Machine Learning service in 59 char
 description: This string describes the article in 115 to 145 characters. Use SEO kind of action verbs here. such as - Learn how to do this and that using customer words. This info is displayed on the search page inline with the article date stamp. If your intro para describes your article's intent, you can use it here edited for length.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: your-msft-alias

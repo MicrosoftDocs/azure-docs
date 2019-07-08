@@ -3,7 +3,7 @@ title: Manage costs effectively for SQL Server on Azure virtual machines | Micro
 description: Provides best practices for choosing the right SQL Server virtual machine pricing model.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
-ms.author: jroth
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Pricing guidance for SQL Server Azure VMs
 
@@ -31,7 +32,7 @@ This article provides pricing guidance for [SQL Server virtual machines](virtual
 
 If you want to develop, test, or build a proof of concept, then use the freely licensed **SQL Server Developer edition**. This edition has all the features of SQL Server Enterprise edition, allowing you to build and test any type of application. However, you cannot run the Developer edition in production. A SQL Server Developer edition VM only incurs charges for the cost of the VM, because there are no associated SQL Server licensing costs.
 
-If you want to run a lightweight workload in production (<4 cores, <1 GB memory, <10 GB/database), use the freely licensed **SQL Server Express edition**. A SQL Server Express edition VM also only incurs charges for the cost of the VM.
+If you want to run a lightweight workload in production (<4 cores, <1-GB memory, <10 GB/database), use the freely licensed **SQL Server Express edition**. A SQL Server Express edition VM also only incurs charges for the cost of the VM.
 
 For these development/test and lightweight production workloads, you can also save money by choosing a smaller VM size that matches these workloads. The DS1v2 might be a good choice in some scenarios.
 
@@ -84,12 +85,15 @@ To create a SQL Server 2017 Azure VM with one of these pay-per-usage images, see
 >
 >It does not include additional SQL Server licensing costs for Web, Standard, and Enterprise editions. To get the most accurate pricing estimate, select your operating system and SQL Server edition on the pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) or [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
+> [!NOTE]
+> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). 
+
 ## <a id="byol"></a> Bring your own license (BYOL)
 
 **Bringing your own SQL Server license through License Mobility**, also referred to as **BYOL**, means using an existing SQL Server Volume License with Software Assurance in an Azure VM. A SQL Server VM using BYOL only charges for the cost of running the VM, not for SQL Server licensing, given that you have already acquired licenses and Software Assurance through a Volume Licensing program.
 
 > [!IMPORTANT]
-> BYOL images require an Enterprise Agreement with Software Assurance. They are not available as a part of the Azure Cloud Solution Partner (CSP) at this time.
+> BYOL images require an Enterprise Agreement with Software Assurance. They are not available as a part of the Azure Cloud Solution Partner (CSP) at this time. CSP customers can bring their own license by deploying a pay-as-you-go image and then enabling the [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md).
 
 > [!NOTE]
 > The BYOL images are currently only available for Windows virtual machines. However, you can manually install SQL Server on a Linux-only VM. See the guidelines in the [Linux SQL VM FAQ](../../linux/sql/sql-server-linux-faq.md).
@@ -100,7 +104,7 @@ Bringing your own SQL licensing through License Mobility is recommended for:
 
 - **Workloads with known lifetime and scale**. For example, an app that is required for the whole year and which demand has been forecasted.
 
-To use BYOL with a SQL Server VM, you must have a license for SQL Server Standard or Enterprise and [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), which is a required option through some volume licensing programs and an optional purchase with others. The pricing level provided through Volume Licensing programs varies, based on the type of agreement and the quantity and or commitment to SQL Server. But as a rule of thumb, bringing your own license for continuous production workloads has the following benefits:
+To use BYOL with a SQL Server VM, you must have a license for SQL Server Standard or Enterprise and [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), which is a required option through some volume licensing programs and an optional purchase with others. The pricing level provided through Volume Licensing programs varies, based on the type of agreement and the quantity and or commitment to SQL Server. But as a rule of thumb, bringing your own license for continuous production workloads has the following benefits:
 
 | BYOL benefit | Description |
 |-----|-----|
@@ -117,7 +121,9 @@ To create a SQL Server 2017 Azure VM with one of these bring-your-own-license im
 > Let us know within 10 days how many SQL Server licenses you are using in Azure. The links to the previous images have instructions on how to do this.
 
 > [!NOTE]
-> It is not possible to change the licensing model of a pay-per-second SQL Server VM to use your own license. In this case, you must create a new BYOL VM and migrate your databases to the new VM.
+> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). 
+
+
 
 ## Reduce costs
 

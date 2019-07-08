@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -19,14 +19,14 @@ ms.author: mazha
 ---
 # Using Azure CDN with CORS
 ## What is CORS?
-CORS (Cross Origin Resource Sharing) is an HTTP feature that enables a web application running under one domain to access resources in another domain. In order to reduce the possibility of cross-site scripting attacks, all modern web browsers implement a security restriction known as [same-origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy).  This prevents a web page from calling APIs in a different domain.  CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin.
+CORS (Cross Origin Resource Sharing) is an HTTP feature that enables a web application running under one domain to access resources in another domain. In order to reduce the possibility of cross-site scripting attacks, all modern web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy).  This prevents a web page from calling APIs in a different domain.  CORS provides a secure way to allow one origin (the origin domain) to call APIs in another origin.
 
 ## How it works
 There are two types of CORS requests, *simple requests* and *complex requests.*
 
 ### For simple requests:
 
-1. The browser sends the CORS request with an additional **Origin** HTTP request header. The value of this header is the origin that served the parent page, which is defined as the combination of *protocol,* *domain,* and *port.*  When a page from https://www.contoso.com attempts to access a user's data in the fabrikam.com origin, the following request header would be sent to fabrikam.com:
+1. The browser sends the CORS request with an additional **Origin** HTTP request header. The value of this header is the origin that served the parent page, which is defined as the combination of *protocol,* *domain,* and *port.*  When a page from https\://www.contoso.com attempts to access a user's data in the fabrikam.com origin, the following request header would be sent to fabrikam.com:
 
    `Origin: https://www.contoso.com`
 
@@ -72,7 +72,7 @@ In this case, you'll create a regular expression that includes all of the origin
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> **Azure CDN Premium from Verizon** uses [Perl Compatible Regular Expressions](http://pcre.org/) as its engine for regular expressions.  You can use a tool like [Regular Expressions 101](https://regex101.com/) to validate your regular expression.  Note that the "/" character is valid in regular expressions and doesn't need to be escaped, however, escaping that character is considered a best practice and is expected by some regex validators.
+> **Azure CDN Premium from Verizon** uses [Perl Compatible Regular Expressions](https://pcre.org/) as its engine for regular expressions.  You can use a tool like [Regular Expressions 101](https://regex101.com/) to validate your regular expression.  Note that the "/" character is valid in regular expressions and doesn't need to be escaped, however, escaping that character is considered a best practice and is expected by some regex validators.
 > 
 > 
 
@@ -81,7 +81,7 @@ If the regular expression matches, your rule will replace the **Access-Control-A
 ![Rules example with regular expression](./media/cdn-cors/cdn-cors-regex.png)
 
 #### Request header rule for each origin.
-Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1). As with the regular expression method, the rules engine alone sets the CORS headers. 
+Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](/previous-versions/azure/mt757336(v=azure.100)#match-conditions). As with the regular expression method, the rules engine alone sets the CORS headers. 
 
 ![Rules example without regular expression](./media/cdn-cors/cdn-cors-no-regex.png)
 

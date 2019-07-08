@@ -3,7 +3,7 @@ title: Configure servers to a desired state and manage drift with Azure Automati
 description: Tutorial - Manage server configurations with Azure Automation State Configuration
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 manager: carmonm
@@ -28,7 +28,7 @@ To complete this tutorial, you will need:
 - An Azure Automation account. For instructions on creating an Azure Automation Run As account, see [Azure Run As Account](automation-sec-configure-azure-runas-account.md).
 - An Azure Resource Manager VM (not Classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
-- Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+- Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 - Familiarity with Desired State Configuration (DSC). For information about DSC, see [Windows PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## Log in to Azure
@@ -128,7 +128,7 @@ Now we can assign the compiled node configuration to the VM we want to configure
 $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Assign the node configuration to the DSC node
-Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -Id $node.Id
+Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -NodeId $node.Id
 ```
 
 This assigns the node configuration named `TestConfig.WebServer` to the registered DSC node named `DscVm`.
@@ -145,11 +145,42 @@ You can get reports on the compliance status of a managed node by calling the `G
 $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Name 'DscVm'
 
 # Get an array of status reports for the DSC node
-$reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Id $node.Id
+$reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeId $node.Id
 
 # Display the most recent report
 $reports[0]
 ```
+
+## Removing nodes from service
+
+When you add a node to Azure Automation State Configuration,
+the settings in Local Configuration Manager are set to register with the service
+and pull configurations and required modules to configure the machine.
+If you choose to remove the node from the service,
+you can do so using either the Azure portal
+or the Az cmdlets.
+
+> [!NOTE]
+> Unregistering a node from the service only sets the Local Configuration Manager settings
+> so the node is no longer connecting to the service.
+> This does not effect the configuration that is currently applied to the node.
+> To remove the current configuration, use the
+> [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1)
+> or delete the local configuration file
+> (this is the only option for Linux nodes).
+
+### Azure portal
+
+From Azure Automation, click on **State configuration (DSC)** in the table of contents.
+Next click **Nodes** to view the list of nodes that are registered with the service.
+Click on the name of the node you wish to remove.
+In the Node view that opens, click **Unregister**.
+
+### PowerShell
+
+To unregister a node from Azure Automation State Configuration service using PowerShell,
+follow the documentation for the cmdlet
+[Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## Next steps
 

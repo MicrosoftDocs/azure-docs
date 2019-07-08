@@ -1,61 +1,57 @@
 ---
-title: What is Project Acoustics?
+title: Project Acoustics Overview
 titlesuffix: Azure Cognitive Services
-description: The Project Acoustics Unity plugin provides occlusion, reverberation, and spatialization for projects targeting VR and traditional screens.
+description: Project Acoustics is an acoustics engine for 3D interactive experiences, integrating baked wave physics simulation with interactive design controls.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: overview
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
+# Customer intent: As a sound designer, I want an occlusion, reverb, and portaling system to manage the mix and anchor sounds in a virtual world.
 ---
 
 # What is Project Acoustics?
-The Project Acoustics Unity plugin provides occlusion, reverberation, and spatialization for projects targeting VR and traditional screens. It provides a way to design game acoustics that layers designer intentions over a physics-based wave simulation.
+Project Acoustics is a wave acoustics engine for 3D interactive experiences. It models wave effects like diffraction, portaling and reverb effects in complex scenes without requiring manual zone markup. It also includes game engine and audio middleware integration. Project Acoustics' philosophy is similar to static lighting: bake detailed physics offline to provide a physical baseline, and use a lightweight runtime with expressive design controls to meet your artistic goals.
 
-## Why use acoustics in virtual environments?
-Humans use audio-visual cues to understand the world around them. In virtual worlds, combining spatial audio with acoustics increases user immersion. The acoustics tool described here analyzes virtual worlds to create a realistic acoustic simulation, and supports a post-simulation design process. The analysis includes both the geometry and the materials for each surface in the world. The simulation includes parameters such as arrival direction (portaling), reverb power, decay times, and occlusion and obstruction effects.
+![Screenshot from Gears of War 4 showing acoustics voxels](media/gears-with-voxels.jpg)
 
-## How does this approach to acoustics work?
-The system relies on an offline compute of the virtual world, which allows a more complex simulation than if the analysis was done at run-time. The offline compute produces a lookup table of acoustic parameters. A designer specifies rules applied to the parameters at run-time. Tweaking these rules can achieve hyper-realistic effects for high emotional intensity or hypo-realistic scenes for more background audio sounds.
+## Using wave physics for interactive acoustics
+Ray-based acoustics methods can check for occlusion using a single source-to-listener ray cast, or drive reverb by estimating local scene volume with a few rays. But these techniques can be unreliable because a pebble occludes as much as a boulder. Rays don't account for the way sound bends around objects, a phenomenon known as diffraction. Project Acoustics' simulation captures these effects using a wave-based simulation. The result is more predictable and reliable.
 
-## Design process comparison
-The Project Acoustics plugin supports a new design process for acoustics in Unity scenes. To explain this new design process, let's compare it to one of today's popular approaches to acoustics.
+Project Acoustics' key innovation is to couple acoustic simulation with traditional sound design concepts. It translates simulation results into traditional audio DSP parameters for occlusion, portaling and reverb. The designer uses controls over this translation process. For more details on the core technologies behind Project Acoustics, visit the [research project page](https://www.microsoft.com/en-us/research/project/project-triton/).
 
-### Typical approach to acoustics today
-In a typical approach to acoustics today, you draw reverb volumes:
+![Animation showing a horizontal 2D slice of wave propagation through a scene](media/wave-simulation.gif)
 
-![Design View](media/reverbZonesAltSPace2.png)
+## Setup
+[Project Acoustics Unity integration](unity-integration.md) is drag-and-drop and includes a Unity audio engine plugin. Augment the Unity audio source controls by attaching a Project Acoustics C# controls component to each audio object.
 
-Then tweak parameters for each zone:
+[Project Acoustics Unreal integration](unreal-integration.md) includes editor and game plugins for Unreal, and a Wwise mixer plugin. A custom audio component extends familiar Wwise functionality within Unreal with live acoustics design controls. Design controls are also exposed in Wwise on the mixer plugin.
 
-![Design View](media/TooManyReverbParameters.png)
+## Workflow
+* **Pre-bake:** Start with setting up the bake by selecting which geometry responds to acoustics, by, for example, ignoring light shafts. Then edit automatic material assignments and selecting navigation areas to guide listener sampling. There's no manual markup for reverb/portal/room zones.
+* **Bake:** An analysis step is run locally, which does voxelization and other geometric analysis on the scene based on selections above. Results are visualized in editor to verify scene setup. On bake submission, voxel data is sent off to Azure and you get back an acoustics game asset.
+* **Runtime:** Load the asset into your level, and you're ready to listen to acoustics in your level. Design the acoustics live in editor using granular per-source controls. The controls can also be driven from level scripting.
 
-Finally, add ray-tracing logic to get the right occlusion and obstruction filtering throughout the scene, and path-searching logic for portaling. This code can add a run-time cost. It also has problems with smoothness around corners and has edge cases in irregularly shaped scenes.
-
-### An alternative approach with physics-based design
-With the approach provided by Project Acoustics' Unity plugin, you provide a static scene’s shape and materials. Because the scene is voxelized and the process doesn't use ray-tracing, you don't need to provide a simplified or watertight acoustics mesh. It also isn't necessary to mark up the scene with reverb volumes. The plugin uploads the scene to the cloud, where it uses physics based wave simulation. The result is integrated into your project as a lookup table, and can be modified for aesthetic or gameplay effects.
-
-![Design View](media/GearsWithVoxels.jpg)
-
-## Requirements
-* Unity 2018.2+ for acoustics bakes, and Unity 5.2+ for sound design and deployment
-* Windows 64-bit Unity Editor
-* Azure Batch subscription for acoustics bakes
-* Unity scripting runtime must be set to '.NET 4.x equivalent'
-
-## Platform support
-* Windows desktop (x86 and AMD64)
-* Windows UWP (x86, AMD64, and ARM)
-* Android (x86 and ARM64)
+## Platforms
+The Project Acoustics runtime plugins can currently be deployed to the following platforms:
+* Windows
+* Android
+* Xbox One
 
 ## Download
-If you're interested in evaluating the acoustics plugin, register [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) to join the Designer Preview.
+* [Project Acoustics Unity plugin and samples](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Project Acoustics Unreal & Wwise plugins and samples](https://www.microsoft.com/download/details.aspx?id=58090)
+  * For Xbox binaries and support, contact us via the Sign Up form below
+
+## Contact us
+* [Project Acoustics discussion and issue reporting](https://github.com/microsoft/ProjectAcoustics/issues)
+* [Sign up to receive updates on Project Acoustics](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## Next steps
-* Learn more about the [design process](design-process.md)
-* Get started [integrating acoustics in your Unity project](getting-started.md)
+* Try a [Project Acoustics quickstart for Unity](unity-quickstart.md) or for [Unreal](unreal-quickstart.md)
+* Explore the [sound design philosophy of Project Acoustics](design-process.md)
 

@@ -1,10 +1,10 @@
 ---
-title: Interpret the Azure Active Directory audit log schema in Azure Monitor (preview) | Microsoft Docs
-description: Describe the Azure AD audit log schema for use in Azure Monitor (preview)
+title: Interpret the Azure Active Directory audit log schema in Azure Monitor | Microsoft Docs
+description: Describe the Azure AD audit log schema for use in Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 07/13/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 04/18/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Interpret the Azure AD audit logs schema in Azure Monitor (preview)
@@ -98,6 +99,49 @@ This article describes the Azure Active Directory (Azure AD) audit log schema in
 } 
 ```
 
+```json
+{
+    "records": [
+    {
+        "time": "2018-12-10T00:03:46.6161822Z",
+        "resourceId": "/tenants/7918d4b5-0442-4a97-be2d-36f9f9962ece/providers/Microsoft.aadiam",
+        "operationName": "Update policy",
+        "operationVersion": "1.0",
+        "category": "AuditLogs",
+        "tenantId": "7918d4b5-0442-4a97-be2d-36f9f9962ece",
+        "resultSignature": "None",
+        "durationMs": 0,
+        "callerIpAddress": "<null>",
+        "correlationId": "192298c1-0994-4dd6-b05a-a6c5984c31cb",
+        "identity": "MS-PIM",
+        "level": "Informational",
+        "properties": {
+            "id": "Directory_VNXV4_28148892",
+            "category": "Policy",
+            "correlationId": "192298c1-0994-4dd6-b05a-a6c5984c31cb",
+            "result": 0,
+            "resultReason": "",
+            "activityDisplayName": "Update policy",
+            "activityDateTime": "2018-12-10T00:03:46.6161822+00:00",
+            "loggedByService": "Core Directory",
+            "operationType": "Update",
+            "initiatedBy": {},
+            "targetResources": [
+            {
+                "id": "5e7a8ae7-165d-44a4-a4f4-6141f8c8ef40",
+                "displayName": "Default Policy",
+                "type": "Policy",
+                "modifiedProperties": []
+            }
+            ],
+            "additionalDetails": []
+        }
+    }
+    ]
+}
+
+```
+
 ## Field and property descriptions
 
 | Field name | Description |
@@ -132,5 +176,5 @@ This article describes the Azure Active Directory (Azure AD) audit log schema in
 ## Next steps
 
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Read more about Azure diagnostics logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Azure diagnostics logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Frequently asked questions and known issues](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

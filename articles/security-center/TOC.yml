@@ -4,8 +4,11 @@
   items:
   - name: About Security Center
     href: security-center-intro.md
-  - name: Security Center supported platforms & features
+  - name: Security Center supported platforms and features
     href: security-center-os-coverage.md
+  - name: Endpoint protection assessment and recommendations 
+    href: security-center-endpoint-protection.md
+
 - name: Quickstarts
   expanded: true
   items:
@@ -15,17 +18,17 @@
     href: quick-onboard-windows-computer.md
   - name: Linux computers
     href: quick-onboard-linux-computer.md
-  - name: Security solutions
-    href: quick-security-solutions.md
+  - name: Azure Stack virtual machines
+    href: quick-onboard-azure-stack.md
 
 - name: Tutorials
   items:
-  - name: Define security policies
-    href: tutorial-security-policy.md
   - name: Protect your resources
     href: tutorial-protect-resources.md
   - name: Respond to incidents
     href: tutorial-security-incident.md
+  - name: Improve your regulatory compliance
+    href: security-center-compliance-dashboard.md  
 
 - name: Concepts
   items:
@@ -33,6 +36,16 @@
     href: security-center-permissions.md
   - name: Data security
     href: security-center-data-security.md
+  - name: Use recommendations to enhance security
+    href: security-center-using-recommendations.md
+  - name: Detect threats
+    href: security-center-detection-capabilities.md
+  - name: Manage Security alerts
+    href: security-center-managing-and-responding-alerts.md
+  - name: Security incidents
+    href: security-center-incident.md
+  - name: Incident response
+    href: security-center-incident-response.md  
 
 - name: How-to guides
   items:
@@ -42,88 +55,48 @@
     href: security-center-onboarding.md
   - name: Server protection with Windows Defender ATP
     href: security-center-wdatp.md
-  - name: Set security policies
-    href: security-center-azure-policy.md
+  - name: Advanced data security for SQL on Azure VMs (Public Preview)
+    href: security-center-iaas-advanced-data.md
+  - name: Protect App Service
+    href: security-center-app-services.md
+  - name: Working with security policies
+    href: tutorial-security-policy.md
   - name: Customize the information protection policy
     href: security-center-info-protection-policy.md
-  - name: Security policy settings
+  - name: Manage security solutions
+    href: security-center-partner-integration.md
+  - name: Automate onboarding using PowerShell
+    href: security-center-powershell-onboarding.md
+  - name: Security Center settings
     href: security-center-policies-overview.md
-    items:
-    - name: Data collection
-      href: security-center-enable-data-collection.md
-    - name: Policy definitions
-      href: security-center-policies.md
-    - name: Email notifications
-      href: security-center-provide-security-contact-details.md
-    - name: Pricing tier
-      href: security-center-pricing.md
-    - name: Security configurations
-      href: security-center-customize-os-security-config.md
-    - name: Tenant-wide visibility
-      href: security-center-management-groups.md
-
+  - name: Compare baselines using File Integrity Monitoring
+    href: security-center-file-integrity-monitoring-baselines.md
+  - name: Data collection
+    href: security-center-enable-data-collection.md
+  - name: Built-in security policies
+    href: security-center-policy-definitions.md
+  - name: Email notifications
+    href: security-center-provide-security-contact-details.md
+  - name: Pricing tier
+    href: security-center-pricing.md
+  - name: Security configurations
+    href: security-center-customize-os-security-config.md
+  - name: Tenant-wide visibility
+    href: security-center-management-groups.md
   - name: Implement security recommendations
-    href: security-center-recommendations.md
-  - name: Monitor security health
-    href: security-center-monitoring.md
     items:
-    - name: Compute & apps security
+    - name: What are security recommendations
+      href: security-center-recommendations.md
+    - name: Strengthen security posture
+      href: security-center-monitoring.md
+    - name: Protect your machines and apps
       href: security-center-virtual-machine-protection.md
-      items:
-      - name: VM and computer recommendations
-        href: security-center-virtual-machine-recommendations.md
-        items:
-        - name: Apply disk encryption
-          href: security-center-apply-disk-encryption.md
-        - name: Apply system updates
-          href: security-center-apply-system-updates.md
-        - name: Enable encryption for storage account
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Enable VM Agent
-          href: security-center-enable-vm-agent.md
-        - name: Install Endpoint Protection
-          href: security-center-install-endpoint-protection.md
-        - name: Reboot after system updates
-          href: security-center-apply-system-updates.md#reboot-after-system-updates
-        - name: Remediate security configurations
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Update OS version
-          href: security-center-update-os-version.md
-        - name: Vulnerability assessment not installed
-          href: security-center-vulnerability-assessment-recommendations.md
-      - name: App recommendations
-        href: security-center-add-web-application-firewall.md
-        items:
-        - name: Add a web application firewall
-          href: security-center-add-web-application-firewall.md
-        - name: Finalize application protection
-          href: security-center-add-web-application-firewall.md#finalize-application-protection      
-      - name: Container recommendations
-        href: security-center-container-recommendations.md   
-    - name: Network security
+    - name: Protect network resources
       href: security-center-network-recommendations.md
-      items:
-      - name: Add a next generation firewall
-        href: security-center-add-next-generation-firewall.md
-      - name: Enable Network Security Groups
-        href: security-center-enable-network-security-groups.md
-      - name: Restrict access through Internet-facing endpoints
-        href: security-center-restrict-access-through-internet-facing-endpoints.md
-      - name: Route traffic through NGFW only
-        href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
-    - name: Data & storage security
+    - name: Protect data and storage services
       href: security-center-sql-service-recommendations.md
-      items:
-      - name: Enable auditing and threat detection on SQL databases
-        href: security-center-enable-auditing-on-sql-databases.md
-      - name: Enable auditing and threat detection on SQL servers
-        href: security-center-enable-auditing-on-sql-servers.md
-      - name: Enable Transparent Data Encryption
-        href: security-center-enable-transparent-data-encryption.md     
- 
-    - name: Monitor identity and access
+    - name: Protect identity and access
       href: security-center-identity-access.md  
-    
   - name: Apply cloud defenses
     items:
     - name: Manage just in time access
@@ -132,39 +105,69 @@
       href: security-center-adaptive-application.md
     - name: File integrity monitoring
       href: security-center-file-integrity-monitoring.md
-  - name: Manage security solutions
-    href: security-center-partner-integration.md
+    - name: Adaptive network hardening
+      href: security-center-adaptive-network-hardening.md
+  - name: Threat detection alerts
     items:
-    - name: Connected solutions
-      href: security-center-partner-solutions.md
-    - name: Discovered solutions
-      href: security-center-partner-integration.md#discovered-solutions
-    - name: Connect external solutions
-      href: quick-security-solutions.md
-    - name: Connect Application Gateway
-      href: security-center-connect-application-gateway.md
-    - name: Connect Microsoft ATA
-      href: security-center-ata-integration.md
-    - name: Connect Azure AD Identity Protection
-      href: security-center-aadip-integration.md
-    - name: Data export to SIEM
-      href: security-center-export-data-to-siem.md
-  
-  - name: Investigate threats
-    href: security-center-detection-capabilities.md
+    - name: Security alerts overview
+      href: security-center-alerts-overview.md
+    - name: Threat detection for VMs & servers
+      href: security-center-alerts-iaas.md
+    - name: Threat detection for cloud native compute
+      href: security-center-alerts-compute.md
+    - name: Threat detection for data services
+      href: security-center-alerts-data-services.md
+    - name: Threat detection for Azure service layer
+      href: security-center-alerts-service-layer.md   
+    - name: Integration with Azure Security Products
+      href: security-center-alerts-integration.md
+    - name: Cloud Smart Alert correlation (incidents)
+      href: security-center-alerts-cloud-smart.md 
+    - name: Alert validation (EICAR test file)
+      href: security-center-alert-validation.md
+      
+  - name: Archive
     items:
-    - name: Security alerts
-      href: security-center-managing-and-responding-alerts.md
-    - name: Security incidents
-      href: security-center-incident.md
+    - name: Apply disk encryption
+      href: security-center-apply-disk-encryption.md
+    - name: Apply system updates
+      href: security-center-apply-system-updates.md
+    - name: Enable encryption for storage account
+      href: security-center-enable-encryption-for-storage-account.md
+    - name: Enable VM Agent
+      href: security-center-enable-vm-agent.md
+    - name: Install Endpoint Protection
+      href: security-center-install-endpoint-protection.md
+    - name: Reboot after system updates
+      href: security-center-apply-system-updates.md#reboot-after-system-updates
+    - name: Remediate security configurations
+      href: security-center-remediate-os-vulnerabilities.md
+    - name: Update OS version
+      href: security-center-update-os-version.md
+    - name: Vulnerability assessment not installed
+      href: security-center-vulnerability-assessment-recommendations.md
+    - name: Add a web application firewall
+      href: security-center-add-web-application-firewall.md
+    - name: Finalize application protection
+      href: security-center-add-web-application-firewall.md#finalize-application-protection
+    - name: Add a next generation firewall
+      href: security-center-add-next-generation-firewall.md
+    - name: Enable Network Security Groups
+      href: security-center-enable-network-security-groups.md
+    - name: Restrict access through Internet-facing endpoints
+      href: security-center-restrict-access-through-internet-facing-endpoints.md
+    - name: Route traffic through NGFW only
+      href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
+    - name: Enable auditing and threat detection on SQL databases
+      href: security-center-enable-auditing-on-sql-databases.md
+    - name: Enable auditing and threat detection on SQL servers
+      href: security-center-enable-auditing-on-sql-servers.md
+    - name: Enable Transparent Data Encryption
+      href: security-center-enable-transparent-data-encryption.md  
     - name: Threat reports
       href: security-center-threat-report.md
-    - name: Alert types
-      href: security-center-alerts-type.md
     - name: Custom alerts
       href: security-center-custom-alert.md
-    - name: Alert validation
-      href: security-center-alert-validation.md
     - name: Alert confidence score
       href: security-center-confidence-score.md
     - name: Security alerts map and threat intelligence
@@ -173,34 +176,18 @@
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
-    - name: UEBA for Azure resources and users
-      href: security-center-ueba-mcas.md
-
-  
-  - name: Automate security workflows
-    items:
     - name: Logic Apps playbooks
       href: security-center-playbooks.md
     - name: View events
       href: security-center-events-dashboard.md
     - name: Search
-      href: security-center-search.md
-    - name: Review compliance (REST)
-      href: security-center-review-policy-compliance.md
-    - name: Assess subscriptions (REST)
-      href: security-center-compliance-rest-api.md
-    - name: Automate onboarding using PowerShell
-      href: security-center-powershell-onboarding.md
- 
-  - name: Scenarios
-    items:
-    - name: Incident response
-      href: security-center-incident-response.md
-    - name: Use recommendations to enhance security
-      href: security-center-using-recommendations.md
-  
-  - name: Troubleshoot
-    href: security-center-troubleshooting-guide.md
+      href: security-center-search.md    
+    - name: Planning and operations
+      href: security-center-planning-and-operations-guide.md
+    - name: Understanding security alerts
+      href: security-center-alerts-type.md
+    - name: UEBA for Azure resources and users
+      href: security-center-ueba-mcas.md
 
 - name: Reference
   items:
@@ -208,16 +195,19 @@
     href: https://docs.microsoft.com/rest/api/securitycenter/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=security-center
+  - name: Features and API retirement (July 2019)
+    href: security-center-features-retirement-july2019.md
+
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?term=securityS
   - name: Manage user data
     href: security-center-privacy.md
+  - name: Manage IoT
+    href: https://docs.microsoft.com/en-us/azure/asc-for-iot/
   - name: FAQ
     href: security-center-faq.md
-  - name: Planning and operations
-    href: security-center-planning-and-operations-guide.md
   - name: Azure Security
     href: /azure/security/
   - name: Azure Roadmap
@@ -225,14 +215,15 @@
   - name: Readiness Roadmap
     href: security-center-readiness-roadmap.md
   - name: Azure Security, Privacy, & Compliance blog
-    href: http://blogs.msdn.com/b/azuresecurity/
+    href: https://blogs.msdn.com/b/azuresecurity/
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=security-center
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=security-center
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/security-center/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=security-center
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
+  - name: Troubleshoot
+    href: security-center-troubleshooting-guide.md
+  

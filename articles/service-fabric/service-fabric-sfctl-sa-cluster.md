@@ -4,7 +4,7 @@ description: Describes the Service Fabric CLI sfctl standalone cluster commands.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -13,10 +13,11 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
+
 # sfctl sa-cluster
 Manage stand-alone Service Fabric clusters.
 
@@ -59,18 +60,18 @@ Validate the supplied configuration upgrade parameters and start upgrading the c
 
 |Argument|Description|
 | --- | --- |
-| --cluster-config            [Required] | The cluster configuration that will be applied to the cluster. |
+| --cluster-config            [Required] | The cluster configuration. |
 | --application-health-policies | JSON encoded dictionary of pairs of application type name and maximum percentage unhealthy before raising error. |
 | --delta-unhealthy-nodes | The maximum allowed percentage of delta health degradation during the upgrade. Allowed values are integer values from zero to 100. |
-| --health-check-retry | The length of time between attempts to perform a health checks if the application or cluster is not healthy.  Default\: PT0H0M0S. |
-| --health-check-stable | The length of time that the application or cluster must remain healthy.  Default\: PT0H0M0S. |
+| --health-check-retry | The length of time between attempts to perform health checks if the application or cluster is not healthy.  Default\: PT0H0M0S. |
+| --health-check-stable | The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain.  Default\: PT0H0M0S. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
 | --health-check-wait | The length of time to wait after completing an upgrade domain before starting the health checks process.  Default\: PT0H0M0S. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 | --unhealthy-applications | The maximum allowed percentage of unhealthy applications during the upgrade. Allowed values are integer values from zero to 100. |
 | --unhealthy-nodes | The maximum allowed percentage of unhealthy nodes during the upgrade. Allowed values are integer values from zero to 100. |
 | --upgrade-domain-delta-unhealthy-nodes | The maximum allowed percentage of upgrade domain delta health degradation during the upgrade. Allowed values are integer values from zero to 100. |
-| --upgrade-domain-timeout | The timeout for the upgrade domain.  Default\: PT0H0M0S. |
-| --upgrade-timeout | The upgrade timeout.  Default\: PT0H0M0S. |
+| --upgrade-domain-timeout | The amount of time each upgrade domain has to complete before FailureAction is executed.  Default\: PT0H0M0S. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
+| --upgrade-timeout | The amount of time the overall upgrade has to complete before FailureAction is executed.  Default\: PT0H0M0S. <br><br> It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds. |
 
 ### Global Arguments
 
@@ -85,7 +86,11 @@ Validate the supplied configuration upgrade parameters and start upgrading the c
 ### Examples
 
 Start a cluster configuration update
-sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+
+```
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+```
 
 ## sfctl sa-cluster upgrade-status
 Get the cluster configuration upgrade status of a Service Fabric standalone cluster.

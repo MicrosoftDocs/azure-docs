@@ -2,14 +2,14 @@
 title: Azure SQL Data Warehouse Release Notes August 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: 
 ms.date: 08/13/2018
-ms.author: twounder
-ms.reviewer: twounder
+ms.author: anjangsh
+ms.reviewer: jrasnick
 ---
 
 # What's new in Azure SQL Data Warehouse? August 2018
@@ -29,8 +29,8 @@ You can drill into each category to see the recommendations for the specific ale
 
 | Title | Description |
 |:---|:---|
-| **Potential Query failures when the split count exceeds max limit** |When the 1 million upper bound file-split limit is exceeded an unhandled exception caused the SQL Engine to dump, and all queries failed. This fix addresse the issue by handling the exception correctly and returning an error without causing queries to fail. |
-| **Increased ExternalMoveReadersPerNode default value to improve load perfomance** |This issue was caused by the ExternalMoveReadersPerNode property setting being out of sync with the service fabric setting. This regression caused a degraded Gen2 load performance. The fix brings Gen2 load performance back within optimized design parameters.|
+| **Potential Query failures when the split count exceeds max limit** |When the 1 million upper bound file-split limit is exceeded an unhandled exception caused the SQL Engine to dump, and all queries failed. This fix addressed the issue by handling the exception correctly and returning an error without causing queries to fail. |
+| **Increased ExternalMoveReadersPerNode default value to improve load performance** |This issue was caused by the ExternalMoveReadersPerNode property setting being out of sync with the service fabric setting. This regression caused a degraded Gen2 load performance. The fix brings Gen2 load performance back within optimized design parameters.|
 
 
 ## Next steps
@@ -49,7 +49,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

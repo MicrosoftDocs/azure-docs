@@ -4,7 +4,7 @@ description: This topic describes how to create filters so your client can use t
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
@@ -13,19 +13,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/22/2018
-ms.author: cenkd;juliako
+ms.date: 03/18/2019
+ms.author: juliako
 
 ---
 # Filters and dynamic manifests
-Starting with 2.17 release, Media Services enables you to define filters for your assets. These filters are server side rules that will allow your customers to choose to do things like: playback only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is archived through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
-This topics discusses common scenarios in which using filters would be very beneficial to your customers and links to topics that demonstrate how to create filters programmatically.
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 2](media-services-dynamic-manifest-overview.md)
+> * [Version 3](../latest/filters-dynamic-manifest-overview.md)
+
+Starting with 2.17 release, Media Services enables you to define filters for your assets. These filters are server-side rules that will allow your customers to choose to do things like: play back only a section of a video (instead of playing the whole video), or specify only a subset of audio and video renditions that your customer's device can handle (instead of all the renditions that are associated with the asset). This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
+
+This topic discusses common scenarios in which using filters would be beneficial to your customers and links to topics that demonstrate how to create filters programmatically.
 
 ## Overview
-When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions. To achieve this goal do the following:
+When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high-quality video to various devices under different network conditions. To achieve this goal do the following:
 
-* encode your stream to multi-bitrate ([adaptive bitrate](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) video stream (this will take care of quality and network conditions) and 
+* encode your stream to multi-bitrate ([adaptive bitrate](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) video stream (this will take care of quality and network conditions) and 
 * use Media Services [Dynamic Packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols (this will take care of streaming on different devices). Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG DASH. 
 
 ### Manifest files
@@ -66,20 +71,20 @@ Here is an example of a manifest file:
 ### Dynamic manifests
 There are [scenarios](media-services-dynamic-manifest-overview.md#scenarios) when your client needs more flexibility than what's described in the default asset's manifest file. For example:
 
-* Device specific: deliver only the specified renditions and\or specified language tracks that are supported by the device that is used to playback the content ("rendition filtering"). 
+* Device specific: deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
 * Reduce the manifest to show a sub-clip of a live event ("sub-clip filtering").
 * Trim the start of a video ("trimming a video").
-* Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window") .
+* Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window").
 
 To achieve this flexibility, Media Services offers **Dynamic Manifests** based on pre-defined [filters](media-services-dynamic-manifest-overview.md#filters).  Once you define the filters, your clients could use them to stream a specific rendition or sub-clips of your video. They would specify filter(s) in the streaming URL. Filters could be applied to adaptive bitrate streaming protocols supported by [Dynamic Packaging](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH, and Smooth Streaming. For example:
 
 MPEG DASH URL with filter
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)
 
 Smooth Streaming URL with filter
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)
 
 
 For more information about how to deliver your content and build streaming URLs, see [Delivering content overview](media-services-deliver-content-overview.md).
@@ -98,20 +103,20 @@ There are two types of asset filters:
 Global and local filter types have exactly the same properties. The main difference between the two is for which scenarios what type of a filer is more suitable. Global filters are generally suitable for device profiles (rendition filtering) where local filters could be used to trim a specific asset.
 
 ## <a id="scenarios"></a>Common scenarios
-As was mentioned before, when delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions. In addition, your might have other requirements that involve filtering your assets and using of **Dynamic Manifest**s. The following sections give a short overview of different filtering scenarios.
+As was mentioned before, when delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high-quality video to various devices under different network conditions. In addition, you might have other requirements that involve filtering your assets and using of **Dynamic Manifest**s. The following sections give a short overview of different filtering scenarios.
 
 * Specify only a subset of audio and video renditions that certain devices can handle (instead of all the renditions that are associated with the asset). 
 * Playing back only a section of a video (instead of playing the whole video).
 * Adjust DVR presentation window.
 
 ## Rendition filtering
-You may choose to encode your asset to multiple encoding profiles (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) and multiple quality bitrates. However, not all client devices will support all your asset's profiles and bitrates. For example, older Android devices only supports H.264 Baseline+AACL. Sending higher bitrates to a device which cannot get the benefits, wastes bandwidth and device computation. Such device must decode all the given information, only to scale it down for display.
+You may choose to encode your asset to multiple encoding profiles (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) and multiple quality bitrates. However, not all client devices will support all your asset's profiles and bitrates. For example, older Android devices only support H.264 Baseline+AACL. Sending higher bitrates to a device which cannot get the benefits, wastes bandwidth and device computation. Such device must decode all the given information, only to scale it down for display.
 
 With Dynamic Manifest, you can create device profiles such as mobile, console, HD/SD, etc. and include the tracks and qualities which you want to be a part of each profile.
 
 ![Rendition filtering example][renditions2]
 
-In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, Smooth, and MPEG DASH.  At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).  In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown. The "ott" filter specifies to remove all bitrates below 1Mbps, which resulted in the bottom two quality levels being stripped off in the response.  In the bottom right,   the HLS manifest to which a filter named "mobile" was applied is shown. The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.
+In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, Smooth, and MPEG DASH.  At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).  In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown. The "ott" filter specifies to remove all bitrates below 1Mbps, which resulted in the bottom two quality levels being stripped off in the response. In the bottom right, the HLS manifest to which a filter named "mobile" was applied is shown. The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.
 
 ![Rendition filtering][renditions1]
 
@@ -137,7 +142,7 @@ Filtered Asset:
 ![Skiing][skiing]
 
 ## Adjusting Presentation Window (DVR)
-Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or he\she may want to provide different DVR windows for different devices. For example, most of the mobile devices don’t handle large DVR windows (you can have a 2-minute DVR window for mobile devices and one hour for desktop clients).
+Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or they may want to provide different DVR windows for different devices. For example, most of the mobile devices don’t handle large DVR windows (you can have a 2-minute DVR window for mobile devices and one hour for desktop clients).
 
 ![DVR window][dvr_filter]
 
@@ -177,8 +182,8 @@ For more information, see [this](https://azure.microsoft.com/blog/azure-media-se
 
 ## Know issues and limitations
 * Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 
-* You can use same filter name for local and global filters. Note that local filter have higher precedence and will override global filters.
-* If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommend to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
+* You can use same filter name for local and global filters. Local filters have higher precedence and will override global filters.
+* If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommended to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

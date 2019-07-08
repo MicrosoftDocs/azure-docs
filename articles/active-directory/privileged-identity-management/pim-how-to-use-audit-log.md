@@ -1,6 +1,6 @@
 ---
-title: View audit history for Azure AD directory roles in PIM | Microsoft Docs
-description: Learn how to view the audit history for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
+title: View audit history for Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+description: Learn how to view the audit history for Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,54 +10,61 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
-ms.date: 02/14/2017
+ms.subservice: pim
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.custom: pim
 
+ms.collection: M365-identity-device-management
 ---
-# View audit history for Azure AD directory roles in PIM
-You can use the Privileged Identity Management (PIM) audit history to see all the user assignments and activations within a given time period for all privileged roles. If you want to see the full audit history of activity in your tenant, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory access and usage reports.](../reports-monitoring/overview-reports.md)
+# View audit history for Azure AD roles in PIM
 
-## Navigate to audit history
-From the [Azure portal](https://portal.azure.com) dashboard, select the **Azure AD Privileged Identity Management** app. From there, access the audit history by clicking **Manage privileged roles** > **Audit history** in the PIM dashboard.
+You can use the Azure Active Directory (Azure AD) Privileged Identity Management (PIM) audit history to see all the role assignments and activations within the past 30 days for all privileged roles. If you want to see the full audit history of activity in your directory, including administrator, end user, and synchronization activity, you can use the [Azure Active Directory security and activity reports](../reports-monitoring/overview-reports.md).
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+## View audit history
 
->[!NOTE]
-You can sort the data by Action, and look for “Activation Approved”
+Follow these steps to view the audit history for Azure AD roles.
 
+1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 
-## Audit history graph
-You can use the audit history to view the total activations, max activations per day, and average activations per day in a line graph.  You can also filter the data by role if there is more than one role in the audit history.
+1. Open **Azure AD Privileged Identity Management**.
 
-Use the **time**, **action**, and **role** buttons to sort the history.
+1. Click **Azure AD roles**.
 
-## Audit history list
-The columns in the audit history list are:
+1. Click **Directory roles audit history**.
 
-* **Requestor** - the user who requested the role activation or change.  If the value is "Azure System", check the Azure audit history for more information.
-* **User** - the user who is activating or assigned to a role.
-* **Role** - the role assigned or activated by the user.
-* **Action** - the actions taken by the requestor. This can include assignment, unassignment, activation, or deactivation.
-* **Time** - when the action occurred.
-* **Reasoning** - if any text was entered into the reason field during activation, it will show up here.
-* **Expiration** - only relevant for activation of roles.
+    Depending on your audit history, a column chart is displayed along with the total activations, max activations per day, and average activations per day.
+
+    ![Directory roles audit history](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+
+    At the bottom of the page, a table is displayed with information about each action in the available audit history. The columns have the following meanings:
+
+    | Column | Description |
+    | --- | --- |
+    | Time | When the action occurred. |
+    | Requestor | User who requested the role activation or change. If the value is **Azure System**, check the Azure audit history for more information. |
+    | Action | Actions taken by the requestor. Actions can include Assign, Unassign, Activate, Deactivate, or AddedOutsidePIM. |
+    | Member | User who is activating or assigned to a role. |
+    | Role | Role assigned or activated by the user. |
+    | Reasoning | Text that was entered into the reason field during activation. |
+    | Expiration | When an activated role expires. Applies only to eligible role assignments. |
+
+1. To sort the audit history, click the **Time**, **Action**, and **Role** buttons.
 
 ## Filter audit history
-You can filter the information that shows up in the audit history by clicking the **Filter** button.  The **Update chart parameters blade** will appear.
 
-After you set the filters, click **Update** to filter the data in the history.  If the data doesn't appear right away, refresh the page.
+1. At the top of the audit history page, click the **Filter** button.
 
-### Change the date range
-Use the **Today**, **Past Week**, **Past Month**, or **Custom** buttons to change the time range of the audit history.
+    The **Update chart parameters** pane appears.
 
-When you choose the **Custom** button, you will be given a **From** date field and a **To** date field to specify a range of dates for the history.  You can either enter the dates in MM/DD/YYYY format or click on the **calendar** icon and choose the date from a calendar.
+1. In **Time range**, select a time range.
 
-### Change the roles included in the history
-Check or uncheck the **Role** checkbox next to each role to include or exclude it from the history.
+1. In **Roles**, add checkmarks for the roles you want to view.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+    ![Update chart parameters pane](media/pim-how-to-use-audit-log/update-chart-parameters.png)
+
+1. Click **Done** to view the filtered audit history.
+
 ## Next steps
 
-- [View audit history for Azure resource roles in PIM](pim-resource-roles-use-the-audit-log.md)
+- [View activity and audit history for Azure resource roles in PIM](azure-pim-resource-rbac.md)

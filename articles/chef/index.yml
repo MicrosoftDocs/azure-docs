@@ -6,7 +6,7 @@ metadata:
   description: Chef Software provides a DevOps automation platform for Linux and Windows that enables the management of both physical and virtual server configurations. Learn how to use Chef Software products to automate infrastructure as code (IaC) recipes and manage and deploy virtual machines on Azure with quickstarts and tutorials.
   ms.service: chef
   keywords: chef, azure, devops, tutorials, samples, reference
-  author: tomarcher
+  author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing page

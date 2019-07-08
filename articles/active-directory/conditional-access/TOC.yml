@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is conditional access?
+  - name: What is Conditional Access?
     href: overview.md
 - name: Quickstarts
   items:
@@ -19,31 +19,55 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Baseline Protection
-    href: baseline-protection.md
+  - name: Adopting Conditional Access
+    href: howto-conditional-access-adoption-kit.md
+  - name: Baseline protection policies
+    href: concept-baseline-protection.md
   - name: Conditions
     href: conditions.md
   - name: Location conditions
     href: location-condition.md
   - name: Controls
     href: controls.md
+  - name: Service dependencies
+    href: service-dependencies.md
   - name: What if tool
     href: what-if-tool.md
 - name: How-to guides
   expanded: true
   items:
+  - name: Plan your Conditional Access deployment
+    href: plan-conditional-access.md
   - name: Best practices
     href: best-practices.md
-  - name: Require MFA for access attempts from untrusted networks
-    href: untrusted-networks.md
-  - name: Require managed devices
-    href: require-managed-devices.md
-  - name: Require approved client apps
-    href: app-based-conditional-access.md
-  - name: Control access to Exchange Online and SharePoint Online
-    href: conditional-access-for-exo-and-spo.md
+  - name: Baseline policies
+    items:
+    - name: Require MFA for admins
+      href: howto-baseline-protect-administrators.md
+    - name: End user protection
+      href: howto-baseline-protect-end-users.md
+    - name: Block legacy authentication
+      href: howto-baseline-protect-legacy-auth.md
+    - name: Require MFA for service management
+      href: howto-baseline-protect-azure.md
+  - name: Block legacy authentication
+    href: block-legacy-authentication.md
   - name: Migrate classic policies
     href: policy-migration.md
+  - name: Sign-in frequency and browser persistence controls
+    href: howto-conditional-access-session-lifetime.md
+  - name: Require approved client apps
+    href: app-based-conditional-access.md
+  - name: Require app protection policy
+    href: app-protection-based-conditional-access.md
+  - name: Require managed devices
+    href: require-managed-devices.md
+  - name: Require trusted networks for MFA registration
+    href: ../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration
+  - name: Require MFA for access attempts from untrusted networks
+    href: untrusted-networks.md
+  - name: Require terms of use
+    href: terms-of-use.md
 - name: Reference
   items:
   - name: Technical reference
@@ -59,6 +83,6 @@
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

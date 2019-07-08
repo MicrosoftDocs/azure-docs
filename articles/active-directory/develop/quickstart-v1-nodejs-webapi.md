@@ -3,20 +3,21 @@ title: Secure a Web API with Azure AD | Microsoft Docs
 description: Learn how to build a Node.js REST web API that integrates with Azure AD for authentication.
 services: active-directory
 documentationcenter: nodejs
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to build a Node.js REST web API that integrates with Azure Active Directory for authentication.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Secure a Web API with Azure Active Directory
@@ -41,21 +42,20 @@ To begin, add the following code into a file named `package.json`:
 
 ```Shell
 {
-  "name": "node-aad-demo",
+  "name": "active-directory-webapi-nodejs",
   "version": "0.0.1",
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
     "passport": "0.4.0",
-    "passport-azure-ad": "3.0.8",
-    "restify": "6.0.1",
-    "restify-plugins": "1.6.0"
+    "passport-azure-ad": "4.0.0",
+    "restify": "7.7.0"
   }
 }
 ```
 
-Once `package.json` is created, run `npm install` in your command prompt to install the package dependencies. 
+Once `package.json` is created, run `npm install` in your command prompt to install the package dependencies.
 
 #### Configure the project to use Active Directory
 
@@ -112,7 +112,7 @@ Create a new file named `app.js` and paste in the following text:
 ```JavaScript
 const
       restify = require('restify')
-    , restifyPlugins = require('restify-plugins')
+    , restifyPlugins = require ('restify').plugins
     , passport = require('passport')
     , BearerStrategy = require('passport-azure-ad').BearerStrategy
     , config = require('./config')
@@ -123,7 +123,7 @@ const
 
 In this section of code:
 
-- The `restify` and `restify-plugins` modules are referenced in order to set up a Restify server.
+- The `restify` and plugins modules are referenced in order to set up a Restify server.
 - The `passport` and `passport-azure-ad` modules are responsible for communicating with Azure AD.
 - The `config` variable is initialized with values from the `config.js` file created in the previous step.
 - An array is created for `authenticatedUserTokens` to store user tokens as they are passed into secured endpoints.
@@ -163,7 +163,7 @@ passport.use(authenticationStrategy);
 With the authentication strategy defined, you can now set up the Restify server with some basic settings and set to use Passport for security.
 
 ```JavaScript
-const server = restify.createServer({ name: 'Azure Active Directroy with Node.js Demo' });
+const server = restify.createServer({ name: 'Azure Active Directory with Node.js Demo' });
 server.use(restifyPlugins.authorizationParser());
 server.use(passport.initialize());
 server.use(passport.session());
@@ -218,7 +218,7 @@ If you have configured your server correctly, the response should look similar t
 
 ```shell
 HTTP/1.1 200 OK
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 Content-Type: application/json
 Content-Length: 49
 Date: Tue, 10 Oct 2017 18:35:13 GMT
@@ -237,7 +237,7 @@ If you have configured the server correctly, then the server should respond with
 
 ```shell
 HTTP/1.1 401 Unauthorized
-Server: Azure Active Directroy with Node.js Demo
+Server: Azure Active Directory with Node.js Demo
 WWW-Authenticate: token is not found
 Date: Tue, 10 Oct 2017 16:22:03 GMT
 Connection: keep-alive

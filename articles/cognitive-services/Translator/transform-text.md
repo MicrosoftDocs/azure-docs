@@ -3,13 +3,13 @@ title: Transform text - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Transform text using the Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
+ms.author: swmachan
 ---
 
 # How to use the TransformText method
@@ -35,14 +35,14 @@ The method is a RESTful service using GET over HTTP. It supports simple XML and 
 The return value provides the transformed sentence.
 
 > [!div class="tabbedCodeSnippets"]
-```json
-GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
-{
-int ec;            // A positive number representing an error condition
-string em;         // A descriptive error message
-string sentence;   // transformed text
-}
-```
+> ```json
+> GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
+> {
+> int ec;            // A positive number representing an error condition
+> string em;         // A descriptive error message
+> string sentence;   // transformed text
+> }
+> ```
 
 ## Example
 
@@ -67,7 +67,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             AdmAccessToken admToken;
             string headerValue;
             //Get Client Id and Client Secret from https://datamarket.azure.com/developer/applications/
-            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx)
+            //Refer obtaining AccessToken (https://msdn.microsoft.com/library/hh454950.aspx)
             AdmAuthentication admAuth = new AdmAuthentication("clientID", "client secret");
 
             try
@@ -99,7 +99,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             string language = "en";
             string domain = "general";
             //Keep appId parameter blank as we are sending access token in authorization header.
-            string url = string.Format("http://api.microsofttranslator.com/V3/json/TransformText?sentence={0}&category={1}&language={2}",textToTransform,domain,language); ;
+            string url = string.Format("https://api.microsofttranslator.com/V3/json/TransformText?sentence={0}&category={1}&language={2}",textToTransform,domain,language); ;
             TransformTextResponse transformTextResponse= new TransformTextResponse();
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.Headers.Add("Authorization", authToken);
@@ -174,7 +174,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             //If clientid or client secret has special characters, encode before sending request
             this.request = string.Format("grant_type=client_credentials&client_id={0}&client_secret={1}&scope=http://api.microsofttranslator.com", HttpUtility.UrlEncode(clientId), HttpUtility.UrlEncode(clientSecret));
             this.token = HttpPost(DatamarketAccessUri, this.request);
-            //renew the token every specfied minutes
+            //renew the token every specified minutes
             accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback), this, TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
         }
         public AdmAccessToken GetAccessToken()

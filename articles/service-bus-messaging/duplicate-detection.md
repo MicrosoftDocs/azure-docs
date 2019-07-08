@@ -3,17 +3,17 @@ title: Azure Service Bus duplicate message detection | Microsoft Docs
 description: Detect duplicate Service Bus messages
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: spelluru
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 
@@ -33,11 +33,17 @@ For a business process in which multiple messages are sent in the course of hand
 
 The *MessageId* can always be some GUID, but anchoring the identifier to the business process yields predictable repeatability, which is desired for leveraging the duplicate detection feature effectively.
 
+> [!NOTE]
+> If the duplicate detection is enabled and sesion ID or partition key are not set, the message ID is used as the partition key. If the message ID is also not set, .NET and AMQP libraries automatically generate a message ID for the message. For more information, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
+
 ## Enable duplicate detection
 
 In the portal, the feature is turned on during entity creation with the **Enable duplicate detection** check box, which is off by default. The setting for creating new topics is equivalent.
 
 ![][1]
+
+> [!IMPORTANT]
+> You can't enable/disable duplicate detection after the queue is created. You can only do so at the time of creating the queue. 
 
 Programmatically, you set the flag with the [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) property on the full framework .NET API. With the Azure Resource Manager API, the value is set with the [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) property.
 

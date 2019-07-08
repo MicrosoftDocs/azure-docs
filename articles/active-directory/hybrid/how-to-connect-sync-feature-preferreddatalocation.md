@@ -1,21 +1,22 @@
 ---
-title: 'Azure Active Directory Connect sync: Configure preferred data location for Multi-Geo capabilities in Office 365 | Microsoft Docs'
+title: 'Azure AD Connect: Configure preferred data location for Office 365 resources'
 description: Describes how to put your Office 365 user resources close to the user with Azure Active Directory Connect sync.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/30/2018
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 05/31/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect sync: Configure preferred data location for Office 365 resources
 The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect sync. When someone uses Multi-Geo capabilities in Office 365, you use this attribute to designate the geo-location of the user’s Office 365 data. (The terms *region* and *geo* are used interchangeably.)
@@ -48,7 +49,7 @@ The geos in Office 365 available for Multi-Geo are:
 | United States | NAM |
 
 * If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
-* The India geo is only available to customers with billing address and licenses purchased in this geo.
+
 * Not all Office 365 workloads support the use of setting a user's geo.
 
 ### Azure AD Connect support for synchronization
@@ -186,8 +187,8 @@ In general, full synchronization cycle is required. This is because you have add
    3. In the dialog box, select **Full Import**, and select **OK**.
    4. Wait for the operation to complete.
 
-    > [!NOTE]
-    > You can skip full import on the on-premises Active Directory Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any change during step 2 earlier in this article.
+      > [!NOTE]
+      > You can skip full import on the on-premises Active Directory Connector if the source attribute is already included in the list of imported attributes. In other words, you did not have to make any change during step 2 earlier in this article.
 
 2. Run **Full import** on the Azure AD Connector:
 
@@ -233,7 +234,7 @@ Re-enable the built-in sync scheduler:
 ## Step 8: Verify the result
 It is now time to verify the configuration and enable it for your users.
 
-1. Add the geo to the selected attribute on a user. The list of available geos can be found in [this table](#enable-synchronization-of-preferreddatalocation).  
+1. Add the geo to the selected attribute on a user. The list of available geos can be found in this table.  
 ![Screenshot of AD attribute added to a user](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Wait for the attribute to be synchronized to Azure AD.
 3. Using Exchange Online PowerShell, verify that the mailbox region has been set correctly.  

@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Digital Twins Documentation
+title: Azure Digital Twins Preview Documentation
 metadata:
-  title: Azure Digital Twins Documentation - Tutorials, API Reference | Microsoft Docs
+  title: Azure Digital Twins Preview Documentation - Tutorials, API Reference | Microsoft Docs
   description: Use Azure Digital Twins to create smart spatial solutions.
   author: dsk-2015
   manager: timlt
@@ -15,7 +15,6 @@ abstract:
   description: Learn how to use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence. Walk through the Quickstart and Tutorials to monitor an imaginary smart building, learn in-depth concepts, and create a next generation IoT solution that models your physical environment.
 sections:
 - title: 5-Minute Quickstart
-  items:
   items:
   - type: paragraph
     text: Learn how to <a href="quickstart-view-occupancy-dotnet">find available rooms with good air quality by using Azure Digital Twins .NET samples</a>.

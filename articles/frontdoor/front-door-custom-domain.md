@@ -32,14 +32,14 @@ In this tutorial, you learn how to:
 
 Before you can complete the steps in this tutorial, you must first create a Front Door. For more information, see [Quickstart: Create a Front Door](quickstart-create-front-door.md).
 
-If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).
+If you do not already have a custom domain, you must first purchase one with a domain provider. For example, see [Buy a custom domain name](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).
 
 If you are using Azure to host your [DNS domains](https://docs.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you are using a domain provider to handle your DNS domain, proceed to [Create a CNAME DNS record](#create-a-cname-dns-record).
 
 
 ## Create a CNAME DNS record
 
-Before you can use a custom domain with your Front Door, you must first create a canonical name (CNAME) record with your domain provider to point to your Front Door's default frontend host (say contose.azurefd.net). A CNAME record is a type of DNS record that maps a source domain name to a destination domain name. For Azure Front Door Service, the source domain name is your custom domain name and the destination domain name is your Front Door default hostname. After Front Door verifies the CNAME record that you create, traffic addressed to the source custom domain (such as www.contoso.com) is routed to the specified destination Front Door default frontend host (such as contoso.azurefd.net). 
+Before you can use a custom domain with your Front Door, you must first create a canonical name (CNAME) record with your domain provider to point to your Front Door's default frontend host (say contoso.azurefd.net). A CNAME record is a type of DNS record that maps a source domain name to a destination domain name. For Azure Front Door Service, the source domain name is your custom domain name and the destination domain name is your Front Door default hostname. After Front Door verifies the CNAME record that you create, traffic addressed to the source custom domain (such as www\.contoso.com) is routed to the specified destination Front Door default frontend host (such as contoso.azurefd.net). 
 
 A custom domain and its sub-domain can be associated with only a single Front Door at a time. However, you can use different sub-domains from the same custom domain for different Front Doors by using multiple CNAME records. You can also map a custom domain with different sub-domains to the same Front Door.
 
@@ -107,7 +107,7 @@ After you've registered your custom domain, you can then add it to your Front Do
 
 4. For **Frontend host**, the frontend host to use as the destination domain of your CNAME record is pre-filled and is derived from your Front Door: *&lt;default hostname&gt;*.azurefd.net. It cannot be changed.
 
-5. For **Custom hostname**, enter your custom domain, including the subdomain, to use as the source domain of your CNAME record. For example, www.contoso.com or cdn.contoso.com. Do not use the afdverify subdomain name.
+5. For **Custom hostname**, enter your custom domain, including the subdomain, to use as the source domain of your CNAME record. For example, www\.contoso.com or cdn.contoso.com. Do not use the afdverify subdomain name.
 
 6. Select **Add**.
 
@@ -137,13 +137,13 @@ To create a CNAME record for your custom domain:
 
     | Source          | Type  | Destination           |
     |-----------------|-------|-----------------------|
-    | www.contoso.com | CNAME | contoso.azurefd.net |
+    | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-    - Source: Enter your custom domain name (for example, www.contoso.com).
+   - Source: Enter your custom domain name (for example, www\.contoso.com).
 
-    - Type: Enter *CNAME*.
+   - Type: Enter *CNAME*.
 
-    - Destination: Enter your default Front Door frontend host. It must be in the following format:_&lt;hostname&gt;_.azurefd.net. For example, contoso.azurefd.net.
+   - Destination: Enter your default Front Door frontend host. It must be in the following format:_&lt;hostname&gt;_.azurefd.net. For example, contoso.azurefd.net.
 
 4. Save your changes.
 

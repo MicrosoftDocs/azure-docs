@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Internet of Things security from the ground up
+# Security for Internet of Things (IoT) from the ground up
 
 The Internet of Things (IoT) poses unique security, privacy, and compliance challenges to businesses worldwide. Unlike traditional cyber technology where these issues revolve around software and how it is implemented, IoT concerns what happens when the cyber and the physical worlds converge. Protecting IoT solutions requires ensuring secure provisioning of devices, secure connectivity between these devices and the cloud, and secure data protection in the cloud during processing and storage. Working against such functionality, however, are resource-constrained devices, geographic distribution of deployments, and a large number of devices within a solution.
 
@@ -28,7 +28,7 @@ Given the security, privacy, transparency, and compliance concerns, choosing the
 
 ## Secure infrastructure from the ground up
 
-The [Microsoft Cloud](https://azure.microsoft.com) infrastructure supports more than one billion customers in 127 countries. Drawing on Microsoft's decades-long experience building enterprise software and running some of the largest online services in the world, the Microsoft Cloud provides higher levels of enhanced security, privacy, compliance, and threat mitigation practices than most customers could achieve on their own.
+The [Microsoft Cloud](https://azure.microsoft.com) infrastructure supports more than one billion customers in 127 countries/regions. Drawing on Microsoft's decades-long experience building enterprise software and running some of the largest online services in the world, the Microsoft Cloud provides higher levels of enhanced security, privacy, compliance, and threat mitigation practices than most customers could achieve on their own.
 
 The [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) provides a mandatory company-wide development process that embeds security requirements into the entire software lifecycle. To help ensure that operational activities follow the same level of security practices, SDL uses rigorous security guidelines laid out in Microsoft's Operational Security Assurance (OSA) process. Microsoft also works with third-party audit firms for ongoing verification that it meets its compliance obligations, and Microsoft engages in broad security efforts through the creation of centers of excellence, including the Microsoft Digital Crimes Unit, Microsoft Security Response Center, and Microsoft Malware Protection Center.
 

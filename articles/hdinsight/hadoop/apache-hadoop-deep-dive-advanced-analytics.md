@@ -1,7 +1,6 @@
 ---
-title: Deep dive - advanced analytics - Azure HDInsight 
+title: Deep dive - advanced analytics - Azure HDInsight
 description: Learn how advanced analytics uses algorithms to process big data.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -51,14 +50,16 @@ Along with selecting the best-fitting algorithm(s), you need to consider whether
 
 HDInsight has several machine learning options for an advanced analytics workflow:
 
-* [Machine Learning and Spark](#machine-learning-and-spark)
-* [R and ML Services](#r-and-r-server)
-* [Azure Machine Learning and Hive](#azure-machine-learning-and-hive)
-* [Spark and Deep learning](#spark-and-deep-learning)
+* Machine Learning and Apache Spark
+* R and ML Services
+* Azure Machine Learning and Apache Hive
+* Apache Spark and Deep learning
 
-### Machine Learning and Spark
+### Machine Learning and Apache Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md) is an Azure-hosted offering of [Spark](http://spark.apache.org/), a unified, open source, parallel data processing framework that uses in-memory processing to boost Big Data analytics. The Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. 
+
+[HDInsight Spark](../spark/apache-spark-overview.md) is an Azure-hosted offering of [Apache Spark](https://spark.apache.org/), a unified, open source, parallel data processing framework that uses in-memory processing to boost Big Data analytics. The Spark processing engine is built for speed, ease of use, and sophisticated analytics. Spark's in-memory distributed computation capabilities make it a good choice for the iterative algorithms used in machine learning and graph computations. 
+
 
 There are three scalable machine learning libraries that bring algorithmic modeling capabilities to this distributed environment:
 
@@ -70,11 +71,11 @@ There are three scalable machine learning libraries that bring algorithmic model
 
 As part of HDInsight, you can create an HDInsight cluster with [ML Services](../r-server/r-server-overview.md) ready to be used with massive datasets and models. This new capability provides data scientists and statisticians with a familiar R interface that can scale on-demand through HDInsight, without the overhead of cluster setup and maintenance.
 
-### Azure Machine Learning and Hive
+### Azure Machine Learning and Apache Hive
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) provides tools to model predictive analytics, as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning provides tools for creating complete predictive analytics solutions in the cloud to quickly create, test, operationalize, and manage predictive models. Select from a large algorithm library, use a web-based studio for building models, and easily deploy your model as a web service.
 
-### Spark and Deep learning
+### Apache Spark and Deep learning
 
 [Deep learning](https://www.microsoft.com/research/group/dltc/) is a branch of machine learning that uses *deep neural networks* (DNNs), inspired by the biological processes of the human brain. Many researchers see deep learning as a promising approach for  artificial intelligence. Some examples of deep learning are spoken language translators, image recognition systems, and machine reasoning. To help advance its own work in deep learning, Microsoft has developed the free, easy-to-use, open-source [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). The toolkit is being used extensively by a wide variety of Microsoft products, by companies worldwide with a need to deploy deep learning at scale, and by students interested in the latest algorithms and techniques. 
 
@@ -113,19 +114,18 @@ Follow [this tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) to 
 
 ## Next steps
 
-Hive and Azure Machine Learning
+Apache Hive and Azure Machine Learning
 
-* [Hive and Azure Machine Learning end-to-end](../../machine-learning/team-data-science-process/hive-walkthrough.md)
+* [Apache Hive and Azure Machine Learning end-to-end](../../machine-learning/team-data-science-process/hive-walkthrough.md)
 * [Using an Azure HDInsight Hadoop Cluster on a 1 TB dataset](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
 
-Spark and MLLib
+Apache Spark and MLLib
 
-* [Machine learning with Spark on HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine learning with Apache Spark on HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
+* [Apache Spark with Machine Learning: Use Apache Spark in HDInsight for analyzing building temperature using HVAC data](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark with Machine Learning: Use Apache Spark in HDInsight to predict food inspection results](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 Deep Learning, Cognitive Toolkit, and others
 
-* [Embarrassingly parallel image classification, using Cognitive Toolkit and TensorFlow on Azure HDInsight Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
 * [Data Science Azure Virtual Machine](../../machine-learning/data-science-virtual-machine/overview.md)
 * [Introducing H2O.ai on Azure HDInsight](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

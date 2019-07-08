@@ -3,21 +3,22 @@ title: How to get AppSource certified for Azure Active Directory| Microsoft Docs
 description: Details on how to get your application AppSource certified for Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/21/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to get AppSource Certified for Azure Active Directory
@@ -45,7 +46,7 @@ For more information about multi-tenancy, see [How to sign in any Azure Active D
 
 A *single-tenant application* is an application that only accepts sign-ins from users of a defined Azure AD instance. External users (including work or school accounts from other organizations, or personal accounts) can sign in to a single-tenant application after adding each user as a guest account to the Azure AD instance that the application is registered. 
 
-You can add users as guest accounts to Azure AD through the [Azure AD B2B collaboration](../b2b/what-is-b2b.md) and you can do this [programatically](../../active-directory-b2c/code-samples.md). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Azure AD B2B collaboration sign-up](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+You can add users as guest accounts to Azure AD through the [Azure AD B2B collaboration](../b2b/what-is-b2b.md) and you can do this [programmatically](../../active-directory-b2c/code-samples.md). When using B2B, users can create a self-service portal that does not require an invitation to sign in. For more info, see [Self-service portal for Azure AD B2B collaboration sign-up](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
 
 Single-tenant applications can enable the *Contact Me* experience, but if you want to enable the single-click/free trial experience that AppSource recommends, enable multi-tenancy on your application instead.
 
@@ -114,9 +115,9 @@ For more information about the AppSource trial experience, see [this video](http
 
 ## Get support
 
-For Azure AD integration, we use [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) with the community to provide support. 
+For Azure AD integration, we use [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) with the community to provide support. 
 
-We highly recommend you ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]` and `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+We highly recommend you ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]` and `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

@@ -1,45 +1,42 @@
 ---
-title: "Quickstart: Detect faces in an image using the REST API and C#"
+title: "Quickstart: Detect faces in an image with the Azure REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you detect faces from an image using the Face API with C#.
+description: In this quickstart, you will use the Azure Face REST API with C# to detect faces in an image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 07/03/2019
 ms.author: pafarley
+#Customer intent: As a C# developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
-# Quickstart: Detect faces in an image using the REST API and C#
 
-In this quickstart, you detect human faces in an image using the Face API.
+# Quickstart: Detect faces in an image using the Face REST API and C#
+
+In this quickstart, you will use the Azure Face REST API with C# to detect human faces in an image.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
 
-You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
+- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 
-## Detect faces in an image
+## Create the Visual Studio project
 
-Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-method to detect faces in an image and return face attributes including:
+1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **FaceDetection**. 
+1. If there are other projects in your solution, select this one as the single startup project.
 
-* Face ID: Unique ID used in several Face API scenarios.
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair.
+## Add face detection code
 
-To run the sample, do the following steps:
+Open the new project's *Program.cs* file. Here, you will add the code needed to load images and detect faces.
 
-1. Create a new Visual C# Console App in Visual Studio.
-2. Replace Program.cs with the following code.
-3. Replace `<Subscription Key>` with your valid subscription key.
-4. Change the `uriBase` value to use the location where you obtained your subscription keys, if necessary.
-5. Run the program.
-6. At the prompt, enter the path to an image.
+### Include namespaces
 
-### Face - Detect request
+Add the following `using` statements to the top of your *Program.cs* file.
 
 ```csharp
 using System;
@@ -47,11 +44,19 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+```
 
-namespace CSHttpClientSample
+### Add essential fields
+
+Add the **Program** class containing the following fields. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
+
+
+```csharp
+namespace DetectFace
 {
-    static class Program
+    class Program
     {
+
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
 
@@ -60,14 +65,21 @@ namespace CSHttpClientSample
         // subscription keys from westus, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
             "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+```
 
-        static void Main()
+### Receive image input
+
+Add the following code to the **Main** method of the **Program** class. This code writes a prompt to the console asking the user to enter an image URL. Then it calls another method, **MakeAnalysisRequest**, to process the image at that location.
+
+```csharp
+        static void Main(string[] args)
         {
+
             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");
             Console.Write(
@@ -76,7 +88,6 @@ namespace CSHttpClientSample
 
             if (File.Exists(imageFilePath))
             {
-                // Execute the REST API call.
                 try
                 {
                     MakeAnalysisRequest(imageFilePath);
@@ -93,12 +104,16 @@ namespace CSHttpClientSample
             }
             Console.ReadLine();
         }
+```
 
+### Call the face detection REST API
 
-        /// <summary>
-        /// Gets the analysis of the specified image by using the Face REST API.
-        /// </summary>
-        /// <param name="imageFilePath">The image file.</param>
+Add the following method to the **Program** class. It constructs a REST call to the Face API to detect face information in the remote image (the `requestParameters` string specifies which face attributes to retrieve). Then it writes the output data to a JSON string.
+
+You will define the helper methods in the following steps.
+
+```csharp
+        // Gets the analysis of the specified image by using the Face REST API.
         static async void MakeAnalysisRequest(string imageFilePath)
         {
             HttpClient client = new HttpClient();
@@ -140,13 +155,14 @@ namespace CSHttpClientSample
                 Console.WriteLine("\nPress Enter to exit...");
             }
         }
+```
 
+### Process the input image data
 
-        /// <summary>
-        /// Returns the contents of the specified file as a byte array.
-        /// </summary>
-        /// <param name="imageFilePath">The image file to read.</param>
-        /// <returns>The byte array of the image data.</returns>
+Add the following method to the **Program** class. This method converts the image at the specified URL into a byte array.
+
+```csharp
+        // Returns the contents of the specified file as a byte array.
         static byte[] GetImageAsByteArray(string imageFilePath)
         {
             using (FileStream fileStream =
@@ -156,13 +172,14 @@ namespace CSHttpClientSample
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
         }
+```
 
+### Parse the JSON response
 
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
+Add the following method to the **Program** class. This method formats the JSON input to be more easily readable. Your app will write this string data to the console. You can then close the class and namespace.
+
+```csharp
+        // Formats the given JSON string by adding line breaks and indents.
         static string JsonPrettyPrint(string json)
         {
             if (string.IsNullOrEmpty(json))
@@ -228,9 +245,9 @@ namespace CSHttpClientSample
 }
 ```
 
-### Face - Detect response
+## Run the app
 
-A successful response is returned in JSON, for example:
+A successful response will display Face data in easily readable JSON format. For example:
 
 ```json
 [
@@ -328,7 +345,7 @@ A successful response is returned in JSON, for example:
 
 ## Next steps
 
-Learn how to create a WPF Windows application that uses the Face service to detect faces in an image. The application draws a frame around each face and displays a description of the face on the status bar.
+In this quickstart, you created a simple .NET console application that uses REST calls with the Azure Face API to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more about the supported scenarios.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Getting Started with Face API in C#](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

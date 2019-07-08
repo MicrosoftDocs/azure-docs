@@ -5,52 +5,45 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: f352e00d-68d3-4a77-bb92-717d055da56f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
+ms.topic: tutorial
+ms.date: 04/24/2019
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Three
 
 In this tutorial, you learn how to integrate Zscaler Three with Azure Active Directory (Azure AD).
-
 Integrating Zscaler Three with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Zscaler Three
-- You can enable your users to automatically get signed-on to Zscaler Three (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to Zscaler Three.
+* You can enable your users to be automatically signed-in to Zscaler Three (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Zscaler Three, you need the following items:
 
-- An Azure AD subscription
-- A Zscaler Three single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* Zscaler Three single sign-on enabled subscription
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment.
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-1. Adding Zscaler Three from the gallery
-2. Configuring and testing Azure AD single sign-on
+* Zscaler Three supports **SP** initiated SSO
+
+* Zscaler Three supports **Just In Time** user provisioning
 
 ## Adding Zscaler Three from the gallery
 
@@ -60,132 +53,172 @@ To configure the integration of Zscaler Three into Azure AD, you need to add Zsc
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
 2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. Click **New application** button on the top of dialog.
+3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+	![The New application button](common/add-new-app.png)
 
-4. In the results panel, select **Zscaler Three**, and then click **Add** button to add the application.
+4. In the search box, type **Zscaler Three**, select **Zscaler Three** from result panel then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/zscaler-three-tutorial/tutorial_zscalerthree_addfromgallery.png)
+	 ![Zscaler Three in the results list](common/search-new-app.png)
 
-## Configuring and testing Azure AD single sign-on
+## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Zscaler Three based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Zscaler Three is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Zscaler Three needs to be established.
+In this section, you configure and test Azure AD single sign-on with Zscaler Three based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Zscaler Three needs to be established.
 
 To configure and test Azure AD single sign-on with Zscaler Three, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configuring proxy settings](#configuring-proxy-settings)** - to configure the proxy settings in Internet Explorer
-3. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Zscaler Three test user](#creating-a-zscaler-three-test-user)** - to have a counterpart of Britta Simon in Zscaler Three that is linked to the Azure AD representation of user.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Zscaler Three Single Sign-On](#configure-zscaler-three-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Zscaler Three test user](#create-zscaler-three-test-user)** - to have a counterpart of Britta Simon in Zscaler Three that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Zscaler Three application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Zscaler Three, perform the following steps:**
+To configure Azure AD single sign-on with Zscaler Three, perform the following steps:
 
-1. In the Azure portal, on the **Zscaler Three** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Zscaler Three** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
 2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-	![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_general_301.png)
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-3. If you need to change to **SAML** mode from any another mode, click **Change single sign-on mode** on top of the screen.
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    ![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_general_300.png)
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_general_302.png)
+    ![Zscaler Three Domain and URLs single sign-on information](common/sp-intiated.png)
 
-5. On the **Basic SAML Configuration** section, perform the following steps:
+    In the **Sign-on URL** text box, type a URL:
+    `https://login.zscalerthree.net/sfc_sso`
 
-	![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
+5. Your Zscaler Three application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-    In the Sign on URL textbox, enter the URL: `https://login.zscalerthree.net/sfc_sso`
+	![image](common/edit-attribute.png)
 
-6. On the **SAML Signing Certificate** section, Click on **Download** to download **Certificate(Base64)** and then save the certificate file on your computer.
+6. In addition to above, Zscaler Three application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+	
+	| Name | Source Attribute |
+	| ---------| ------------ |
+	| memberOf 	   | user.assignedroles |
 
-	![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_zscalerthree_certificate.png)
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-8. On the **Set up Zscaler Three** section, copy the **Login URL**.
+	![image](common/new-save-attribute.png)
 
-	![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_zscalerthree_configure.png)
+	![image](common/new-attribute-details.png)
 
-9. In a different web browser window, log in to your Zscaler Three company site as an administrator.
+	b. In the **Name** textbox, type the attribute name shown for that row.
 
-10. In the menu on the top, click **Administration**.
+	c. Leave the **Namespace** blank.
 
+	d. Select Source as **Attribute**.
+
+	e. From the **Source attribute** list, type the attribute value shown for that row.
+	
+	f. Click **Save**.
+
+	> [!NOTE]
+	> Please click [here](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) to know how to configure Role in Azure AD
+
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+
+	![The Certificate download link](common/certificatebase64.png)
+
+8. On the **Set up Zscaler Three** section, copy the appropriate URL(s) as per your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure Zscaler Three Single Sign-On
+
+1. To automate the configuration within Zscaler Three, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup Zscaler Three** will direct you to the Zscaler Three application. From there, provide the admin credentials to sign into Zscaler Three. The browser extension will automatically configure the application for you and automate steps 3-6.
+
+	![Setup sso](common/setup-sso.png)
+
+3. If you want to setup Zscaler Three manually, open a new web browser window and sign into your Zscaler Three company site as an administrator and perform the following steps:
+
+4. Go to **Administration > Authentication > Authentication Settings** and perform the following steps:
+   
 	![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
-9. Under **Manage Administrators & Roles**, click **Manage Users & Authentication**.
+	a. Under Authentication Type, choose **SAML**.
 
-	![Manage Users & Authentication](./media/zscaler-three-tutorial/ic800207.png "Manage Users & Authentication")
+	b. Click **Configure SAML**.
 
-10. In the **Choose Authentication Options for your Organization** section, perform the following steps:
+5. On the **Edit SAML** window, perform the following steps: and click Save.  
+   			
+	![Manage Users & Authentication](./media/zscaler-three-tutorial/ic800208.png "Manage Users & Authentication")
+	
+	a. In the **SAML Portal URL** textbox, Paste the **Login URL** which you have copied from Azure portal.
 
-	![Authentication](./media/zscaler-three-tutorial/ic800208.png "Authentication")
+	b. In the **Login Name Attribute** textbox, enter **NameID**.
 
-    a. Select **Authenticate using SAML Single Sign-On**.
+	c. Click **Upload**, to  upload the Azure SAML signing certificate that you  have downloaded from Azure portal in the **Public SSL Certificate**.
 
-    b. Click **Configure SAML Single Sign-On Parameters**.
+	d. Toggle the **Enable SAML Auto-Provisioning**.
 
-11. On the **Configure SAML Single Sign-On Parameters** dialog page, perform the following steps, and then click **Done**
+	e. In the **User Display Name Attribute** textbox, enter **displayName** if you want to enable SAML auto-provisioning for displayName attributes.
 
-	![Single Sign-On](./media/zscaler-three-tutorial/ic800209.png "Single Sign-On")
+	f. In the **Group Name Attribute** textbox, enter **memberOf** if you want to enable SAML auto-provisioning for memberOf attributes.
 
-	a. Paste the **Login URL** value, which you have copied from the Azure portal into the **URL of the SAML Portal to which users are sent for authentication** textbox.
+	g. In the **Department Name Attribute** Enter **department** if you want to enable SAML auto-provisioning for department attributes.
 
-	b. In the **Attribute containing Login Name** textbox, type **NameID**.
+	h. Click **Save**.
 
-	c. To upload your downloaded certificate, click **Zscaler pem**.
+6. On the **Configure User Authentication** dialog page, perform the following steps:
 
-	d. Select **Enable SAML Auto-Provisioning**.
+	![Administration](./media/zscaler-three-tutorial/ic800207.png)
 
-12. On the **Configure User Authentication** dialog page, perform the following steps:
+	a. Hover over the **Activation** menu near the bottom left.
 
-    ![Administration](./media/zscaler-three-tutorial/ic800210.png "Administration")
-
-    a. Click **Save**.
-
-    b. Click **Activate Now**.
+	b. Click **Activate**.
 
 ## Configuring proxy settings
-
 ### To configure the proxy settings in Internet Explorer
 
 1. Start **Internet Explorer**.
 
-2. Select **Internet options** from the **Tools** menu for open the **Internet Options** dialog.
-
+2. Select **Internet options** from the **Tools** menu for open the **Internet Options** dialog.   
+  	
 	 ![Internet Options](./media/zscaler-three-tutorial/ic769492.png "Internet Options")
 
-3. Click the **Connections** tab.
+3. Click the **Connections** tab.   
   
 	 ![Connections](./media/zscaler-three-tutorial/ic769493.png "Connections")
 
 4. Click **LAN settings** to open the **LAN Settings** dialog.
 
-5. In the Proxy server section, perform the following steps:
-
+5. In the Proxy server section, perform the following steps:   
+   
 	![Proxy server](./media/zscaler-three-tutorial/ic769494.png "Proxy server")
 
     a. Select **Use a proxy server for your LAN**.
 
-    b. In the Address textbox, type **gateway.zscalerthree.net**.
+    b. In the Address textbox, type **gateway.Zscaler Three.net**.
 
     c. In the Port textbox, type **80**.
 
@@ -195,108 +228,80 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. Click **OK** to close the **Internet Options** dialog.
 
-### Creating an Azure AD test user
+### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-	![Create Azure AD User][100]
+    ![The "Users and groups" and "All users" links](common/users.png)
 
 2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/zscaler-three-tutorial/create_aaduser_01.png) 
+    ![New user Button](common/new-user.png)
 
 3. In the User properties, perform the following steps.
 
-	![Creating an Azure AD test user](./media/zscaler-three-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-	a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
-    c. Select **Properties**, select the **Show password** check box, and then write down the value that's displayed in the Password box.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
 
-### Creating a Zscaler Three test user
-
-To enable Azure AD users to log in to Zscaler Three, they must be provisioned to Zscaler Three. In the case of Zscaler Three, provisioning is a manual task.
-
-### To configure user provisioning, perform the following steps:
-
-1. Log in to your **Zscaler Three** tenant.
-
-2. Click **Administration**.
-
-	![Administration](./media/zscaler-three-tutorial/ic781035.png "Administration")
-
-3. Click **User Management**.
-
-	 ![Add](./media/zscaler-three-tutorial/ic781036.png "Add")
-
-4. In the **Users** tab, click **Add**.
-
-	![Add](./media/zscaler-three-tutorial/ic781037.png "Add")
-
-5. In the Add User section, perform the following steps:
-
-	![Add User](./media/zscaler-three-tutorial/ic781038.png "Add User")
-
-    a. Type the **UserID**, **User Display Name**, **Password**, **Confirm Password**, and then select **Groups** and the **Department** of a valid Azure AD account you want to provision.
-
-    b. Click **Save**.
-
-> [!NOTE]
-> You can use any other Zscaler Three user account creation tools or APIs provided by Zscaler Three to provision Azure AD user accounts.
-
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Zscaler Three.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Zscaler Three**.
 
-	![Assign User][201]
+	![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Zscaler Three**.
 
-	![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_zscalerthree_app.png)
+	![The Zscaler Three link in the Applications list](common/all-applications.png)
 
-3. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, select **Users and groups**.
 
-	![Assign User][202]
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Click **Add user** button and then select **Users and groups** on **Add Assignment** dialog.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog, select the user like **Britta Simon** from the list, then click the **Select** button at the bottom of the screen.
 
-6. In the **Add Assignment** dialog click the **Assign** button.
+	![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
 
-### Testing single sign-on
+6. From the **Select Role** dialog choose the appropriate user role in the list, then click the **Select** button at the bottom of the screen.
+
+	![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+
+7. In the **Add Assignment** dialog select the **Assign** button.
+
+	![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+
+### Create Zscaler Three test user
+
+In this section, a user called Britta Simon is created in Zscaler Three. Zscaler Three supports just-in-time provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Zscaler Three, a new one is created when you attempt to access Zscaler Three.
+
+>[!Note]
+>If you need to create a user manually, contact [Zscaler Three support team](https://www.zscaler.com/company/contact).
+
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Zscaler Three tile in the Access Panel, you should get automatically signed-on to your Zscaler Three application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you click the Zscaler Three tile in the Access Panel, you should be automatically signed in to the Zscaler Three for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/zscaler-three-tutorial/tutorial_general_01.png
-[2]: ./media/zscaler-three-tutorial/tutorial_general_02.png
-[3]: ./media/zscaler-three-tutorial/tutorial_general_03.png
-[4]: ./media/zscaler-three-tutorial/tutorial_general_04.png
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/zscaler-three-tutorial/tutorial_general_100.png
-
-[200]: ./media/zscaler-three-tutorial/tutorial_general_200.png
-[201]: ./media/zscaler-three-tutorial/tutorial_general_201.png
-[202]: ./media/zscaler-three-tutorial/tutorial_general_202.png
-[203]: ./media/zscaler-three-tutorial/tutorial_general_203.png

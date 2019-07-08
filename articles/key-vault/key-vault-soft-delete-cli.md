@@ -1,14 +1,12 @@
 ---
-ms.assetid: 
 title: Azure Key Vault - How to use soft delete with CLI
 description: Use case examples of soft-delete with CLI code snips
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/15/2018
-ms.author: bryanla
+ms.date: 02/01/2019
+ms.author: mbaldwin
 ---
 # How to use Key Vault soft-delete with CLI
 
@@ -66,7 +64,7 @@ To verify that a key vault has soft-delete enabled, run the *show* command and l
 az keyvault show --name ContosoVault
 ```
 
-## Deleting a key vault protected by soft-delete
+## Deleting a soft-delete protected key vault
 
 The command to delete a key vault changes in behavior, depending on whether soft-delete is enabled.
 
@@ -90,7 +88,7 @@ You may view deleted state key vaults, associated with your subscription, using 
 ```azurecli
 az keyvault list-deleted
 ```
-- *Id* can be used to identify the resource when recovering, or purging. 
+- *ID* can be used to identify the resource when recovering or purging. 
 - *Resource ID* is the original resource ID of this vault. Since this key vault is now in a deleted state, no resource exists with that resource ID. 
 - *Scheduled Purge Date* is when the vault will be permanently deleted, if no action is taken. The default retention period, used to calculate the *Scheduled Purge Date*, is 90 days.
 
@@ -104,9 +102,9 @@ az keyvault recover --location westus --resource-group ContosoRG --name ContosoV
 
 When a key vault is recovered, a new resource is created with the key vault's original resource ID. If the original resource group is removed, one must be created with same name before attempting recovery.
 
-## Key Vault objects and soft-delete
+## Deleting and purging key vault objects
 
-For a key, 'ContosoFirstKey', in a key vault named 'ContosoVault' with soft-delete enabled, here's how you would delete that key.
+The following command will delete the 'ContosoFirstKey' key, in a key vault named 'ContosoVault', which has soft-delete enabled:
 
 ```azurecli
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
@@ -163,19 +161,19 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 Like keys, secrets are managed with their own commands:
 
 - Delete a secret named SQLPassword: 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - List all deleted secrets in a key vault: 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - Recover a secret in the deleted state: 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - Purge a secret in deleted state: 
 
@@ -186,17 +184,22 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
   az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
   ```
 
-## Purging and key vaults
+## Purging a soft-delete protected key vault
 
-### Key vault objects
+> [!IMPORTANT]
+> Purging a key vault or one of its contained objects, will permanently delete it, meaning it will not be recoverable!
 
-Purging a key, secret, or certificate, causes permanent deletion and it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
+The purge function is used to permanently delete a key vault object or an entire key vault, that was previously soft-deleted. As demonstrated in the previous section, objects stored in a key vault with the soft-delete feature enabled, can go through multiple states:
 
-### Key vaults as containers
-When a key vault is purged, its entire contents are permanently deleted, including keys, secrets, and certificates. To purge a key vault, use the `az keyvault purge` command. You can find the location your subscription's deleted key vaults using the command `az keyvault list-deleted`.
+- **Active**: before deletion.
+- **Soft-Deleted**: after deletion, able to be listed and recovered back to active state.
+- **Permanently-Deleted**: after purge, not able to be recovered.
 
->[!IMPORTANT]
->Purging a key vault will permanently delete it, meaning it will not be recoverable!
+The same is true for the key vault. In order to permanently delete a soft-deleted key vault and its contents, you must purge the key vault itself.
+
+### Purging a key vault
+
+When a key vault is purged, its entire contents are permanently deleted, including keys, secrets, and certificates. To purge a soft-deleted key vault, use the `az keyvault purge` command. You can find the location your subscription's deleted key vaults using the command `az keyvault list-deleted`.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
@@ -214,8 +217,26 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 >[!IMPORTANT]
 >A purged vault object, triggered by its *Scheduled Purge Date* field, is permanently deleted. It is not recoverable!
 
+## Enabling Purge Protection
+
+When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed.
+
+You can enable purge protection only if soft-delete is also enabled. 
+
+To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) command:
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
+
 ## Other resources
 
 - For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](key-vault-ovw-soft-delete.md).
-- For a general overview of Azure Key Vault usage, see [Get started with Azure Key Vault](key-vault-get-started.md).
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](key-vault-overview.md).
 

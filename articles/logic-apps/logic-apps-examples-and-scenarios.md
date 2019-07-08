@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/18
+ms.date: 01/31/2018
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps

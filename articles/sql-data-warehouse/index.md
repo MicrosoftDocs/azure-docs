@@ -7,7 +7,7 @@ manager: craigg
 layout: LandingPage
 ms.service: sql-data-warehouse
 ms.topic: overview
-ms.component: design
+ms.subservice: design
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan

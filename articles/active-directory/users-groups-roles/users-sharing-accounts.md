@@ -1,5 +1,5 @@
 ---
-title: Sharing accounts using Azure AD | Microsoft Docs
+title: Sharing accounts and credentials - Azure Active Directory | Microsoft Docs
 description: Describes how Azure Active Directory enables organizations to securely share accounts for on-premises apps and consumer cloud services.
 services: active-directory
 documentationcenter: ''
@@ -9,13 +9,14 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Sharing accounts with Azure AD
 ## Overview
@@ -47,7 +48,7 @@ Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premi
 
 Azure AD features that enable account sharing include:
 
-* [Password single sign-on](../manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
+* [Password single sign-on](../manage-apps/what-is-single-sign-on.md#password-based-sso)
 * Password single sign-on agent
 * [Group assignment](groups-self-service-management.md)
 * Custom Password apps
@@ -68,5 +69,5 @@ You can also make your shared account more secure with Multi-Factor Authenticati
 
 ## Related articles
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Protecting apps with conditional access](../active-directory-conditional-access-azure-portal.md)
+* [Protecting apps with Conditional Access](../active-directory-conditional-access-azure-portal.md)
 * [Self-service group management/SSAA](groups-self-service-management.md)

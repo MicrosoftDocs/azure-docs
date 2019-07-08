@@ -4,42 +4,26 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face API with Go.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 06/25/2018
+ms.date: 07/03/2019
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and Go
 
-In this quickstart, you detect human faces in an image using the Face API.
+In this quickstart, you will use the Azure Face REST API with Go to detect human faces in an image.
 
 ## Prerequisites
 
-You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
+- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download)
 
-## Face - Detect request
+## Write the script
 
-Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-method to detect faces in an image and return face attributes including:
-
-* Face ID: Unique ID used in several Face API scenarios.
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair.
-
-To run the sample, do the following steps:
-
-1. Copy the following code into an editor.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `uriBase` value to the location where you got your subscription keys, if necessary.
-1. Optionally, change the `imageUrl` value to the image you want to analyze.
-1. Save the file with a `.go` extension.
-1. Open a command prompt on a computer with Go installed.
-1. Build the file, for example: `go build detect-face.go`.
-1. Run the file, for example: `detect-face`.
+Create a new file, _faceDetection.go_, and add the following code. This calls the Face API for a given image URL.
 
 ```go
 package main
@@ -71,8 +55,16 @@ func main() {
 
     reader := strings.NewReader(imageUrlEnc)
 
+    //Configure TLS, etc.
+    tr := &http.Transport{
+        TLSClientConfig: &tls.Config{
+            InsecureSkipVerify: true,
+        },
+    }
+    
     // Create the Http client
     client := &http.Client{
+        Transport: tr,
         Timeout: time.Second * 2,
     }
 
@@ -111,9 +103,25 @@ func main() {
 }
 ```
 
-## Face - Detect response
+You'll need to update the `subscriptionKey` value with your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). 
 
-A successful response is returned in JSON, for example:
+You may also wish to change the `imageUrl` field to point to your own input image. You also may wish to chang the `returnFaceAttributes` field, which specifies which face attributes to retrieve.
+
+## Run the script
+
+Open a command prompt and build the program with the following command:
+
+```shell
+go build faceDetection.go
+```
+
+Then run the program:
+
+```shell
+detect-face
+```
+
+You should see a JSON string of detected face data printed to the console. The following is an example of a successful JSON response.
 
 ```json
 [
@@ -296,7 +304,7 @@ A successful response is returned in JSON, for example:
 
 ## Next steps
 
-Explore the Face APIs used to detect human faces in an image, demarcate the faces with rectangles, and return attributes such as age and gender.
+In this quickstart, you wrote a Ruby script that calls the Azure Face API to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more.
 
 > [!div class="nextstepaction"]
-> [Face APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

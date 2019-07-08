@@ -4,7 +4,7 @@ description: " Detect threats and malicious by integrating Microsoft Cloud App S
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -51,8 +51,8 @@ Security Center supports Cloud App Security anomaly detection alerts, such as:
 
 These alerts are enabled by default, but you can disable them:
 
-1. In the Security Center blade, select **Security policy**. For the subscription you want to change, click **Edit settings**.
-2.  Click **Threat detection**.
+1. In the Security Center blade, select **Pricing & settings** and select the applicable subscription.
+2. Click **Threat detection**.
 3. Under **Enable integrations**, uncheck **Allow Microsoft Cloud App Security to access my data**, and click **Save**.
 
    ![threat detection alert](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

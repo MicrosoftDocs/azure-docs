@@ -3,19 +3,19 @@ title: Problem configuring password single sign-on for an Azure AD Gallery appli
 description: Understand the common problems people face when configuring Password Single Sign-on for applications that are already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
-ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: mimart
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem configuring password single sign-on for an Azure AD Gallery application
@@ -34,23 +34,23 @@ While Microsoft has technologies to automatically detect when integrations break
 
 To resolve this issue, first try these things:
 
--   Have the user first try to **sign in to the application website directly** with the credentials stored for them.
+- Have the user first try to **sign in to the application website directly** with the credentials stored for them.
 
   * If sign-in works, then have the user click the **Update credentials** button on the **Application Tile** in the **Apps** section of the [Application Access Panel](https://myapps.microsoft.com/) to update them to the latest known working username and password.
 
-   * If you, or another administrator assigned the credentials for this user, find the user or group’s application assignment by navigating to the **Users & Groups** tab of the application, selecting the assignment and clicking the **Update Credentials** button.
+  * If you, or another administrator assigned the credentials for this user, find the user or group’s application assignment by navigating to the **Users & Groups** tab of the application, selecting the assignment and clicking the **Update Credentials** button.
 
--   If the user assigned their own credentials, have the user **check to be sure that their password has not expired in the application** and if so, **update their expired password** by signing in to the application directly.
+- If the user assigned their own credentials, have the user **check to be sure that their password has not expired in the application** and if so, **update their expired password** by signing in to the application directly.
 
-   * After the password has been updated in the application, request the user to click the **Update credentials** button on the **Application Tile** in the **Apps** section of the [Application Access Panel](https://myapps.microsoft.com/) to update them to the latest known working username and password.
+  * After the password has been updated in the application, request the user to click the **Update credentials** button on the **Application Tile** in the **Apps** section of the [Application Access Panel](https://myapps.microsoft.com/) to update them to the latest known working username and password.
 
-   * If you, or another administrator assigned the credentials for this user, find the user or group’s application assignment by navigating to the **Users & Groups** tab of the application, selecting the assignment and clicking the **Update Credentials** button.
+  * If you, or another administrator assigned the credentials for this user, find the user or group’s application assignment by navigating to the **Users & Groups** tab of the application, selecting the assignment and clicking the **Update Credentials** button.
 
--   Have the user update the access panel browser extension by following the steps below in the [How to install the Access Panel Browser extension](#how-to-install-the-access-panel-browser-extension) section.
+- Have the user update the access panel browser extension by following the steps below in the [How to install the Access Panel Browser extension](#how-to-install-the-access-panel-browser-extension) section.
 
--   Ensure that the access panel browser extension is running and enabled in your user’s browser.
+- Ensure that the access panel browser extension is running and enabled in your user’s browser.
 
--   Ensure that your users are not trying to sign in to the application from the access panel while in **incognito, inPrivate, or Private mode**. The access panel extension is not supported in these modes.
+- Ensure that your users are not trying to sign in to the application from the access panel while in **incognito, inPrivate, or Private mode**. The access panel extension is not supported in these modes.
 
 In case the previous suggestions do not work, it could be the case that a change has occurred on the application side that has temporarily broken the application’s integration with Azure AD. For example, this can occur when the application vendor introduces a script on their page which behaves differently for manual vs automated input, which causes automated integration, like our own, to break. Fortunately, in many instances, Microsoft can work with application vendors to rapidly resolve these issues.
 
@@ -62,13 +62,13 @@ In addition to this, **if you are in contact with this application’s vendor,**
 
 There are two main causes to this issue:
 
--   Depending on the security settings enabled in Internet Explorer, if the website is not part of a **Trusted Zone**, sometimes our script be blocked from executing for the application.
+- Depending on the security settings enabled in Internet Explorer, if the website is not part of a **Trusted Zone**, sometimes our script be blocked from executing for the application.
 
   *  To resolve this, instruct the user to **Add the application’s website** to the **Trusted Sites** list within their **Internet Explorer security settings**. You can send your users to the [How to add a site to my trusted sites list](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) article for detailed instructions.
 
--   In rare circumstances, Internet Explorer’s security validation can sometimes cause the page to load more slowly than the execution of our script.
+- In rare circumstances, Internet Explorer’s security validation can sometimes cause the page to load more slowly than the execution of our script.
 
-   * Unfortunately, this situation can vary depending on the browser version, computer speed, or site visited. In this case, we suggest that you contact support so we can fix the integration for this specific application.
+  * Unfortunately, this situation can vary depending on the browser version, computer speed, or site visited. In this case, we suggest that you contact support so we can fix the integration for this specific application.
 
 In addition to this, **if you are in contact with this application’s vendor,** **send them our way** so we can work with them to natively integrate their application with Azure Active Directory. You can send the vendor to the [Listing your application in the Azure Active Directory application gallery](../develop/howto-app-gallery-listing.md) to get them started.
 

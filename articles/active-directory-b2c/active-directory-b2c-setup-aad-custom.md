@@ -1,16 +1,16 @@
-﻿---
+---
 title: Set up sign-in with an Azure Active Directory account in Azure Active Directory B2C using custom policies | Microsoft Docs
 description: Set up sign in with an Azure Active Directory account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Set up sign-in with an Azure Active Directory account using custom policies in Azure Active Directory B2C 
@@ -27,20 +27,19 @@ Complete the steps in [Get started with custom policies in Azure Active Director
 
 To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant.
 
->[!NOTE]
->`Contoso.com` is used for the organizational Azure AD tenant and `fabrikamb2c.onmicrosoft.com` is used as the Azure AD B2C tenant in the following instructions.
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains organizational Azure AD tenant (contoso.com) by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
 4. Select **New application registration**.
 5. Enter a name for your application. For example, `Azure AD B2C App`.
 6. For the **Application type**, select `Web app / API`.
-7. For the **Sign-on URL**, enter the following URL in all lowercase letters, where `your-tenant` is replaced with the name of your Azure AD B2C tenant (fabrikamb2c.onmicrosoft.com):
+7. For the **Sign-on URL**, enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant:
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
+
+    For example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
 8. Click **Create**. Copy the **Application ID** to be used later.
 9. Select the application, and then select **Settings**.
@@ -52,7 +51,7 @@ You need to store the application key that you created in your Azure AD B2C tena
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-3. On the Overview page, select **Identity Experience Framework - PREVIEW**.
+3. On the Overview page, select **Identity Experience Framework**.
 4. Select **Policy Keys** and then select **Add**.
 5. For **Options**, choose `Manual`.
 6. Enter a **Name** for the policy key. For example, `ContosoAppSecret`.  The prefix `B2C_1A_` is added automatically to the name of your key.
@@ -81,7 +80,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
           <Protocol Name="OpenIdConnect"/>
           <OutputTokenFormat>JWT</OutputTokenFormat>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-tenant/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
             <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -95,7 +94,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
             <Key Id="client_secret" StorageReferenceId="B2C_1A_ContosoAppSecret"/>
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="oid"/>
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid"/>
             <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid"/>
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
@@ -115,7 +114,7 @@ You can define Azure AD as a claims provider by adding Azure AD to the **ClaimsP
     </ClaimsProvider>
     ```
 
-4. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers.
+4. Under the **ClaimsProvider** element, update the value for **Domain** to a unique value that can be used to distinguish it from other identity providers. For example `Contoso`. You don't put a `.com` at the end of this domain setting.
 5. Under the **ClaimsProvider** element, update the value for **DisplayName** to a friendly name for the claims provider. This value is not currently used.
 
 ### Update the technical profile
@@ -126,10 +125,10 @@ To get a token from the Azure AD endpoint, you need to define the protocols that
 2. Update the value for **DisplayName**. This value will be displayed on the sign-in button on your sign-in screen.
 3. Update the value for **Description**.
 4. Azure AD uses the OpenID Connect protocol, so make sure that the value for **Protocol** is `OpenIdConnect`.
-5. Set value of the **METADATA** to `https://login.windows.net/your-tenant/.well-known/openid-configuration`, where `your-tenant` is your Azure AD tenant name (contoso.com).
+5. Set value of the **METADATA** to `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, where `your-AD-tenant-name` is your Azure AD tenant name. For example, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Open your browser and go to the **METADATA** URL that you just updated, look for the **issuer** object, copy and paste the value into the value for **ProviderName** in the XML file.
 8. Set **client_id** and **IdTokenAudience** to the application ID from the application registration.
-9. Under **CryptograhicKeys**, Update the value for **StorageReferenceId** to the policy key that you defined. For example, `ContosoAppSecret`.
+9. Under **CryptographicKeys**, Update the value for **StorageReferenceId** to the policy key that you defined. For example, `ContosoAppSecret`.
 
 ### Upload the extension file for verification
 
@@ -154,7 +153,7 @@ At this point, the identity provider has been set up, but it’s not available i
 The **ClaimsProviderSelection** element is analogous to an identity provider button on a sign-up/sign-in screen. If you add a **ClaimsProviderSelection** element for Azure AD, a new button shows up when a user lands on the page.
 
 1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
-2. Under **ClaimsProviderSelects**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `ContosoExchange`:
+2. Under **ClaimsProviderSelections**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `ContosoExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />

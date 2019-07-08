@@ -14,4 +14,4 @@ ms.custom: include file
 
 |  |  |
 |---------|---------|
-| [Audit diagnostic setting](../articles/governance/policy/samples/audit-diag-setting.md) | Audits if diagnostic settings not enabled for specified resource types. You specify an array of resource types to check whether diagnostic settings are enabled. |
+| [Audit diagnostic setting](../articles/governance/policy/samples/audit-diagnostic-setting.md) | Audits if diagnostic settings not enabled for specified resource types. You specify an array of resource types to check whether diagnostic settings are enabled. |

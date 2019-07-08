@@ -1,3 +1,10 @@
+---
+author: kumudD
+ms.service: load-balancer
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: kumud
+---
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
 You can configure a load balancer to:

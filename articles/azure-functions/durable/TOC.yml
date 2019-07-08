@@ -1,0 +1,135 @@
+- name: Durable Functions Documentation
+  href: durable-functions-overview.md
+- name: Overview
+  items:
+  - name: About Azure Functions
+    href: ../functions-overview.md
+  - name: About Durable Functions
+    href: durable-functions-overview.md
+  - name: Serverless comparison
+    href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+  - name: Preview features
+    href: durable-functions-preview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create durable function - C#
+    href: durable-functions-create-first-csharp.md
+    displayName: get started, chaining
+  - name: Create durable function - JavaScript
+    displayName: get started, chaining
+    href: quickstart-js-vscode.md
+- name: Tutorials
+  items:
+  - name: Fan-in/fan-out
+    href: durable-functions-cloud-backup.md
+  - name: Monitors
+    href: durable-functions-monitor.md
+  - name: Human interaction
+    href: durable-functions-phone-verification.md
+  - name: Publish to Event Grid
+    href: durable-functions-event-publishing.md
+- name: Samples
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions&sort=0&term=durable+
+  - name: Azure CLI
+    href: ../functions-cli-samples.md   
+- name: Concepts
+  items:
+  - name: Patterns and concepts
+    href: durable-functions-concepts.md
+  - name: Function types and features
+    href: durable-functions-types-features-overview.md
+  - name: Bindings
+    href: durable-functions-bindings.md
+  - name: Timers
+    href: durable-functions-timers.md
+  - name: External events
+    href: durable-functions-external-events.md
+  - name: Sub-orchestrations
+    href: durable-functions-sub-orchestrations.md
+  - name: Task hubs
+    href: durable-functions-task-hubs.md
+  - name: Reliable execution 
+    href: durable-functions-checkpointing-and-replay.md
+  - name: Versioning
+    href: durable-functions-versioning.md
+- name: How-to guides
+  items:
+  - name: Plan and design
+    items: 
+    - name: Function chaining
+      href: durable-functions-sequence.md
+    - name: Eternal orchestrations
+      href: durable-functions-eternal-orchestrations.md
+    - name: Singleton orchestrations
+      href: durable-functions-singletons.md
+    - name: Performance and scale
+      href: durable-functions-perf-and-scale.md
+    - name: High availability
+      href: durable-functions-disaster-recovery-geo-distribution.md  
+  - name: Develop
+    items:
+    - name: Create in Azure portal
+      href: durable-functions-create-portal.md
+    - name: Manage connections
+      href: ../manage-connections.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Error handling
+      href: durable-functions-error-handling.md
+    - name: Unit testing
+      href: durable-functions-unit-testing.md
+    - name: Create as WebJobs
+      href: durable-functions-webjobs-sdk.md 
+  - name: Deploy
+    items:
+    - name: Continuous deployment
+      href: ../functions-continuous-deployment.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Zip deployment
+      href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Run from package
+      href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+  - name: Manage
+    items:
+    - name: Instance management
+      href: durable-functions-instance-management.md
+  - name: Monitor
+    items:
+    - name: Monitor functions
+      href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json 
+    - name: Custom orchestration status
+      href: durable-functions-custom-orchestration-status.md
+  - name: Troubleshoot
+    items:
+    - name: Diagnostics
+      href: durable-functions-diagnostics.md  
+- name: Reference
+  items:
+  - name: HTTP API
+    href: durable-functions-http-api.md   
+- name: Resources
+  items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-functions
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Videos
+    href: https://www.youtube.com/c/AzureFunctions
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/hashtag/DurableFunctions?src=hash
+  - name: Provide product feedback
+    href: https://feedback.azure.com/forums/355860-azure-functions
+  - name: Durable Functions GitHub repository
+    href: https://github.com/Azure/azure-functions-durable-extension
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=

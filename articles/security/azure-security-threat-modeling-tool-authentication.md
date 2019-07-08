@@ -19,6 +19,7 @@ ms.author: jegeib
 ---
 
 # Security Frame: Authentication | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application**    | <ul><li>[Consider using a standard authentication mechanism to authenticate to Web Application](#standard-authn-web-app)</li><li>[Applications must handle failed authentication scenarios securely](#handle-failed-authn)</li><li>[Enable step up or adaptive authentication](#step-up-adaptive-authn)</li><li>[Ensure that administrative interfaces are appropriately locked down](#admin-interface-lockdown)</li><li>[Implement forgot password functionalities securely](#forgot-pword-fxn)</li><li>[Ensure that password and account policy are implemented](#pword-account-policy)</li><li>[Implement controls to prevent username enumeration](#controls-username-enum)</li></ul> |
@@ -99,7 +100,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| Details | <p>Password and account policy in compliance with organizational policy and best practices should be implemented.</p><p>To defend against brute-force and dictionary based guessing: Strong password policy must be implemented to ensure that users create complex password (e.g., 12 characters minimum length, alphanumeric and special characters).</p><p>Account lockout policies may be implemented in the following manner:</p><ul><li>**Soft lock-out:** This can be a good option for protecting your users against brute force attacks. For example, whenever the user enters a wrong password three times the application could lock down the account for a minute in order to slow down the process of brute forcing his password making it less profitable for the attacker to proceed. If u were to implement hard lock-out countermeasures for this example you would achieve a "Dos" by permanently locking out accounts. Alternatively, application may generate an OTP (One Time Password) and send it out-of-band (through email, sms etc.) to the user. Another approach may be to implement CAPTCHA after a threshold number of failed attempts is reached.</li><li>**Hard lock-out:** This type of lockout should be applied whenever you detect a user attacking your application and counter him by means of permanently locking out his account until a response team had time to do their forensics. After this process you can decide to give the user back his account or take further legal actions against him. This type of approach prevents the attacker from further penetrating your application and infrastructure.</li></ul><p>To defend against attacks on default and predictable accounts, verify that all keys and passwords are replaceable, and are generated or replaced after installation time.</p><p>If the application has to auto-generate passwords, ensure that the generated passwords are random and have high entropy.</p>|
+| Details | <p>Password and account policy in compliance with organizational policy and best practices should be implemented.</p><p>To defend against brute-force and dictionary based guessing: Strong password policy must be implemented to ensure that users create complex password (e.g., 12 characters minimum length, alphanumeric and special characters).</p><p>Account lockout policies may be implemented in the following manner:</p><ul><li>**Soft lock-out:** This can be a good option for protecting your users against brute force attacks. For example, whenever the user enters a wrong password three times the application could lock down the account for a minute in order to slow down the process of brute forcing their password making it less profitable for the attacker to proceed. If you were to implement hard lock-out countermeasures for this example you would achieve a "DoS" by permanently locking out accounts. Alternatively, application may generate an OTP (One Time Password) and send it out-of-band (through email, sms etc.) to the user. Another approach may be to implement CAPTCHA after a threshold number of failed attempts is reached.</li><li>**Hard lock-out:** This type of lockout should be applied whenever you detect a user attacking your application and counter them by means of permanently locking out their account until a response team had time to do their forensics. After this process you can decide to give the user back their account or take further legal actions against them. This type of approach prevents the attacker from further penetrating your application and infrastructure.</li></ul><p>To defend against attacks on default and predictable accounts, verify that all keys and passwords are replaceable, and are generated or replaced after installation time.</p><p>If the application has to auto-generate passwords, ensure that the generated passwords are random and have high entropy.</p>|
 
 ## <a id="controls-username-enum"></a>Implement controls to prevent username enumeration
 
@@ -153,7 +154,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | OnPrem, SQL Azure |
 | **Attributes**              | SQL Version - MSSQL2012, SQL Version - V12 |
-| **References**              | [Security Best Practices with Contained Databases](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **References**              | [Security Best Practices with Contained Databases](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Steps** | The absence of an enforced password policy may increase the likelihood of a weak credential being established in a contained database. Leverage Windows Authentication. |
 
 ## <a id="authn-sas-tokens"></a>Use per device authentication credentials using SaS tokens
@@ -242,7 +243,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Identity Server Deployment - Caching](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **Steps** | <p>IdentityServer has a simple built-in in-memory cache. While this is good for small scale native apps, it does not scale for mid tier and backend applications for the following reasons:</p><ul><li>These applications are accessed by many users at once. Saving all access tokens in the same store creates isolation issues and presents challenges when operating at scale: many users, each with as many tokens as the resources the app accesses on their behalf, can mean huge numbers and very expensive lookup operations</li><li>These applications are typically deployed on distributed topologies, where multiple nodes must have access to the same cache</li><li>Cached tokens must survive process recycles and deactivations</li><li>For all the above reasons, while implementing web apps, it is recommended to override the default Identity Server's token cache with a scalable alternative such as Azure Redis cache</li></ul>|
+| **Steps** | <p>IdentityServer has a simple built-in in-memory cache. While this is good for small scale native apps, it does not scale for mid tier and backend applications for the following reasons:</p><ul><li>These applications are accessed by many users at once. Saving all access tokens in the same store creates isolation issues and presents challenges when operating at scale: many users, each with as many tokens as the resources the app accesses on their behalf, can mean huge numbers and very expensive lookup operations</li><li>These applications are typically deployed on distributed topologies, where multiple nodes must have access to the same cache</li><li>Cached tokens must survive process recycles and deactivations</li><li>For all the above reasons, while implementing web apps, it is recommended to override the default Identity Server's token cache with a scalable alternative such as Azure Cache for Redis</li></ul>|
 
 ## <a id="binaries-signed"></a>Ensure that deployed application's binaries are digitally signed
 
@@ -319,7 +320,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Client Credential Type - None |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Steps** | The absence of authentication means everyone is able to access this service. A service that does not authenticate its clients allows all users to access its functionality. Configure the application to authenticate against client credentials. This can be done by setting the transport clientCredentialType to Windows or Certificate. |
 
 ### Example
@@ -335,7 +336,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Authentication and Authorization in ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [External Authentication Services with ASP.NET Web API (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
+| **References**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [External Authentication Services with ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
 | **Steps** | <p>Authentication is the process where an entity proves its identity, typically through credentials, such as a user name and password. There are multiple authentication protocols available which may be considered. Some of them are listed below:</p><ul><li>Client certificates</li><li>Windows based</li><li>Forms based</li><li>Federation - ADFS</li><li>Federation - Azure AD</li><li>Federation - Identity Server</li></ul><p>Links in the references section provide low-level details on how each of the authentication schemes can be implemented to secure a Web API.</p>|
 
 ## <a id="authn-aad"></a>Use standard authentication scenarios supported by Azure Active Directory
@@ -358,7 +359,7 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [Using Redis as ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
-| **Steps** | <p>The default cache that ADAL (Active Directory Authentication Library) uses is an in-memory cache that relies on a static store, available process-wide. While this works for native applications, it does not scale for mid tier and backend applications for the following reasons:</p><ul><li>These applications are accessed by many users at once. Saving all access tokens in the same store creates isolation issues and presents challenges when operating at scale: many users, each with as many tokens as the resources the app accesses on their behalf, can mean huge numbers and very expensive lookup operations</li><li>These applications are typically deployed on distributed topologies, where multiple nodes must have access to the same cache</li><li>Cached tokens must survive process recycles and deactivations</li></ul><p>For all the above reasons, while implementing web apps, it is recommended to override the default ADAL token cache with a scalable alternative such as Azure Redis cache.</p>|
+| **Steps** | <p>The default cache that ADAL (Active Directory Authentication Library) uses is an in-memory cache that relies on a static store, available process-wide. While this works for native applications, it does not scale for mid tier and backend applications for the following reasons:</p><ul><li>These applications are accessed by many users at once. Saving all access tokens in the same store creates isolation issues and presents challenges when operating at scale: many users, each with as many tokens as the resources the app accesses on their behalf, can mean huge numbers and very expensive lookup operations</li><li>These applications are typically deployed on distributed topologies, where multiple nodes must have access to the same cache</li><li>Cached tokens must survive process recycles and deactivations</li></ul><p>For all the above reasons, while implementing web apps, it is recommended to override the default ADAL token cache with a scalable alternative such as Azure Cache for Redis.</p>|
 
 ## <a id="tokenreplaycache-adal"></a>Ensure that TokenReplayCache is used to prevent the replay of ADAL authentication tokens
 
@@ -451,7 +452,7 @@ Please note that to test the effectiveness of this configuration, login into you
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, C#, Node.JS,  |
 | **Attributes**              | N/A, Gateway choice - Azure IoT Hub |
-| **References**              | N/A, [Azure IoT hub with .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Getting Started wih IoT hub and Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Securing IoT with SAS and certificates](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git repository](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **References**              | N/A, [Azure IoT hub with .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Getting Started with IoT hub and Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Securing IoT with SAS and certificates](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git repository](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
 | **Steps** | <ul><li>**Generic:** Authenticate the device using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, Oauth.</li><li>**C#:** When creating a DeviceClient instance, by default, the Create method creates a DeviceClient instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the Create method that enables you to specify the protocol. If you use the HTTPS protocol, you should also add the `Microsoft.AspNet.WebApi.Client` NuGet package to your project to include the `System.Net.Http.Formatting` namespace.</li></ul>|
 
 ### Example
@@ -472,7 +473,7 @@ await deviceClient.SendEventAsync(message);
 ### Example
 **Node.JS: Authentication**
 #### Symmetric key
-* Create a IoT hub on azure
+* Create an IoT hub on azure
 * Create an entry in the device identity registry
     ```javascript
     var device = new iothub.Device(null);
@@ -486,7 +487,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### SAS Token
+  #### SAS Token
 * Gets internally generated when using symmetric key but we can generate and use it explicitly as well
 * Define a protocol : `var Http = require('azure-iot-device-http').Http;`
 * Create a sas token :
@@ -503,7 +504,7 @@ await deviceClient.SendEventAsync(message);
     var base64UriEncoded = encodeURIComponent(base64signature);
     // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
-    + base64UriEncoded + "&se=" + expires;
+  + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
@@ -511,7 +512,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
-#### Certificates
+  #### Certificates
 * Generate a self signed X509 certificate using any tool such as OpenSSL to generate a .cert and .key files to store the certificate and the key respectively
 * Provision a device that accepts secured connection using certificates.
     ```javascript

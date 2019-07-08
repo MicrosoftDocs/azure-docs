@@ -1,6 +1,6 @@
 ---
-title: Managed identities for Azure resources with Azure Event Hubs preview | Microsoft Docs
-description: Use Managed identities for Azure resources with Azure Event Hubs
+title: Managed identities for Azure resources - Azure Event Hubs | Microsoft Docs
+description: This article provides information on how to use managed identities for Azure resources with Azure Event Hubs
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -9,7 +9,8 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 05/20/2019
 ms.author: shvija
 
 ---
@@ -23,8 +24,28 @@ With managed identities, the Azure platform manages this runtime identity. You d
 Once it is associated with a managed identity, an Event Hubs client can do all authorized operations. Authorization is granted by associating a managed identity with Event Hubs roles. 
 
 ## Event Hubs roles and permissions
+You can add a managed identity to the **Event Hubs Data Owner** role of an Event Hubs namespace. This role grants the identity, full control (for management and data operations) on all entities in the namespace.
 
-You can only add a managed identity to the "Owner" or "Contributor" roles of an Event Hubs namespace, which grants the identity full control on all entities in the namespace. However, management operations that change the namespace topology are initially supported only though Azure Resource Manager. It's not through the native Event Hubs REST management interface. This support also means that you cannot use the .NET Framework client [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object within a managed identity. 
+>[!IMPORTANT]
+> We earlier supported adding managed identity to the **Owner** or **Contributor** role. However, data access privileges for **Owner** and **Contributor** role are no longer honored. If you are using the **Owner** or **Contributor** role, switch to using the **Event Hubs Data Owner** role.
+
+To use the new built-in role, follow these steps: 
+
+1. Navigate to the [Azure portal](https://portal.azure.com)
+2. Navigate to the Event Hubs namespace.
+3. On the **Event Hubs Namespace** page, select **Access Control(IAM)** from the left menu.
+4. On the **Access Control (IAM)** page, select **Add** in the **Add a role assignment** section. 
+
+    ![Add a role assignment button](./media/event-hubs-managed-service-identity/add-role-assignment-button.png)
+5. On the **Add role assignment** page, do the following steps: 
+    1. For **Role**, select **Azure Event Hubs Data Owner**. 
+    2. Select the **identity** to be added to the role.
+    3. Select **Save**. 
+
+        ![Event Hubs Data Owner role](./media/event-hubs-managed-service-identity/add-role-assignment-dialog.png)
+6. Switch to the **Role assignments** page and confirm that the user is added to the **Azure Event Hubs Data Owner** role. 
+
+    ![Confirm user is added to the role](./media/event-hubs-managed-service-identity/role-assignments.png)
  
 ## Use Event Hubs with managed identities for Azure Resources
 
@@ -44,19 +65,15 @@ The first step is to create an App Service ASP.NET application. If you're not fa
 
 Once you create the application, navigate to the newly created web app in the Azure portal (also shown in the how-to), then navigate to the **Managed Service Identity** page, and enable the feature: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Managed Service Identity page](./media/event-hubs-managed-service-identity/msi1.png)
  
 Once you've enabled the feature, a new service identity is created in your Azure Active Directory, and configured into the App Service host.
 
 ### Create a new Event Hubs namespace
 
-Next, [create an Event Hubs namespace](event-hubs-create.md) in one of the Azure regions that has preview support for managed identities for Azure resources: **US East**, **US East 2**, or **West Europe**. 
+Next, [create an Event Hubs namespace](event-hubs-create.md). 
 
-Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add** to add the managed identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-The managed identity for the web application now has access to the Event Hubs namespace, and to the event hub you previously created. 
+Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add role assignment** to add the managed identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**. The managed identity for the web application now has access to the Event Hubs namespace, and to the event hub you previously created. 
 
 ### Run the app
 
@@ -68,7 +85,7 @@ Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messa
 
 After you make these changes, publish and run the application. You can get the correct publishing data by downloading and then importing a publishing profile in Visual Studio:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Import publishing profile](./media/event-hubs-managed-service-identity/msi3.png)
  
 To send or receive messages, enter the name of the namespace and the name of the entity you created, then click either **send** or **receive**. 
  

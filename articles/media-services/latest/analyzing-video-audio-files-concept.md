@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 04/21/2019
 ms.author: juliako
 ---
 
@@ -19,23 +19,33 @@ ms.author: juliako
 
 Azure Media Services v3 enables you to extract insights from your video and audio files with Video Indexer through AMS v3 analyzer presets (described in this article). If you want more detailed insights, use Video Indexer directly. To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: **AudioAnalyzerPreset** or **VideoAnalyzerPreset**. The following article demonstrates how to use **VideoAnalyzerPreset**: [Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
+To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) or **AudioAnalyzerPreset**. The following article demonstrates how to use **VideoAnalyzerPreset**: [Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](../previous/media-services-scale-media-processing-overview.md).
+> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](media-reserved-units-cli-how-to.md).
 
-## AudioAnalyzerPreset
+## Built-in presets
 
-**AudioAnalyzerPreset** enables you to extract multiple audio insights from an audio or video file. The output includes a JSON file (with all the insights) and VTT file for the audio transcript. This preset accepts a property that specifies the language of the input file in the form of a [BCP47](https://tools.ietf.org/html/bcp47) string. The audio insights include:
+Media Services currently supports the following built-in analyzer presets:  
+
+|**Preset name**|**Scenario**|**Details**|
+|---|---|---|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English ('en-US' and 'en-GB'), Spanish ('es-ES' and 'es-MX'), French ('fr-FR'), Italian ('it-IT'), Japanese ('ja-JP'), Portuguese ('pt-BR'), Chinese ('zh-CN'), German ('de-DE'), Arabic ('ar-EG'), Russian ('ru-RU'), Hindi ('hi-IN'), and Korean ('ko-KR').<br/><br/> If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It does not currently support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription will fall back to English.|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting all the faces present in the video|Describes the settings to be used when analyzing a video in order to detect all the faces present.|
+
+### AudioAnalyzerPreset
+
+The preset enables you to extract multiple audio insights from an audio or video file. The output includes a JSON file (with all the insights) and VTT file for the audio transcript. This preset accepts a property that specifies the language of the input file in the form of a [BCP47](https://tools.ietf.org/html/bcp47) string. The audio insights include:
 
 * Audio transcription – a transcript of the spoken words with timestamps. Multiple languages are supported
 * Speaker indexing – a mapping of the speakers and the corresponding spoken words
 * Speech sentiment analysis – the output of sentiment analysis performed on the audio transcription
 * Keywords – keywords that are extracted from the audio transcription.
 
-## VideoAnalyzerPreset
+### VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following additional items:
+The preset enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following additional items:
 
 * Face tracking – the time during which faces are present in the video. Each face has a face id and a corresponding collection of thumbnails
 * Visual text – the text that is detected via optical character recognition. The text is time stamped and also used to extract keywords (in addition to the audio transcript)
@@ -136,7 +146,7 @@ Example:
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|A description of the celebrity. |
-|thumbnalId|The ID of the thumbnail of that face.|
+|thumbnailId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently just Bing.|

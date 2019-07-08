@@ -3,14 +3,14 @@ title: "Tutorial: Translator Speech API C#"
 titleSuffix: Azure Cognitive Services
 description: Use the Translator Speech API to translate text in real time.
 services: cognitive-services
-author: v-jerkin
-manager: cgronlun
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
-ms.author: v-jerkin
+ms.author: swmachan
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Tutorial: Translator Speech application in C#
 
@@ -28,13 +28,13 @@ A Visual Studio solution file for this application is [available on GitHub](http
 
 ## Prerequisites
 
-For this tutorial, you need any edition of Visual Studio 2017, including the Community Edition. 
+For this tutorial, you need any edition of Visual Studio 2019, including the Community Edition.
 
 The Visual Studio solution also builds an installer for the application. You need the [WiX Toolset](http://wixtoolset.org/) and the [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) to support this functionality.
 
 You also need a subscription key for the Translator Speech service, which you can obtain from the Microsoft Azure dashboard. A free pricing tier is available that allows you to translate up to 10 hours of speech per month at no charge. This tier is sufficient for this tutorial.
 
-The third-party [JSON.Net library](https://www.newtonsoft.com/json) (from Newtonsoft) is also required. This assembly is automatically installed by NuGet if both Package Restore checkboxes are enabled in the Visual Studio options.
+The third-party [JSON.NET library](https://www.newtonsoft.com/json) (from Newtonsoft) is also required. This assembly is automatically installed by NuGet if both Package Restore checkboxes are enabled in the Visual Studio options.
 
 ## Trying the translation app
 
@@ -58,7 +58,7 @@ At this writing, the Translator Speech service supports more than five dozen lan
 
 In other words, for speech translation, the source language must be one supported for transcription. The output language may be any of the languages supported for text translation, assuming you want a text result. If you want speech output, you can only translate into a language supported for text-to-speech.
 
-Microsoft may add support for new languages from time to time. For this reason, you should not hard-code any knowledge of supported languages in your application. Instead, the Translator Speech API provides a Languages endpoint that allows you to retrieve the supported languages at runtime. You can choose to receive one or more lists of languages: 
+Microsoft may add support for new languages from time to time. For this reason, you should not hard-code any knowledge of supported languages in your application. Instead, the Translator Speech API provides a Languages endpoint that allows you to retrieve the supported languages at runtime. You can choose to receive one or more lists of languages:
 
 | | |
 |-|-|
@@ -68,7 +68,7 @@ Microsoft may add support for new languages from time to time. For this reason, 
 
 The Languages endpoint does not require a subscription key, and its usage does not count against your quota. Its URI is `https://dev.microsofttranslator.com/languages` and it returns its results in JSON format.
 
-The method `UpdateLanguageSettingsAsync()` in `MainWindow.xaml.cs`, shown here, calls the Languages endpoint to get the list of supported languages. 
+The method `UpdateLanguageSettingsAsync()` in `MainWindow.xaml.cs`, shown here, calls the Languages endpoint to get the list of supported languages.
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -188,9 +188,9 @@ This method first constructs an HTTP request to the Languages endpoint, requesti
 
 The Languages endpoint uses the request's `Accept-Languages` header to determine the language in which the names of the languages are represented. For example, the language known to English speakers as "German" is called "Deutsch" in German and "Alemán" in Spanish, and the list of languages reflects these differences. The system's default language is used for this header.
 
-After the request has been sent and the JSON response received, the response is parsed into internal data structures. These structures are then used to construct the From Language and To Language menus. 
+After the request has been sent and the JSON response received, the response is parsed into internal data structures. These structures are then used to construct the From Language and To Language menus.
 
-Since the voices available depend on the To Language chosen by the user, it isn't possible to set up the Voice menu yet. Instead, the available voices for each language are stored for later use. The `ToLanguage_SelectionChanged` handler (in the same source file) later updates the Voice menu by calling `UpdateVoiceComboBox()`  when the user chooses a To Language. 
+Since the voices available depend on the To Language chosen by the user, it isn't possible to set up the Voice menu yet. Instead, the available voices for each language are stored for later use. The `ToLanguage_SelectionChanged` handler (in the same source file) later updates the Voice menu by calling `UpdateVoiceComboBox()`  when the user chooses a To Language.
 
 Just for fun, a To Language is randomly selected if the user has not run the application before. (The menu settings are stored between sessions.)
 
@@ -276,7 +276,7 @@ private void Connect()
         TranslateTo = ((ComboBoxItem)this.ToLanguage.SelectedItem).Tag.ToString(),
         Voice = voicename,
     };
-    
+
     options.Hostname = baseUrl;
     options.AuthHeaderKey = "Authorization";
     options.AuthHeaderValue = ""; // set later in ConnectAsync.
@@ -363,11 +363,11 @@ Here's the `ConnectAsync()` method that instantiates the `speechClient` class an
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
 {
     await ADMAuthenticate(options);
-    
+
     TextMessageDecoder textDecoder;
-    
+
     s2smtClient = new SpeechClient((SpeechTranslateClientOptions)options, CancellationToken.None);
-    
+
     s2smtClient.OnBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnEndOfBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnTextData += (c, a) => { textDecoder.AppendData(a); lastReceivedPacketTick = DateTime.Now.Ticks; };
@@ -405,7 +405,7 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
     {
         SafeInvoke(() =>
         {
-            // We only care to react to server disconnect when our state is Connected. 
+            // We only care to react to server disconnect when our state is Connected.
             if (currentState == UiState.Connected)
             {
                 Log("E: Connection has been lost.");

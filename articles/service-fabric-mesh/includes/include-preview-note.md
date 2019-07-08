@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: service-fabric-mesh
-author: TylerMSFT
+author: dkkapur
 ms.service: service-fabric-mesh
 ms.topic: include
 ms.date: 05/24/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: include file
 ---
 

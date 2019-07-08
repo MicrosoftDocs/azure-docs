@@ -5,16 +5,17 @@ services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/21/2018
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 04/15/2019
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Pass-through Authentication: Frequently asked questions
@@ -29,21 +30,25 @@ Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-au
 
 Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
 
-## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](http://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
+## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
 
 No. Pass-through Authentication is only available in the worldwide instance of Azure AD.
 
-## Does [conditional access](../active-directory-conditional-access-azure-portal.md) work with Pass-through Authentication?
+## Does [Conditional Access](../active-directory-conditional-access-azure-portal.md) work with Pass-through Authentication?
 
-Yes. All conditional access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
+Yes. All Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
 
 ## Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
 
-Yes. Pass-through Authentication supports `Alternate ID` as the username when configured in Azure AD Connect. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation support statement.
+Yes, Pass-through Authentication supports `Alternate ID` as the username when configured in Azure AD Connect. As a pre-requisite, Azure AD Connect needs to synchronize the on-premises Active Directory `UserPrincipalName` attribute to Azure AD. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation support statement.
 
 ## Does password hash synchronization act as a fallback to Pass-through Authentication?
 
 No. Pass-through Authentication _does not_ automatically failover to password hash synchronization. To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## What happens when I switch from password hash synchronization to Pass-through Authentication?
+
+When you use Azure AD Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. Please note that all users' password hashes which were previously synchronized by password hash synchronization remain stored on Azure AD.
 
 ## Can I install an [Azure AD Application Proxy](../manage-apps/application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
 
@@ -75,6 +80,23 @@ If you have not configured password writeback for a specific user or if the user
 
 Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environment, Authentication Agents automatically attempt to locate and use a web proxy server on the network.
 
+If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Azure AD:
+- Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This will allow you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
+- On the server, navigate to "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
+- Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http\://contosoproxy.com:8080" with your actual proxy address):
+
+```
+   <system.net>
+      <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy
+            usesystemdefault="true"
+            proxyaddress="http://contosoproxy.com:8080"
+            bypassonlocal="true"
+         />
+     </defaultProxy>
+   </system.net>
+```
+
 ## Can I install two or more Pass-through Authentication Agents on the same server?
 
 No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, [follow the instructions here](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
@@ -97,6 +119,10 @@ If you are migrating from AD FS (or other federation technologies) to Pass-throu
 
 Yes. Multi-forest environments are supported if there are forest trusts between your Active Directory forests and if name suffix routing is correctly configured.
 
+## Does Pass-through Authentication provide load balancing across multiple Authentication Agents?
+
+No, installing multiple Pass-through Authentication Agents ensures only [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). It does not provide deterministic load balancing between the Authentication Agents. Any Authentication Agent (at random) can process a particular user sign-in request.
+
 ## How many Pass-through Authentication Agents do I need to install?
 
 Installing multiple Pass-through Authentication Agents ensures [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). But, it does not provide deterministic load balancing between the Authentication Agents.
@@ -110,7 +136,7 @@ To estimate network traffic, use the following sizing guidance:
 For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity. You should install Authentication Agents close to your domain controllers to improve sign-in latency.
 
 >[!NOTE]
->There is a system limit of 12 Authentication Agents per tenant.
+>There is a system limit of 40 Authentication Agents per tenant.
 
 ## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
 
@@ -127,6 +153,22 @@ Rerun the Azure AD Connect wizard and change the user sign-in method from Pass-t
 ## What happens when I uninstall a Pass-through Authentication Agent?
 
 If you uninstall a Pass-through Authentication Agent from a server, it causes the server to stop accepting sign-in requests. To avoid breaking the user sign-in capability on your tenant, ensure that you have another Authentication Agent running before you uninstall a Pass-through Authentication Agent.
+
+## I have an older tenant that was originally setup using AD FS.  We recently migrated to PTA but now are not seeing our UPN changes synchronizing to Azure AD.  Why are our UPN changes not being synchronized?
+
+A: Under the following circumstances your on-premises UPN changes may not synchronize if:
+
+- Your Azure AD tenant was created prior to June 15th 2015
+- You initially were federated with your Azure AD tenant using AD FS for authentication
+- You switched to having managed users using PTA as authentication
+
+This is because the default behavior of tenants created prior to June 15th 2015 was to block UPN changes.  If you need to un-block UPN changes you need to run the following PowerShell cmdlt:  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
+
+
 
 ## Next steps
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.

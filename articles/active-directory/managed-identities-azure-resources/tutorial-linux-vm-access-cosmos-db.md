@@ -1,21 +1,22 @@
-﻿---
+---
 title: Use a Linux VM system-assigned managed identity to access Azure Cosmos DB
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Cosmos DB.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: daveba
+ms.author: markvi
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure Cosmos DB 
 
@@ -34,15 +35,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 To run the CLI script examples in this tutorial, you have two options:
 
@@ -91,7 +84,7 @@ The response includes the details of the system-assigned managed identity (note 
 
 Cosmos DB does not natively support Azure AD authentication. However, you can use a managed identity to retrieve a Cosmos DB access key from the Resource Manager, then use the key to access Cosmos DB. In this step, you grant your system-assigned managed identity access to the keys to the Cosmos DB account.
 
-To grant the system-assigned managed identity access to the Cosmos DB account in Azure Resource Manager using the Azure CLI, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in [Retrieve the principalID of the Linux VM's MI](#retrieve-the-principalID-of-the-linux-VM's-system-assigned-identity).  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
+To grant the system-assigned managed identity access to the Cosmos DB account in Azure Resource Manager using the Azure CLI, update the values for `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<COSMOS DB ACCOUNT NAME>` for your environment. Replace `<MI PRINCIPALID>` with the `principalId` property returned by the `az resource show` command in Retrieve the principalID of the Linux VM's MI.  Cosmos DB supports two levels of granularity when using access keys:  read/write access to the account, and read-only access to the account.  Assign the `DocumentDB Account Contributor` role if you want to get read/write keys for the account, or assign the `Cosmos DB Account Reader Role` role if you want to get read-only keys for the account:
 
 ```azurecli-interactive
 az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
@@ -160,7 +153,7 @@ The CURL response gives you the list of Keys.  For example, if you get the read-
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
 
-Now that you have the access key for the Cosmos DB account you can pass it to a Cosmos DB SDK and make calls to access the account.  For a quick example, you can pass the access key to the Azure CLI.  You can get the <COSMOS DB CONNECTION URL> from the **Overview** tab on the Cosmos DB account blade in the Azure portal.  Replace the <ACCESS KEY> with the value you obtained above:
+Now that you have the access key for the Cosmos DB account you can pass it to a Cosmos DB SDK and make calls to access the account.  For a quick example, you can pass the access key to the Azure CLI.  You can get the `<COSMOS DB CONNECTION URL>` from the **Overview** tab on the Cosmos DB account blade in the Azure portal.  Replace the `<ACCESS KEY>` with the value you obtained above:
 
 ```bash
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>

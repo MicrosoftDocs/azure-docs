@@ -1,23 +1,19 @@
 ---
 title: Settings and data roaming FAQ | Microsoft Docs
 description: Provides answers to some questions IT administrators might have about settings and app data sync.
+
 services: active-directory
-keywords: enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
-editor: curtand
-
-ms.component: devices
-ms.assetid: c0824f5c-129b-4240-969f-921f6a64eae7
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: markvi
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: na
+
+ms.collection: M365-identity-device-management
 ---
 # Settings and data roaming FAQ
 This article answers some questions IT administrators might have about settings and app data sync.
@@ -28,13 +24,13 @@ the PC settings that are built into the Windows operating system. Generally, the
 
 * *Theme*, which includes features such as desktop theme and taskbar settings.
 * *Internet Explorer settings*, including recently opened tabs and favorites.
-* *Edge browser settings*, such as favorites and reading list.
+* *Microsoft Edge browser settings*, such as favorites and reading list.
 * *Passwords*, including Internet passwords, Wi-Fi profiles, and others.
 * *Language preferences*, which includes settings for keyboard layouts, system language, date and time, and more.
 * *Ease of access features*, such as high-contrast theme, Narrator, and Magnifier.
 * *Other Windows settings*, such as mouse settings.
 
-**Application data**: Universal Windows apps can write settings data to a roaming folder, and any data written to this folder will automatically be synced. It’s up to the individual app developer to design an app to take advantage of this capability. For more details about how to develop a Universal Windows app that uses roaming, see the [appdata storage API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) and the [Windows 8 appdata roaming developer blog](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Application data**: Universal Windows apps can write settings data to a roaming folder, and any data written to this folder will automatically be synced. It’s up to the individual app developer to design an app to take advantage of this capability. For more details about how to develop a Universal Windows app that uses roaming, see the [appdata storage API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) and the [Windows 8 appdata roaming developer blog](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## What account is used for settings sync?
 In Windows 8.1, settings sync always used consumer Microsoft accounts. Enterprise users had the ability to connect a Microsoft account to their Active Directory domain account to gain access to settings sync. In Windows 10, this connected Microsoft account functionality is being replaced with a primary/secondary account framework.

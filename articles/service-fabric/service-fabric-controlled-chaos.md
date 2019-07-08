@@ -71,7 +71,7 @@ To get which faults Chaos induced, you can use GetChaosReport API (powershell, C
     * **NodeTypeInclusionList**: 
     A list of node types to include in Chaos faults. All types of faults (restart node, restart codepackage, remove replica, restart replica, move primary, and move secondary) are enabled for the nodes of these node types. If a nodetype (say NodeTypeX) does not appear in the NodeTypeInclusionList, then node level faults (like NodeRestart) will never be enabled for the nodes of NodeTypeX, but code package and replica faults can still be enabled for NodeTypeX if an application in the ApplicationInclusionList happens to reside on a node of NodeTypeX. At most 100 node type names can be included in this list, to increase this number, a config upgrade is required for MaxNumberOfNodeTypesInChaosTargetFilter configuration.
     * **ApplicationInclusionList**:
-    A list of application URIs to include in Chaos faults. All replicas belonging to services of these applications are amenable to replica faults (restart replica, remove replica, move primary, and move secondary) by Chaos. Chaos may restart a code package only if the code package hosts replicas of these applications only. If an application does not appear in this list, it can still be faulted in some Chaos iteration if the application ends up on a node of a node type that is incuded in NodeTypeInclusionList. However if applicationX is tied to nodeTypeY through placement constraints and applicationX is absent from ApplicationInclusionList and nodeTypeY is absent from NodeTypeInclusionList, then applicationX will never be faulted. At most 1000 application names can be included in this list, to increase this number, a config upgrade is required for MaxNumberOfApplicationsInChaosTargetFilter configuration.
+    A list of application URIs to include in Chaos faults. All replicas belonging to services of these applications are amenable to replica faults (restart replica, remove replica, move primary, and move secondary) by Chaos. Chaos may restart a code package only if the code package hosts replicas of these applications only. If an application does not appear in this list, it can still be faulted in some Chaos iteration if the application ends up on a node of a node type that is included in NodeTypeInclusionList. However if applicationX is tied to nodeTypeY through placement constraints and applicationX is absent from ApplicationInclusionList and nodeTypeY is absent from NodeTypeInclusionList, then applicationX will never be faulted. At most 1000 application names can be included in this list, to increase this number, a config upgrade is required for MaxNumberOfApplicationsInChaosTargetFilter configuration.
 
 ## How to run Chaos
 
@@ -106,28 +106,34 @@ class Program
             var startTimeUtc = DateTime.UtcNow;
 
             // The maximum amount of time to wait for all cluster entities to become stable and healthy. 
-            // Chaos executes in iterations and at the start of each iteration it validates the health of cluster entities. 
-            // During validation if a cluster entity is not stable and healthy within MaxClusterStabilizationTimeoutInSeconds, Chaos generates a validation failed event.
+            // Chaos executes in iterations and at the start of each iteration it validates the health of cluster
+            // entities. 
+            // During validation if a cluster entity is not stable and healthy within
+            // MaxClusterStabilizationTimeoutInSeconds, Chaos generates a validation failed event.
             var maxClusterStabilizationTimeout = TimeSpan.FromSeconds(30.0);
 
             var timeToRun = TimeSpan.FromMinutes(60.0);
 
             // MaxConcurrentFaults is the maximum number of concurrent faults induced per iteration. 
-            // Chaos executes in iterations and two consecutive iterations are separated by a validation phase. 
-            // The higher the concurrency, the more aggressive the injection of faults -- inducing more complex series of states to uncover bugs. 
+            // Chaos executes in iterations and two consecutive iterations are separated by a validation phase.
+            // The higher the concurrency, the more aggressive the injection of faults -- inducing more complex
+            // series of states to uncover bugs.
             // The recommendation is to start with a value of 2 or 3 and to exercise caution while moving up.
             var maxConcurrentFaults = 3;
 
-            // Describes a map, which is a collection of (string, string) type key-value pairs. The map can be used to record information about
-            // the Chaos run. There cannot be more than 100 such pairs and each string (key or value) can be at most 4095 characters long.
+            // Describes a map, which is a collection of (string, string) type key-value pairs. The map can be
+            // used to record information about the Chaos run. There cannot be more than 100 such pairs and
+            // each string (key or value) can be at most 4095 characters long.
             // This map is set by the starter of the Chaos run to optionally store the context about the specific run.
             var startContext = new Dictionary<string, string>{{"ReasonForStart", "Testing"}};
 
-            // Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the lower the fault injection rate.
+            // Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the
+            // lower the fault injection rate.
             var waitTimeBetweenIterations = TimeSpan.FromSeconds(10);
 
-            // Wait time (in seconds) between consecutive faults within a single iteration. 
-            // The larger the value, the lower the overlapping between faults and the simpler the sequence of state transitions that the cluster goes through. 
+            // Wait time (in seconds) between consecutive faults within a single iteration.
+            // The larger the value, the lower the overlapping between faults and the simpler the sequence of
+            // state transitions that the cluster goes through. 
             // The recommendation is to start with a value between 1 and 5 and exercise caution while moving up.
             var waitTimeBetweenFaults = TimeSpan.Zero;
 
@@ -139,13 +145,14 @@ class Program
                 MaxPercentUnhealthyNodes = 100
             };
 
-            // All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-            // for nodes of type 'FrontEndType'
+            // All types of faults, restart node, restart code package, restart replica, move primary replica,
+            // and move secondary replica will happen for nodes of type 'FrontEndType'
             var nodetypeInclusionList = new List<string> { "FrontEndType"};
 
-            // In addition to the faults included by nodetypeInclusionList, 
-            // restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-            // even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+            // In addition to the faults included by nodetypeInclusionList,
+            // restart code package, restart replica, move primary replica, move secondary replica faults will
+            // happen for 'fabric:/TestApp2' even if a replica or code package from 'fabric:/TestApp2' is residing
+            // on a node which is not of type included in nodeypeInclusionList.
             var applicationInclusionList = new List<string> { "fabric:/TestApp2" };
 
             // List of cluster entities to target for Chaos faults.
@@ -238,22 +245,26 @@ class Program
 $clusterConnectionString = "localhost:19000"
 $timeToRunMinute = 60
 
-# The maximum amount of time to wait for all cluster entities to become stable and healthy. 
-# Chaos executes in iterations and at the start of each iteration it validates the health of cluster entities. 
-# During validation if a cluster entity is not stable and healthy within MaxClusterStabilizationTimeoutInSeconds, Chaos generates a validation failed event.
+# The maximum amount of time to wait for all cluster entities to become stable and healthy.
+# Chaos executes in iterations and at the start of each iteration it validates the health of cluster entities.
+# During validation if a cluster entity is not stable and healthy within MaxClusterStabilizationTimeoutInSeconds,
+# Chaos generates a validation failed event.
 $maxClusterStabilizationTimeSecs = 30
 
-# MaxConcurrentFaults is the maximum number of concurrent faults induced per iteration. 
-# Chaos executes in iterations and two consecutive iterations are separated by a validation phase. 
-# The higher the concurrency, the more aggressive the injection of faults -- inducing more complex series of states to uncover bugs. 
+# MaxConcurrentFaults is the maximum number of concurrent faults induced per iteration.
+# Chaos executes in iterations and two consecutive iterations are separated by a validation phase.
+# The higher the concurrency, the more aggressive the injection of faults -- inducing more complex series of
+# states to uncover bugs.
 # The recommendation is to start with a value of 2 or 3 and to exercise caution while moving up.
 $maxConcurrentFaults = 3
 
-# Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the lower the fault injection rate.
+# Time-separation (in seconds) between two consecutive iterations of Chaos. The larger the value, the lower the
+# fault injection rate.
 $waitTimeBetweenIterationsSec = 10
 
-# Wait time (in seconds) between consecutive faults within a single iteration. 
-# The larger the value, the lower the overlapping between faults and the simpler the sequence of state transitions that the cluster goes through. 
+# Wait time (in seconds) between consecutive faults within a single iteration.
+# The larger the value, the lower the overlapping between faults and the simpler the sequence of state
+# transitions that the cluster goes through.
 # The recommendation is to start with a value between 1 and 5 and exercise caution while moving up.
 $waitTimeBetweenFaultsSec = 0
 
@@ -263,8 +274,9 @@ $clusterHealthPolicy.MaxPercentUnhealthyNodes = 100
 $clusterHealthPolicy.MaxPercentUnhealthyApplications = 100
 $clusterHealthPolicy.ConsiderWarningAsError = $False
 
-# Describes a map, which is a collection of (string, string) type key-value pairs. The map can be used to record information about
-# the Chaos run. There cannot be more than 100 such pairs and each string (key or value) can be at most 4095 characters long.
+# Describes a map, which is a collection of (string, string) type key-value pairs. The map can be used to record
+# information about the Chaos run.
+# There cannot be more than 100 such pairs and each string (key or value) can be at most 4095 characters long.
 # This map is set by the starter of the Chaos run to optionally store the context about the specific run.
 $context = @{"ReasonForStart" = "Testing"}
 
@@ -272,14 +284,15 @@ $context = @{"ReasonForStart" = "Testing"}
 $chaosTargetFilter = new-object -TypeName System.Fabric.Chaos.DataStructures.ChaosTargetFilter
 $chaosTargetFilter.NodeTypeInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
 
-# All types of faults, restart node, restart code package, restart replica, move primary replica, and move secondary replica will happen
-# for nodes of type 'FrontEndType'
+# All types of faults, restart node, restart code package, restart replica, move primary replica, and move
+# secondary replica will happen for nodes of type 'FrontEndType'
 $chaosTargetFilter.NodeTypeInclusionList.AddRange( [string[]]@("FrontEndType") )
 $chaosTargetFilter.ApplicationInclusionList = new-object -TypeName "System.Collections.Generic.List[String]"
 
 # In addition to the faults included by nodetypeInclusionList, 
-# restart code package, restart replica, move primary replica, move secondary replica faults will happen for 'fabric:/TestApp2'
-# even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is not of type included in nodeypeInclusionList.
+# restart code package, restart replica, move primary replica, move secondary replica faults will happen for
+# 'fabric:/TestApp2' even if a replica or code package from 'fabric:/TestApp2' is residing on a node which is
+# not of type included in nodeypeInclusionList.
 $chaosTargetFilter.ApplicationInclusionList.Add("fabric:/TestApp2")
 
 Connect-ServiceFabricCluster $clusterConnectionString

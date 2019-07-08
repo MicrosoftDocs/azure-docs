@@ -1,20 +1,20 @@
 ---
 title: Frequently asked questions for Cloudyn in Azure | Microsoft Docs
-description: Provides answers to some of the common questions about Cloudyn.
+description: This article provides answers to some of the common questions about Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2018
+ms.date: 05/21/2019
 ms.topic: troubleshooting
 ms.service: cost-management
-manager: dougeby
-ms.custom:
+manager: benshy
+ms.custom: seodec18
 ---
 
 # Frequently asked questions for Cloudyn
 
-This article addresses some common questions about Cloudyn. If you have questions about Cloudyn, you can ask them at [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/home?forum=faqs-for-azure-cost-management-by-cloudyn).
+This article addresses some common questions about Cloudyn. If you have questions about Cloudyn, you can ask them at [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn).
 
 ## How can I resolve common indirect enterprise setup problems?
 
@@ -69,9 +69,9 @@ After you complete the preceding steps, you can view Optimizer recommendations w
 
 First, let's look at the most common scenario that causes user accounts to get *initiallySuspended*.
 
-> Admin1 might be Microsoft Cloud Solution Provider or Enterprise Agreement user. His organization is ready to start using Cloudyn.  He registers through the Azure portal and signs into the Cloudyn portal. As the person who registers the Cloudyn service and signs into the Cloudyn portal, he becomes the *primary administrator*. Admin1 does not create any user accounts. However, using the Cloudyn portal, he does create Azure accounts and sets up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that he needs to register with Cloudyn and sign in to the Cloudyn portal.
-
-> Admin2 registers through the Azure portal. However when he tries to sign in to the Cloudyn portal, he gets an error saying his account is **suspended**. The primary administrator, Admin1, is notified of the account suspension. Admin1 needs to activate Admin2’s account and grant *admin entity access* for the appropriate entities and allows user management access and active the user account.
+> Admin1 might be a Microsoft Cloud Solution Provider or Enterprise Agreement user. Their organization is ready to start using Cloudyn.  He registers through the Azure portal and signs into the Cloudyn portal. As the person who registers the Cloudyn service and signs into the Cloudyn portal, Admin1 becomes the *primary administrator*. Admin1 does not create any user accounts. However, using the Cloudyn portal, they do create Azure accounts and set up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that they need to register with Cloudyn and sign in to the Cloudyn portal.
+>
+> Admin2 registers through the Azure portal. However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. The primary administrator, Admin1, is notified of the account suspension. Admin1 needs to activate Admin2’s account and grant *admin entity access* for the appropriate entities and allows user management access and active the user account.
 
 
 If you receive an alert with a request to allow access for a user, you need to activate the user account.

@@ -3,19 +3,19 @@ title: 'Azure AD Domain Services: Enable password synchronization | Microsoft Do
 description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
-manager: mtillman
+author: iainfoulds
+manager: daveba
 editor: curtand
 
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2017
-ms.author: ergreenl
+ms.date: 05/10/2019
+ms.author: iainfou
 
 ---
 # Enable password synchronization to Azure Active Directory Domain Services
@@ -23,12 +23,10 @@ In preceding tasks, you enabled Azure Active Directory Domain Services for your 
 
 The steps involved are different for cloud-only user accounts vs user accounts that are synchronized from your on-premises directory using Azure AD Connect.
 
-<br>
 | **Type of user account** | **Steps to perform** |
 | --- | --- |
-| **User accounts synchronized from an on-premises directory** |**&#x2713;** [Follow the instructions in this article](active-directory-ds-getting-started-password-sync-synced-tenant.md#task-5-enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad) | 
+| **User accounts synchronized from an on-premises directory** |**&#x2713;** [Follow the instructions in this article](active-directory-ds-getting-started-password-sync-synced-tenant.md#task-5-enable-password-synchronization-to-your-managed-domain-for-user-accounts-synced-with-your-on-premises-ad) |
 | **Cloud user accounts created in Azure AD** |**&#x2713;** [Synchronize passwords for cloud-only user accounts to your managed domain](active-directory-ds-getting-started-password-sync.md) |
-<br>
 
 > [!TIP]
 > **You may need to complete both sets of steps.**
@@ -46,7 +44,7 @@ A synced Azure AD tenant is set to synchronize with your organization's on-premi
 ### Install or update Azure AD Connect
 Install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you need to update it to use the latest version of Azure AD Connect. To avoid known issues/bugs that may have already been fixed, always use the latest version of Azure AD Connect.
 
-**[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Download Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 Recommended version: **1.1.614.0** - published on September 5, 2017.
 
@@ -61,25 +59,23 @@ Installation instructions for Azure AD Connect are available in the following ar
 Execute the following PowerShell script on each AD forest. The script enables all on-premises users' NTLM and Kerberos password hashes to be synchronized to your Azure AD tenant. The script also initiates a full synchronization in Azure AD Connect.
 
 ```powershell
-$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
-$azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"  
-Import-Module adsync  
-$c = Get-ADSyncConnector -Name $adConnector  
+$adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
+$azureadConnector = "<CASE SENSITIVE AZURE AD CONNECTOR NAME>"
+Import-Module adsync
+$c = Get-ADSyncConnector -Name $adConnector
 $p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter "Microsoft.Synchronize.ForceFullPasswordSync", String, ConnectorGlobal, $null, $null, $null
-$p.Value = 1  
-$c.GlobalParameters.Remove($p.Name)  
-$c.GlobalParameters.Add($p)  
-$c = Add-ADSyncConnector -Connector $c  
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $false   
-Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true  
+$p.Value = 1
+$c.GlobalParameters.Remove($p.Name)
+$c.GlobalParameters.Add($p)
+$c = Add-ADSyncConnector -Connector $c
+Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $false
+Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
 ```
 
 Depending on the size of your directory (number of users, groups etc.), synchronization of credential hashes to Azure AD takes time. The passwords will be usable on the Azure AD Domain Services managed domain shortly after the credential hashes have synchronized to Azure AD.
 
-<br>
-
 ## Related Content
 * [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](active-directory-ds-getting-started-password-sync.md)
-* [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
+* [Manage an Azure AD Domain Services domain](manage-domain.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

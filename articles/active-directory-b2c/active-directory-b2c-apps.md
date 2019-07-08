@@ -2,27 +2,27 @@
 title: Applications types that can be used in Azure Active Directory B2C | Microsoft Docs
 description: Learn about the types of applications you can use in the Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/13/2018
-ms.author: davidmu
-ms.component: B2C
+ms.date: 01/11/2019
+ms.author: marsma
+ms.subservice: B2C
 
 ---
 # Applications types that can be used in Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C supports authentication for a variety of modern application architectures. All of them are based on the industry standard protocols [OAuth 2.0](active-directory-b2c-reference-protocols.md) or [OpenID Connect](active-directory-b2c-reference-protocols.md). This document describes the types of applications that you can build, independent of the language or platform you prefer. It also helps you understand the high-level scenarios before you start building applications.
 
-Every application that uses Azure AD B2C must be registered in your [Azure AD B2C tenant](active-directory-b2c-get-started.md) by using the [Azure Portal](https://portal.azure.com/). The application registration process collects and assigns values, such as:
+Every application that uses Azure AD B2C must be registered in your [Azure AD B2C tenant](active-directory-b2c-get-started.md) by using the [Azure portal](https://portal.azure.com/). The application registration process collects and assigns values, such as:
 
 * An **Application ID** that uniquely identifies your application.
-* A **Redirect URI** that can be used to direct responses back to your application.
+* A **Reply URL** that can be used to direct responses back to your application.
 
-Each request that is sent to Azure AD B2C specifies a **policy**. A policy controls the behavior of Azure AD. You can also use these endpoints to create a highly customizable set of user experiences. Common policies include sign-up, sign-in, and profile-edit policies. If you are not familiar with policies, you should read about the Azure AD B2C [extensible policy framework](active-directory-b2c-reference-policies.md) before you continue.
+Each request that is sent to Azure AD B2C specifies a **user flow**, which is a policy that controls the behavior of Azure AD. You can also use these endpoints to create a highly customizable set of user experiences. We provide a set of user flows to help you set up common policies, including sign-up, sign-in, and profile-edit policies. But you can also create your own custom policies. If you are not familiar with policies, you should read about the Azure AD B2C [extensible policy framework](active-directory-b2c-reference-policies.md) before you continue.
 
 The interaction of every application follows a similar high-level pattern:
 
@@ -37,7 +37,7 @@ These steps can differ slightly based on the type of application you're building
 
 ## Web applications
 
-For web applications (including .NET, PHP, Java, Ruby, Python, and Node.js) that are hosted on a server and accessed through a browser, Azure AD B2C supports [OpenID Connect](active-directory-b2c-reference-protocols.md) for all user experiences. This includes sign-in, sign-up, and profile management. In the Azure AD B2C implementation of OpenID Connect, your web application initiates these user experiences by issuing authentication requests to Azure AD. The result of the request is an `id_token`. This security token represents the user's identity. It also provides information about the user in the form of claims:
+For web applications (including .NET, PHP, Java, Ruby, Python, and Node.js) that are hosted on a server and accessed through a browser, Azure AD B2C supports [OpenID Connect](active-directory-b2c-reference-protocols.md) for all user experiences. In the Azure AD B2C implementation of OpenID Connect, your web application initiates user experiences by issuing authentication requests to Azure AD. The result of the request is an `id_token`. This security token represents the user's identity. It also provides information about the user in the form of claims:
 
 ```
 // Partial raw id_token
@@ -64,7 +64,7 @@ In a web application, each execution of a [policy](active-directory-b2c-referenc
 6. The `id_token` is validated and a session cookie is set.
 7. A secure page is returned to the user.
 
-Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This also sets a session cookie that can be used to identify the user on subsequent page requests.
+Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This process also sets a session cookie that can be used to identify the user on subsequent page requests.
 
 To see this scenario in action, try one of the web application sign-in code samples in our [Getting started section](active-directory-b2c-overview.md).
 
@@ -87,14 +87,14 @@ The web API can then use the token to verify the API caller's identity and to ex
 A web API can receive tokens from many types of clients, including web applications, desktop and mobile applications, single page applications, server-side daemons, and other web APIs. Here's an example of the complete flow for a web application that calls a web API:
 
 1. The web application executes a policy and the user completes the user experience.
-2. Azure AD B2C returns an `access_token` and an authorization code to the browser.
-3. The browser posts the `access_token` and authorization code to the redirect URI.
-4. The web server validates the `access token` and sets a session cookie.
-5. The `access_token` is provided to Azure AD B2C with the authorization code, application client ID, and credentials.
+2. Azure AD B2C returns an (OpenID Connect) `id_token` and an authorization code to the browser.
+3. The browser posts the `id_token` and authorization code to the redirect URI.
+4. The web server validates the `id_token` and sets a session cookie.
+5. The web server asks Azure AD B2C for an `access_token` by providing it with the authorization code, application client ID, and client credentials.
 6. The `access_token` and `refresh_token` are returned to the web server.
 7. The web API is called with the `access_token` in an authorization header.
 8. The web API validates the token.
-9. Secure data is returned to the web server.
+9. Secure data is returned to the web application.
 
 To learn more about authorization codes, refresh tokens, and the steps for getting tokens, read about the [OAuth 2.0 protocol](active-directory-b2c-reference-oauth-code.md).
 
@@ -104,13 +104,13 @@ To learn how to secure a web API by using Azure AD B2C, check out the web API tu
 
 Applications that are installed on devices, such as mobile and desktop applications, often need to access back-end services or web APIs on behalf of users. You can add customized identity management experiences to your native applications and securely call back-end services by using Azure AD B2C and the [OAuth 2.0 authorization code flow](active-directory-b2c-reference-oauth-code.md).  
 
-In this flow, the application executes [policies](active-directory-b2c-reference-policies.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `id_token` and a `refresh_token`.  The application can use the `id_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `id_token` when an older one expires.
+In this flow, the application executes [policies](active-directory-b2c-reference-policies.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `access_token` and a `refresh_token`.  The application can use the `access_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `access_token` when an older one expires.
 
 ## Current limitations
 
-Azure AD B2C does not currently support the following types of apps, but they are on the roadmap. 
+### Application not supported 
 
-### Daemons/server-side applications
+#### Daemons/server-side applications
 
 Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These applications can authenticate and get tokens by using the application's identity (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow. Client credential flow is not the same as on-behalf-flow and on-behalf-flow should not be used for server-to-server authentication.
 
@@ -118,9 +118,20 @@ Although client credential flow is not currently supported by Azure AD B2C, you 
 
 To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
+#### Web API chains (on-behalf-of flow)
 
-### Web API chains (on-behalf-of flow)
-
-Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end. This then calls a Microsoft online service such as the Azure AD Graph API.
+Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end and calls a Microsoft online service such as the Azure AD Graph API.
 
 This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer credential grant, also known as the on-behalf-of flow.  However, the on-behalf-of flow is not currently implemented in the Azure AD B2C.
+
+### Faulted apps
+
+Do not edit Azure AD B2C applications in these ways:
+
+- On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
+- Using Graph API or PowerShell.
+
+If you edit the Azure AD B2C application outside of the Azure portal, it becomes a faulted application and is no longer usable with Azure AD B2C. Delete the application and create it again.
+
+To delete the application, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
+

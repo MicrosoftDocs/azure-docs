@@ -1,20 +1,21 @@
-﻿---
+---
 title: Use a Linux VM user-assigned managed identity to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a user-assigned managed identity on a Linux VM to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: daveba
+ms.author: markvi
 ROBOTS: NOINDEX,NOFOLLOW
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a user-assigned managed identity on a Linux VM to access Azure Resource Manager
@@ -35,13 +36,11 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- [Sign in to Azure portal](https://portal.azure.com)
 
-[Sign in to Azure portal](https://portal.azure.com)
+- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-[Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a user-assigned managed identity
 
@@ -81,10 +80,10 @@ The response contains details for the user-assigned managed identity created, si
 
 A user-assigned managed identity can be used by clients on multiple Azure resources. Use the following commands to assign the user-assigned managed identity to a single VM. Use the `Id` property returned in the previous step for the `-IdentityID` parameter.
 
-Assign the user-assigned managed identity to your Linux VM using [az vm assign-identity](/cli/azure/vm#az-vm-assign-identity). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value.
+Assign the user-assigned managed identity to your Linux VM using [az vm identity assign](/cli/azure/vm). Be sure to replace the `<RESOURCE GROUP>` and `<VM NAME>` parameter values with your own values. Use the `id` property returned in the previous step for the `--identities` parameter value.
 
 ```azurecli-interactive
-az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"
+az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UAMI NAME>"
 ```
 
 ## Grant your user-assigned managed identity access to a Resource Group in Azure Resource Manager 

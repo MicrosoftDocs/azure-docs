@@ -1,0 +1,78 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Resource Manager on Azure documentation
+metadata:
+  title: Resource Manager on Azure documentation - Tutorials, samples, reference, and resources
+  description: Learn how to use Resource Manager to deploy and manage solution resources as a group and to create templates for consistent and repeatable resource deployment.
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  keywords: Resource Manager, azure, devops, tutorials, samples, reference, documentation
+  author: mumian
+  manager: dougeby
+  ms.author: jgao
+  ms.topic: landing-page
+  ms.date: 12/10/2018
+abstract:
+  description: Learn how to use Resource Manager to deploy, monitor, and manage solution resources as a group. Tutorials, API references, and other documentation show you how to set up resource groups and create templates for consistent and repeatable deployment.
+sections:
+- title: Quickstarts
+  items:
+  - type: paragraph
+    text: Use various tools to create Azure Resource Manager templates for deploying Azure resources.
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Generate a template by using the Azure portal
+      href: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      text: Create a template by using Visual Studio Code
+      href: https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Create a template by using Visual Studio
+      href: https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to create Azure Resource Manager templates for deploying Azure resources.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Utilize the Resource Manager template reference</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Create multiple instances of an Azure resource</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">Set resource deployment order</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">Use conditions</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Integrate Azure Key Vault</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-linked-templates">Create linked templates</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">Deploy virtual machine extensions</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">Deploy SQL extensions</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Secure template artifacts</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Use safe deployment practices</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Troubleshoot template deployments</a>.
+- title: Samples
+  items:
+  - type: paragraph
+    text: Sample configuration templates for common deployment tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/templates/">Azure Quickstart Templates</a>
+    - html: <a href="https://resources.azure.com/">Azure Resource Explorer (Preview)</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Templates
+      html: <p><a href="/azure/templates/">Template reference</a></p><p><a href="/azure/resource-group-template-functions">Template functions</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">UI definition functions</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">UI definition elements</a></p>
+    - title: Command-Line
+      html: <p><a href="/cli/azure/resource">Azure CLI</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/resources/">REST API</a></p>

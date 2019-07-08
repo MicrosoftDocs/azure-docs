@@ -1,19 +1,16 @@
 ---
-title: Connect to Azure Database for PostgreSQL using PHP
-description: This quickstart provides a PHP code sample you can use to connect and query data from Azure Database for PostgreSQL.
-services: postgresql
+title: Use PHP to connect to Azure Database for PostgreSQL - Single Server
+description: This quickstart provides a PHP code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 2/28/2018
 ---
 
-# Azure Database for PostgreSQL: Use PHP to connect and query data
+# Azure Database for PostgreSQL - Single Server: Use PHP to connect and query data
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using PHP, and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
@@ -22,7 +19,7 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## Install PHP
-Install PHP on your own server, or create an Azure [web app](../app-service/app-service-web-overview.md) that includes PHP.
+Install PHP on your own server, or create an Azure [web app](../app-service/overview.md) that includes PHP.
 
 ### Windows
 - Download [PHP 7.1.4 non-thread safe (x64) version](https://windows.php.net/download#php-7.1)

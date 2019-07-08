@@ -3,13 +3,13 @@ title: Non-english knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker supports knowledge base content in many languages. However, each QnA Maker service should be reserved for a single language. The first knowledge base created targeting a particular QnA Maker service sets the language of that service. 
 services: cognitive-services
-author: tulasim88
-manager: cgronlun
+author: diberry
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: tulasim
+ms.date: 01/14/2019
+ms.author: diberry
 ---
 # Language support of knowledge base content for QnA Maker
 QnA Maker supports knowledge base content in many languages. However, each QnA Maker service should be reserved for a single language. The first knowledge base created targeting a particular QnA Maker service sets the language of that service. See [here](../Overview/languages-supported.md) for the list of supported languages.

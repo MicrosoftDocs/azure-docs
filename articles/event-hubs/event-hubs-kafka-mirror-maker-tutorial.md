@@ -1,15 +1,15 @@
 ---
-title: Use Apache Kafka MirrorMaker with Azure Event Hubs for Kafka Ecosystem | Microsoft Docs
-description: Use Kafka MirrorMaker to mirror a Kafka cluster in Event Hubs.
+title: Use Apache Kafka MirrorMaker - Azure Event Hubs | Microsoft Docs
+description: This article provides information on how to use Kafka MirrorMaker to mirror a Kafka cluster in AzureEvent Hubs.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 
 ms.service: event-hubs
-ms.topic: mirror-maker
-ms.custom: mvc
-ms.date: 08/07/2018
+ms.topic: conceptual
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
 
 ---
@@ -43,10 +43,10 @@ To complete this tutorial, make sure you have:
 
 * Read through the [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) article. 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a Maven binary archive
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/downloads)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.
@@ -117,6 +117,12 @@ To verify that events are reaching the Kafka-enabled event hub, see the ingress 
 
 With MirrorMaker running, any events sent to the source Kafka cluster are received by both the Kafka cluster and the mirrored Kafka enabled event hub service. By using MirrorMaker and an Event Hubs Kafka endpoint, you can migrate an existing Kafka pipeline to the managed Azure Event Hubs service without changing the existing cluster or interrupting any ongoing data flow.
 
+## Samples
+See the following samples on GitHub:
+
+- [Sample code for this tutorial on GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
+- [Azure Event Hubs Kafka MirrorMaker running on an Azure Container Instance](https://github.com/djrosanova/EventHubsMirrorMaker)
+
 ## Next steps
 
 In this tutorial, you learn how to:
@@ -129,7 +135,12 @@ In this tutorial, you learn how to:
 
 To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
 
-* [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-* [Explore more samples on the Event Hubs for Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Learn how to stream into Kafka enabled Event Hubs using [native Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), or [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
+- [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+- [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
+- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Connect Apache Spark to a Kafka-enabled event hub](event-hubs-kafka-spark-tutorial.md)
+- [Connect Apache Flink to a Kafka-enabled event hub](event-hubs-kafka-flink-tutorial.md)
+- [Integrate Kafka Connect with a Kafka-enabled event hub](event-hubs-kafka-connect-tutorial.md)
+- [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md)
+- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)

@@ -1,16 +1,16 @@
 ---
 title: Data Science Virtual Machine data ingestion tools - Azure | Microsoft Docs
-description: Data Science Virtual Machine data ingestion tools
+description: Learn about the data ingestion tools and utilities pre-installed in the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -22,7 +22,7 @@ ms.author: gokuma
 
 # Data Science Virtual Machine data ingestion tools
 
-One of the first technical steps in a data science or AI project is to identify the datasets to be used and bring them into your analytics environment. The Data Science Virtual Machine (DSVM) provides tools and libraries to bring in data from different sources into a analytical data storage locally on the DSVM or in a data platform on the cloud or on-premises. 
+One of the first technical steps in a data science or AI project is to identify the datasets to be used and bring them into your analytics environment. The Data Science Virtual Machine (DSVM) provides tools and libraries to bring in data from different sources into an analytical data storage locally on the DSVM or in a data platform on the cloud or on-premises. 
 
 Here are some data movement tools we have provided on the DSVM. 
 

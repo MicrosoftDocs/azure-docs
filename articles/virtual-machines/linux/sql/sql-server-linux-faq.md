@@ -3,15 +3,16 @@ title: SQL Server on Linux Azure Virtual Machines FAQ | Microsoft Docs
 description: This article provides answers to frequently asked questions about running SQL Server on Linux Azure VMs.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
-ms.author: jroth
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Frequently asked questions for SQL Server on Linux Azure Virtual Machines
 

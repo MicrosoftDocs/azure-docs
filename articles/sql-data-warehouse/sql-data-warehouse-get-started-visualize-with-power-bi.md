@@ -2,13 +2,13 @@
 title: Visualize SQL Data Warehouse data with Power BI Microsoft Azure
 description: Visualize SQL Data Warehouse data with Power BI
 services: sql-data-warehouse
-author: kavithaj
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: integration
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: martinle
 ms.reviewer: igorstan
 ---
 
@@ -72,7 +72,7 @@ You are now ready to use Power BI to analyze your AdventureWorksDW sample data. 
 
 You can save your progress at any time by clicking **File** and selecting **Save**.
 
-## Using Direct Connnect
+## Using Direct Connect
 As with Azure SQL Database, SQL Data Warehouse Direct Connect allows  logical pushdown alongside the analytical capabilities of Power BI. With Direct Connect, queries are sent back to your Azure SQL Data Warehouse in real-time as you explore the data.  This feature, combined with the scale of SQL Data Warehouse, enables you to create dynamic reports in minutes against terabytes of data. In addition, the introduction of the Open in Power BI button allows users to directly connect Power BI to their SQL Data Warehouse without collecting information from other parts of Azure.
 
 When using Direct Connect:
@@ -88,4 +88,4 @@ When using Direct Connect:
 These restrictions and notes may change as the experiences improve.
 
 ## Next steps
-Now that we've given you some time to warm up with the sample data, see how to [develop](sql-data-warehouse-overview-develop.md), [load](design-elt-data-loading.md), or [migrate](sql-data-warehouse-overview-migrate.md). Or take a look at the [Power BI website](http://www.powerbi.com/).
+Now that we've given you some time to warm up with the sample data, see how to [develop](sql-data-warehouse-overview-develop.md) or [load](design-elt-data-loading.md). Or take a look at the [Power BI website](https://www.powerbi.com/).

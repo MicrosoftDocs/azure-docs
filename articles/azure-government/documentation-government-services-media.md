@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/22/2018
+ms.date: 01/14/2019
 ms.author: juliako
 
 ---
+
 # Azure Government Media Services 
  
 Azure Media Services (AMS) v2 is currently generally available in Azure Government.
 
-Azure Media Services v3 is currently not available in Azure Government.
+For Azure Media Services v3 availability, see [Azure clouds and regions in which Media Services v3 exists](../media-services/latest/azure-clouds-regions.md).
+
+## Media Services v2
 
 For details about Media Services v2 and how to use it, see the [Azure Media Services documentation](../media-services/previous/index.md).
 
@@ -46,6 +49,7 @@ There is no CDN integration with streaming endpoints in Azure Government DCs.
 Live encoding is not available in Azure Government.
 
 ## Next steps
+
 For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 

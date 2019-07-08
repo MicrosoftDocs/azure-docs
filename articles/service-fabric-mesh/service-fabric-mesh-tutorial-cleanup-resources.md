@@ -3,8 +3,8 @@ title: Tutorial- Cleanup Azure Service Fabric Mesh resources | Microsoft Docs
 description: Learn how to remove Azure Service Fabric Mesh resources so that you do not get charged for resources you are no longer using.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid:  
 ms.service: service-fabric-mesh
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter 
 #Customer intent: As a developer, I want to avoid being charged for Azure resources I am no longer using.
 ---
@@ -58,7 +58,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-Alternatively, you can delete the **sfmeshTutorial1RG** resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources). 
+Alternatively, you can delete the **sfmeshTutorial1RG** resource group [from the portal](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups). 
 
 ## Next steps
 

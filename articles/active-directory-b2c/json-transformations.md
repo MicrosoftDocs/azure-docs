@@ -2,15 +2,15 @@
 title: JSON claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
 description: JSON claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # JSON claims transformations
@@ -48,11 +48,11 @@ In the following example, the claims transformation extracted the `emailAddress`
 ### Example
 
 - Input claims:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
 - Input parameter:
     - **claimToExtract**: emailAddress
 - Output claims: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 
 ## GetClaimsFromJsonArray
@@ -96,18 +96,18 @@ In the following example, the claims transformation extracts the following claim
 ```    
 
 - Input claims:
-    - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
+  - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 - Input parameters:
     - **errorOnMissingClaims**: false
     - **includeEmptyClaims**: false
     - **jsonSourceKeyName**: key
     - **jsonSourceValueName**: value
 - Output claims:
-    - **email**: "someone@example.com"
-    - **displayName**: "Someone"
-    - **membershipNum**: 6353399
-    - **active**: true
-    - **birthdate**: 1980-09-23T00:00:00Z
+  - **email**: "someone@example.com"
+  - **displayName**: "Someone"
+  - **membershipNum**: 6353399
+  - **active**: true
+  - **birthdate**: 1980-09-23T00:00:00Z
 
 ## GetNumericClaimFromJson
 
@@ -146,7 +146,7 @@ In the following example, the claims transformation extracts the `id` element fr
 ### Example
 
 - Input claims:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Input parameters
     - **claimToExtract**:  id
 - Output claims: 
@@ -177,9 +177,9 @@ In the following example, the claims transformation extracts the first element (
 ### Example
 
 - Input claims:
-    - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
+  - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
 - Output claims: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 ## XmlStringToJsonString
 

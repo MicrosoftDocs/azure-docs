@@ -23,7 +23,7 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
 
 ## Information Needed from Azure Portal
 
-1. Navigate to [Azure Portal](https://portal.azure.com) and log in if needed
+1. Navigate to [Azure Portal](https://portal.azure.com) and sign-in if needed
 
 2. On the left-hand panel, click Resource groups
 
@@ -35,16 +35,16 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
 
     ![Resource Group](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
-5. On the panel to the left, click the "Keys" section and take note of the following values to be used in PowerBi:
+5. On the panel to the left, click the "Keys" section and take note of the following values to be used in Power BI:
 
-    - URI
-    - Primary Key
+   - URI
+   - Primary Key
 
-    ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## Setting up the Stream in Power BI
   
-1. Open up the Power BI desktop app and click "Get Data" from the top left corner. 
+1. Open up the Power BI desktop app and click "Get Data" from the top-left corner. 
 
     ![Get Data](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
@@ -79,11 +79,11 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
 
 ## Creating a dashboard
 
-Once the stream has been connected, you are ready to create your personalized dashboards! The dashboard below is an example of taking the telemetry being immmited by our simulated devices, and showing different pivots around it such as: 
+Once the stream has been connected, you are ready to create your personalized dashboards! The dashboard below is an example of taking the telemetry being emitted by our simulated devices, and showing different pivots around it such as: 
 
 * Device Location on a map (right)
 * Devices with their status and severity. (top left)
-* Devices with rules in place, and if there are any alarms going off for them (bottom left)
+* Devices with rules in place, and if there are any alerts going off for them (bottom left)
 
 ![PowerBi Visualization](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 

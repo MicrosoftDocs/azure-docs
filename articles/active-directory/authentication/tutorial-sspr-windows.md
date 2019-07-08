@@ -4,20 +4,21 @@ description: In this tutorial, you will enable password reset at the Windows 10 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 02/01/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable password reset for Windows 10 users on the login screen to reduce helpdesk calls?
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure AD password reset from the login screen
 
-In this tutorial, you enable users to reset their passwords from the Windows 10 login screen. With the new Windows 10 April 2018 Update, users with **Azure AD joined** or **hybrid Azure AD joined** devices can use a “Reset password” link on their login screen. When users click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with.
+In this tutorial, you enable users to reset their passwords from the Windows 10 login screen. With the new Windows 10 April 2018 Update, users with **Azure AD joined** or **hybrid Azure AD joined** devices can use a “Reset password” link on their login screen. When users click this link, they are brought to the same self-service password reset (SSPR) experience they are familiar with. If a user is locked out this process does not unlock accounts in on-premises Active Directory.
 
 > [!div class="checklist"]
 > * Configure Reset password link using Intune
@@ -26,11 +27,15 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
 
 ## Prerequisites
 
-* Windows 10 April 2018 Update, or newer client that is:
-   * [Azure AD joined](../device-management-azure-portal.md)
-   or 
-   * [Hybrid Azure AD joined](../device-management-hybrid-azuread-joined-devices-setup.md)
-* Azure AD self-service password reset must be enabled.
+* You must running at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
+   * [Azure AD-joined](../device-management-azure-portal.md)
+   or
+   * [Hybrid Azure AD-joined](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
+* You must enable Azure AD self-service password reset.
+* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com` to your HTTPS traffic (port 443) allowed URLs list.
+* SSPR for Windows 10 is only supported with machine-level proxies
+* Review limitations below before trying this feature in your environment.
+* If using an image, prior to sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## Configure Reset password link using Intune
 
@@ -84,7 +89,7 @@ You have now created and assigned a device configuration policy to enable the Re
 
 ## Configure Reset password link using the registry
 
-1. Log in to the Windows PC using administrative credentials
+1. Sign in to the Windows PC using administrative credentials
 2. Run **regedit** as an administrator
 3. Set the following registry key
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -96,29 +101,43 @@ Now that the policy is configured and assigned, what changes for the user? How d
 
 ![LoginScreen][LoginScreen]
 
-When users attempt to log in, they now see a Reset password link that opens the self-service password reset experience at the login screen. This functionality allows users to reset their password without having to use another device to access a web browser.
+When users attempt to sign in, they now see a Reset password link that opens the self-service password reset experience at the login screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
 Your users will find guidance for using this feature in [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
-
-## Common issues
-
-When testing this functionality using Hyper-V, the "Reset password" link does not appear.
-
-* Go to the VM you are using to test click on **View** and then uncheck **Enhanced session**.
-
-When testing this functionality using Remote Desktop, the "Reset password" link does not appear.
-
-* Password reset is not currently supported from a Remote Desktop.
-
-If the Windows lock screen is disabled using a registry key or group policy, **Reset password** will not be available.
-
-If Ctrl+Alt+Del is required by policy, or Lock screen notifications are turned off, **Reset password** will not work. Windows 10 19H1 will resolve this requirement.
 
 The Azure AD audit log will include information about the IP address and ClientType where the password reset occurred.
 
 ![Example logon screen password reset in the Azure AD audit log](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
-If your Windows 10 machines are behind a proxy server or firewall, HTTPS traffic (443) to passwordreset.microsoftonline.com and ajax.aspnetcdn.com should be allowed.
+When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called “defaultuser1” is created. This account is used to keep the password reset process secure. The account itself has a randomly generated password, doesn’t show up for device sign-in, and will automatically be removed after the user resets their password. Multiple “defaultuser” profiles may exist but can be safely ignored.
+
+## Limitations
+
+Account unlock, mobile app notification, and mobile app code are not supported by SSPR for Windows 10.
+
+When testing this functionality using Hyper-V, the "Reset password" link does not appear.
+
+* Go to the VM you are using to test click on **View** and then uncheck **Enhanced session**.
+
+When testing this functionality using Remote Desktop or an Enhanced VM Session, the "Reset password" link does not appear.
+
+* Password reset is not currently supported from a Remote Desktop.
+
+If Ctrl+Alt+Del is required by policy in versions of Windows 10 before v1809, **Reset password** will not work.
+
+If lock screen notifications are turned off, **Reset password** will not work.
+
+The following policy settings are known to interfere with the ability to reset passwords
+
+   * HideFastUserSwitching is set to enabled or 1
+   * DontDisplayLastUserName is set to enabled or 1
+   * NoLockScreen is set to enabled or 1
+   * EnableLostMode is set on the device
+   * Explorer.exe is replaced with a custom shell
+
+This feature does not work for networks with 802.1x network authentication deployed and the option “Perform immediately before user logon”. For networks with 802.1x network authentication deployed it is recommended to use machine authentication to enable this feature.
+
+For Hybrid Domain Joined scenarios, the SSPR workflow will successfully complete without needing an Active Directory domain controller. If a user completes the password reset process when communication to an Active Directory domain controller is not available, like when working remotely, the user will not be able to sign in to the device until the device can communicate with a domain controller and update the cached credential. **Connectivity with a domain controller is required to use the new password for the first time**.
 
 ## Clean up resources
 

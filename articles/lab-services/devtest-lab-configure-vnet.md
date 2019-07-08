@@ -25,7 +25,7 @@ This article explains how to add your existing virtual network into a lab's Virt
 ## Configure a virtual network for a lab using the Azure portal
 The following steps walk you through adding an existing virtual network (and subnet) to a lab so that it can be used when creating a VM in the same lab. 
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab. 
 1. On the lab's main pane, select **Configuration and policies**.

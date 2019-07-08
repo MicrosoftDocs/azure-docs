@@ -4,15 +4,15 @@ description: Provides general guidance for handling errors that occur in when yo
 services: functions
 cloud: 
 documentationcenter: 
-author: ggailey777
-manager: jeconnoc
+author: craigshoemaker
+manager: gwallace
 
 ms.assetid:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/01/2018
-ms.author: glenga; cfowler
+ms.author: cshoe
 ---
 
 # Azure Functions error handling

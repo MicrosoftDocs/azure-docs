@@ -19,6 +19,7 @@ ms.author: jegeib
 ---
 
 # Security Frame: Cryptography | Mitigations 
+
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application** | <ul><li>[Use only approved symmetric block ciphers and key lengths](#cipher-length)</li><li>[Use approved block cipher modes and initialization vectors for symmetric ciphers](#vector-ciphers)</li><li>[Use approved asymmetric algorithms, key lengths, and padding](#padding)</li><li>[Use approved random number generators](#numgen)</li><li>[Do not use symmetric stream ciphers](#stream-ciphers)</li><li>[Use approved MAC/HMAC/keyed hash algorithms](#mac-hash)</li><li>[Use only approved cryptographic hash functions](#hash-functions)</li></ul> |
@@ -26,7 +27,7 @@ ms.author: jegeib
 | **IoT Device** | <ul><li>[Store Cryptographic Keys securely on IoT Device](#keys-iot)</li></ul> | 
 | **IoT Cloud Gateway** | <ul><li>[Generate a random symmetric key of sufficient length for authentication to IoT Hub](#random-hub)</li></ul> | 
 | **Dynamics CRM Mobile Client** | <ul><li>[Ensure a device management policy is in place that requires a use PIN and allows remote wiping](#pin-remote)</li></ul> | 
-| **Dynamics CRM Outlook Client** | <ul><li>[Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. Bitlocker)](#bitlocker)</li></ul> | 
+| **Dynamics CRM Outlook Client** | <ul><li>[Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. BitLocker)](#bitlocker)</li></ul> | 
 | **Identity Server** | <ul><li>[Ensure that signing keys are rolled over when using Identity Server](#rolled-server)</li><li>[Ensure that cryptographically strong client ID, client secret are used in Identity Server](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Use only approved symmetric block ciphers and key lengths
@@ -93,7 +94,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | <p>Products must use only approved message authentication code (MAC) or hash-based message authentication code (HMAC) algorithms.</p><p>A message authentication code (MAC) is a piece of information attached to a message that allows its recipient to verify both the authenticity of the sender and the integrity of the message using a secret key. The use of either a hash-based MAC ([HMAC](http://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) or [block-cipher-based MAC](http://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) is permissible as long as all underlying hash or symmetric encryption algorithms are also approved for use; currently this includes the HMAC-SHA2 functions (HMAC-SHA256, HMAC-SHA384 and HMAC-SHA512) and the CMAC/OMAC1 and OMAC2 block cipher-based MACs (these are based on AES).</p><p>Use of HMAC-SHA1 may be permissible for platform compatibility, but you will be required to file an exception to this procedure and undergo your organization's Crypto review. Truncation of HMACs to less than 128 bits is not permitted. Using customer methods to hash a key and data is not approved, and must undergo your organization's Crypto Board review prior to use.</p>|
+| **Steps** | <p>Products must use only approved message authentication code (MAC) or hash-based message authentication code (HMAC) algorithms.</p><p>A message authentication code (MAC) is a piece of information attached to a message that allows its recipient to verify both the authenticity of the sender and the integrity of the message using a secret key. The use of either a hash-based MAC ([HMAC](https://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) or [block-cipher-based MAC](https://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) is permissible as long as all underlying hash or symmetric encryption algorithms are also approved for use; currently this includes the HMAC-SHA2 functions (HMAC-SHA256, HMAC-SHA384 and HMAC-SHA512) and the CMAC/OMAC1 and OMAC2 block cipher-based MACs (these are based on AES).</p><p>Use of HMAC-SHA1 may be permissible for platform compatibility, but you will be required to file an exception to this procedure and undergo your organization's Crypto review. Truncation of HMACs to less than 128 bits is not permitted. Using customer methods to hash a key and data is not approved, and must undergo your organization's Crypto Board review prior to use.</p>|
 
 ## <a id="hash-functions"></a>Use only approved cryptographic hash functions
 
@@ -169,8 +170,8 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Device OS - Windows IoT Core, Device Connectivity - Azure IoT device SDKs |
-| **References**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [Set up TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/win10/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
-| **Steps** | Symmetric or Certificate Private keys securely in a hardware protected storage like TPM or Smart Card chips. Windows 10 IoT Core supports the user of a TPM and there are several compatible TPMs that can be used: https://developer.microsoft.com/windows/iot/win10/tpm. It is recommended to use a Firmware or Discrete TPM. A Software TPM should only be used for development and testing purposes. Once a TPM is available and the keys are provisioned in it, the code that generates the token should be written without hard coding any sensitive information in it. | 
+| **References**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [Set up TPM on Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **Steps** | Symmetric or Certificate Private keys securely in a hardware protected storage like TPM or Smart Card chips. Windows 10 IoT Core supports the user of a TPM and there are several compatible TPMs that can be used: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. It is recommended to use a Firmware or Discrete TPM. A Software TPM should only be used for development and testing purposes. Once a TPM is available and the keys are provisioned in it, the code that generates the token should be written without hard coding any sensitive information in it. | 
 
 ### Example
 ```
@@ -206,7 +207,7 @@ As can be seen, the device primary key is not present in the code. Instead, it i
 | **References**              | N/A  |
 | **Steps** | Ensure a device management policy is in place that requires a use PIN and allows remote wiping |
 
-## <a id="bitlocker"></a>Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. Bitlocker)
+## <a id="bitlocker"></a>Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. BitLocker)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -215,7 +216,7 @@ As can be seen, the device primary key is not present in the code. Instead, it i
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. Bitlocker) |
+| **Steps** | Ensure a device management policy is in place that requires a PIN/password/auto lock and encrypts all data (e.g. BitLocker) |
 
 ## <a id="rolled-server"></a>Ensure that signing keys are rolled over when using Identity Server
 
@@ -225,7 +226,7 @@ As can be seen, the device primary key is not present in the code. Instead, it i
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Identity Server - Keys, Signatures and Cryptography ](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **References**              | [Identity Server - Keys, Signatures and Cryptography](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Steps** | Ensure that signing keys are rolled over when using Identity Server. The link in the references section explains how this should be planned without causing outages to applications relying on Identity Server. |
 
 ## <a id="client-server"></a>Ensure that cryptographically strong client ID, client secret are used in Identity Server

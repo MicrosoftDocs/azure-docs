@@ -1,10 +1,10 @@
 ---
-title: How to analyze Azure Active Directory activity logs using Log Analytics (preview)  | Microsoft Docs
-description: Learn how to analyze Azure Active Directory activity logs using Log Analytics (preview)
+title: Analyze Azure Active Directory activity logs using Azure Monitor logs | Microsoft Docs
+description: Learn how to analyze Azure Active Directory activity logs using Azure Monitor logs
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
@@ -13,18 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 09/28/2018
-ms.author: priyamo
-ms.reviewer: dhanyahk
+ms.subservice: report-monitor
+ms.date: 04/18/2019
+ms.author: markvi
+ms.reviewer: markvi
 
+ms.collection: M365-identity-device-management
 ---
 
-# Analyze Azure AD activity logs with Log Analytics (preview)
+# Analyze Azure AD activity logs with Azure Monitor logs
 
-After you [integrate Azure AD activity logs with Log Analytics](howto-integrate-activity-logs-with-log-analytics.md), you can use the power of Log Analytics to gain insights into your envrionment. You can also install the [Log Analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md) to get access to pre-built reports around audit and sign-in events in your environment.
+After you [integrate Azure AD activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md), you can use the power of Azure Monitor logs to gain insights into your environment. You can also install the [Log analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md) to get access to pre-built reports around audit and sign-in events in your environment.
 
 In this article, you learn how to analyze the Azure AD activity logs in your Log Analytics workspace. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Prerequisites 
 
@@ -75,10 +78,12 @@ AuditLogs
 
 You can also set up alerts on your query. For example, to configure an alert when more than 10 applications have been used in the last week:
 
-1. From the workspace, select **Set alert** to open the **Create rule** page. 
+1. From the workspace, select **Set alert** to open the **Create rule** page.
+
     ![Set alert](./media/howto-analyze-activity-logs-log-analytics/setalert.png)
 
-2. Select the default **alert criteria** created in the alert and update the **Threshold** in the default metric to 10. 
+2. Select the default **alert criteria** created in the alert and update the **Threshold** in the default metric to 10.
+
     ![Alert criteria](./media/howto-analyze-activity-logs-log-analytics/alertcriteria.png)
 
 3. Enter a name and description for the alert, and choose the severity level. For our example, we could set it to **Informational**.
@@ -89,17 +94,17 @@ You can also set up alerts on your query. For example, to configure an alert whe
 
 ## Install and use pre-built views for Azure AD activity logs
 
-You can also download the pre-built Log Analytics views for Azure AD activity logs. The views provide several reports related to common scenarios involving audit and sign-in events. You can also alert on any of the data provided in the reports, using the steps described in the previous section.
+You can also download the pre-built log analytics views for Azure AD activity logs. The views provide several reports related to common scenarios involving audit and sign-in events. You can also alert on any of the data provided in the reports, using the steps described in the previous section.
 
 * **Azure AD Account Provisioning Events**: This view shows reports related to auditing provisioning activity, such as the number of new users provisioned and provisioning failures, number of users updated and update failures and the number of users de-provisioned and corresponding failures.    
 * **Sign-ins Events**: This view shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, as well as a summary view tracking the number of sign-ins over time.
 * **Users Performing Consent**: This view shows reports related to user consent, such as the consent grants by user, sign-ins by users who granted consent as well as sign-ins by application for all consent-based applications. 
 
-Learn how to [install and use Log Analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md). 
+Learn how to [install and use log analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md). 
 
 
 ## Next steps
 
-* [Get started with queries in Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
+* [Get started with queries in Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Create and manage alert groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
-* [Install and use the Log Analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Install and use the log analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)

@@ -3,10 +3,10 @@ title: "Quickstart: Project Answer Search, Node"
 description: Get started using Project Answer Search with Node.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
@@ -33,7 +33,7 @@ It is implemented in the following steps:
 
 The complete code for this demo follows:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -47,7 +47,7 @@ let path = '/answerSearch/v7.0/search';
 let mkt = 'en-us';
 let q = 'Yosemite National Park';
 
-let params = '?q=' + encodeURI(q) + '&mkt=en-us';
+let params = '?q=' + encodeURI(q) + '&mkt= + mkt;
 
 let response_handler = function (response) {
     let body = '';
@@ -80,7 +80,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## Next steps
 - [C# example code](c-sharp-quickstart.md)

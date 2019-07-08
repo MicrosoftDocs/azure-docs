@@ -2,12 +2,12 @@
 title: Azure Event Grid event handlers
 description: Describes supported event handlers for Azure Event Grid 
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/21/2018
-ms.author: tomfitz
+ms.date: 01/21/2019
+ms.author: spelluru
 ---
 
 # Event handlers in Azure Event Grid
@@ -67,6 +67,64 @@ Use Logic Apps to automate business processes for responding to events.
 | [Tutorial: monitor virtual machine changes with Azure Event Grid and Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | A logic app monitors changes to a virtual machine and sends emails about those changes. |
 | [Tutorial: send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT hub. |
 | [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
+
+## Service Bus Queue (Preview)
+
+Use Service Bus as an event handler to route your events in Event Grid directly to Service Bus queues for use in buffering or command and control scenarios in enterprise applications. The preview does not work with Service Bus Topics and Sessions, but it does work with all tiers of Service Bus queues.
+
+Please note, while Service Bus as a handler is in public preview, you must install the CLI or PowerShell extension when using those to create event subscriptions.
+
+### Install extension for Azure CLI
+
+For Azure CLI, you need the [Event Grid extension](/cli/azure/azure-cli-extensions-list).
+
+In [CloudShell](/azure/cloud-shell/quickstart):
+
+* If you've installed the extension previously, update it with `az extension update -n eventgrid`.
+* If you haven't installed the extension previously, install it by using `az extension add -n eventgrid`.
+
+For a local installation:
+
+1. [Install the Azure CLI](/cli/azure/install-azure-cli). Make sure that you have the latest version, by checking with `az --version`.
+1. Uninstall previous versions of the extension with `az extension remove -n eventgrid`.
+1. Install the `eventgrid` extension with `az extension add -n eventgrid`.
+
+### Install module for PowerShell
+
+For PowerShell, you need the [AzureRM.EventGrid module](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
+
+In [CloudShell](/azure/cloud-shell/quickstart-powershell):
+
+* Install the module with `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+For a local installation:
+
+1. Open PowerShell console as administrator.
+1. Install the module with `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+If the `-AllowPrerelease` parameter isn't available, use the following steps:
+
+1. Run `Install-Module PowerShellGet -Force`.
+1. Run `Update-Module PowerShellGet`.
+1. Close the PowerShell console.
+1. Restart PowerShell as administrator.
+1. Install the module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+
+### Using CLI to add a Service Bus handler
+
+For Azure CLI, the following example subscribes and connects an Event Grid topic to a Service Bus queue:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebusqueue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
 
 ## Queue Storage
 

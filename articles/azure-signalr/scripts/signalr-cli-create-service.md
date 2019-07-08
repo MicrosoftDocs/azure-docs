@@ -1,18 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create a SignalR Service | Microsoft Docs
+title: Azure CLI Script Sample - Create a SignalR Service
 description: Azure CLI Script Sample - Create SignalR Service
-services: signalr
-documentationcenter: signalr
 author: sffamily
-manager: cfowler
-editor: 
-tags: azure-service-management
-
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: signalr
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
@@ -51,12 +43,12 @@ Each command in the table links to command specific documentation. This script u
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az signalr create](/cli/azure/group#az-group-create) | Creates an Azure SignalR Service resource. |
-| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
+| [az signalr create](/cli/azure/signalr#az-signalr-create) | Creates an Azure SignalR Service resource. |
+| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | List the keys, which will be used by your application when pushing real-time content updates with SignalR. |
 
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional Azure SignalR Service CLI script samples can be found in the [Azure SignalR Service documentation](../signalr-cli-samples.md).
+Additional Azure SignalR Service CLI script samples can be found in the [Azure SignalR Service documentation](../signalr-reference-cli.md).

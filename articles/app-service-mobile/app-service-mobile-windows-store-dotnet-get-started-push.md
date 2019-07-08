@@ -3,7 +3,7 @@ title: Add push notifications to your Universal Windows Platform (UWP) app | Mic
 description: Learn how to use Azure App Service Mobile Apps and Azure Notification Hubs to send push notifications to your Universal Windows Platform (UWP) app.
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
-author: conceptdev
+author: elamalani
 manager: crdun 
 editor: ''
 
@@ -13,12 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: crdun 
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Add push notifications to your Windows app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push) today.
+>
 
 ## Overview
 
@@ -32,21 +36,23 @@ If you do not use the downloaded quick start server project, you will need the p
 
 ## Register your app for push notifications
 
-You need to submit your app to the Microsoft Store, then configure your server project to integrate with Windows Notification Services (WNS) to send push.
+You need to submit your app to the Microsoft Store, then configure your server project to integrate with [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) to send push.
 
 1. In Visual Studio Solution Explorer, right-click the UWP app project, click **Store** > **Associate App with the Store...**.
 
     ![Associate app with Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+
 2. In the wizard, click **Next**, sign in with your Microsoft account, type a name for your app in **Reserve a new app name**, then click **Reserve**.
 3. After the app registration is successfully created, select the new app name, click **Next**, and then click **Associate**. This adds the required Microsoft Store registration information to the application manifest.
-4. Navigate to the [Windows Dev Center](https://dev.windows.com/en-us/overview), sign-in with your Microsoft account, click the new app registration in **My apps**, then expand **Services** > **Push notifications**.
-5. In the **Push notifications** page, click **Live Services site** under **Microsoft Azure Mobile Services**.
-6. In the registration page, make a note of the value under **Application secrets** and the **Package SID**, which you will next use to configure your mobile app backend.
+4. Navigate to the [Application Registration Portal](https://apps.dev.microsoft.com/) and sign in with your Microsoft account. Click the Windows Store app you associated in the previous step.
+5. In the registration page, make a note of the value under **Application secrets** and the **Package SID**, which you will next use to configure your mobile app backend.
 
     ![Associate app with Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > The client secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app. The **Application Id** is used with the secret to configure Microsoft Account authentication.
+
+[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns) also has instructions for configuring UWP apps for push notifications.
 
 ## Configure the backend to send push notifications
 
@@ -120,7 +126,7 @@ Use the procedure below that matches your backend project type&mdash;either [.NE
 
     table.insert(function (context) {
     // For more information about the Notification Hubs JavaScript SDK,
-    // see http://aka.ms/nodejshubs
+    // see https://aka.ms/nodejshubs
     logger.info('Running TodoItem.insert');
 
     // Define the WNS payload that contains the new item Text.

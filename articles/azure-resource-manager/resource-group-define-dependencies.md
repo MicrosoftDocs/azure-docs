@@ -1,19 +1,11 @@
 ---
 title: Set deployment order for Azure resources | Microsoft Docs
 description: Describes how to set one resource as dependent on another resource during deployment to ensure resources are deployed in the correct order.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: ''
 
-ms.assetid: 34ebaf1e-480c-4b4d-9bf6-251bd3f8f2cf
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/05/2018
+ms.date: 03/20/2019
 ms.author: tomfitz
 
 ---
@@ -61,7 +53,7 @@ When defining dependencies, you can include the resource provider namespace and 
 While you may be inclined to use dependsOn to map relationships between your resources, it's important to understand why you're doing it. For example, to document how resources are interconnected, dependsOn isn't the right approach. You can't query which resources were defined in the dependsOn element after deployment. By using dependsOn, you potentially impact deployment time because Resource Manager doesn't deploy in parallel two resources that have a dependency. 
 
 ## Child resources
-The resources property allows you to specify child resources that are related to the resource being defined. Child resources can only be defined five levels deep. It's important to note that an implicit dependency isn't created between a child resource and the parent resource. If you need the child resource to be deployed after the parent resource, you must explicitly state that dependency with the dependsOn property. 
+The resources property allows you to specify child resources that are related to the resource being defined. Child resources can only be defined five levels deep. It's important to note that an implicit deployment dependency isn't created between a child resource and the parent resource. If you need the child resource to be deployed after the parent resource, you must explicitly state that dependency with the dependsOn property. 
 
 Each parent resource accepts only certain resource types as child resources. The accepted resource types are specified in the [template schema](https://github.com/Azure/azure-resource-manager-schemas) of the parent resource. The name of child resource type includes the name of the parent resource type, such as **Microsoft.Web/sites/config** and **Microsoft.Web/sites/extensions** are both child resources of the **Microsoft.Web/sites**.
 
@@ -141,16 +133,7 @@ You can use either this element or the dependsOn element to specify dependencies
 
 To learn more, see [reference function](resource-group-template-functions-resource.md#reference).
 
-## Recommendations for setting dependencies
-
-When deciding what dependencies to set, use the following guidelines:
-
-* Set as few dependencies as possible.
-* Set a child resource as dependent on its parent resource.
-* Use the **reference** function and pass in the resource name to set implicit dependencies between resources that need to share a property. Don't add an explicit dependency (**dependsOn**) when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. 
-* Set a dependency when a resource can't be **created** without functionality from another resource. Don't set a dependency if the resources only interact after deployment.
-* Let dependencies cascade without setting them explicitly. For example, your virtual machine depends on a virtual network interface, and the virtual network interface depends on a virtual network and public IP addresses. Therefore, the virtual machine is deployed after all three resources, but don't explicitly set the virtual machine as dependent on all three resources. This approach clarifies the dependency order and makes it easier to change the template later.
-* If a value can be determined before deployment, try deploying the resource without a dependency. For example, if a configuration value needs the name of another resource, you might not need a dependency. This guidance doesn't always work because some resources verify the existence of the other resource. If you receive an error, add a dependency. 
+## Circular dependencies
 
 Resource Manager identifies circular dependencies during template validation. If you receive an error stating that a circular dependency exists, evaluate your template to see if any dependencies aren't needed and can be removed. If removing dependencies doesn't work, you can avoid circular dependencies by moving some deployment operations into child resources that are deployed after the resources that have the circular dependency. For example, suppose you're deploying two virtual machines but you must set properties on each one that refer to the other. You can deploy them in the following order:
 
@@ -164,6 +147,7 @@ For information about assessing the deployment order and resolving dependency er
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* For recommendations when setting dependencies, see [Azure Resource Manager template best practices](template-best-practices.md).
 * To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
 * For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).

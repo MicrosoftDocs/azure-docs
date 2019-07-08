@@ -1,5 +1,5 @@
 ---
-title: Change static group membership type to dynamic in Azure Active Directory | Microsoft Docs
+title: Change static group membership type to dynamic - Azure Active Directory | Microsoft Docs
 description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''
@@ -9,13 +9,14 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Change static group membership to dynamic in Azure Active Directory
@@ -29,7 +30,7 @@ You can change a group's membership from static to dynamic (or vice-versa) In Az
 
 ## Change the membership type for a group
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user account administrator in your tenant.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is a global administrator or a user administrator in your tenant.
 2. Select **Groups**.
 3. From the **All groups** list, open the group that you want to change.
 4. Select **Properties**.
@@ -43,14 +44,13 @@ The following steps are an example of changing a group from static to dynamic me
   
 2. Select **Add dynamic query**, and then provide the rule.
   
-   ![enter the rule](./media/groups-change-type/enter-rule.png)
+   ![enter the rule for the dynamic group](./media/groups-change-type/enter-rule.png)
   
 3. After creating the rule, select **Add query** at the bottom of the page.
 4. Select **Save** on the **Properties** page for the group to save your changes. The **Membership type** of the group is immediately updated in the group list.
 
 > [!TIP]
 > Group conversion might fail if the membership rule you entered was incorrect. A notification is displayed in the upper-right hand corner of the portal that it contains an explanation of why the rule can't be accepted by the system. Read it carefully to understand how you can adjust the rule to make it valid. For examples of rule syntax and a complete list of the supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Azure Active Directory](groups-dynamic-membership.md).
-
 
 ## Change membership type for a group (PowerShell)
 
@@ -59,7 +59,7 @@ The following steps are an example of changing a group from static to dynamic me
 
 Here is an example of functions that switch membership management on an existing group. In this example, care is taken to correctly manipulate the GroupTypes property and preserve any values that are unrelated to dynamic membership.
 
-```
+```powershell
 #The moniker for dynamic groups as used in the GroupTypes property of a group object
 $dynamicGroupTypeString = "DynamicMembership"
 
@@ -103,13 +103,13 @@ function ConvertStaticGroupToDynamic
 ```
 To make a group static:
 
-```
+```powershell
 ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
 ```
 
 To make a group dynamic:
 
-```
+```powershell
 ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
 ```
 

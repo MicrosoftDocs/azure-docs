@@ -27,7 +27,7 @@ This article will demonstrate individual enrollments.
 
 ## Prepare the environment 
 
-1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
+1. Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) installed on your machine.
 
 2. Download and install [Maven](https://maven.apache.org/install.html).
 
@@ -81,15 +81,15 @@ You will use sample code from the [Azure IoT SDK for Java](https://github.com/Az
 6. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
 7. Under the **Add Enrollment** panel, enter the following information:
-    - Select **X.509** as the identity attestation *Mechanism*.
-    - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **X509individual.pem** created in the previous steps.  
-    - Optionally, you may provide the following information:
-      - Select an IoT hub linked with your provisioning service.
-      - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
-      - Update the **Initial device twin state** with the desired initial configuration for the device.
-   - Once complete, click the **Save** button. 
+   - Select **X.509** as the identity attestation *Mechanism*.
+   - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **X509individual.pem** created in the previous steps.  
+   - Optionally, you may provide the following information:
+     - Select an IoT hub linked with your provisioning service.
+     - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
+     - Update the **Initial device twin state** with the desired initial configuration for the device.
+     - Once complete, click the **Save** button. 
 
-    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+     [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Upon successful enrollment, your X.509 device appears as **microsoftriotcore** under the *Registration ID* column in the *Individual Enrollments* tab. 
 

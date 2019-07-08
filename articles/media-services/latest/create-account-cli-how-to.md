@@ -1,5 +1,5 @@
 ---
-title:  Create an Azure Media Services account with the Azure CLI | Microsoft Docs
+title: Create a Media Services account with the Azure CLI - Azure | Microsoft Docs
 description: Follow the steps of this quickstart to create an Azure Media Services account.
 services: media-services
 documentationcenter: ''
@@ -11,31 +11,32 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 10/15/2018
+ms.date: 05/19/2019
 ms.author: juliako
+ms.custom: seodec18
+
 ---
 
 # Create an Azure Media Services account
 
-To start encrypting, encoding, analyzing, managing, and streaming media content in Azure, you need to create a Media Services account. At the time, you create a Media Services account, you also create an associated storage account (or use an existing one) in the same geographic region as the Media Services account.
+To start encrypting, encoding, analyzing, managing, and streaming media content in Azure, you need to create a Media Services account. The Media Services account needs to be associated with one or more storage accounts.
+
+> [!NOTE]
+> The Media Services account and all associated storage accounts must be in the same Azure subscription. It is strongly recommended to use storage accounts in the same location as the Media Services account to avoid additional latency and data egress costs.
 
 This article describes steps for creating a new Azure Media Services account using the Azure CLI.  
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-## Sign in to Azure
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-Sign in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** to execute CLI commands, as shown in the next steps.
-
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## Set the Azure subscription
 
 In the following command, provide the Azure subscription ID that you want to use for the Media Services account. You can see a list of subscriptions that you have access to by navigating to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-```azurecli-interactive
+```azurecli
 az account set --subscription mySubscriptionId
 ```
  
@@ -43,5 +44,11 @@ az account set --subscription mySubscriptionId
  
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Stream a file](stream-files-dotnet-quickstart.md)
+* [Access v3 APIs](access-api-cli-how-to.md)
+* [Stream a file](stream-files-dotnet-quickstart.md)
+* [Attach a secondary storage to a Media Services account](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
+
+## See also
+
+[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+

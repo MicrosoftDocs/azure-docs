@@ -1,10 +1,10 @@
-﻿---
+---
 title: Secure an Azure Service Fabric cluster on Windows by using certificates | Microsoft Docs
 description: Secure communication within an Azure Service Fabric standalone or on-premises cluster, as well as between clients and the cluster.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
@@ -171,7 +171,7 @@ Here is an example cluster configuration where the cluster, server, and client c
         "storeType": "FileShare",
         "IsEncrypted": "false",
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
-        }
+        },
         "security": {
             "metadata": "The Credential type X509 indicates this cluster is secured by using X509 certificates. The thumbprint format is d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
             "ClusterCredentialType": "X509",
@@ -253,7 +253,7 @@ If you are using issuer stores, then no config upgrade needs to be performed for
 ## Acquire the X.509 certificates
 To secure communication within the cluster, you first need to obtain X.509 certificates for your cluster nodes. Additionally, to limit connection to this cluster to authorized machines/users, you need to obtain and install certificates for the client machines.
 
-For clusters that are running production workloads, use a [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-signed X.509 certificate to secure the cluster. For more information on how to obtain these certificates, see [How to obtain a certificate](http://msdn.microsoft.com/library/aa702761.aspx).
+For clusters that are running production workloads, use a [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-signed X.509 certificate to secure the cluster. For more information on how to obtain these certificates, see [How to obtain a certificate](https://msdn.microsoft.com/library/aa702761.aspx).
 
 For clusters that you use for test purposes, you can choose to use a self-signed certificate.
 

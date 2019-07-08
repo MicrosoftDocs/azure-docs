@@ -4,13 +4,13 @@ titlesuffix: Azure Cognitive Services
 description: Script sample to get started using the Project URL Preview with Java.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 # Quickstart: URL Preview with Java
 
@@ -22,9 +22,9 @@ Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/an
 
 ## Request 
 
-The following code creates a `WebRequest`, sets the access key header, and adds a query string for "https://swiftkey.com/en".  It then sends the request and assigns the response to a string to contain the JSON text.
+The following code creates a `WebRequest`, sets the access key header, and adds a query string for "https:\//swiftkey.com/en".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-````
+```
     // construct URL of search request (endpoint + query string)
 
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -42,7 +42,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 	// construct result object for return
 	SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## Complete code
 
@@ -53,7 +53,7 @@ The Bing Answer Search API returns results from the Bing search engine.
 4. Replace the subscriptionKey value with an access key valid for your subscription.
 5. Run the program.
 
-````
+```
 package UrlPreviewpkg;
 
 import java.net.*;
@@ -160,7 +160,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## Next steps
 - [C# quickstart](csharp.md)

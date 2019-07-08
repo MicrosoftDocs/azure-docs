@@ -4,18 +4,19 @@ description: This document details post configuration tasks needed to complete t
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/10/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Post configuration tasks for Hybrid Azure AD join
@@ -74,7 +75,7 @@ To register Windows down-level devices, you need to make sure that the Azure AD 
 Add the Azure AD device authentication endpoint to the local Intranet zones on your Windows down-level devices to avoid certificate prompts when authenticating the devices:
 https://device.login.microsoftonline.com 
 
-If you are using [Seamless SSO](https://aka.ms/hybrid/sso), also enable “Allow status bar updates via script” on that zone and add the following endpoint:
+If you are using [Seamless SSO](how-to-connect-sso.md), also enable “Allow status bar updates via script” on that zone and add the following endpoint:
 https://autologon.microsoftazuread-sso.com 
 
 ## 9. Install Microsoft Workplace Join on Windows down-level devices

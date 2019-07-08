@@ -1,6 +1,6 @@
 ---
-title: Create Apache Kafka enabled Azure Event Hubs | Microsoft Docs
-description: Create a Kafka enabled Azure Event Hubs namespace using the Azure portal
+title: Create Apache Kafka enabled event hub - Azure Event Hubs | Microsoft Docs
+description: This article provides a walkthrough for creating an Apache Kafka enabled Azure Event Hubs namespace by using the Azure portal.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
@@ -9,7 +9,8 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
 
 ---
@@ -36,7 +37,7 @@ If you do not have an Azure subscription, create a [free account](https://azure.
  
 3. Provide a unique name and enable Kafka on the namespace. Click **Create**.
     
-    ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Once the namespace is created, on the **Settings** tab click **Shared access policies** to get the connection string.
 

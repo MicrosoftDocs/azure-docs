@@ -20,6 +20,7 @@ ms.author: tomfitz
 
 This article describes how to resolve the **SkuNotAvailable** error. If you're unable to find a suitable SKU in that region or an alternative region that meets your business needs, submit a [SKU request](https://aka.ms/skurestriction) to Azure Support.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Symptom
 
@@ -37,10 +38,10 @@ You receive this error when the resource SKU you've selected (such as VM size) i
 
 ## Solution 1 - PowerShell
 
-To determine which SKUs are available in a region, use the [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) command. Filter the results by location. You must have the latest version of PowerShell for this command.
+To determine which SKUs are available in a region, use the [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) command. Filter the results by location. You must have the latest version of PowerShell for this command.
 
 ```azurepowershell-interactive
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
+Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
 The results include a list of SKUs for the location and any restrictions for that SKU. Notice that a SKU might be listed as `NotAvailableForSubscription`.

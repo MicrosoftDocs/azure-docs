@@ -31,7 +31,7 @@ When an Azure API client gets a throttling error, the HTTP status is 429 Too Man
 | Header                            | Value format                           | Example                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Remaining API call count for the throttling policy covering the resource bucket or operation group including the target of this request                                                                   |
-| x-ms-request-charge               | ```<count>   ```                             | 1                                     | The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts. |
+| x-ms-request-charge               | ```<count>```                             | 1                                     | The number of call counts “charged” for this HTTP request toward the applicable policy’s limit. This is most typically 1. Batch requests, such as for scaling a virtual machine scale set, can charge multiple counts. |
 
 
 Note that an API request can be subjected to multiple throttling policies. There will be a separate `x-ms-ratelimit-remaining-resource` header for each policy. 
@@ -72,6 +72,18 @@ Content-Type: application/json; charset=utf-8
 The policy with remaining call count of 0 is the one due to which the throttling error is returned. In this case that is `HighCostGet30Min`. The overall format of the response body is the general Azure Resource Manager API error format (conformant with OData). The main error code, `OperationNotAllowed`, is the one Compute Resource Provider uses to report throttling errors (among other types of client errors). The `message` property of the inner error(s) contains a serialized JSON structure with the details of the throttling violation.
 
 As illustrated above, every throttling error includes the `Retry-After` header, which provides the minimum number of seconds the client should wait before retrying the request. 
+
+## API call rate and throttling error analyzer
+A preview version of a troubleshooting feature is available for the Compute resource provider’s API. These PowerShell cmdlets provide statistics about API request rate per time interval per operation and throttling violations per operation group (policy):
+-	[Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-	[Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
+
+The API call stats can provide great insight into the behavior of a subscription’s client(s) and enable easy identification of call patterns that cause throttling.
+
+A limitation of the analyzer for the time being is that it does not count requests for disk and snapshot resource types (in support of managed disks). Since it gathers data from CRP’s telemetry, it also cannot help in identifying throttling errors from ARM. But those can be identified easily based on the distinctive ARM response headers, as discussed earlier.
+
+The PowerShell cmdlets are using a REST service API, which can be easily called directly by clients (though with no formal support yet). To see the HTTP request format, run the cmdlets with -Debug switch or snoop on their execution with Fiddler.
+
 
 ## Best practices 
 

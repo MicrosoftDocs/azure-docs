@@ -4,7 +4,7 @@ description: This article walks through the experience of deploying a Service Fa
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
@@ -30,10 +30,7 @@ The most frequently used and recommended upgrade approach is the monitored rolli
 
 A monitored application upgrade can be performed using the managed or native APIs, PowerShell, Azure CLI, Java, or REST. For instructions on performing an upgrade using Visual Studio, see [Upgrading your application using Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
-With Service Fabric monitored rolling upgrades, the application administrator can configure the health evaluation policy that Service Fabric uses to determine if the application is healthy. In addition, the administrator can configure the action to be taken when the health evaluation fails (for example, doing an automatic rollback.) This section walks through a monitored upgrade for one of the SDK samples that uses PowerShell. The following Microsoft Virtual Academy video also walks you through an app upgrade:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
-<img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
+With Service Fabric monitored rolling upgrades, the application administrator can configure the health evaluation policy that Service Fabric uses to determine if the application is healthy. In addition, the administrator can configure the action to be taken when the health evaluation fails (for example, doing an automatic rollback.) This section walks through a monitored upgrade for one of the SDK samples that uses PowerShell. 
 
 ## Step 1: Build and deploy the Visual Objects sample
 Build and publish the application by right-clicking on the application project, **VisualObjectsApplication,** and selecting the **Publish** command.  For more information, see [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md).  Alternatively, you can use PowerShell to deploy your application.
@@ -58,7 +55,7 @@ You can use the Visual Studio *Edit Manifest Files* option after you right-click
 After the changes are made, the manifest should look like the following (highlighted portions show the changes):
 
 ```xml
-<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
 
 <CodePackageName="Code" Version="2.0">
 ```
@@ -66,7 +63,7 @@ After the changes are made, the manifest should look like the following (highlig
 Now the *ApplicationManifest.xml* file (found under the **VisualObjects** project under the **VisualObjects** solution) is updated to version 2.0 of the **VisualObjects.ActorService** project. In addition, the Application version is updated to 2.0.0.0 from 1.0.0.0. The *ApplicationManifest.xml* should look like the following snippet:
 
 ```xml
-<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifestxmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
@@ -76,13 +73,13 @@ Now, build the project by selecting just the **ActorService** project, and then 
 ## Step 3:  Decide on health policies and upgrade parameters
 Familiarize yourself with the [application upgrade parameters](service-fabric-application-upgrade-parameters.md) and the [upgrade process](service-fabric-application-upgrade.md) to get a good understanding of the various upgrade parameters, time-outs, and health criterion applied. For this walkthrough, the service health evaluation criterion is set to the default (and recommended) values, which means that all services and instances should be *healthy* after the upgrade.  
 
-However, let's increase the *HealthCheckStableDuration* to 60 seconds (so that the services are healthy for at least 20 seconds before the upgrade proceeds to the next update domain).  Let's also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds.
+However, let's increase the *HealthCheckStableDuration* to 180 seconds (so that the services are healthy for at least 120 seconds before the upgrade proceeds to the next update domain).  Let's also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds.
 
 Finally, let's also set the *UpgradeFailureAction* to rollback. This option requires Service Fabric to roll back the application to the previous version if it encounters any issues during the upgrade. Thus, when starting the upgrade (in Step 4), the following parameters are specified:
 
 FailureAction = Rollback
 
-HealthCheckStableDurationSec = 60
+HealthCheckStableDurationSec = 180
 
 UpgradeDomainTimeoutSec = 1200
 

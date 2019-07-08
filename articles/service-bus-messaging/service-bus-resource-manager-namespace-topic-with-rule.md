@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/11/2018
+ms.date: 01/23/2019
 ms.author: spelluru
 
 ---
@@ -157,6 +157,8 @@ Creates a standard Service Bus namespace of type **Messaging**, with topic and s
     }]
 ```
 
+For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces), [topics](/azure/templates/microsoft.servicebus/namespaces/topics), [subscriptions](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions), and [rules](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions/rules).
+
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
@@ -173,7 +175,10 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## Next steps
-Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
+See the following topic that shows how to create a subscription filter: 
+[Create a Service Bus namespace with topic, subscription, and rule using an Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md)
+
+Learn how to manage these resources by viewing these articles:
 
 * [Manage Azure Service Bus](service-bus-management-libraries.md)
 * [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)

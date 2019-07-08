@@ -3,19 +3,20 @@ title: How to configure self-service application assignment | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: barbkess
+ms.author: mimart
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to configure self-service application assignment
@@ -54,7 +55,7 @@ To enable self-service application access to an application, follow the steps be
 
 5.  click **All Applications** to view a list of all your applications.
 
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
+    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
 6.  Select the application you want to enable Self-service access to from the list.
 
@@ -64,8 +65,8 @@ To enable self-service application access to an application, follow the steps be
 
 9.  Next, to select the group to which users who request access to this application should be added, click the selector next to the label **To which group should assigned users be added?** and select a group.
   
-  > [!NOTE]
-  > Groups synchronized from on-premises are not supported to be used for the group to which users who request access to this application should be added.
+    > [!NOTE]
+    > Groups synchronized from on-premises are not supported to be used for the group to which users who request access to this application should be added.
   
 10. **Optional:** If you wish to require a business approval before users are allowed access, set the **Require approval before granting access to this application?** toggle to **Yes**.
 
@@ -73,10 +74,10 @@ To enable self-service application access to an application, follow the steps be
 
 12. **Optional:** To specify the business approvers who are allowed to approve access to this application, click the selector next to the label **Who is allowed to approve access to this application?** to select up to 10 individual business approvers.
 
-   >[!NOTE]
-   >Groups are not supported.
-   >
-   >
+     > [!NOTE]
+     > Groups are not supported.
+     >
+     >
 
 13. **Optional:** **For applications which expose roles**, if you wish to assign self-service approved users to a role, click the selector next to the **To which role should users be assigned in this application?** to select the role to which these users should be assigned.
 

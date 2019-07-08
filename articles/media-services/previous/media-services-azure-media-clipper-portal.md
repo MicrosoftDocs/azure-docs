@@ -7,9 +7,9 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 03/14/2019
 ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
+# Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
 # product-name-from-white-list
 
@@ -22,7 +22,8 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Create clips with Azure Media Clipper in the portal
+# Create clips with Azure Media Clipper in the portal  
+
 You can use Azure Media Clipper in the portal to create clips from assets in your media services accounts. To get started, navigate to your media services account in the portal. Next, select the **Subclip** tab.
 
 On the **Subclip** tab, you're able to begin composing clips. In the portal, the Clipper loads single-bitrate MP4s, multi-bitrate MP4s, and live archives that are published with a valid streaming locator. Unpublished assets are not loaded.

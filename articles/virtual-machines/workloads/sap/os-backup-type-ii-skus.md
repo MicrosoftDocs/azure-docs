@@ -60,7 +60,7 @@ The following command shows the restore of a file */etc/fstabfrom* the backup fi
 >[!NOTE] 
 >You need to copy the file to desired location after it is restored from the backup.
 
-The following screen shot shows the restore of a complete backup:
+The following screenshot shows the restore of a complete backup:
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
@@ -92,5 +92,5 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-The following screen shot shows the restore of a complete backup:
+The following screenshot shows the restore of a complete backup:
 ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

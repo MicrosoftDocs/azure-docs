@@ -3,10 +3,10 @@ title: My first Python runbook in Azure Automation
 description: Tutorial that walks you through the creation, testing, and publishing of a simple Python runbook.
 services: automation
 ms.service: automation
-ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 09/11/2018
+ms.subservice: process-automation
+author: bobbytreed
+ms.author: robreed
+ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -19,6 +19,9 @@ manager: carmonm
 > - [Python](automation-first-runbook-textual-python2.md)
 
 This tutorial walks you through the creation of a [Python runbook](automation-runbook-types.md#python-runbooks) in Azure Automation. You start with a simple runbook that you test and publish. Then you modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine. Lastly, you make the runbook more robust by adding runbook parameters.
+
+> [!NOTE]
+> Using a webhook to start a Python runbook is not supported.
 
 ## Prerequisites
 
@@ -72,16 +75,16 @@ In this case, you don't have a published version yet because you just created th
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.
 1. If you scroll left to view the runbook in the **Runbooks** pane now, it shows an **Authoring Status** of **Published**.
 1. Scroll back to the right to view the pane for **MyFirstRunbook-Python**.
-   The options across the top allow us to start the runbook, view the runbook, schedule it to start at some time in the future, or create a [webhook](automation-webhooks.md) so it can be started through an HTTP call.
-1. You want to start the runbook, so click **Start** and then click **Ok** when the Start Runbook blade opens.
-1. A job pane is opened for the runbook job that you created. You can close this pane, but in this case you leave it open so you can watch the job's progress.
+   The options across the top allow us to start the runbook, view the runbook, or schedule it to start at some time in the future.
+2. You want to start the runbook, so click **Start** and then click **Ok** when the Start Runbook blade opens.
+3. A job pane is opened for the runbook job that you created. You can close this pane, but in this case you leave it open so you can watch the job's progress.
 1. The job status is shown in **Job Summary** and matches the statuses that you saw when you tested the runbook.
-1. Once the runbook status shows *Completed*, click **Output**. The Output pane is opened, and you can see your *Hello World*.
-1. Close the Output pane.
-1. Click **All Logs** to open the Streams pane for the runbook job. You should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
-1. Close the Streams pane and the Job pane to return to the MyFirstRunbook-Python pane.
-1. Click **Jobs** to open the Jobs pane for this runbook. This lists all of the jobs created by this runbook. You should only see one job listed since you only ran the job once.
-1. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
+2. Once the runbook status shows *Completed*, click **Output**. The Output pane is opened, and you can see your *Hello World*.
+3. Close the Output pane.
+4. Click **All Logs** to open the Streams pane for the runbook job. You should only see *Hello World* in the output stream, but this can show other streams for a runbook job such as Verbose and Error if the runbook writes to them.
+5. Close the Streams pane and the Job pane to return to the MyFirstRunbook-Python pane.
+6. Click **Jobs** to open the Jobs pane for this runbook. This lists all of the jobs created by this runbook. You should only see one job listed since you only ran the job once.
+7. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
 ## Add authentication to manage Azure resources
 
@@ -146,13 +149,14 @@ Use the Compute client to start the VM. Add the following code to the runbook:
 ```python
 # Initialize the compute management client with the RunAs credential and specify the subscription to work against.
 compute_client = ComputeManagementClient(
-azure_credential,
-  str(runas_connection["SubscriptionId"])
+    azure_credential,
+    str(runas_connection["SubscriptionId"])
 )
 
 
 print('\nStart VM')
-async_vm_start = compute_client.virtual_machines.start("MyResourceGroup", "TestVM")
+async_vm_start = compute_client.virtual_machines.start(
+    "MyResourceGroup", "TestVM")
 async_vm_start.wait()
 ```
 
@@ -181,7 +185,8 @@ Notice that the element of the argument list, `sys.argv[0]`, is the name of the 
 Now you can modify the last two lines of the runbook to use the input parameter values instead of using hard-coded values:
 
 ```python
-async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_name)
+async_vm_start = compute_client.virtual_machines.start(
+    resource_group_name, vm_name)
 async_vm_start.wait()
 ```
 

@@ -1,28 +1,32 @@
 ---
-title: Configure Azure MFA Server for high availability | Microsoft Docs
+title: Configure Azure MFA Server for high availability - Azure Active Directory
 description: Deploy multiple instances of Azure Multi-Factor Authentication Server in configurations that provide high availability.
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Configure Azure Multi-Factor Authentication Server for high availability
 
 To achieve high-availability with your Azure Server MFA deployment, you need to deploy multiple MFA servers. This section provides information on a load-balanced design to achieve your high availability targets in you Azure MFS Server deployment.
 
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+
 ## MFA Server overview
 
 The Azure MFA Server service architecture comprises several components as shown in the following diagram:
 
- ![MFA Server Architecture](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![MFA Server Architecture components](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 An MFA Server is a Windows Server that has the Azure Multi-Factor Authentication software installed. The MFA Server instance must be activated by the MFA Service in Azure to function. More than one MFA Server can be installed on-premises.
 
@@ -32,7 +36,7 @@ Both MFA master and subordinate MFA Servers communicate with the MFA Service whe
 
 After successful authentication with AD, the MFA Server will communicate with the MFA Service. The MFA Server waits for notification from the MFA Service to allow or deny the user access to the application.
 
-If the MFA master server goes offline, authentications can still be processed, but operations that require changes to the MFA database cannot be processed. (Examples include: the addition of users, self-service PIN changes, and changing user information)
+If the MFA master server goes offline, authentications can still be processed, but operations that require changes to the MFA database cannot be processed. (Examples include: the addition of users, self-service PIN changes, changing user information, or access to the user portal)
 
 ## Deployment
 

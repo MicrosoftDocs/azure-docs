@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 11/08/2018
 ms.author: alkohli
 
 ---
@@ -59,17 +59,17 @@ The following examples illustrate how you can size a virtual array based on your
 #### Example 1:
 On your virtual array, you want to be able to
 
-* provision a 2 TB tiered volume or share.
-* provision a 1 TB tiered volume or share.
-* provision a 300 GB of locally pinned volume or share.
+* provision a 2-TB tiered volume or share.
+* provision a 1-TB tiered volume or share.
+* provision a 300-GB of locally pinned volume or share.
 
 For the preceding volumes or shares, let us calculate the space requirements on the local tier.
 
 First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation is 10 % of the locally pinned volume/share size (in addition to the provisioned size). In this example, you need
 
-* 240 GB local reservation (for a 2 TB tiered volume/share)
-* 120 GB local reservation (for a 1 TB tiered volume/share)
-* 330 GB for locally pinned volume or share (adding 10 % of local reservation to the 300 GB provisioned size)
+* 240-GB local reservation (for a 2-TB tiered volume/share)
+* 120-GB local reservation (for a 1-TB tiered volume/share)
+* 330-GB for locally pinned volume or share (adding 10 % of local reservation to the 300 GB provisioned size)
 
 The total space required on the local tier so far is: 240 GB + 120 GB + 330 GB = 690 GB.
 
@@ -87,13 +87,13 @@ Factoring in unexpected growth and new restores, you should provision a local di
 #### Example 2:
 On your virtual array, you want to be able to
 
-* provision a 2 TB tiered volume
-* provision a 300 GB locally pinned volume
+* provision a 2-TB tiered volume
+* provision a 300-GB locally pinned volume
 
 Based on 12 % of local space reservation for tiered volumes/shares and 10 % for locally pinned volumes/shares, we need
 
-* 240 GB local reservation (for 2 TB tiered volume/share)
-* 330 GB for locally pinned volume or share (adding 10% of local reservation to the 300 GB provisioned space)
+* 240-GB local reservation (for 2 TB tiered volume/share)
+* 330-GB for locally pinned volume or share (adding 10% of local reservation to the 300 GB provisioned space)
 
 Total space required on the local tier is: 240 GB + 330 GB = 570 GB
 
@@ -118,7 +118,7 @@ The network configuration for your virtual array is done through the local web U
 
 When deploying your virtual array, we recommend that you follow these best practices:
 
-* Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5 Mbps Internet bandwidth (or more).
+* Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5-Mbps Internet bandwidth (or more).
   
   * Internet bandwidth need varies depending on your workload characteristics and the rate of data change.
   * The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours. With four times more bandwidth (20 Mbps), you can handle four times more data change (72 GB).
@@ -164,7 +164,7 @@ StorSimple supports two volume/share types based on the usage: locally pinned an
 We recommend that you implement the following best practices when configuring StorSimple volumes/shares:
 
 * Identify the volume type based on the workloads that you intend to deploy before you create a volume. Use locally pinned volumes for workloads that require local guarantees of data (even during a cloud outage) and that require low cloud latencies. Once you create a volume on your virtual array, you cannot change the volume type from locally pinned to tiered or *vice-versa*. As an example, create locally pinned volumes when deploying SQL workloads or workloads hosting virtual machines (VMs); use tiered volumes for file share workloads.
-* Check the option for less frequently used archival data when dealing with large file sizes. A larger deduplication chunk size of 512 K is used when this option is enabled to expedite the data transfer to the cloud.
+
 
 #### Volume format
 After you create StorSimple volumes on your iSCSI server, you need to initialize, mount, and format the volumes. This operation is performed on the host connected to your StorSimple device. Following best practices are recommended when mounting and formatting volumes on the StorSimple host.
@@ -245,7 +245,7 @@ Keep the following best practices in mind when deactivating your virtual array:
 ### Monitoring
 To ensure that your StorSimple Virtual Array is in a continuous healthy state, you need to monitor the array and ensure that you receive information from the system including alerts. To monitor the overall health of the virtual array, implement the following best practices:
 
-* Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.
+* Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager to monitor your virtualization hosts.
 * Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                                                                                                                
 
 ### Index search and virus scan applications

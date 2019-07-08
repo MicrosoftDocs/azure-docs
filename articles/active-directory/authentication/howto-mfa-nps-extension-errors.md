@@ -1,23 +1,23 @@
 ---
-title: Troubleshoot error codes for the Azure MFA NPS extension | Microsoft Docs
+title: Troubleshoot error codes for the Azure MFA NPS extension - Azure Active Directory
 description: Get help resolving issues with the NPS extension for Azure Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/13/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
-
 # Resolve error messages from the NPS extension for Azure Multi-Factor Authentication
 
-If you encounter errors with the NPS extension for Azure Multi-Factor Authentication, use this article to reach a resolution faster. 
+If you encounter errors with the NPS extension for Azure Multi-Factor Authentication, use this article to reach a resolution faster. NPS extension logs are found in Event Viewer under **Custom Views** > **Server Roles** > **Network Policy and Access Services** on the server where the NPS Extension is installed.
 
 ## Troubleshooting steps for common errors
 
@@ -28,13 +28,11 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 | **ESTS_TOKEN_ERROR** | Follow the instructions in [Troubleshooting the MFA NPS extension](howto-mfa-nps-extension.md#troubleshooting) to investigate client cert and ADAL token problems. |
 | **HTTPS_COMMUNICATION_ERROR** | The NPS server is unable to receive responses from Azure MFA. Verify that your firewalls are open bidirectionally for traffic to and from https://adnotifications.windowsazure.com |
 | **HTTP_CONNECT_ERROR** | On the server that runs the NPS extension, verify that you can reach  https://adnotifications.windowsazure.com and https://login.microsoftonline.com/. If those sites don't load, troubleshoot connectivity on that server. |
+| **NPS Extension for Azure MFA:** <br> NPS Extension for Azure MFA only performs Secondary Auth for Radius requests in AccessAccept State. Request received for User username with response state AccessReject, ignoring request. | This error usually reflects an authentication failure in AD or that the NPS server is unable to receive responses from Azure AD. Verify that your firewalls are open bidirectionally for traffic to and from https://adnotifications.windowsazure.com and https://login.microsoftonline.com using ports 80 and 443. It is also important to check that on the DIAL-IN tab of Network Access Permissions, the setting is set to "control access through NPS Network Policy". This error can also trigger if the user is not assigned a license. |
 | **REGISTRY_CONFIG_ERROR** | A key is missing in the registry for the application, which may be because the [PowerShell script](howto-mfa-nps-extension.md#install-the-nps-extension) wasn't run after installation. The error message should include the missing key. Make sure you have the key under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa. |
 | **REQUEST_FORMAT_ERROR** <br> Radius Request missing mandatory Radius userName\Identifier attribute.Verify that NPS is receiving RADIUS requests | This error usually reflects an installation issue. The NPS extension must be installed in NPS servers that can receive RADIUS requests. NPS servers that are installed as dependencies for services like RDG and RRAS don't receive radius requests. NPS Extension does not work when installed over such installations and errors out since it cannot read the details from the authentication request. |
 | **REQUEST_MISSING_CODE** | Make sure that the password encryption protocol between the NPS and NAS servers supports the secondary authentication method that you're using. **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, and mobile app verification code. **CHAPV2** and **EAP** support phone call and mobile app notification. |
 | **USERNAME_CANONICALIZATION_ERROR** | Verify that the user is present in your on-premises Active Directory instance, and that the NPS Service has permissions to access the directory. If you are using cross-forest trusts, [contact support](#contact-microsoft-support) for further help. |
-
-
-   
 
 ### Alternate login ID errors
 
@@ -43,7 +41,6 @@ If you encounter errors with the NPS extension for Azure Multi-Factor Authentica
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: userObjectSid lookup failed | Verify that the user exists in your on-premises Active Directory instance. If you are using cross-forest trusts, [contact support](#contact-microsoft-support) for further help. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: Alternate LoginId lookup failed | Verify that LDAP_ALTERNATE_LOGINID_ATTRIBUTE is set to a [valid active directory attribute](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> If LDAP_FORCE_GLOBAL_CATALOG is set to True, or LDAP_LOOKUP_FORESTS is configured with a non-empty value, verify that you have configured a Global Catalog and that the AlternateLoginId attribute is added to it. <br><br> If LDAP_LOOKUP_FORESTS is configured with a non-empty value, verify that the value is correct. If there is more than one forest name, the names must be separated with semi-colons, not spaces. <br><br> If these steps don't fix the problem, [contact support](#contact-microsoft-support) for more help. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Error: Alternate LoginId value is empty | Verify that the AlternateLoginId attribute is configured for the user. |
-
 
 ## Errors your users may encounter
 
@@ -68,7 +65,7 @@ Sometimes, your users may get messages from Multi-Factor Authentication because 
 
 | Error code | Error message | Recommended steps | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect | Not an error,User has entered wrong code. | The user entered the wrong code. Have them try again by requesting a new code or signing in again. | 
+| **OathCodeIncorrect** | Wrong code entered\OATH Code Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Maximum allowed code retry reached | The user failed the verification challenge too many times. Depending on your settings, they may need to be unblocked by an admin now.  |
 | **SMSAuthFailedWrongCodeEntered** | Wrong code entered/Text Message OTP Incorrect | The user entered the wrong code. Have them try again by requesting a new code or signing in again. |
 
@@ -94,7 +91,7 @@ If you encounter one of these errors, we recommend that you [contact support](#c
 
 ### Troubleshoot user accounts
 
-If your users are [Having trouble with two-step verification](../user-help/multi-factor-authentication-end-user-troubleshoot.md), help them self-diagnose problems. 
+If your users are [Having trouble with two-step verification](../user-help/multi-factor-authentication-end-user-troubleshoot.md), help them self-diagnose problems.
 
 ### Contact Microsoft support
 
@@ -128,5 +125,3 @@ To collect debug logs for support diagnostics, use the following steps on the NP
 
 5. Open Registry Editor and browse to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa set **VERBOSE_LOG** to **FALSE**
 6. Zip the contents of the C:\NPS folder and attach the zipped file to the support case.
-
-

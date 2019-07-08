@@ -1,16 +1,15 @@
 ---
 title: What's new in Power BI Workspace Collections
 description: Get the latest info on what's new in Power BI Workspace Collections
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # What's new in Power BI Workspace Collections
 
 Updates to **Power BI Workspace Collections** are released on a regular basis. However, not every release includes new user-facing features; some releases are focused on back-end service capabilities. We highlight new user-facing capabilities here.
@@ -66,5 +65,5 @@ Included in this release:
 * Updated sample application for all **v1.0** API calls.
 * Power BI Workspace Collections support for Azure SDK, PowerShell, and CLI.
 * Users can export visualization data to a **.csv**.
-* Power BI Workspace Collections are now supported in all the same languages/locales as Microsoft Azure. To learn more, see  [Azure - Languages](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+* Power BI Workspace Collections are now supported in all the same languages/locales as Microsoft Azure. To learn more, see  [Azure - Languages](https://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 

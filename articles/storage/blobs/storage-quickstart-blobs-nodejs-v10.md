@@ -1,22 +1,24 @@
 ---
-title: Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript (preview)
+title: Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript
 description: Create, upload, and delete blobs and containers in Node.js with Azure Storage
 services: storage
-author: tamram
-ms.custom: mvc
+author: mhopkins-msft
+
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 09/19/2018
-ms.author: tamram
+ms.date: 11/14/2018
+ms.author: mhopkins
+ms.reviewer: seguler
 ---
 
-# Quickstart: Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript (preview)
+# Quickstart: Upload, download, list, and delete blobs using Azure Storage v10 SDK for JavaScript
 
-In this quickstart, you learn to use the [Azure Storage v10 SDK for JavaScript](https://github.com/Azure/azure-storage-js) in Node.js to upload, download, list, and delete blobs and manage containers.
+In this quickstart, you learn to use the [Azure Storage v10 SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js) in Node.js to upload, download, list, and delete blobs and manage containers.
 
-To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## Prerequisites
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## Download the sample application
 
@@ -93,7 +95,7 @@ Credentials are read from environment variables based on the appropriate context
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 
@@ -344,3 +346,4 @@ This quickstart demonstrates how to manage blobs and containers in Azure Blob st
 
 > [!div class="nextstepaction"]
 > [Azure Storage v10 SDK for JavaScript repository](https://github.com/Azure/azure-storage-js)
+> [JavaScript API Reference](https://docs.microsoft.com/javascript/api/overview/azure/storage/client?view=azure-node-preview)

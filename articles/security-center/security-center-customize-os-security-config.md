@@ -4,7 +4,7 @@ description: This article demonstrates how to customize security center assessme
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 18/30/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
 
 ---
@@ -22,6 +22,9 @@ ms.author: rkarlin
 
 This walkthrough demonstrates how to customize OS security configuration assessments in Azure Security Center.
 
+> [!NOTE]
+> The ability to customize OS security configurations will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_securityconfigurations).
+
 ## What are OS security configurations?
 
 Azure Security Center monitors security configurations by applying a set of [over 150 recommended rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for hardening the OS, including rules related to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, Security Center generates a security recommendation.
@@ -29,7 +32,7 @@ Azure Security Center monitors security configurations by applying a set of [ove
 By customizing the rules, organizations can control which configuration options are more appropriate for their environment. You can set a customized assessment policy and then apply it on all applicable machines in the subscription.
 
 > [!NOTE]
-> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008 R2, 2012, and 2012 R2 operating systems only.
+> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008 R2, 2012, 2012 R2, and 2016 operating systems only.
 > - The configuration applies to all VMs and computers that are connected to all workspaces under the selected subscription.
 > - OS security configuration customization is available only on the Security Center standard tier.
 >
@@ -50,14 +53,12 @@ To customize the default OS security configuration in Security Center, do the fo
 
 1.  Open the **Security Center** dashboard.
 
-2.  In the left pane, select **Security policy**.      
+2.  In the left pane, select **Pricing & settings**.
 
     ![Security Policy list](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  In the row of the subscription you want to customize, click **Edit settings**.
+4. Select the applicable subscription and select **Edit security configurations**.  
 
-4. Select **Edit security configurations**.  
-    
     ![The "Edit security configurations" window](media/security-center-customize-os-security-config/blade.png)
 
 5. Follow the steps to download, edit, and upload the modified file.
@@ -109,7 +110,7 @@ Each category has its own set of attributes. You can change the following attrib
 
     - List of allowed user groups, for example: *Administrators*, *Backup Operators*
 
--   **state**: The string can contain the options *Disabled* or *Enabled*. For this private preview release, the string is case-sensitive.
+-   **state**: The string can contain the options *Disabled* or *Enabled*. For this release, the string is case-sensitive.
 
 These are the only fields that can be configured. If you violate the file format or size, you won’t be able to save the change. You will receive an error telling you that you need to upload a valid JSON configuration file.
 
@@ -118,7 +119,7 @@ For a list of other potential errors, see [Error codes](#error-codes).
 The following three sections contain examples of the preceding rules. The *expectedValue* and *state* attributes can be changed.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -141,7 +142,7 @@ The following three sections contain examples of the preceding rules. The *expec
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -158,7 +159,7 @@ The following three sections contain examples of the preceding rules. The *expec
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -213,7 +214,7 @@ New custom rules are marked with a new custom source (!= "Microsoft"). The *rule
 Example of a new custom rule:
 
 **Registry**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -222,7 +223,7 @@ Example of a new custom rule:
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -230,7 +231,7 @@ Example of a new custom rule:
     }
 ```
 **Security policy**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -245,7 +246,7 @@ Example of a new custom rule:
    }
 ```
 **Audit policy**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -272,13 +273,13 @@ All potential errors are listed in the following table:
 
 | **Error**                                | **Description**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | The property *schemaVersion* was found invalid or empty. The value must be set to *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | The property *schemaVersion* was found invalid or empty. The value must be set to *{0}*.                                                         |
 | BaselineInvalidStringError               | The property *{0}* cannot contain *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | The baseline configuration rules list contains a rule with value *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | The CCE-ID *{0}* is not unique.                                                                                                                  |
 | BaselineRuleEmptyProperty                | The property *{0}* is missing or invalid.                                                                                                       |
 | BaselineRuleIdNotInDefault               | The rule has a source property *Microsoft* but it was not found in the Microsoft default ruleset.                                                   |
-| BaselineRuleIdNotUniqueError             | The rule Id is not unique.                                                                                                                       |
+| BaselineRuleIdNotUniqueError             | The rule identifier is not unique.                                                                                                                       |
 | BaselineRuleInvalidGuid                  | The property *{0}* was found invalid. The value is not a valid GUID.                                                                             |
 | BaselineRuleInvalidHive                  | The hive must be LocalMachine.                                                                                                                   |
 | BaselineRuleNameNotUniqueError           | The rule name is not unique.                                                                                                                 |
@@ -287,10 +288,10 @@ All potential errors are listed in the following table:
 | BaselineRuleNotInPlace                   | The rule matches a default rule with type {0} and is listed in {1} list.                                                                       |
 | BaselineRulePropertyTooLong              | The property *{0}* is too long. Max allowed length: {1}.                                                                                        |
 | BaselineRuleRegTypeInvalidError          | The expected value *{0}* doesn't match the registry value type that is defined.                                                              |
-| BaselineRulesetAdded                     | The ruleset with the ID *{0}* was not found in the default configuration. The ruleset cannot be added.                                               |
+| BaselineRulesetAdded                     | The ruleset with the identifier *{0}* was not found in the default configuration. The ruleset cannot be added.                                               |
 | BaselineRulesetIdMustBeUnique            | The given baseline ruleset *{0}* must be unique.                                                                                           |
-| BaselineRulesetNotFound                  | The ruleset with id *{0}* and name *{1}* was not found in the given configuration. The ruleset cannot be deleted.                                |
-| BaselineRuleSourceNotMatch               | The rule with ID *{0}* is already defined.                                                                                                       |
+| BaselineRulesetNotFound                  | The ruleset with identifier *{0}* and name *{1}* was not found in the given configuration. The ruleset cannot be deleted.                                |
+| BaselineRuleSourceNotMatch               | The rule with identifier *{0}* is already defined.                                                                                                       |
 | BaselineRuleTypeDoesntMatch              | The default rule type is *{0}*.                                                                                                              |
 | BaselineRuleTypeDoesntMatchError         | The actual type of the rule is *{0}*, but the *ruleType* property is *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Only *expectedValue* and *state* properties are allowed to be changed.                                                                       |

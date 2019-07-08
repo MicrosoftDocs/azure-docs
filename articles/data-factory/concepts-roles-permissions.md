@@ -1,18 +1,16 @@
 ---
 title: Roles and permissions for Azure Data Factory | Microsoft Docs
 description: Describes the roles and permissions required to create Data Factories and to work with child resources.
-author: douglaslMS
-ms.author: douglasl
-manager: craigg
-ms.date: 10/08/2018
+ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
 ---
 
 # Roles and permissions for Azure Data Factory
@@ -47,6 +45,8 @@ For more info about this role, see [Data Factory Contributor role](../role-based
 
 The **Data Factory Contributor** role, at the resource group level or above, lets users deploy Resource Manager templates. As a result, members of the role can use Resource Manager templates to deploy both data factories and their child resources, including datasets, linked services, pipelines, triggers, and integration runtimes. Membership in this role does not let the user create other resources, however.
 
+Permissions on Azure Repos and GitHub are independent of Data Factory permissions. As a result, a user with repo permissions who is only a member of the Reader role can edit Data Factory child resources and commit changes to the repo, but can't publish these changes.
+
 > [!IMPORTANT]
 > Resource Manager template deployment with the **Data Factory Contributor** role does not elevate your permissions. For example, if you deploy a template that creates an Azure virtual machine, and you don't have permission to create virtual machines, the deployment fails with an authorization error.
 
@@ -73,7 +73,7 @@ Here are a few examples that demonstrate what you can achieve with custom roles:
   This scenario requires two role assignments.
 
   1. Assign the built-in **contributor** role at the data factory level.
-  2. Create a custom role with the permission  *Microsoft.Resources/deployments/**. Assign this custom role to the user at resource group level.
+  2. Create a custom role with the permission  **Microsoft.Resources/deployments/**. Assign this custom role to the user at resource group level.
 
 - Let a user update a data factory from PowerShell or the SDK, but not in the Azure portal.
 

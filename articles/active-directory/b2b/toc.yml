@@ -16,7 +16,7 @@
   - name: Tutorials
     items:
     - name: Bulk invite B2B guest users
-      href: b2b-tutorial-bulk-invite.md
+      href: tutorial-bulk-invite.md
     - name: Enforce multi-factor authentication
       href: b2b-tutorial-require-mfa.md
   - name: Samples
@@ -42,7 +42,7 @@
       href: claims-mapping.md
     - name: B2B user token
       href: user-token.md
-    - name: Conditional access for B2B
+    - name: Conditional Access for B2B
       href: conditional-access.md
     - name: B2B for hybrid organizations
       href: hybrid-organizations.md
@@ -51,6 +51,8 @@
   - name: How-to guides
     expanded: true
     items:
+    - name: Manage B2B sharing
+      href: delegate-invitations.md
     - name: Manage invitations
       items:
       - name: Admins adding B2B users
@@ -59,8 +61,12 @@
         href: add-users-information-worker.md
       - name: Google federation
         href: google-federation.md
-      - name: B2B sharing policies
-        href: delegate-invitations.md
+      - name: One-time passcode authentication
+        href: one-time-passcode.md
+      - name: Direct federation
+        href: direct-federation.md
+      - name: Example of direct federation with AD FS
+        href: direct-federation-adfs.md
       - name: Allow or block invitations
         href: allow-deny-list.md
       - name: Add B2B users without an invitation
@@ -112,6 +118,6 @@
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory
     - name: Stack Overflow
-      href: http://stackoverflow.com/questions/tagged/azure-active-directory
+      href: https://stackoverflow.com/questions/tagged/azure-active-directory
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory

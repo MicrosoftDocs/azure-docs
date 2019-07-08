@@ -3,8 +3,8 @@ title: Diagnose an Azure virtual machine routing problem | Microsoft Docs
 description: Learn how to diagnose a virtual machine routing problem by viewing the effective routes for a virtual machine.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD    
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,9 +15,9 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
-ms.author: jdial
-
+ms.author: kumud
 ---
+
 # Diagnose a virtual machine routing problem
 
 In this article, you learn how to diagnose a routing problem by viewing the routes that are effective for a network interface in a virtual machine (VM). Azure creates several default routes for each virtual network subnet. You can override Azure's default routes by defining routes in a route table, and then associating the route table to a subnet. The combination of routes you create, Azure's default routes, and any routes propagated from your on-premises network through an Azure VPN gateway (if your virtual network is connected to your on-premises network) via the border gateway protocol (BGP), are the effective routes for all network interfaces in a subnet. If you're not familiar with virtual network, network interface, or routing concepts, see [Virtual network overview](virtual-networks-overview.md), [Network interface](virtual-network-network-interface.md), and [Routing overview](virtual-networks-udr-overview.md).
@@ -50,12 +50,14 @@ Though effective routes were viewed through the VM in the previous steps, you ca
 
 ## Diagnose using PowerShell
 
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, version 6.0.1 or later. Run `Get-Module -ListAvailable AzureRM` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Get the effective routes for a network interface with [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable). The following example gets the effective routes for a network interface named *myVMVMNic*, that is in a resource group named *myResourceGroup*:
+You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the Azure PowerShell module, version 1.0.0 or later. Run `Get-Module -ListAvailable Az` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+
+Get the effective routes for a network interface with [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). The following example gets the effective routes for a network interface named *myVMVMNic*, that is in a resource group named *myResourceGroup*:
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveRouteTable `
+Get-AzEffectiveRouteTable `
   -NetworkInterfaceName myVMVMNic `
   -ResourceGroupName myResourceGroup `
   | Format-Table
@@ -66,7 +68,7 @@ To understand the information returned in the output, see [Routing overview](vir
 If you don't know the name of a network interface, but do know the name of the VM the network interface is attached to, the following commands return the IDs of all network interfaces attached to a VM:
 
 ```azurepowershell-interactive
-$VM = Get-AzureRmVM -Name myVM `
+$VM = Get-AzVM -Name myVM `
   -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
@@ -112,7 +114,7 @@ Resolving routing problems typically consists of:
 - Ensuring that the route table that contains any custom routes you've defined is associated to the subnet the network interface is in. Learn how to [associate a route table to a subnet](manage-route-table.md#associate-a-route-table-to-a-subnet).
 - Ensuring that devices such as Azure VPN gateway or network virtual appliances you've deployed are operable. Use the [VPN diagnostics](../network-watcher/diagnose-communication-problem-between-networks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) capability of Network Watcher to determine any problems with an Azure VPN gateway.
 
-If you're still having communication problems, see [Considerations](#considerations) and [Additional diagnosis](#additional-dignosis).
+If you're still having communication problems, see [Considerations](#considerations) and Additional diagnosis.
 
 ## Considerations
 

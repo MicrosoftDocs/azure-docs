@@ -3,13 +3,14 @@ title: Overview of Azure Service Bus messaging queues, topics, and subscriptions
 description: Overview of Service Bus messaging entities.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # Service Bus queues, topics, and subscriptions
@@ -28,9 +29,9 @@ Using queues to intermediate between message producers and consumers provides an
 
 ### Create queues
 
-You create queues using the [Azure portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), or [Resource Manager templates](service-bus-resource-manager-namespace-queue.md). You then send and receive messages using a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. 
+You create queues using the [Azure portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), or [Resource Manager templates](service-bus-resource-manager-namespace-queue.md). You then send and receive messages using a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object.
 
-To quickly learn how to create a queue, then send and receive messages to and from the queue, see the [quickstarts](service-bus-quickstart-portal.md) for each method. For a more in-depth tutorial on how to use queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md). 
+To quickly learn how to create a queue, then send and receive messages to and from the queue, see the [quickstarts](service-bus-quickstart-portal.md) for each method. For a more in-depth tutorial on how to use queues, see [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 For a working sample, see the [BasicSendReceiveUsingQueueClient sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) on GitHub.
 
@@ -52,9 +53,9 @@ By way of comparison, the message-sending functionality of a queue maps directly
 
 ### Create topics and subscriptions
 
-Creating a topic is similar to creating a queue, as described in the previous section. You then send messages using the [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) class. To receive messages, you create one or more subscriptions to the topic. Similar to queues, messages are received from a subscription using a [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) object instead of a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. Create the subscription client, passing the name of the topic, the name of the subscription, and (optionally) the receive mode as parameters. 
+Creating a topic is similar to creating a queue, as described in the previous section. You then send messages using the [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) class. To receive messages, you create one or more subscriptions to the topic. Similar to queues, messages are received from a subscription using a [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) object instead of a [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) object. Create the subscription client, passing the name of the topic, the name of the subscription, and (optionally) the receive mode as parameters.
 
-For a full working example, see the [BasicSendReceiveUsingTopicSubscriptionClient sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) on Github.
+For a full working example, see the [BasicSendReceiveUsingTopicSubscriptionClient sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient) on GitHub.
 
 ### Rules and actions
 
@@ -62,7 +63,7 @@ In many scenarios, messages that have specific characteristics must be processed
 
 For a full working example, see the [TopicSubscriptionWithRuleOperationsSample sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) on GitHub.
 
-For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes. 
+For more information about possible filter values, see the documentation for the [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) and [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) classes.
 
 ## Next steps
 

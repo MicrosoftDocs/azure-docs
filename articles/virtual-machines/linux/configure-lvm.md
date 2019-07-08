@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
+ms.subservice: disks
 
 ---
 # Configure LVM on a Linux VM in Azure

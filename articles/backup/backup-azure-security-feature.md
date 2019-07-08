@@ -2,12 +2,12 @@
 title: Security features to help protect hybrid backups that use Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure
 services: backup
-author: trinadhk
+author: utraghuv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.author: trinadhk
+ms.author: utraghuv
 ---
 # Security features to help protect hybrid backups that use Azure Backup
 Concerns about security issues, like malware, ransomware, and intrusion, are increasing. These security issues can be costly, in terms of both money and data. To guard against such attacks, Azure Backup now provides security features to help protect hybrid backups. This article covers how to enable and use these features, by using an Azure Recovery Services agent and Azure Backup Server. These features include:
@@ -20,7 +20,7 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 > Security features should not be enabled if you are using infrastructure as a service (IaaS) VM backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact. Security features should be enabled only if you are using: <br/>
 >  * **Azure Backup agent**. Minimum agent version 2.0.9052. After you have enabled these features, you should upgrade to this agent version to perform critical operations. <br/>
 >  * **Azure Backup Server**. Minimum Azure Backup agent version 2.0.9052 with Azure Backup Server update 1. <br/>
->  * **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/> 
+>  * **System Center Data Protection Manager**. Minimum Azure Backup agent version 2.0.9052 with Data Protection Manager 2012 R2 UR12 or Data Protection Manager 2016 UR2. <br/>
 
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Backup retains deleted backup data for an additional 14 days, and does not delet
 
 For **Azure Recovery Services agent** users:
 
-1. If the computer where backups were happening is still available, use [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in Azure Recovery Services, to recover from all the old recovery points.
+1. If the computer where backups were happening is still available, re-protect the deleted data sources, and use the [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in Azure Recovery Services, to recover from all the old recovery points.
 2. If this computer is not available, use [Recover to an alternate machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) to use another Azure Recovery Services computer to get this data.
 
 For **Azure Backup Server** users:
@@ -76,8 +76,8 @@ Checks have been added to make sure only valid users can perform various operati
 As part of adding an extra layer of authentication for critical operations, you are prompted to enter a security PIN when you perform **Stop Protection with Delete data** and **Change Passphrase** operations.
 
 > [!NOTE]
-
-> Currently, security pin is not supported for **Stop Protection with Delete data** for DPM and MABS. 
+> 
+> Currently, security pin is not supported for **Stop Protection with Delete data** for DPM and MABS.
 
 To receive this PIN:
 
@@ -108,6 +108,6 @@ The security features mentioned in this article provide defense mechanisms again
 
 ## Next steps
 * [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features.
-* [Download the latest Azure Recovery Services agent](http://aka.ms/azurebackup_agent) to help protect Windows computers and guard your backup data against attacks.
+* [Download the latest Azure Recovery Services agent](https://aka.ms/azurebackup_agent) to help protect Windows computers and guard your backup data against attacks.
 * [Download the latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) to help protect workloads and guard your backup data against attacks.
 * [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) or [download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) to help protect workloads and guard your backup data against attacks.
