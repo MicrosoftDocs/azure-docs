@@ -33,10 +33,10 @@ In this tutorial, you learn how to:
 
 ## Connect to RStudio Server
 
-RStudio Server runs on the cluster’s edge node. Go to the following site (where *\<clustername>* in the URL is the name of the Machine Learning services cluster you created):
+RStudio Server runs on the cluster’s edge node. Go to the following site (where *CLUSTERNAME* in the URL is the name of the Machine Learning services cluster you created):
 
 ```
-https://\<clustername>.azurehdinsight.net/rstudio/
+https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
 The first time you sign in, you authenticate twice. At the first authentication prompt, provide the cluster admin username and password (the default is *admin*). At the second authentication prompt, provide the SSH username and password (the default is *sshuser*). Subsequent sign-ins require only the SSH credentials.
