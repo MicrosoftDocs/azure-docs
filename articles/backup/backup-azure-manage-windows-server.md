@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
 ---
 # Monitor and manage Recovery Services vaults
