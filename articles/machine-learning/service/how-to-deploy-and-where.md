@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 
 ms.custom: seoapril2019
 ---
@@ -328,14 +328,9 @@ The following table provides an example of creating a deployment configuration f
 The following sections demonstrate how to create the deployment configuration, and then use it to deploy the web service.
 
 ### Optional: Profile your model
-Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements. You can do profile your model using either the SDK or CLI.
+Prior to deploying your model as a service, you can profile it to determine optimal CPU and memory requirements using either the SDK or CLI.  Model profiling results are emitted as a `Run` object. The full details of [the Model Profile schema can be found in the API documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-For more information, you can check out our SDK documentation here: 
-https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
-
-Model profiling results are emitted as a Run object.
-Specifics on the Model Profile schema can be found here:
-https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+Learn more on [how to profile your model using the SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 
 ## Deploy to target
 
