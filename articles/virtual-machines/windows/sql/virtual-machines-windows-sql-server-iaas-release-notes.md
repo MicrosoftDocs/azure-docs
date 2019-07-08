@@ -21,16 +21,6 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 ## June 2019
 
-<<<<<<< HEAD
-### Documentation improvements
-
-| Documentation | Details |
-| --- | --- |
-| **Move SQL VM to  new region** | Learn how to [migrate your SQL Server VM to a new region](virtual-machines-windows-sql-move-to-new-region.md) within Azure using Azure Recovery Services. |
-| &nbsp; | &nbsp; |
-
-
-=======
 ### Service improvements
 
 | Service improvements | Details |
@@ -41,9 +31,13 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 | **BYOL images using AHUB** | BYOL images deployed from the marketplace can now switch their [license type to 'PAYG'](virtual-machines-windows-sql-ahb.md#remarks).| 
 | &nbsp; | &nbsp; |
 
+### Documentation improvements
 
+| Documentation | Details |
+| --- | --- |
+| **Move SQL VM to  new region** | Learn how to [migrate your SQL Server VM to a new region](virtual-machines-windows-sql-move-to-new-region.md) within Azure using Azure Recovery Services. |
+| &nbsp; | &nbsp; |
 
->>>>>>> 9623e6d6b0ea08ca72897e0777a4916b33118098
 ## May 2019
 
 ### Service improvements
