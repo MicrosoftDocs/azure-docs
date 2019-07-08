@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -72,7 +72,7 @@ To run the sample, do the following steps:
                 // need to change the region.
 
                 // Specify the Azure region
-                computerVision.Endpoint = "https://westus.api.cognitive.microsoft.com";
+                computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
                 Console.WriteLine("Images being analyzed ...");
                 var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);
