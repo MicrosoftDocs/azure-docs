@@ -124,6 +124,7 @@ Virtual Machine.Interaction.Power Off | Allow the VM to be powered off during mi
 
 ## Agentless migration-appliance requirements
 
+
 **Support** | **Details**
 --- | ---
 **ESXi** | The appliance VM must be deployed on an ESXi host running version 5.5 or later.
@@ -199,34 +200,40 @@ VirtualMachine.SnapshotManagement.RemoveSnapshot | Allow removal of a snapshot f
 
 ## Agent-based migration-Replication appliance requirements
 
-Requirements for the [replication appliance](migrate-replication-appliance.md) used for agent-based migration of VMware VMs and physical servers with Azure Migrate Server Migration are summarized in the table.
+The requirements for the [replication appliance](migrate-replication-appliance.md) used for agent-based migration of VMware VMs and physical servers with Azure Migrate Server Migration are summarized in the table.
 
-When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements.
+> [!NOTE]
+> When you set up the replication appliance using the OVA template provided in the Azure Migrate hub, the appliance runs Windows Server 2016 and complies with the support requirements. If you set up the replication appliance manually on a physical server, then make sure that it complies with the requirements.
+
+
 
 **Component** | **Requirement** 
 --- | ---
-**HARDWARE SETTINGS** | 
+ | **VMware settings** (VMware VM appliance)
+**PowerCLI** | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the replication appliance is running on a VMware VM.
+**NIC type** | VMXNET3 (if the appliance is a VMware VM)
+ | **Hardware settings** 
 CPU cores | 8 
 RAM | 16 GB
-Number of disks | 3, including the OS disk, process server cache disk, and retention drive for failback 
-Free disk space (process server cache) | 600 GB
+Number of disks | Three: The OS disk, process server cache disk, and retention drive.
+Free disk space (cache) | 600 GB
 Free disk space (retention disk) | 600 GB
- | 
-**SOFTWARE SETTINGS** | 
-Operating system | Windows Server 2012 R2 <br> Windows Server 2016
+**Software settings** | 
+Operating system | Windows Server 2016 or Windows Server 2012 R2
 Operating system locale | English (en-us)
-Apps | Don't install anything else on the replication appliance.
+TLS | TLS 1.2 should be enabled.
+.NET Framework | .NET Framework 4.6 or later should be installed on the machine (with strong cryptography enabled.
+MySQL | MySQL should be installed on the appliance.<br/> MySQL should be installed. You can install manually, or Site Recovery can install it during appliance deployment. 
+Other apps | You shouldn't run other apps on the replication appliance.
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Group policies | Don't enable these group policies: <br> - Prevent access to the command prompt. <br> - Prevent access to registry editing tools. <br> - Trust logic for file attachments. <br> - Turn on Script Execution. <br> [Learn more](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - No pre-existing default website <br> - No preexisting website/application listening on port 443 <br>- Enable  [anonymous authentication](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Enable [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) setting 
-| 
-**NETWORK SETTINGS** | 
+**Network settings** | 
 IP address type | Static 
 Ports | 443 (Control channel orchestration)<br>9443 (Data transport) 
 NIC type | VMXNET3 
- |
 
-### URL access
+### Replication appliance URL access
 
 The replication appliance needs access to these URLs.
 
@@ -240,18 +247,9 @@ https:\//management.azure.com | Used for replication management operations and c
 *.services.visualstudio.com | Used for telemetry purposes (It is optional)
 time.nist.gov | Used to check time synchronization between system and global time.
 time.windows.com | Used to check time synchronization between system and global time.
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF set up needs access to these URLs. They are used for access control and identity management by Azure Active Directory
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download
 
-### Required software
-
-The replication appliance needs the following sofware installed on it.
-
-
-**Software** | **Details**
---- | ---
-VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the Configuration Server is running on a VMware VM.
-MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it during appliance deployment. 
 
 #### MySQL installation options
 
@@ -260,7 +258,7 @@ MySQL can be installed on the replication appliance using one of these methods.
 **Install** | **Details**
 --- | ---
 Download and install manually | Download MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br/> When you set up the appliance MySQL will show as already installed. 
-Don't download online | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and click to donwload and install MySQL, setup will use the installer you added. 
+Don't download online | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and click to download and install MySQL, setup will use the installer you added. 
 Download from Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
 
 
@@ -295,7 +293,7 @@ management.azure.com | Create Active Directory apps for the appliance to communi
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com<br/>*.migration.windowsazure.com>br/>*.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
 
 ## Agent-based migration-port requirements

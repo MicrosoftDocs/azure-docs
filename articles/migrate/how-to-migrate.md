@@ -1,6 +1,6 @@
 ---
-title: How to assess servers for migration to Azure using Azure Migrate | Microsoft Docs
-description: Describes how to assess servers for migration to Azure using Azure Migrate
+title: Select migration tools in the Azure Migrate hub | Microsoft Docs
+description: Describes how to add migration tools in the Azure Migrate hub. 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
@@ -10,15 +10,17 @@ ms.author: raynew
 
 
 
-# Migrate servers to Azure
+# Select migration tools
 
-This article describes how to migrate servers to Azure using [Azure Migrate](migrate-overview.md).
+This article describes how to add migration tools in the [Azure Migrate](migrate-overview.md) hub. 
 
-## Before you start
+Azure Migrate provides a hub of tools for assessment and migration to Azure. It includes native tools, tools provided by other Azure services, and third-party independent software vendor (ISV) offerings.
 
-Make sure you've [created an Azure Migrate project](how-to-create-project.md).
+If you want to add a migration tool and you don't yet have an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
 
-## Select a migration tool
+
+
+## Select a  tool
 
 1. In Azure Migrate > **Overview**, click **Assess and Migrate Servers**.
 2. In **Azure Migrate - Servers**, next to **Add more migration tools**, click **Click here**.
