@@ -55,7 +55,7 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## Get IoT hub connection string
+## Get the IoT hub connection string
 
 In this article, you create a backend service that schedules a job to invoke a direct method on a device, schedules a job to update the device twin, and monitors the progress of each job. To perform these operations, your service needs the service connect and registry read permissions. There is no default shared access policy that contains only these two permissions, so you need to create one.
 
@@ -178,7 +178,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
     using System.Threading.Tasks;
     ```
 
-6. Add the following fields to the **Program** class. Replace the placeholders with the IoT Hub connection string for the hub that you created in the previous section and the name of your device.
+6. Add the following fields to the **Program** class. Replace the placeholders with the IoT Hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string) and the name of your device.
 
     ```csharp
     static JobClient jobClient;

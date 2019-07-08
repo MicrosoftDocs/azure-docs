@@ -118,7 +118,7 @@ Now you write a .NET console app that sends cloud-to-device messages to the devi
    using Microsoft.Azure.Devices;
    ```
 
-5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string you saved in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
+5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
 
    ``` csharp
    static ServiceClient serviceClient;

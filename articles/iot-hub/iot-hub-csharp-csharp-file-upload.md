@@ -93,7 +93,7 @@ In this section, you modify the device app you created in [Send cloud-to-device 
 > [!NOTE]
 > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
-## Get IoT hub connection string
+## Get the IoT hub connection string
 
 In this article you create a backend service to receive file upload notification messages from the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md). To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
 
@@ -121,7 +121,7 @@ In this section, you write a .NET console app that receives file upload notifica
     using Microsoft.Azure.Devices;
     ```
 
-5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string you copied previously in [Get IoT hub connection string](#get-iot-hub-connection-string):
+5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
 
     ```csharp
     static ServiceClient serviceClient;
