@@ -24,7 +24,7 @@
     href: provision-geo-ai-dsvm.md 
 - name: Concepts
   items:
-  - name: Discover the DSVM
+  - name: Discover DSVM
     href: dsvm-tools-overview.md
   - name: Deep Learning and AI frameworks
     href: dsvm-deep-learning-ai-frameworks.md
@@ -70,4 +70,3 @@
     href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
-
