@@ -23,14 +23,14 @@ Azure Monitor for containers collects stdout, stderr, and environmental variable
 
 Active scraping of metrics from Prometheus are performed from two perspectives:
 
-* Cluster-wide - HTTP URL and discover targets from listed endpoints of a service based on IP address or valid URL path, k8s services like kube-dns or kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section as *Prometheus data_collection_settings.cluster*.
+* Cluster-wide - HTTP URL and discover targets from listed endpoints of a service, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section as *Prometheus data_collection_settings.cluster*.
 * Per-node - HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section as *Prometheus_data_collection_settings.node*.
 
 |Scope | Description |
 |------|-------------|
-| Cluster-wide | URL/endpoints (Either IP address or valid URL path specified). For example: $NODE_IP/metrics.<br> K8s services (ube-dns and kube-state-metrics). For example: `http://my-service-dns.my-namespace:9100/metrics`.<br> Pod annotations (applications specifically). `**`Promethues.io/scrap = true`**` needs to be added to pod annotation for it to start scraping the IP address.<br> When `monitor_kubernetes_pods = true` in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following prometheus annotations:<br> # - prometheus.io/scrape: Enable scraping for this pod.<br> # - prometheus.io/scheme: If the metrics endpoint is secured then you will need to set this to `https` (default is `http`).<br> # - prometheus.io/path: If the metrics path is not `/metrics`, define it with this annotation.<br>  # - prometheus.io/port: If port is not `9102` define it with this annotation. |
+| Cluster-wide | HTTP endpoint (Either IP address or valid URL path specified). For example: $NODE_IP/metrics.<br> K8s services (ube-dns and kube-state-metrics). For example: `http://my-service-dns.my-namespace:9100/metrics`.<br> Pod annotations (applications specifically). `**`Promethues.io/scrap = true`**` needs to be added to pod annotation for it to start scraping the IP address.<br> When `monitor_kubernetes_pods = true` in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following prometheus annotations:<br> # - prometheus.io/scrape: Enable scraping for this pod.<br> # - prometheus.io/scheme: If the metrics endpoint is secured then you will need to set this to `https` (default is `http`).<br> # - prometheus.io/path: If the metrics path is not `/metrics`, define it with this annotation.<br>  # - prometheus.io/port: If port is not `9102` define it with this annotation. |
 ||
-| Per-node | URL/endpoints only scraping method.<br> For example: $NODE_IP/metrics ($NODE_IP replacement is only for node ipaddress) 
+| Per-node | HTTP endpoint scraping method only.<br> For example: $NODE_IP/metrics ($NODE_IP is replacement for node IP address).| 
 
 ## Configure your cluster with custom data collection settings
 
