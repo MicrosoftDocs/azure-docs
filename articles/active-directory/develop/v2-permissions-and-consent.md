@@ -50,7 +50,7 @@ The same is true for any third-party resources that have integrated with the Mic
 
 By defining these types of permissions, the resource has fine-grained control over its data and how API functionality is exposed. A third-party app can request these permissions from users and administrators, who must approve the request before the app can access data or act on a user's behalf. By chunking the resource's functionality into smaller permission sets, third-party apps can be built to request only the specific permissions that they need to perform their function. Users and administrators can know exactly what data the app has access to, and they can be more confident that it isn't behaving with malicious intent. Developers should always abide by the concept of least privilege, asking for only the permissions they need for their applications to function.
 
-In OAuth 2.0, these types of permissions are called *scopes*. They also often referred to as *permissions*. A permission is represented in the Microsoft identity platform as a string value. Continuing with the Microsoft Graph example, the string value for each permission is:
+In OAuth 2.0, these types of permissions are called *scopes*. They are also often referred to as *permissions*. A permission is represented in the Microsoft identity platform as a string value. Continuing with the Microsoft Graph example, the string value for each permission is:
 
 * Read a user's calendar by using `Calendars.Read`
 * Write to a user's calendar by using `Calendars.ReadWrite`
