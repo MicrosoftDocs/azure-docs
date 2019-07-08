@@ -81,7 +81,7 @@ You can restore a backup file or import data to a managed instance from an insta
 <del>When you perform a point-in-time restore, the time to restore to is interpreted as UTC time. This setting avoids any ambiguity due to daylight saving time and its potential changes.<del>
 
  >[!WARNING]
-  > Current behavior is not in line with the statement above, and time to restore to is interpreted as per the time zone of the source managed instance where automatic database backups are taken from. This will be corrected soon and point in time will be interpreted as UTC time. See [Known issues](sql-database-managed-instance-timezone.md#known-issues) for more details.
+  > Current behavior is not in line with the statement above, and time to restore to is interpreted as per the time zone of the source managed instance where automatic database backups are taken from. We are working on correcting this behavior to interpret point in time as UTC time. See [Known issues](sql-database-managed-instance-timezone.md#known-issues) for more details.
 
 ### Auto-failover groups
 
@@ -108,7 +108,7 @@ Portal page for point-in-time restore suggests that the time you are choosing to
 
 However, the time to restore to is actually interpreted as Eastern Standard Time, and in this specific example database will be restored to the state at 9 AM Eastern Standard Time, and not UTC time.
 
-If you want to do point-in-time restore to a specific point in UTC time, first calculate corresponding time in the time zone of the source instance and use that time in the portal or PowerShell/CLI script.
+If you want to do point-in-time restore to a specific point in UTC time, first calculate equivalent time in the time zone of the source instance and use that time in the portal or PowerShell/CLI script.
 
 ## List of supported time zones
 
