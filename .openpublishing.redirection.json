@@ -10502,7 +10502,7 @@
     },
     {
       "source_path": "articles/dotnet/index.md",
-      "redirect_url": "/azure/dotnet/",
+      "redirect_url": "https://docs.microsoft.com/azure/dotnet/",
       "redirect_document_id": false
     },
     {
