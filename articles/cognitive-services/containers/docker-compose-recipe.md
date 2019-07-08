@@ -44,7 +44,7 @@ This procedure requires several tools that must be installed and run locally.
 
 ## Docker Compose file
 
-The YAML file defines all the services to be deployed. These services rely on either a Dockerfile or an existing container image. In this case, we'll use two preview images. Copy and paste the following YAML file, and save it as **docker-compose.yaml**. Provide the appropriate **pikey**, **billing**, and **endpoint URI** values in the following docker-compose.yml file.
+The YAML file defines all the services to be deployed. These services rely on either a Dockerfile or an existing container image. In this case, we'll use two preview images. Copy and paste the following YAML file, and save it as **docker-compose.yaml**. Provide the appropriate **apikey**, **billing**, and **endpoint URI** values in the following docker-compose.yml file.
 
 ```yaml
 version: '3.7'
