@@ -16,8 +16,6 @@ ms.date: 04/06/2019
 
 In this tutorial, you take an extended look at developing a predictive solution in the Azure Machine Learning service visual interface. By the end of this tutorial, you'll have a solution that can predict the price of any car based on technical specifications you send it.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
-
 In part one of the tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -26,6 +24,8 @@ In part one of the tutorial you learn how to:
 > * Score and evaluate a model
 
 In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as an Azure web service.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
 A completed version of this tutorial is available as a sample experiment.
 
