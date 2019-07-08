@@ -1,4 +1,4 @@
-﻿---
+---
 title: Load balancing on multiple IP configurations - Azure CLI
 titlesuffix: Azure Load Balancer
 description: Load balancing across primary and secondary IP configurations.
@@ -12,7 +12,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: annahar
+ms.author: anavin
 ---
 
 # Load balancing on multiple IP configurations using PowerShell
