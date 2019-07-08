@@ -7,7 +7,9 @@
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md
   - name: Release notes
-    href: sql-database-release-notes.md 
+    href: sql-database-release-notes.md
+  - name: Gateway IP migration updates
+    href: sql-database-gateway-migration.md
 - name: Quickstarts
   expanded: true
   items:
@@ -51,7 +53,7 @@
       href: sql-database-connect-query-vscode.md
     - name: .NET with Visual Studio
       href: sql-database-connect-query-dotnet-visual-studio.md
-    - name: .NET core
+    - name: .NET Core
       href: sql-database-connect-query-dotnet-core.md
     - name: .NET with Active Directory MFA
       href: active-directory-interactive-connect-azure-sql-db.md
@@ -83,22 +85,44 @@
       href: sql-database-design-first-database.md
     - name: Design database using .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Migrate to SQL Database
+  - name: Singleton Database
     items:
     - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-    - name: Migrate to a managed instance using DMS
+    - name: Implement a geo-distributed database
+      href: sql-database-implement-geo-distributed-database.md 
+    - name: Set up Azure SQL Data Sync
+      href: sql-database-get-started-sql-data-sync.md
+  - name: Managed Instance
+    items:
+    - name: Migrate online using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+    - name: Configure transactional replication
+      href: replication-with-sql-database-managed-instance.md
   - name: Security in SQL Database
     items:
     - name: Single and pooled database security
       href: sql-database-security-tutorial.md
     - name: Managed instance security
       href: sql-database-managed-instance-aad-security-tutorial.md
-  - name: Implement a geo-distributed database
-    href: sql-database-implement-geo-distributed-database.md 
-  - name: Set up Azure SQL Data Sync
-    href: sql-database-get-started-sql-data-sync.md
+  - name: Machine Learning Services
+    items:
+    - name: Build a predictive model in R
+      items:
+      - name: 1 - Prepare the data
+        href: sql-database-tutorial-predictive-model-prepare-data.md
+      - name: 2 - Create the model
+        href: sql-database-tutorial-predictive-model-build-compare.md
+      - name: 3 - Deploy the model
+        href: sql-database-tutorial-predictive-model-deploy.md
+    - name: Build a clustering model in R
+      items:
+      - name: 1 - Prepare the data
+        href: sql-database-tutorial-clustering-model-prepare-data.md
+      - name: 2 - Create the model
+        href: sql-database-tutorial-clustering-model-build.md
+      - name: 3 - Deploy the model
+        href: sql-database-tutorial-clustering-model-deploy.md
 - name: Samples
   items:
   - name: Code samples
@@ -286,6 +310,8 @@
         href: transparent-data-encryption-byok-azure-sql.md
     - name: Security attributes
       href: sql-database-security-attributes.md
+    - name: Feature restrictions
+      href: sql-database-feature-restrictions.md
   - name: Scalability
     items:
     - name: Scalability overview
@@ -358,17 +384,25 @@
       href: sql-database-temporal-tables.md
     - name: Job automation 
       href: sql-database-job-automation-overview.md
+    - name: Linked servers
+      href: https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json
+    - name: Service Broker
+      href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json
+    - name: Database mail
+      href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json
     - name: Machine Learning Services
       items:
       - name: Overview
         href: sql-database-machine-learning-services-overview.md
       - name: Key differences
         href: sql-database-machine-learning-services-differences.md
+    - name: Server-side CLR/.NET integration
+      href: https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/sql-database/toc.json
 - name: How-to guides
   items:
   - name: Overview
     href: sql-database-howto.md
-  - name: Single database 
+  - name: Single databases and elastic pools
     items: 
     - name: Overview
       href: sql-database-howto-single-database.md
@@ -448,7 +482,7 @@
         href: elastic-jobs-tsql.md
       - name: Migrate (from old Elastic jobs)
         href: elastic-jobs-migrate.md
-  - name: Managed instance
+  - name: Managed instances
     items:
     - name: Overview
       href: sql-database-howto-managed-instance.md
@@ -472,8 +506,6 @@
       href: sql-database-managed-instance-find-management-endpoint-ip-address.md
     - name: Verify built-in firewall protection
       href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
-    - name: Transactional replication
-      href: replication-with-sql-database-managed-instance.md
     - name: Configure threat detection
       href: sql-database-managed-instance-threat-detection.md
     - name: Connect applications
@@ -530,7 +562,7 @@
     items:
     - name: Configure Azure AD auth
       href: sql-database-aad-authentication-configure.md
-    - name: Conditional access
+    - name: Conditional Access
       href: sql-database-conditional-access.md
     - name: Multi-factor AAD auth
       href: sql-database-ssms-mfa-authentication.md
@@ -720,6 +752,10 @@
     href: sql-database-glossary-terms.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
+  - name: SQL Server Blog
+    href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
+  - name: Microsoft Azure Blog
+    href: https://azure.microsoft.com/blog/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Public data sets
@@ -740,17 +776,3 @@
     href: /azure/architecture/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-  - name: Elastic jobs (deprecated)
-    items:
-    - name: Elastic jobs (deprecated)
-      href: sql-database-elastic-jobs-overview.md
-    - name: Install elastic job (deprecated)
-      href: sql-database-elastic-jobs-service-installation.md
-    - name: Create job - Portal (deprecated)
-      href: sql-database-elastic-jobs-create-and-manage.md
-    - name: Create job - Azure PowerShell (deprecated)
-      href: sql-database-elastic-jobs-powershell.md
-    - name: Create job - Sample app (deprecated)
-      href: sql-database-elastic-jobs-getting-started.md
-    - name: Uninstall elastic job (deprecated)
-      href: sql-database-elastic-jobs-uninstall.md

@@ -5,7 +5,7 @@ services: functions
 author: cgillum
 manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
@@ -31,7 +31,7 @@ Support for .NET Framework (and therefore Functions 1.0) has been dropped for Du
 
 ### Host.json schema
 
-The following snippet shows the new schema for host.json. The main change to be aware of us the new `"storageProvider"` section, and the `"azureStorage"` section underneath it. This change was done to support [alternate storage providers](durable-functions-preview.md#alternate-storage-providers).
+The following snippet shows the new schema for host.json. The main change to be aware of is the new `"storageProvider"` section, and the `"azureStorage"` section underneath it. This change was done to support [alternate storage providers](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {

@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
 ---
 # Monitor and manage Recovery Services vaults
@@ -24,7 +24,7 @@ The prerequisites for this article are: an Azure subscription, a Recovery Servic
 
 To monitor alerts, or view management data about a Recovery Services vault, open the vault.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 
 2. In the portal, click **All services**.
 
@@ -150,7 +150,7 @@ Choose the alert severity (Critical or Warning) used to generate email. Currentl
 
 ## Manage Backup items
 
-A Recovery Services vault holds many types of backup data. For a complete list of backup types, see [Which applications and workloads can be backed up](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
+A Recovery Services vault holds many types of backup data. [Learn more](backup-overview.md#what-can-i-back-up) about what you can back up. To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
 
 ![Backup items tile](./media/backup-azure-manage-windows-server/backup-items.png)
 

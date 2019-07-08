@@ -19,10 +19,10 @@ ms.custom: include file
 
 Make your application great:
 
-- Enable [logging](../articles/active-directory/develop/msal-logging.md) in your application.
-- Enable telemetry in your application.
+- Enable [logging](../articles/active-directory/develop/msal-logging.md).
+- Enable telemetry.
 - Enable [proxies and customize HTTP clients](../articles/active-directory/develop/msal-net-provide-httpclient.md).
 
 Test your integration:
 
-- Follow the [Microsoft identity platform integration checklist](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+- Use the [Microsoft identity platform integration checklist](../articles/active-directory/develop/identity-platform-integration-checklist.md).

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
-ms.author: monhaber
+ms.author: v-mohabe
 ---
 # Upgrade to Security Center's Standard tier for enhanced security
 Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. It delivers visibility and control over hybrid cloud workloads, active defenses that reduce your exposure to threats, and intelligent detection to help you keep pace with rapidly evolving cyber attacks.
@@ -23,7 +23,7 @@ Azure Security Center provides unified security management and advanced threat p
 Security Center is offered in two tiers:
 
 - The **Free** tier is automatically enabled on all Azure subscriptions, and provides security policy, continuous security assessment, and actionable security recommendations to help you protect your Azure resources.
-- The **Standard** tier extends the capabilities of the Free tier to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. The Standard tier also adds advanced threat detection capabilities, which uses built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. You can try the Standard tier for free. Security Center Standard supports Azure resources including VMs, VM scale sets, App Service, SQL servers, and Storage accounts. If you have Azure Security Center Standard you can opt out of support based on resource type. 
+- The **Standard** tier extends the capabilities of the Free tier to workloads running in private and other public clouds, providing unified security management and threat protection across your hybrid cloud workloads. The Standard tier also adds advanced threat detection capabilities, which uses built-in behavioral analytics and machine learning to identify attacks and zero-day exploits, access and application controls to reduce exposure to network attacks and malware, and more. You can try the Standard tier for free. Security Center Standard supports Azure resources including VMs, Virtual machine scale sets, App Service, SQL servers, and Storage accounts. If you have Azure Security Center Standard you can opt out of support based on resource type. 
 
 
 For more information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
@@ -35,9 +35,9 @@ You can upgrade an entire Azure subscription to the Standard tier, which is inhe
 
 To get the Standard tier:
 
-1. Select **Security Policy** on the **Security Center** main menu.
+1. Select **Pricing & settings** on the **Security Center** main menu.
 2. Select the subscription that you want to upgrade to Standard.
-3. On the **Security policy** blade, select **Pricing tier**.
+3. select **Pricing tier**.
 4. Select **Standard** to upgrade.
 5. Click **Save**.
 

@@ -1,6 +1,6 @@
 ﻿---
-title: PowerShell example-geo-replication failover group-single Azure SQL Database | Microsoft Docs
-description: Azure PowerShell example script to set up active geo-replication failover group for a single database in Azure SQL Database and fail it over.
+title: PowerShell example- active geo-replication - Azure SQL Database single database | Microsoft Docs
+description: Azure PowerShell example script to set up active geo-replication for a single database in Azure SQL Database and fail it over.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -13,13 +13,13 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
 ---
-# Use PowerShell to configure an active geo-replication failover group for a single database in Azure SQL Database
+# Use PowerShell to configure active geo-replication for a single database in Azure SQL Database
 
 This PowerShell script example configures an active geo-replication failover group for a single database and fails it over to a secondary replica of the database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

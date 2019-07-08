@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/09/2019
+ms.date: 06/28/2019
 ms.author: aahi
 ---
 
@@ -17,10 +17,6 @@ ms.author: aahi
 <a name="HOLTop"></a>
 
 Use this quickstart to begin analyzing language with the Text Analytics REST API and Python. This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities).
-
-You can run this example from the command line or as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -38,13 +34,7 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
     pip install --upgrade requests
     ```
 
-* If you're running the Binder notebook locally, You may need to update [IPython](https://ipython.org/install.html):
-    
-    ```console
-    pip install --upgrade IPython
-    ```
-
-* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 
 ## Create a new Python application
@@ -55,7 +45,6 @@ Create a new Python application in your favorite editor or IDE. Add the followin
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-from IPython.display import HTML
 ```
 
 Create variables for your subscription key, and the endpoint for the Text Analytics REST API. Verify that the region in the endpoint corresponds to the one you used when you signed up (for example `westcentralus`). If you're using a free trial key, you don't need to change anything.
@@ -277,11 +266,11 @@ pprint(key_phrases)
 
 ## Identify Entities
 
-To identify well-known entities (people, places, and things) in text documents, append `keyPhrases` to the Text Analytics base endpoint to form the language detection URL. For example:
-    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+To identify well-known entities (people, places, and things) in text documents, append `entities` to the Text Analytics base endpoint to form the language detection URL. For example:
+    `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
     
 ```python
-entities_url = text_analytics_base_url + "keyPhrases"
+entities_url = text_analytics_base_url + "entities"
 ```
 
 Create a collection of documents, like in the previous examples. 
@@ -303,21 +292,81 @@ entities = response.json()
 ### Output
 
 ```json
-{
-  "documents":[
-    {
-      "id":"1",
-      "keyPhrases":[
-        "Bill Gates",
-        "Paul Allen",
-        "BASIC interpreters",
-        "Altair",
-        "Microsoft"
-      ]
-    }
-  ],
-  "errors":[]
-}
+{'documents': [{'id': '1',
+   'entities': [{'name': 'Microsoft',
+     'matches': [{'wikipediaScore': 0.502357972145024,
+       'entityTypeScore': 1.0,
+       'text': 'Microsoft',
+       'offset': 0,
+       'length': 9}],
+     'wikipediaLanguage': 'en',
+     'wikipediaId': 'Microsoft',
+     'wikipediaUrl': 'https://en.wikipedia.org/wiki/Microsoft',
+     'bingId': 'a093e9b9-90f5-a3d5-c4b8-5855e1b01f85',
+     'type': 'Organization'},
+    {'name': 'Bill Gates',
+     'matches': [{'wikipediaScore': 0.5849375085784292,
+       'entityTypeScore': 0.999847412109375,
+       'text': 'Bill Gates',
+       'offset': 25,
+       'length': 10}],
+     'wikipediaLanguage': 'en',
+     'wikipediaId': 'Bill Gates',
+     'wikipediaUrl': 'https://en.wikipedia.org/wiki/Bill_Gates',
+     'bingId': '0d47c987-0042-5576-15e8-97af601614fa',
+     'type': 'Person'},
+    {'name': 'Paul Allen',
+     'matches': [{'wikipediaScore': 0.5314163053043621,
+       'entityTypeScore': 0.9988409876823425,
+       'text': 'Paul Allen',
+       'offset': 40,
+       'length': 10}],
+     'wikipediaLanguage': 'en',
+     'wikipediaId': 'Paul Allen',
+     'wikipediaUrl': 'https://en.wikipedia.org/wiki/Paul_Allen',
+     'bingId': 'df2c4376-9923-6a54-893f-2ee5a5badbc7',
+     'type': 'Person'},
+    {'name': 'April 4',
+     'matches': [{'wikipediaScore': 0.37312706493069636,
+       'entityTypeScore': 0.8,
+       'text': 'April 4',
+       'offset': 54,
+       'length': 7}],
+     'wikipediaLanguage': 'en',
+     'wikipediaId': 'April 4',
+     'wikipediaUrl': 'https://en.wikipedia.org/wiki/April_4',
+     'bingId': '52535f87-235e-b513-54fe-c03e4233ac6e',
+     'type': 'Other'},
+    {'name': 'April 4, 1975',
+     'matches': [{'entityTypeScore': 0.8,
+       'text': 'April 4, 1975',
+       'offset': 54,
+       'length': 13}],
+     'type': 'DateTime',
+     'subType': 'Date'},
+    {'name': 'BASIC',
+     'matches': [{'wikipediaScore': 0.35916049097766867,
+       'entityTypeScore': 0.8,
+       'text': 'BASIC',
+       'offset': 89,
+       'length': 5}],
+     'wikipediaLanguage': 'en',
+     'wikipediaId': 'BASIC',
+     'wikipediaUrl': 'https://en.wikipedia.org/wiki/BASIC',
+     'bingId': '5b16443d-501c-58f3-352e-611bbe75aa6e',
+     'type': 'Other'},
+    {'name': 'Altair 8800',
+     'matches': [{'wikipediaScore': 0.8697256853652899,
+       'entityTypeScore': 0.8,
+       'text': 'Altair 8800',
+       'offset': 116,
+       'length': 11}],
+     'wikipediaLanguage': 'en',
+     'wikipediaId': 'Altair 8800',
+     'wikipediaUrl': 'https://en.wikipedia.org/wiki/Altair_8800',
+     'bingId': '7216c654-3779-68a2-c7b7-12ff3dad5606',
+     'type': 'Other'}]}],
+ 'errors': []}
 ```
 
 ## Next steps

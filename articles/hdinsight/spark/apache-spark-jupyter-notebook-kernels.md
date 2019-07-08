@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-
 ---
+
 # Kernels for Jupyter notebook on Apache Spark clusters in Azure HDInsight 
 
 HDInsight Spark clusters provide kernels that you can use with the Jupyter notebook on [Apache Spark](https://spark.apache.org/) for testing your applications. A kernel is a program that runs and interprets your code. The three kernels are:
@@ -24,25 +24,22 @@ In this article, you learn how to use these kernels and the benefits of using th
 
 ## Prerequisites
 
-* An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## Create a Jupyter notebook on Spark HDInsight
 
-1. From the [Azure portal](https://portal.azure.com/), open your cluster.  See [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters) for the instructions. The cluster is opened in a new portal blade.
+1. From the [Azure portal](https://portal.azure.com/), select your Spark cluster.  See [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters) for the instructions. The **Overview** view opens.
 
-2. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** blade.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
+2. From the **Overview** view, in the **Cluster dashboards** box, select **Jupyter notebook**. If prompted, enter the admin credentials for the cluster.
 
-    ![Jupyter notebook on Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Jupyter notebook on Spark") 
-
-3. Click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
-   
+    ![Jupyter notebook on Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter notebook on Spark") 
+  
    > [!NOTE]  
    > You may also reach the Jupyter notebook on Spark cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
-
-3. Click **New**, and then click either **Pyspark**, **PySpark3**, or **Spark** to create a notebook. Use the Spark kernel for Scala applications, PySpark kernel for Python2 applications, and PySpark3 kernel for Python3 applications.
+3. Select **New**, and then select either **Pyspark**, **PySpark3**, or **Spark** to create a notebook. Use the Spark kernel for Scala applications, PySpark kernel for Python2 applications, and PySpark3 kernel for Python3 applications.
    
     ![Kernels for Jupyter notebook on Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels for Jupyter notebook on Spark") 
 
@@ -74,7 +71,7 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
    | info |`%%info` |Outputs session information for the current Livy endpoint |
    | configure |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configures the parameters for creating a session. The force flag (-f) is mandatory if a session has already been created, which ensures that the session is dropped and recreated. Look at [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) for a list of valid parameters. Parameters must be passed in as a JSON string and must be on the next line after the magic, as shown in the example column. |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executes a Hive query against the sqlContext. If the `-o` parameter is passed, the result of the query is persisted in the %%local Python context as a [Pandas](https://pandas.pydata.org/) dataframe. |
-   | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code.. |
+   | local |`%%local`<br>`a=1` |All the code in subsequent lines is executed locally. Code must be valid Python2 code even irrespective of the kernel you are using. So, even if you selected **PySpark3** or **Spark** kernels while creating the notebook, if you use the `%%local` magic in a cell, that cell must only have valid Python2 code. |
    | logs |`%%logs` |Outputs the logs for the current Livy session. |
    | delete |`%%delete -f -s <session number>` |Deletes a specific session of the current Livy endpoint. You cannot delete the session that is initiated for the kernel itself. |
    | cleanup |`%%cleanup -f` |Deletes all the sessions for the current Livy endpoint, including this notebook's session. The force flag -f is mandatory. |
@@ -82,7 +79,7 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
    > [!NOTE]  
    > In addition to the magics added by the PySpark kernel, you can also use the [built-in IPython magics](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics), including `%%sh`. You can use the `%%sh` magic to run scripts and block of code on the cluster headnode.
 
-1. **Auto visualization**. The **Pyspark** kernel automatically visualizes the output of Hive and SQL queries. You can choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
+- **Auto visualization**. The Pyspark kernel automatically visualizes the output of Hive and SQL queries. You can choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
 
 ## Parameters supported with the %%sql magic
 The `%%sql` magic supports different parameters that you can use to control the kind of output that you receive when you run queries. The following table lists the output.
@@ -90,7 +87,7 @@ The `%%sql` magic supports different parameters that you can use to control the 
 | Parameter | Example | Description |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |Use this parameter to persist the result of the query, in the %%local Python context, as a [Pandas](https://pandas.pydata.org/) dataframe. The name of the dataframe variable is the variable name you specify. |
-| -q |`-q` |Use this to turn off visualizations for the cell. If you don't want to auto-visualize the content of a cell and just want to capture it as a dataframe, then use `-q -o <VARIABLE>`. If you want to turn off visualizations without capturing the results (for example, for running a SQL query, like a `CREATE TABLE` statement), use `-q` without specifying a `-o` argument. |
+| -q |`-q` |Use this to turn off visualizations for the cell. If you don't want to autovisualize the content of a cell and just want to capture it as a dataframe, then use `-q -o <VARIABLE>`. If you want to turn off visualizations without capturing the results (for example, for running a SQL query, like a `CREATE TABLE` statement), use `-q` without specifying a `-o` argument. |
 | -m |`-m <METHOD>` |Where **METHOD** is either **take** or **sample** (default is **take**). If the method is **take**, the kernel picks elements from the top of the result data set specified by MAXROWS (described later in this table). If the method is **sample**, the kernel randomly samples elements of the data set according to `-r` parameter, described next in this table. |
 | -r |`-r <FRACTION>` |Here **FRACTION** is a floating-point number between 0.0 and 1.0. If the sample method for the SQL query is `sample`, then the kernel randomly samples the specified fraction of the elements of the result set for you. For example, if you run a SQL query with the arguments `-m sample -r 0.01`, then 1% of the result rows are randomly sampled. |
 | -n |`-n <MAXROWS>` |**MAXROWS** is an integer value. The kernel limits the number of output rows to **MAXROWS**. If **MAXROWS** is a negative number such as **-1**, then the number of rows in the result set is not limited. |
@@ -103,22 +100,13 @@ The `%%sql` magic supports different parameters that you can use to control the 
 The statement above does the following:
 
 * Selects all records from **hivesampletable**.
-* Because we use -q, it turns off auto-visualization.
+* Because we use -q, it turns off autovisualization.
 * Because we use `-m sample -r 0.1 -n 500` it randomly samples 10% of the rows in the hivesampletable and limits the size of the result set to 500 rows.
 * Finally, because we used `-o query2` it also saves the output into a dataframe called **query2**.
 
 ## Considerations while using the new kernels
 
-Whichever kernel you use, leaving the notebooks running consumes the cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the cluster resources continue to be in use. A good practice is to use the **Close and Halt** option from the notebook's **File** menu when you are finished using the notebook, which kills the context and then exits the notebook.     
-
-## Show me some examples
-
-When you open a Jupyter notebook, you see two folders available at the root level.
-
-* The **PySpark** folder has sample notebooks that use the new **Python** kernel.
-* The **Scala** folder has sample notebooks that use the new **Spark** kernel.
-
-You can open the **00 - [READ ME FIRST] Spark Magic Kernel Features** notebook from the **PySpark** or **Spark** folder to learn about the different magics available. You can also use the other sample notebooks available under the two folders to learn how to achieve different scenarios using Jupyter notebooks with HDInsight Spark clusters.
+Whichever kernel you use, leaving the notebooks running consumes the cluster resources.  With these kernels, because the contexts are preset, simply exiting the notebooks does not kill the context and hence the cluster resources continue to be in use. A good practice is to use the **Close and Halt** option from the notebook's **File** menu when you are finished using the notebook, which kills the context and then exits the notebook.
 
 ## Where are the notebooks stored?
 
@@ -129,8 +117,8 @@ If your cluster uses Azure Storage as the default storage account, Jupyter noteb
 
 The way notebooks are saved to the storage account is compatible with [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html). So, if you SSH into the cluster you can use file management commands as shown in the following snippet:
 
-    hdfs dfs -ls /HdiNotebooks                               # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
-    hdfs dfs –copyToLocal /HdiNotebooks                    # Download the contents of the HdiNotebooks folder
+    hdfs dfs -ls /HdiNotebooks                            # List everything at the root directory – everything in this directory is visible to Jupyter from the home page
+    hdfs dfs –copyToLocal /HdiNotebooks                   # Download the contents of the HdiNotebooks folder
     hdfs dfs –copyFromLocal example.ipynb /HdiNotebooks   # Upload a notebook example.ipynb to the root folder so it’s visible from Jupyter
 
 Irrespective of whether the cluster uses Azure Storage or Azure Data Lake Storage as the default storage account, the notebooks are also saved on the cluster headnode at `/var/lib/jupyter`.
@@ -140,7 +128,8 @@ Irrespective of whether the cluster uses Azure Storage or Azure Data Lake Storag
 Jupyter notebooks on Spark HDInsight clusters are supported only on Google Chrome.
 
 ## Feedback
-The new kernels are in evolving stage and will mature over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This is useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Comments** section at the bottom of this article.
+
+The new kernels are in evolving stage and will mature over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This is useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Feedback** section at the bottom of this article.
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)

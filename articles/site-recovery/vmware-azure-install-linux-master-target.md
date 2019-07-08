@@ -42,7 +42,7 @@ Create the master target in accordance with the following sizing guidelines:
 - **Additional disk size for retention drive**: 1 TB
 - **CPU cores**: 4 cores or more
 
-The following supported Ubuntu kernels are supported.
+The following Ubuntu kernels are supported.
 
 
 |Kernel Series  |Support up to  |
@@ -80,7 +80,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 1. Select **No** (the default option), and then select **Enter**.
 
      ![Configure the keyboard](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Select **English (US)** as the country of origin for the keyboard, and then select **Enter**.
+1. Select **English (US)** as the country/region of origin for the keyboard, and then select **Enter**.
 
 1. Select **English (US)** as the keyboard layout, and then select **Enter**.
 

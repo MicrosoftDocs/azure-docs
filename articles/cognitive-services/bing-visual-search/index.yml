@@ -7,7 +7,7 @@ metadata:
   description: Learn how to use the Bing Visual Search API to get insights about an image.
   services: cognitive-services
   author: swhite-msft
-  manager: rosh
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-visual-search
   ms.tgt_pltfrm: na

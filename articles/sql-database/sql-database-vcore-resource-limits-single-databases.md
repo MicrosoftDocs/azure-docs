@@ -7,13 +7,13 @@ ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: 
 manager: craigg
 ms.date: 04/22/2019
 ---
-# Azure SQL Database vCore-based purchasing model limits for a single database
+# Resource limits for single databases using the vCore-based purchasing model
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the vCore-based purchasing model.
 
@@ -28,6 +28,9 @@ You can set the service tier, compute size, and storage amount for a single data
 > For scaling guidance and considerations, see [Scale a single database](sql-database-single-database-scale.md).
 
 ## General Purpose service tier: Storage sizes and compute sizes
+
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
 
 ### General Purpose service tier: Generation 4 compute platform (part 1)
 
@@ -123,7 +126,7 @@ You can set the service tier, compute size, and storage amount for a single data
 
 ### Serverless compute tier
 
-The [serverless compute tier](sql-database-serverless.md) is in public preview and is only for single databases using the vCore purchasing model.
+The [serverless compute tier](sql-database-serverless.md) is in preview and is only for single databases using the vCore purchasing model.
 
 #### Generation 5 compute platform
 
@@ -140,7 +143,7 @@ The [serverless compute tier](sql-database-serverless.md) is in public preview a
 |TempDB size (GB)|32|64|128|
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Target IOPS (64 KB)|250|500|1000|
+|Target IOPS (64 KB)|500|1000|2000|
 |Log rate limits (MBps)|2.5|5.6|10|
 |Max concurrent workers (requests)|75|150|300|
 |Max allowed sessions|30000|30000|30000|
@@ -150,6 +153,9 @@ The [serverless compute tier](sql-database-serverless.md) is in public preview a
 |Included backup storage|1X DB size|1X DB size|1X DB size|
 
 ## Business Critical service tier for provisioned compute tier
+
+> [!IMPORTANT]
+> New Gen4 databases are no longer supported in the AustraliaEast region.
 
 ### Business Critical service tier: Generation 4 compute platform (part 1)
 
@@ -262,7 +268,7 @@ The [serverless compute tier](sql-database-serverless.md) is in public preview a
 |Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB size (GB)|64|128|256|384|384|384|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Target IOPS (64 KB)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|Target IOPS (64 KB)| [Note 1](#note-1) |[Note 1](#note-1)|[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) | [Note 1](#note-1) |
 |IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -272,7 +278,11 @@ The [serverless compute tier](sql-database-serverless.md) is in public preview a
 |Included backup storage |7|7|7|7|7|7|7|7|
 |||
 
-## Next steps
+### Note 1
+
+Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload.
+
+### Next steps
 
 - For DTU resource limits for a single database, see [resource limits for single databases using the DTU-based purchasing model](sql-database-dtu-resource-limits-single-databases.md)
 - For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore-based purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)

@@ -11,7 +11,8 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
-ms.author: jafreebe;cephalin
+ms.author: jafreebe
+ms.reviewer: cephalin
 ms.custom: seodec18
 
 ---
@@ -23,7 +24,7 @@ Azure App Service lets Java developers to quickly build, deploy, and scale their
 This guide provides key concepts and instructions for Java developers using in App Service. If you've never used Azure App Service, you should read through the [Java quickstart](app-service-web-get-started-java.md) first. General questions about using App Service that aren't specific to the Java development are answered in the [App Service Windows FAQ](faq-configuration-and-management.md).
 
 > [!NOTE]
-> Can't find what you're looking for? Please see the [Windows OSS FAQ](faq-configuration-and-management.md) or the [Java Linux configuration guide](containers/app-service-linux-java.md) for information on deploying and securing your Java app.
+> Can't find what you're looking for? Please see the [Windows OSS FAQ](faq-configuration-and-management.md) or the [Java Linux configuration guide](containers/configure-language-java.md) for information on deploying and securing your Java app.
 
 ## Configuring Tomcat
 

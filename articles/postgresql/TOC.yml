@@ -31,7 +31,7 @@
         href: connect-csharp.md
       - name: Go
         href: connect-go.md
-  - name: Hyperscale
+  - name: Hyperscale (Citus)
     items:
     - name: Create DB - Portal
       href: quickstart-create-hyperscale-portal.md
@@ -89,7 +89,9 @@
       - name: Advanced Threat Protection
         href: concepts-data-access-and-security-threat-protection.md
       - name: Virtual network
-        href: concepts-data-access-and-security-vnet.md 
+        href: concepts-data-access-and-security-vnet.md
+      - name: Connectivity architecture
+        href: concepts-connectivity-architecture.md      
     - name: Business continuity
       items:
       - name: Overview
@@ -188,6 +190,10 @@
       href: howto-configure-server-parameters-using-portal.md
     - name: Azure CLI
       href: howto-configure-server-parameters-using-cli.md
+  - name: Auto grow storage
+    items:
+    - name: Azure portal
+      href: howto-auto-grow-storage-portal.md
   - name: Access server logs
     items:
     - name: Azure portal

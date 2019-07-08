@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2018
-ms.author: cephalin;dariagrigoriu
+ms.author: cephalin
+ms.reviewer: dariac
 ms.custom: seodec18
 
 ---
@@ -127,7 +128,7 @@ In the **Configure** page, in the **Build** section, specify the language framew
 
 In the **Test** page, choose whether to enable load tests, then click **Continue**.
 
-Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](deploy-staging-slots.md), then click **Continue**. 
+Depending on the [pricing tier](https://azure.microsoft.com/pricing/details/app-service/plans/) of your App Service plan, you may also see a **Deploy to staging** page. Choose whether to [enable deployment slots](deploy-staging-slots.md), then click **Continue**. DevOps does not allow continous delivery to the production slot. This is by design to prevent accidental deployments to production. You should set up continuous delivery to a staging slot, verify the changes there, and swap the slots when you are ready.
 
 ### Finish configuration
 

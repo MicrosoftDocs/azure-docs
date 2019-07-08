@@ -1,7 +1,7 @@
 ---
 title: "Classification: Predict credit risk"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information provided in a credit application.
+description: Learn how to build a machine learning classifier without writing a single line of code using the visual interface.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,18 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ---
 
 # Sample 3 - Classification: Predict credit risk
 
-This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information provided in a credit application. It shows how you can perform basic classification, including data processing operations, split the dataset into training and test sets, train the model, score the test dataset, and evaluate the predictions.
+Learn how to build a machine learning classifier without writing a single line of code using the visual interface. This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
+
+Because we're trying to answer the question "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+
+Here's the completed graph for this experiment:
+
+![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## Prerequisites
 
@@ -36,7 +42,6 @@ The dataset contains 1,000 samples with 20 features and 1 label. Each sample rep
 
 ## Experiment summary
 
-
 We follow these steps to create the experiment:
 
 1. Drag the German Credit Card UCI Data dataset module into the experiment's canvas.
@@ -46,11 +51,10 @@ We follow these steps to create the experiment:
 1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Add the training set (the left output port of the **Split Data**) to the right input port of the **Train Model**. The **Train Model** will train the classifier.
 1. Add a **Score Model** module and connect the **Train Model** module to it. Then add the test set (the right port of the **Split Data**) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
 1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
-    
+
 Here's the complete experiment graph:
 
 ![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
-
 
 ## Results
 
@@ -70,3 +74,4 @@ Explore the other samples available for the visual interface:
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
+- [Sample 6 - Classification: Predict flight delays](ui-sample-classification-predict-flight-delay.md)

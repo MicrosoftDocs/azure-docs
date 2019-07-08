@@ -5,7 +5,7 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 5/9/2019
+ms.date: 5/30/2019
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -29,9 +29,9 @@ For information on how to use Azure Resource Manager templates to configure acti
 1. In the [portal](https://portal.azure.com), select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 
     ![The "Monitor" service](./media/action-groups/home-monitor.png)
-1. Select **Alerts** then select **Manage action groups**.
+1. Select **Alerts** then select **Manage actions**.
 
-    ![Manage Action Groups button](./media/action-groups/manage-action-groups.png)
+    ![Manage Actions button](./media/action-groups/manage-action-groups.png)
 1. Select **Add action group**, and fill in the fields.
 
     ![The "Add action group" command](./media/action-groups/add-action-group.png)
@@ -50,6 +50,8 @@ For information on how to use Azure Resource Manager templates to configure acti
     b. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
     c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
+    
+    d. **Common alert schema**: You can choose to enable the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
 
 1. Select **OK** to create the action group.
 
@@ -61,7 +63,7 @@ After you create an action group, it's visible in the **Action groups** section 
 
 ## Action specific information
 > [!NOTE]
-> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) for numeric limits on each of the items below.  
+> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
 
 **Azure app Push** - You may have a limited number of Azure app actions in an Action Group.
 
@@ -95,6 +97,9 @@ Source IP address ranges
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

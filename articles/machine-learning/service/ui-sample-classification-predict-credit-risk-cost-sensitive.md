@@ -1,7 +1,7 @@
 ---
 title: "Classification: Predict credit risk (cost sensitive)"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to use a customized Python script to perform cost-sensitive binary classification. It predicts credit risk based on information provided in a credit application.
+description: This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,20 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ---
 
 # Sample 4 - Classification: Predict credit risk (cost sensitive)
 
-This visual interface sample experiment shows how to use a customized Python script to perform cost-sensitive binary classification. The cost of misclassifying the positive samples is five times the cost of misclassifying the negative samples.
+This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
 
-This sample predicts credit risk based on information provided in a credit application, taking into account the misclassification costs.
+This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
-In this experiment, we compare two different approaches for generating models to solve this problem:
+If you're just getting started with machine learning, you can take a look at the [basic classifier sample](ui-sample-classification-predict-credit-risk-basic.md) first.
 
-- Training with the original dataset.
-- Training with a replicated dataset.
+Here's the completed graph for this experiment:
 
-With both approaches, we evaluate the models by using the test dataset with replication to ensure that results are aligned with the cost function. We test two classifiers with both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
+[![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Prerequisites
 
@@ -33,15 +32,18 @@ With both approaches, we evaluate the models by using the test dataset with repl
 
     ![Open the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## Related sample
-
-See [Sample 3 - Classification: Credit Risk Prediction (Basic)](ui-sample-classification-predict-churn.md) for a basic experiment that solves the same problem as this experiment, without adjusting for misclassification costs.
-
 ## Data
 
 We use the German Credit Card dataset from the UC Irvine repository. This dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for more information about the dataset. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
 ## Experiment summary
+
+In this experiment, we compare two different approaches for generating models to solve this problem:
+
+- Training with the original dataset.
+- Training with a replicated dataset.
+
+With both approaches, we evaluate the models by using the test dataset with replication to ensure that results are aligned with the cost function. We test two classifiers with both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 
 The cost of misclassifying a low-risk example as high is 1, and the cost of misclassifying a high-risk example as low is 5. We use an **Execute Python Script** module to account for this misclassification cost.
 
@@ -66,7 +68,7 @@ To reflect this cost function, we generate a new dataset. In the new dataset, ea
 
 To replicate the high-risk data, we put this Python code into an **Execute Python Script** module:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -99,12 +101,11 @@ We use the standard experimental workflow to create, train, and test the models:
 
 1. Initialize the learning algorithms, using **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 1. Use **Train Model** to apply the algorithm to the data and create the actual model.
-3. Use **Score Model** to produce scores by using the test examples.
+1. Use **Score Model** to produce scores by using the test examples.
 
 The following diagram shows a portion of this experiment, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
 
 ![Experiment graph](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 In the evaluation stage of the experiment, we compute the accuracy of each of the four models. For this experiment, we use **Evaluate Model** to compare examples that have the same misclassification cost.
 
@@ -116,7 +117,7 @@ Notice that the replicated test dataset is used as the input for **Score Model**
 
 The **Evaluate Model** module produces a table with a single row that contains various metrics. To create a single set of accuracy results, we first use **Add Rows** to combine the results into a single table. We then use the following Python script in the **Execute Python Script** module to add the model name and training approach for each row in the table of results:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -133,7 +134,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## Results
 
@@ -159,3 +159,4 @@ Explore the other samples available for the visual interface:
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
 - [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
+- [Sample 6 - Classification: Predict flight delays](ui-sample-classification-predict-flight-delay.md)

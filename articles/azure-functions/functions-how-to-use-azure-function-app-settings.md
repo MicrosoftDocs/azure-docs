@@ -57,7 +57,7 @@ The rest of this topic focuses on the following App Service features in the Azur
 + [Authentication](#auth)
 + [API definition](#swagger)
 
-For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/web-sites-configure.md).
+For more information about how to work with App Service settings, see [Configure Azure App Service Settings](../app-service/configure-common.md).
 
 ### <a name="editor"></a>App Service Editor
 
@@ -120,7 +120,7 @@ For more information about how to work with App Service settings, see [Configure
 
 ## Next steps
 
-+ [Configure Azure App Service Settings](../app-service/web-sites-configure.md)
++ [Configure Azure App Service Settings](../app-service/configure-common.md)
 + [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
 

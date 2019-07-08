@@ -3,7 +3,7 @@ title: What is Azure Security Center?| Microsoft Docs
 description: Learn about Azure Security Center, its key capabilities, and how it works.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
+ms.date: 6/06/2019
+ms.author: v-mohabe
 
 ---
 # What is Azure Security Center?
@@ -132,6 +132,10 @@ ranges or IP addresses, and for a limited amount of time.
 
 Security Center includes capabilities that help you perform automatic classification of your data in Azure SQL. You can also get assessments for potential vulnerabilities across Azure SQL and Storage services, and
 recommendations for how to mitigate them.
+
+### Protect IoT and hybrid cloud workloads (Preview)
+
+Azure Security Center for IoT (Internet of Things) simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. For more information, see [Azure Security Center for IoT (Preview)](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## Get secure faster
 
