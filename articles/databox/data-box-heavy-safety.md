@@ -13,8 +13,10 @@ ms.author: alkohli
 ---
 # Safely install and operate your Azure Data Box Heavy
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png)
-![Read Safety Notice Icon](./media/data-box-heavy-safety/read_safety_and_health_information_icon.png) **READ SAFETY AND HEALTH INFORMATION**
+This article contains the safety information for your Azure Data Box Heavy.
+
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png)
+![Read safety notice icon](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **Read All Instructions First**
 
 Read all the safety information in this article before you use your Azure Data Box Heavy. Failure to follow instructions could result in fire, electric shock, or other injuries, or damage to your properties.
 
@@ -23,37 +25,37 @@ Here are the icons that you will find when you review the safety precautions to 
 
 | Icon | Description |
 |:--- |:--- |
-| ![Danger Icon](./media/data-box-heavy-safety/warning_icon.png) **DANGER!** |Indicates a hazardous situation that, if not avoided, will result in death or serious injury. This signal word is to be limited to the most extreme situations. |
-| ![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) **WARNING!** |Indicates a hazardous situation that, if not avoided, could result in death or serious injury. |
-| ![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) **CAUTION!** |Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury. |
-| ![Notice Icon](./media/data-box-heavy-safety/notice_icon.png) **NOTICE:** |Indicates information considered important, but not hazard-related. |
-| ![Electrical Shock Icon](./media/data-box-heavy-safety/electrical_shock_hazard_icon.png) **Electrical Shock Hazard** |High voltage. |
-| ![Heavy Weight Icon](./media/data-box-heavy-safety/heavy_weight_hazard_icon.png) **Heavy Weight** | |
-| ![No User Serviceable Parts Icon](./media/data-box-heavy-safety/no_user_serviceable_parts_icon.png) **No User Serviceable Parts** |Do not access unless properly trained. |
-| ![Read Safety Notice Icon](./media/data-box-heavy-safety/read_safety_and_health_information_icon.png) **Read All Instructions First** | |
-| ![Tip Hazard Icon](./media/data-box-heavy-safety/tip_hazard_icon.png) **Tip Hazard** | |
-| ![Overload Tip Hazard Icon](./media/data-box-heavy-safety/overload_tip_hazard.png) **Overload Tip Hazard** | |
-| ![Multiple Power Sources Icon](./media/data-box-heavy-safety/multiple_power_sources.png) **Multiple Power Sources** | |
+| ![Danger icon](./media/data-box-heavy-safety/warning-icon.png) **DANGER!** |Indicates a hazardous situation that, if not avoided, will result in death or serious injury. This signal word is to be limited to the most extreme situations. |
+| ![Warning icon](./media/data-box-heavy-safety/warning-icon.png) **WARNING!** |Indicates a hazardous situation that, if not avoided, could result in death or serious injury. |
+| ![Warning icon](./media/data-box-heavy-safety/warning-icon.png) **CAUTION!** |Indicates a hazardous situation that, if not avoided, could result in minor or moderate injury. |
+| ![Notice icon](./media/data-box-heavy-safety/notice-icon.png) **NOTICE:** |Indicates information considered important, but not hazard-related. |
+| ![Electrical shock icon](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) **Electrical shock hazard** |High voltage. |
+| ![Heavy weight icon](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **Heavy weight** | |
+| ![No user serviceable parts icon](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **No user serviceable parts** |Do not access unless properly trained. |
+| ![Read safety notice icon](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **Read all instructions first** | |
+| ![Tip hazard icon](./media/data-box-heavy-safety/tip-hazard-icon.png) **Tip hazard** | |
+| ![Overload tip hazard icon](./media/data-box-heavy-safety/overload-tip-hazard.png) **Overload tip hazard** | |
+| ![Multiple power sources icon](./media/data-box-heavy-safety/multiple_power_sources.png) **Multiple power sources** | |
 
 ## Handling precautions
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png)
+![Warning Icon](./media/data-box-heavy-safety/warning-icon.png) **WARNING!**
 
 * Proper equipment (for example, pallet jack) and Personal Protective Equipment (for example, gloves) must be used when moving and handling the crate.
 * Ramp must be secured to the crate with provided bolts before you remove the device to avoid injuries or property damage.
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) ![Tip Hazard Icon](./media/data-box-heavy-safety/tip_hazard_icon.png) **Tip Hazard**
+![Warning Icon](./media/data-box-heavy-safety/warning-icon.png) ![Tip Hazard Icon](./media/data-box-heavy-safety/tip-hazard-icon.png) **Tip hazard**
 
 * Place the equipment on a flat, hard and stable surface to avoid a potential tip or crushing hazard.
 * Verify the casters are locked before you inspect, turn on, and operate the equipment.
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) ![Electrical Shock Icon](./media/data-box-heavy-safety/electrical_shock_hazard_icon.png)![No User Serviceable Parts Icon](./media/data-box-heavy-safety/no_user_serviceable_parts_icon.png) **CAUTION** 
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) ![Electrical shock icon](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)![No user serviceable parts icon](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **CAUTION** 
 
 * Inspect the *as-received* device for damages. If the device enclosure is damaged, contact [Microsoft Support](data-box-disk-contact-microsoft-support.md) to obtain a replacement. Do not attempt to operate the device. 
 * The device is equipped with tamper-proof screws. If you suspect the device is malfunctioning, [Microsoft Support](data-box-disk-contact-microsoft-support.md) to obtain a replacement. Do not attempt to service the device. 
 * The device contains no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Do not open. Return the device to Microsoft for servicing.
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) ![Heavy Weight Icon](./media/data-box-heavy-safety/heavy_weight_hazard_icon.png) **WARNING!** 
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) ![Heavy weight icon](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **WARNING!** 
 
 * A fully configured enclosure can weigh up to 326 kg (719 lbs); do not try to lift it by yourself.
 * Do not attempt to lift the equipment without proper mechanical aid. Be aware that any attempts to lift this weight can cause severe injuries.
@@ -61,11 +63,11 @@ Here are the icons that you will find when you review the safety precautions to 
 * Use mechanical assistance or other suitable assistance when moving and lifting equipment.
 
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) ![Overload Tip Hazard Icon](./media/data-box-heavy-safety/overload_tip_hazard.png) ![Tip Hazard Icon](./media/data-box-heavy-safety/tip_hazard_icon.png)![Heavy Weight Icon](./media/data-box-heavy-safety/heavy_weight_hazard_icon.png) **WARNING!**
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) ![Overload tip hazard icon](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) ![Tip hazard icon](./media/data-box-heavy-safety/tip-hazard-icon.png)![Heavy weight icon](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **WARNING!**
 * Data Box Heavy is not to be used as a table or workspace. Adding any type of load can create a potential hazard which could lead to injury or property damage.
 * Rack-mounted equipment is not to be used as shelves or work spaces. Do not place the Data Box Heavy on top of rack-mounted equipment. Adding any type of load to an extended rack-mounted unit can create a potential tip hazard that could lead to injury, death, or product damage.
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) **WARNING!**
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) **WARNING!**
 
 * The system is designed to operate in a typical office environment. Choose a site that is:
 
@@ -82,7 +84,7 @@ Here are the icons that you will find when you review the safety precautions to 
 
 ## Electrical precautions
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) ![Electrical Shock Icon](./media/data-box-heavy-safety/electrical_shock_hazard_icon.png) **WARNING!**
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) ![Electrical shock icon](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) **WARNING!**
 
 * Provide a safe electrical earth connection to the power supply cord. The AC cord has a three-wire grounding plug (a plug that has a grounding pin). This plug fits only a grounded AC outlet. Do not defeat the purpose of the grounding pin.
 * Given that the plug on the power supply cord is the main disconnect device, ensure that the socket outlets are located near the device and are easily accessible.
@@ -103,17 +105,17 @@ Here are the icons that you will find when you review the safety precautions to 
     - The power cord must have an electrical rating that is greater than that of the electrical current rating marked on the product.
     - The power cord must have safety ground pin or contact that is suitable for the electrical outlet.
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png)  ![Electrical Shock Icon](./media/data-box-heavy-safety/electrical_shock_hazard_icon.png) ![Multiple Power Sources Icon](./media/data-box-heavy-safety/multiple_power_sources.png) **WARNING!**
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png)  ![Electrical shock icon](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) ![Multiple power sources icon](./media/data-box-heavy-safety/multiple_power_sources.png) **WARNING!**
 
 * Unplug all AC power cord(s) to completely remove the AC power from the equipment.
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) **CAUTION:**
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) **CAUTION:**
 
 * This device contains coin cell batteries. Do not attempt to service the device. Batteries in this device are not user serviceable. 
-* **For service personnel only**: Risk of Explosion if battery is replaced by an incorrect type. Dispose of the used batteries according to instructions.
+* **For service personnel only**: Risk of explosion if battery is replaced by an incorrect type. Dispose of the used batteries according to instructions.
 * Laser peripherals or devices are present. To avoid risk or radiation exposure and/or personal injury, do not open the enclosure of any laser peripheral or device. Laser peripherals or devices are not serviceable. Only use certified and rated Laser Class I for optical transceiver product.
 
-![Notice Icon](./media/data-box-heavy-safety/notice_icon.png) **NOTICE:**
+![Notice icon](./media/data-box-heavy-safety/notice-icon.png) **NOTICE:**
 
 For the proper operation of your device and to prevent product damage:
 
@@ -135,33 +137,33 @@ This device is:
 
 For electrical supply ratings, refer to the device rating label provided with the unit. 
 
-![Notice Icon](./media/data-box-heavy-safety/notice_icon.png) **NOTICE:** 
+![Notice icon](./media/data-box-heavy-safety/notice-icon.png) **NOTICE:** 
 
 Changes or modifications made to the device not expressly approved by Microsoft may void the user’s authority to operate the device.
 
-**CANADA and USA:**
+**Canada and USA:**
 
-![Notice Icon](./media/data-box-heavy-safety/notice_icon.png) **NOTICE:** 
+![Notice icon](./media/data-box-heavy-safety/notice-icon.png) **NOTICE:** 
 
 This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
-This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device.
+This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: 
+
+- This device may not cause harmful interference.
+- This device must accept any interference received, including interference that may cause undesired operation of the device.
 
 ![Canada](./media/data-box-heavy-safety/canada.png)
 
 CAN ICES-3(A)/NMB-3(A)
-
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
-
 United States: (800) 426-9400
-
 Canada: (800) 933-4750
 
-**EUROPEAN UNION:**
+**European Union:**
 
 [Request](mailto:CSI_Compliance@microsoft.com) a copy of the EU Declaration of Conformity.
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) **WARNING:** 
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) **WARNING:** 
 
 This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
 
@@ -174,14 +176,12 @@ This symbol on the product or its batteries or its packaging means that this pro
 This product contains coin cell battery(ies).
 
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
-
 Telephone number: +353 1 295 3826
-
 Fax number: +353 1 706 4110 
 
-**Japan**
+<!--**Japan**
 
-![Japan](./media/data-box-heavy-safety/japan.png)
+![Japan](./media/data-box-heavy-safety/japan.png)-->
 
 <!--**South Korea**
 
@@ -193,6 +193,6 @@ After you have reviewed these safety notices, you can set up and cable your devi
 
 ## Next steps
 
-* [Cable and connect your Data Box](data-box-deploy-set-up.md)
+* [Cable and connect your Data Box Heavy](data-box-heavy-deploy-set-up.md)
 
 
