@@ -34,8 +34,8 @@ Here are the icons that you will find when you review the safety precautions to 
 | ![No user serviceable parts icon](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **No user serviceable parts** |Do not access unless properly trained. |
 | ![Read safety notice icon](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **Read all instructions first** | |
 | ![Tip hazard icon](./media/data-box-heavy-safety/tip-hazard-icon.png) **Tip hazard** | |
-| ![Overload tip hazard icon](./media/data-box-heavy-safety/overload-tip-hazard.png) **Overload tip hazard** | |
-| ![Multiple power sources icon](./media/data-box-heavy-safety/multiple_power_sources.png) **Multiple power sources** | |
+| ![Overload tip hazard icon](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) **Overload tip hazard** | |
+| ![Multiple power sources icon](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **Multiple power sources** | |
 
 ## Handling precautions
 
@@ -105,7 +105,7 @@ Here are the icons that you will find when you review the safety precautions to 
     - The power cord must have an electrical rating that is greater than that of the electrical current rating marked on the product.
     - The power cord must have safety ground pin or contact that is suitable for the electrical outlet.
 
-![Warning icon](./media/data-box-heavy-safety/warning-icon.png)  ![Electrical shock icon](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) ![Multiple power sources icon](./media/data-box-heavy-safety/multiple_power_sources.png) **WARNING!**
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png)  ![Electrical shock icon](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) ![Multiple power sources icon](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **WARNING!**
 
 * Unplug all AC power cord(s) to completely remove the AC power from the equipment.
 
@@ -169,7 +169,7 @@ This is a class A product. In a domestic environment, this product may cause rad
 
 **Disposal of waste batteries and electrical and electronic equipment:**
 
-![Battery disposal icon](./media/data-box-heavy-safety/battery_disposal_icon.png)
+![Battery disposal icon](./media/data-box-heavy-safety/battery-disposal-icon.png)
 
 This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact *erecycle\@microsoft.com* for additional information on WEEE.
 
