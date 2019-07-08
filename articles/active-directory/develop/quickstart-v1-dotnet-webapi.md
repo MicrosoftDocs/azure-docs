@@ -76,7 +76,7 @@ To validate incoming requests and tokens, you need to set up your application to
 
 2. Add an OWIN Startup class to the TodoListService project called `Startup.cs`.  Right-click the project, select **Add > New Item**, and then search for **OWIN**. The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
 
-3. Change the class declaration to `public partial class Startup`. We’ve already implemented part of this class for you in another file. In the `Configuration(…)` method, make a call to `ConfgureAuth(…)` to set up authentication for your web app.
+3. Change the class declaration to `public partial class Startup`. We’ve already implemented part of this class for you in another file. In the `Configuration(…)` method, make a call to `ConfigureAuth(…)` to set up authentication for your web app.
 
     ```csharp
     public partial class Startup
