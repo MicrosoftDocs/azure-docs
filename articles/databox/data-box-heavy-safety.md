@@ -158,7 +158,7 @@ Canada: (800) 933-4750
 
 **EUROPEAN UNION:**
 
-A copy of the EU Declaration of Conformity is available here.
+[Request](mailto:CSI_Compliance@microsoft.com) a copy of the EU Declaration of Conformity.
 
 ![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) **WARNING:** 
 
