@@ -129,7 +129,7 @@ Contoso wants to suppress notifications for all log alerts generated for **Compu
 
 ### Scenario 3: Action group defined at a resource group
 
-Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). But it wants to define the actions that trigger specifically for alerts generated from their resource group **ContosoRG**.
+Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). But it wants to define the actions that trigger specifically for alerts generated from the resource group **ContosoRG**.
 
 **Solution:** Create an action rule with:
 * Scope = **ContosoRG**
