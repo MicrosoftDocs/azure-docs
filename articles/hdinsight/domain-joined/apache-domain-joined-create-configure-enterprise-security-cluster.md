@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/09/2019
 ---
 # Create and configure Enterprise Security Package clusters in Azure HDInsight

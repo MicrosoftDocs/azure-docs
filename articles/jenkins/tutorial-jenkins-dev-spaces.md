@@ -6,7 +6,7 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/19
+ms.date: 06/18/2019
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -355,8 +355,7 @@ To complete step 3 in this section, you will need to comment part of the Jenkins
 
 ### Constructing the URL to the child dev space
 
-When you file a pull request, Jenkins creates a child dev space based on the team's shared dev space and runs the code from your pull request in that child dev space. The URL to the child dev space takes the form `
-http://$env.azdsprefix.<test_endpoint>`. 
+When you file a pull request, Jenkins creates a child dev space based on the team's shared dev space and runs the code from your pull request in that child dev space. The URL to the child dev space takes the form `http://$env.azdsprefix.<test_endpoint>`. 
 
 **$env.azdsprefix** is set during pipeline execution by the Azure Dev Spaces plugin by **devSpacesCreate**:
 

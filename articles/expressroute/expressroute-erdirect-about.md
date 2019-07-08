@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 07/06/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -35,9 +35,9 @@ Before using ExpressRoute Direct, you must first enroll your subscription. To en
 
 | **ExpressRoute using a service provider** | **ExpressRoute Direct** | 
 | --- | --- |
-| Utilizes service providers to enable fast onboarding and connectivity into existing infrastructure | Requires 100-Gbps infrastructure and full management of all layers
+| Utilizes service providers to enable fast onboarding and connectivity into existing infrastructure | Requires 100 Gbps/10 Gbps infrastructure and full management of all layers
 | Integrates with hundreds of providers including Ethernet and MPLS | Direct/Dedicated capacity for regulated industries and massive data ingestion |
-| Circuits SKUs from 50 Mbps to 10 Gbps | Customer may select a combination of the following circuit SKUs: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - limited to a total of 200 Gbps
+| Circuits SKUs from 50 Mbps to 10 Gbps | Customer may select a combination of the following circuit SKUs on 100 Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Customer may select a combination of the following circuit SKUs on 10 Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 | Optimized for single tenant | Optimized for single tenant/Cloud Service providers/multiple business units
 
 ## ExpressRoute Direct circuits
@@ -50,7 +50,12 @@ The functionality in most scenarios is equivalent to circuits that utilize an Ex
 
 ## Circuit SKUs
 
-ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on ExpressRoute Direct now also support **40 Gbps** and **100 Gbps** circuit SKUs. The physical port pairs are **100 Gbps** only and can have multiple virtual circuits with bandwidths of 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - up to 200 Gbps in any combination. 
+ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100 Gbps ExpressRoute Direct now also support **40 Gbps** and **100 Gbps** circuit SKUs. The physical port pairs are **100 or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
+
+| **100 Gbps ExpressRoute Direct** | **10 Gbps ExpressRoute Direct** | 
+| --- | --- |
+| **Subscribed Bandwidth**: 200 Gbps | **Subscribed Bandwidth**: 20 Gbps |
+| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 
 ## VLAN Tagging
 

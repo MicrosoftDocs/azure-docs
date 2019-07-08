@@ -4,7 +4,7 @@ description: include file
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 10/04/2018
 ms.author: glenga
@@ -15,7 +15,7 @@ The following table tells how to add support for this binding in each developmen
 
 | Development environment               | To add support in <br>Functions 2.x  |
 |----------------------|----------------|
-|Local development - C# class library       | [Install the package](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2019) |
+|Local development - C# class library       | [Install the package](../articles/azure-functions/functions-bindings-register.md#vs) |
 |Local development - C# script, JavaScript, F# |[Register the extension](../articles/azure-functions/functions-bindings-register.md#extension-bundles)         |
 |Portal development| [Register the extension](../articles/azure-functions/install-update-binding-extensions-manual.md)  |
 

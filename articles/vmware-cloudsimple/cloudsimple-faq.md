@@ -3,7 +3,7 @@ title: FAQ - VMware Solution by CloudSimple
 description: Frequently asked questions for Azure VMware Solution by CloudSimple 
 author: sharaths-cs
 ms.author: b-shsury 
-ms.date: 05/24/19 
+ms.date: 05/24/2019 
 ms.topic: article 
 ms.service: vmware 
 ms.reviewer: cynthn 
