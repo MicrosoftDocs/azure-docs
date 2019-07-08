@@ -81,9 +81,9 @@ To recover data from an Azure Backup Server:
 | 3. |No other DPM server is registered to this vault. |**Cause:** There are no other Azure Backup Servers  that are registered to the vault from which the recovery is being attempted.<br>**Resolution:** If there are other Azure Backup Servers registered to the Recovery Services vault, ensure that the latest Azure Backup agent is installed.<br>If there are other Azure Backup Servers registered to the Recovery Services vault, wait for a day after installation to start the recovery process. The nightly job uploads the metadata for all protected backups to cloud. The data will be available for recovery. |
 | 4. |The encryption passphrase provided does not match with passphrase associated with the following server: **\<server name>** |**Cause:** The encryption passphrase used in the process of encrypting the data from the Azure Backup Server’s data that is being recovered does not match the encryption passphrase provided. The agent is unable to decrypt the data. Hence the recovery fails.<br>**Resolution:** Please provide the exact same encryption passphrase associated with the Azure Backup Server whose data is being recovered. |
 
-## Next steps:
+## Next steps
 
 Read the other FAQs:
 
-- [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups.
+- [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups
 - [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent
