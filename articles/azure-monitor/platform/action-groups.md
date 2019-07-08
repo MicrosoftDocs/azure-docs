@@ -63,7 +63,7 @@ After you create an action group, it's visible in the **Action groups** section 
 
 ## Action specific information
 > [!NOTE]
-> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) for numeric limits on each of the items below.  
+> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
 
 **Azure app Push** - You may have a limited number of Azure app actions in an Action Group.
 
