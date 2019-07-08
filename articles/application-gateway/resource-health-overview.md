@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 7/2/2019
+ms.date: 7/9/2019
 ms.author: victorh
 ---
 
@@ -22,13 +22,13 @@ The health status for Application Gateway is displayed as one of the following s
 
 ## Available
 
-A status of **Available** means that the service hasn't detected any events that affect the health of the resource. You'll see the **Recently resolved** notification in cases where the gateway has recovered from unplanned downtime during the last 24 hours.
+An **Available** status means the service hasn't detected any events that affect the health of the resource. You'll see the **Recently resolved** notification in cases where the gateway has recovered from unplanned downtime during the last 24 hours.
 
 ![Available health status](media/resource-health-overview/available-full.png)
 
 ## Unavailable
 
-A status of **Unavailable** means that the service has detected an ongoing platform or non-platform event that affects the health of the gateway.
+An **Unavailable** status means the service has detected an ongoing platform or non-platform event that affects the health of the gateway.
 
 ### Platform events
 
@@ -40,7 +40,7 @@ Resource Health provides additional details on the event and the recovery proces
 
 ## Unknown
 
-The health status of **Unknown** indicates Resource Health hasn't received information about the gateway for more than 10 minutes. This status isn't a definitive indication of the state of the gateway. But it's an important data point in the troubleshooting process.
+The **Unknown** health status indicates Resource Health hasn't received information about the gateway for more than 10 minutes. This status isn't a definitive indication of the state of the gateway. But it's an important data point in the troubleshooting process.
 
 If the gateway is running as expected, the status changes to **Available** after a few minutes.
 
@@ -50,7 +50,7 @@ If you're experiencing problems,  the **Unknown** health status might suggest th
 
 ## Degraded
 
-The health status of **Degraded** indicates that your gateway has detected a loss in performance, although it's still available for usage.
+The **Degraded** health status indicates your gateway has detected a loss in performance, although it's still available for usage.
 
 ![Degrated status](media/resource-health-overview/degraded.png)
 
