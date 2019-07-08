@@ -66,8 +66,6 @@
   items:
   - name: R developer guide 
     href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
-  - name: Blog
-    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
   - name: MSDN forum
     href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
   - name: Stack Overflow
