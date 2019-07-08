@@ -124,7 +124,7 @@ Export the digital certificate created in the previous to a *.PFX* file:
 
     ![Choose the option to export the certificate in the PKCS 12 (.PFX) file format](./media/tutorial-configure-ldaps/export-cert-to-pfx.png)
 
-1. On the **Security** page, choose the option for **Password** to protect the *.PFX* file. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for you Azure AD DS managed domain.
+1. On the **Security** page, choose the option for **Password** to protect the *.PFX* file. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your Azure AD DS managed domain.
 1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\<accountname>\LDAP_cert*.
 1. On the review page, select **Finish** to export the certificate to a *.PFX* file. A confirmation dialog is displayed when the certificate has been successfully exported.
 1. Leave the MMC open for use in one of the following sections.
@@ -197,7 +197,7 @@ The following example DNS entry, either with your external DNS provider or the l
 
 ## Test queries to the managed domain using LDP.exe
 
-Client computers must trust the issuer of the LDAPS certificate to be able to connect successfully to the managed domain using LDAPS. If you use a public CA, the your computer should automatically trust these certificate issuers. In this tutorial, you use a self-signed certificate, so let's install the public part of the self-signed certificate into the trusted certificate store on the client computer:
+Client computers must trust the issuer of the LDAPS certificate to be able to connect successfully to the managed domain using LDAPS. If you use a public CA, the computer should automatically trust these certificate issuers. In this tutorial, you use a self-signed certificate, so let's install the public part of the self-signed certificate into the trusted certificate store on the client computer:
 
 1. Go back to the MMC for *Certificates* where you exported the digital certificate in a previous step.
 1. Expand the **Trusted Root Certification Authorities** node, followed by the **Certificates node**.
@@ -210,7 +210,7 @@ To connect and bind to your Azure AD DS managed domain and search over LDAP, you
 1. Enter the secure LDAP DNS domain name of your managed domain created in the previous step, such as *ldaps.contoso100.com*. To use secure LDAP, set **Port** to *636*, then check the box for **SSL**.
 1. Select **OK** to connect to the managed domain.
 
-Next, bind to your Azure AD DS managed domain. Users (and service accounts) can;t perform LDAP simple binds if you have disabled NTLM password hash synchronization on your Azure AD DS instance. For more information on disabling NTLM password hash synchronization, see [Secure your Azure AD DOmain Services managed domain](secure-your-domain.md).
+Next, bind to your Azure AD DS managed domain. Users (and service accounts) can't perform LDAP simple binds if you have disabled NTLM password hash synchronization on your Azure AD DS instance. For more information on disabling NTLM password hash synchronization, see [Secure your Azure AD DOmain Services managed domain](secure-your-domain.md).
 
 1. Select the **Connection** menu option, then choose **Bind...**.
 1. Provide the credentials of a user account belonging to the *AAD DC Administrators* group, such as *contosoadmin*. Enter the user account's password, then enter your domain, such as *contoso100.com*.
