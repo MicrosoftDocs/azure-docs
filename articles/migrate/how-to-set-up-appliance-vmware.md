@@ -34,7 +34,6 @@ To set up the appliance you:
 2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMWare vSphere hypervisor**.
 3. Click **Download** to download the .OVA template file.
 
-    ![Download .ova file](./media/how-to-set-up-appliance-vmwaree/download-ova.png)
 
 
 ### Verify security
@@ -57,9 +56,6 @@ Check that the OVA file is secure, before you deploy it.
 Import the downloaded file, and create a VM.
 
 1. In the vSphere Client console, click **File** > **Deploy OVF Template**.
-
-    ![Deploy OVF](./media/how-to-set-up-appliance-vmware/deploy-ovf.png)
-
 2. In the Deploy OVF Template Wizard > **Source**, specify the location of the OVA file.
 3. In **Name** and **Location**, specify a friendly name for the VM. Select the inventory object in which the VM
 will be hosted.
