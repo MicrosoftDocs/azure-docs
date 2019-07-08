@@ -130,7 +130,8 @@ This command tells Azurite to store all data in a particular directory, **c:\azu
 This section details the command-line switches available when launching Azurite. All command-line switches are optional.
 
 ```console
-azurite [--blobHost <IP address>] [--blobPort <port address>] [-l | --location <workspace path>] [-s | --silent] [-d | --debug <log file path>]
+C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>]
+    [-l | --location <workspace path>] [-s | --silent] [-d | --debug <log file path>]
 ```
 
 The **-l** switch is a shortcut for **--location**, **-s** is a shortcut for **--silent**, and **-d** is a shortcut for **--debug**.
@@ -185,6 +186,8 @@ azurite --location c:\azurite
 azurite -l c:\azurite
 ```
 
+The **-l** switch is a shortcut for **--location**.
+
 ### Access log
 
 **Optional** By default, the access log is displayed in the console window. Disable the display of the access log by using the **--silent** switch.
@@ -196,6 +199,8 @@ azurite --silent
 ```console
 azurite -s
 ```
+
+The **-s** switch is a shortcut for **--silent**.
 
 ### Debug log
 
@@ -209,9 +214,11 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
+The **-d** switch is a shortcut for **--debug**.
+
 ## Authentication for tools and SDKs
 
-Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) by using any authentication strategy. Authentication is required. Azurite supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications.
+Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications.
 
 ### Default Storage Account
 
@@ -228,7 +235,9 @@ Azurite provides support for a General Storage Account v2 and associated feature
 Typically, you can pass the following connection strings to SDKs or tools. Using the Blob service as an example, the full connection string is:
 
 ```
-DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
+"DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;" +
+"AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;" +
+"BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;"
 ```
 
 The easiest way to connect to Azurite from your application is to configure a connection string in your application's configuration file that references the shortcut *UseDevelopmentStorage=true*. Here's an example of a connection string in an *app.config* file:
@@ -276,11 +285,11 @@ The following address might be used for accessing a blob in Azurite:
 
 ### Scaling and performance
 
-Azurite is not a scalable storage service and does not support a large number of concurrent clients. There's no performance guarantee. Performance depends highly on the environment in which Azurite is deployed. Azurite is intended for development and testing purposes.
+Azurite is not a scalable storage service and does not support a large number of concurrent clients. There's no performance guarantee. Azurite is intended for development and testing purposes.
 
 ### Error handling
 
-We've tried to align Azurite with Azure Storage error handling logic, but there are differences. For example, error messages may be different, while error status codes will align.
+We've tried to align Azurite with Azure Storage error handling logic, but there are differences. For example, error messages may be different, while error status codes align.
 
 ### RA-GRS
 
