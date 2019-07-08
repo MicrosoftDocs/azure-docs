@@ -67,7 +67,15 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 
 ## Create a cluster with Data Lake Storage Gen2 through the Azure CLI
 
-You can [download a sample template file](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and [download a sample parameters file](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, replace the string `<SUBSCRIPTION_ID>` with your actual Azure subscription ID. Also, replace the string `<PASSWORD>` with your chosen password to set both the password that you'll use to sign in to your cluster and the SSH password.
+You can [download a sample template file](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and [download a sample parameters file](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template and the Azure CLI code snippet below, replace the following placeholders with their correct values:
+
+| Placeholder | Description |
+|---|---|
+| `<SUBSCRIPTION_ID>` | The ID of your Azure subscription |
+| `<RESOURCEGROUPNAME>` | The resource group where you want the new cluster and storage account created. |
+| `<MANAGEDIDENTITYNAME>` | The name of the managed identity that will be given permissions on your Azure Data Lake Storage Gen2 account. |
+| `<STORAGEACCOUNTNAME>` | The new Azure Data Lake Storage Gen2 account that will be created. |
+| `<PASSWORD>` | Your chosen password for signing in to the cluster using SSH as well as the Ambari dashboard. |
 
 The code snippet below does the following initial steps:
 
@@ -77,15 +85,6 @@ The code snippet below does the following initial steps:
 1. Creates a user-assigned managed identity.
 1. Adds an extension to the Azure CLI to use features for Data Lake Storage Gen2.
 1. Creates a new Data Lake Storage Gen2 account by using the `--hierarchical-namespace true` flag. 
-
-In the Azure CLI code as well as the resource manager templates, substitute the following placeholders with the actual names for your environment: 
-
-| Placeholder | Description |
-|---|---|
-| `<SUBSCRIPTION_ID>` | The ID of your Azure subscription |
-| `<RESOURCEGROUPNAME>` | The resource group where you want the new cluster and storage account created. |
-| `<MANAGEDIDENTITYNAME>` | The name of the managed identity that will be given permissions on your Azure Data Lake Storage Gen2 account. |
-| `<STORAGEACCOUNTNAME>` | The new Azure Data Lake Storage Gen2 account that will be created. |
 
 ```azurecli
 az login
