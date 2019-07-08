@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/05/2019
 ms.author: yushwang
 
 ---
@@ -26,10 +26,6 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 * Specifications for HighPerformance VPN gateway and RouteBased VPN gateway are the same, unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the HighPerformance VPN gateway.
 
 ## <a name="devicetable"></a>Validated VPN devices and device configuration guides
-
-> [!NOTE]
-> When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.
->
 
 In partnership with device vendors, we have validated a set of standard VPN devices. All of the devices in the device families in the following list should work with VPN gateways. See [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype) to understand the VPN type use (PolicyBased or RouteBased) for the VPN Gateway solution you want to configure.
 

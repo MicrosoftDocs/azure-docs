@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
-ms.author: martincoetzer
+ms.author: martinco
 ---
 
 # Five steps to securing your identity infrastructure

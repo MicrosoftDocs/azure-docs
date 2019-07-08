@@ -55,7 +55,7 @@ systemctl mask firewalld
 systemctl stop firewalld.service
 systemctl disable firewalld.service
 iptables -nL
-sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g'/etc/selinux/config
+sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ```
 
 ## Disable cpupower

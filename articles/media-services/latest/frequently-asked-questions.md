@@ -11,15 +11,15 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 06/21/2019
 ms.author: juliako
 ---
 
-# Azure Media Services v3 frequently asked questions
+# Media Services v3 frequently asked questions
 
 This article gives answers to Azure Media Services (AMS) v3 frequently asked questions.
 
-## v3 APIs
+## General
 
 ### What Azure roles can perform actions on Azure Media Services resources? 
 
@@ -42,6 +42,10 @@ When using pagination, you should always use the next link to enumerate the coll
 ### What features are not yet available in Azure Media Services v3?
 
 For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+
+### What is the process of moving a Media Services account between subscriptions?  
+
+For details, see [Moving a Media Services account between subscriptions ](media-services-account-concept.md).
 
 ## Live streaming 
 
