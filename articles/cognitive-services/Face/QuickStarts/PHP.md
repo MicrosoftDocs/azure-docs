@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and PHP
@@ -38,7 +38,7 @@ Create a new HTML file, *detectFaces.html*, and add the following code.
 
 ## Write the PHP script
 
-Add the following code inside the `body` element of the document. This sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
+Add the following code inside the `body` element of the document. This code sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
 
 ```php
 <?php

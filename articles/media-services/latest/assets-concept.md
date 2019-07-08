@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets in Media Services - Azure | Microsoft Docs
+title: Assets in Azure Media Services  | Microsoft Docs
 description: This article gives an explanation of what assets are, and how they are used by Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -85,9 +85,22 @@ curl -X PUT \
 
 For a full example, see [Create a job input from a local file](job-input-from-local-file-how-to.md). In Media Services v3, a job's input can also be created from HTTPS URLs (see [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)).
 
-## Filtering, ordering, paging
+## Map v3 asset properties to v2
 
-See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
+The following table shows how the [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)'s properties in v3 map to Asset's properties in v2.
+
+|v3 properties|v2 properties|
+|---|---|
+|id - (unique) the full Azure Resource Manager path, see examples in [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|name - (unique) see [Naming conventions](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|Id - (unique) value starts with the `nb:cid:UUID:` prefix.|
+|created|Created|
+|description|Name|
+|lastModified|LastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Options - creation options|
+|type||
 
 ## Storage side encryption
 
@@ -102,6 +115,10 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 <sup>1</sup> While Media Services does support handling of content in the clear/without any form of encryption, doing so is not recommended.
 
 <sup>2</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but will not allow creation of new ones.
+
+## Filtering, ordering, paging
+
+See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 
 ## Next steps
 

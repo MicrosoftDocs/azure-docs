@@ -211,6 +211,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS90093 | GraphUserUnauthorized - Graph returned with a forbidden error code for the request. |
 | AADSTS90094 | AdminConsentRequired - Administrator consent is required. |
 | AADSTS90100 | InvalidRequestParameter - The parameter is empty or not valid. |
+| AADSTS901002 | AADSTS901002: The 'resource' request parameter is not supported. |
 | AADSTS90101 | InvalidEmailAddress - The supplied data isn't a valid email address. The email address must be in the format `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter - The value must be a valid absolute URI. |
 | AADSTS90107 | InvalidXml - The request is not valid. Make sure your data doesn't have invalid characters.|
