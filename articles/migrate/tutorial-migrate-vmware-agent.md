@@ -240,13 +240,11 @@ Download the template as follows:
     - You can't change the target region for this project after clicking this button.
     - All subsequent migrations are to this region.
 
-    [Create Recovery Services vault](./media/tutorial-migrate-vmware-agent/create-resources.png)
+    ![Create Recovery Services vault](./media/tutorial-migrate-vmware-agent/create-resources.png)
 
 8. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
 9. Click **Download**, to download the replication appliance. This downloads an OVF template that you use to create a new VMware VM that runs the appliance.
-
-    [Download OVA](./media/tutorial-migrate-vmware-agent/download-ova.png)
-
+    ![Download OVA](./media/tutorial-migrate-vmware-agent/download-ova.png)
 10. Note the name of the resource group and the Recovery Services vault. You need these during appliance deployment.
 
 
