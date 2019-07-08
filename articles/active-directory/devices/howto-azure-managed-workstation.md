@@ -168,7 +168,7 @@ In Intune in the Azure portal:
    * Description - **Deployment of secure workstations**.
    * Set **Convert all targeted devices to Autopilot** to **Yes**. This setting makes sure that all devices in the list get registered with the Autopilot deployment service. Allow 48 hours for the registration to be processed.
 1. Select **Next**.
-   * For **Deployment mode**, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user who enrolls the device. User credentials are required to enroll the device.
+   * For **Deployment mode**, choose **User-Driven**. Devices with this profile are associated with the user who enrolls the device. User credentials are required to enroll the device.
    * The **Join to Azure AD as** box should show **Azure AD joined** and be grayed out.
    * Select your Langugage (Region), User account type **standard**. 
 1. Select **Next**.
