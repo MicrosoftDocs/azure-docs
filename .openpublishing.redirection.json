@@ -37769,6 +37769,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/content-moderator-helper-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription",
       "redirect_document_id": false
@@ -39866,6 +39871,11 @@
     {
       "source_path": "articles/azure-monitor/app/asp-net-core-no-visualstudio.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/azure-monitor/app/proactive-low-utilization-cloud-resources.md",
+      "redirect_url": "/azure/azure-monitor/app/proactive-diagnostics",
       "redirect_document_id": false
     },
     {

@@ -105,7 +105,7 @@ You can also upload a VHD to your storage account using one of the following:
 	Import/Export can be used to copy to a standard storage account. You'll need to copy from standard storage to premium storage account by using a tool like AzCopy.
 
 > [!IMPORTANT]
-> If you are using AzCopy to upload your VHD to Azure, make sure you have set [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#blobtypeblock--page--append) before running your upload script. 
+> If you are using AzCopy to upload your VHD to Azure, make sure you have set [**/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) before running your upload script. 
 > If the destination is a blob and this option is not specified, by default AzCopy creates a block blob.
 > 
 > 

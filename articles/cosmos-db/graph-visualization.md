@@ -13,7 +13,7 @@ ms.date: 07/02/2019
 
 The following solutions are recommended by the [Apache Tinkerpop community](http://tinkerpop.apache.org/#poweredby) for Gremlin graph visualization.
 
-## Linkurious Enterprise
+## [Linkurious Enterprise](https://linkurio.us/product/)
 
 ![Linkurious Logo](./media/graph-visualization/linkurious-logo.jpg)
 
@@ -25,7 +25,7 @@ The interactive visualization interface of Linkurious Enterprise offers an easy 
 
 **Next steps:** You can request a [demo of Linkurious with Azure Cosmos DB](https://linkurio.us/contact/).
 
-## Cambridge Intelligence
+## [Cambridge Intelligence](https://cambridge-intelligence.com/products/)
 
 ![Cambridge Intelligence logo](./media/graph-visualization/ci-logo.png)
 
