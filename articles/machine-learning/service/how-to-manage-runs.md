@@ -174,7 +174,7 @@ local_script_run.cancel()
 print("Did the run cancel?",local_script_run.get_status())
 ```
 
-If your run finishes, but it contains an error (for example, the incorrect training script was used), you can use the [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#fail-error-details-none---set-status-true-) method to mark it as failed.
+If your run finishes, but it contains an error (for example, the incorrect training script was used), you can use the [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) method to mark it as failed.
 
 ```Python
 local_script_run = exp.submit(run_config)

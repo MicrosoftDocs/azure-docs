@@ -431,7 +431,7 @@ When submitting job to an HDInsight cluster with ADLS Gen2, you will be prompted
 
 > [!NOTE]
 > 
->You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
+>You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
 
 ## Unlink cluster
 

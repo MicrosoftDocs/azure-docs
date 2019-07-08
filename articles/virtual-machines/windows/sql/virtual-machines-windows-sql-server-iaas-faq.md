@@ -165,7 +165,7 @@ This article provides answers to some of the most common questions about running
 
 1. **How do I install SQL Data tools on my Azure VM?**
 
-    Download and install the SQL Data tools from [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+    Download and install the SQL Data tools from [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
 
 1. **Are distributed transactions with MSDTC supported on SQL Server VMs?**
    
