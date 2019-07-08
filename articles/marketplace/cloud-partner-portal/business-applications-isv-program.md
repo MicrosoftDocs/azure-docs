@@ -23,17 +23,23 @@ In order to enroll and take advantage of all the [technical, marketing, and sale
  - [Specifying your billing info](#set-up-your-billing-information), and
  - [Republishing your application](#submit-your-app-for-recertification) to Microsoft AppSource
 
+ **You'll need to complete all of the above steps in order to make changes to an existing offer (your offers will be locked for editing in *Cloud Partner Portal* until then).**
+
 In the past, Microsoft lacked a way for customers to easily assess whether a given ISV application built on
 the platform would meet a given quality bar. When you follow these steps to enroll in the Microsoft Business Applications ISV Program, your application is certified and promoted as part of the official ISV ecosystem.
 
-## Activate your account in Partner Center
+## Set up your Microsoft Partner Center account
 
-If you've already published Dynamics CE and/or Dynamics Ops offers, your Cloud Partner Portal (CPP) account has been migrated to Microsoft [Partner Center](https://partner.microsoft.com) (PC), where you can manage it going forward. You'll need to complete all the steps in this document in order to make any changes to an existing offer (as your offers will be locked for editing in CPP until then).
+[Microsoft Partner Center](https://partner.microsoft.com) is the place where you'll manage your account settings for the new Business Applications ISV Program.
 
 > [!NOTE]
-> This step requires an *Owner* role in Cloud Partner Portal for your given account.
+> This step requires an *Owner* or *Manager* role in Cloud Partner Portal for your given account.
 
-1. Sign in to your *Publisher Profile* page from [Cloud Partner Portal](https://cloudpartner.azure.com/) and click on the yellow banner prompting you to activate your Partner Center account.
+If you've already published Dynamics CE and/or Dynamics Ops offers, most likely your Cloud Partner Portal (CPP) account has already been migrated and activated on Microsoft Partner Center.
+
+1. Sign in to your *Publisher Profile* page from [Cloud Partner Portal](https://cloudpartner.azure.com/). 
+
+2. If you see a banner showing that your account settings have been migrated to Partner Center, continue on to the next section. Otherwise, click on the yellow banner prompting you to activate your Partner Center account.
 
 For more info, see [*Account migration from Cloud Partner Portal to Partner Center*](../partner-center-portal/account-migration-from-cpp-to-pc.md).
 
@@ -71,11 +77,15 @@ Next, set up your billing information for the Business Applications ISV Program.
 
 You can update your billing profile at any time, however *Company Name* and billing address *Country*  are not editable fields.
 
-## Submit your app for recertification
+## Recertify your application
 
 If you've complete the steps above, your existing Dynamics 365 CE and Dynamics 365 Ops offers are now unlocked for editing in the Cloud Partner Portal (you might need to refresh the page). You can also create new offers through the CPP.
 
-1. The final step for enrollment in the Business Applications ISV Program is to recertify your existing applications by [republishing your app to AppSource](https://partner.microsoft.com/solutions/business-applications/isv-publish) and [resubmitting your offer to Cloud Partner Portal](manage-offers/cpp-manage-offers.md).
+The final step for enrollment in the Business Applications ISV Program is to recertify your existing applications.
+
+1. [Follow the steps](https://partner.microsoft.com/solutions/business-applications/isv-publish) to republish your application to AppSource.
+
+2. [Create and publish a new offer](manage-offers/cpp-manage-offers.md) to Cloud Partner Portal. You can then delete your original offer.
 
 ## Further info
 
