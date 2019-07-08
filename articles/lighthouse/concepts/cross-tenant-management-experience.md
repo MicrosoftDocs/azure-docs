@@ -4,7 +4,7 @@ description: Azure delegated resource management enables a cross-tenant manageme
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/02/2019
+ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
 ---

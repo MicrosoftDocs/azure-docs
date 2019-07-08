@@ -4,7 +4,7 @@ description: Managed services offers allow service providers to sell resource ma
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/03/2019
+ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -15,7 +15,7 @@ Azure delegated resource management is one of the key components of Azure Lighth
 
 ## What is Azure delegated resource management?
 
-Azure delegated resource management lets authorized users in one Azure Active Directory (Azure AD) tenant perform management operations across different Azure AD tenants belonging to their customers. Service providers can sign in to their own Azure AD tenant and have authorization to work in delegated customer subscriptions and resource groups. This lets them perform management operations on behalf of their customers, without having to sign in to each individual customer tenant.
+Azure delegated resource management enables logical projection of resources from one tenant onto another tenant. This lets authorized users in one Azure Active Directory (Azure AD) tenant perform management operations across different Azure AD tenants belonging to their customers. Service providers can sign in to their own Azure AD tenant and have authorization to work in delegated customer subscriptions and resource groups. This lets them perform management operations on behalf of their customers, without having to sign in to each individual customer tenant.
 
 > [!NOTE]
 > Azure delegated resource management can also be used within an enterprise which has multiple Azure AD tenants of its own to simplify cross-tenant management.
