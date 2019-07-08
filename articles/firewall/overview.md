@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 7/10/2019
+ms.date: 7/11/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -46,7 +46,7 @@ Azure Firewall can scale up as much as you need  to accommodate changing network
 
 ## Application FQDN filtering rules
 
-You can limit outbound HTTP/S traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require SSL termination.
+You can limit outbound HTTP/S traffic or Azure SQL traffic (preview) to a specified list of fully qualified domain names (FQDN) including wild cards. This feature doesn't require SSL termination.
 
 ## Network traffic filtering rules
 
@@ -107,6 +107,7 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Can't remove first public IP address using the portal|You can't remove the first public IP address using the Azure portal because it is associated with the firewall IP configuration. If you want to modify the IP address, you can use Azure PowerShell. See [Deploy an Azure Firewall with multiple public IP addresses using Azure PowerShell](deploy-multi-public-ip-powershell.md).|This is by design.|
 |Availability zones can only be configured during deployment.|Availability zones can only be configured during deployment. You can't configure Availability Zones after a firewall has been deployed.|This is by design.|
 |SNAT on inbound connections|In addition to DNAT, connections via the firewall public IP address (inbound) are SNATed to one of the firewall private IPs. This requirement today (also for Active/Active NVAs) to ensure symmetric routing.|To preserve the original source for HTTP/S, consider using [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) headers. For example, use a service such as [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) in front of the firewall. You can also add WAF as part of Azure Front Door and chain to the firewall.
+|SQL FQDN filtering support only in proxy mode (port 1433)|For Azure SQL Database, Azure SQL Data Warehouse, and Azure SQL Managed Instance:<br><br>During the preview, SQL FQDN filtering is supported in proxy-mode only (port 1433).<br><br>For Azure SQL IaaS:<br><br>If you are using non-standard ports, you can specify those ports in the application rules.|For SQL in redirect mode, which is the default if connecting from within Azure, you can instead filter access using the SQL service tag as part of Azure Firewall network rules.
 
 ## Next steps
 

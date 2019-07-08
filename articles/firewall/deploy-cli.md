@@ -4,7 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 7/11/2019
 ms.author: victorh
 ms.topic: article
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -16,7 +16,7 @@ Controlling outbound network access is an important part of an overall network s
 
 One way you can control outbound network access from an Azure subnet is with Azure Firewall. With Azure Firewall, you can configure:
 
-* Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet.
+* Application rules that define fully qualified domain names (FQDNs) that can be accessed from a subnet. The FQDN can also [include SQL instances](sql-fqdn-filtering.md).
 * Network rules that define source address, protocol, destination port, and destination address.
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.

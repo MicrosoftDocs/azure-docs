@@ -49,6 +49,8 @@
       href: deploy-availability-zone-powershell.md
     - name: Integrate with load balancer
       href: integrate-lb.md
+    - name: Configure SQL FQDN
+      href: sql-fqdn-filtering.md
 - name: Reference
   items:
   - name: Azure CLI
