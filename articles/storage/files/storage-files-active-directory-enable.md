@@ -129,7 +129,7 @@ az storage account create -n <storage-account-name> -g <resource-group-name> --f
 
 To access Azure Files resources using Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows Share permissions, where you specify the type of access that a given user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
 
-We have introduced two Azure Built-in roles for granting share level permissions to users: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor. Storage File Data SMB Share Reader allows read access in Azure Storage file shares over SMB
+We have introduced two Azure Built-in roles for granting share level permissions to users: Storage File Data SMB Share Reader and Storage File Data SMB Share Contributor. Storage File Data SMB Share Reader allows read access in Azure Storage file shares over SMB
 Storage File Data SMB Share Contributor allows read, write, and delete access in Azure Storage file shares over SMB. 
 
 > [!IMPORTANT]
