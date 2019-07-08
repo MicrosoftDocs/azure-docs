@@ -460,12 +460,16 @@
           href: tutorial-query-graph.md
       - name: How-to guides
         items:
-        - name: Import graph data 
-          href: bulk-executor-graph-dotnet.md
+        - name: Graph data modeling
+          href: graph-modeling.md
         - name: Graph data partitioning
           href: graph-partitioning.md
+        - name: Import graph data 
+          href: bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
           href: graph-execution-profile.md
+        - name: Visualize graph data
+          href: graph-visualization.md
         - name: Store and manage Spring Data
           href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
           maintainContext: true

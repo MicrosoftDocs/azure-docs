@@ -190,10 +190,6 @@ See [Run the MapReduce examples included in HDInsight](hadoop/apache-hadoop-run-
 
 See [Run Apache Hive queries using PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**To submit Apache Pig jobs**
-
-See [Run Apache Pig jobs using PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
-
 **To submit Apache Sqoop jobs**
 
 See [Use Apache Sqoop with HDInsight](hadoop/hdinsight-use-sqoop.md).

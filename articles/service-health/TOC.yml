@@ -7,7 +7,7 @@
 - name: Quickstarts
   items:
   - name: Configure alerts for service health events
-    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
 - name: Concepts
   items:
   - name: Azure status page
@@ -19,9 +19,9 @@
 - name: How To
   items:
   - name: Configure alerts for service health events
-    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    href: alerts-activity-log-service-notifications.md
   - name: View service health notifications by using the Azure portal
-    href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
+    href: service-notifications.md
   - name: Send alerts to outside systems via webhook
     href: service-health-alert-webhook-guide.md
   - name: Send alerts to ServiceNow
