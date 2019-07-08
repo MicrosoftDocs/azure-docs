@@ -31,9 +31,9 @@ A SaaS offer published in Azure Marketplace can be one of the following publishi
 
 **List** option allows you to publish your offer and get leads for prospective customers. Following up with the lead, and converting it to an opportunity are your responsibilities. You have a direct relationship with your customer, both from the engagement and transactional perspective.
 
-**Trial** option allows you to publish an offer that Azure customers can try out your service in a sandbox environment. The sandbox environment is usually available for a specific period of time (example: 30 days). Once the trial period is complete, you are responsible to follow up with the customer to establish the engagement and future sales, wherever applicable.
+**Trial** option allows you to publish an offer that Azure customers can try out your service in a sandbox environment. The sandbox environment is available for a specific period of time (example: 30 days). Once the trial period is complete, you are responsible to follow up with the customer to establish the engagement and future sales, wherever applicable.
 
-**Transact** option allows you to publish an offer to Azure Marketplace that users can discover, subscribe and pay for using their existing billing relationships with Microsoft.
+**Transact** option allows you to publish an offer to Azure Marketplace that users can discover, subscribe, and pay for using their existing billing relationships with Microsoft.
 
 ### Billing models
 
@@ -41,8 +41,8 @@ This document is solely focused on the transact option. While publishing an offe
 
 Billing models refer to the different capabilities available in the platform for you to charge the end users for their services. The list of available billing models for SaaS offers in Azure Marketplace are
 
-- **Per site** - this allows you to set a flat monthly fee that is pre-paid (often referred to as base price) per recurring term (month/year)
-- **Per seat** - this allows you to set a flat monthly fee per user that is pre-paid per recurring term (month/year)
+- **Per site** - allows you to set a flat monthly fee that is pre-paid (often referred to as base price) per recurring term (month/year)
+- **Per seat** - allows you to set a flat monthly fee per user that is pre-paid per recurring term (month/year)
 
 **Custom meters** is an extension of the per-site billing model.  This capability allows you to set a flat monthly fee that is pre-paid per recurring term (month/year). You can define explicitly what the user gets for the base price. Additionally, you can define the overage charges if the user exceeds the services provided for the base price.
 
@@ -55,19 +55,19 @@ To transact SaaS offers with the Marketplace metering service, the following eli
 
 - The SaaS offer should be published to Azure Marketplace
 - The SaaS service should support [Azure Active Direction AAD](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) as one of its authentication options.
-  - End user purchasing and managing SaaS service from Azure should be able to natively login, purchase, and manage the SaaS subscription without having to create an explicit login.
+  - End user purchasing and managing SaaS service from Azure should be able to natively log in, purchase, and manage the SaaS subscription without having to create an explicit login.
 
 ## Publishing a SaaS offer with the Marketplace metering service
 
-The following information are required to publish a SaaS offer with the Marketplace metering service.
+The following information is required to publish a SaaS offer with the Marketplace metering service.
 
 - **Storefront metadata**
-- **Service specific info for authentication, authorization and notification**
+- **Service-specific info for authentication, authorization, and notification**
 - **Offer hierarchy with billing models**
 
 **Storefront metadata**
 
-This includes tile, description, screenshots, support info, privacy link, terms of use, etc. This is boilerplate and it is the same as the information collected for any offer (SaaS or otherwise) published in Azure Marketplace.
+This metadata includes title, description, screenshots, support info, privacy link, terms of use, etc. It is boilerplate, and is the same as the information collected for any offer (SaaS or otherwise) published in Azure Marketplace.
 
 To publish a new SaaS offer, you must meet the following prerequisites:
 
@@ -78,22 +78,22 @@ To publish a new SaaS offer, you must meet the following prerequisites:
   - A title
   - A description (in HTML format)
   - A logo image (in PNG format) and in these fixed image sizes: 40 x 40 pixels, 90 x 90 pixels, 115 x 115 pixels, and 255 x 115 pixels.
-  - A Terms of Use and Privacy Policy statements
+  - A Term of Use and Privacy Policy statements
   - Application documentation
   - Support contacts
 
-**Service specific information for authentication, authorization and notification**
+**Service-specific information for authentication, authorization, and notification**
 
 For offers transacted on the Microsoft platform, there needs to be a two-way secure connectivity between Azure Marketplace and your SaaS service.
 
 You will communicate to Microsoft via one of its published APIs (Application Programming Interface). The authentication to this API is [Azure AD enabled](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad).
 
-The authentication requirements here are for the SaaS service integrating with Azure Marketplace platform to enable purchase transactions. It is independent from the authentication of SaaS service that enables its end users to log in and manage the SaaS service.
+The authentication requirements here are for the SaaS service integrating with Azure Marketplace platform to enable purchase transactions. It is independent from the authentication of SaaS service that enables its end users to sign in and manage the SaaS service.
 
 To integrate with Azure Marketplace, you should
 
 - Register an AAD application in their Azure subscription. See [SaaS fulfillment APIs, version 2](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2), for a step by step guide to create an AAD application in your Azure environment.
-- Provide the tenant id and client id associated with the AAD application to Microsoft at the time of publishing the offer.
+- Provide the tenant ID and client ID associated with the AAD application to Microsoft at the time of publishing the offer.
 
 For Microsoft to communicate with you about certain events, you need to
 
@@ -108,13 +108,13 @@ For Microsoft to communicate with you about certain events, you need to
 When it comes to defining the offer along with its billing models, it is important to understand the offer hierarchy.
 
 - You can publish one or more SaaS offers
-- Each SaaS offer is associated with one publishing option (List/Trial/Transact). Once set, this cannot be changed after an offer is published.
+- Each SaaS offer is associated with one publishing option (List/Trial/Transact). Once set, it cannot be changed after an offer is published.
 - Each SaaS offer can have one or more plans. A user subscribes to the SaaS offer. However, they purchase it in the context of a plan.
 - Each plan has the billing model associated with it (per site/per seat). All plans in an offer should be associated with the same billing model. For example, there cannot be an offer where one of its plans is per seat billing model, and another is per site billing model.
 - Per site billing model at a plan level consists of the following recurring fee per term: <br> Recurring **monthly** fee: flat monthly fee that is pre-paid on a monthly recurrence when user purchases the plan. <br> Recurring **annual** fee (optional): flat annual fee that is pre-paid on an annual recurrence when user purchases the plan.
 - Offer dimensions and overage:
 
-  - **Dimension identifier**: immutable identifer set by the ISV. This is the identifier referenced while emitting overage usage events.
+  - **Dimension identifier**: immutable identifer set by the ISV. It is the identifier referenced while emitting overage usage events.
   - **Dimension name**: display name associated with the dimension.
   - **Unit of measure**: unit against which ISV measures the dimension
   - **Price / unit of measure**: price associated with the dimension.
@@ -138,7 +138,7 @@ A user subscribing to CNS service will automatically benefit with respect to inc
 
 - Once an SKU is published with the Marketplace metering service, those custom meters become immutable for that SKU:
   - Number of enabled dimensions is locked
-  - No dimension may be created, deleted or disabled, and the ID, Display Name, and Unit of Measure cannot be changed.
+  - No dimension may be created, deleted, or disabled, and the ID, Display Name, and Unit of Measure cannot be changed.
   - Price could go down in the future when we support price decrease.
 - An ISV can add a new Marketplace metering service dimension to a new SKU, but the new meter will not be enabled for an already published SKU.
 - Publishing a per-site offer with an SKU without the Marketplace metering service, and then updating and adding another SKU with a Marketplace metering service, which is not enabled for the first SKU, is supported.
@@ -158,7 +158,7 @@ Once the user is interested in a specific SaaS service, the user can subscribe t
 
 It means that a user can view the terms of use, privacy statement associated with the SaaS service, and agree to pay for it as per the billing terms set by the Publisher on Microsoft's paper. Users can use their existing payment profile in Marketplace to pay for the SaaS service consumption.
 
-This is beneficial for the following reasons:
+It is beneficial for the following reasons:
 
 - Customers can now discover and subscribe in one place using Microsoft Cloud Platform as a trusted source, without having to vet every ISV software it intends to use. 
 - Also, customers can use their existing payment profile without having to explicitly pay each ISV software independently.
@@ -173,7 +173,7 @@ When a user subscribes to your SaaS service in Azure, a lead is automatically ge
 
 After subscribing to an offer, user can discover and manage all their offers in Azure. By default, the state of a newly subscribed SaaS service is **'Provisioning, fulfillment pending'**. In this state, the user will be prompted with an action to 'Configure Account' when they browse to their SaaS subscription management experience in Azure portal.
 
-When the user clicks on 'Configure Account', they will be redirected to the SaaS service website. The URL where they are navigated to is provided by the publisher at the time of publishing the offer. This page is referred to as the publisher's landing page. Users should be able to login to the SaaS landing page based on their existing AAD credentials in Azure.
+When the user clicks on 'Configure Account', they will be redirected to the SaaS service website. The URL is provided by the publisher at the time of publishing the offer. This page is referred to as the publisher's landing page. Users should be able to log in to the SaaS landing page based on their existing AAD credentials in Azure.
 
 When the user is redirected to the landing page, a token is added to the query URL. This token is short lived, and is valid for a time duration of 5 minutes. The publisher can then detect the presence of this token, and call Microsoft's API to get more context associated with the token.
 
@@ -204,12 +204,12 @@ sequenceDiagram
 
 **How do you know the SaaS offer to which the user subscribed to, in Azure?**
 
-The response from Microsoft includes non-PII information associated with the SaaS subscription. This includes the offer and plan information.
+The response from Microsoft includes non-PII information associated with the SaaS subscription. It includes the offer and plan information.
 
 **How can the user change the plan associated with Azure subscription?**
 
 - The user can change the plan associated with their SaaS subscription directly in the publisher's SaaS experience, or through Microsoft platform.
-- Conversions can be done at anytime in the billing cycle. Any conversion has to be acknowledged by the publisher, and will be effective immediately as soon as it is acknowledged.
+- Conversions can be done at any time in the billing cycle. Any conversion must be acknowledged by the publisher, and will be effective immediately as soon as it is acknowledged.
 - Pre-paid plan rates are pro-rated. Any overage emitted until the time of conversion will be charged in the next invoice. New overages are emitted by the publishers based on the new plan.
 
 >[!Note] 
@@ -314,41 +314,41 @@ Emitting usage every hour serves two purposes
 
 - Ideally, usage event is emitted every hour for events that occurred in the past hour. However, delays are expected.
 - The maximum delay after which usage events will not be accepted is 24 hours.
-  - This means that if an usage event occurs at 1 PM on a day, the publisher has until 1 PM on the next day to emit usage event associated with 1 PM on the day the event occurred. For example, if the system emitting usage has a down time, it can recover and then send the usage event for the hour interval in which the usage happened without loss of fidelity.
+  - It means that if a usage event occurs at 1 PM on a day, the publisher has until 1 PM on the next day to emit usage event associated with 1 PM on the day the event occurred. For example, if the system emitting usage has a down time, it can recover and then send the usage event for the hour interval in which the usage happened without loss of fidelity.
 
 **What happens when the publisher sends more than one usage event at the same hour?**
 
-- Only one usage event is accepted for a hour interval. Hour interval starts at minute 0 and ends and minute 59.
+- Only one usage event is accepted for an hour interval. Hour interval starts at minute 0 and ends and minute 59.
 - If more than one usage event is published by publisher for the same hour interval, subsequent usage events are dropped as duplicates.
 
 ## Operational constraints
 
 Following are some of the operations considerations while enabling the flexible billing models.
 
-- User is under charged
+- User is under-charged
 - User is over charged
 - Usage boundary limit checks
 
-## User is under charged
+### User is undercharged
 
-- ISV has the option to detect and rectify it as part of usage events emitted before the billing cycle ends. Please note that this could lead to loss of fidelity when the customer looks at the drill down of usage events in invoice.
+- ISV has the option to detect and rectify it as part of usage events emitted before the billing cycle ends. Note that it could lead to loss of fidelity when the customer looks at the drill-down of usage events in invoice.
   Note: Multiple usage events for the same hour interval will be marked as duplicate. If the usage event is beyond 24 hours, it will be marked as 'Expired'
 - ISV consumes the loss, since they emitted incorrect usage.
 
-## User is over charged
+### User is over charged
 
 - For any issues related to SaaS overage billing, customer reaches out to ISV support directly.
 - If ISV detects they have overcharged the customer, they notify Azure support.
   - Azure CSS provides credit back to Azure customer for the amount over charged
-  - This amount is automatically detected from ISV pay out in next billing cycle.
+  - This amount is automatically detected from ISV pay-out in next billing cycle.
 
-## Usage boundary limit checks
+### Usage boundary limit checks
 
 To ensure that Microsoft platform is able to detect anomalies early - before an invoice is generated, following information is requested for each overage dimension defined at the time of publishing the offer
 
 - Expected range (lower limit - higher limit)
 
-If there is anomoly between the usage events received and the range defined by the ISV, Microsoft will notify ISV. Please note that this notification does not block future usage events to be emitted. Intent is to notify ISV early in the process about potential anomalies. This can help ISV take corresponding action.
+If there is anomaly between the usage events received and the range defined by the ISV, Microsoft will notify ISV. Please note that this notification does not block future usage events to be emitted. Intent is to notify ISV early in the process about potential anomalies. This can help ISV take corresponding action.
 
 ## Usage Event External - Preview
 
