@@ -17,15 +17,15 @@ ms.date: 05/21/2019
 
 1. In the upper-left corner of the portal, select **Create a resource**.
 
-   ![Create a resource in Azure portal](./media/aml-create-in-portal/portal-create-a-resource-05-2019.png)
+   ![Create a resource in Azure portal](./media/aml-create-in-portal/portal-create-a-resource-07-2019.png)
 
 1. In the search bar, enter **Machine Learning**. Select the **Machine Learning service workspace** search result.
 
-   ![Search for a workspace](./media/aml-create-in-portal/allservices-search-05-2019.png)
+   ![Search for a workspace](./media/aml-create-in-portal/allservices-search.png)
 
 1. In the **ML service workspace** pane, select **Create** to begin.
 
-    ![Create button](./media/aml-create-in-portal/portal-create-button-05-2019.png)
+    ![Create button](./media/aml-create-in-portal/portal-create-button.png)
 
 1. In the **ML service workspace** pane, configure your workspace.
 
