@@ -148,7 +148,7 @@ Now move on to the next section to [Install the Istio CRDs on AKS](#install-the-
 
 ### Windows
 
-To install the Istio `istioctl` client binary in a **Powershell**-based shell on Windows, use the following commands. These commands copy the `istioctl` client binary to an Istio folder and make it immediately (in current shell) and permanently (across shell restarts) available via your `PATH`. You don't need elevated (Admin) privileges to run these commands and you don't need to restart your shell.
+To install the Istio `istioctl` client binary in a **Powershell**-based shell on Windows, use the following commands. These commands copy the `istioctl` client binary to an Istio folder and then make it available both immediately (in current shell) and permanently (across shell restarts) via your `PATH`. You don't need elevated (Admin) privileges to run these commands and you don't need to restart your shell.
 
 ```powershell
 # Copy istioctl.exe to C:\Istio
