@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2019
-ms.author:zhchia
+ms.date: 07/12/2019
+ms.author: zhchia
 ---
 
 # Tutorial: Configure Figma for automatic user provisioning
