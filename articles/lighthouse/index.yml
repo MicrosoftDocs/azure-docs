@@ -56,4 +56,4 @@ sections:
     - title: Languages
       html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">Azure SDK for .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">Azure SDK for .NET (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Azure SDK for Python</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Azure SDK for Python (PyPi)</a></p>
     - title: REST
-      html: <p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview">2018-06-01-preview (OpenAPI)</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/managedservices/">API Reference</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01 (OpenAPI)</a></p>
