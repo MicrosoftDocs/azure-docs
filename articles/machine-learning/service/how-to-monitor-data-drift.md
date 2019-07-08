@@ -18,7 +18,7 @@ In this article, you learn how to monitor for data drift between the training da
 
 ## What is data drift?
 
-Data drift, also referred to as concept drift, happens when data served to a model in production is different from the data used to train the model. It is one of the top reasons where model accuracy degrades over time, thus monitoring data drift helps detect model performance issues. 
+Data drift happens when data served to a model in production is different from the data used to train the model. It is one of the top reasons where model accuracy degrades over time, thus monitoring data drift helps detect model performance issues. 
 
 ## What can I monitor?
 
@@ -32,6 +32,7 @@ With Azure Machine Learning service, you can monitor the inputs to a model deplo
 
 > [!Note]
 > This service is in (Preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
+
 ### How data drift is monitored in Azure Machine Learning service
 
 Using Azure Machine Learning service, data drift is monitored through datasets or deployments. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A second dataset - usually model input data gathered from a deployment - is tested against the baseline dataset. Both datasets are [profiled](how-to-explore-prepare-data.md#explore-with-summary-statistics) and input to the data drift monitoring service. A machine learning model is trained to detect differences between the two datasets. The model's performance is converted to the drift coefficient, which measures the magnitude of drift between the two datasets. Using [model interpretability](machine-learning-interpretability-explainability.md), the features that contribute to the drift coefficient are computed. From the dataset profile, statistical information about each feature is tracked. 
@@ -115,7 +116,7 @@ After you submit your DataDriftDetector run, you are able to see the drift metri
 --|--|
 wasserstein_distance|Statistical distance defined for one-dimensional numerical distribution.|
 energy_distance|Statistical distance defined for one-dimensional numerical distribution.|
-datadrift_coefficient|Formally Matthews correlation coefficient, a real number ranging from -1 to 1. In the context of drift, 0 indicates no drift and 1 indicates maximum drift.|
+datadrift_coefficient|Calculated similarly as Matthew's correlation coefficient, but this output is a real number ranging from 0 to 1. In the context of drift, 0 indicates no drift and 1 indicates maximum drift.|
 datadrift_contribution|Feature importance of features contributing to drift.|
 
 There are multiple ways to view drift metrics:
@@ -168,7 +169,7 @@ In order for you to set up custom alerts and actions, all data drift metrics are
 
 ## Retrain your model after drift
 
-When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. The following [`diff()`] method will give you an initial sense of what changed between the old and new training data sets. 
+When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. The following `diff()` method will give you an initial sense of what changed between the old and new training data sets. 
 
 ```python
 from azureml.core import Dataset
@@ -176,7 +177,7 @@ from azureml.core import Dataset
 old_training_dataset.diff(new_training_dataset)
 ```
 
-Based on the output of the previous code, you can determine whether or not to proceed with the following steps for retraining your model.
+Based on the output of the previous code, you may want to retrain your model. To do so proceed with the following steps.
 
 * Investigate the collected data and prepare data to train the new model.
 * Split it into train/test data.
