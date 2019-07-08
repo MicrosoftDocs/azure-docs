@@ -98,6 +98,22 @@ https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies+site:con
 > [!NOTE]
 > Depending on the query, if you use the `site:` query operator, there is the chance that the response may contain adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#safesearch) setting. You should use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content.
 
+To limit the web answer results to webpages that Bing discovered during a specific period, set the freshness query parameter to one of the following case-insensitive values:
+
+* `Day` — Return webpages that Bing discovered within the last 24 hours
+* `Week` — Return webpages that Bing discovered within the last 7 days
+* `Month` — Return webpages that discovered within the last 30 days
+
+You may also set this parameter to a custom date range in the form, `YYYY-MM-DD..YYYY-MM-DD`. 
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-01..2019-05-30`
+
+To limit the results to a single date, set the freshness parameter to a specific date:
+
+`https://<host>/bing/v7.0/search?q=ipad+updates&freshness=2019-02-04`
+
+The results may include webpages that fall outside the specified period if the number of webpages that Bing matches to your filter criteria is less than the number of webpages you requested (or the default number that Bing returns).
+
 ## Limiting the number of answers in the response
 
 Bing includes answers in the response based on ranking. For example, if you query *sailing+dinghies*, Bing returns `webpages`, `images`, `videos`, and `relatedSearches`.
