@@ -175,7 +175,7 @@ Use the following .NET classes to interact with these resources:
 * [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): The **CloudStorageAccount** class represents your Azure storage account. Use this class to authorize access to Blob storage using your account access keys.
 * [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): The **CloudBlobClient** class provides a point of access to the Blob service in your code.
 * [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): The **CloudBlobContainer** class represents a blob container in your code.
-* [CloudBlockBlob](//dotnet/api/microsoft.azure.storage.blob.cloudblockblob): The **CloudBlockBlob** object represents a block blob in your code. Block blobs are made up of blocks of data that can be managed individually.
+* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): The **CloudBlockBlob** object represents a block blob in your code. Block blobs are made up of blocks of data that can be managed individually.
 
 ## Code examples
 

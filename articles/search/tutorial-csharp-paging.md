@@ -335,7 +335,7 @@ Have the basic search page solution open.
             if (page >= leftMostPage + GlobalVariables.MaxPageRange - 1)
             {
                 // Trigger a switch to a higher page range.
-                leftMostPage = Math.Min(leftMostPage + GlobalVariables.PageRangeDelta, model.pageCount - GlobalVariables.MaxPageRange);
+                leftMostPage = Math.Min(page - GlobalVariables.PageRangeDelta, model.pageCount - GlobalVariables.MaxPageRange);
             }
             model.leftMostPage = leftMostPage;
 
@@ -435,7 +435,7 @@ To implement infinite scrolling, let's start with the project before any of the 
                 {
                     // Display the hotel name and description.
                     @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
-                    @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
+                    @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
                 }
             </div>
         }
