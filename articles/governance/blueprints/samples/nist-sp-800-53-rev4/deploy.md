@@ -147,7 +147,7 @@ The following table provides a list of the blueprint artifact parameters:
 ## Next steps
 
 Now that you've reviewed the steps to deploy the NIST SP 800-53 R4 blueprint sample, visit
-the following articles to learn about the architecture and control mapping:
+the following articles to learn about the blueprint and control mapping:
 
 > [!div class="nextstepaction"]
 > [NIST SP 800-53 R4 blueprint - Overview](./index.md)
