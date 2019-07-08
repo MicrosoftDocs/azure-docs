@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
-ms.author: zhchia
+ms.author: zchia
 ---
 
 # Tutorial: Configure Peakon for automatic user provisioning
