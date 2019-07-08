@@ -143,7 +143,7 @@ This article provides answers to some of the most common questions about running
 
 1. **How do I change to a different version/edition of the SQL Server in an Azure VM?**
 
-   Customers can change their version/edition of SQL Server by using setup media that contains their desired version or edition of SQL Server. Once the edition has been changed, use the Azure portal to modify the edition property of the VM to accurately reflect billing for the VM. For more information, see [change edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md). It is possible to upgrade the edition and version of SQL Server, but downgrading either requires completely uninstalling SQL Server and reinstalling the new version / edition using the required setup media. The edition property of the VM can be downgraded or upgraded without limitation, but it must match the edition of SQL Server.    
+   Customers can change their version/edition of SQL Server by using setup media that contains their desired version or edition of SQL Server. Once the edition has been changed, use the Azure portal to modify the edition property of the VM to accurately reflect billing for the VM. For more information, see [change edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md). 
 
 
 1. **How are updates and service packs applied on a SQL Server VM?**
