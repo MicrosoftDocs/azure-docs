@@ -124,5 +124,5 @@ For more information, see [How to collect and consume log data from your Azure r
 
 ## Next steps 
 
-* [Monitor Media Services metrics](media-services-metrics-howto.md)
-* [Monitor Media Service diagnostic logs](media-services-diagnostic-logs-howto.md)
+* [How to monitor Media Services metrics](media-services-metrics-howto.md)
+* [How to monitor Media Service diagnostic logs](media-services-diagnostic-logs-howto.md)
