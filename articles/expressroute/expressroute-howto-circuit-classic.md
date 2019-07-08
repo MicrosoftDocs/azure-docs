@@ -17,6 +17,7 @@ ms.custom: seodec18
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
@@ -121,7 +122,7 @@ You can modify certain properties of an ExpressRoute circuit without impacting c
 You can do the following tasks with no downtime:
 
 * Enable or disable an ExpressRoute premium add-on for your ExpressRoute circuit.
-* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported. 
+* Increase the bandwidth of your ExpressRoute circuit provided there is capacity available on the port. Downgrading the bandwidth of a circuit is not supported.
 * Change the metering plan from Metered Data to Unlimited Data. Changing the metering plan from Unlimited Data to Metered Data is not supported.
 * You can enable and disable *Allow Classic Operations*.
 
@@ -150,8 +151,8 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. As 
 
 > [!IMPORTANT]
 > This operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
-> 
-> 
+>
+>
 
 #### Considerations
 
@@ -185,8 +186,8 @@ Check the [ExpressRoute FAQ](expressroute-faqs.md) for supported bandwidth optio
 > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
 >
 > You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
-> 
-> 
+>
+>
 
 #### Resize a circuit
 
