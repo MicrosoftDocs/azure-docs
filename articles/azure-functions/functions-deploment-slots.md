@@ -15,7 +15,7 @@ ms.author: cshoe
 ---
 # Azure Functions Deployment Slots
 
-Azure Functions Deployment Slots allow you to have different running instances of your functions app in separate "slots". Each slot is exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand.
+Azure Functions deployment slots allow your functions app to run different instances in separate "slots". Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand.
 
 The following reflect how functions are affected by swapping slots:
 
@@ -23,14 +23,14 @@ The following reflect how functions are affected by swapping slots:
 - If a function is running during a swap, execution continues and subsequent triggers are routed to the swapped app instance.
 
 > [!NOTE]
-> Slots are not available for Linux runtimes on the Consumption plan.
+> Slots are not available for the Linux Consumption plan.
 
 ## Why use slots?
 
 There are a number of advantages to using deployment slots. The following scenarios describe common uses for slots:
 
 - **Different environments for different purposes**: Using different slots gives you the opportunity to differentiate app instances before swapping to production or a staging slot.
-- **Prewarming production**: Deploying to a slot instead of directly to production allows the app to warm up before going live to production.
+- **Prewarming**: Deploying to a slot instead of directly to production allows the app to warm up before going live to production. Additionally, using slots reduces latency for HTTP-triggered workloads. Instances are warmed up before deployment which reduces the cold start for newly-deployed business logic.
 - **Easy fallbacks**: After a swap with production, the slot with a previously staged app now has the previous production app. If the changes swapped into the production slot aren't as you expect, you can immediately reverse the swap to get your "last known good instance" back.
 
 ## Swap operations
@@ -48,9 +48,13 @@ During a swap, one slot is considered the source and the other the target. The s
 
 1. **Repeat operation:** Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances for the source slot.
 
-At any point of the swap operation, initialization of the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared, whether the swap succeeds or fails.
+Keep in mind the following points:
 
-To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
+- At any point of the swap operation, initialization of the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared, whether the swap succeeds or fails.
+
+- To swap a staging slot with the production slot, make sure that the production slot is *always* the target slot. This way, the swap operation doesn't affect your production app.
+
+- Settings related to event sources and bindings need to be configured as [deployment slot settings](#settings) *before you initiate a swap*. Marking them as "sticky" ahead of time ensures events and outputs are directed to the proper instance.
 
 ### Settings
 
@@ -125,7 +129,7 @@ Azure Functions deployment slots have the following limitations:
 
 - The number of slots available to an app depends on the plan. The Consumption plan is only allowed one deployment slot. Additional slots are available for apps running under the App Service plan.
 - Swapping a slot resets keys for apps that have an `AzureWebJobsSecretStorageType` app setting equal to `files`.
-- Slots are not available for Linux runtimes on the Consumption plan.
+- Slots are not available for the Linux Consumption plan.
 
 ## Next steps
 
