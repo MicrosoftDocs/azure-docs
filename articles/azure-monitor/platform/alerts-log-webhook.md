@@ -77,7 +77,7 @@ To include search results in a custom payload, ensure that **IncludeSearchResult
 This section shows sample payloads for webhooks for log alerts. The sample payloads include examples when the payload is standard and when it's custom.
 
 ### Standard webhook for log alerts 
-Both of these examples have started a dummy payload with only two columns and two rows.
+Both of these examples have a dummy payload with only two columns and two rows.
 
 #### Log alert for Log Analytics
 The following sample payload is for a standard webhook action *without a custom JSON option* that's used for alerts based on Log Analytics:
