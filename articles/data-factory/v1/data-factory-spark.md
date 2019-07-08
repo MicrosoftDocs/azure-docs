@@ -300,10 +300,10 @@ Here is the sample JSON definition of a pipeline with a Spark activity:
                 "typeProperties": {
                     "rootPath": "adfspark\\pyFiles",
                     "entryFilePath": "test.py",
-					"arguments": [ "arg1", "arg2" ],
-					"sparkConfig": {
-						"spark.python.worker.memory": "512m"
-					}
+                    "arguments": [ "arg1", "arg2" ],
+                    "sparkConfig": {
+                        "spark.python.worker.memory": "512m"
+                    },
                     "getDebugInfo": "Always"
                 },
                 "outputs": [
