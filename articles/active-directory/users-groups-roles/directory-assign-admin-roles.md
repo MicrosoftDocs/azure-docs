@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 07/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -851,7 +851,7 @@ Can manage all aspects of the Intune product.
 Can manage settings for Microsoft Kaizala.  
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >  
   
@@ -893,7 +893,7 @@ Can manage all aspects of the Skype for Business product.
 Can read Message Center posts, data privacy messages, groups, domains and subscriptions.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1042,14 +1042,13 @@ Can read sign-in and audit reports.
 | microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
 ### Search Administrator
 Can create and manage all aspects of Microsoft Search settings.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1066,7 +1065,7 @@ Can create and manage all aspects of Microsoft Search settings.
 Can create and manage the editorial content such as bookmarks, Q and As, locations, floorplan.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
@@ -1109,7 +1108,7 @@ Can read security information and reports,  and manage configuration in Azure AD
 Creates and manages security events.
 
   > [!NOTE]
-  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  > This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
