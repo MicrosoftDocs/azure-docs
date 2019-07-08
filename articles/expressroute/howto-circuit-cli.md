@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: anzaman;cherylmc
+ms.author: cherylmc
+ms.reviewer: anzaman
 
 ---
 # Create and modify an ExpressRoute circuit using CLI
