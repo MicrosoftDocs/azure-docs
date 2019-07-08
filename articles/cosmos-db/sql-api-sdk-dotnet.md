@@ -44,9 +44,18 @@ ms.author: sngun
 * Support for streams. 
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
 
+### <a name="2.5.1"/>2.5.1
+
+* SDK’s System.Net.Http version now matches what is defined in the NuGet package.
+* Allow write requests to fallback to a different region if the original one fails.
+* Add session retry policy for write request.
+
+### <a name="2.4.1"/>2.4.1
+
+* Fixes tracing race condition for queries which caused empty pages
+
 ### <a name="2.4.0"/>2.4.0
 
-* SDK’s System.Net.Http version matches what is defined in the NuGet package
 * Increased decimal precision size for LINQ queries.
 * Added new classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType and PartitionKeyDefinitionVersion
 * Added TimeToLivePropertyPath to DocumentCollection
@@ -218,7 +227,7 @@ ms.author: sngun
 * Fix for an issue wherein cross partition order-by query continuation was not working when sorting on string field.
 
 ### <a name="1.12.0"/>1.12.0
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](how-to-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregates.md).
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.11.4"/>1.11.4
@@ -371,6 +380,8 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |July  02, 2019 |--- |
+| [2.4.1](#2.4.1) |June  20, 2019 |--- |
 | [2.4.0](#2.4.0) |May  05, 2019 |--- |
 | [2.3.0](#2.3.0) |April  04, 2019 |--- |
 | [2.2.3](#2.2.3) |February 11, 2019 |--- |

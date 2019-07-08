@@ -107,6 +107,7 @@ To copy data from Amazon S3 in **Parquet or delimited text format**, refer to [P
 | bucketName | The S3 bucket name.                                          | Yes      |
 | folderPath | The path to folder under the given bucket. If you want to use wildcard to filter folder, skip this setting and specify in activity source settings. | No       |
 | fileName   | The file name under the given bucket + folderPath. If you want to use wildcard to filter files, skip this setting and specify in activity source settings. | No       |
+| version | The version of the S3 object, if S3 versioning is enabled. If not specified, the latest version will be fetched. |No |
 
 > [!NOTE]
 > **AmazonS3Object** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility, but it doesn't work with Mapping Data Flow. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.

@@ -4,9 +4,9 @@ description: This article describes how to develop parameterized URLs in Azure T
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 To share a custom view in Time Series Insights Explorer, you can programmatically create a parameterized URL of the custom view.
 
-The Time Series Insights Explorer supports URL query parameters to specify views in the experience directly from the URL. For example, using only the URL, you can specify a target environment, a search predicate, and desired time span. When a user clicks the customized URL, the interface provides a link directly to that asset in the Time Series Insights portal. Data access policies apply.
+The Time Series Insights Explorer supports URL query parameters to specify views in the experience directly from the URL. For example, using only the URL, you can specify a target environment, a search predicate, and desired time span. When a user selects the customized URL, the interface provides a link directly to that asset in the Time Series Insights portal. Data access policies apply.
 
 > [!TIP]
 > * View the free [Time Series Insights demo](https://insights.timeseries.azure.com/samples).

@@ -120,13 +120,6 @@ Every RemoteIp property in *VMConnection* table is checked against a set of IPs 
 ### Ports 
 Ports on a machine that actively accept incoming traffic or could potentially accept traffic, but are idle during the reporting time window, are written to the VMBoundPort table.  
 
->[!NOTE]
->Azure Monitor for VMs does not support collecting and recording port data in a Log Analytics workspace in the following regions:  
->- East US  
->- West Europe
->
-> Collecting this data is enabled in the other [supported regions](vminsights-enable-overview.md#log-analytics) for Azure Monitor for VMs. 
-
 Every record in VMBoundPort is identified by the following fields: 
 
 | Property | Description |

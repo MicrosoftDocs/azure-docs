@@ -8,7 +8,8 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: 0001cad6-699c-4ca9-b66c-80c194e439a5
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -119,7 +120,7 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 3. Make sure that the logs you send comply with [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. On the computer running the Syslog agent, make sure these ports 514, 25226 are open and listening, using the command `netstat -a -n:`. For more information about using this command see [netstat(8) - Linux man page](https://linux.die.netman/8/netstat). If it’s listening properly, you’ll see this:
+4. On the computer running the Syslog agent, make sure these ports 514, 25226 are open and listening, using the command `netstat -a -n:`. For more information about using this command see [netstat(8) - Linux man page](https://linux.die.net/man/8/netstat). If it’s listening properly, you’ll see this:
 
    ![Azure Sentinel ports](./media/connect-cef/ports.png) 
 

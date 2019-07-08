@@ -276,7 +276,7 @@ The following table lists and describes integration scenarios:
 |[Application map](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|The components of your app, with key metrics and alerts.|
 |[Diagnostics search for instance data](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| Search and filter events such as requests, exceptions, dependency calls, log traces, and page views.|
 |[Metrics Explorer for aggregated data](https://docs.microsoft.com/azure/azure-monitor/app/metrics-explorer)|Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times.|
-|[Dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards#dashboards)|Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.|
+|[Dashboards](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)|Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room.|
 |[Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)|When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected.|
 |[Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)|Answer tough questions about your app's performance and usage by using this powerful query language.|
 |[Automatic and manual alerts](https://docs.microsoft.com/azure/application-insights/app-insights-alerts)|Automatic alerts adapt to your app's normal patterns of telemetry and are triggered when there's something outside the usual pattern. You can also set alerts on particular levels of custom or standard metrics.|
@@ -327,7 +327,7 @@ There are four ways to [collect logs and metrics for Azure services](https://doc
 
 | Service | Resource type | Logs | Metrics | Solution |
 | :------ | :------------ | :--- | :------ | :------- |
-|Azure Application Gateway|	Microsoft.Network/<br>applicationGateways|	Diagnostics|Diagnostics|	[Azure Application](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Azure Application Gateway|	Microsoft.Network/<br>applicationGateways|	Diagnostics|Diagnostics|	[Azure Application](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics) [Gateway Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-analytics-solution-in-azure-monitor)|
 |Application Insights||	 	Connector|	Connector|	[Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Connector (Preview)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Azure Automation accounts|	Microsoft.Automation/<br>AutomationAccounts|	Diagnostics||	 	[More information](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Azure Batch accounts|	Microsoft.Batch/<br>batchAccounts|	Diagnostics|	Diagnostics||
@@ -341,7 +341,7 @@ There are four ways to [collect logs and metrics for Azure services](https://doc
 |Azure Load Balancer|	Microsoft.Network/<br>loadBalancers|	Diagnostics|||
 |Azure Logic Apps|	Microsoft.Logic/<br>workflows| 	Diagnostics|	Diagnostics||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Network Security Groups|	Microsoft.Network/<br>networksecuritygroups|Diagnostics|| 	[Azure Network Security Group analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Network Security Groups|	Microsoft.Network/<br>networksecuritygroups|Diagnostics|| 	[Azure Network Security Group analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-networking-analytics#azure-application-gateway-and-network-security-group-analytics)|
 |Recovery vaults|	Microsoft.RecoveryServices/<br>vaults|||[Azure Recovery Services Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Search services|	Microsoft.Search/<br>searchServices|	Diagnostics|	Diagnostics||
 |Service Bus namespace|	Microsoft.ServiceBus/<br>namespaces|	Diagnostics|Diagnostics|	[Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|

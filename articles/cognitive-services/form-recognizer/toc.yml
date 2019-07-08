@@ -7,7 +7,7 @@
 - name: Quickstarts
   expaned: true
   items:
-  - name: Train model and extract data  
+  - name: Train custom model and extract data  
     items:
     - name: Using the REST API
       items:
@@ -15,8 +15,18 @@
         href: quickstarts/curl-train-extract.md
       - name: Python
         href: quickstarts/python-train-extract.md
+  - name: Use prebuilt receipts model
+    items:
+    - name: Using the REST API
+      items:
+      - name: cURL
+        href: quickstarts/curl-receipts.md
+      - name: Python
+        href: quickstarts/python-receipts.md
 - name: How-to guides
   items:
+  - name: Build a training data set
+    href: build-training-data-set.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -41,3 +51,5 @@
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
     href: https://go.microsoft.com/fwlink/?linkid=2087185
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/    

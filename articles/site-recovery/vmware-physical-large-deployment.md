@@ -184,7 +184,7 @@ After you kick off replication for the first batch of VMs, start monitoring your
 1. Assign a disaster recovery administrator to monitor the health status of replicated machines.
 2. [Monitor events](site-recovery-monitor-and-troubleshoot.md) for replicated items and the infrastructure.
 3. [Monitor the health](vmware-physical-azure-monitor-process-server.md) of your scale-out process servers.
-4. Sign up to get [email notifications](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) for events, for easier monitoring.
+4. Sign up to get [email notifications](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) for events, for easier monitoring.
 5. Conduct regular [disaster recovery drills](site-recovery-test-failover-to-azure.md), to ensure that everything's working as expected.
 
 

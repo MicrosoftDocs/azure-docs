@@ -179,4 +179,4 @@ If you still can't make progress, Microsoft support can assist you. Create a sup
 - Multi-hop authentication is commonly used in scenarios where an application is tiered, with a back end and front end, where both require authentication, such as SQL Server Reporting Services. To configure the multihop scenario, see the support article [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## Next steps
-[Configure KCD on a managed domain](../../active-directory-domain-services/active-directory-ds-enable-kcd.md).
+[Configure KCD on a managed domain](../../active-directory-domain-services/deploy-kcd.md).

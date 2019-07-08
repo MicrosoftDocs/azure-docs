@@ -7,7 +7,8 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
-ms.author: alkarche, glenga
+ms.author: alkarche
+ms.reviewer: glenga
 #Customer intent: As an enterprise developer, I want create a function that can connect to a virtual network so that I can manage a WordPress app running on a VM in the virtual network.
 ---
 
@@ -166,4 +167,4 @@ Functions running in a Premium plan share the same underlying App Service infras
 > [!div class="nextstepaction"]
 > [Learn more about the networking options in Functions](./functions-networking-options.md)
 
-[Premium plan]: functions-scale.md#premium-plan-public-preview
+[Premium plan]: functions-scale.md#premium-plan

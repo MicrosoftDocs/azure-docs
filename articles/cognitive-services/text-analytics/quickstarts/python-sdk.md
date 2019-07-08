@@ -16,12 +16,7 @@ ms.author: aahi
 # Quickstart: Call the Text Analytics Service using the Python SDK 
 <a name="HOLTop"></a>
 
-Use this quickstart to begin analyzing language with the Text Analytics SDK for Python. While the Text Analytics REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications without serializing and deserializing JSON.
-
-
-> [!Note]
-> * Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
-> * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).  
+Use this quickstart to begin analyzing language with the Text Analytics SDK for Python. While the Text Analytics REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications without serializing and deserializing JSON. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).
 
 ## Prerequisites
 

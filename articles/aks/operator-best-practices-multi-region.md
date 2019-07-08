@@ -7,7 +7,7 @@ author: lastcoolnameleft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: lastcoolnameleft
+ms.author: thfalgou
 #Customer intent: As an AKS cluster operator, I want to plan for business continuity or disaster recovery to help protect my cluster from region problems.
 ---
 # Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)
@@ -112,7 +112,7 @@ The typical strategy is to provide a common storage point where applications can
 
 If you use Azure Managed Disks, you can choose replication and DR solutions such as these:
 
-* [Ark on Azure](https://github.com/heptio/ark/blob/master/docs/azure-config.md)
+* [Velero on Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### Application-based asynchronous replication

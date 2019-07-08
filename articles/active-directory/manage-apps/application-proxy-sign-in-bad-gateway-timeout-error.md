@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 
@@ -74,7 +74,7 @@ To verify the application is assigned to a working Connector Group:
 
 1. Open the application in the portal by going to **Azure Active Directory**, clicking on **Enterprise Applications**, then **All Applications.** Open the application, then select **Application Proxy** from the left menu.
 
-2. Look at the Connector Group field. If there are no active connectors in the group, you see a warning. If you don’t see any warnings, move on to “verify all required ports are whitelisted”.
+2. Look at the Connector Group field. If there are no active connectors in the group, you see a warning. If you don’t see any warnings, move on to verify all required ports are allowed.
 
 3. If the wrong Connector Group is showing, use the drop-down to select the correct group, and confirm you no longer see any warnings. If the intended Connector Group is showing, click the warning message to open the page with Connector management.
 
@@ -84,11 +84,11 @@ To verify the application is assigned to a working Connector Group:
 
    * Download a new Connector for that group: From this page, you can get the link to [download a new Connector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Install the Connector on a machine with direct line of sight to the backend application. Typically, the Connector is installed on the same server as the application. Use the download Connector link to download a connector onto the target machine. Next, click the Connector, and use the “Connector Group” drop-down to make sure it belongs to the right group.
 
-   * Investigate an inactive Connector: If a connector shows as inactive, it is unable to reach the service. This error is typically due to some required ports being blocked. To solve this issue, move on to “verify all required ports are whitelisted.”
+   * Investigate an inactive Connector: If a connector shows as inactive, it is unable to reach the service. This error is typically due to some required ports being blocked. To solve this issue, move on to verify all required ports are allowed.
 
 After using these steps to ensure the application is assigned to a group with working Connectors, test the application again. If it is still not working, continue to the next section.
 
-## Check all required ports are whitelisted
+## Check all required ports are open
 
 To verify that all required ports are open, see the documentation on opening ports. If all the required ports are open, move to the next section.
 

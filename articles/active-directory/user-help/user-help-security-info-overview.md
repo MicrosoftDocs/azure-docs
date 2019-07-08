@@ -24,7 +24,7 @@ The **Security info** page helps you to set up your two-step verification method
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
-## Security info articles
+## Security info-related articles
 
 For detailed information and instructions about adding, updating, and deleting your security info, see the following articles (based on the method you want to use):
 

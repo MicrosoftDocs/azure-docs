@@ -34,7 +34,7 @@ We'll first set up our project and Unity scene:
 7. Save the empty default scene to a new file using: **File** > **Save As**.
 8. Name the new scene **Main** and press the **Save** button.
 
-**set up the Project Settings**
+**Set up the project settings**
 
 We'll now set some Unity project settings that help us target the Windows Holographic SDK for development. 
 
@@ -53,17 +53,17 @@ We need to let Unity know that the app we are trying to export should create an 
 > [!NOTE]
 > If you do not see the Windows Store icon, double check to make sure you selected the Windows Store .NET Scripting Backend prior to installation. If not, you may need to reinstall Unity with the correct Windows installation.
 
-**verify .NET configuration**
+**Verify .NET configuration**
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).
 2. In the **Inspector Panel** for **Player Settings**, select the **Windows Store** icon.
 3. In the **Other Settings** Configuration section, make sure that **Scripting Backend** is set to **.NET**.
 
-**set capabilities**
+**Set capabilities**
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).
 2. In the **Inspector Panel** for **Player Settings**, select the **Windows Store** icon.
 3. In the **Publishing Settings** Configuration section, check **InternetClientServer** and **SpatialPerception**.
 
-**set up the main virtual camera**
+**Set up the main virtual camera**
 1. In the **Hierarchy Panel**, select **Main Camera**.
 2. In the **Inspector**, set its transform position to **0,0,0**.
 3. Find the **Clear Flags** property, and change the dropdown from **Skybox** to **Solid Color**.
@@ -71,7 +71,7 @@ We need to let Unity know that the app we are trying to export should create an 
 5. Set **R, G, B, and A** to **0**.
 6. Select **Add Component** and search for **Spatial Mapping Collider**.
 
-**create our script**
+**Create our script**
 1. In the **Project** pane, create a new folder, **Scripts**, under the **Assets** folder. 
 2. Right click on the folder, then select **Create >**, **C# Script**. Title it **AzureSpatialAnchorsScript**. 
 3. Go to **GameObject** -> **Create Empty**. 

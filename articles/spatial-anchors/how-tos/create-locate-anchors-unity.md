@@ -185,7 +185,7 @@ Learn more about the [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/
     var hitResults = UnityARSessionNativeInterface.GetARSessionNativeInterface().HitTest(point, ARHitTestResultType.ARHitTestResultTypeEstimatedHorizontalPlane | ARHitTestResultType.ARHitTestResultTypeExistingPlaneUsingExtent);
     if (hitResults.Count > 0)
     {
-        // The hitTest method sorts the resulting list by distance from the camera, increasing
+        // The hitTest method sorts the resulting list by increasing distance from the camera
         // The first hit result will usually be the most relevant when responding to user input
         ARHitTestResult hitResult = hitResults[0];
         hitPosition = UnityARMatrixOps.GetPosition(hitResult.worldTransform);

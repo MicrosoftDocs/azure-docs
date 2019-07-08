@@ -3,13 +3,13 @@ title: Container support
 titleSuffix: Azure Cognitive Services
 description: Learn how Docker containers can get Cognitive Services closer to your data.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 05/16/2019
-ms.author: diberry
+ms.date: 7/5/2019
+ms.author: dapine
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
 
@@ -78,7 +78,7 @@ In addition, some containers are supported in Cognitive Services [**All-In-One o
 Azure Cognitive Services containers are publicly available through your Azure subscription, and Docker container images can be pulled from either the Microsoft Container Registry or Docker Hub. You can use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the appropriate registry.
 
 > [!IMPORTANT]
-> Currently, you must complete a sign-up process to access the following containers, in which you fill out and submit a questionnaire with questions about you, your company, and the use case for which you want to implement the containers. Once you're granted access and provided credentials, you can then pull the container images for the Face and Recognize Text containers from a private container registry hosted by Azure Container Registry.
+> Currently, you must complete a sign-up process to access the following containers, in which you fill out and submit a questionnaire with questions about you, your company, and the use case for which you want to implement the containers. Once you're granted access and provided credentials, you can then pull the container images from a private container registry hosted by Azure Container Registry.
 > * [Anomaly dectector](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
 > * [Face](Face/face-how-to-install-containers.md)
 > * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
@@ -99,18 +99,11 @@ For a primer on Docker and container basics, see the [Docker overview](https://d
 
 Individual containers can have their own requirements, as well, including server and memory allocation requirements.
 
-## Developer samples
-
-Developer samples are available at our [GitHub repository](https://github.com/Azure-Samples/cognitive-services-containers-samples).
-
-## View webinar 
-
-Join the [webinar](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) to learn about:
-
-* How to deploy Cognitive Services to any machine using Docker
-* How to deploy Cognitive Services to AKS
+[!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Next steps
+
+Learn about [container recipes](containers/container-reuse-recipe.md) you can use with the Cognitive Services.
 
 Install and explore the functionality provided by containers in Azure Cognitive Services:
 

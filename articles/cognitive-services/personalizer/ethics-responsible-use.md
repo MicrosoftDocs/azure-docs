@@ -2,12 +2,13 @@
 title: Ethics and responsible use - Personalizer
 titleSuffix: Azure Cognitive Services
 description: These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people’s lives. When in doubt, seek guidance.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 06/12/2019
 ms.author: edjez
 ---
      
@@ -123,17 +124,13 @@ The following are areas of design for responsible implementations of AI. Learn m
 * Archive information and assets - such as models, learning policies, and other data - that Personalizer uses to function, to be able to reproduce results.
 
 ### Transparency
-*AI Systems Should be Understandable*. With Personalizer
+*AI Systems Should be Understandable*. With Personalizer:
 
-•	Give users information about how the content was personalized. For example, you can show your users a button labeled "Why These Suggestions?" showing which top features of the user and actions played a role in the results of Personalizer.
-•	Make sure your terms of use make mention that you will use information about users and their behavior to personalize the experience.
-
-
-* *Give users information about how the content was personalized.* For example, you can show your users a button labeled `Why These Suggestions?` showing which top features of the user and actions played a role in the personalization.
-* Make sure your terms of use mention that you will use information about users to personalize the experience.
+* *Give users information about how the content was personalized.* For example, you can show your users a button labeled `Why These Suggestions?` showing which top features of the user and actions played a role in the results of Personalizer.
+* Make sure your terms of use make mention that you will use information about users and their behavior to personalize the experience.
 
 ### Fairness
-*AI Systems should treat all people fairly.
+*AI Systems should treat all people fairly*.
 
 * Don't use Personalizer for use cases where the outcomes are long-term, consequential, or involve real harm.
 * Don't use features that are not appropriate to personalize content with, or that may help propagate undesired biases. For example, anyone with similar financial circumstances should see the same personalized recommendations for financial products.
@@ -195,7 +192,7 @@ Microsoft is continuously putting effort into tools and documents to help you ac
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) by DJ Patil, Hilary Mason, Mike Loukides.
 * [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
 * [Genetic Information Nondiscrimination Act - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML Principles for Accountable Algorithms](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [FATML Principles for Accountable Algorithms](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## Next steps

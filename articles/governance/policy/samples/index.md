@@ -32,5 +32,5 @@ The following table includes links to samples for Azure Policy. These samples ar
 
 ## Next steps
 
-- Review the [Policy definition structure](../concepts/definition-structure.md).
+- Review the [Azure Policy definition structure](../concepts/definition-structure.md).
 - Review [Understanding policy effects](../concepts/effects.md).

@@ -4,7 +4,6 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
@@ -29,7 +28,7 @@ In this guide, you will learn how to:
 
 ## Create an Azure Kubernetes Service cluster
 
-You need to create an AKS cluster in a [supported region](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
+You need to create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
@@ -185,7 +184,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Save the file. Click *Debug* then *Restart Debugging* or in the *Debug toolbar*, click the *Restart Debugging* button.
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Open your service in a browser and notice your updated message is displayed.
 
@@ -203,3 +202,6 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-netcore.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

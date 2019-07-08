@@ -4,7 +4,7 @@ description: Learn how to register and call stored procedures, triggers, and use
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/08/2018
+ms.date: 05/21/2019
 ms.author: mjbrown
 ---
 
@@ -320,7 +320,7 @@ var newItem = {
     albums: ["Hellujah", "Rotators", "Spinning Top"]
 };
 
-var options = { postTriggerInclude: "trgPostUpdateMetadata" };
+RequestOptions options = new RequestOptions { PostTriggerInclude = new List<string> { "trgPostUpdateMetadata" } };
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.createDocumentAsync(containerUri, newItem, options);
 ```

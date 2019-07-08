@@ -5,13 +5,13 @@
  author: jaredr80
  ms.service: expressroute
  ms.topic: include
- ms.date: 02/25/2019
+ ms.date: 07/07/2019
  ms.author: jaredro
  ms.custom: include file
 ---
 ### What is ExpressRoute Direct?
 
-ExpressRoute Direct provides customers with the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100 Gbps connectivity, which supports Active/Active connectivity at scale. 
+ExpressRoute Direct provides customers with the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100 or 10 Gbps connectivity, which supports Active/Active connectivity at scale. 
 
 ### How do customers connect to ExpressRoute Direct? 
 
@@ -22,7 +22,6 @@ Customers will need to work with their local carriers and co-location providers 
 The available ports will be dynamic and will be available by PowerShell to view the capacity. Locations include and *are subject to change based on availability*:
 
 * Amsterdam
-* Canberra
 * Chicago
 * Washington DC
 * Dallas 
@@ -46,7 +45,7 @@ ExpressRoute Direct will utilize the same [enterprise-grade of ExpressRoute](htt
 
 ### What scenarios should customers consider with ExpressRoute Direct?  
 
-ExpressRoute Direct provides customers with direct 100 Gbps port pairs into the Microsoft global backbone. The scenarios that will provide customers with the greatest benefits include: Massive data ingestion, physical isolation for regulated markets, and dedicated capacity for burst scenario, like rendering. 
+ExpressRoute Direct provides customers with direct 100 or 10 Gbps port pairs into the Microsoft global backbone. The scenarios that will provide customers with the greatest benefits include: Massive data ingestion, physical isolation for regulated markets, and dedicated capacity for burst scenario, like rendering. 
 
 ### What is the billing model for ExpressRoute Direct? 
 

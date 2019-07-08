@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/24/2018
+ms.date: 07/03/2019
 ms.author: aljo
 
 ---
@@ -42,7 +42,8 @@ The following table lists the versions of Service Fabric and their support end d
 | 6.1.* | 5.7.221.* |Less than or equal to version  3.0 |July 15, 2018      |
 | 6.2.* | 6.0.232.* |Less than or equal to version  3.1 |October 26, 2018   |
 | 6.3.* | 6.1.480.* |Less than or equal to version  3.2 |March 31, 2019  |
-| 6.4.* | 6.2.301.* |Less than or equal to version  3.3 |Current version, so no end date |
+| 6.4.* | 6.2.301.* |Less than or equal to version  3.3 |September 15, 2019 |
+| 6.5.* | 6.4.617.* |Less than or equal to version  3.4 |Current version, so no end date |
 
 ## Supported operating systems
 
@@ -98,3 +99,7 @@ The following table lists the version names of Service Fabric and their correspo
 | 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
 | 6.4 CU6 | 6.4.658.9590 | NA |
+| 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
+| 6.4 CU8 | 6.4.670.9590 | NA |
+| 6.5 RTO | 6.5.639.9590 | 6.5.435.1 |
+| 6.5 CU1 | 6.5.641.9590 | 6.5.454.1 |
