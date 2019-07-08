@@ -1454,6 +1454,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: Peakon
+        href: peakon-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
