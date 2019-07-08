@@ -106,7 +106,7 @@ After you create the application for the identity provider that you want to add,
 
 1. For **Client ID**, enter the *Application (client) ID* that you previously recorded.
 1. For **Client secret**, enter the *client secret* value that you previously recorded.
-1. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. [Domain hints](../active-directory/manage-apps/configure-authentication-for-federated-users-portal) are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.
+1. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. [Domain hints](../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.
 1. Select **OK**.
 1. Select **Map this identity provider's claims** and set the following claims:
 
