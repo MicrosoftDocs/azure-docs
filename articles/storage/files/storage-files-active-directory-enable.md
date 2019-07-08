@@ -83,7 +83,7 @@ The following image shows how to enable Azure AD authentication over SMB for you
   
 ### PowerShell  
 
-To enable Azure AD DS authentication over SMB from Azure PowerShell, first install the latest build of the 'Az' (2.4.0+) or `Az.Storage` (1.5.0+) module. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps):
+To enable Azure AD DS authentication over SMB using Azure PowerShell: First, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer).For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps):
 
 ```powershell
 Install-Module -Name Az.Storage -AllowPrerelease -Force -AllowClobber
