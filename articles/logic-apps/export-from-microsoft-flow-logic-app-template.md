@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 07/10/2019
 ---
 
 # Export flows from Microsoft Flow and deploy to Azure Logic Apps
@@ -20,6 +20,8 @@ To extend and expand your flow's capabilities, you can migrate that flow from [M
 > You can import flows that have [equivalent connectors](../connectors/apis-list.md) 
 > in Azure Logic Apps. For example, the Button trigger, the Approval connector, 
 > and Notification connector are specific to Microsoft Flow.
+>
+> OpenAPI-based flows exported from Microsoft Flow are currently not supported for deployment as logic app templates. 
 
 ## Prerequisites
 
@@ -31,7 +33,7 @@ To extend and expand your flow's capabilities, you can migrate that flow from [M
 
 1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and select **My flows**. Find and select your flow. On the toolbar, select the ellipses (**...**) button. Select **Export** > **Logic Apps template (.json)**.
 
-   ![Export flow](./media/import-from-microsoft-flow/export-flow.png)
+   ![Export flow](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
 1. Save your template to the location that you want.
 
@@ -43,19 +45,19 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
 1. On the main Azure menu, select **Create a resource**. In the search box, enter "template deployment". Select **Template deployment (deploy using custom templates)**, and then select **Create**.
 
-   ![Select "Template deployment"](./media/import-from-microsoft-flow/select-template-deployment.png)
+   ![Select "Template deployment"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
 
 1. Under **Custom deployment**, select **Build your own template in the editor**.
 
-   ![Select "Build your own template in the editor"](./media/import-from-microsoft-flow/build-template-in-editor.png)
+   ![Select "Build your own template in the editor"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
 1. From the **Edit template** toolbar, select **Load file**. Find and select the JSON template that you exported from Microsoft Flow, and select **Open**.
 
-   ![Select "Load file"](./media/import-from-microsoft-flow/load-file.png)
+   ![Select "Load file"](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
 1. After the editor shows the JSON, parameters, and resources in your template, select **Save**.
   
-   ![Save template](./media/import-from-microsoft-flow/save-template.png)
+   ![Save template](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
 
 1. Now specify these input parameters for the template:
 
@@ -70,7 +72,7 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    After you provide this information for the template, review and agree to the Azure Marketplace Terms and Conditions for creating the necessary Azure resources and billing your Azure subscription accordingly, and then select **Purchase**.
   
-   ![Specify input parameters for template](./media/import-from-microsoft-flow/template-input-parameters.png)
+   ![Specify input parameters for template](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
    Azure deploys your template as a logic app to your specified resource group. All logic apps that you migrate from Microsoft Flow are deployed in a disabled state.
 
@@ -80,17 +82,17 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
       Each connection that requires authorization shows a warning icon:
 
-      ![Warning icon](./media/import-from-microsoft-flow/authorize-connections.png)
+      ![Warning icon](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
 
    1. For each step that requires an authorized connection, expand that step, and select **Add new**.
 
-      ![Add new connection](./media/import-from-microsoft-flow/add-new-connection.png)
+      ![Add new connection](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Sign in to each service or provide the necessary credentials to authorize the connection.
 
 1. Save your logic app. When you're ready to activate your logic app, on the logic app's menu, select **Overview**, and then select **Enable**.
 
-   ![Enable logic app](./media/import-from-microsoft-flow/enable-logic-app.png)
+   ![Enable logic app](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
 1. To avoid running duplicate workflows, make sure that you deactivate or delete your original flow.
 
@@ -100,7 +102,9 @@ If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart
 
 1. In Visual Studio, open the template file that you exported from Microsoft Flow.
 
-1. In Visual Studio, create an Azure Resource Group project and select the **Logic App** template by following the steps in [Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+1. In Visual Studio, create an Azure Resource Group project and select the **Logic App** template by following the steps in [Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md), for example:
+
+   ![Create Azure resource group project](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
 1. From Solution Explorer, open the **LogicApp.json** file, if the file isn't already open.
 
@@ -108,15 +112,21 @@ If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart
 
 1. Before you deploy your logic app, authorize any new connections by following these steps:
 
-   1. From the **LogicApp.json** shortcut menu, and select **Open With Logic App Designer**.
+   1. Open the **LogicApp.json** shortcut menu, and then select **Open With Logic App Designer**.
 
-      Each connection that requires authorization shows a warning icon:
+      ![Open template with Logic App Designer](./media/export-from-microsoft-flow-logic-app-template/open-logic-app-designer.png)
 
-      ![Warning icon](./media/import-from-microsoft-flow/authorize-connections-vs.png)
+   1. If prompted, select the Azure subscription and resource group that you want to use for deploying your logic app.
+
+      ![Select Azure subscription and resource group](./media/export-from-microsoft-flow-logic-app-template/select-azure-subscription-resource-group-deployment.png)
+
+      After your logic app appears in the designer, any connections that require authorization show warning icons:
+
+      ![Connections with warning icons](./media/export-from-microsoft-flow-logic-app-template/authorize-connections-vs.png)
 
    1. For each step that requires an authorized connection, expand that step, and select **Add new**.
 
-      ![Add new connection](./media/import-from-microsoft-flow/add-new-connection-vs.png)
+      ![Add new connection](./media/export-from-microsoft-flow-logic-app-template/add-new-connection-vs.png)
 
    1. Sign in to each service or provide the necessary credentials to authorize the connection.
 
@@ -124,11 +134,17 @@ If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart
 
 1. In Solution Explorer, open the project shortcut menu, and select **Deploy** > **New**. If prompted, sign in with your Azure account.
 
-1. When prompted, select the Azure subscription, Azure resource group, and any other settings that you want to use, and then select **Deploy**.
+1. When prompted, confirm the Azure subscription, Azure resource group, and any other settings that you want to use for deployment, such as a [parameters file](../azure-resource-manager/resource-group-template-deploy#parameter-files) to use for passing template parameter values, and then select **Deploy**.
 
-1. If the **Edit Parameters** box appears, provide a resource name for your logic app, and select **Save**.  
+   ![Confirm deployment settings](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 
-   When deployment starts, your app's deployment status appears in the Visual Studio **Output** window. If the status doesn't appear, open the **Show output from** list, and select your Azure resource group.
+1. If the **Edit Parameters** box appears, provide the name for your logic app resource in Azure, and select **Save**.  
+
+   ![Edit deployment parameters](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
+
+   When deployment starts, your app's deployment status appears in the Visual Studio **Output** window. If the status doesn't appear, open the **Show output from** list, and select your Azure resource group. For example:
+
+   ![Output window](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 
    If your selected connectors need input from you, a PowerShell window opens in the background and prompts for any necessary passwords or secret keys. After you enter this information, deployment continues.
 
