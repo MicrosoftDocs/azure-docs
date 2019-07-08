@@ -1,6 +1,6 @@
 ---
-title: Copy data from Teradata using Azure Data Factory | Microsoft Docs
-description: Learn about Teradata Connector of the Data Factory service that lets you copy data from Teradata database to data stores supported by Data Factory as sinks. 
+title: Copy data from Teradata by using Azure Data Factory | Microsoft Docs
+description: The Teradata Connector of the Data Factory service lets you copy data from a Teradata database to data stores supported by Data Factory as sinks. 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -22,47 +22,47 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Current version](connector-teradata.md)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Teradata database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the copy activity in Azure Data Factory to copy data from a Teradata database. It builds on the [copy activity overview](copy-activity-overview.md).
 
 ## Supported capabilities
 
-You can copy data from Teradata database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from a Teradata database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Teradata connector supports:
 
 - Teradata **version 14.10, 15.0, 15.10, 16.0, 16.10, and 16.20**.
-- Copying data using **Basic** or **Windows** authentication.
-- Parallel copy from Teradata source. See [Parallel copy from Teradata](#parallel-copy-from-teradata) section with details.
+- Copying data by using **Basic** or **Windows** authentication.
+- Parallel copying from a Teradata source. See the [Parallel copy from Teradata](#parallel-copy-from-teradata) section for details.
 
 > [!NOTE]
 >
-> Azure Data Factory upgraded the Teradata connector since Self-hosted Integration Runtime v3.18, which is empowered by a built-in ODBC driver, and offers flexible connection options as well as out-of-box parallel copy to boost performance. Any existing workload using the previous Teradata connector empowered by .NET Data Provider for Teradata is still supported as-is, while you are suggested to use the new one going forward. Note the new path requires a different set of linked service/dataset/copy source. See the respective section on configuration details.
+> After the release of self-hosted integration runtime v3.18, Azure Data Factory upgraded the Teradata connector. Any existing workload that uses the previous Teradata connector is still supported. For new workloads, however, it's a good idea to use the new one. Note that the new path requires a different set of linked service, dataset, and copy source. For configuration details, see the respective sections that follow.
 
 ## Prerequisites
 
-If your Teradata is not publicly accessible, you need to set up a Self-hosted Integration Runtime. For more information about integration runtime, see [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md). The Integration Runtime provides a built-in Teradata driver starting from version 3.18, therefore you don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the Self-hosted IR machine, download from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679) if you don't yet have it installed.
+If your Teradata is not publicly accessible, you need to set up a [Self-hosted integration runtime](create-self-hosted-integration-runtime.md). The integration runtime provides a built-in Teradata driver, starting from version 3.18. You don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
-For Self-hosted IR version lower than 3.18, you need to install the [.NET Data Provider for Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) version 14 or above on the Integration Runtime machine. 
+For any self-hosted integration runtime version earlier than 3.18, install the [.NET Data Provider for Teradata](https://go.microsoft.com/fwlink/?LinkId=278886), version 14 or later, on the integration runtime machine. 
 
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to Teradata connector.
+The following sections provide details about properties that are used to define Data Factory entities specific to the Teradata connector.
 
 ## Linked service properties
 
-The following properties are supported for Teradata linked service:
+The Teradata linked service supports the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to: **Teradata** | Yes |
-| connectionString | Specifies the information needed to connect to the Teradata Database instance. Refer to the following samples.<br/>You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
-| username | Specify user name to connect to the Teradata database. Applies when using Windows authentication. | No |
-| password | Specify password for the user account you specified for the username. You can also choose to [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br>Applies when using Windows authentication, or referencing password in Key Vault for basic authentication. | No |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
+| type | The type property must be set to **Teradata**. | Yes |
+| connectionString | Specifies the information needed to connect to the Teradata Database instance. Refer to the following samples.<br/>You can also put a password in Azure Key Vault, and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. | Yes |
+| username | Specify a user name to connect to the Teradata database. Applies when you are using Windows authentication. | No |
+| password | Specify a password for the user account you specified for the user name. You can also choose to [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br>Applies when you are using Windows authentication, or referencing a password in Key Vault for basic authentication. | No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. A self-hosted integration runtime is required, as mentioned in [Prerequisites](#prerequisites). |Yes |
 
-**Example: using basic authentication**
+**Example using basic authentication**
 
 ```json
 {
@@ -80,7 +80,7 @@ The following properties are supported for Teradata linked service:
 }
 ```
 
-**Example: using Windows authentication**
+**Example using Windows authentication**
 
 ```json
 {
