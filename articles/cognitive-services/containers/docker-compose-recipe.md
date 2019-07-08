@@ -21,15 +21,15 @@ This article shows you how to deploy multiple Cognitive Services containers. Spe
 
 > [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multi-container Docker applications. In Compose, you use a YAML file to configure your application’s services. Then, you create and start all the services from your configuration by running a single command.
 
-It can be useful and compelling to orchestrate multiple container images on a single host computer. In this article, we'll pull together the Recognize Text and Form Recognizer containers.
+It can be useful to orchestrate multiple container images on a single host computer. In this article, we'll pull together the Recognize Text and Form Recognizer containers.
 
 ## Prerequisites
 
 This procedure requires several tools that must be installed and run locally.
 
-* Use an Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Download and install [Docker Engine](https://www.docker.com/products/docker-engine), and validate that the Docker CLI works in a console window.
-* Subscribe to an Azure resource with the correct pricing tier. Not all pricing tiers work with this container:
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* [Docker Engine](https://www.docker.com/products/docker-engine). Confirm that the Docker CLI works in a console window.
+* Access to an Azure resource with the correct pricing tier. Not all pricing tiers work with this container.
   * **Computer Vision** resource with F0 or standard pricing tier only.
   * **Form Recognizer** resource with F0 or standard pricing tier only.
   * **Cognitive Services** resource with the S0 pricing tier.
@@ -44,7 +44,7 @@ This procedure requires several tools that must be installed and run locally.
 
 ## Docker Compose file
 
-The YAML file defines all the services to be deployed. These services rely on either a Dockerfile or an existing container image. In this case, we'll use two preview images. Copy and paste the following YAML file, and save it as **docker-compose.yaml**. Provide the appropriate **apikey**, **billing**, and **endpoint URI** values in the following docker-compose.yml file.
+The YAML file defines all the services to be deployed. These services rely on either a Dockerfile or an existing container image. In this case, we'll use two preview images. Copy and paste the following YAML file, and save it as **docker-compose.yaml**. Provide the appropriate **pikey**, **billing**, and **endpoint URI** values in the following docker-compose.yml file.
 
 ```yaml
 version: '3.7'
@@ -84,7 +84,7 @@ services:
 A Docker Compose file lets you manage all the stages in a defined service's life-cycle: starting, stopping, and rebuilding services; viewing the service status; and log streaming. Open a command-line interface from the project directory (where the docker-compose.yaml file is located).
 
 > [!NOTE]
-> To avoid errors, make sure that the host machine is correctly sharing drives with Docker Engine. For example, if **e:\publicpreview** is used as a directory in the **docker-compose.yaml**, share drive E with Docker.
+> To avoid errors, make sure that the host machine correctly shares drives with Docker Engine. For example, if **e:\publicpreview** is used as a directory in the **docker-compose.yaml** file, share drive E with Docker.
 
 From the command-line interface, execute the following command to start (or restart) all the services defined in the docker-compose.yaml file:
 
@@ -92,7 +92,7 @@ From the command-line interface, execute the following command to start (or rest
 docker-compose up
 ```
 
-The first time Docker executes the **docker-compose up** command by using this configuration, it pulls the images configured under the **services** node, and then downloads and mounts them:
+The first time Docker executes the **docker-compose up** command by using this configuration, it pulls the images configured under the **services** node and then downloads and mounts them:
 
 ```console
 Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
@@ -155,7 +155,7 @@ ocr_1    | Now listening on: http://0.0.0.0:5000
 ocr_1    | Application started. Press Ctrl+C to shut down.
 ```
 
-## Verify the service availability
+## Verify service availability
 
 [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)
 
@@ -169,13 +169,13 @@ IMAGE ID            REPOSITORY                                                  
 
 ### Test the Recognize Text container
 
-Open a browser on the host machine and navigate to **localhost** with the specified port from the docker-compose.yaml file, such as http://localhost:5021/swagger/index.html. You can use the API's "Try It" feature to test the Recognize Text endpoint.
+Open a browser on the host machine and navigate to **localhost** with the specified port from the docker-compose.yaml file, such as http://localhost:5021/swagger/index.html. You can use the "Try It" feature in the API to test the Recognize Text endpoint.
 
 ![Recognize Text Swagger](media/recognize-text-swagger-page.png)
 
 ### Test the Form Recognizer container
 
-Open a browser on the host machine and navigate to **localhost** with the specified port from the docker-compose.yaml file, such as http://localhost:5010/swagger/index.html. You can use the API's "Try It" feature to test the Form Recognizer endpoint.
+Open a browser on the host machine and navigate to **localhost** by using the specified port from the docker-compose.yaml file, such as http://localhost:5010/swagger/index.html. You can use the "Try It" feature in the API to test the Form Recognizer endpoint.
 
 ![Form Recognizer Swagger](media/form-recognizer-swagger-page.png)
 
