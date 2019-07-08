@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
-ms.author: jasonfreeberg
+ms.author: jafreebe
 ms.custom: mvc
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---

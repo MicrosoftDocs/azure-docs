@@ -1401,6 +1401,11 @@
       "redirect_document_id": false
     },
     {
+    "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-none.md",
+    "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-container-create-index-none",
+    "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-conflict-policy.md",
       "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
       "redirect_document_id": false
@@ -37770,6 +37775,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/content-moderator-helper-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription",
       "redirect_document_id": false
@@ -39869,6 +39879,11 @@
       "redirect_url": "/azure/azure-monitor/app/asp-net-core",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/azure-monitor/app/proactive-low-utilization-cloud-resources.md",
+      "redirect_url": "/azure/azure-monitor/app/proactive-diagnostics",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/storage/common/storage-use-azcopy.md",
       "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
@@ -40083,6 +40098,18 @@
     {
       "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
+      "redirect_url": "/azure/articles/data-explorer/manage-cluster-vertical-scaling",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
+      "redirect_url": "/azure/articles/data-explorer/manage-cluster-horizontal-scaling",
       "redirect_document_id": false
     }
   ]

@@ -93,6 +93,30 @@ The `--resource-group` argument is only required if `--workspace` is not an obje
 
 In the Logs blade in the Azure Monitor portal, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several monitoring solutions for Azure resources](../../azure-monitor/insights/solutions.md) you can install to get immediate insight into the log data you are sending into Azure Monitor.
 
+### Examples
+
+```Kusto
+// Resources that collect diagnostic logs into this Log Analytics workspace, using Diagnostic Settings
+AzureDiagnostics
+| distinct _ResourceId
+```
+```Kusto
+// Resource providers collecting diagnostic logs into this Log Analytics worksapce, with log volume per category
+AzureDiagnostics
+| summarize count() by ResourceProvider, Category
+```
+```Kusto
+// Resource types collecting diagnostic logs into this Log Analytics workspace, with number of resources onboarded
+AzureDiagnostics
+| summarize ResourcesOnboarded=dcount(_ResourceId) by ResourceType
+```
+```Kusto
+// Operations logged by specific resource provider, in this example - KeyVault
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| distinct OperationName
+```
+
 ## Azure Diagnostics vs Resource-Specific  
 Once a Log Analytics destination is enabled in an Azure Diagnostics configuration, there are two distinct ways that data will show up in your workspace:  
 - **Azure Diagnostics** - This is the legacy method used today by the majority of Azure services. In this mode, all the data from any Diagnostic Setting pointed to a given workspace will end up in the _AzureDiagnostics_ table. 

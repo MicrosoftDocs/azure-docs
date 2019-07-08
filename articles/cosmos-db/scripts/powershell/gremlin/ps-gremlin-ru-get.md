@@ -1,14 +1,14 @@
 ---
-title: Azure PowerShell script - Create a container indexing turned off in an Azure Cosmos account
-description: Azure PowerShell script sample - Create a container indexing turned off in an Azure Cosmos account
+title: Azure PowerShell script - Azure Cosmos DB Get Throughput (RU/s) for Gremlin API
+description: Azure PowerShell script - Azure Cosmos DB Get Throughput (RU/s) for Gremlin API
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
-ms.date: 05/06/2019
+ms.topic: sample
+ms.date: 07/03/2019
 ms.author: mjbrown
 ---
 
-# Create a container indexing turned off in an Azure Cosmos account using PowerShell
+# Get Throughput (RU/s) for a database or graph for Azure Cosmos DB - Gremlin API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 ## Sample script
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-none.ps1 "Create a container indexing turned off in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-get.ps1 "Get throughput on a database or graph for Gremlin API")]
 
 ## Clean up deployment
 
