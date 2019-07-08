@@ -39873,6 +39873,11 @@
       "redirect_url": "/azure/azure-monitor/app/asp-net-core",
       "redirect_document_id": false
     },
+	{
+      "source_path": "articles/azure-monitor/app/proactive-low-utilization-cloud-resources.md",
+      "redirect_url": "/azure/azure-monitor/app/proactive-diagnostics",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/storage/common/storage-use-azcopy.md",
       "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
