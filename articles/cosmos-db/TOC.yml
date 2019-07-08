@@ -793,6 +793,8 @@
       href: https://azure.microsoft.com/try/cosmosdb/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cosmos-db/
+    - name: Multi-master benefits
+      href: multi-master-benefits.md
     - name: Use cases
       items:
       - name: Common use cases
