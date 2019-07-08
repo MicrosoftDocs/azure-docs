@@ -8,6 +8,8 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
+
+# TODO: Move some of the visualization content from the first tutorial to here - first tutorial should just show telemetry on a dashboard - here we add a form and customize the dashboard...
 ---
 
 # Tutorial: Customize the Azure IoT Central operator's view (Plug and Play)
