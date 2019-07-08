@@ -102,11 +102,13 @@ When point-in-time restore (PITR) operation is performed, the time to restore to
 Example:
 
 Say that instance where automatic backups are taken from has Eastern Standard Time (UTC-5) time zone set.
-Portal page for point-in-time restore suggests that time you are choosing to restore to is UTC time:
+Portal page for point-in-time restore suggests that the time you are choosing to restore to is UTC time:
 
 ![PITR with local time using portal](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
 
 However, the time to restore to is actually interpreted as Eastern Standard Time, and in this specific example database will be restored to the state at 9 AM Eastern Standard Time, and not UTC time.
+
+If you want to do point-in-time restore to a specific point in UTC time, first calculate corresponding time in the time zone of the source instance and use that time in the portal or PowerShell/CLI script.
 
 ## List of supported time zones
 
