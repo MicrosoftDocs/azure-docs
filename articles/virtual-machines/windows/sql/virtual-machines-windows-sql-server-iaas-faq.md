@@ -32,7 +32,7 @@ This article provides answers to some of the most common questions about running
 
 ## <a id="images"></a> Images
 
-1. **What SQL Server virtual machine gallery images are available?**
+1. **What SQL Server virtual machine gallery images are available?** 
 
    Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more information, see the complete list of [Windows VM images](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) and [Linux VM images](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
@@ -73,7 +73,6 @@ This article provides answers to some of the most common questions about running
 1. **How can I install my licensed copy of SQL Server on an Azure VM?**
 
    There are two ways to do this. You can provision one of the [virtual machine images that supports licenses](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). Another option is to copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. However, if you install SQL Server manually, there is no portal integration and the SQL Server IaaS Agent Extension is not supported, so features such as Automated Backup and Automated Patching will not work in this scenario. For this reason, we recommend using one of the BYOL gallery images. To use BYOL or your own SQL Server media on an Azure VM, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). For more information, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
-
 
 1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
 
@@ -142,9 +141,10 @@ This article provides answers to some of the most common questions about running
    
 ## Updating and Patching
 
-1. **How do I change to a new version/edition of the SQL Server in an Azure VM?**
+1. **How do I change to a different version/edition of the SQL Server in an Azure VM?**
 
-   Customers with Software Assurance are able to do in-place upgrades of their SQL Server running on an Azure VM using the installation media in the Volume Licensing Portal. However, currently, there is no way to change the edition of an instance of SQL Server. Create a new Azure virtual machine with the desired SQL Server edition, and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md).
+   Customers can change their version/edition of SQL Server by using setup media that contains their desired version or edition of SQL Server. Once the edition has been changed, use the Azure portal to modify the edition property of the VM to accurately reflect billing for the VM. For more information, see [change edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md). It is possible to upgrade the edition and version of SQL Server, but downgrading either requires completely uninstalling SQL Server and reinstalling the new version / edition using the required setup media. The edition property of the VM can be downgraded or upgraded without limitation, but it must match the edition of SQL Server.    
+
 
 1. **How are updates and service packs applied on a SQL Server VM?**
 
