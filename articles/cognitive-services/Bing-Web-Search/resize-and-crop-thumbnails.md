@@ -22,15 +22,21 @@ Some responses from the Bing Search APIs will include URLs to thumbnail images s
 
 ## Resize a thumbnail 
 
-To resize an image, you can specify either of the `w` (width) or `h` (height) query parameters in the thumbnail's URL. Specify the width and height in pixels. 
+To resize a thumbnail, Bing recommends that you specify only one the `w` (width) or `h` (height) query parameters in the thumbnail's URL. Specifying only the height or width lets Bing maintain the image's original aspect. Specify the width and height in pixels. 
 
-The following example resizes an image to `200x200` pixels:  
-  
-`https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
-  
+For example, if the original thumbnail is 480x620:
+
+`https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=480&h=620`
+
+And you want to decrease its size, set the `w` parameter to a new value (for example `336`), and remove the `h`  parameter:
+
+`https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=336`
+
+If you specify both parameters without maintaining the aspect ratio, Bing will add white padding to the image’s border
+
 If you specify only the height or width of a thumbnail, the image's original aspect ratio will be maintained. If you specify both parameters, and the aspect ratio isn't maintained, Bing will add white padding to the border of the image.
 
-For example, if you resize a 480x359 image to 200x200 without cropping, the full width will contain the image but the height will contain 25 pixels of white padding at the top and bottom of the image. The same would be true if the image was 359x480 except the left and right borders would contain white padding. If you crop the image, white padding is not added.  
+For example, if you resize a 480x359 image to 200x200 without cropping, the full width will contain the image but the height will contain 25 pixels of white padding at the top and bottom of the image. The same is if the image was 359x480 except the left and right borders would contain white padding. If you crop the image, white padding is not added.  
 
 The following picture shows the original size of a thumbnail image (480x300).  
   
@@ -40,7 +46,7 @@ The following picture shows the image resized to 200x200. The aspect ratio is ma
   
 ![Resized landscape image](./media/resize-crop/bing-resize-crop-landscape-resized.png)  
 
-If you specify dimensions that are greater than the image’s original width and height, the image will be padded with white on the left and top borders.  
+If you specify dimensions that are greater than the image’s original width and height, Bing will add white padding to the left and top borders.  
 
 ## Crop a thumbnail 
 
@@ -51,24 +57,24 @@ To crop an image, include the `c` (crop) query parameter. You can use the follow
 
 ### Smart Ratio cropping
 
-If you request Smart Ratio cropping (by setting the `c` parameter to `7`), the image is cropped from the center of the image’s region of interest outward while maintaining the image’s aspect ratio. The region of interest is the area of the image that Bing determines contains the most import parts. The following shows an example region of interest.  
+If you request Smart Ratio cropping (by setting the `c` parameter to `7`), Bing will crop an image from the center of its region of interest outward, while maintaining the image’s aspect ratio. The region of interest is the area of the image that Bing determines contains the most import parts. The following shows an example region of interest.  
   
 ![Region of interest](./media/resize-crop/bing-resize-crop-regionofinterest.png)
 
-If you resize an image and request Smart Ratio cropping, the image is reduced to the requested size while maintaining the aspect ratio. The image is then cropped based on the resized dimensions. For example, if the resized width is less than or equal to the height, the image is cropped to the left and right of the center of the region of interest. Otherwise, the image is cropped to the top and bottom of the center of the region of interest.  
+If you resize an image and request Smart Ratio cropping, Bing reduces the image to the requested size while maintaining the aspect ratio. Bing then crops the image based on the resized dimensions. For example, if the resized width is less than or equal to the height, Bing will crop the image to the left and right of the center of the region of interest. Otherwise, Bing will crop it to the top and bottom of the center of the region of interest.  
   
  
-The following shows the image reduced to 200x200 using Smart Ratio cropping.  
+The following shows the image reduced to 200x200 using Smart Ratio cropping. Because Bing measures the image from the top left corner, the bottom part of the image is cropped. 
   
-![Landscape image cropped to 200x200](./media/resize-crop/bing-resize-crop-landscape200x200c7.png)
+![Landscape image cropped to 200x200](./media/resize-crop/bing-resize-crop-landscape200x200c7.png) 
   
-The following shows the image reduced to 200x100 using Smart Ratio cropping.  
+The following shows the image reduced to 200x100 using Smart Ratio cropping. Because Bing measures the image from the top left corner, the bottom part of the image is cropped. 
    
 ![Landscape image cropped to 200x100](./media/resize-crop/bing-resize-crop-landscape200x100c7.png)
   
-The following shows the image reduced to 100x200 using Smart Ratio cropping.  
+The following shows the image reduced to 100x200 using Smart Ratio cropping. Because Bing measures the image from the center, the left and right parts of the image are cropped.
   
-![Landscape image cropped to 100x200](./media/resize-crop/bing-resize-crop-landscape100x200c7.png)
+![Landscape image cropped to 100x200](./media/resize-crop/bing-resize-crop-landscape100x200c7.png) 
 
 If Bing cannot determine the image’s region of interest, the service will use Blind Ratio cropping.  
 
@@ -94,19 +100,6 @@ The following shows the image reduced to 200x100 using Blind Ratio cropping. The
 The following shows the image reduced to 100x200 using Blind Ratio cropping. The image is measured from the center resulting in the left and right parts of the image being cropped.  
   
 ![Sunflower image cropped to 100x200](./media/resize-crop/bing-resize-crop-sunflower100x200c4.png)
-
-## Thumbnail images from the Bing Image Search API
-
-Use the following information when using thumbnails from the [Bing Image search API](../bing-image-search/overview.md).
-
-If the user clicks the thumbnail or hovers over it, you can use [contentUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-contenturl) to display the full-size image. Be sure to attribute the image if you expand it. For example, by extracting the host from [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-hostpagedisplayurl) and displaying it below the image.
-
-
-
-
-If `shoppingSourcesCount` or `recipeSourcesCount` are greater than zero, add badging, such as a shopping cart, to the thumbnail to indicate that shopping or recipes exist for the item in the image.
-
-To get insights about the image, such as web pages that include the image or people that were recognized in the image, use [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken). See the Bing Image Search API's [Image Insights](../bing-image-search/image-insights.md) article for details.
 
 ## Next steps
 
