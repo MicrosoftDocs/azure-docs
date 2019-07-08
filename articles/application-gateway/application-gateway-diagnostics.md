@@ -6,7 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
-ms.author: amitsriva
+ms.author: victorh
 
 ---
 # Back-end health, diagnostic logs, and metrics for Application Gateway

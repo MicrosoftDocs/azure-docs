@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
 manager: daveba
-ms.component: hybrid
+ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
@@ -134,7 +134,7 @@ Group claims can also be configured in the [Optional Claims](../../active-direct
 
 3. Set group name configuration optional claims.
 
-   If you want to groups in the token to contain the on premises AD group attributes in the optional claims section specify which token type optional claim should be applied to, the name of optional claim requested and any additional properties desired.  Multiple token types can be listed:
+   If you want the groups in the token to contain the on premises AD group attributes in the optional claims section specify which token type optional claim should be applied to, the name of optional claim requested and any additional properties desired.  Multiple token types can be listed:
 
    - idToken for the OIDC ID token
    - accessToken for the OAuth/OIDC access token

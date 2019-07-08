@@ -15,18 +15,18 @@ ms.date: 06/28/2017
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorial to show you how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
+This tutorial builds on the code in the [Send cloud-to-device messages with IoT Hub](iot-hub-node-node-c2d.md) tutorial to show you how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
 
-- Securely provide a device with an Azure blob URI for uploading a file.
-- 
-- Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
+* Securely provide a device with an Azure blob URI for uploading a file.
 
-The [Get started with IoT Hub](quickstart-send-telemetry-node.md) tutorial demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+* Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-*  Large files that contain images
-*  Videos
-*  Vibration data sampled at high frequency
-*  Some form of pre-processed data.
+The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md) quickstart demonstrates the basic device-to-cloud messaging functionality of IoT Hub. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+
+* Large files that contain images
+* Videos
+* Vibration data sampled at high frequency
+* Some form of pre-processed data.
 
 These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upland files from a device, you can still use the security and reliability of IoT Hub.
 
@@ -211,6 +211,8 @@ You can use the portal to view the uploaded file in the storage container you co
 
 In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
 
-*  [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
-*  [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
-*  [Azure IoT SDKs](iot-hub-devguide-sdks.md)
+* [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
+
+* [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
+
+* [Azure IoT SDKs](iot-hub-devguide-sdks.md)

@@ -56,11 +56,11 @@ You learn how to use Azure IoT Tools for Visual Studio Code to monitor device-to
 
 To monitor messages that are sent from your device to your IoT hub, follow these steps:
 
-1. Right-click your device and select **Start Monitoring D2C Message**.
+1. Right-click your device and select **Start Monitoring Built-in Event Endpoint**.
 
 2. The monitored messages will be shown in **OUTPUT** > **Azure IoT Hub Toolkit** view.
 
-3. To stop monitoring, right-click the **OUTPUT** view and select **Stop Monitoring D2C Message**.
+3. To stop monitoring, right-click the **OUTPUT** view and select **Stop Monitoring Built-in Event Endpoint**.
 
 ## Send cloud-to-device messages
 

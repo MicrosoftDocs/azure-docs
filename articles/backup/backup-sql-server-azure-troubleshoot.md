@@ -3,7 +3,7 @@ title: Troubleshooting SQL Server database backup with Azure Backup | Microsoft 
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 services: backup
 author: anuragm
-manager: shivamg
+manager: sivan
 ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
