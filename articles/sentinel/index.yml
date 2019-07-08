@@ -8,6 +8,7 @@ metadata:
   author: cmcclister
   manager: carolz
   ms.service: azure-sentinel
+  ms.subservice: azure-sentinel
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
