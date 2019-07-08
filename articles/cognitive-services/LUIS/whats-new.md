@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/25/2019
 ms.author: diberry
 ---
 # What's new in Language Understanding
@@ -17,6 +17,10 @@ ms.author: diberry
 Learn what's new in the service. These items may release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.  
 
 ## Release notes 
+
+### June 24, 2019
+
+* [OrdinalV2 prebuilt entity](luis-reference-prebuilt-ordinal-v2.md) to support ordering such as next, previous, and last. English culture only.
 
 ### May 6, 2019 - //Build Conference
 

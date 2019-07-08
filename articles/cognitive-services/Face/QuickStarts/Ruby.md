@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and Ruby
@@ -23,7 +23,7 @@ In this quickstart, you will use the Azure Face REST API with Ruby to detect hum
 
 ## Write the script
 
-Create a new file, _faceDetection.rb_, and add the following code. This calls the Face API for a given image URL.
+Create a new file, _faceDetection.rb_, and add the following code. This code calls the Face API for a given image URL.
 
 ```ruby
 require 'net/http'
@@ -59,7 +59,7 @@ puts response.body
 
 You'll need to update the `request['Ocp-Apim-Subscription-Key']` value with your subscription key, and you may need to change the `uri` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). 
 
-You may also wish to change the `imageUri` field to point to your own input image. You also may wish to chang the `returnFaceAttributes` field, which specifies which face attributes to retrieve.
+You may also wish to change the `imageUri` field to point to your own input image. You also may wish to change the `returnFaceAttributes` field, which specifies which face attributes to retrieve.
 
 ## Run the script
 
@@ -69,7 +69,7 @@ Run the Ruby script with the following command:
 ruby faceDetection.rb
 ```
 
-You should see a JSON string of detected face data printed to the console. The following is an example of a successful JSON response.
+You should see a JSON string of detected face data printed to the console. The following text is an example of a successful JSON response.
 
 ```json
 [

@@ -153,7 +153,7 @@ For more information, see [Copy to managed disks](data-box-deploy-copy-data-from
 
 **Error description:** Symbolic links are not allowed in Linux. 
 
-**Suggested resolution:** The symbolic links are usually links, pipes, and other such files. Either remove the links, or resolve the links and copy the the data.
+**Suggested resolution:** The symbolic links are usually links, pipes, and other such files. Either remove the links, or resolve the links and copy the data.
 
 
 ## Non-critical blob or file errors

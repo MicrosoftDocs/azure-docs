@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Password policy | Microsoft Docs
 description: Understand password policies on managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Password and account lockout policies on managed domains

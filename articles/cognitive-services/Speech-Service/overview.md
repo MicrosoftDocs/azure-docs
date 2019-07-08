@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -36,6 +36,8 @@ These features make up the Azure Speech Services. Use the links in this table to
 
 Learn what's new with the Azure Speech Services.
 
+* June 2019
+    * Released Speech SDK 1.6.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
 * May 2019 - Documentation is now available for [Conversation Transcription](conversation-transcription-service.md), [Call Center Transcription](call-center-transcription.md), and [Voice-first Virtual Assistants](voice-first-virtual-assistants.md).
 * May 2019
     * Released Speech SDK 1.5.1. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
