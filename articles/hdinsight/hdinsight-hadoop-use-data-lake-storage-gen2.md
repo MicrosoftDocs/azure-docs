@@ -73,25 +73,34 @@ The code snippet below does the following initial steps:
 
 1. Logs in to your Azure account.
 1. Sets the active subscription where the create operations will be done.
-1. Creates a new resource group for the new deployment activities named `hdinsight-deployment-rg`.
-1. Creates a user-assigned managed identity named `test-hdinsight-msi`.
+1. Creates a new resource group for the new deployment activities. 
+1. Creates a user-assigned managed identity.
 1. Adds an extension to the Azure CLI to use features for Data Lake Storage Gen2.
-1. Creates a new Data Lake Storage Gen2 account named `hdinsightadlsgen2`, by using the `--hierarchical-namespace true` flag.
+1. Creates a new Data Lake Storage Gen2 account by using the `--hierarchical-namespace true` flag. 
+
+In the Azure CLI code as well as the resource manager templates, substitute the following placeholders with the actual names for your environment: 
+
+| Placeholder | Description |
+|---|---|
+| `<SUBSCRIPTION_ID>` | The ID of your Azure subscription |
+| `<RESOURCEGROUPNAME>` | The resource group where you want the new cluster and storage account created. |
+| `<MANAGEDIDENTITYNAME>` | The name of the managed identity that will be given permissions on your Azure Data Lake Storage Gen2 account. |
+| `<STORAGEACCOUNTNAME>` | The new Azure Data Lake Storage Gen2 account that will be created. |
 
 ```azurecli
 az login
-az account set --subscription <subscription_id>
+az account set --subscription <SUBSCRIPTION_ID>
 
 # Create resource group
-az group create --name hdinsight-deployment-rg --location eastus
+az group create --name <RESOURCEGROUPNAME> --location eastus
 
 # Create managed identity
-az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+az identity create -g <RESOURCEGROUPNAME> -n <MANAGEDIDENTITYNAME>
 
 az extension add --name storage-preview
 
-az storage account create --name hdinsightadlsgen2 \
-    --resource-group hdinsight-deployment-rg \
+az storage account create --name <STORAGEACCOUNTNAME> \
+    --resource-group <RESOURCEGROUPNAME> \
     --location eastus --sku Standard_LRS \
     --kind StorageV2 --hierarchical-namespace true
 ```
@@ -102,7 +111,7 @@ After you've assigned the role for the user-assigned managed identity, deploy th
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
-    --resource-group hdinsight-deployment-rg \
+    --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```
