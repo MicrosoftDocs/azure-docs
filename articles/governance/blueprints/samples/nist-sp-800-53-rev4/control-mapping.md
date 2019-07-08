@@ -1,6 +1,6 @@
 ---
 title: Sample - NIST SP 800-53 R4 blueprint - Control mapping
-description: Control mapping of the NIST SP 800-53 R4 blueprint sample to Azure Policy and RBAC.
+description: Control mapping of the NIST SP 800-53 R4 blueprint sample to Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
@@ -445,7 +445,7 @@ exfiltration of information.
 ## Next steps
 
 Now that you've reviewed the control mapping of the NIST SP 800-53 R4 blueprint, visit the following
-articles to learn about the architecture and how to deploy this sample:
+articles to learn about the blueprint and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [NIST SP 800-53 R4 blueprint - Overview](./index.md)

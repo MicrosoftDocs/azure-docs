@@ -1,6 +1,6 @@
 ---
 title: Samples - NIST SP 800-53 R4 blueprint - Overview
-description: Overview and architecture of the NIST SP 800-53 R4 blueprint sample.
+description: Overview of the NIST SP 800-53 R4 blueprint sample.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
@@ -24,8 +24,8 @@ information, see [Azure Policy](../../../policy/overview.md).
 
 ## Next steps
 
-You've reviewed the overview and architecture of the NIST SP 800-53 R4 blueprint sample. Next, visit
-the following articles to learn about the control mapping and how to deploy this sample:
+You've reviewed the overview and of the NIST SP 800-53 R4 blueprint sample. Next, visit the 
+following articles to learn about the control mapping and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [NIST SP 800-53 R4 blueprint - Control mapping](./control-mapping.md)
