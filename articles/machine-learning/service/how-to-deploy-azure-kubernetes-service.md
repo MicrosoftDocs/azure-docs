@@ -4,10 +4,9 @@
 Learn how to use the Azure Machine Learning service to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. It provides fast response time and autoscaling of the deployed service.
 
 > [!IMPORTANT]
-> Cluter autoscaling is not provided through the Azure Machine Learning SDK. To change the number of nodes in an ASK cluster, use the Azure portal Azure CLI.
+> Cluter scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](/azure/aks/scale-cluster.md).
 
 You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
-
 
 ## Prerequisites
 
@@ -33,7 +32,7 @@ You can use an existing AKS cluster or create a new one using the Azure Machine 
 
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
 
-If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, you can speecify the __cluster purpose__ to __dev test__.
+If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, you can specify the __cluster purpose__ to __dev test__.
 
 The following examples demonstrate how to create a new AKS cluster using the SDK and CLI:
 
@@ -62,7 +61,7 @@ aks_target.wait_for_completion(show_output = True)
 >
 > The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure portal. You can only change the node count, not the VM size of the cluster.
 
-For more information on the classes, methods, and parameters used in this example, see the following reference material:
+For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
 * [AksCompute.provisioning_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
@@ -114,7 +113,7 @@ attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
 ```
 
-For more information on the classes, methods, and parameters used in this example, see the following reference material:
+For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
 * [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
@@ -122,7 +121,7 @@ For more information on the classes, methods, and parameters used in this exampl
 
 **Using the CLI**
 
-To attach an existing cluster using the CLI, you need to get the resource ID of the existing cluster. To get this value, use the following command. Replace `myexistingcluster` with the name of your AKS cluster. Replace `myresourcegroup` with the resource group that contains the clustere:
+To attach an existing cluster using the CLI, you need to get the resource ID of the existing cluster. To get this value, use the following command. Replace `myexistingcluster` with the name of your AKS cluster. Replace `myresourcegroup` with the resource group that contains the cluster:
 
 ```azurecli
 az aks show -n myexistingcluster -g myresourcegroup --query id
@@ -160,6 +159,13 @@ print(service.state)
 print(service.get_logs())
 ```
 
+For more information on the classes, methods, and parameters used in this example, see the following reference documents:
+
+* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py)
+* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
+* [Model.deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)
+* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
+
 **Using the CLI**
 
 To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
@@ -168,11 +174,52 @@ To deploy using the CLI, use the following command. Replace `myaks` with the nam
 az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
+The entries in the `deploymentconfig.json` document map to the parameters for [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
+
+| JSON entity | Method parameter | Description |
+| ----- | ----- | ----- |
+| `autoScaler` | NA | Contains configuration elements for autoscale. See the autoscaler table. |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Whether or not to enable autoscaling for the web service. If `numReplicas` = `0`, `True`; otherwise, `False`. |
+| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | The minimum number of containers to use when autoscaling this web service. Default, `1`. |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | The maximum number of containers to use when autoscaling this web servicee. Default, `10`. |
+| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | How often the autoscaler attempts to scale this web service. Default, `1`. |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service. Default, `70`. |
+| `datacollection` | NA | Contains configuration elements for data collection. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Whether or not to enable model data collection for the web service. Default, `False`. |
+| `authEnabled` | `auth_enabled` | Whether or not to enable authentication for the web service. Default, `True`. |
+| `containerResourceRequirements` | NA | Contains configuration elements for the CPU and memory allocated for the container. |
+| &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
+| &emsp;&emsp;`memoryInGb` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
+| `appInsightsEnabled` | `enable_app_insights` | Whether or not to enable Application Insights logging for the web service. Default, `False`. |
+| `scoringTimeoutMs` | `scoring_timeeout_ms` | A timeout to enforce for scoring calls to the web service. Default, `60000`. |
+| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | The maximum concurrent requests per node for this web service. Default, `1`. |
+| `maxQueueWaitMs` | `max_request_wait_time` | The maximum time a request will stay in thee queue (in milliseconds) before a 503 error is returned. Default, `500`. |
+| `numReplicas` | `num_replicas` | The number of containers to allocate for this web service. No default value. If this parameter is not set, the autoscaler is enabled by default. |
+| `namespace` | `namespace` | The Kubernetes namespace that the webservice is deployed into. Up to 63 lowercase alphanumeric ('a'-'z', '0'-'9') and hyphen ('-') characters. The first and last characters cannot be hyphens. |
+
+The following JSON is an example deployment configuration for use with the CLI:
+
+```json
+{
+    "autoScaler":
+    {
+        "autoscaleEnabled": False,
+        "minReplicas":,
+        "maxReplicas":,
+        "refreshPeriodInSeconds":,
+        "targetUtilization":
+    },
+    "dataCollection": { "storageEnabled" },
+    "authEnabled":,
+    "containerResourceRequirements
+}
+```
+
+
 **Using VS Code**
 
 You can also [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models), but you'll need to configure AKS clusters in advance.
 
-Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
 
 
