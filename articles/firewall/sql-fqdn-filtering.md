@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/11/2019
+ms.date: 7/12/2019
 ms.author: victorh
 ---
 
@@ -32,7 +32,7 @@ SQL FQDN filtering is currently available using REST APIs, templates, and Azure 
 ## Configure an application rule with a SQL FQDN using Azure CLI
 
 1. Deploy an [Azure Firewall using Azure CLI](deploy-cli.md).
-2. If you filter traffic to Azure SQL Database, SQL Data Warehouse, or SQL Managed Instance, ensure the SQL connectivity mode is set to “Proxy”. To learn how to switch SQL connectivity mode, see [Azure SQL Connectivity Architecture](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#change-azure-sql-database-connection-policy). 
+2. If you filter traffic to Azure SQL Database, SQL Data Warehouse, or SQL Managed Instance, ensure the SQL connectivity mode is set to **Proxy**. To learn how to switch SQL connectivity mode, see [Azure SQL Connectivity Architecture](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#change-azure-sql-database-connection-policy). 
 
    > [!NOTE]
    > SQL *proxy* mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using the SQL [service tag](service-tags.md) in firewall [network rules](tutorial-firewall-deploy-portal.md#configure-a-network-rule).
@@ -52,7 +52,7 @@ SQL FQDN filtering is currently available using REST APIs, templates, and Azure 
 
 ## Configure an application rule with a SQL FQDN using the Azure portal
 1. Deploy an [Azure Firewall using Azure CLI](deploy-cli.md).
-2. If you filter traffic to Azure SQL Database, SQL Data Warehouse, or SQL Managed Instance, ensure the SQL connectivity mode is set to “Proxy”. To learn how to switch SQL connectivity mode, see [Azure SQL Connectivity Architecture](../sql-database/sql-database-connectivity-architecture.md#change-azure-sql-database-connection-policy). 
+2. If you filter traffic to Azure SQL Database, SQL Data Warehouse, or SQL Managed Instance, ensure the SQL connectivity mode is set to **Proxy**. To learn how to switch SQL connectivity mode, see [Azure SQL Connectivity Architecture](../sql-database/sql-database-connectivity-architecture.md#change-azure-sql-database-connection-policy). 
 
    > [!NOTE]
    > SQL *proxy* mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using the SQL [service tag](service-tags.md) in firewall [network rules](tutorial-firewall-deploy-portal.md#configure-a-network-rule).
