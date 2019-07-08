@@ -64,6 +64,8 @@
       href: faq-backup-sql-server.md
     - name: FAQ-Azure Backup Server and DPM
       href: backup-azure-dpm-azure-server-faq.md
+    - name: FAQ-Azure Backup Monitoring Alert
+      href: backup-azure-monitoring-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Role-Based Access Control

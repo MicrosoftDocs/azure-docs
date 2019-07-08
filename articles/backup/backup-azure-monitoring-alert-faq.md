@@ -10,10 +10,10 @@ ms.date: 07/08/2019
 ms.author: srinathvasireddy
 ---
 
-# Azure Backup DPM and Azure Server - Frequently asked questions
-This article answers common questions about the Azure Backup DPM and Azure Server.
+# Azure Backup Monitoring Alert - FAQ
+This article answers common questions about the Azure monitoring alert.
 
-## DPM and Azure Backup Server backup
+## Configure Azure Backup reports
 
 ### How do I check if reporting data has started flowing into a storage account?
 Go to the storage account you configured, and select containers. If the container has an entry for insights-logs-azurebackupreport, it indicates that reporting data has started flowing in.
@@ -40,6 +40,21 @@ Yes, you can change the configuration to point to a different storage account. U
 
 ### Can I view reports across vaults and subscriptions?
 Yes, you can configure the same storage account across various vaults to view cross-vault reports. Also, you can configure the same storage account for vaults across subscriptions. Then you can use this storage account while you connect to the Azure Backup content pack in Power BI to view the reports. The storage account selected must be in the same region as the Recovery Services vault.
+
+### How long does it take for the Azure backup agent job status to reflect in the portal?
+The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
+
+### When a backup job fails, how long does it take to raise an alert?
+An alert is raised within 20 mins of the Azure backup failure.
+
+### Is there a case where an email won’t be sent if notifications are configured?
+Yes. In the following situations, notifications are not sent.
+
+* If notifications are configured hourly, and an alert is raised and resolved within the hour
+* When a job is canceled
+* If a second backup job fails because the original backup job is in progress
+
+## Recovery Services Vault
 
 ### How long does it take for the Azure backup agent job status to reflect in the portal?
 The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
