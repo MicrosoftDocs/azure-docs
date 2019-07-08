@@ -52,7 +52,7 @@ Make sure these dependencies are installed before starting Eclipse.
   sudo apt-get install libssl1.0.2 libasound2
   ```
 
-If you plan to use the Conversation Transcription this feature is currently only available for "en-US" and "zh-CN" in regions, “centralus” and “eastasia”. You must have a speech key in one of those regions to use Conversation Transcription.
+Conversation Transcription is currently only available for "en-US" and "zh-CN", in the “centralus” and “eastasia” regions. You must have a speech key in one of those regions to use Conversation Transcription.
 
 If you plan to use the intents you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). A [sample LUIS model](https://aka.ms/sdsdk-luis) is available for this app.
 
