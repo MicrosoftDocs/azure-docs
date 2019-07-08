@@ -65,7 +65,7 @@ The current set of extensions installed by the default bundle are enumerated in 
 
 <a name="local-csharp"></a>
 
-## <a name="vs"> C\# class library with Visual Studio
+## <a name="vs"></a> C\# class library with Visual Studio
 
 In **Visual Studio**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
@@ -79,7 +79,7 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 
 If you use `Install-Package` to reference a binding, you do not need to use [extension bundles](#extension-bundles). This approach is specific for class libraries built in Visual Studio.
 
-## <a name="vs-code"> C# class library with Visual Studio Code
+## <a name="vs-code"></a> C# class library with Visual Studio Code
 
 > [!NOTE]
 > We recommend using [extension bundles](#extension-bundles) to have Functions automatically install a compatible set of binding extension packages.
