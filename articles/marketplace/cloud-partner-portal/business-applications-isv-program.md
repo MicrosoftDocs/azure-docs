@@ -50,7 +50,7 @@ Participation in this program requires you to review and accept the *Microsoft B
 > [!NOTE]
 > This step requires an *Owner* or *Manager* role in Partner Center for your given account in order to sign legal agreements. If you completed your Cloud Partner Portal account migration by [activating your Partner Center account](../partner-center-portal/account-migration-from-cpp-to-pc.md#account-activation-is-complete) in the previous step, your permissions have also migrated to Partner Center.
 
-1. Go to https://partner.microsoft.com/dashboard/account/agreements (signing in to Partner Center as prompted).
+1. Go to https://partner.microsoft.com/dashboard/account/agreements (and sign in to Partner Center as prompted).
 
 2. Under the heading *Commercial Marketplace*, locate **Microsoft Business Applications ISV Addendum** and click the link to review the agreement.
 
