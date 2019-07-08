@@ -13,7 +13,7 @@ ms.custom: include file
 
 To create a shared access policy that grants **service connect** and **registry read** permissions and get a connection string for this policy, follow these steps:
 
-1. Open your IoT hub in the [Azure portal](https://portal.azure.com). The easiest way to get to your IoT hub is to select Resource groups, select the resource group where your IoT hub is located, and then select your IoT hub from the list of resources.
+1. Open your IoT hub in the [Azure portal](https://portal.azure.com). The easiest way to get to your IoT hub is to select **Resource groups**, select the resource group where your IoT hub is located, and then select your IoT hub from the list of resources.
 
 2. On the left-side pane of your IoT hub, select **Shared access policies**.
 
