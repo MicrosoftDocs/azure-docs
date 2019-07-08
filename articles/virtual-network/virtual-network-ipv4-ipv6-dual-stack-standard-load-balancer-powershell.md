@@ -1,7 +1,7 @@
 ---
 title: Deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network - PowerShell
 titlesuffix: Azure Virtual Network
-description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure Powershell.
+description: This article shows how deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network using Azure Powershell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2019
+ms.date: 07/08/2019
 ms.author: kumud
 ---
 
@@ -32,11 +32,13 @@ Before you deploy a dual stack application in Azure, you must configure your sub
 Register as follows:
 ```azurepowershell
 Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
 It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure PowerShell command:
 Check on the registration as follows:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace 
 ```
 After the registration is complete, run the following command:
 
@@ -62,15 +64,17 @@ $PublicIP_v4 = New-AzPublicIpAddress `
   -Name "dsPublicIP_v4" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
-  -AllocationMethod Dynamic `
-  -IpAddressVersion IPv4
+  -AllocationMethod Static `
+  -IpAddressVersion IPv4 `
+  -Sku Standard
   
 $PublicIP_v6 = New-AzPublicIpAddress `
   -Name "dsPublicIP_v6" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
-  -AllocationMethod Dynamic `
-  -IpAddressVersion IPv6
+  -AllocationMethod Static `
+  -IpAddressVersion IPv6 `
+  -Sku Standard
 ```
 To access your virtual machines using a RDP connection, create a IPV4 public IP addresses for the virtual machines with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
@@ -79,7 +83,7 @@ To access your virtual machines using a RDP connection, create a IPV4 public IP 
   -Name "RdpPublicIP_1" `
   -ResourceGroupName $rg.ResourceGroupName `
   -Location $rg.Location  `
-  -AllocationMethod Dynamic `
+  -AllocationMethod Static `
   -IpAddressVersion IPv4
   
   $RdpPublicIP_2 = New-AzPublicIpAddress `
@@ -90,9 +94,9 @@ To access your virtual machines using a RDP connection, create a IPV4 public IP 
    -IpAddressVersion IPv4
 ```
 
-## Create Basic Load Balancer
+## Create Standard Load Balancer
 
-In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Basic Load Balancer.
+In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Standard Load Balancer.
 
 ### Create front-end IP
 
@@ -147,14 +151,14 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
 
 ### Create load balancer
 
-Create the Basic Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Basic Load Balancer named *myLoadBalancer* using the IPv4 and IPv6 frontend IP configurations, backend pools, and load-balancing rules that you created in the preceding steps:
+Create a Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Standard Load Balancer named *myLoadBalancer* using the IPv4 and IPv6 frontend IP configurations, backend pools, and load-balancing rules that you created in the preceding steps:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
 -ResourceGroupName $rg.ResourceGroupName `
 -Location $rg.Location  `
 -Name "MyLoadBalancer" `
--Sku "Basic" `
+-Sku "Standard" `
 -FrontendIpConfiguration $frontendIPv4,$frontendIPv6 `
 -BackendAddressPool $backendPoolv4,$backendPoolv6 `
 -LoadBalancingRule $lbrule_v4,$lbrule_v6

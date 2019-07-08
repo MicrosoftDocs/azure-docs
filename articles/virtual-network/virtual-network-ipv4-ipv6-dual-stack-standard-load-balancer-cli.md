@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 07/08/2019
 ms.author: kumud
 ---
 
@@ -33,11 +33,13 @@ To use the IPv6 for Azure virtual network feature, you must configure your subsc
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure CLI command:
 
 ```azurelci
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature show --name AllowIPv6CAOnStandardLB--namespace Microsoft.Network
 ```
 After the registration is complete, run the following command:
 
@@ -63,8 +65,8 @@ az network public-ip create \
 --name dsPublicIP_v4  \
 --resource-group DsResourceGroup01  \
 --location eastus  \
---sku BASIC  \
---allocation-method dynamic  \
+--sku STANDARD  \
+--allocation-method static  \
 --version IPv4
 
 # Create an IPV6 IP address
@@ -72,8 +74,8 @@ az network public-ip create \
 --name dsPublicIP_v6  \
 --resource-group DsResourceGroup01  \
 --location eastus \
---sku BASIC  \
---allocation-method dynamic  \
+--sku STANDARD  \
+--allocation-method static  \
 --version IPv6
 
 ```
@@ -100,7 +102,7 @@ az network public-ip create \
 --version IPv4
 ```
 
-## Create Basic Load Balancer
+## Create Standard Load Balancer
 
 In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Basic Load Balancer.
 
@@ -112,7 +114,7 @@ Create the Basic Load Balancer with [az network lb create](https://docs.microsof
 az network lb create \
 --name dsLB  \
 --resource-group DsResourceGroup01 \
---sku Basic \
+--sku Standard \
 --location eastus \
 --frontend-ip-name dsLbFrontEnd_v4  \
 --public-ip-address dsPublicIP_v4  \

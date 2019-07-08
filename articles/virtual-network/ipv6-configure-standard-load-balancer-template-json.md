@@ -1,7 +1,7 @@
 ---
 title: Deploy an IPv6 dual stack application with Standard load Balancer in Azure virtual network - Resource Manger template (preview)
 titlesuffix: Azure Virtual Network
-description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure Resource Manager VM templates.
+description: This article shows how deploy an IPv6 dual stack application with Standard Load Balancer in Azure virtual network using Azure Resource Manager VM templates.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -10,7 +10,7 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 06/26/2019
+ms.date: 07/08/2019
 ms.author: kumud
 ---
 
@@ -123,8 +123,11 @@ If you're using a network virtual appliance, add IPv6 routes in the Route Table.
       "type": "Microsoft.Network/publicIPAddresses",
       "name": "lbpublicip-v6",
       "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
       "properties": {
-        "publicIPAllocationMethod": "Dynamic",
+        "publicIPAllocationMethod": "Static",
 		"publicIPAddressVersion": "IPv6"
       }
 ```
