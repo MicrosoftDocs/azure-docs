@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Data Share Preview
 description: Learn how to troubleshoot issues with Azure Data Share Preview
-services: container-instances
+services: data-share
 author: joannapea
 
 ms.service: data-share

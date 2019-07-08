@@ -1,3 +1,5 @@
+- name: Azure Data Share Preview Documentation
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure Data Share Preview?
@@ -17,9 +19,11 @@
     href: concepts-roles-permissions.md
 - name: How-to guides
   items:
-  - name: Configure a dataset mapping
+  - name: Monitor
+    href: how-to-monitor.md
+  - name: Configure dataset mappings
     href: how-to-configure-mapping.md
-  - name: Troubleshoot Azure Data Share Preview
+  - name: Troubleshoot 
     href: data-share-troubleshoot.md
 - name: Resources
   items:
