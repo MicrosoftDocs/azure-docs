@@ -13,14 +13,24 @@
     href: deploy-service-catalog-quickstart.md
 - name: Tutorials
   items:
+  - name: custom providers
+    items:
+    - name: Building custom providers 101
+      href: tutorial-custom-providers-101.md
+    - name: Modeling custom actions and resources
+      href: tutorial-custom-providers-modeling.md
+    - name: Setup Azure Functions
+      href: tutorial-custom-providers-function-setup.md
+    - name: Authoring a RESTful endpoint
+      href: tutorial-custom-providers-function-authoring.md
+    - name: Creating and utilizing custom providers
+      href: tutorial-custom-providers-create.md
   - name: Create definition files
     href: publish-service-catalog-app.md
   - name: Publish marketplace application 
     href: publish-marketplace-app.md 
   - name: Create custom resource provider
     href: create-custom-provider.md
-  - name: Building custom providers 101
-    href: tutorial-custom-providers-101.md
 - name: Samples
   items:
   - name: Azure CLI
@@ -73,6 +83,8 @@
       href: custom-providers-proxy-resource-endpoint-reference.md
     - name: Custom resource cache reference
       href: custom-providers-proxy-cache-resource-endpoint-reference.md
+    - name: Custom provider RESTful endpoint reference
+      href: reference-custom-providers-csharp-endpoint.md
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell
