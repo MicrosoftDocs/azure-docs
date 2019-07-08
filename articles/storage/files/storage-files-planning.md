@@ -205,7 +205,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |West Europe     |LRS|No         |
 |West US 2     |LRS, ZRS|No         |
 
-To help us prioritize new regions and features, please fill out our [survey](https://aka.ms/azurefilesatscalesurvey).
+To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 
 ### Steps to onboard
 
