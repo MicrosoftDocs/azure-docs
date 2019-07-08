@@ -34,6 +34,8 @@ The value can be any of the following examples:
 
 * The name of the IoT hub sending the message. This value is *$iothubname*.
 
+Message Enrichments are added as application properties to messages sent to chosen endpoint(s).  
+
 ## Applying enrichments
 
 The messages can come from any data source supported by [IoT Hub message routing](iot-hub-devguide-messages-d2c.md), including the following examples:
