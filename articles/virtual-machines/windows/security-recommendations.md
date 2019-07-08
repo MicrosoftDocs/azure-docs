@@ -7,7 +7,7 @@ manager: barbkess
 
 ms.service: vm-service
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/08/2019
 ms.author: barclayn
 
 ---
@@ -37,17 +37,14 @@ This article contains security recommendations for virtual machines in Azure. Im
 
 | Recommendation | Comments |
 |-|-|----|
-| Stay up-to-date | Use the latest versions of supported platforms, programming languages, protocols, and frameworks. |
 | Build VM images using the latest updates | Before you create images ensure that all the latest updates are installed |
+| Keep your VMs current | You can use the [Update Management](../../automation/automation-update-management.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers in Azure |
 
 ## Identity and access management
 
 | Recommendation | Comments |
 |-|----|
-| Disable anonymous access | Unless you need to support anonymous requests, disable anonymous access. For more information on Azure App Service authentication options, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)|
-| Require authentication | Whenever possible, use the App Service authentication module rather than write code to handle authentication and authorization.  You can read more about the authentication module in the article titled [Authentication and authorization in Azure App Service](overview-authentication-authorization.md) |
-| Protect back-end resources with authenticated access | You can either use the user's identity or use an application identity to authenticate to a back-end resource. When you choose to use an application identity use a [managed identity](overview-managed-identity.md).
-| Require client certificate authentication | Client certificate authentication improves security by only allowing connections from clients that can authenticate using certificates that you provide. |
+| Use multi-factor authentication  | Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It requires a second form of authentication for more information see [How it works: Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)|
 
 ## Data security
 
@@ -62,7 +59,7 @@ This article contains security recommendations for virtual machines in Azure. Im
 | Recommendation | Comments |
 |-|-|
 | Restrict access to management ports | Attackers scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. [Just-in-time (JIT) virtual machine (VM) access](../security-center/security-center-just-in-time.md) can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. |
-| Limit network access | Network security groups allow you to restrict network access and control the number of exposed endpoints. For more information, see [] |
+| Limit network access | Network security groups allow you to restrict network access and control the number of exposed endpoints. For more information, see [Create, change, or delete a network security group](../../virtual-network/manage-network-security-group.md) |
 
 ## Monitoring
 
@@ -75,4 +72,5 @@ This article contains security recommendations for virtual machines in Azure. Im
 | Recommendation | Comments |
 |-|-|
 | Back up your virtual machines | [Azure Backup](../../backup/backup-overview.md) helps protect your application data with minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications. With Azure Backup, your virtual machines running Windows and Linux are protected. |
+| Use multiple VMs for greater resilience and availability | If your VM runs applications that need to have high availability you should multiple VMs or [availability sets](manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy.md) |
 | Adopt a business continuity and disaster recovery (BCDR) strategy | Azure site recovery allows you to choose from different options designed to support your business continuity needs. It supports different replication and fail over scenarios. For more information see  [About Site Recovery](../../site-recovery/site-recovery-overview.md) |
