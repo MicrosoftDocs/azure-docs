@@ -121,9 +121,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![SAML Signing Certificate](common/copy-metadataurl.png)
 
+
+### Configure Costpoint
+
 1. Return to **Costpoint Configuration Utility** and copy **App Federation Metadata Url** into **IdP Federation Metadata XML** text box. Continue the instructions from **DeltekCostpoint711Security.pdf** manual and finish Costpoint SAML setup.
 
 ![Costpoint Configuration Utility](./media/costpoint-tutorial/config-utility.png)
+
 
 ### Create an Azure AD test user
 
@@ -136,6 +140,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
+
 
 ### Assign the Azure AD test user
 
