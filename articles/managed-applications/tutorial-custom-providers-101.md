@@ -45,6 +45,8 @@ This part of the tutorial will go into detail about how to create a custom provi
 
 ## Next steps
 
-In this article, we learned about custom providers and how to model custom actions and resources. Go to the next article to learn how to start creating your first custom provider.
+In this article, we learned about custom providers and how to build one. If you are looking for references or a quickstart, here are some useful links.
 
-- [Tutorial: Setup Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md)
+- [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
+- [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

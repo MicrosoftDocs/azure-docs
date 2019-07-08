@@ -11,11 +11,13 @@
     href: publish-managed-app-definition-quickstart.md
   - name: Deploy service catalog app
     href: deploy-service-catalog-quickstart.md
+  - name: Create custom resource provider
+    href: create-custom-provider.md
 - name: Tutorials
   items:
   - name: custom providers
     items:
-    - name: Building custom providers 101
+    - name: Getting started with custom providers
       href: tutorial-custom-providers-101.md
     - name: Modeling custom actions and resources
       href: tutorial-custom-providers-modeling.md
@@ -29,8 +31,6 @@
     href: publish-service-catalog-app.md
   - name: Publish marketplace application 
     href: publish-marketplace-app.md 
-  - name: Create custom resource provider
-    href: create-custom-provider.md
 - name: Samples
   items:
   - name: Azure CLI

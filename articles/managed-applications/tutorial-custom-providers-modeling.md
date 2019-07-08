@@ -57,4 +57,4 @@ resourceProviderName | The name of the custom provider.
 
 In this article, we learned about custom providers and how to model custom actions and resources. Go to the next article to learn how to start creating your first custom provider.
 
-- - [Tutorial: Setup Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md)
+- [Tutorial: Setup Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md)
