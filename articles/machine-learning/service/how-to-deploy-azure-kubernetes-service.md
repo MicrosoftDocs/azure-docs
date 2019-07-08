@@ -1,3 +1,16 @@
+---
+title: How and where to deploy models 
+titleSuffix: Azure Machine Learning service
+description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
+ms.author: jordane
+author: jpe316
+ms.reviewer: larryfr
+ms.date: 07/08/2019
+---
 
 # Deploy a model to an Azure Kubernetes Service cluster
 
@@ -204,22 +217,28 @@ The following JSON is an example deployment configuration for use with the CLI:
     "autoScaler":
     {
         "autoscaleEnabled": False,
-        "minReplicas":,
-        "maxReplicas":,
-        "refreshPeriodInSeconds":,
-        "targetUtilization":
+        "minReplicas": 1,
+        "maxReplicas": 2,
+        "refreshPeriodInSeconds": 30,
+        "targetUtilization": 70
     },
     "dataCollection": { "storageEnabled" },
-    "authEnabled":,
-    "containerResourceRequirements
+    "authEnabled": false,
+    "containerResourceRequirements":
+    {
+        "cpu": 1,
+        "memoryInGb": 2
+    }
 }
 ```
 
 
 **Using VS Code**
 
-You can also [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models), but you'll need to configure AKS clusters in advance.
+You can also [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models).
 
+> [!IMPORTANT] 
+> Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
 
 
 
