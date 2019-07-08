@@ -12,6 +12,7 @@ ms.author: alkohli
 
 ---
 # Safely install and operate your Azure Data Box Heavy
+
 ![Warning Icon](./media/data-box-heavy-safety/warning_icon.png)
 ![Read Safety Notice Icon](./media/data-box-heavy-safety/read_safety_and_health_information_icon.png) **READ SAFETY AND HEALTH INFORMATION**
 
