@@ -96,7 +96,7 @@ This architecture features two clusters in different resource groups and virtual
     1. Enter a note on the **Save Configuration** screen and click **Save**.
     1. If you are prompted with configuration warning, click **Proceed Anyway**.
     1. Click **Ok** on the **Save Configuration Changes**.
-    1. Click **Restart** > **Resart All Affected** in the **Restart Required** notification. Click **Confirm Restart All**.
+    1. Click **Restart** > **Restart All Affected** in the **Restart Required** notification. Click **Confirm Restart All**.
 
         ![restart kafka nodes](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
