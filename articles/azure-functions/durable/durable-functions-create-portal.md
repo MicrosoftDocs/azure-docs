@@ -9,7 +9,8 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
+ms.author: glenga
+ms.reviewer: azfuncdf
 ---
 
 # Create Durable Functions using the Azure portal
