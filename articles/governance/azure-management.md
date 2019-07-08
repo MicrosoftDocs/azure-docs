@@ -75,7 +75,7 @@ Azure resources.
 
 Protection refers to keeping your applications and data available, even with outages that are
 beyond your control. Protection in Azure is provided by two services. [Azure
-Backup](../backup/backup-introduction-to-azure-backup.md)provides backup and recovery of your data,
+Backup](../backup/backup-introduction-to-azure-backup.md) provides backup and recovery of your data,
 either in the cloud or on-premises. [Azure Site
 Recovery](../site-recovery/site-recovery-overview.md) provides business continuity and immediate
 recovery during a disaster.

@@ -1,22 +1,16 @@
 ---
 title: How to require multi-factor authentication (MFA) for access from untrusted networks with Azure Active Directory (Azure AD) Conditional Access | Microsoft Docs
 description: Learn how to configure a Conditional Access policy in Azure Active Directory (Azure AD) to for access attempts from untrusted networks.
+
 services: active-directory
-keywords: Conditional Access to apps, Conditional Access with Azure AD, secure access to company resources, Conditional Access policies
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: conditional-access
+ms.topic: article
+ms.date: 12/10/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-
-ms.subservice: conditional-access
-ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 12/10/2018
-ms.author: joflore
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
@@ -34,8 +28,6 @@ This article assumes that you are familiar with:
 - The [basic concepts](overview.md) of Azure AD Conditional Access 
 - The [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
 
-
-
 ## Scenario description
 
 To master the balance between security and productivity, it might be sufficient for you to only require a password for sign-ins from your organization's network. However, for access from an untrusted network location, there is an increased risk that sign-ins are not performed by legitimate users. To address this concern, you can block access from untrusted networks. Alternatively, you can also require multi-factor authentication (MFA) to gain back additional assurance that an attempt was made by the legitimate owner of the account. 
@@ -43,15 +35,10 @@ To master the balance between security and productivity, it might be sufficient 
 With Azure AD Conditional Access, you can address this requirement with a single policy that grants access: 
 
 - To selected cloud apps
-
 - For selected users and groups  
-
 - Requiring multi-factor authentication 
-
 - When access is originated from: 
-
-    - A location that is not trusted
-
+   - A location that is not trusted
 
 ## Implementation
 
@@ -61,27 +48,21 @@ Typically, your organization owns one or more address ranges, for example, 199.3
 You can configure a named location by:
 
 - Specifying this range (199.30.16.0/24) 
-
 - Assigning a descriptive name such as **Corporate Network** 
-
 
 Instead of trying to define what all locations are that are not trusted, you can:
 
 - Include any location 
 
-    ![Conditional Access](./media/untrusted-networks/02.png)
+   ![Conditional Access](./media/untrusted-networks/02.png)
 
 - Exclude all trusted locations 
 
-    ![Conditional Access](./media/untrusted-networks/01.png)
-
-
+   ![Conditional Access](./media/untrusted-networks/01.png)
 
 ## Policy deployment
 
 With the approach outlined in this article, you can now configure a Conditional Access policy for untrusted locations. To make sure that your policy works as expected, the recommended best practice is to test it before rolling it out into production. Ideally, use a test tenant to verify whether your new policy works as intended. For more information, see [How to deploy a new policy](best-practices.md#how-should-you-deploy-a-new-policy). 
-
-
 
 ## Next steps
 
