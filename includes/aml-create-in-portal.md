@@ -36,15 +36,11 @@ ms.date: 05/21/2019
    Resource group | Use an existing resource group in your subscription, or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
    Location | Select the location closest to your users and the data resources. This location is where the workspace is created.
 
-   ![Create workspace](./media/aml-create-in-portal/workspace-create-main-tab-05-2019.png)
-
 1. To start the creation process, select **Review + Create**.
 
-    ![Create](./media/aml-create-in-portal/workspace-create-main-review-button-05-2019.png)
+    ![Create workspace](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
 1. Review your workspace configuration. If it is correct, select **Create**. It can take a few moments to create the workspace.
-
-    ![Create](./media/aml-create-in-portal/workspace-create-review-tab-05-2019.png)
 
 1. To check on the status of the deployment, select the Notifications icon, **bell**, on the toolbar.
 
