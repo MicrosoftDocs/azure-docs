@@ -23,6 +23,9 @@ This feature enables the following scenarios:
 
 The following Azure PowerShell examples show how you can configure, add, and remove public IP addresses for Azure Firewall.
 
+> [!NOTE]
+> You can't remove the first ipConfiguration from the Azure Firewall public IP address configuration page. If you want to modify the IP address, you can use Azure PowerShell.
+
 ## Create a firewall with two or more public IP addresses
 
 This example creates a firewall attached to virtual network *vnet* with two public IP addresses.

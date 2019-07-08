@@ -51,6 +51,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you choose to install and use the CLI locally, run Azure CLI version 2.0.4 or later. To find the version, run **az --version**. For information about installing or upgrading, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
+Install the Azure Firewall extension:
+
+```azurecli-interactive
+az extension add -n azure-firewall
+```
+
+
 ## Set up the network
 
 First, create a resource group to contain the resources needed to deploy the firewall. Then create a VNet, subnets, and test servers.
