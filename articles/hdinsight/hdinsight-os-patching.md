@@ -11,7 +11,7 @@ ms.date: 01/24/2019
 # Configure the OS patching schedule for Linux-based HDInsight clusters 
 
 > [!IMPORTANT]
-> Ubuntu images become available for new HDInsight cluster creation within three months of being published. As of January 2019, running clusters aren't auto-patched. Customers must use script actions or other mechanisms to patch a running cluster. Newly created clusters will always have the latest available updates, including the most recent security patches.
+> Ubuntu images become available for new Azure HDInsight cluster creation within three months of being published. As of January 2019, running clusters aren't auto-patched. Customers must use script actions or other mechanisms to patch a running cluster. Newly created clusters will always have the latest available updates, including the most recent security patches.
 
 Occasionally, you must restart virtual machines (VMs) in an HDInsight cluster to install important security patches.
 
@@ -49,7 +49,7 @@ Using a script requires the following information:
 
     | Parameter | Definition |
     | --- | --- |
-    | Enable schedule reboot/Enable immediate reboot |1 or 2. A value of 1 enables schedule restart (this restart is scheduled in 12-24 hours). A value of 2 enables immediate restart (in 5 minutes). If no parameter is given, the default is 1. |  
+    | Enable schedule reboot/Enable immediate reboot |1 or 2. A value of 1 enables schedule restart (scheduled in 12-24 hours). A value of 2 enables immediate restart (in 5 minutes). If no parameter is given, the default is 1. |  
 
 > [!NOTE]
 > You must mark a script as persisted after you apply it to an existing cluster. Otherwise, any new nodes created through scaling operations will use the default patching schedule. If you apply the script as part of the cluster creation process, it's persisted automatically.
