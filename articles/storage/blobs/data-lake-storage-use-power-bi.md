@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 07/08/2019
 ms.author: normesta
 ---
 
@@ -23,7 +23,7 @@ Before you begin this tutorial, you must have the following:
 > This article assumes that you've created an account named `myadlsg2`.
 > * A sample data file named `Drivers.txt` located in your storage account.
 > You can download this sample from [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceDataDrivers.txt), and then upload that file to your storage account.
-> * **Power BI Desktop**. You can download this from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
+> * **Power BI Desktop**. You can download this from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331). 
 
 ## Create a report in Power BI Desktop
 
