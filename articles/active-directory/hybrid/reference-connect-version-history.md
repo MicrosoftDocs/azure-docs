@@ -247,7 +247,7 @@ New features and improvements
 - A new PowerShell Module called ADSyncTools.psm1 is added that can be used to troubleshoot SQL Connectivity issues and various other troubleshooting utilities. Read more about the ADSyncTools module [here](tshoot-connect-tshoot-sql-connectivity.md). 
 - A new additional task “Configure device options” has been added. You can use the task to configure the following two operations: 
   - **Hybrid Azure AD join**: If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are both, joined to your on-premises Active Directory and your Azure Active Directory.
-  - **Device writeback**: Device writeback is used to enable conditional access based on devices to AD FS (2012 R2 or higher) protected devices
+  - **Device writeback**: Device writeback is used to enable Conditional Access based on devices to AD FS (2012 R2 or higher) protected devices
 
     >[!NOTE] 
     > - The option to enable device writeback from Customize synchronization options will be greyed out. 
@@ -1024,7 +1024,7 @@ Released: May 2016
 
 * Warns and helps you verify domains if you didn’t do it before running Azure AD Connect.
 * Added support for [Microsoft Cloud Germany](reference-connect-instances.md#microsoft-cloud-germany).
-* Added support for the latest [Microsoft Azure Government cloud](reference-connect-instances.md#microsoft-azure-government-cloud) infrastructure with new URL requirements.
+* Added support for the latest [Microsoft Azure Government cloud](reference-connect-instances.md#microsoft-azure-government) infrastructure with new URL requirements.
 
 **Fixed issues and improvements:**
 

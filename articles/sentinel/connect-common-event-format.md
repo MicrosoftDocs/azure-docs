@@ -8,7 +8,8 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -118,6 +119,13 @@ If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a 
   
  To use the relevant schema in Log Analytics for the CEF events, search for `CommonSecurityLog`.
 
+## Step 2: Forward Common Event Format (CEF) logs to Syslog agent
+
+Set your security solution to send Syslog messages in CEF format to your Syslog agent.​ Make sure you use the same parameters that appear in your agent configuration.​ These are usually:​
+
+- Port 514
+- Facility local4
+
 ## Step 3: Validate connectivity
 
 It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
@@ -128,7 +136,7 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 3. Make sure that the logs you send comply with [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. On the computer running the Syslog agent, make sure these ports 514, 25226 are open and listening, using the command `netstat -a -n:`. For more information about using this command see [netstat(8) - Linux man page](https://linux.die.netman/8/netstat). If it’s listening properly, you’ll see this:
+4. On the computer running the Syslog agent, make sure these ports 514, 25226 are open and listening, using the command `netstat -a -n:`. For more information about using this command see [netstat(8) - Linux man page](https://linux.die.net/man/8/netstat). If it’s listening properly, you’ll see this:
 
    ![Azure Sentinel ports](./media/connect-cef/ports.png) 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial:  Integrate a single AD forest to Azure using pass-through authentication (PTA)| Microsoft Docs'
+title: 'Tutorial:  Integrate a single AD forest to Azure using PTA'
 description: Demonstrates how to setup a hybrid identity environment using pass-through authentication.
 services: active-directory
 author: billmath
@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/18/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 

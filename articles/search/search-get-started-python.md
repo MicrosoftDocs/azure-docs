@@ -1,8 +1,8 @@
 ---
-title: 'Quickstart: Python and REST APIs - Azure Search'
-description: Create, load, and query an index using Python, Jupyter Notebooks, and the Azure Search REST API.
+title: 'Python Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+description: Explains how to create an index, load data, and run queries using Python, Jupyter Notebooks, and the Azure Search REST API.
 
-ms.date: 05/15/2019
+ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -12,16 +12,16 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ---
-# Quickstart: Create an Azure Search index using Jupyter Python notebooks
+# Quickstart: Create an Azure Search index in Python using Jupyter notebooks
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Build a Jupyter notebook that creates, loads, and queries an Azure Search index using Python and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build a notebook step by step, starting from scratch. Alternatively, you could run a finished notebook. To download a copy, go to [Azure-Search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter notebook that creates, loads, and queries an Azure Search index using Python and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build a notebook step by step, starting from scratch. Alternatively, you could run a finished notebook. To download a copy, go to the[azure-search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,7 +31,7 @@ The following services and tools are used in this quickstart.
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), providing Python 3.x and Jupyter Notebooks.
 
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use the Free tier for this quickstart. 
 
 ## Get a key and URL
 
@@ -41,13 +41,13 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## Connect to Azure Search
 
-Open a Jupyter notebook and verify the connection from your local workstation by requesting a list of indexes on your service. On Windows with Anaconda3, you can use Anaconda Navigator to launch a notebook.
+In this task, start a Jupyter notebook and verify that you can connect to Azure Search. You'll do this by requesting a list of indexes from your service. On Windows with Anaconda3, you can use Anaconda Navigator to launch a notebook.
 
 1. Create a new Python3 notebook.
 
@@ -68,7 +68,7 @@ Open a Jupyter notebook and verify the connection from your local workstation by
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-1. In the third cell, formulate the request. This GET request targets the indexes collection of your search service and selects the name property.
+1. In the third cell, formulate the request. This GET request targets the indexes collection of your search service and selects the name property of existing indexes.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -77,28 +77,25 @@ Open a Jupyter notebook and verify the connection from your local workstation by
    pprint(index_list)
    ```
 
-1. Run each step. If indexes exist, the response contains a list of indexes. In the screenshot below, the service includes an azureblob-index and a realestate-us-sample index.
+1. Run each step. If indexes exist, the response contains a list of index names. In the screenshot below, the service already has an azureblob-index and a realestate-us-sample index.
 
    ![Python script in Jupyter notebook with HTTP requests to Azure Search](media/search-get-started-python/connect-azure-search.png "Python script in Jupyter notebook with HTTP requests to Azure Search")
 
-   An empty index collection returns this response: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
-
-> [!Tip]
-> On a free service, you are limited to three indexes, indexers, and data sources. This quickstart creates one of each. Make sure you have room to create new objects before going any further.
+   In contrast, an empty index collection returns this response: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 ## 1 - Create an index
 
-Unless you are using the portal, an index must exist on the service before you can load data. This step uses the [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) to push an index schema to the service
+Unless you are using the portal, an index must exist on the service before you can load data. This step uses the [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) to push an index schema to the service.
 
-The fields collection defines the structure of a *document*. Required elements of an index include a name and a fields collection. Each field has a name, type, and attributes that determine how it's used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
+Required elements of an index include a name, a fields collection, and a key. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how the field is used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
-This index is named "hotels-py" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
+This index is named "hotels-quickstart" and has the field definitions you see below. It's a subset of a larger [Hotels index](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) used in other walkthroughs. We trimmed it in this quickstart for brevity.
 
 1. In the next cell, paste the following example into a cell to provide the schema. 
 
     ```python
     index_schema = {
-       "name": "hotels-py",  
+       "name": "hotels-quickstart",  
        "fields": [
          {"name": "HotelId", "type": "Edm.String", "key": "true", "filterable": "true"},
          {"name": "HotelName", "type": "Edm.String", "searchable": "true", "filterable": "false", "sortable": "true", "facetable": "false"},
@@ -122,7 +119,7 @@ This index is named "hotels-py" and has the field definitions you see below. It'
     }
     ```
 
-2. In another cell, formulate the request. This PUT request targets the indexes collection of your search service and creates an index based on the index schema you provided in the previous step.
+2. In another cell, formulate the request. This PUT request targets the indexes collection of your search service and creates an index based on the index schema you provided in the previous cell.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -133,12 +130,12 @@ This index is named "hotels-py" and has the field definitions you see below. It'
 
 3. Run each step.
 
-   The response includes the JSON representation of the schema. The following screenshot trims parts of the index schema so that you can see more of the response.
+   The response includes the JSON representation of the schema. The following screenshot is showing just a portion of the response.
 
     ![Request to create an index](media/search-get-started-python/create-index.png "Request to create an index")
 
 > [!Tip]
-> For verification, you could also check the Indexes list in the portal, or rerun the service connection request to see the *hotels-py* index listed in the Indexes collection.
+> Another way to verify index creation is to check the Indexes list in the portal.
 
 <a name="load-documents"></a>
 
@@ -206,6 +203,7 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
+            }
         },
         {
         "@search.action": "upload",
@@ -224,16 +222,16 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
             "StateProvince": "TX",
             "PostalCode": "78216",
             "Country": "USA"
-       }
-      }
-     ]
+            }
+        }
+    ]
     }
-    ```
+    ```   
 
-2. In another cell, formulate the request. This POST request targets the docs collection of the hotels-py index and pushes the documents provided in the previous step.
+2. In another cell, formulate the request. This POST request targets the docs collection of the hotels-quickstart index and pushes the documents provided in the previous step.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs/index" + api_version
+   url = endpoint + "indexes/hotels-quickstart/docs/index" + api_version
    response  = requests.post(url, headers=headers, json=documents)
    index_content = response.json()
    pprint(index_content)
@@ -241,84 +239,69 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
 3. Run each step to push the documents to an index in your search service. Results should look similar to the following example. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#Collection(Microsoft.Azure.Search.V2019_05_06.IndexResult)",
-    'value': [{'errorMessage': None,
-            'key': '1',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '2',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '3',
-            'status': True,
-            'statusCode': 201}]},
-           {'errorMessage': None,
-            'key': '4',
-            'status': True,
-            'statusCode': 201}]}
-     ```
-
+    ![Send documents to an index](media/search-get-started-python/load-index.png "Send documents to an index")
 
 ## 3 - Search an index
 
 This step shows you how to query an index using the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
+1. In a cell, provide a query expression that executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add $count=true to get a count of all documents in the results.
 
-1. In a new cell, provide a query expression. The following example searches on the terms "hotels" and "wifi". It also returns a *count* of documents that match, and *selects* which fields to include in the search results.
+   ```python
+   searchstring = '&search=*&$count=true'
+   ```
+
+1. In a new cell, provide the following example to search on the terms "hotels" and "wifi". Add $select to specify which fields to include in the search results.
 
    ```python
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. Formulate a request. This GET request targets the docs collection of the hotels-py index, and attaches the query you specified in the previous step.
+1. In another cell, formulate a request. This GET request targets the docs collection of the hotels-quickstart index, and attaches the query you specified in the previous step.
 
    ```python
-   url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-   Results should look similar to the following output. The results are unranked (search.score = 1.0) because we didn't provide any criteria to match on.
+1. Run each step. Results should look similar to the following output. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
-    '@odata.count': 3,
-    'value': [{'@search.score': 1.0,
-               'HotelId': '1',
-               'HotelName': 'Secret Point Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '2',
-               'HotelName': 'Twin Dome Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'},
-              {'@search.score': 1.0,
-               'HotelId': '4',
-               'HotelName': 'Sublime Cliff Hotel'}]}
+    ![Search an index](media/search-get-started-python/search-index.png "Search an index")
+
+1. Try a few other query examples to get a feel for the syntax. You can replace the `searchstring` with the following examples and then rerun the search request. 
+
+   Apply a filter: 
+
+   ```python
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
    ```
 
-3. Try a few other query examples to get a feel for the syntax. You can apply a filter, take the top two results, or order by a specific field.
+   Take the top two results:
 
-   + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
+   ```python
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
+   ```
 
-   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
+    Order by a specific field:
 
-   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
+   ```python
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
+   ```
 
 ## Clean up 
 
-You should delete the index if you no longer need it. A free service is limited to three indexes. You might want to delete any indexes you are not actively using to make room for other tutorials.
+You should delete the index if you no longer need it. A free service is limited to three indexes. You should delete any indexes you are not actively using to make room for other tutorials.
+
+The easiest way to delete objects is through the portal, but since this is a Python quickstart, the following syntax yields the same result:
 
    ```python
-  url = endpoint + "indexes/hotels-py" + api_version
+  url = endpoint + "indexes/hotels-quickstart" + api_version
   response  = requests.delete(url, headers=headers)
    ```
 
-You can verify index deletion by returning a list of existing indexes. If hotels-py is gone, then you know your request succeeded.
+You can verify index deletion by requesting a list of existing indexes. If hotels-quickstart is gone, then you know your request succeeded.
 
 ```python
 url = endpoint + "indexes" + api_version + "&$select=name"

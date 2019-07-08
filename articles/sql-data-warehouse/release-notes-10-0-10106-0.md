@@ -5,7 +5,7 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 05/13/2019
+ms.date: 07/03/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
@@ -18,12 +18,21 @@ This article summarizes the new features and improvements in the recent releases
 
 ## Check your Azure SQL Data Warehouse version
 
-As new features are being rolled out to all regions, please check the version deployed to your instance and the latest Azure SQL DW release notes for the feature availability. To check your Azure SQL DW version, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION AS 'SQL Data Warehouse';` to return the current version of Azure SQL DW.
+As new features are being rolled out to all regions, check the version deployed to your instance and the latest Azure SQL DW release notes for the feature availability. To check your Azure SQL DW version, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION AS 'SQL Data Warehouse';` to return the current version of Azure SQL DW.
 
 Example output:
 ![SQL Data Warehouse version](./media/release-notes/sql_data_warehouse_version.png)
 
 Use the date identified to confirm which release has been applied to your Azure SQL DW.
+
+## July 2019
+
+| Service improvements | Details |
+| --- | --- |
+|**Materialized View (Preview)**|A Materialized View persists the data returned from the view definition query and automatically gets updated as data changes in the underlying tables. It improves the performance of complex queries (typically queries with joins and aggregations) while offering simple maintenance operations. For more information, see:</br> - [CREATE MATERIALIZED VIEW AS SELECT &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br>- [ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br>- [T-SQL statements supported in Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements) |
+|**Additional T-SQL support**|The T-SQL language surface area for SQL Data Warehouse has been extended to include support for: </br> - [AT TIME ZONE](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest) </br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**Result set caching (Preview)**|DBCC commands added to manage the previously announced result set cache. For more information, see: </br> - [DBCC DROPRESULTSETCACHE &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br>- [T-SQL statements supported in Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)</br> - [System views supported in Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views) </br></br> Also see the new result_set_cache column in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) that shows when a executed query used the result set cache.|
+|**Ordered clustered columnstore index (Preview)**|New column, column_store_order_ordinal, added to [sys.index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) to identify the order of columns in an ordered clustered columnstore index.|
 
 ## May 2019
 
@@ -34,6 +43,7 @@ Use the date identified to confirm which release has been applied to your Azure 
 |**Additional T-SQL support**|The T-SQL language surface area for SQL Data Warehouse has been extended to include support for: </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON functions**|Business analysts can now use familiar T-SQL language to query and manipulate documents that are formatted as JSON data using the following new JSON functions in Azure Data Warehouse:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**Result set caching (Preview)**|Result-set caching enables instant query response times while reducing time-to-insight for business analysts and reporting users. For more information, see:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTER DATABASE SET Options (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [SET RESULT SET CACHING (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET Statement (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+|**Ordered clustered columnstore index (Preview)**|Columnstore is a key enabler for storing and efficiently querying large amounts of data. For each table, it divides the incoming data into Row Groups and each column of a Row Group forms a Segment on a disk.  Ordered clustered columnstore indexes further optimize query execution by enabling efficient segment elimination.   For more information, see:</br> -  [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
 
 ## March 2019
 

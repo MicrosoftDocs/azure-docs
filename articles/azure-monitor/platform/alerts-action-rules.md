@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Action rules (preview)
@@ -25,6 +25,8 @@ There are often many scenarios where it would be useful to suppress the notifica
 
 Although alert rules allow you to define the action group that triggers when the alert is generated, customers often tend to have a common action group across their scope of operations. For example, a team responsible for the resource group 'ContosoRG' will probably define the same action group for all alert rules defined within 'ContosoRG'. Action rules allow you to simplify this process by allowing you to define actions at scale, so that an action group can be triggered for any alert generated on the configured scope. Going back to the previous example, the team can now define one action rule on 'ContosoRG' that will trigger the same action group for all alerts generated within it.
 
+> [!NOTE]
+> Action rules currently do not apply to Service Health alerts.
 
 ## Configuring an action rule
 
@@ -123,12 +125,15 @@ Contoso wants to suppress notifications for all log alerts generated for 'Comput
 
 ### Scenario 3: Action group defined at a resource group
 
-Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), but wants to define the actions that trigger for alerts separately for their resource group 'ContosoRG'.
+Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor), but wants to define the actions that trigger specifically for alerts generated from their resource group 'ContosoRG'.
 
 **Solution:** Create an action rule with
 * Scope = 'ContosoRG'
 * No filters
 * Action Group set to 'ContosoActionGroup'
+
+> [!NOTE]
+> **Action groups defined within action rules and alert rules operate independently, with no de-duplication**. In the scenario described above, if there's an action group defined for the alert rule, it will trigger in conjunction with the action group defined in the action rule. 
 
 ## Managing your action rules
 

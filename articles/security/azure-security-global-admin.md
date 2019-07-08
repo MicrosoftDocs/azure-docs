@@ -38,5 +38,5 @@ As long as your users have licenses that include Azure Multi-Factor Authenticati
 
 ## Turn on two-step verification for users
 
-Use one of the procedures listed in [How to require two-step verification](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) for a user or group to start using Azure MFA. You can choose to enforce two-step verification for all sign-ins, or you can create conditional access policies to require two-step verification only when it matters to you.
+Use one of the procedures listed in [How to require two-step verification](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) for a user or group to start using Azure MFA. You can choose to enforce two-step verification for all sign-ins, or you can create Conditional Access policies to require two-step verification only when it matters to you.
 

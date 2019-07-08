@@ -5,14 +5,24 @@ services: vpn-gateway
 author: anzaman
 
 ms.service: vpn-gateway
-ms.topic: conceptional
-ms.date: 04/22/2019
+ms.topic: conceptual
+ms.date: 06/12/2019
 ms.author: alzam
 
 ---
 # Set up alerts on diagnostic log events from VPN Gateway
 
-This article helps you set up alerts based on diagnostic log events from Azure VPN Gateway.
+This article helps you set up alerts based on diagnostic log events from Azure VPN Gateway using Azure Log Analytics. 
+
+The following logs are available in Azure:
+
+|***Name*** | ***Description*** |
+|---		| ---				|
+|GatewayDiagnosticLog | Contains diagnostic logs for gateway configuration events, primary changes and maintenance events |
+|TunnelDiagnosticLog | Contains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable |
+|RouteDiagnosticLog | Logs changes to static routes and BGP events that occur on the gateway |
+|IKEDiagnosticLog | Logs IKE control messages and events on the gateway |
+|P2SDiagnosticLog | Logs point-to-site control messages and events on the gateway |
 
 ## <a name="setup"></a>Set up alerts
 

@@ -70,7 +70,7 @@ See the following table for the outbound ports you need to open to use these pro
 | -------- | ----- | ------- | 
 | AMQP | 5671 and 5672 | See [AMQP protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9092 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | See [Use Event Hubs from Kafka applications](event-hubs-for-kafka-ecosystem-overview.md)
 
 ### What IP addresses do I need to whitelist?
 To find the right IP addresses to white list for your connections, follow these steps:

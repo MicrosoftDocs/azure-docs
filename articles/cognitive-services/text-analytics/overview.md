@@ -30,7 +30,7 @@ Use [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) to
 Automatically [extract key phrases](how-tos/text-analytics-how-to-keyword-extraction.md) to quickly identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". You can use the [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API here or the [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## Language Detection
-You can [detect which language the input text is written in](how-tos/text-analytics-how-to-language-detection.md) and report a single language code for every document submitted on the request for up to 120 languages. The language code is paired with a score indicating the strength of the score. You can use the  [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API or the [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
+You can [detect which language the input text is written in](how-tos/text-analytics-how-to-language-detection.md) and report a single language code for every document submitted on the request in a wide range of languages, variants, dialects, and some regional/cultural languages. The language code is paired with a score indicating the strength of the score. You can use the  [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API or the [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
 ## Named Entity Recognition
 [Identify and categorize entities](how-tos/text-analytics-how-to-entity-linking.md) in your text as people, places, organizations, date/time, quantities, percentages, currencies, and more. Well-known entities are also recognized and linked to more information on the web. You can use the  [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API.
@@ -85,7 +85,18 @@ All of the Text Analytics API endpoints accept raw text data. The current limit 
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
-The rate limit is 100 requests per second and 1000 requests per minute. You can submit a large quantity of documents in a single call (up to 1000 documents).
+Your rate limit will vary with your pricing tier.
+
+| Tier          | Requests per second | Requests per minute |
+|---------------|---------------------|---------------------|
+| Multi-service | 1000                | 1000                |
+| S0/F0         | 100                 | 300                 |
+| S1            | 200                 | 300                 |
+| S2            | 300                 | 300                 |
+| S3            | 500                 | 500                 |
+| S4            | 1000                | 1000                |
+
+Requests are measured for each Text Analytics feature separately. For example, you can send the maximum number of requests for your pricing tier to each feature, at the same time.      
 
 ## Unicode encoding
 

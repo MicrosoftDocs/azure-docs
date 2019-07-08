@@ -49,7 +49,7 @@ You can associate a security principal with an access level for files and direct
 
 If you assigned a role to a security principal at the storage account-level, you can use access control lists to grant that security principal elevated access to specific files and directories.
 
-You can't use access control lists to provide a level of access that is lower than a level granted by a role assignment. For example, if you assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview) role to a security principal, then you can't use access control lists to prevent that security principal from writing to a directory.
+You can't use access control lists to provide a level of access that is lower than a level granted by a role assignment. For example, if you assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role to a security principal, then you can't use access control lists to prevent that security principal from writing to a directory.
 
 ### Set file and directory level permissions by using access control lists
 

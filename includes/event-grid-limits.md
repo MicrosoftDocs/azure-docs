@@ -18,6 +18,7 @@ The following limits apply to Azure Event Grid system topics and custom topics, 
 | Event subscriptions per topic | 500 |
 | Publish rate for a custom topic (ingress) | 5,000 events per second per topic |
 | Publish requests | 250 per second |
+| Event size | Support for 64 KB in General Availability (GA). Support for 1 MB is currently in preview. |
 
 The following limits apply to event domains only.
 

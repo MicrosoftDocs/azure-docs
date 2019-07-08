@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 5/02/2019
+ms.date: 07/05/2019
 ms.author: rhurey
 ---
 
@@ -60,7 +60,7 @@ phraseListGrammar.addPhrase("Move to Ted");
 ```
 
 >[!Note]
-> The maximum number of Phrase Lists that the Speech Service will use to match speech is 1024.
+> The maximum number of Phrase Lists that the Speech Service will use to match speech is 1024 phrases.
 
 You can also clear the phrases associated with the `PhraseListGrammar` by calling clear().
 

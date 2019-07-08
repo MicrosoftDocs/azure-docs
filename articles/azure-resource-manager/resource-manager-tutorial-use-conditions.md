@@ -35,7 +35,7 @@ This tutorial covers the following tasks:
 This tutorial only covers a basic scenario of using conditions. For more information, see:
 
 * [Template file structure: Condition](./resource-group-authoring-templates.md#condition).
-* [Conditionally deploy a resource in an Azure Resource Manager template](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md).
+* [Conditionally deploy a resource in an Azure Resource Manager template](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Template function: If](./resource-group-template-functions-logical.md#if).
 * [Comparison functions for Azure Resource Manager templates](./resource-group-template-functions-comparison.md)
 

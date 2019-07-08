@@ -4,7 +4,7 @@ description: Learn how to monitor your Azure Cosmos DB account for performance m
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
 

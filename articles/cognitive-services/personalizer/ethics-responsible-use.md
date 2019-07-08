@@ -2,12 +2,13 @@
 title: Ethics and responsible use - Personalizer
 titleSuffix: Azure Cognitive Services
 description: These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people’s lives. When in doubt, seek guidance.
+services: cognitive-services
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 06/12/2019
 ms.author: edjez
 ---
      
@@ -191,7 +192,7 @@ Microsoft is continuously putting effort into tools and documents to help you ac
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) by DJ Patil, Hilary Mason, Mike Loukides.
 * [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
 * [Genetic Information Nondiscrimination Act - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML Principles for Accountable Algorithms](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [FATML Principles for Accountable Algorithms](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## Next steps

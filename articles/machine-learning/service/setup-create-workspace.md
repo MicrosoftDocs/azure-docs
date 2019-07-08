@@ -164,7 +164,7 @@ This workspace configuration file makes it easy to load the same workspace later
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-This `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following:
+This `write_config()` API call creates the configuration file in the current directory. The *.azureml/config.json* file contains the following:
 
 ```json
 {

@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create a workload classifier - T-SQL | Microsoft Docs'
-description: Use T-SQL to create a workload classifier with high importance
+description: Use T-SQL to create a workload classifier with high importance.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick

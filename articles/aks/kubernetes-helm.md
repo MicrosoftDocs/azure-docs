@@ -84,7 +84,7 @@ helm init \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
     --service-account tiller \
-	  --node-selectors "beta.kubernetes.io/os"="linux"
+    --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 ## Find Helm charts
@@ -146,7 +146,9 @@ Update Complete. ⎈ Happy Helming!⎈
 To install charts with Helm, use the [helm install][helm-install] command and specify the name of the chart to install. To see installing a Helm chart in action, let's install a basic nginx deployment using a Helm chart. If you configured TLS/SSL, add the `--tls` parameter to use your Helm client certificate.
 
 ```console
-helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
+helm install stable/nginx-ingress \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 The following condensed example output shows the deployment status of the Kubernetes resources created by the Helm chart:

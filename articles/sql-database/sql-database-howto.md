@@ -52,7 +52,7 @@ In this section you can find various guides, scripts, and explanations that can 
 ## Configure features
 
 - [Configure Azure AD auth](sql-database-aad-authentication-configure.md)
-- [Configure conditional access](sql-database-conditional-access.md)
+- [Configure Conditional Access](sql-database-conditional-access.md)
 - [Multi-factor AAD auth](sql-database-ssms-mfa-authentication.md)
 - [Configure multi-factor auth](sql-database-ssms-mfa-authentication-configure.md)
 - [Configure temporal retention policy](sql-database-temporal-tables-retention-policy.md)

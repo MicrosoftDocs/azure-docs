@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/02/2019
-ms.author: v-mohabe
+ms.date: 6/03/2019
+ms.author: monhaber
 
 ---
 # Platforms and features supported by Azure Security Center
@@ -41,20 +41,29 @@ The following Windows operating systems are supported:
 
 > [!NOTE]
 > Integration with Windows Defender ATP supports only Windows Server 2012 R2 and Windows Server 2016.
->
->
 
 ### Supported platforms for Linux computers and VMs
+
 The following Linux operating systems are supported:
 
-* Ubuntu versions 12.04 LTS, 14.04 LTS, and 16.04 LTS.
-* Debian versions 6, 7, 8, and 9.
-* CentOS versions 5, 6, and 7.
-* Red Hat Enterprise Linux (RHEL) versions 5, 6, and 7.
-* SUSE Linux Enterprise Server (SLES) versions 11 and 12.
-* Oracle Linux versions 5, 6, and 7.
-* Amazon Linux 2012.09 through 2017.
-* OpenSSL 1.1.0 is only supported on x86_64 platforms, 64 bit.
+> [!NOTE]
+> Since the list of supported Linux operating systems is constantly changing, if you prefer, click [here](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) to view the most up-to-date list of supported versions, in case there have been changes since this topic was last published.
+
+64-bit
+* CentOS 6 and 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 and 7
+* Red Hat Enterprise Linux Server 6 and 7
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS, and 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+32-bit
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS, and 16.04 LTS
 
 ## VMs and Cloud Services
 VMs that run in a cloud service are also supported. Only cloud services web and worker roles that run in production slots are monitored. To learn more about cloud services, see [Overview of Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
@@ -65,7 +74,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 > [!div class="mx-tableFixed"]
 > 
 
-|Server|Windows||Linux||||Pricing|
+|Server|Windows|||Linux|||Pricing|
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
@@ -80,7 +89,7 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
 |Third-party deployment|✔|X|X|✔|X|X|Free|
-|NSGs assessment|✔|✔|X|✔|✔|X|Free|
+|NSG assessment|✔|✔|X|✔|✔|X|Free|
 |Fileless threat detection|✔|✔|✔|X|X|X|Standard|
 |Network map|✔|✔|X|✔|✔|X|Standard|
 |Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
@@ -92,6 +101,8 @@ VMs that run in a cloud service are also supported. Only cloud services web and 
 The following table provides a matrix of:
  - Whether you can use Azure Security Center to install each solution for you.
  - Which endpoint protection solutions Security Center can discover. If one of these endpoint protection solutions is discovered, Security Center will not recommend installing one.
+
+For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
 
 | Endpoint Protection| Platforms | Security Center Installation | Security Center Discovery |
 |------|------|-----|-----|
@@ -105,7 +116,6 @@ The following table provides a matrix of:
 
 > [!NOTE]
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
->
 
 ## Supported PaaS features
 
@@ -115,7 +125,7 @@ The following table provides a matrix of:
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
 |MySQL*|✔| ✔|
-|Azure Blob storage accounts*|✔| ✔|
+|Azure Blob storage accounts|✔| ✔|
 |App services|✔| ✔|
 |Cloud Services|✔| X|
 |VNets|✔| NA|
@@ -123,7 +133,6 @@ The following table provides a matrix of:
 |NICs|✔| NA|
 |NSGs|✔| NA|
 |Subscription|✔ **| ✔|
-|App service|✔| NA|
 |Batch|✔| NA|
 |Service fabric|✔| NA|
 |Automation account|✔| NA|
@@ -133,14 +142,9 @@ The following table provides a matrix of:
 |Stream analytics|✔| NA|
 |Event hub|✔| NA|
 |Logic apps|✔| NA|
-|Subnet|✔| NA|
-|Vnet|✔| NA|
 |Storage account|✔| NA|
 |Redis|✔| NA|
-|SQL|✔| NA|
 |Data lake analytics|✔| NA|
-|Storage account|✔| NA|
-|Subscription|✔| NA|
 |Key vault|✔| NA|
 
 
