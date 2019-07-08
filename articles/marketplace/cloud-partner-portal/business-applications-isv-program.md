@@ -35,14 +35,14 @@ If you've already published Dynamics CE and/or Dynamics Ops offers, your Cloud P
 
 Sign in to your *Publisher Profile* page from [Cloud Partner Portal](https://cloudpartner.azure.com/) and click on the yellow banner prompting you to activate your Partner Center account.
 
-For more info, see [*Account migration from Cloud Partner Portal to Partner Center*](partner-center-portal/account-migration-from-cpp-to-pc.md).
+For more info, see [*Account migration from Cloud Partner Portal to Partner Center*](../partner-center-portal/account-migration-from-cpp-to-pc.md).
 
 ## Sign the Business Applications ISV Program agreement
 
 Participation in this program requires you to review and accept the *Microsoft Business Applications ISV Addendum* agreement.
 
 > [!NOTE]
-> This step requires an *Owner* role in Partner Center for your given account in order to sign legal agreements. If you completed your Cloud Partner Portal account migration by [activating your Partner Center account](partner-center-portal/account-migration-from-cpp-to-pc.md#account-activation-is-complete) in the previous step, your account owner permissions have also migrated to Partner Center.
+> This step requires an *Owner* role in Partner Center for your given account in order to sign legal agreements. If you completed your Cloud Partner Portal account migration by [activating your Partner Center account](../partner-center-portal/account-migration-from-cpp-to-pc.md#account-activation-is-complete) in the previous step, your account owner permissions have also migrated to Partner Center.
 
 1. Go to https://partner.microsoft.com/dashboard/account/agreements (signing in to Partner Center as prompted).
 
