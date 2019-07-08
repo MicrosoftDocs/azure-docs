@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Perform image operations - Python"
+title: "Perform image operations - Python"
 titlesuffix: Azure Cognitive Services
 description: Learn how to use the Computer Vision API with Python by using Jupyter notebooks. Visualize your results using popular libraries.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 11/06/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: kefre
 ms.custom: seodec18
 ---
 
-# Tutorial: Computer Vision API Python
+# Computer Vision API Jupyter notebook
 
-This tutorial shows you how to use the Computer Vision API in Python and how to visualize your results using popular libraries. You will use Jupyter to run the tutorial. To learn how to get started with interactive Jupyter notebooks, refer to the [Jupyter Documentation](https://jupyter.readthedocs.io/en/latest/index.html).
+This guide shows you how to use the Computer Vision API in Python and how to visualize your results using popular libraries. You will use Jupyter to run the tutorial. To learn how to get started with interactive Jupyter notebooks, refer to the [Jupyter Documentation](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ This tutorial shows you how to use the Computer Vision API in Python and how to 
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
 - [Jupyter Notebook](https://jupyter.org/install) installed
 
-## Open the Tutorial Notebook in Jupyter 
+## Open the notebook in Jupyter 
 
 1. Go to the [Cognitive Vision Python](https://github.com/Microsoft/Cognitive-Vision-Python) GitHub repo. 
 2. Click on the green button to clone or download the repo. 
@@ -33,7 +33,7 @@ This tutorial shows you how to use the Computer Vision API in Python and how to 
 1. Start Jupyter by running the command `jupyter notebook` from the command prompt.
 1. In the Jupyter window, click on _Computer Vision API Example.ipynb_ to open the tutorial notebook.
 
-## Run the Tutorial
+## Run the notebook
 
 To use this notebook, you will need a subscription key for the Computer Vision API. Visit the [Subscription page](https://azure.microsoft.com/try/cognitive-services/) to sign up. On the **Sign in** page, use your Microsoft account to sign in and you will be able to subscribe and get free keys. After completing the sign-up process, paste your key into the `Variables` section of the notebook (reproduced below). Either the primary or the secondary key will work. Be sure to enclose the key in quotes to make it a string.
 

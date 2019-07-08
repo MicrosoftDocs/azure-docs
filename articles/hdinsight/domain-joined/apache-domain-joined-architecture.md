@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 06/24/2019
 ---
 
 # Use Enterprise Security Package in HDInsight
@@ -61,10 +61,14 @@ If federation is being used and password hashes are synced correctly, but you ar
 1. Install the preview [Azure AD PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
    ```powershell
-   Install-Module AzureADPreview
+   Install-Module AzureAD
    ```
 
-2. Enter `Connect-AzureAD` by using global administrator (tenant administrator) credentials.
+2. Connect using global administrator (tenant administrator) credentials.
+   
+   ```powershell
+   Connect-AzureAD
+   ```
 
 3. Check if the Microsoft Azure PowerShell service principal has already been created.
 
