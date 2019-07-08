@@ -30,4 +30,4 @@ Click **Add and send invitation**. The new recipient(s) will be sent invitation 
 To learn about how to delete an invitation to a share, continue to the next how-to guide.
 
 > [!div class="nextstepaction"]
-> [How To: Delete an Invitation](how-to-delete-invitation.md)
+> [Delete an Invitation](how-to-delete-invitation.md)

@@ -22,4 +22,4 @@ In the Azure Data Share service, navigate to your sent share and select the **In
 To learn about how to revoke a share subscription, continue to the next how-to guide.
 
 > [!div class="nextstepaction"]
-> [How To: Revoke a Share Subscription](how-to-revoke-share-subscription.md)
+> [Revoke a Share Subscription](how-to-revoke-share-subscription.md)

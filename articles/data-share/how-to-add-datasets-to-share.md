@@ -34,4 +34,4 @@ For more information on snapshots, see [Snapshots](terminology.md).
 To learn about how to add more recipients to a share, continue to the next how-to guide.
 
 > [!div class="nextstepaction"]
-> [How To: Add Recipients to an Existing Data Share](how-to-add-recipients-to-share.md)
+> [Add Recipients to an Existing Data Share](how-to-add-recipients-to-share.md)

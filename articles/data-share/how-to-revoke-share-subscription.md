@@ -24,4 +24,4 @@ Check the boxes next to the recipients whose share subscriptions you would like 
 To learn about how to delete an invitation, continue to the next how-to guide.
 
 > [!div class="nextstepaction"]
-> [How To: Delete an invitation to an existing data share](how-to-delete-invitation.md)
+> [Delete an invitation to an existing data share](how-to-delete-invitation.md)
