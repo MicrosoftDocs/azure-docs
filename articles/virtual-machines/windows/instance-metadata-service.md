@@ -187,7 +187,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-03-11"
 ```
 
 **Response**
@@ -199,6 +199,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 {
   "compute": {
     "azEnvironment": "AzurePublicCloud",
+    "customData": "TXkgY3VzdG9tIGRhdGEu",
     "location": "westus",
     "name": "jubilee",
     "offer": "Windows-10",
@@ -215,6 +216,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
     "publicKeys": [],
     "publisher": "MicrosoftWindowsDesktop",
     "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "rs4-pro",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
@@ -258,14 +260,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 Instance metadata can be retrieved in Windows via the `curl` program:
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2018-10-01 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
 ```
 
 Or through the `Invoke-RestMethod` PowerShell cmdlet:
 
 ```powershell
 
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-03-11 -Method get
 ```
 
 **Response**
@@ -277,6 +279,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 {
   "compute": {
     "azEnvironment": "AzurePublicCloud",
+    "customData": "TXkgY3VzdG9tIGRhdGEu",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
@@ -293,6 +296,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
     "publicKeys": [],
     "publisher": "MicrosoftSQLServer",
     "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "Enterprise",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
