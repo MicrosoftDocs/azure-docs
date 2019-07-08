@@ -46,7 +46,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/samples/index">Samples index</a>
+    - html: <a href="samples/index">Samples index</a>
 - title: Reference
   items:
   - type: list
