@@ -29,8 +29,8 @@ The following table indicates when and how you register bindings.
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|Automatic|Automatic|
 |Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#extension-bundles)|
-|C# class library using Visual Studio|[Use NuGet tools](#c-class-library-with-visual-studio-2019)|[Use NuGet tools](#c-class-library-with-visual-studio-2019)|
-|C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#c-class-library-with-visual-studio-code)|
+|C# class library using Visual Studio|[Use NuGet tools](#vs)|[Use NuGet tools](#vs)|
+|C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#vs-code)|
 
 ## <a name="extension-bundles"></a>Extension bundles for local development
 
@@ -65,7 +65,7 @@ The current set of extensions installed by the default bundle are enumerated in 
 
 <a name="local-csharp"></a>
 
-## C\# class library with Visual Studio
+## <a name="vs"> C\# class library with Visual Studio
 
 In **Visual Studio**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
@@ -79,7 +79,7 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 
 If you use `Install-Package` to reference a binding, you do not need to use [extension bundles](#exension-bundles). This approach is specific for class libraries built in Visual Studio.
 
-## C# class library with Visual Studio Code
+## <a name="vs-code"> C# class library with Visual Studio Code
 
 > [!NOTE]
 > We recommend using [extension bundles](#extension-bundles) to have Functions automatically install a compatible set of binding extension packages.
