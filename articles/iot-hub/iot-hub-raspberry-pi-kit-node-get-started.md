@@ -194,10 +194,10 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    node -v
    ```
 
-   If the version is lower than 4.x, or if there is no Node.js on your Pi, install the latest version.
+   If the version is lower than 10.x, or if there is no Node.js on your Pi, install the latest version.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

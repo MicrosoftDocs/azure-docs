@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
+ms.author: juliako
 
 ---
 # Filters and dynamic manifests
@@ -142,7 +142,7 @@ Filtered Asset:
 ![Skiing][skiing]
 
 ## Adjusting Presentation Window (DVR)
-Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or he\she may want to provide different DVR windows for different devices. For example, most of the mobile devices don’t handle large DVR windows (you can have a 2-minute DVR window for mobile devices and one hour for desktop clients).
+Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or they may want to provide different DVR windows for different devices. For example, most of the mobile devices don’t handle large DVR windows (you can have a 2-minute DVR window for mobile devices and one hour for desktop clients).
 
 ![DVR window][dvr_filter]
 

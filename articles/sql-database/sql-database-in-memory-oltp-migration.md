@@ -7,8 +7,8 @@ ms.subservice: development
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
 manager: craigg
 ms.reviewer: MightyPen

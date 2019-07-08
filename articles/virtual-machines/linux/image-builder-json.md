@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
@@ -26,7 +26,7 @@ This is the basic template format:
     "identity":{},			 
     "dependsOn": [], 
     "properties": { 
- 	    "<build timeout in minutes>": {}, 
+ 	    "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -328,6 +328,8 @@ This is supported by Windows directories and Linux paths, but there are some dif
  
  
 If there is an error trying to download the file, or put it in a specified directory, the customize step will fail, and this will be in the customization.log.
+
+>> Note! The file customizer is only suitable for small file downloads, < 20MB. For larger file downloads use a script or inline command, the use code to download files, such as, Linux `wget` or `curl`, Windows, `Invoke-WebRequest`.
 
 Files in the File customizer can be downloaded from Azure Storage using [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

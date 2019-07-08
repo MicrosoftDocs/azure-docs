@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-
+ms.author: glenga
+ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ---
 
 # Develop and deploy WebJobs using Visual Studio - Azure App Service
@@ -24,7 +24,7 @@ This article explains how to use Visual Studio to deploy a Console Application p
 
 You can publish multiple WebJobs to a single web app. Make sure that each WebJob in a web app has a unique name.
 
-Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop WebJobs that run as .NET Core apps, while version 2.x supports only the .NET Framework. The way that you deploy a WebJobs project is different .NET Core projects versus .NET Framework ones.
+Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop WebJobs that run as either .NET Core apps or .NET Framework apps, while version 2.x supports only the .NET Framework. The way that you deploy a WebJobs project is different for .NET Core projects versus .NET Framework ones.
 
 ## WebJobs as .NET Core console apps
 
@@ -89,7 +89,7 @@ You can deploy a project as a WebJob by itself, or link it to a web project so t
 
 If you're using Visual Studio 2015, install the [Azure SDK for .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-If you're using Visual Studio 2017, install the [Azure development workload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
+If you're using Visual Studio 2019, install the [Azure development workload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Enable WebJobs deployment for an existing Console Application project
 

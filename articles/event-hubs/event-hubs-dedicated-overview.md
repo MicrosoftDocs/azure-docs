@@ -50,27 +50,18 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | --- |:---:|:---:|
 | Bandwidth | 20 TUs (up to 40 TUs)	| 20 CUs |
 | Namespaces |  1 | 50 per CU |
-| Event Hubs |  10 | No limit |
+| Event Hubs |  10 per namespace | 1000 per namespace |
 | Ingress events | Pay per million events | Included |
 | Message Size | 1 Million Bytes | 1 Million Bytes |
-| Partitions | 40 per namespace | 2000 per CU, 1024 per event hub |
+| Partitions | 40 per namespace | 2000 per CU |
 | Consumer groups | 20 per Event Hub | No limit per CU, 1000 per event hub |
-| Brokered connections | 1,000 included | 100 K included |
+| Brokered connections | 1,000 included, 5,000 max | 100 K included and max |
 | Message Retention | 7 days, 84 GB included per TU | 90 days, 10 TB included per CU |
 | Capture | Pay per hour | Included |
 
 ## How to onboard
 
-The self-serve experience for onboarding to Dedicated is in Preview, through which you can create 1 CU clusters in the following regions:
-  - Canada Central
-  - West Europe
-  - US Central
-  - US East
-  - US East 2
-  - US North Central
-  - US West
-
-We are actively adding new regions, but in the meantime if your preferred region is not on the list, contact the [Event Hubs team](mailto:askeventhubs@microsoft.com). The Dedicated plan is unique in that you will experience a more hands-on onboarding from the Event Hubs product team to get the flexible deployment that is right for you. 
+The self-serve experience to [create an Event Hubs cluster](event-hubs-dedicated-cluster-create-portal.md) through the [Azure Portal](https://aka.ms/eventhubsclusterquickstart) is now in Preview. If you have any questions or need help onboarding to Event Hubs Dedicated, please contact the [Event Hubs team](mailto:askeventhubs@microsoft.com).
 
 ## FAQs
 
@@ -92,25 +83,21 @@ In the testing, the following criteria was used:
 - The event hub used for ingestion had 200 partitions. 
 - The data that was ingested was received by two receiver applications receiving from all partitions.
 
-#### How do I create a cluster larger than 1 CU?
+#### Can I scale up/down my cluster?
 
-In the Preview release of the self-serve experience, you can request to scale up your cluster after you create the cluster. After creating a 1 CU cluster, please reach out to Event Hubs support by filing a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) under *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster*. In our GA release, you will be able to scale up your cluster directly through the portal. 
-
-#### Can I scale down my cluster?
-
-After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster*. It may take up to 7 days to complete the request to scale down your cluster. 
+After creation, clusters are billed for a minimum of 4 hours of usage. In the Preview release of the self-serve experience, you can submit a [support request](https://ms.portal.azure.com/#create/Microsoft.Support) to the Event Hubs team under *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster* to scale your cluster up or down. It may take up to 7 days to complete the request to scale down your cluster. 
 
 #### How will Geo-DR work with my cluster?
 
 You can geo-pair a namespace under a Dedicated-tier cluster with another namespace under a Dedicated-tier cluster. We do not encourage pairing a Dedicated-tier namespace with a namespace in our Standard offering, since the throughput limit will be incompatible which will result in errors. 
 
-
 #### Can I migrate my Standard namespaces to belong to a Dedicated-tier cluster?
-We do not currently support an automated migration process for migrating your event hubs data from a Standard namespace to a Dedicated one. To migrate to a Dedicated-tier cluster, we recommend draining any messages left in your Standard-tier event hubs and replacing the connection endpoints with that of your Dedicated namespace.
+We do not currently support an automated migration process for migrating your event hubs data from a Standard namespace to a Dedicated one. 
 
 ## Next steps
 
-Contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated Capacity. You can also learn more about Event Hubs pricing tiers by visiting the following links:
+Contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated. You can also create a cluster or learn more about Event Hubs pricing tiers by visiting the following links:
 
+- [Create an Event Hubs cluster through the Azure Portal](https://aka.ms/eventhubsclusterquickstart) 
 - [Event Hubs Dedicated pricing](https://azure.microsoft.com/pricing/details/event-hubs/). You can also contact your Microsoft sales representative or Microsoft Support to get additional details about Event Hubs Dedicated capacity.
 - The [Event Hubs FAQ](event-hubs-faq.md) contains pricing information and answers some frequently asked questions about Event Hubs.

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create, load, and query an index in Azure portal - Azure Search'
-description: Build and query your first index in Azure Search using built-in sample data and the Import Data wizard in the Azure portal. 
+title: 'Quickstart: Create, load, and query an index using Azure portal - Azure Search'
+description: Use the Import Data wizard in Azure portal to create, load, and query your first index in Azure Search. 
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -12,11 +12,11 @@ ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
-# Quickstart: Use built-in portal tools for Azure Search import, indexing, and queries
+# Quickstart: Create an Azure Search index using the Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [Postman](search-fiddler.md)
+> * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
 >*
 
@@ -29,7 +29,7 @@ For a fast ramp up on Azure Search concepts, try the built-in tools in the Azure
 > * View an existing index and options for modifying it
 > * Explore full text search, filters, facets, fuzzy search, and geosearch with **Search explorer**
 
-If the tools are too limiting, you can consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or use [Postman or Fiddler for making REST API calls](search-fiddler.md).
+If the tools are too limiting, you can consider a [code-based introduction to programming Azure Search in .NET](search-howto-dotnet-sdk.md) or use [Postman or Fiddler for making REST API calls](search-get-started-postman.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. You could also watch a 6-minute demonstration of the steps in this tutorial, starting at about three minutes into this [Azure Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
 
@@ -248,7 +248,7 @@ Geospatial search is supported through the [edm.GeographyPoint data type](https:
 
 The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates.
 
-Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country by name, add fields containing city or country names, in addition to coordinates.
+Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country/region by name, add fields containing city or country/region names, in addition to coordinates.
 
 ## Takeaways
 
@@ -270,4 +270,4 @@ You can explore more of Azure Search using the programmatic tools:
 
 * [Create an index using .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Create an index using REST APIs](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Create an index using Postman or Fiddler and the Azure Search REST APIs](search-fiddler.md)
+* [Create an index using Postman or Fiddler and the Azure Search REST APIs](search-get-started-postman.md)

@@ -5,7 +5,7 @@ services: functions
 author: cgillum
 manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
@@ -31,7 +31,7 @@ Support for .NET Framework (and therefore Functions 1.0) has been dropped for Du
 
 ### Host.json schema
 
-The following snippet shows the new schema for host.json. The main change to be aware of us the new `"storageProvider"` section, and the `"azureStorage"` section underneath it. This change was done to support [alternate storage providers](durable-functions-preview.md#alternate-storage-providers).
+The following snippet shows the new schema for host.json. The main change to be aware of is the new `"storageProvider"` section, and the `"azureStorage"` section underneath it. This change was done to support [alternate storage providers](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {
@@ -88,11 +88,12 @@ In the case where an abstract base class contained virtual methods, these virtua
 
 Entity functions define operations for reading and updating small pieces of state, known as *durable entities*. Like orchestrator functions, entity functions are functions with a special trigger type, *entity trigger*. Unlike orchestrator functions, entity functions do not have any specific code constraints. Entity functions also manage state explicitly rather than implicitly representing state via control flow.
 
-The following code is an example of a simple entity function that defines a *Counter* entity. The function defines three operations, `add`, `remove`, and `reset`, each of which update an integer value, `currentValue`.
+The following code is an example of a simple entity function that defines a *Counter* entity. The function defines three operations, `add`, `subtract`, and `reset`, each of which update an integer value, `currentValue`.
 
 ```csharp
+[FunctionName("Counter")]
 public static async Task Counter(
-    [EntityTrigger(EntityName = "Counter")] IDurableEntityContext ctx)
+    [EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
     int operand = ctx.GetInput<int>();
@@ -195,21 +196,25 @@ The critical section ends, and all locks are released, when the orchestration en
 For example, consider an orchestration that needs to test whether two players are available, and then assign them both to a game. This task can be implemented using a critical section as follows:
 
 ```csharp
-
-EntityId player1 = /* ... */;
-EntityId player2 = /* ... */;
-
-using (await ctx.LockAsync(player1, player2))
+[FunctionName("Orchestrator")]
+public static async Task RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
 {
-    bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-    bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
+    EntityId player1 = /* ... */;
+    EntityId player2 = /* ... */;
 
-    if (available1 && available2)
+    using (await ctx.LockAsync(player1, player2))
     {
-        Guid gameId = ctx.NewGuid();
+        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
+        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
 
-        await ctx.CallEntityAsync(player1, "assign-game", gameId);
-        await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        if (available1 && available2)
+        {
+            Guid gameId = ctx.NewGuid();
+
+            await ctx.CallEntityAsync(player1, "assign-game", gameId);
+            await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        }
     }
 }
 ```

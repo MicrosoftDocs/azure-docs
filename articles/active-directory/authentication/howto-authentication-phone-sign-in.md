@@ -86,6 +86,6 @@ One of the prerequisites to create this new, strong credential, is that the devi
 
 ## Next steps
 
-[Learn about device registration](../devices/overview.md#getting-devices-under-the-control-of-azure-ad)
+[Learn about device registration](../devices/overview.md#getting-devices-in-azure-ad)
 
 [Learn about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

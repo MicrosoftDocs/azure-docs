@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2018
+ms.date: 05/21/2019
 ms.author: apimpm
 ---
 
@@ -40,17 +40,19 @@ Here is a quick overview of the steps:
 
 To protect an API with Azure AD, the first step is to register an application in Azure AD that represents the API. 
 
-1. Browse to your Azure AD tenant, and then browse to **App registrations (Legacy)**.
+1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
 
-2. Select **New application registration**. 
+2. Select **New registration**. 
 
-3. Provide a name of the application. (For this example, the name is `backend-app`.)  
+1. When the **Register an application page** appears, enter your application's registration information: 
+    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `backend-app`. 
+    - In the **Supported account types** section, select **Accounts in any organizational directory**. 
 
-4. Choose **Web app / API** as the **Application type**. 
+1. Leave the **Redirect URI** section empty for now.
 
-5. For **Sign-on URL**, you can use `https://localhost` as a placeholder.
+1. Select **Register** to create the application. 
 
-6. Select **Create**.
+1. On the app **Overview** page, find the **Application (client) ID** value and record it for later.
 
 When the application is created, make a note of the **Application ID**, for use in a subsequent step. 
 
@@ -58,23 +60,25 @@ When the application is created, make a note of the **Application ID**, for use 
 
 Every client application that calls the API needs to be registered as an application in Azure AD as well. For this example, the sample client application is the Developer Console in the API Management developer portal. Here's how to register another application in Azure AD to represent the Developer Console.
 
-1. While in **App registrations (Legacy)**, select **New application registration**. 
+1. Navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page. 
 
-2. Provide a name of the application. (For this example, the name is `client-app`.)
+1. Select **New registration**.
 
-3. Choose **Web app / API** as the **Application type**.  
+1. When the **Register an application page** appears, enter your application's registration information: 
+    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `client-app`. 
+    - In the **Supported account types** section, select **Accounts in any organizational directory**. 
 
-4. For **Sign-on URL**, you can use `https://localhost` as a placeholder, or use the sign-in URL of your API Management instance. (For this example, the URL is `https://contoso5.portal.azure-api.net/signin`.)
+1. In the **Redirect URI** section, select `Web` and enter the URL `https://contoso5.portal.azure-api.net/signin`
 
-5. Select **Create**.
+1. Select **Register** to create the application. 
 
-When the application is created, make a note of the **Application ID**, for use in a subsequent step. 
+1. On the app **Overview** page, find the **Application (client) ID** value and record it for later.
 
 Now, create a client secret for this application, for use in a subsequent step.
 
-1. Select **Settings** again, and go to **Keys**.
+1. From the list of pages for your client app, select **Certificates & secrets**, and select **New client secret**.
 
-2. Under **Passwords**, provide a **Key description**. Choose when the key should expire, and select **Save**.
+2. Under **Add a client secret**, provide a **Description**. Choose when the key should expire, and select **Add**.
 
 Make a note of the key value. 
 
@@ -82,17 +86,17 @@ Make a note of the key value.
 
 Now that you have registered two applications to represent the API and the Developer Console, you need to grant permissions to allow the client-app to call the backend-app.  
 
-1. Browse to **Application registrations (Legacy)**. 
+1. Navigate to **App registrations**. 
 
-2. Select `client-app`, and go to **Settings**.
+2. Select `client-app`, and in the list of pages for the app go to **API permissions**.
 
-3. Select **Required permissions** > **Add**.
+3. Select **Add a Permission**.
 
-4. Select **Select an API**, and search for `backend-app`.
+4. Under **Select an API**, find and select `backend-app`.
 
-5. Under **Delegated Permissions**, select `Access backend-app`. 
+5. Under **Delegated Permissions**, select the appropriate permissions to `backend-app`.
 
-6. Select **Select**, and then select **Done**. 
+6. Select **Add permissions** 
 
 > [!NOTE]
 > If **Azure Active Directory** is not listed under permissions to other applications, select **Add** to add it from the list.
@@ -103,7 +107,7 @@ At this point, you have created your applications in Azure AD, and have granted 
 
 In this example, the Developer Console is the client-app. The following steps describe how to enable OAuth 2.0 user authorization in the Developer Console. 
 
-1. In Azure Portal, browse to your API Management instance.
+1. In Azure portal, browse to your API Management instance.
 
 2. Select **OAuth 2.0** > **Add**.
 

@@ -19,6 +19,8 @@
   - name: Develop applications
     expanded: true
     items:
+    - name: Use Draft
+      href: kubernetes-draft.md
     - name: Use Java (VS Code & CLI)
       href: ../dev-spaces/quickstart-java.md
       maintainContext: true
@@ -63,8 +65,9 @@
   - name: Scale
     href: concepts-scale.md
   - name: Best practices
-    href: best-practices.md
     items:
+    - name: Overview
+      href: best-practices.md
     - name: For cluster operators
       items:
       - name: Multi-tenancy and cluster isolation
@@ -115,9 +118,9 @@
       maintainContext: true
     - name: Create virtual nodes
       items:
-      - name: Azure CLI
+      - name: Use the Azure CLI
         href: virtual-nodes-cli.md
-      - name: Azure portal
+      - name: Use the Azure portal
         href: virtual-nodes-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
@@ -152,7 +155,9 @@
         href: configure-azure-cni.md
     - name: Create an internal load balancer
       href: internal-lb.md
-    - name: Use a static IP addresses
+    - name: Use a Standard Load Balancer (preview)
+      href: load-balancer-standard.md
+    - name: Use a static IP address
       href: static-ip.md
     - name: Ingress
       items:
@@ -165,9 +170,10 @@
         - name: Use TLS with your own certificates
           href: ingress-own-tls.md
         - name: Use TLS with Let's Encrypt
-          href: ingress-tls.md
           items:
-          - name: Use a static public IP
+          - name: Use a dynamic public IP address
+            href: ingress-tls.md
+          - name: Use a static public IP address
             href: ingress-static-ip.md
     - name: Egress traffic
       href: egress.md
@@ -185,9 +191,11 @@
       href: use-pod-security-policies.md
     - name: Define API server authorized IP ranges (preview)
       href: api-server-authorized-ip-ranges.md
+    - name: Control deployments with Azure Policy (preview)
+      href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
     - name: Update cluster service principal credentials
       href: update-credentials.md
-    - name: Restrict and control cluster egress traffic
+    - name: Restrict and control cluster egress traffic (preview)
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
@@ -212,6 +220,20 @@
     - name: View real-time container logs (preview)
       href: ../azure-monitor/insights/container-insights-live-logs.md
       maintainContext: true
+  - name: Use Windows Server containers (preview)
+    items:
+    - name: Create an AKS cluster
+      href: windows-container-cli.md
+    - name: Connect remotely
+      href: rdp.md
+    - name: Known limitations
+      href: windows-node-limitations.md
+    - name: Use the Kubernetes dashboard
+      href: kubernetes-dashboard.md
+    - name: Create Dockerfiles for Windows Server containers
+      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context
+    - name: Optimize Dockerfiles for Windows Server containers
+      href: https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
   - name: Develop and run applications
     items:
     - name: Develop with Dev Spaces
@@ -264,8 +286,6 @@
           maintainContext: true
     - name: Run applications with Helm
       href: kubernetes-helm.md
-    - name: Develop applications with Draft
-      href: kubernetes-draft.md
     - name: Use Open Service Broker for Azure
       href: integrate-azure.md
     - name: Use Cosmos DB API for MongoDB with OSBA

@@ -5,9 +5,9 @@ author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ---
 # How to create and locate anchors using Azure Spatial Anchors in Java

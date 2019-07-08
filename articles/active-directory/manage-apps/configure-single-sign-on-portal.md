@@ -2,14 +2,14 @@
 title: Configure single sign-on - Azure Active Directory | Microsoft Docs
 description: This tutorial uses the Azure portal to configure SAML-based single sign-on for an application with Azure Active Directory (Azure AD). 
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ---
@@ -133,7 +133,7 @@ To assign a user or group to the application:
 
 You're almost done.  As a final step, you need to set up the application to use Azure AD as a SAML identity provider. 
 
-1. Scroll down to the **Set up <applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**. 
+1. Scroll down to the **Set up \<applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**. 
 2. Copy the value from each row in this section. Then, paste each value into the appropriate row in the **Basic SAML Configuration** section. For example, copy the **Login URL** value from the **Set up GitHub-test** section and paste it into the **Sign On URL** field in the **Basic SAML Configuration** section, and so on.
 3. When you've pasted all the values into the appropriate fields, select **Save**.
 
@@ -142,7 +142,7 @@ You're almost done.  As a final step, you need to set up the application to use 
 You're ready to test your settings.  
 
 1. Open the single sign-on settings for your application. 
-2. Scroll to the **Validate single sign-on with <applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**.
+2. Scroll to the **Validate single sign-on with \<applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**.
 3. Select **Test**. The testing options appear.
 4. Select **Sign in as current user**. This test lets you first see if single sign-on works for you, the admin.
 

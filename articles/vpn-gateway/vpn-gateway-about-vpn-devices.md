@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 07/05/2019
 ms.author: yushwang
 
 ---
@@ -27,10 +27,6 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 
 ## <a name="devicetable"></a>Validated VPN devices and device configuration guides
 
-> [!NOTE]
-> When configuring a Site-to-Site connection, a public-facing IPv4 IP address is required for your VPN device.
->
-
 In partnership with device vendors, we have validated a set of standard VPN devices. All of the devices in the device families in the following list should work with VPN gateways. See [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype) to understand the VPN type use (PolicyBased or RouteBased) for the VPN Gateway solution you want to configure.
 
 To help configure your VPN device, refer to the links that correspond to the appropriate device family. The links to configuration instructions are provided on a best-effort basis. For VPN device support, contact your device manufacturer.
@@ -41,7 +37,6 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Allied Telesis     |AR Series VPN Routers |AR-Series 5.4.7+               |Coming soon     |[Configuration guide](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall F-series |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Configuration guide](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Configuration guide](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-series |Barracuda Firewall 6.5 |[Configuration guide](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Not compatible |
-| Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[Configuration guide](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Not compatible |
 | Check Point |Security Gateway |R80.10 |[Configuration guide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Configuration guide](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Supported |[Configuration guide*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Supported |Supported |
@@ -62,8 +57,10 @@ To help configure your VPN device, refer to the links that correspond to the app
 | ShareTech | Next Generation UTM (NU series) | 9.0.1.3 | Not compatible | [Configuration guide](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Not compatible |[Configuration guide](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG Next Gen Firewall | XG v17 | | [Configuration guide](https://community.sophos.com/kb/127546)<br><br>[Configuration guide - Multiple SAs](https://community.sophos.com/kb/en-us/133154) |
+| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 |  | [Configuration Guide](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [BGP over IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[VTI over IKEv2/IPsec](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |All |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Configuration guide](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| Zyxel |ZyWALL USG series<br>ZyWALL ATP series<br>ZyWALL VPN series | ZLD v4.32+ | | [VTI over IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2648/)<br>[BGP over IKEv2/IPsec](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >

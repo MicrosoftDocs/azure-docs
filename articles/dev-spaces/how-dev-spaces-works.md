@@ -3,7 +3,7 @@ title: "How Azure Dev Spaces works and is configured"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 03/04/2019
@@ -25,7 +25,7 @@ This article describes the processes that power Azure Dev Spaces and how those p
 
 * [Java with CLI and Visual Studio Code](quickstart-java.md)
 * [.NET Core with CLI and Visual Studio Code](quickstart-netcore.md)
-* [.NET Core with Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET Core with Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js with CLI and Visual Studio Code](quickstart-nodejs.md)
 
 ## How Azure Dev Spaces works
@@ -62,7 +62,7 @@ While your application is running, the client-side tooling also:
 You can use the client-side tooling from the command line as part of the `azds` command. You can also use the client-side tooling with:
 
 * Visual Studio Code using the [Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio 2017 with [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio with [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
 
 Here's the basic flow for setting up and using Azure Dev Spaces:
 1. Prepare your AKS cluster for Azure Dev Spaces
@@ -76,7 +76,7 @@ We'll cover more details of how Azure Dev Spaces works in each of the below sect
 ## Prepare your AKS cluster
 
 Preparing your AKS cluster involves:
-* Verifying your AKS cluster is in a region [supported by Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+* Verifying your AKS cluster is in a region [supported by Azure Dev Spaces][supported-regions].
 * Verifying you are running Kubernetes 1.10.3 or later.
 * Enabling Azure Dev Spaces on your cluster using `az aks use-dev-spaces`
 
@@ -206,7 +206,7 @@ The `up` command uploads your application source files and other artifacts neede
 1. Builds the container for your application.
 1. Deploys your application to the dev space.
 1. Creates a publicly accessible DNS name for your application endpoint if configured.
-1. Uses *port-forward* to provide access to your application endpoint using http://locahost.
+1. Uses *port-forward* to provide access to your application endpoint using http://localhost.
 1. Forwards stdout and stderr to the client-side tooling.
 
 
@@ -400,11 +400,11 @@ ingress:
 
 ## Debug your code
 
-For Java, .NET and Node.js applications, you can debug your application running directly in your dev space using Visual Studio Code or Visual Studio 2017. Visual Studio Code and Visual Studio 2017 provide tooling to connect to your dev space, launch your application, and attach a debugger. After running `azds prep`, you can open your project in Visual Studio Code or Visual Studio 2017. Visual Studio Code or Visual Studio 2017 will generate their own configuration files for connecting which is separate from running `azds prep`. From within Visual Studio Code or Visual Studio 2017, you can set breakpoints and launch your application to your dev space.
+For Java, .NET and Node.js applications, you can debug your application running directly in your dev space using Visual Studio Code or Visual Studio. Visual Studio Code and Visual Studio provide tooling to connect to your dev space, launch your application, and attach a debugger. After running `azds prep`, you can open your project in Visual Studio Code or Visual Studio. Visual Studio Code or Visual Studio will generate their own configuration files for connecting which is separate from running `azds prep`. From within Visual Studio Code or Visual Studio, you can set breakpoints and launch your application to your dev space.
 
 ![Debugging your code](media/get-started-node/debug-configuration-nodejs2.png)
 
-When you launch your application using Visual Studio Code or Visual Studio 2017 for debugging, they handle launching and connecting to your dev space in the same way as running `azds up`. The client-side tooling in Visual Studio Code and Visual Studio 2017 also provide an additional parameter with specific information for debugging. The parameter contains the name of debugger image, the location of the debugger within in the debugger's image, and the destination location within the application's container to mount the debugger folder. 
+When you launch your application using Visual Studio Code or Visual Studio for debugging, they handle launching and connecting to your dev space in the same way as running `azds up`. The client-side tooling in Visual Studio Code and Visual Studio also provide an additional parameter with specific information for debugging. The parameter contains the name of debugger image, the location of the debugger within in the debugger's image, and the destination location within the application's container to mount the debugger folder.
 
 The debugger image is automatically determined by the client-side tooling. It uses a method similar to the one used during Dockerfile and Helm chart generate when running `azds prep`. After the debugger is mounted in the application's image, it is run using `azds exec`.
 
@@ -429,12 +429,16 @@ To get started using Azure Dev Spaces, see the following quickstarts:
 
 * [Java with CLI and Visual Studio Code](quickstart-java.md)
 * [.NET Core with CLI and Visual Studio Code](quickstart-netcore.md)
-* [.NET Core with Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET Core with Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js with CLI and Visual Studio Code](quickstart-nodejs.md)
 
 To get started with team development, see the following how-to articles:
 
 * [Team Development - Java with CLI and Visual Studio Code](team-development-java.md)
 * [Team Development - .NET Core with CLI and Visual Studio Code](team-development-netcore.md)
-* [Team Development - .NET Core with Visual Studio 2017](team-development-netcore-visualstudio.md)
+* [Team Development - .NET Core with Visual Studio](team-development-netcore-visualstudio.md)
 * [Team Development - Node.js with CLI and Visual Studio Code](team-development-nodejs.md)
+
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

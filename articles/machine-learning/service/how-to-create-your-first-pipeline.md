@@ -1,7 +1,7 @@
 ---
 title: Create, run, & track ML pipelines
 titleSuffix: Azure Machine Learning service
-description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python. You use pipelines to create and manage the workflows that stitch together machine learning (ML) phases. These phases include data preparation, model training, model deployment, and inferencing. 
+description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python. You use pipelines to create and manage the workflows that stitch together machine learning (ML) phases. These phases include data preparation, model training, model deployment, and inference/scoring. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -50,12 +50,12 @@ Create the resources required to run a pipeline:
 
 * Configure a `DataReference` object to point to data that lives in, or is accessible in, a datastore.
 
-* Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-target) on which your pipeline steps will run.
+* Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
 A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register additional datastores. 
 
-When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure Files is the default datastore for a workspace, but you can also use Blob storage as a datastore. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure Blob Storage is the default datastore for a workspace, but you can also use Blob storage as a datastore. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)
@@ -248,6 +248,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Reuse of previous results (`allow_reuse`) is key when using pipelines in a collaborative environment since eliminating unnecessary re-runs offers agility. This is the default behavior when the script_name, inputs, and the parameters of a step remain the same. When the output of the step is reused, the job is not submitted to the compute, instead, the results from the previous run are immediately available to the next step's run. If set to false, a new run will always be generated for this step during pipeline execution. 
+
 After you define your steps, you build the pipeline by using some or all of those steps.
 
 > [!NOTE]
@@ -291,7 +293,7 @@ When you submit the pipeline, Azure Machine Learning service checks the dependen
 > [!IMPORTANT]
 > To prevent files from being included in the snapshot, create a [.gitignore](https://git-scm.com/docs/gitignore) or `.amlignore` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the [.gitignore](https://git-scm.com/docs/gitignore) file. If both files exist, the `.amlignore` file takes precedence.
 >
-> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
+> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 # Submit the pipeline to be run
@@ -311,6 +313,10 @@ When you first run a pipeline, Azure Machine Learning:
 ![Diagram of running an experiment as a pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 For more information, see the [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) reference.
+
+## GitHub tracking and integration
+
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
 
 ## Publish a pipeline
 
@@ -370,11 +376,11 @@ See the list of all your pipelines and their run details:
 ## Caching & reuse  
 
 In order to optimize and customize the behavior of your pipelines you can do a few things around caching and reuse. For example, you can choose to:
-+ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of this.
 + **Extend hashing beyond the script**, to also include an absolute path or relative paths to the source_directory to other files and directories using the `hash_paths=['<file or directory']` 
 + **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-By default, step re-use is enabled and only the main script file is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.  
+By default, `allow-reuse` for steps is enabled and only the main script file is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), the output of a previous step run is reused, the job is not submitted to the compute, and the results from the previous run are immediately available to the next step instead.  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

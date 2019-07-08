@@ -8,12 +8,53 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Release notes
+
+## Speech SDK 1.6.0: 2019-June release
+
+**Samples**
+*	Quick start samples for Text To Speech on UWP and Unity
+*	Quick start sample for Swift on iOS
+*	Unity samples for Speech & Intent Recognition and Translation
+*	Updated quick start samples for DialogServiceConnector
+
+**Improvements / Changes**
+* Dialog namespace:
+    * SpeechBotConnector has been renamed to DialogServiceConnector
+    * BotConfig has been renamed to DialogServiceConfig
+    * BotConfig::FromChannelSecret() has been remapped to DialogServiceConfig::FromBotSecret()
+    * All existing Direct Line Speech clients continue to be supported after the rename
+* Update TTS REST adapter to support proxy, persistent connection
+* Improve error message when an invalid region is passed
+* Swift/Objective-C:
+    * Improved error reporting: Methods that can result in an error are now present in two versions: One that exposes an `NSError` object for error handling, and one that raises an exception. The former are exposed to Swift. This change requires adaptations to existing Swift code.
+    * Improved event handling
+
+**Bug fixes**
+*	Fix for TTS: where SpeakTextAsync future returned without waiting until audio has completed rendering
+*	Fix for marshalling strings in C# to enable full language support
+*	Fix for .NET core app problem to load core library with net461 target framework in samples
+*	Fix for occasional issues to deploy native libraries to the output folder in samples
+*	Fix for web socket closing reliably
+*	Fix for possible crash while opening a connection under very heavy load on Linux
+*	Fix for missing metadata in the framework bundle for macOS
+*	Fix for problems with `pip install --user` on Windows
+
+
+## Speech SDK 1.5.1
+
+This is a bug fix release and only affecting the native/managed SDK. It is not affecting the JavaScript version of the SDK.
+
+**Bug fixes**
+
+* Fix FromSubscription when used with Conversation Transcription.
+* Fix bug in keyword spotting for voice-first virtual assistant.
+
 
 ## Speech SDK 1.5.0: 2019-May release
 

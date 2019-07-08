@@ -47,39 +47,53 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Event handling
+      href: concept-app-configuration-event.md
+    - name: High availability
+      items:
+        - name: Resiliency and disaster recovery
+          href: concept-disaster-recovery.md
 - name: How-to guides
   items:
     - name: Integrate with Azure Managed Service Identity
       href: howto-integrate-azure-managed-service-identity.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
+    - name: Route events to a custom endpoint
+      href: howto-app-configuration-event.md
     - name: Best practices
       href: howto-best-practices.md
 - name: Reference
   items:
     - name: Configuration
       items:
-        - name: .NET Core configuration provider
+        - name: Azure CLI
+          href: https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest
+        - name: .NET Core provider
           href: https://go.microsoft.com/fwlink/?linkid=2074664
-        - name: .NET Framework configuration builder
+        - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
-        - name: Java Spring configuration provider
-          href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
         - name: .NET Azure SDK
           href: https://go.microsoft.com/fwlink/?linkid=2092056
+        - name: Java Spring provider
+          href: https://go.microsoft.com/fwlink/?linkid=2074659
+        - name: Java Azure SDK
+          href: https://go.microsoft.com/fwlink/?linkid=2098196
         - name: REST
           href: https://go.microsoft.com/fwlink/?linkid=2078296
     - name: Feature management
       items:
         - name: .NET Core library
           href: https://go.microsoft.com/fwlink/?linkid=2091700
-        - name: ASP.NET Core library
-          href: https://go.microsoft.com/fwlink/?linkid=2091700
         - name: .NET Core filter library
           href: https://go.microsoft.com/fwlink/?linkid=2091601
 - name: Resources
   items:
-    - name: Getting started video
-      href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+    - name: Videos
+      items:
+        - name: Getting started
+          href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+        - name: Feature management
+          href: https://channel9.msdn.com/Shows/NET-Community-Standups/ASPNET-Community-Standup-May-21st-2019-Introducing-MicrosoftFeatureManagement
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

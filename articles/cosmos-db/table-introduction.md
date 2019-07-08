@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/20/2017
+ms.date: 05/20/2019
 ms.author: sngun
 
 ---
@@ -20,6 +20,9 @@ ms.author: sngun
 * [Automatic secondary indexing](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 Applications written for Azure Table storage can migrate to Azure Cosmos DB by using the Table API with no code changes and take advantage of premium capabilities. The Table API has client SDKs available for .NET, Java, Python, and Node.js.
+
+> [!IMPORTANT]
+> The .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) is in maintenance mode and it will be deprecated soon. Please upgrade to the new .NET Standard library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) to continue to get the latest features supported by the Table API.
 
 ## Table offerings
 If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API:

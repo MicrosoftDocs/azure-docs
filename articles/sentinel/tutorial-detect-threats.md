@@ -8,7 +8,8 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: b5fbc5ac-68b2-4024-9c1b-bd3cc41a66d0
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -56,6 +57,10 @@ Detection rules are based on the types of threats and anomalies that could be su
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
         | where ActivityStatus == "Succeeded"
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+
+   > [!NOTE]
+   > The query length should be between 1 to 10000 characters and cannot contain “search *” and “union *”.
+
 
 5. In the **Entity mapping** section, use the fields under **Entity type** to map the columns in your query to entity fields recognized by Azure Sentinel. For each field, map the relevant column in the query you created in Log Analytics, to the appropriate entity field. Select the relevant column name under the **Property**. Each entity includes multiple fields, for example SID, GUID, etc. You can map the entity according to any of the fields, not just the upper level entity.
 

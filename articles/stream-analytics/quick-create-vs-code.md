@@ -226,7 +226,7 @@ There are two ways to trigger script compilation:
 
 2. Right-click on the job name. Then, select **Start** from the context menu.
 
-![Start Stream Analytics job in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+   ![Start Stream Analytics job in VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
 
 3. Choose **Now** in the popup window to start the job.
 

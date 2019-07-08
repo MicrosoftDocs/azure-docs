@@ -2,11 +2,11 @@
 title: Troubleshoot Azure File Sync | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
 ---
 
@@ -240,17 +240,16 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | HRESULT | HRESULT (decimal) | Error string | Issue | Remediation |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | A file or directory change can't be synced yet because a dependent folder is not yet synced. This item will sync after the dependent changes are synced. | No action required. |
-| 0x7b | 123 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
+| 0x8007007b | -2147024773 | ERROR_INVALID_NAME | The file or directory name is invalid. | Rename the file or directory in question. See [Handling unsupported characters](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) for more information. |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | A file has changed, but the change has not yet been detected by sync. Sync will recover after this change is detected. | No action required. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | The file cannot be synced because the Azure file share limit is reached. | To resolve this issue, see [You reached the Azure file share storage limit](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) section in the troubleshooting guide. |
 | 0x80070005 | -2147024891 | E_ACCESSDENIED | This error can occur for the following reasons: file is encrypted by an unsupported solution (like NTFS EFS), file has a delete pending state or file is located on a DFS-R read-only replication folder | If the file is encrypted by an unsupported solution, decrypt the file and use a supported encryption solution. For a list of support solutions, see [Encryption solutions](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) section in the planning guide. If the file is in a delete pending state, the file will be deleted once all open file handles are closed. If the file is located on a DFS-R read-only replication folder, Azure Files Sync does not support server endpoints on DFS-R read-only replication folders. See [planning guide](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) for more information.
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
+| 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | A file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | A file was changed during sync, so it needs to be synced again. | No action required. |
 
 #### Handling unsupported characters
-If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error codes 0x7b and 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-tool) can be used to identify characters that are not supported.
+If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error code 0x8007007b), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-cmdlet) can be used to identify characters that are not supported.
 
 The table below contains all of the unicode characters Azure File Sync does not yet support.
 
@@ -295,6 +294,17 @@ Sync sessions may fail for various reasons including the server being restarted 
 | **Remediation required** | No |
 
 No action is required; the server will try again. If this error persists for longer than a couple hours, create a support request.
+
+<a id="-2134364043"></a>**Sync is blocked until change detection completes post restore**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (decimal)** | -2134364043 |
+| **Error string** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Remediation required** | No |
+
+No action is required. When a file or file share (cloud endpoint) is restored using Azure Backup, sync is blocked until change detection completes on the Azure file share. Change detection runs immediately once the restore is complete and the duration is based on the number of files in the file share.
 
 <a id="-2134364065"></a>**Sync can't access the Azure file share specified in the cloud endpoint.**  
 
@@ -847,6 +857,8 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
+	> [!NOTE]
+	>AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.
 2. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
 
     ```powershell

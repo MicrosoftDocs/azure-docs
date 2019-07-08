@@ -74,7 +74,7 @@ export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --v
 
 To configure Terraform to use the backend, include a *backend* configuration with a type of *azurerm* inside of the Terraform configuration. Add the *storage_account_name*, *container_name*, and *key* values to the configuration block.
 
-The following example configures a Terraform backend and creates and Azure resource group. Replace the values with values from your environment.
+The following example configures a Terraform backend and creates an Azure resource group. Replace the values with values from your environment.
 
 ```json
 terraform {
@@ -97,7 +97,7 @@ Now, initialize the configuration with *Terraform init* and then run the configu
 
 When using an Azure Storage Blob for state storage, the blob is automatically locked before any operation that writes state. This configuration prevents multiple concurrent state operations, which can cause corruption. For more information, see [State Locking][terraform-state-lock] on the Terraform documentation.
 
-The lock can be seen when examining the blob though the Azure portal or other Azure management tooling.
+The lock can be seen when examining the blob through the Azure portal or other Azure management tooling.
 
 ![Azure blob with lock](media/terraform-backend/lock.png)
 

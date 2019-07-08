@@ -4,8 +4,8 @@ description: Desribes how to create and retrieve output and error messages from 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm

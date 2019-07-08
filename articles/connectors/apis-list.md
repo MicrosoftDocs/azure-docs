@@ -8,7 +8,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 05/08/2019
 ---
 
 # Connectors for Azure Logic Apps
@@ -24,8 +24,9 @@ this article describes popular and more commonly used connectors that are succes
 used by thousands of apps and millions of executions for processing data and information. 
 To find the full list of connectors and each connector's reference information, 
 such as triggers, actions, and limits, review the connector reference pages under 
-[Connectors overview](https://docs.microsoft.com/connectors). 
-Also, learn more about [triggers and actions](#triggers-actions).
+[Connectors overview](https://docs.microsoft.com/connectors). Also, learn more about 
+[triggers and actions](#triggers-actions), [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), 
+and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 > [!NOTE]
 > To integrate with a service or API that doesn't have connector, 
@@ -34,13 +35,26 @@ Also, learn more about [triggers and actions](#triggers-actions).
 
 Connectors are available either as built-in triggers and actions or as managed connectors:
 
-* [**Built-ins**](#built-ins): These built-in actions and triggers are "native" 
+* [**Built-ins**](#built-ins): These built-in triggers and actions are "native" 
 to Azure Logic Apps and help you create logic apps that run on custom schedules, 
 communicate with other endpoints, receive and respond to requests, and call 
 Azure functions, Azure API Apps (Web Apps), your own APIs managed and published 
 with Azure API Management, and nested logic apps that can receive requests. 
 You can also use built-in actions that help you organize and control your 
 logic app's workflow, and also work with data.
+
+  > [!NOTE]
+  > Logic apps within an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
+  > can directly access resources in an Azure virtual network.
+  > When you use an ISE, built-in triggers and actions that display 
+  > the **Core** label run in the same ISE as your logic apps. 
+  > Logic apps, built-in triggers, and built-in actions that run in your 
+  > ISE use a pricing plan different from the consumption-based pricing plan.
+  >
+  > For more information about creating ISEs, see 
+  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > For more information about pricing, see 
+  > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
 
 * **Managed connectors**: Deployed and managed by Microsoft, 
 these connectors provide triggers and actions for accessing 
@@ -63,7 +77,7 @@ you might have to first create connections, which are managed by Azure Logic App
   additional cost. To determine whether a connector is Standard or Enterprise, 
   see the technical details in each connector's reference page 
   under [Connectors overview](https://docs.microsoft.com/connectors). 
-  
+
   You can also identify connectors by using these categories, 
   although some connectors can cross multiple categories. 
   For example, SAP is an Enterprise connector and an on-premises connector:
@@ -75,22 +89,39 @@ you might have to first create connections, which are managed by Azure Logic App
   | [**Integration account connectors**](#integration-account-connectors) | Available when you create and pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. |
   |||
 
-> [!NOTE]
-> For the full list of connectors and each connector's reference information, 
-> such as actions and any triggers, which are defined by an OpenAPI 
-> (formerly Swagger) description, plus any limits, you can find the full list 
-> under the [Connectors overview](/connectors/). For pricing information, see 
-> [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/) 
-> and the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md). 
+  > [!NOTE]
+  > Logic apps within an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
+  > can directly access resources in an Azure virtual network. 
+  > When you use an ISE, Standard and Enterprise connectors that 
+  > display the **ISE** label run in the same ISE as your logic apps. 
+  > Connectors that don't display the ISE label run in the global Logic Apps service.
+  >
+  > For on-premises systems that are connected to an Azure virtual network, 
+  > inject your ISE into that network so your logic apps can directly access 
+  > those systems by using either a connector that has an **ISE** label, 
+  > an HTTP action, or a [custom connector](#custom). Logic apps and 
+  > connectors that run in your ISE use a pricing plan different from 
+  > the consumption-based pricing plan. 
+  >
+  > For more information about creating ISEs, see 
+  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > For more information about pricing, see 
+  > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
+
+  For the full list of connectors and each connector's reference information, 
+  such as actions and any triggers, which are defined by an OpenAPI 
+  (formerly Swagger) description, plus any limits, you can find the full list 
+  under the [Connectors overview](/connectors/). For pricing information, see 
+  [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and 
+  [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 <a name="built-ins"></a>
 
 ## Built-ins
 
-Logic Apps provides built-in triggers and actions 
-so you can create schedule-based workflows, 
-help your logic apps communicate with other apps and services, 
-control the workflow through your logic apps, 
+Logic Apps provides built-in triggers and actions so you can create 
+schedule-based workflows, help your logic apps communicate with other 
+apps and services, control the workflow through your logic apps, 
 and manage or manipulate data.
 
 |   |   |   |   | 
@@ -103,7 +134,7 @@ and manage or manipulate data.
 
 ### Control workflow
 
-Here are built-in actions for structuring and 
+Logic Apps provides built-in actions for structuring and 
 controlling the actions in your logic app's workflow:
 
 |   |   |   |   | 
@@ -115,7 +146,7 @@ controlling the actions in your logic app's workflow:
 
 ### Manage or manipulate data
 
-Here are built-in actions for working with data outputs and their formats:  
+Logic Apps provides built-in actions for working with data outputs and their formats:  
 
 |   |   | 
 |---|---| 
@@ -128,8 +159,8 @@ Here are built-in actions for working with data outputs and their formats:
 
 ## Managed API connectors
 
-Here are the more popular connectors for automating tasks, 
-processes, and workflows with these services or systems:
+Logic Apps provides these popular Standard connectors for automating tasks, 
+processes, and workflows with these services or systems.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -139,14 +170,14 @@ processes, and workflows with these services or systems:
 | [![API icon][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Connect to your Dynamics 365 account so you can create and manage records, items, and more. | [![API icon][ftp-icon]<br/>**FTP**][ftp-doc] | Connect to FTP servers you can access from the internet so you can work with your files and folders. | 
 | [![API icon][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Connect to your Salesforce account so you can create and manage items such as records, jobs, objects, and more. | [![API icon][twitter-icon]<br/>**Twitter**][twitter-doc] | Connect to your Twitter account so you can manage tweets, followers, your timeline, and more. Save your tweets to SQL, Excel, or SharePoint. | 
 | [![API icon][azure-event-hubs-icon]<br/>**Azure Event Hubs**][azure-event-hubs-doc] | Consume and publish events through an Event Hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider. | [![API icon][azure-event-grid-icon]<br/>**Azure Event**</br>**Grid**][azure-event-grid-doc] | Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change. | 
-||||| 
+|||||
 
 <a name="on-premises-connectors"></a>
 
 ## On-premises connectors 
 
-Here are some commonly used connectors that provide 
-access to data and resources in on-premises systems. 
+Here are some commonly used Standard connectors that Logic Apps provides 
+for accessing data and resources in on-premises systems. 
 Before you can create a connection to an on-premises system, 
 you must first [download, install, and set up an on-premises data gateway][gateway-doc]. 
 This gateway provides a secure communication channel without 
@@ -156,13 +187,13 @@ having to set up the necessary network infrastructure.
 |---|---|---|---|---| 
 | ![API icon][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![API icon][file-system-icon]<br/>**File</br> System**][file-system-doc] | [![API icon][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![API icon][mysql-icon]<br/>**MySQL** | 
 | [![API icon][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API icon][postgre-sql-icon]<br/>**PostgreSQL** | [![API icon][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![API icon][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![API icon][teradata-icon]<br/>**Teradata** | 
-||||| 
+|||||
 
 <a name="integration-account-connectors"></a>
 
-## Integration account connectors 
+## Integration account connectors
 
-Here are connectors for building business-to-business (B2B) 
+Logic Apps provides Standard connectors for building business-to-business (B2B) 
 solutions with your logic apps when you create and pay for an 
 [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), 
 which is available through the Enterprise Integration Pack (EIP) in Azure. 
@@ -182,7 +213,8 @@ use BizTalk Server, these connectors might seem familiar already.
 
 ## Enterprise connectors
 
-Your logic apps can access enterprise systems, such as SAP and IBM MQ:
+Logic Apps provides these Enterprise connectors for 
+accessing enterprise systems, such as SAP and IBM MQ:
 
 |   |   |   | 
 |---|---|---| 
@@ -267,12 +299,22 @@ available to any logic app in your Azure subscription.
 To make custom API Apps or connectors public for anyone to use in Azure, 
 you can [submit connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
 
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* To submit or vote on ideas for Azure Logic Apps and connectors, 
-visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> Logic apps within an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
+> can directly access resources in an Azure virtual network.
+> If you have custom connectors that require the on-premises 
+> data gateway, and you created those connectors outside an ISE, 
+> logic apps in an ISE can also use those connectors.
+>
+> Custom connectors created within an ISE don't work 
+> with the on-premises data gateway. However, these 
+> connectors can directly access on-premises data sources 
+> that are connected to an Azure virtual network hosting 
+> the ISE. So, logic apps in an ISE most likely don't need 
+> the data gateway when communicating with those resources.
+>
+> For more information about creating ISEs, see 
+> [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
 
 ## Next steps
 

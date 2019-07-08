@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ---
@@ -46,7 +46,7 @@ the IDE, there are several ways to manage environment variables:
 Visual Studio lets you quickly open the application without using a command
 prompt, without configuring anything outside of the IDE.
 
-Steps using Visual Studio 2017:
+To run and debug the application using Visual Studio:
 
 1. Open the solution using the `iot-opc-gds-service.sln` file.
 

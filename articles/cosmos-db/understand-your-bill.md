@@ -4,7 +4,7 @@ description: This article explains how to understand your Azure Cosmos DB bill w
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
 ---
@@ -16,6 +16,8 @@ As a fully managed cloud-native database service, Azure Cosmos DB simplifies bil
 With Azure Cosmos DB, you are billed hourly based on the provisioned throughput and the consumed storage. For the provisioned throughput, the unit for billing is 100 RU/sec per hour, charged at $0.008 per hour, assuming standard public pricing, see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/). For the consumed storage, you are billed $0.25 per 1 GB of storage per month, see the [Pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 This article uses some examples to help you understand the details you see on the monthly bill. The numbers shown in the examples may be different if your Azure Cosmos containers have a different amount of throughput provisioned, if they span across multiple regions or run for a different for a period over a month.
+
+>!Note: Billing is for any portion of a wall-clock hour, not a 60 minute duration.
 
 ## Billing examples
 

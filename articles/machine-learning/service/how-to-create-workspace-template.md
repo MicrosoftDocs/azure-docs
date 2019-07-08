@@ -98,10 +98,23 @@ az group deployment create \
   --name exampledeployment \
   --resource-group examplegroup \
   --template-file azuredeploy.json \
-  --parameters workspaceName=exampleworkspace
+  --parameters workspaceName=exampleworkspace location=eastus
 ```
 
 For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) and [Deploy private Resource Manager template with SAS token and Azure CLI](../../azure-resource-manager/resource-manager-cli-sas-token.md).
+
+## Azure Key Vault access policy and Azure Resource Manager templates
+
+When you use an Azure Resource Manager template to create the workspace and associated resources (including Azure Key Vault), multiple times. For example, using the template multiple times with the same parameters as part of a continuous integration and deployment pipeline.
+
+Most resource creation operations through templates are idempotent, but Key Vault clears the access policies each time the template is used. Clearing the access policies breaks access to the Key Vault for any existing workspace that is using it. For example, Stop/Create functionalities of Azure Notebooks VM may fail.  
+
+To avoid this problem, we recommend one of the following approaches:
+
+*  Do not deploy the template more than once for the same parameters. Or delete the existing resources before using the template to recreate them.
+  
+* Examine the Key Vault access policies and then use these policies to set the accessPolicies property of the template.
+* Check if the Key Vault resource already exists. If it does, do not recreate it through the template. For example, add a parameter that allows you to disable the creation of the Key Vault resource if it already exists.
 
 ## Next steps
 

@@ -1,8 +1,8 @@
 ---
-title: Azure production operations and management
-description: This article provides a general description of the management and operation of the Azure production network.
+title: Management of Azure production network - Microsoft Azure
+description: This article describes how Microsoft manages and operates the Azure production network to secure the Azure datacenters.
 services: security
-documentationcenter: na
+documentationcenter: n
 author: TerryLanfear
 manager: barbkess
 editor: TomSh
@@ -13,12 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 05/30/2019
 ms.author: terrylan
 
 ---
 
-# Azure production operations and management    
+# Management and operation of the Azure production network    
+This article describes how Microsoft manages and operates the Azure production network to secure the Azure datacenters.
+
+## Monitor, log, and report
+
 The management and operation of the Azure production network is a coordinated effort between the operations teams of Azure and Azure SQL Database. The teams use several system and application performance-monitoring tools in the environment. And they use appropriate tools to monitor network devices, servers, services, and application processes.
 
 To ensure the secure execution of services running in the Azure environment, the operations teams implement multiple levels of monitoring, logging, and reporting, including the following actions:

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 07/02/2019
 ms.author: jingwang
 
 ---
@@ -29,6 +29,9 @@ Specifically, this SAP ECC connector supports:
 - Copying data from SAP ECC on SAP NetWeaver version 7.0 and above. 
 - Copying data from any objects exposed by SAP ECC OData services (e.g. SAP Table/Views, BAPI, Data Extractors, etc.), or data/IDOCs sent to SAP PI that can be received as OData via relative Adapters.
 - Copying data using basic authentication.
+
+>[!TIP]
+>To copy data from SAP ECC via SAP table/view, you can use [SAP Table](connector-sap-table.md) connector which is more performant and scalable.
 
 ## Prerequisites
 
@@ -118,7 +121,7 @@ To copy data from SAP ECC, set the source type in the copy activity to **SapEccS
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **SapEccSource** | Yes |
-| query | OData query options to filter data. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC connector copies data from the combined URL: (url specified in linked service)/(path specified in dataset)?(query specified in copy activity source). Refer to [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| query | OData query options to filter data. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC connector copies data from the combined URL: `(url specified in linked service)/(path specified in dataset)?(query specified in copy activity source)`. Refer to [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 **Example:**
 

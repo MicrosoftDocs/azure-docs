@@ -37,8 +37,8 @@ Functionality is exposed through a simple [REST API](/rest/api/searchservice/) o
 
 | AI&nbsp;enrichment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Features |
 |-------------------|----------|
-|AI enriched documents | [**Cognitive Search**](cognitive-search-concept-intro.md) for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. A few examples of [built-in skills](cognitive-search-predefined-skills.md) include optical character recognition (making scanned JPEGs searchable), entity recognition (identifying an organization, name, or location), and key phrase recognition. You can also [code custom skills](cognitive-search-create-custom-skill-example.md) to attach to the pipeline. |
-| Stored enrichments for analysis and consumption| [**Knowledge Store (preview)**](knowledge-store-concept-intro.md) is an extension of AI-based indexing. With Azure storage as a backend, you can save enrichments created during indexing. These artifacts can be used to help you design better skillsets, or create shape and structure out of  amorphous or ambiguous data. You can create projections of these structures that target specific workloads or users. You can also directly analyze the extracted data, or load it into other apps.<br/><br/> |
+|AI enriched documents | [**Cognitive search**](cognitive-search-concept-intro.md) for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. A few examples of [built-in skills](cognitive-search-predefined-skills.md) include optical character recognition (making scanned JPEGs searchable), entity recognition (identifying an organization, name, or location), and key phrase recognition. You can also [code custom skills](cognitive-search-create-custom-skill-example.md) to attach to the pipeline. |
+| Stored enrichments for analysis and consumption| [**Knowledge store (preview)**](knowledge-store-concept-intro.md) is an extension of AI-based indexing. With Azure storage as a backend, you can save enrichments created during indexing. These artifacts can be used to help you design better skillsets, or create shape and structure out of  amorphous or ambiguous data. You can create projections of these structures that target specific workloads or users. You can also directly analyze the extracted data, or load it into other apps.<br/><br/> |
 
 | Data&nbsp;import/indexing | Features |
 |----------------------------------|----------|
@@ -128,7 +128,7 @@ Alternatively, you can [activate MSDN subscriber benefits](https://azure.microso
 3. Move forward with code using either the .NET or REST API:
 
    + [How to use the .NET SDK](search-howto-dotnet-sdk.md) demonstrates the main workflow in managed code.  
-   + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API. You can also use this quickstart to call REST APIs from Postman or Fiddler: [Explore Azure Search REST APIs](search-fiddler.md).
+   + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) shows the same steps using the REST API. You can also use this quickstart to call REST APIs from Postman or Fiddler: [Explore Azure Search REST APIs](search-get-started-postman.md).
 
 ## Watch this video
 

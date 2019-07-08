@@ -41,6 +41,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "resourcemanager-templates",
+      "url": "https://github.com/Azure/azure-docs-json-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
@@ -157,6 +163,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "samples-anomaly-detector",
+      "url": "https://github.com/Azure-Samples/anomalydetector",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "api-management-policy-samples",
       "url": "https://github.com/Azure/api-management-policy-snippets",
       "branch": "master",
@@ -208,6 +220,12 @@
       "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
       "branch": "tutorial",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-tsi",
+      "url": "https://github.com/Azure-Samples/Azure-Time-Series-Insights",
+      "branch": "master",
       "branch_mapping": {}
     },
     {
@@ -301,6 +319,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmosdb-nodejs-get-started",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cognitive-services-content-moderator-samples",
       "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
       "branch": "master",
@@ -364,7 +388,7 @@
   "need_generate_pdf_url_template": true,
   "targets": {
     "Pdf": {
-      "template_folder": "_themes.pdf"	
+      "template_folder": "_themes.pdf"
     }
   }
 }

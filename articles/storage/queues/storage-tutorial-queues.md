@@ -126,18 +126,19 @@ Since the app uses cloud resources, the code runs asynchronously. However, C#'s 
 
 ## Create a queue
 
-1. Install the **WindowsAzure. Storage** package to the project with the `dotnet add package` command. Execute the following dotnet command from the project folder in the console window.
+1. Install the **Microsoft.Azure.Storage.Common** and **Microsoft.Azure.Storage.Queue** packages to the project with the `dotnet add package` command. Execute the following dotnet commands from the project folder in the console window.
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. At the top of the **Program.cs** file, add the following namespaces right after the `using System;` statement. This app uses types from these namespaces to connect to Azure Storage and work with queues.
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. Save the **Program.cs** file.
@@ -203,7 +204,7 @@ Add the connection string into the app so it can access the storage account.
 
 ## Insert messages into the queue
 
-Create a new method to send a message into the queue. Add the following method to your **Program** class. This method gets a queue reference, then creates a new queue if it doesn't already exist by calling [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Then, it adds the message to the queue by calling [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Create a new method to send a message into the queue. Add the following method to your **Program** class. This method gets a queue reference, then creates a new queue if it doesn't already exist by calling [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync). Then, it adds the message to the queue by calling [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
 
 1. Add the following **SendMessageAsync** method to your **Program** class.
 
@@ -224,9 +225,17 @@ Create a new method to send a message into the queue. Add the following method t
 
 2. Save the file.
 
+A message must be in a format that can be included in an XML request with UTF-8 encoding, and may be up to 64 KB in size. If a message contains binary data, we recommend that you Base64-encode the message.
+
+By default, the maximum time-to-live for a message is set to 7 days. You can specify any positive number for the message time-to-live. To add a message that does not expire, use `Timespan.FromSeconds(-1)` in your call to **AddMessageAsync**.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
+
 ## Dequeue messages
 
-Create a new method called **ReceiveMessageAsync**. This method receives a message from the queue by calling [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Once the message is successfully received, it's important to delete it from the queue so it isn't processed more than once. After the message is received, delete it from the queue by calling [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Create a new method called **ReceiveMessageAsync**. This method receives a message from the queue by calling [GetMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync). Once the message is successfully received, it's important to delete it from the queue so it isn't processed more than once. After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync).
 
 1. Add the following **ReceiveMessageAsync** method to your **Program** class.
 
@@ -340,8 +349,8 @@ Here is the complete code listing for this project.
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

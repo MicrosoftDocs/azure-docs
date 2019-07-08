@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service | Microsoft Docs
-description: RESTful interface to get information about Linux VM's compute, network and upcoming maintenance events.
+description: RESTful interface to get information about Linux VM's compute, network, and upcoming maintenance events.
 services: virtual-machines-linux
 documentationcenter: ''
 author: KumariSupriya
@@ -37,7 +37,7 @@ Regions                                        | Availability?                  
 -----------------------------------------------|-----------------------------------------------|-----------------
 [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure China](https://www.azure.cn/)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Public West Central US](https://azure.microsoft.com/regions/)                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
@@ -58,7 +58,7 @@ As newer versions are added, older versions can still be accessed for compatibil
 
 When no version is specified, an error is returned with a list of the newest supported versions.
 
-> [!NOTE] 
+> [!NOTE]
 > The response is a JSON string. The following example response is pretty-printed for readability.
 
 **Request**
@@ -202,7 +202,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -280,7 +280,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -356,10 +356,10 @@ azEnvironment | Azure Environment where the VM is running in | 2018-10-01
 customData | See [Custom Data](#custom-data) | 2019-02-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
-offer | Offer information for the VM image. This value is only present for images deployed from Azure image gallery. | 2017-04-02
+offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
 osType | Linux or Windows | 2017-04-02
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its an Azure Marketplace Image, contains name, product and publisher | 2018-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if its an Azure Marketplace Image | 2018-04-02
 platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
 platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
 provider | Provider of the VM | 2018-10-01
@@ -535,8 +535,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Response**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+The cloud and the values of the Azure Environment are listed below.
+
+ Cloud   | Azure Environment
+---------|-----------------
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | AzureChinaCloud
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### Getting the tags for the VM
 
@@ -617,11 +625,11 @@ Once you get the signature above, you can verify that the signature is from Micr
 > [!NOTE]
 > The certificate for Public cloud and sovereign cloud will be different.
 
- Regions | Certificate
+ Cloud | Certificate
 ---------|-----------------
 [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -686,9 +694,17 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### Custom Data
-Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64 KB and is provided to the VM in base64 encoded form. For details on how to create a VM with custom data, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64 KB and is provided to the VM in base64 encoded form.
+
+Azure custom data can be inserted to the VM through REST APIs, PowerShell Cmdlets, Azure Command Line Interface (CLI), or an ARM template.
+
+For an Azure Command Line Interface example, see [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+
+For an ARM template example, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 Custom data is available to all processes running in the VM. It is suggested that customers do not insert secret information into custom data.
+
+Currently, custom data is guaranteed to be available during bootstrap of a VM. If updates are made to the VM such as adding disks or resizing the VM, Instance Metadata Service will not provide custom data. Providing custom data persistently through Instance Metadata Service is currently in progress.
 
 #### Retrieving custom data in Virtual Machine
 Instance Metadata Service provides custom data to the VM in base64 encoded form. The following example decodes the base64 encoded string.

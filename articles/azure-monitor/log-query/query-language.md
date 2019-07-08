@@ -56,7 +56,7 @@ Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queri
 ## Cheatsheets
 
 -  [SQL to Azure Monitor log query](sql-cheatsheet.md) assists users who are already familiar with SQL.
--  [Splunk to Azure Monitor log query](sql-cheatsheet.md) assists users who are already familiar with Splunk.
+-  [Splunk to Azure Monitor log query](splunk-cheatsheet.md) assists users who are already familiar with Splunk.
  
 ## Next steps
 

@@ -38,6 +38,18 @@ ms.author: ramkris
 
 ## Release notes
 
+### <a name="2.3.0-preview2"/>2.3.0-preview2
+
+* Added support for graph bulk executor to accept ttl on vertices and edges
+
+### <a name="2.2.0-preview2"/>2.2.0-preview2
+
+* Fixed an issue, which caused exceptions during elastic scaling of Azure Cosmos DB when running in Gateway mode. This fix makes it functionally equivalent to 1.4.1 release.
+
+### <a name="2.1.0-preview2"/>2.1.0-preview2
+
+* Added BulkDelete support for SQL API accounts to accept partition key, document id tuples to delete. This change makes it functionally equivalent to 1.4.0 release.
+
 ### <a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Including MongoBulkExecutor to support .NET Standard 2.0. This feature makes it functionally equivalent to 1.3.0 release, with the addition of supporting .NET Standard 2.0 as the target framework.
@@ -46,10 +58,24 @@ ms.author: ramkris
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the BulkExecutor library work with .NET Core applications.
 
+### <a name="1.6.0"/>1.6.0
+
+* Updated the Bulk Executor to now use the latest version of the Azure Cosmos DB .NET SDK (2.4.0)
+
+### <a name="1.5.0"/>1.5.0
+
+* Added support for graph bulk executor to accept ttl on vertices and edges
+
+### <a name="1.4.1"/>1.4.1
+
+* Fixed an issue, which caused exceptions during elastic scaling of Azure Cosmos DB when running in Gateway mode.
+
+### <a name="1.4.0"/>1.4.0
+
+* Added BulkDelete support for SQL API accounts to accept partition key, document id tuples to delete.
+
 ### <a name="1.3.0"/>1.3.0
 
-* Added an overload for BulkDelete operation for SQL API accounts to accept partition key, document id tuples to delete.
-* Added an overload for BulkDelete operation for SQL API accounts to accept RequestOptions containing the partition key specifying the value of the partition key, in addition to using it as a filter in the input query specifying documents to delete.
 * Fixed an issue, which caused a formatting issue in the user agent used by BulkExecutor.
 
 ### <a name="1.2.0"/>1.2.0

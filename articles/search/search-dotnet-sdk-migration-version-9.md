@@ -7,11 +7,11 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
 ---
-# Upgrading to the Azure Search .NET SDK version 9
+# Upgrade to the Azure Search .NET SDK version 9
 
 If you're using version 7.0-preview or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 9.
 
@@ -32,7 +32,7 @@ Version 9 of the Azure Search .NET SDK contains many changes from earlier versio
 ## What's new in version 9
 Version 9 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API, specifically 2019-05-06. This makes it possible to use new features of Azure Search from a .NET application, including the following:
 
-* [Cognitive Search](cognitive-search-concept-intro.md) is an AI feature in Azure Search, used to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index.
+* [Cognitive search](cognitive-search-concept-intro.md) is an AI feature in Azure Search, used to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index.
 * Support for [complex types](search-howto-complex-data-types.md) allows you to model almost any nested JSON structure in an Azure Search index.
 * [Autocomplete](search-autocomplete-tutorial.md) provides an alternative to the **Suggest** API for implementing search-as-you-type behavior. Autocomplete "finishes" the word or phrase that a user is currently typing.
 * [JsonLines parsing mode](search-howto-index-json-blobs.md), part of Azure Blob indexing, creates one search document per JSON entity that is separated by a newline.
@@ -64,7 +64,7 @@ There are several breaking changes in version 9 that may require code changes in
 > [!NOTE]
 > The list of changes below is not exhaustive. Some changes will likely not result in build errors, but are technically breaking since they break binary compatibility with assemblies that depend on earlier versions of the Azure Search .NET SDK assemblies. Such changes are not listed below. Please rebuild your application when upgrading to version 9 to avoid any binary compatibility issues.
 
-### Making properties immutable
+### Immutable properties
 
 The public properties of several model classes are now immutable. If you need to create custom instances of these classes for testing, you can use the new parameterized constructors:
 
@@ -97,7 +97,7 @@ This is because these properties must now be `null` in the case of complex field
 
 The parameterless constructor of `Field` has been made `internal`. From now on, every `Field` requires an explicit name and data type at the time of construction.
 
-### Simplification of batch and results types
+### Simplified batch and results types
 
 In version 7.0-preview and earlier, the various classes that encapsulate groups of documents were structured into parallel class hierarchies:
 
@@ -112,7 +112,7 @@ The derived types without a generic type parameter were meant to be used in "dyn
 
 Starting with version 8.0-preview, the base classes and non-generic derived classes have all been removed. For dynamically-typed scenarios, you can use `IndexBatch<Document>`, `DocumentSearchResult<Document>`, and so on.
  
-### Removal of ExtensibleEnum
+### Removed ExtensibleEnum
 
 The `ExtensibleEnum` base class has been removed. All classes that derived from it are now structs, such as `AnalyzerName`, `DataType`, and `DataSourceType` for example. Their `Create` methods have also been removed. You can just remove calls to `Create` since these types are implicitly convertible from strings. If that results in compiler errors, you can explicitly invoke the conversion operator via casting to disambiguate types. For example, you can change code like this:
 
@@ -144,7 +144,7 @@ var index = new Index()
 
 Properties that held optional values of these types are now explicitly typed as nullable so they continue to be optional.
 
-### Removal of FacetResults and HitHighlights
+### Removed FacetResults and HitHighlights
 
 The `FacetResults` and `HitHighlights` classes have been removed. Facet results are now typed as `IDictionary<string, IList<FacetResult>>` and hit highlights as `IDictionary<string, IList<string>>`. A quick way to resolve build errors introduced by this change is to add `using` aliases at the top of each file that uses the removed types. For example:
 

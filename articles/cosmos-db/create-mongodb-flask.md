@@ -23,7 +23,7 @@ ms.date: 12/26/2018
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB.
 
-This quick start guide uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](local-emulator.md) and the Azure Cosmos DB's API for MongoDB.
+This quickstart guide uses the following [Flask example](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) and demonstrates how to build a simple To-Do Flask app with the [Azure Cosmos DB Emulator](local-emulator.md) and the Azure Cosmos DB's API for MongoDB.
 
 ## Prerequisites
 
@@ -99,7 +99,7 @@ The following snippets are all taken from the app.py file and uses the connectio
 
 2. Open a terminal window and `cd` to the directory that the app is saved in.
 
-3. Then set the environment variable for the Flask app with `set FLASK_APP=app.py` or `export FLASK_APP=app.py` if you are using a Mac.
+3. Then set the environment variable for the Flask app with `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` for PowerShell editors, or `export FLASK_APP=app.py` if you are using a Mac. 
 
 4. Run the app with `flask run` and browse to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
@@ -137,7 +137,7 @@ When deploying to Azure, you should remove your application keys and make sure t
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the application settings. You can follow this [tutorial](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings) to learn more about Application Settings in Azure Web Apps.
+You then need to add your MONGOURL, MONGO_PASSWORD, and MONGO_USERNAME to the application settings. You can follow this [tutorial](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings) to learn more about Application Settings in Azure Web Apps.
 
 If you don't want to create a fork of this repo, you can also click the deploy to Azure button below. You should then go into Azure and set up the application settings with your Cosmos DB account info.
 

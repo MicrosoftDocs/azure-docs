@@ -45,7 +45,7 @@ At the end of this tutorial, you have two Node.js apps:
 
 To complete this tutorial, you need the following:
 
-* Node.js version 4.0.x or later
+* Node.js version 10.0.x or later
 [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
@@ -101,7 +101,7 @@ In this section, you create a Node.js console app that responds to a direct meth
    
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
-            if (!err) {
+            if (err) {
                 console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
