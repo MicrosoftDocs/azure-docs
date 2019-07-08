@@ -2,13 +2,13 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 07/03/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
