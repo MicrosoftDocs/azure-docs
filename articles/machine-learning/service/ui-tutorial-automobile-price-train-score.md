@@ -16,12 +16,10 @@ ms.date: 04/06/2019
 
 In this tutorial, you take an extended look at developing a predictive solution in the Azure Machine Learning service visual interface. By the end of this tutorial, you'll have a solution that can predict the price of any car based on technical specifications you send it.
 
-This tutorial [continues from the quickstart](ui-quickstart-run-experiment.md) and is **part one of a two-part tutorial series**. However, you don't have to complete the quickstart before starting.
-
 In part one of the tutorial series you learn how to:
 
 > [!div class="checklist"]
-> * Import and clean data (the same steps as the quickstart)
+> * Import and clean data
 > * Train a machine learning model
 > * Score and evaluate a model
 
@@ -50,69 +48,169 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
     The interface webpage opens in a new browser page.  
 
-## Import and clean your data
 
-The first thing you need is clean data. If you completed the quickstart, you can reuse your data prep experiment here. If you haven't completed the quickstart, skip the next section and [start from a new experiment](#start-from-a-new-experiment).
+## Create your first experiment
 
-### Reuse the quickstart experiment
-
-1. Open your quickstart experiment.
-
-1. Select **Save As** at the bottom of the window.
-
-1. Give it a new name in the pop-up dialog that appears.
-
-    ![Screenshot showing how to rename an experiment to "Tutorial - Predict Automobile Price"](./media/ui-tutorial-automobile-price-train-score/save-a-copy.png)
-
-1. The experiment should now look something like this:
-
-    ![Screenshot showing the expected state of the experiment. The automobile data set connects to the Select Columns module that connects to the Clean Missing Data](./media/ui-tutorial-automobile-price-train-score/save-copy-result.png)
-
-If you successfully reused your quickstart experiment, skip the next section to begin [training your model](#train-the-model).
-
-### Start from a new experiment
-
-If you didn't complete the quickstart, follow these steps to quickly create a new experiment that imports and cleans the automobile data set.
+The visual interface tool provides an interactive, visual place to easily build, test, and iterate on a predictive analysis model. You drag-and-drop datasets and analysis modules onto an interactive canvas, connecting them together to form an *experiment*. Create your first experiment now.
 
 1. Create a new experiment by selecting **+New** at the bottom of the visual interface window.
+![Add new experiment](./media/ui-tutorial-automobile-price-train-score/add-new.png)
 
 1. Select **Experiments** >  **Blank Experiment**.
 
 1. Select the default experiment name **"Experimented Created on ...**" at the top of the canvas and rename it to something meaningful. For example, **Automobile price prediction**. The name doesn't need to be unique.
 
-1. To the left of the experiment canvas is a palette of datasets and modules. To find modules, use the search box at the top of the module palette. Type **automobile** in the search box to find the dataset labeled **Automobile price data (Raw)**. Drag this dataset to the experiment canvas.
+## Add data
 
-    ![Screenshot how to find the automobile price data set](./media/ui-tutorial-automobile-price-train-score/automobile-dataset.png)
+The first thing you need for machine learning is data. There are several sample datasets included in this interface that you can use, or you can import data from many sources. For this example, you'll use the sample dataset **Automobile price data (Raw)**. 
 
-    Now that you have your data, you can add a module that removes the **normalized-losses** column completely. Then, add another module that removes any row that has missing data.
+1. To the left of the experiment canvas is a palette of datasets and modules. Select **Saved Datasets** then select **Samples** to view the available sample datasets.
 
-1. Type **select columns** in the search box to find the **Select Columns in Dataset** module. Then drag it to the experiment canvas. This module allows you to select which columns of data you want to include or exclude in the model.
+1. Select the dataset, **Automobile price data (raw)**, and drag it onto the canvas.
 
-1. Connect the output port of the **Automobile price data (Raw)** dataset to the input port of the Select Columns in Dataset.
+   ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
 
-    ![Animated gif showing how to connect the Automobile Price Data module to the Select Columns module](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+## Select columns
 
-1. Select the Select Columns in Dataset module and select **Launch column selector** in the **Properties** pane.
+Select which columns of data to work with. To start with, configure the module to show all available columns.
 
-   1. On the left, select **With rules**
+> [!TIP]
+> If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of the quickstart will use this shortcut.
 
-   1. Next to  **Begin With**, select **All columns**. These rules direct **Select Columns in Dataset** to pass through all the columns (except those columns we're about to exclude).
 
-   1. From the drop-downs, select **Exclude** and **column names**, and then type **normalized-losses** inside the text box.
+1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
 
-   1. Select the OK button to close the column selector (on the lower right).
+1. Click and drag the **Select Columns in Dataset** onto the canvas. Drop the module below the dataset you added earlier.
 
-     Now the properties pane for **Select Columns in Dataset** indicates that it will pass through all columns from the dataset except **normalized-losses**.
+1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset, drag to the input port of **Select Columns in Dataset**, then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
 
-1. Add a comment to the **Select Columns in Dataset** module by double-clicking the module and entering "Exclude normalized losses.". This can help you see, at a glance, what the module is doing in your experiment.
+    > [!TIP]
+    > Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom. You create a flow of data through your experiment when you connect the output port of one module to an input port of another.
+    >
 
-    ![Screenshot showing correct configuration of the Select Columns module](./media/ui-tutorial-automobile-price-train-score/select-columns.png)
+    ![Connect modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
 
-1. Type **Clean** in the Search box to find the **Clean Missing Data** module. Drag the **Clean Missing Data** module to the experiment canvas and connect it to the **Select Columns in Dataset** module.
+    The red exclamation mark indicates that you haven't set the properties for the module yet. You'll do that next.
 
-1. In the **Properties** pane, select **Remove entire row** under **Cleaning mode**. These options direct **Clean Missing Data** to clean the data by removing rows that have any missing values. Double-click the module and type the comment "Remove missing value rows."
+1. Select the **Select Columns in Dataset** module.
 
-![Screenshot showing correct configuration of the Clean Missing Data module](./media/ui-tutorial-automobile-price-train-score/clean-missing-data.png)
+1. In the **Properties** pane to the right of the canvas, select **Edit columns**.
+
+    In the **Select columns** dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
+
+     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+
+1. On the lower right, select **OK** to close the column selector.
+
+## Run the experiment
+
+At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow.  If the **Visualize** option is disabled, you first need to run the experiment.  You'll do that next.
+
+[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
+
+After the compute target is available, the experiment runs. When the run is complete, a green check mark appears on each module.
+
+
+## Preview the data
+
+Now that you have run your initial experiment, you can visualize the data to understand more about the information you have to work with.
+
+1. Select the output port at the bottom of the **Select Columns in Dataset** then select **Visualize**.
+
+1. Click on different columns in the data window to view information about that column.  
+
+    In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns.    There are 205 rows and 26 columns in this dataset.
+
+     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left.  For example, when you click on **num-of-doors** you see it has 2 unique values and 2 missing values.  Scroll down to see the values: two and four doors.
+
+     ![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+
+1. Click on each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
+
+## Prepare data
+
+A dataset usually requires some preprocessing before it can be analyzed. You might have noticed the missing values present in the columns of various rows. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so you'll exclude that column from the model altogether.
+
+> [!TIP]
+> Cleaning the missing values from input data is a prerequisite for using most of the modules.  
+
+### Remove column
+
+First,  remove the **normalized-losses** column completely.
+
+1. Select the **Select Columns in Dataset** module.
+
+1. In the **Properties** pane to the right of the canvas, select **Edit columns**.
+
+    * Leave  **With rules** and **ALL COLUMNS** selected.
+
+    * From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. Type **normalized-losses**.
+
+    * On the lower right, select **OK** to close the column selector.
+
+    ![Exclude a column](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+        
+    Now the properties pane for Select Columns in Dataset indicates that it will pass through all columns from the dataset except **normalized-losses**.
+        
+    The properties pane shows that the **normalized-losses** column is excluded.
+        
+    ![Property pane](./media/ui-tutorial-automobile-price-train-score/property-pane.png)
+        
+    You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. 
+
+1. Double-click the **Select Columns in Dataset** module and type the comment "Exclude normalized losses." 
+    
+    After you type the comment, click outside the module.  A down-arrow appears to show that the module contains a comment.
+
+1. Click on the down-arrow to display the comment.
+
+    The module now shows an up-arrow to hide the comment.
+        
+    ![Comments](./media/ui-tutorial-automobile-price-train-score/comments.png)
+
+### Clean missing data
+
+When you train a model, you have to do something about the data that is missing.  In this case, you'll add a module to remove any remaining row that has missing data.  
+
+1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
+
+1. Drag the **Clean Missing Data** module to the experiment canvas and connect it to the **Select Columns in Dataset** module. 
+
+1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
+
+    These options direct **Clean Missing Data** to clean the data by removing rows that have any missing values.
+
+1. Double-click the module and type the comment "Remove missing value rows."
+ 
+    ![Remove rows](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
+
+    Your experiment should now look something like this:
+    
+    ![select-column](./media/ui-tutorial-automobile-price-train-score/experiment-clean.png)
+
+## Visualize the results
+
+Since you made changes to the modules in your experiment, the status has changed to "In draft".  To visualize the new clean data, you first have to run the experiment again.
+
+1. Select **Run** at the bottom to run the experiment.
+
+    This time you can reuse the compute target you created earlier.  
+
+1. Select **Run** in the dialog.
+
+   ![Run experiment](./media/ui-tutorial-automobile-price-train-score/select-compute.png)
+
+1. When the run completes, right-click on the **Clean Missing Data** module to visualize the new clean data.  
+
+    ![Visualize clean data](./media/ui-tutorial-automobile-price-train-score/visualize-cleaned.png)
+
+1. Click on different columns in the cleaned data window to see how data has changed.  
+
+    ![Visualize Clean Data](media/ui-tutorial-automobile-price-train-score/visualize-result.png)
+
+    There are now 193 rows and 25 columns.
+
+    When you click on **num-of-doors** you see it still has 2 unique values but now has 0 missing values. Click through the rest of the columns to see that there are no missing values left in the dataset. 
 
 ## Train the model
 
