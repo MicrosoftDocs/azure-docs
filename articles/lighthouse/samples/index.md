@@ -14,7 +14,6 @@ The following table includes links to key Azure Resource Manager templates for A
 
 | **Template** | **Description** |
 |---------|---------|
-| [alert-using-actiongroup](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/alert-using-actiongroup) | Creates an Azure alert and connects to an existing Action Group. |
 | [create-multiple-rgs](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/create-multiple-rgs) | Creates multiple resource groups using a single Azure Resource Manager template. |
 | [cross-rg-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/cross-rg-deployment) | Deploy storage accounts into two different resource groups. |
 | [cross-subscription-deployment](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/cross-subscription-deployment) | Deploy Azure Resource Manager templates across multiple subscriptions. |
