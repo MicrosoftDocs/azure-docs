@@ -40,7 +40,7 @@ If you specify both parameters without maintaining the aspect ratio, Bing will a
 
 If you specify only the height or width of a thumbnail, the image's original aspect ratio will be maintained. If you specify both parameters, and the aspect ratio isn't maintained, Bing will add white padding to the border of the image.
 
-For example, if you resize a 480x359 image to 200x200 without cropping, the full width will contain the image but the height will contain 25 pixels of white padding at the top and bottom of the image. The same is if the image was 359x480 except the left and right borders would contain white padding. If you crop the image, white padding is not added.  
+For example, if you resize a 480x359 image to 200x200 without cropping, the full width will contain the image but the height will contain 25 pixels of white padding at the top and bottom of the image. If the image was 359x480, the left and right borders would contain white padding. If you crop the image, white padding is not added.  
 
 The following picture shows the original size of a thumbnail image (480x300).  
   
@@ -60,7 +60,9 @@ To increase the width of the image specified by the above URL to 165 pixels, you
 
 `https://<host>/th?id=AMMS_92772df988...&w=165&pid=16.1`
 
-If you request an image that’s larger than the image’s original size, Bing adds white padding around the image as needed. For example, if the image’s original size is 474x316 and you set `&w` to 500, Bing will return a 500x333 image. This image will have 8.5 pixels of white padding along the top and bottom edges, and 13 pixels of padding on the left and right edges.
+If you request an image that’s larger than the image’s original size, Bing adds white padding around the image as needed. For example, if the image’s original size is 474x316 and you set `&w` to 500, Bing will return a 500x333 image. This image will have:
+* 8.5 pixels of white padding along the top and bottom edges.
+* 13 pixels of padding on the left and right edges.
 
 To prevent Bing from adding white padding if the requested size is greater than the image’s original size, set the `&p` query parameter to 0. For example, if you include the `&p=0` parameter in the above URL, Bing will return a 474x316 image instead of a 500x333 image:
 
@@ -84,11 +86,11 @@ If you request Smart Ratio cropping (by setting the `c` parameter to `7`), Bing 
 If you resize an image and request Smart Ratio cropping, Bing reduces the image to the requested size while maintaining the aspect ratio. Bing then crops the image based on the resized dimensions. For example, if the resized width is less than or equal to the height, Bing will crop the image to the left and right of the center of the region of interest. Otherwise, Bing will crop it to the top and bottom of the center of the region of interest.  
   
  
-The following shows the image reduced to 200x200 using Smart Ratio cropping. Because Bing measures the image from the top left corner, the bottom part of the image is cropped. 
+The following shows the image reduced to 200x200 using Smart Ratio cropping. Because Bing measures the image from the top-left corner, the bottom part of the image is cropped. 
   
 ![Landscape image cropped to 200x200](./media/resize-crop/bing-resize-crop-landscape200x200c7.png) 
   
-The following shows the image reduced to 200x100 using Smart Ratio cropping. Because Bing measures the image from the top left corner, the bottom part of the image is cropped. 
+The following shows the image reduced to 200x100 using Smart Ratio cropping. Because Bing measures the image from the top-left corner, the bottom part of the image is cropped. 
    
 ![Landscape image cropped to 200x100](./media/resize-crop/bing-resize-crop-landscape200x100c7.png)
   
@@ -102,18 +104,18 @@ If Bing cannot determine the image’s region of interest, the service will use 
 
 If you request Blind Ratio cropping (by setting the `c` parameter to `4`), Bing uses the following rules to crop the image.  
   
-- If `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`, the image is measured from top left corner and cropped at the bottom.  
+- If `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`, the image is measured from top-left corner and cropped at the bottom.  
 - If `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)`, the image is measured from the center and cropped to the left and right.  
 
 The following shows a portrait image that’s 225x300.  
   
 ![Original sunflower image](./media/resize-crop/bing-resize-crop-sunflower.png)
   
-The following shows the image reduced to 200x200 using Blind Ratio cropping. The image is measured from the top left corner resulting in the bottom part of the image being cropped.  
+The following shows the image reduced to 200x200 using Blind Ratio cropping. The image is measured from the top-left corner resulting in the bottom part of the image being cropped.  
   
 ![Sunflower image cropped to 200x200](./media/resize-crop/bing-resize-crop-sunflower200x200c4.png)
   
-The following shows the image reduced to 200x100 using Blind Ratio cropping. The image is measured from the top left corner resulting in the bottom part of the image being cropped.  
+The following shows the image reduced to 200x100 using Blind Ratio cropping. The image is measured from the top-left corner resulting in the bottom part of the image being cropped.  
   
 ![Sunflower image cropped to 200x100](./media/resize-crop/bing-resize-crop-sunflower200x100c4.png)
   
