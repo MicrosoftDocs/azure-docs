@@ -66,7 +66,7 @@ This creates a basic class based on `TableEntity`, which is used to store data. 
 
 Now that we have data partitioning setup, let's scaffold out the basic CRUD and trigger methods for custom resources and custom actions. Since custom providers act as a proxy, the request and response must be modeled and handled by the RESTful `endpoint`. Follow the below snippets for handling the basic RESTful operations:
 
-# [Trigger custom action](#tab/function-trigger-action)
+### Trigger custom action
 
 For custom providers, a custom action is triggered through `POST` requests. A custom action can optionally accept a request body that contains a set of input parameters. The action should then return back a response signally the result of the action as well as whether it succeeded or failed. In this tutorial, we will add the method `TriggerCustomAction` to our function:
 
@@ -90,7 +90,7 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 
 The `TriggerCustomAction` method accepts an incoming request and simply echos back the response with a success status code. 
 
-# [Create custom resource](#tab/function-create-resource)
+### Create custom resource
 
 For custom providers, a custom resource is created through `PUT` requests. The custom provider will accept a JSON request body, which contains a set of properties for the custom resource. In Azure, resources follow a RESTful model. The same request URL that was used to create a resource should also be able to retrieve and delete the resource. In this tutorial, we will add the method `CreateCustomResource` to create new resources:
 
@@ -138,7 +138,7 @@ id | '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>pro
 
 In addition to adding the properties, we also save the document to Azure Table Storage. 
 
-# [Retrieve custom resource](#tab/function-retrieve-resource)
+### Retrieve custom resource
 
 For custom providers, a custom resource is retrieved through `GET` requests. The custom provider will *not* accept a JSON request body. In the case of `GET` requests, the **endpoint** should use the `x-ms-customproviders-requestpath` header to return the already created resource. In this tutorial, we will add the method `RetrieveCustomResource` to retrieve existing resources:
 
@@ -169,7 +169,7 @@ public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequest
 
 In Azure, resources should follow a RESTful model. The request URL that created the resource should also return the resource if a `GET` request is performed.
 
-# [Remove custom resource](#tab/function-remove-resource)
+### Remove custom resource
 
 For custom providers, a custom resource is removed through `DELETE` requests. The custom provider will *not* accept a JSON request body. In the case of `DELETE` requests, the **endpoint** should use the `x-ms-customproviders-requestpath` header to delete the already created resource. In this tutorial, we will add the method `RemoveCustomResource` to remove existing resources:
 
@@ -200,7 +200,7 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 
 In Azure, resources should follow a RESTful model. The request URL that created the resource should also delete the resource if a `DELETE` request is performed.
 
-# [List all custom resources](#tab/function-list-resource)
+### List all custom resources
 
 For custom providers, a list of existing custom resources can be enumerated through collection `GET` requests. The custom provider will *not* accept a JSON request body. In the case of collection `GET` requests, the `endpoint` should use the `x-ms-customproviders-requestpath` header to enumerate the already created resources. In this tutorial, we will add the method `EnumerateAllCustomResources` to enumerate the existing resources.
 
@@ -242,8 +242,6 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 > The row key greater than and less than is Azure Table syntax to perform a query "startswith" for strings. 
 
 For listing all existing resources, we generate a Azure Table query that ensures that the resources exist under our custom provider partition. The query then checks that the row key starts with the same `{myResourceType}`.
-
----
 
 ## Integrate RESTful operations
 

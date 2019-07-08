@@ -20,13 +20,13 @@ This tutorial is broken into the following steps:
 
 Custom providers act as a proxy between Azure REST clients and an `endpoint`. This means that the `endpoint` will directly handle every request and response. Although the only requirement is that `endpoint` accept and returns content-type `application/json`, in order to ensure that the new API can integrate with existing Azure services, it should follow the standard Azure REST specification.
 
-# [Custom actions](#tab/model-custom-action)
+### Custom actions
 
 For a more detailed guide on building custom actions and their requirements, see [building custom actions on Azure](./custom-providers-action-endpoint-how-to.md)
 
 - The `endpoint` accepts and returns with JSON. It should also set the `Content-Type` header to `application/json` on the response.
 
-# [Custom resources](#tab/model-custom-resources)
+### Custom resources
 
 For a more detailed guide on building custom resources and their requirements, see [building custom resources on Azure](./custom-providers-resources-endpoint-how-to.md)
 
@@ -52,8 +52,6 @@ myResourceType | The name of the custom provider endpoint. This is the resource 
 subscriptionId | The subscription ID of the custom provider.
 resourceGroupName | The resourceGroup name of the custom provider.
 resourceProviderName | The name of the custom provider.
-
----
 
 ## Next steps
 
