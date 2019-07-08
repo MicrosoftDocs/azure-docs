@@ -52,11 +52,11 @@ az account set --subscription <subscriptionId/name>
 az account show
 ```
 
-## Register the customer's subscription for onboarding
+## Ensure the customer's subscription is registered for onboarding
 
-Each subscription must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. For more info, see [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
+Each subscription must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. The customer can register a subscription by following the steps outlined in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
 
-You can confirm that the subscription is ready for onboarding (from within the customer's tenant) in one of the following ways.
+The customer can confirm that the subscription is ready for onboarding in one of the following ways.
 
 ### Azure portal
 
@@ -179,7 +179,9 @@ To onboard a customer's subscription, use the appropriate Azure Resource Manager
 |Subscription (when using an offer published to Azure Marketplace)   |marketplace-delegated-resource-management\ marketplaceDelegatedResourceManagement.json  |marketplace-delegated-resource-management\ marketplaceDelegatedResourceManagement.parameters.json    |
 
 > [!IMPORTANT]
-> The process described here requires a separate deployment for each subscription being onboarded (or for each subscription containing resource group(s) that are being onboarded).
+> The process described here requires a separate deployment for each subscription being onboarded.
+> 
+> Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
 
 The following example shows a modified **resourceProjection.parameters.json** file that will be used to onboard a subscription. The resource group parameter files (located in the rg-delegated-resource-management folder) are similar, but also include an **rgName** parameter to identify the specific resource group(s) to be onboarded.
 
@@ -215,7 +217,7 @@ The following example shows a modified **resourceProjection.parameters.json** fi
 
 ## Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, you must deploy the Resource Management template in the customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
+Once you have updated your parameter file, the customer must deploy the Resource Management template in their customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
 
 > [!IMPORTANT]
 > The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded).
