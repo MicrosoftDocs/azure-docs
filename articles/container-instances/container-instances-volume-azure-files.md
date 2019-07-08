@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -76,6 +76,16 @@ az container create \
 ```
 
 The `--dns-name-label` value must be unique within the Azure region where you create the container instance. Update the value in the preceding command if you receive a **DNS name label** error message when you execute the command.
+
+## Manage files in mounted volume
+
+Once the container starts up, you can use the simple web app deployed via the Microsoft [aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
+
+```azurecli-interactive
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn --output tsv
+```
+
+After saving text using the app, you can use the [Azure portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] to retrieve and inspect the file written to the file share.
 
 ## Deploy container and mount volume - YAML
 
@@ -213,15 +223,6 @@ To deploy with the Resource Manager template, save the preceding JSON to a file 
 az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
 ```
 
-## Manage files in mounted volume
-
-Once the container starts up, you can use the simple web app deployed via the Microsoft [aci-hellofiles][aci-hellofiles] image to create small text files in the Azure file share at the mount path you specified. Obtain the web app's fully qualified domain name (FQDN) with the [az container show][az-container-show] command:
-
-```azurecli-interactive
-az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
-```
-
-You can use the [Azure portal][portal] or a tool like the [Microsoft Azure Storage Explorer][storage-explorer] to retrieve and inspect the file written to the file share.
 
 ## Mount multiple volumes
 
