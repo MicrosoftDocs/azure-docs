@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 06/28/2019
+ms.date: 07/08/2019
 ---
 # Creating and using active geo-replication
 
@@ -109,7 +109,7 @@ Both primary and secondary databases are required to have the same service tier.
 
 
 > [!IMPORTANT]
-> The published RPO = 5 sec cannot be guaranteed unless the secondary database is configured with the same compute size as teh primary. 
+> The published RPO = 5 sec cannot be guaranteed unless the secondary database is configured with the same compute size as the primary. 
 
 
 If you decide to create the secondary with lower compute size, the log IO percentage chart on Azure portal provides a good way to estimate the minimal compute size of the secondary that is required to sustain the replication load. For example, if your Primary database is P6 (1000 DTU) and its log IO percent is 50% the secondary needs to be at least P4 (500 DTU). You can also retrieve the log IO data using [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) or [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) database views.  The throttling is reported as a HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO wait state in the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) database views. 
