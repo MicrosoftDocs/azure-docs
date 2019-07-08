@@ -60,9 +60,7 @@ To increase the width of the image specified by the above URL to 165 pixels, you
 
 `https://<host>/th?id=AMMS_92772df988...&w=165&pid=16.1`
 
-If you request an image that’s larger than the image’s original size, Bing adds white padding around the image as needed. For example, if the image’s original size is 474x316 and you set `&w` to 500, Bing will return a 500x333 image. This image will have:
-* 8.5 pixels of white padding along the top and bottom edges.
-* 13 pixels of padding on the left and right edges.
+If you request an image that’s larger than the image’s original size, Bing adds white padding around the image as needed. For example, if the image’s original size is 474x316 and you set `&w` to 500, Bing will return a 500x333 image. This image will have 8.5 pixels of white padding along the top and bottom edges, and 13 pixels of padding on the left and right edges.
 
 To prevent Bing from adding white padding if the requested size is greater than the image’s original size, set the `&p` query parameter to 0. For example, if you include the `&p=0` parameter in the above URL, Bing will return a 474x316 image instead of a 500x333 image:
 
