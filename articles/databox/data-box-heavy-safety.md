@@ -60,7 +60,7 @@ Here are the icons that you will find when you review the safety precautions to 
 * Use mechanical assistance or other suitable assistance when moving and lifting equipment.
 
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) ![Tip Hazard Icon](./media/data-box-heavy-safety/tip_hazard_icon.png) **WARNING!** [Heavy Weight Icon](./media/data-box-heavy-safety/heavy_weight_hazard_icon.png) **WARNING!**
+![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) ![Overload Tip Hazard Icon](./media/data-box-heavy-safety/overload_tip_hazard.png) ![Tip Hazard Icon](./media/data-box-heavy-safety/tip_hazard_icon.png)![Heavy Weight Icon](./media/data-box-heavy-safety/heavy_weight_hazard_icon.png) **WARNING!**
 * Data Box Heavy is not to be used as a table or workspace. Adding any type of load can create a potential hazard which could lead to injury or property damage.
 * Rack-mounted equipment is not to be used as shelves or work spaces. Do not place the Data Box Heavy on top of rack-mounted equipment. Adding any type of load to an extended rack-mounted unit can create a potential tip hazard that could lead to injury, death, or product damage.
 
@@ -102,7 +102,7 @@ Here are the icons that you will find when you review the safety precautions to 
     - The power cord must have an electrical rating that is greater than that of the electrical current rating marked on the product.
     - The power cord must have safety ground pin or contact that is suitable for the electrical outlet.
 
-![Warning Icon](./media/data-box-heavy-safety/warning_icon.png) ![Electrical Shock Icon](./media/data-box-heavy-safety/electrical_shock_hazard_icon.png) **WARNING!**
+![Warning Icon](./media/data-box-heavy-safety/warning_icon.png)  ![Electrical Shock Icon](./media/data-box-heavy-safety/electrical_shock_hazard_icon.png) ![Multiple Power Sources Icon](./media/data-box-heavy-safety/multiple_power_sources.png) **WARNING!**
 
 * Unplug all AC power cord(s) to completely remove the AC power from the equipment.
 
