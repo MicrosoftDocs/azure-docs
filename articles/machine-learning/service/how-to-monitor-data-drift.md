@@ -1,7 +1,7 @@
 ---
 title: Detect data drift (Preview) on AKS deployments
 titleSuffix: Azure Machine Learning service
-description: Learn how to detect data drift on Azure Kubernetes Service deployed models in Azure Machine Learning service.
+description: Detect data drift on Azure Kubernetes Service deployed models in Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,7 +12,8 @@ author: cody-dkdc
 ms.date: 07/08/2019
 ---
 
-# Detect data drift (preview) on models deployed to Azure Kubernetes Service
+# Detect data drift (preview) on models deployed to Azure Kubernetes Service (AKS)
+
 In this article, you learn how to monitor for data drift between the training dataset and inference data of a deployed model. In the context of machine learning, trained machine learning models may experience degraded prediction performance because of drift. With the Azure Machine Learning service, you can monitor data drift and the service can send an email alert to you when drift is detected.
 
 ## What is data drift?
@@ -88,7 +89,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## Submit a DataDriftDetector run
 
-With the `DataDriftDetector` object configured, you can submit a [data drift run](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) on a given date for the model. Also as part of the run,  you can set the `drift_threshold` parameter, which can be used to enable DataDriftDetector alerts. 
+With the `DataDriftDetector` object configured, you can submit a [data drift run](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) on a given date for the model. Also as part of the run,  you can set the `drift_threshold` parameter, which enables DataDriftDetector alerts. 
 
 ```python
 # adhoc run today
@@ -107,7 +108,8 @@ RunDetails(dd_run).show()
 ```
 
 ## Visualize drift metrics
-After submitting your DataDriftDetector run, you are able to see the drift metrics that are saved in each run iteration for a data drift task:
+
+After you submit your DataDriftDetector run, you are able to see the drift metrics that are saved in each run iteration for a data drift task:
 
 |Metric|Description|
 --|--|
@@ -119,7 +121,7 @@ datadrift_contribution|Feature importance of features contributing to drift.|
 There are multiple ways to view drift metrics:
 
 * Use the Jupyter widget.
-* Use the [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) function on any `datadriftRun` object.
+* Use the [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) function on any `datadrift` run object.
 * View the metrics in the Azure portal on your model
 
 The following Python example demonstrates how to plot relevant data drift metrics. You can use the returned metrics to build custom visualizations:
@@ -164,14 +166,23 @@ In order for you to set up custom alerts and actions, all data drift metrics are
 
 ![Data Drift Email Alert](media/how-to-monitor-data-drift/drift_email.png)
 
-## Retrain your model
+## Retrain your model after drift
 
-When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. To do so, 
+When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. The following [`diff()`] method will give you an initial sense of what changed between the old and new training data sets. 
 
-* Prepare the data collected from the deployed model. 
-* Split it into train/test data
+```python
+from azureml.core import Dataset
+
+old_training_dataset.diff(new_training_dataset)
+```
+
+Based on the output of the previous code, you can determine whether or not to proceed with the following steps for retraining your model.
+
+* Investigate the collected data and prepare data to train the new model.
+* Split it into train/test data.
 * Train the model again using the new data.
-* Deploy new model.
+* Evaluate performance of the newly generated model.
+* Deploy new model if performance is better than the production model.
 
 ## Next steps
 
