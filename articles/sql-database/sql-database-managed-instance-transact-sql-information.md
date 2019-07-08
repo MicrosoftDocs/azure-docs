@@ -288,13 +288,13 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
   - SQL Server Analysis Services aren't supported.
 - Notifications are partially supported.
 - Email notification is supported, although it requires that you configure a Database Mail profile. SQL Server Agent can use only one Database Mail profile, and it must be called `AzureManagedInstance_dbmail_profile`. 
-  - Pager isn't supported. 
+  - Pager isn't supported.
   - NetSend isn't supported.
   - Alerts aren't yet supported.
-  - Proxies aren't supported. 
+  - Proxies aren't supported.
 - EventLog isn't supported.
 
-The following features currently aren't supported but will be enabled in the future:
+The following SQL Agent features currently aren't supported:
 
 - Proxies
 - Scheduling jobs on an idle CPU
