@@ -1,5 +1,5 @@
 ---
-title: Configure SQL FQDNs in Azure Firewall application rules
+title: Configure Azure Firewall application rules with SQL FQDNs
 description: In this article, you learn how to configure SQL FQDNs in Azure Firewall application rules.
 services: firewall
 author: vhorne
@@ -9,14 +9,14 @@ ms.date: 7/11/2019
 ms.author: victorh
 ---
 
-# Configure SQL FQDNs in Azure Firewall application rules
+# Configure Azure Firewall application rules with SQL FQDNs
 
 > [!IMPORTANT]
-> Azure Firewall with SQL FQDNs is currently in public preview.
+> Azure Firewall application rules with SQL FQDNs is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can now configure SQL FQDNs in Azure Firewall application rules. This allows you to limit access from your virtual networks to only the specified SQL server instances.
+You can now configure Azure Firewall application rules with SQL FQDNs. This allows you to limit access from your virtual networks to only the specified SQL server instances.
 
 With SQL FQDNs, you can filter traffic:
 
