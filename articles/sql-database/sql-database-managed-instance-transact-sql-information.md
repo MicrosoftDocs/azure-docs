@@ -570,6 +570,7 @@ You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encr
 ### Point-in-time restore follows time by the time zone set on the source instance
 
 Point-in-time restore currently interprets time to restore to by following time zone of the source instance instead by following UTC.
+Check [Managed Instance time zone known issues](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) for more details.
 
 ## Next steps
 
