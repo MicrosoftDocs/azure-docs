@@ -106,7 +106,7 @@ After you create the application for the identity provider that you want to add,
 
 1. For **Client ID**, enter the *Application (client) ID* that you previously recorded.
 1. For **Client secret**, enter the *client secret* value that you previously recorded.
-1. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. Domain hints(https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.
+1. Optionally, enter a value for **Domain_hint**. For example, `ContosoAD`. [Domain hints](../active-directory/manage-apps/configure-authentication-for-federated-users-portal) are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.
 1. Select **OK**.
 1. Select **Map this identity provider's claims** and set the following claims:
 
@@ -135,14 +135,14 @@ In the tutorial that you completed as part of the prerequisites, you created a u
 2. Select **Identity providers**, select the **Facebook** and **Contoso Azure AD** identity providers that you added.
 3. Select **Save**.
 
-### Test the user flow
+## Test the user flow
 
 1. On the Overview page of the user flow that you created, select **Run user flow**.
 1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
 1. Select **Run user flow**, and then sign in with an identity provider that you previously added.
 1. Repeat steps 1 through 3 for the other identity providers that you added.
 
-If the sign in operation is successful, you're redirected to `jwt.ms` which displays the Decoded Token, similar to:
+If the sign in operation is successful, you're redirected to `https://jwt.ms` which displays the Decoded Token, similar to:
 
 ```json
 {
@@ -174,6 +174,8 @@ In this article, you learned how to:
 > * Create the identity provider applications
 > * Add the identity providers to your tenant
 > * Add the identity providers to your user flow
+
+Next, learn how to customize the UI of the pages shown to users as part of their identity experience in your applications:
 
 > [!div class="nextstepaction"]
 > [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md)
