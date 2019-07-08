@@ -75,6 +75,7 @@ You can [download a sample template file](https://github.com/Azure-Samples/hdins
 | `<RESOURCEGROUPNAME>` | The resource group where you want the new cluster and storage account created. |
 | `<MANAGEDIDENTITYNAME>` | The name of the managed identity that will be given permissions on your Azure Data Lake Storage Gen2 account. |
 | `<STORAGEACCOUNTNAME>` | The new Azure Data Lake Storage Gen2 account that will be created. |
+| `<CLUSTERNAME>` | The name of your HDInsight cluster. |
 | `<PASSWORD>` | Your chosen password for signing in to the cluster using SSH as well as the Ambari dashboard. |
 
 The code snippet below does the following initial steps:
