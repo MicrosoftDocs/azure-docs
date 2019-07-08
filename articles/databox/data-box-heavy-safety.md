@@ -16,7 +16,7 @@ ms.author: alkohli
 This article contains the safety information for your Azure Data Box Heavy.
 
 ![Warning icon](./media/data-box-heavy-safety/warning-icon.png)
-![Read safety notice icon](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **Read All Instructions First**
+![Read safety notice icon](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **Read all instructions first**
 
 Read all the safety information in this article before you use your Azure Data Box Heavy. Failure to follow instructions could result in fire, electric shock, or other injuries, or damage to your properties.
 
@@ -49,7 +49,7 @@ Here are the icons that you will find when you review the safety precautions to 
 * Place the equipment on a flat, hard and stable surface to avoid a potential tip or crushing hazard.
 * Verify the casters are locked before you inspect, turn on, and operate the equipment.
 
-![Warning icon](./media/data-box-heavy-safety/warning-icon.png) ![Electrical shock icon](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)![No user serviceable parts icon](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **CAUTION** 
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) ![Electrical shock icon](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)![No user serviceable parts icon](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **CAUTION!** 
 
 * Inspect the *as-received* device for damages. If the device enclosure is damaged, contact [Microsoft Support](data-box-disk-contact-microsoft-support.md) to obtain a replacement. Do not attempt to operate the device. 
 * The device is equipped with tamper-proof screws. If you suspect the device is malfunctioning, [Microsoft Support](data-box-disk-contact-microsoft-support.md) to obtain a replacement. Do not attempt to service the device. 
@@ -109,7 +109,7 @@ Here are the icons that you will find when you review the safety precautions to 
 
 * Unplug all AC power cord(s) to completely remove the AC power from the equipment.
 
-![Warning icon](./media/data-box-heavy-safety/warning-icon.png) **CAUTION:**
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) **CAUTION!**
 
 * This device contains coin cell batteries. Do not attempt to service the device. Batteries in this device are not user serviceable. 
 * **For service personnel only**: Risk of explosion if battery is replaced by an incorrect type. Dispose of the used batteries according to instructions.
@@ -163,7 +163,7 @@ Canada: (800) 933-4750
 
 [Request](mailto:CSI_Compliance@microsoft.com) a copy of the EU Declaration of Conformity.
 
-![Warning icon](./media/data-box-heavy-safety/warning-icon.png) **WARNING:** 
+![Warning icon](./media/data-box-heavy-safety/warning-icon.png) **WARNING!** 
 
 This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
 
