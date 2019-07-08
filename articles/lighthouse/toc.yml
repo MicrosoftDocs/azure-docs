@@ -7,8 +7,8 @@
     href: overview.md
 - name: Samples
   items:
-  - name: Samples
-    displayname: Index
+  - name: Index
+    displayName: template, sample
     href: ./samples/index.md
 - name: Concepts
   items:

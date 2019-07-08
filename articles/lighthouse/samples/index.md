@@ -26,4 +26,4 @@ The following table includes links to key Azure Resource Manager templates for A
 ## Next steps
 
 - Learn about [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
-- Learn how to use these templates to [onboard customers for Azure delegated resource management](../how-to/onboard-customer.md).
+- Learn about using Azure Resource Manager templates to [onboard customers for Azure delegated resource management](../how-to/onboard-customer.md).

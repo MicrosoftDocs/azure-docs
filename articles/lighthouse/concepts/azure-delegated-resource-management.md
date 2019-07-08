@@ -32,7 +32,7 @@ You can [publish the new Managed Services offer type to Azure Marketplace](../ho
 
 At a high level, here's how Azure delegated resource management works:
 
-1. As a service provider, you identify the access (roles) that your groups, service principals, or users will need to manage the customer's Azure resources. The access definition contains the service provider's tenant ID along with the required access for the offer, defined using **principalId** identities from your tenant mapped to [built-in **roleDefinition** values](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (Contributor, VM Contributor, Reader, etc.)
+1. As a service provider, you identify the access (roles) that your groups, service principals, or users will need to manage the customer's Azure resources. The access definition contains the service provider's tenant ID along with the required access for the offer, defined using **principalId** identities from your tenant mapped to [built-in **roleDefinition** values](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (Contributor, VM Contributor, Reader, etc.).
 2. You specify this access and onboard the customer to Azure delegated resource management in one of two ways:
    - [Publish an Azure Marketplace managed services offer](../how-to/publish-managed-services-offers.md) (private or public) that the customer will accept
    - [Deploy an Azure Resource Manager template to the customer's tenant](../how-to/onboard-customer.md) for one or more specific subscriptions or resource groups
