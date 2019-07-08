@@ -247,7 +247,7 @@ https:\//management.azure.com | Used for replication management operations and c
 *.services.visualstudio.com | Used for telemetry purposes (It is optional)
 time.nist.gov | Used to check time synchronization between system and global time.
 time.windows.com | Used to check time synchronization between system and global time.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF set up needs access to these URLs. They are used for access control and identity management by Azure Active Directory
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download
 
 
@@ -258,7 +258,7 @@ MySQL can be installed on the replication appliance using one of these methods.
 **Install** | **Details**
 --- | ---
 Download and install manually | Download MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br/> When you set up the appliance MySQL will show as already installed. 
-Don't download online | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and click to donwload and install MySQL, setup will use the installer you added. 
+Don't download online | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and click to download and install MySQL, setup will use the installer you added. 
 Download from Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
 
 
@@ -293,7 +293,7 @@ management.azure.com | Create Active Directory apps for the appliance to communi
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.windowsazure.com<br/>*.migration.windowsazure.com>br/>*.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
 
 ## Agent-based migration-port requirements
