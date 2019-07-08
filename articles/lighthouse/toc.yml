@@ -5,6 +5,11 @@
   - name: What is Azure Lighthouse?
     displayName: management at scale, service providers
     href: overview.md
+- name: Samples
+  items:
+  - name: Samples
+    displayname: Index
+    href: ./samples/index.md
 - name: Concepts
   items:
   - name: Azure delegated resource management

@@ -15,6 +15,15 @@ metadata:
 abstract:
   description: Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale and enhanced governance. 
 sections:
+- title: Samples
+  items:
+  - type: paragraph
+    text: Review the samples and templates available to help you use Azure Lighthouse.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/samples/index">Samples index</a>
 - title: Concepts
   items:
   - type: paragraph
