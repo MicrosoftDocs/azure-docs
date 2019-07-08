@@ -129,8 +129,10 @@ az storage account create -n <storage-account-name> -g <resource-group-name> --f
 
 To access Azure Files resources using Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows Share permissions, where you specify the type of access that a given user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
 
-We have introduced two Azure Built-in roles for granting share level permissions to users: Storage File Data SMB Share Reader and Storage File Data SMB Share Contributor. Storage File Data SMB Share Reader allows read access in Azure Storage file shares over SMB
-Storage File Data SMB Share Contributor allows read, write, and delete access in Azure Storage file shares over SMB. 
+We have introduced two Azure Built-in roles for granting share level permissions to users: Storage File Data SMB Share Reader and Storage File Data SMB Share Contributor. 
+
+- **Storage File Data SMB Share Reader** allows read access in Azure Storage file shares over SMB
+- **Storage File Data SMB Share Contributor** allows read, write, and delete access in Azure Storage file shares over SMB
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials. 
@@ -142,9 +144,9 @@ To assign a RBAC role to an Azure AD identity, using the [Azure portal](https://
 
 1. In the Azure portal, navigate to your file share, or [create a file share in Azure Files](storage-how-to-create-file-share.md).
 2. Select **Access Control (IAM)**.
-3. Click **Add a role assignment**
+3. Select **Add a role assignment**
 4. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** dropdown list. Keep the **Assign access to** as default: "Azure AD user, group, or service principal", and select the target Azure AD identity by name or email address. 
-5. Lastly, click **Save** to complete the role assignment operation.
+5. Lastly, select **Save** to complete the role assignment operation.
 
 #### PowerShell
 
