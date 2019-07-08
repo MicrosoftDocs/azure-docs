@@ -77,7 +77,7 @@ The name of the package used for a given binding is provided in the reference ar
 
 Replace `<TARGET_VERSION>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
-If you use `Install-Package` to reference a binding, you do not need to use [extension bundles](#exension-bundles). This approach is specific for class libraries built in Visual Studio.
+If you use `Install-Package` to reference a binding, you do not need to use [extension bundles](#extension-bundles). This approach is specific for class libraries built in Visual Studio.
 
 ## <a name="vs-code"> C# class library with Visual Studio Code
 
@@ -99,4 +99,3 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 ## Next steps
 > [!div class="nextstepaction"]
 > [Azure Function trigger and binding example](./functions-bindings-example.md)
-
