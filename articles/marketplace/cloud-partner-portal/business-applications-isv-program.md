@@ -85,7 +85,7 @@ The final step for enrollment in the Business Applications ISV Program is to rec
 
 1. [Follow the steps](https://partner.microsoft.com/solutions/business-applications/isv-publish) to republish your application to AppSource.
 
-2. [Create and publish a new offer](manage-offers/cpp-manage-offers.md) to Cloud Partner Portal. You can then delete your original offer.
+2. [Create and publish a new offer](manage-offers/cpp-manage-offers.md) to Cloud Partner Portal. This will be an entirely new offer and not intended to replace the existing one.
 
 ## Further info
 
