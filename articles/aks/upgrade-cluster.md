@@ -2,12 +2,12 @@
 title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster

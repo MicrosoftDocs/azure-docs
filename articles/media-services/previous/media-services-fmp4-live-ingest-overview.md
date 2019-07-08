@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
+ms.author: juliako
 
 ---
 # Azure Media Services fragmented MP4 live ingest specification 
