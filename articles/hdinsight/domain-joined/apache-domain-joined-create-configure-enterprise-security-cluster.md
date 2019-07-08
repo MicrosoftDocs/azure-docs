@@ -305,7 +305,7 @@ click **Next**.
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Priority | /<Desired Number/> |
+        | Priority | \<Desired Number\> |
         | Name | Port_LDAP_636 |
 
     ![inbound security rule](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
