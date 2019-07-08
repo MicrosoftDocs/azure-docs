@@ -9,11 +9,11 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 05/02/2019
 ms.author: cynthn
 ms.subservice: disks
 ---
-# Ephemeral OS disks for Azure VMs
+# Preview: Ephemeral OS disks for Azure VMs
 
 [!INCLUDE [virtual-machines-common-ephemeral](../../../includes/virtual-machines-common-ephemeral.md)]
  

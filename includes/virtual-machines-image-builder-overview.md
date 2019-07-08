@@ -51,7 +51,7 @@ AIB will support RHEL ISO's, as a source for:
 - RHEL 7.4
 - RHEL 7.5
 
-RHEL 7.6 is not supported, but being tested.
+RHEL 7.6 ISOs are not supported, but are being tested.
 
 ## How it works
 
