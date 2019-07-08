@@ -89,7 +89,7 @@ The final step for enrollment in the Business Applications ISV Program is to rec
 
 ## Further info
 
-Ask your Account Manager or contact [Microsoft Partner Support](https://partner.microsoft.com/support) for assistance with your account. For general information information on the Business Applications ISV Program and Microsoft Partner Center, see:
+Ask your Account Manager or contact [Microsoft Partner Support](https://partner.microsoft.com/support) for assistance with your account. For general information on the Business Applications ISV Program and Microsoft Partner Center, see:
 
 #### Business Applications for ISVs (portal)
 https://partner.microsoft.com/solutions/business-applications/isv-publish
