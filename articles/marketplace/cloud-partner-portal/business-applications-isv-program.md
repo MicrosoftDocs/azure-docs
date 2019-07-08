@@ -35,9 +35,9 @@ the platform would meet a given quality bar. When you follow these steps to enro
 > [!NOTE]
 > This step requires an *Owner* or *Manager* role in Cloud Partner Portal for your given account.
 
-If you've already published Dynamics CE and/or Dynamics Ops offers, most likely your Cloud Partner Portal (CPP) account has already been migrated and activated on Microsoft Partner Center.
+If you've already published Dynamics CE and/or Dynamics Ops offers, most likely your Cloud Partner Portal (CPP) account has already been migrated and activated on Microsoft Partner Center. If not, you can manually activate your Partner Center account from your CPP publisher profile.
 
-1. Sign in to your *Publisher Profile* page from [Cloud Partner Portal](https://cloudpartner.azure.com/). 
+1. Sign in to your *Publisher Profile* page from [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
 2. If you see a banner showing that your account settings have been migrated to Partner Center, continue on to the next section. Otherwise, click on the yellow banner prompting you to activate your Partner Center account.
 
