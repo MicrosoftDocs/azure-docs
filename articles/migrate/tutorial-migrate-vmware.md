@@ -4,7 +4,7 @@ description: Describes how to perform and agentless migration of on-premises VMw
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/29/2019
+ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -258,7 +258,7 @@ After you've verified that the test migration works as expected, you can migrate
 ## Post-migration best practices
 
 - For increased resilience:
-    - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal,md).
+    - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
