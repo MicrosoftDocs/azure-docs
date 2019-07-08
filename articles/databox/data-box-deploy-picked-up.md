@@ -84,10 +84,8 @@ Azure datacenters in Australia have an additional security notification. All the
 7. Print the return label and affix it on the shipping box.
 8. Hand over the package to the courier.
 
-If needed, you can contact Quantium Solution Support at the following information: 
+If needed, you can email Quantium Solution Support at Azure@quantiumsolutions.com or phone.
 
-- Email：Azure@quantiumsolutions.com 
-- Telephone：1 800 021 333
 
 For inquiry regarding your order via the phone:
 
