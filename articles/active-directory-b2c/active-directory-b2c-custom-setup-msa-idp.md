@@ -189,7 +189,7 @@ Update the relying party (RP) file that initiates the user journey that you crea
     {
       "typ": "JWT",
       "alg": "RS256",
-      "kid": "<key-ID"
+      "kid": "<key-ID>"
     }.{
       "exp": 1562365200,
       "nbf": 1562361600,
