@@ -35,7 +35,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 We recommend that you try out VMware VM assessment with Azure Migrate Server Assessment, before you migrate VMs to Azure. Set up an assessment as follows:
 
 1. Follow the tutorial to [prepare Azure and VMware](tutorial-prepare-vmware.md) for assessment.
-2. Then, follow [this tutorial](tutorials-assess-vmware.md) to set up an Azure Migrate appliance for assessment, and discover and assess VMs.
+2. Then, follow [this tutorial](tutorial-assess-vmware.md) to set up an Azure Migrate appliance for assessment, and discover and assess VMs.
 
 
 Although we recommend that you try out an assessment, you don't have to run an assessment before you migrate VMs.
@@ -66,7 +66,7 @@ Before you begin this tutorial, you should:
     - Create a VM in the selected virtual network.
     - Write to an Azure managed disk. 
 
-3. [Set up an Azure network](../virtual-network/manage-virtual-network#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to an Azure network you specify when you set up migration.
+3. [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to an Azure network you specify when you set up migration.
 
 
 ## Prepare Azure
@@ -418,7 +418,7 @@ After you've verified that the test migration works as expected, you can migrate
 ## Post-migration best practices
 
 - For increased resilience:
-    - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal,md).
+    - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
     - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
