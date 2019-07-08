@@ -18,10 +18,10 @@ The [Business Applications ISV Program](https://partner.microsoft.com/solutions/
 
 In order to enroll and take advantage of all the [technical, marketing, and sales enablement benefits](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview) of the Business Applications ISV Program, we're asking existing ISV partners with (*Dynamics CE* and *Ops*) to complete several prerequisites explained in this guide. These steps include: 
 
- - [Setting up](#activate-your-account-in-partner-center) your Microsoft Partner Center account
- - [Signing](#sign-the-business-applications-isv-program-agreement) the Business Applications ISV Program agreement
- - [Specifying your billing](#set-up-your-billing-information) information, and
- - [Republishing](#submit-your-app-for-recertification) your application to Microsoft AppSource
+ - [Setting up your account](#activate-your-account-in-partner-center) for Microsoft Partner Center
+ - [Signing the agreement](#sign-the-business-applications-isv-program-agreement) for the Business Applications ISV Program
+ - [Specifying your billing info](#set-up-your-billing-information), and
+ - [Republishing your application](#submit-your-app-for-recertification) to Microsoft AppSource
 
 In the past, Microsoft lacked a way for customers to easily assess whether a given ISV application built on
 the platform would meet a given quality bar. When you follow these steps to enroll in the Microsoft Business Applications ISV Program, your application is certified and promoted as part of the official ISV ecosystem.
@@ -33,7 +33,7 @@ If you've already published Dynamics CE and/or Dynamics Ops offers, your Cloud P
 > [!NOTE]
 > This step requires an *Owner* role in Cloud Partner Portal for your given account.
 
-Sign in to your *Publisher Profile* page from [Cloud Partner Portal](https://cloudpartner.azure.com/) and click on the yellow banner prompting you to activate your Partner Center account.
+1. Sign in to your *Publisher Profile* page from [Cloud Partner Portal](https://cloudpartner.azure.com/) and click on the yellow banner prompting you to activate your Partner Center account.
 
 For more info, see [*Account migration from Cloud Partner Portal to Partner Center*](../partner-center-portal/account-migration-from-cpp-to-pc.md).
 
@@ -42,7 +42,7 @@ For more info, see [*Account migration from Cloud Partner Portal to Partner Cent
 Participation in this program requires you to review and accept the *Microsoft Business Applications ISV Addendum* agreement.
 
 > [!NOTE]
-> This step requires an *Owner* role in Partner Center for your given account in order to sign legal agreements. If you completed your Cloud Partner Portal account migration by [activating your Partner Center account](../partner-center-portal/account-migration-from-cpp-to-pc.md#account-activation-is-complete) in the previous step, your account owner permissions have also migrated to Partner Center.
+> This step requires an *Owner* or *Manager* role in Partner Center for your given account in order to sign legal agreements. If you completed your Cloud Partner Portal account migration by [activating your Partner Center account](../partner-center-portal/account-migration-from-cpp-to-pc.md#account-activation-is-complete) in the previous step, your permissions have also migrated to Partner Center.
 
 1. Go to https://partner.microsoft.com/dashboard/account/agreements (signing in to Partner Center as prompted).
 
@@ -55,7 +55,7 @@ Participation in this program requires you to review and accept the *Microsoft B
 Next, set up your billing information for the Business Applications ISV Program.
 
 > [!NOTE]
-> This step requires an *Owner* role in Partner Center for your given account in order to update billing information.
+> This step requires an *Owner* or *Manager* role in Partner Center for your given account in order to update billing information.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
@@ -65,7 +65,7 @@ Next, set up your billing information for the Business Applications ISV Program.
 
 4. Review the primary contact and billing information that is populated from your legal entity, and click on the checkbox if you need to make updates.
 
-5. Optionally, supply Tax ID/VAT ID settings (these are not required).
+5. (Optional) Supply Tax ID/VAT ID settings.
 
 6. **Save** your changes on the form.
 
@@ -75,25 +75,23 @@ You can update your billing profile at any time, however *Company Name* and bill
 
 If you've complete the steps above, your existing Dynamics 365 CE and Dynamics 365 Ops offers are now unlocked for editing in the Cloud Partner Portal (you might need to refresh the page). You can also create new offers through the CPP.
 
-The final step for enrollment in the Business Applications ISV Program is to recertify your existing applications by [republishing your app to AppSource](https://partner.microsoft.com/solutions/business-applications/isv-publish) and [resubmitting your offer to Cloud Partner Portal](manage-offers/cpp-manage-offers.md).
+1. The final step for enrollment in the Business Applications ISV Program is to recertify your existing applications by [republishing your app to AppSource](https://partner.microsoft.com/solutions/business-applications/isv-publish) and [resubmitting your offer to Cloud Partner Portal](manage-offers/cpp-manage-offers.md).
 
 ## Further info
 
-Ask your Account Manager or contact [Microsoft Partner Support](https://partner.microsoft.com/support) for assistance with your account.
+Ask your Account Manager or contact [Microsoft Partner Support](https://partner.microsoft.com/support) for assistance with your account. For general information information on the Business Applications ISV Program and Microsoft Partner Center, see:
 
-For more information on the Business Applications ISV Program and Microsoft Partner Center, see:
-
-* Business Applications for ISVs (portal)
+#### Business Applications for ISVs (portal)
 https://partner.microsoft.com/solutions/business-applications/isv-publish
 
-* Overview of the New Program for Business Applications ISVs (PDF)
+#### Overview of the New Program for Business Applications ISVs (PDF)
 https://aka.ms/BizAppsISVProgram
 
-* Business Applications ISV Program FAQ (PDF)
+#### Business Applications ISV Program FAQ (PDF)
 https://assetsprod.microsoft.com/business-applications-partner-faq.pdf
 
-* Upcoming program for Business Applications ISVs (blog post)
+#### Upcoming program for Business Applications ISVs (blog post)
 https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/
 
-* Microsoft Partner Center (documentation)
+#### Microsoft Partner Center (documentation)
 https://docs.microsoft.com/partner-center/ 
