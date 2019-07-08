@@ -20,7 +20,7 @@ When you offer your application for use by other companies through a purchase or
 
 ## What is Single Sign-On
 
-Single sign-on (SSO) adds security and convenience when users sign on to applications by using Azure Active Directory and other identities. When an application is SSO enabled, users don't have to enter separate credentials to access that application. For a full explanation of Single sign-on. [See Single sign-on to applications in Azure Active Directory](what-is-single-sign-on).
+Single sign-on (SSO) adds security and convenience when users sign on to applications by using Azure Active Directory and other identities. When an application is SSO enabled, users don't have to enter separate credentials to access that application. For a full explanation of Single sign-on. [See Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md).
 
 ## Why Enable Single Sign-on in your application?
 
