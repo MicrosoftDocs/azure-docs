@@ -84,7 +84,28 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 ### Add Google Play services to the project
 
-[!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
+1. In Android Studio, select **Tools** on the menu, and then select **SDK Manager**. 
+2. Select the target version of the Android SDK that is used in your project. Then select **Show Package Details**. 
+
+    ![Android SDK Manager - select target version](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+3. Select **Google APIs**, if it's not already installed.
+
+    ![Android SDK Manager - Google APIs selected](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
+4. Switch to the **SDK Tools** tab. If you haven't already installed Google Play Services, select **Google Play Services** as shown in the following image. Then select **Apply** to install. Note the SDK path, for use in a later step.
+
+    ![Android SDK Manager - Google Play Services selected](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
+3. If you see the **Confirm Change** dialog box, select **OK**. The Component Installer installs the requested components. Select **Finish** after the components are installed.
+4. Select **OK** to close the **Settings for New Projects** dialog box.  
+5. Select **Sync Now** icon in the toolbar.
+
+    ![Sync with Gradle](./media/notification-hubs-android-studio-add-google-play-services/gradle-sync.png)
+1. Open the AndroidManifest.xml file, and then add the following tag to the *application* tag.
+
+    ```xml
+    <meta-data android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+    ```
+
 
 ### Add Azure Notification Hubs libraries
 
@@ -350,7 +371,6 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
         mainActivity = this;
         registerWithNotificationHubs();
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
     }
     ```
 
@@ -522,7 +542,7 @@ In addition, make sure that you've added your Google account to your running emu
 In this tutorial, you used Firebase Cloud Messaging to broadcast notifications to all Android devices that were registered with the service. To learn how to push notifications to specific devices, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
->[Tutorial: Push notifications to specific Android devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[Tutorial: Push notifications to specific Android devices](push-notifications-android-specific-devices-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 
