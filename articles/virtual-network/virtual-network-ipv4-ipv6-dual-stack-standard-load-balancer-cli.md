@@ -39,7 +39,7 @@ It takes up to 30 minutes for feature registration to complete. You can check yo
 
 ```azurelci
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB--namespace Microsoft.Network
+az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
 After the registration is complete, run the following command:
 
@@ -89,7 +89,7 @@ az network public-ip create \
 --name dsVM0_remote_access  \
 --resource-group DsResourceGroup01 \
 --location eastus  \
---sku BASIC  \
+--sku Standard  \
 --allocation-method dynamic  \
 --version IPv4
 
@@ -97,18 +97,18 @@ az network public-ip create \
 --name dsVM1_remote_access  \
 --resource-group DsResourceGroup01  \
 --location eastus  \
---sku BASIC  \
+--sku Standard  \
 --allocation-method dynamic  \
 --version IPv4
 ```
 
 ## Create Standard Load Balancer
 
-In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Basic Load Balancer.
+In this section, you configure dual frontend IP (IPv4 and IPv6) and the back-end address pool for the load balancer and then create a Standard Load Balancer.
 
 ### Create load balancer
 
-Create the Basic Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **dsLB** that includes a frontend pool named **dsLbFrontEnd_v4**, a backend pool named **dsLbBackEndPool_v4** that is associated with the IPv4 public IP address **dsPublicIP_v4** that you created in the preceding step. 
+Create the Standard Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **dsLB** that includes a frontend pool named **dsLbFrontEnd_v4**, a backend pool named **dsLbBackEndPool_v4** that is associated with the IPv4 public IP address **dsPublicIP_v4** that you created in the preceding step. 
 
 ```azurecli
 az network lb create \
@@ -382,4 +382,4 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 
 ## Next steps
 
-In this article, you created a Basic Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md)
+In this article, you created a Standard Load Balancer with a dual frontend IP configuration (IPv4 and IPv6). You also created a two virtual machines that included NICs with dual IP configurations (IPV4 + IPv6) that were added to the back-end pool of the load balancer. To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md)
