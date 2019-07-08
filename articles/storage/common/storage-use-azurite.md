@@ -58,7 +58,7 @@ docker run -p 10000:10000 -v c:/azurite:/data mcr.microsoft.com/azure-storage/az
 
 **Set all Azurite parameters**:
 
-This example shows how to set all of the command-line parameters. The `-p 8888:8888` parameter redirects requests from host machine's port 8888 to the Docker instance.
+This example shows how to set all of the command-line parameters. All of the parameters below should be placed on a single command-line.
 
 ```console
 docker run -p 8888:8888
