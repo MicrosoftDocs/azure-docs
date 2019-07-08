@@ -301,8 +301,8 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 **Device** | **Connection**
 --- | --- 
 VMs | The Mobility service running on VMs communicates with the on-premises configuration server on port HTTPS 443 inbound, for replication management.<br/><br/> VMs send replication data to the process server (running on the configuration server machine) on port HTTPS 9443 inbound. This port can be modified.
-Configuration server | The configuration server orchestrates replication with Azure over port HTTPS 443 outbound.
-Process server | The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
+Replication appliance | The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
+Process server | The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.<br/> By default the process server runs on the replication appliance.
 
 ## Azure VM requirements
 
@@ -316,14 +316,14 @@ Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
 Data disk size | Up to 4,095 GB | Check fails if unsupported.
-Network adapters | Multiple adapters are supported. |
+Network adapters | Multiple adapters are supported. | 
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.
-BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine. |
-VM name | From 1 to 63 characters.<br/><br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
+BitLocker | Not supported. | BitLocker must be disabled before you enable replication for a machine. 
+VM name | From 1 to 63 characters.<br/> Restricted to letters, numbers, and hyphens.<br/><br/> The machine name must start and end with a letter or number. |  Update the value in the machine properties in Site Recovery.
 Connect after migration-Windows | To connect to Azure VMs running Windows after migration:<br/> - Before migration enable RDP on the on-premises VM. Make sure that TCP, and UDP rules are added for the **Public** profile, and that RDP is allowed in **Windows Firewall** > **Allowed Apps**, for all profiles.<br/> For site-to-site VPN access, enable RDP and allow RDP in **Windows Firewall** -> **Allowed apps and features** for **Domain and Private** networks. In addition, check that the operating system's SAN policy is set to 
-**OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135).
-Connect after migration-Linux | To connect to Azure VMs after migration using SSH:<br/> Before migration, on the on-premises machine, check that the Secure Shell service is set to Start, and that firewall rules allow an SSH connection.<br/> After failover, on the Azure VM, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected. In addition, add a public IP address for the VM.
+**OnlineAll**. [Learn more](https://support.microsoft.com/kb/3031135). | 
+Connect after migration-Linux | To connect to Azure VMs after migration using SSH:<br/> Before migration, on the on-premises machine, check that the Secure Shell service is set to Start, and that firewall rules allow an SSH connection.<br/> After failover, on the Azure VM, allow incoming connections to the SSH port for the network security group rules on the failed over VM, and for the Azure subnet to which it's connected. In addition, add a public IP address for the VM. |  
 
 
 ## Next steps
