@@ -100,8 +100,6 @@
         href: data-box-disk-deploy-picked-up.md  
     - name: Concepts
       items:
-      - name: Read safety guidelines
-        href: data-box-heavy-safety.md
       - name: Review requirements
         href: data-box-disk-system-requirements.md
       - name: Understand limits
@@ -159,6 +157,8 @@
         href: data-box-heavy-deploy-picked-up.md  
     - name: Concepts
       items:
+      - name: Read safety guidelines
+        href: data-box-heavy-safety.md
       - name: Review tracking and logging
         href: data-box-logs.md
       - name: Review requirements
