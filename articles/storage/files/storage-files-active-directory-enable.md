@@ -100,7 +100,7 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Kind StorageV2 `
     -EnableAzureActiveDirectoryDomainServicesForFile $true
 ```
-You can enable this feature on exisiting storage acccounts using the same setting **EnableAzureActiveDirectoryDomainServicesForFile** as below.
+To enable this feature on exisiting storage acccounts, use the following command:
 
 ```powershell
 # Get a storage account
