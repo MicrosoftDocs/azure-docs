@@ -17,7 +17,7 @@ This guide shows you how to use Python to interact with objects, manage director
 To use the snippets presented in this article, you'll need to create a storage account, and then enable the hierarchical namespace feature on that account. See [Create a storage account](data-lake-storage-quickstart-create-account.md).
 
 > [!NOTE]
-> The snippets featured in this article use terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*. This article refers to other articles that contain snippets for common tasks. Because those articles apply to all blob storage accounts regardless of whether hierarchical namespaces have been enabled, they'll use the terms *container* and *blob*. To avoid confusion, this article does the same.
+> The content featured in this article uses terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*. 
 
 ## Install Python and the Azure SDK for Python
 
@@ -43,6 +43,7 @@ from azure.storage.blob.models import PathProperties
 > [!div class="checklist"]
 > * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice?view=azure-python) module
 > * [PublicAccess](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.models.publicaccess?view=azure-python) module
+> * [PathProperties](https://www.microsoft.com) module.
 
 ## Create an instance of the Blob service
 
@@ -103,13 +104,13 @@ Move or rename a directory by calling the [BlockBlobService.rename_path](https:/
 This example moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. 
 
 ```python
-block_blob_service.rename_path("my-file-system", "my-directory", "my-directory-2/my-new-directory") 
+block_blob_service.rename_path("my-file-system", "my-directory", "my-directory-2/my-directory") 
 ```
 
-This example renames that sub-directory to `my-new-directory-renamed`.
+This example renames that sub-directory to `my-directory-renamed`.
 
 ```
-block_blob_service.rename_path("my-file-system", "my-directory-2/my-new-directory", "my-directory-2/my-new-directory-renamed") 
+block_blob_service.rename_path("my-file-system", "my-directory-2/my-directory", "my-directory-2/my-directory-renamed") 
 ```
 
 ### APIs featured in this snippet
