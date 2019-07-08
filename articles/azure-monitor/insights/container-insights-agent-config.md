@@ -23,8 +23,8 @@ Azure Monitor for containers collects stdout, stderr, and environmental variable
 
 Active scraping of metrics from Prometheus are performed from two perspectives:
 
-* Cluster-wide - HTTP URL and discover targets from listed endpoints of a service, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section as *Prometheus data_collection_settings.cluster*.
-* Node-wide - HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section as *Prometheus_data_collection_settings.node*.
+* Cluster-wide - HTTP URL and discover targets from listed endpoints of a service, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section *Prometheus data_collection_settings.cluster*.
+* Node-wide - HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section  *Prometheus_data_collection_settings.node*.
 
 |Scope | Description |
 |------|-------------|
