@@ -67,7 +67,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
     ```json
     {
-      "@id": "http://{your name}.com/EnvironmentalSensor/1.0.0",
+      "@id": "urn:{your name}:EnvironmentalSensor:1",
       "@type": "Interface",
       "displayName": "Environmental Sensor",
       "description": "Provides functionality to report temperature, humidity. Provides telemetry, commands and read-write properties",
@@ -148,7 +148,7 @@ To create an interface file that defines the capabilities of your IoT device in 
           "commandType": "synchronous"
         }
       ],
-      "@context": "http://azureiot.com/v0/contexts/Interface.json"
+      "@context": "http://azureiot.com/v1/contexts/Interface.json"
     }
     ```
 
@@ -170,14 +170,20 @@ To create a model file that specifies the interfaces your Plug and Play device i
 
     ```json
     {
-      "@id": "http://{your name}.com/EnvironmentalSensorModel/1.0.0",
+      "@id": "urn:dominicbetts:EnvironmentalSensorModel:1",
       "@type": "CapabilityModel",
       "displayName": "Environmental Sensor Model",
       "implements": [
-        "http://{your name}.com/interfaces/EnvironmentalSensor/1.0.0",
-        "http://azureiot.com/interfaces/DeviceInformation/1.0.0"
+        {
+          "schema": "urn:dominincbetts:EnvironmentalSensor:1",
+          "name": "environmentalSensor"
+        },
+        {
+          "schema": "urn:azureiot:DeviceManagement:DeviceInformation:1",
+          "name": "deviceinfo"
+        }
       ],
-      "@context": "http://azureiot.com/v0/contexts/CapabilityModel.json"
+      "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
     }
     ```
 
