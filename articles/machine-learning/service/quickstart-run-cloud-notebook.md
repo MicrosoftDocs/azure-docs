@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Run a notebook in the cloud"
 titleSuffix: Azure Machine Learning service
-description: Get started with Azure Machine Learning service. Use a managed notebook server in the cloud to try out your workspace.  Your workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
+description: This tutorial shows you how to get started with Azure Machine Learning service and use a managed notebook server in the cloud. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,20 +13,20 @@ ms.custom: seodec18
 
 ---
 
-# Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning
+# Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning service
 
-No install required.  Get started with Azure Machine Learning service using a managed notebook server in the cloud. If you want to instead install the SDK into your own Python environment, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).
+This quickstart teaches you how to start using Azure Machine Learning service by using a managed notebook server in the cloud. No install is required. If you want to instead install the SDK into your own Python environment, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).
 
-This quickstart shows how you can use the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md) to keep track of your machine learning experiments.  You will create a [notebook VM (Preview)](how-to-configure-environment.md#notebookvm), a secure, cloud-based Azure workstation that provides a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. You then run a Python notebook on this VM that log values into the workspace.
+This quickstart shows you how to use the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md) to keep track of your machine learning (ML) experiments. You do this by creating a [notebook virtual machine (preview)](how-to-configure-environment.md#notebookvm): a secure, cloud-based Azure workstation that provides a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. You then run a Python notebook on this virtual machine (VM) that logs values into the workspace.
 
-In this quickstart, you take the following actions:
+To do this, take the following actions:
 
-* Create a workspace
+* Create a workspace.
 * Create a notebook VM in your workspace.
-* Launch the Jupyter web interface.
+* Open the Jupyter web interface.
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
-* View the logged error values in your workspace. This example shows how the workspace can help you keep track of information generated in a script.
+* View the logged error values in your workspace. The following example shows how the workspace helps you keep track of information generated in a script.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
@@ -38,44 +38,44 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
 ## <a name="create-notebook"></a>Create a notebook VM
 
- From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource gives you a cloud-based platform pre-configured with everything you need to run Azure Machine Learning service.
+ From your workspace, create a cloud resource to start using Jupyter notebooks. This resource is a cloud-based platform that's preconfigured with everything you need to run Azure Machine Learning service.
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see how to [find your workspace](how-to-manage-workspace.md#view).
+1. Open your workspace in the [Azure portal](https://portal.azure.com/). If you're not sure how to locate your workspace in the portal, see how to [view your workspace](how-to-manage-workspace.md#view).
 
-1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
+1. On your workspace page, select **Notebook VMs** on the left.
 
-1. Select **+New** to create a notebook VM.
+1. Select **+ New** to create a notebook VM.
 
      ![Select New VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
 1. Provide a name for your VM. Then select **Create**.
 
     > [!NOTE]
-    > Your Notebook VM name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character.  The name must also be unique across your Azure subscription.
+    > Your notebook VM's name needs to be between 2 and 16 characters. Letters, digits, and hyphens are valid characters. The name needs to be unique across your Azure subscription.
 
     ![Create a new VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Wait approximately 4-5 minutes, until the status changes to **Running**.
+1. Wait approximately 4 to 5 minutes, until the status changes to **Running**.
 
 
-## Launch Jupyter web interface
+## Open the Jupyter web interface
 
-After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
+After your VM is running, use the **Notebook VMs** section to open the Jupyter web interface.
 
 1. Select **Jupyter** in the **URI** column for your VM.  
 
     ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
-    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM.
+    The link starts your notebook server and opens the Jupyter notebook web page in a new browser tab. This link will work only for the person who creates the VM.
 
-1. On the Jupyter notebook webpage, the top foldername is your username.  Select this folder.
+1. On the Jupyter notebook web page, the top folder's name is your username. Select this folder.
 
     > [!TIP]
-    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load  this same folder.
+    > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself. You can delete the notebook VM and still keep all your work. When you create a new notebook VM later, it will load this same folder.
 
-1. The samples foldername includes a version number, for example **samples-1.0.33.1**.  Select the samples folder.
+1. The samples folder name includes a version number (**samples-1.0.33.1**, for example). Select the samples folder.
 
-1. Select the **quickstart** folder.
+1. Select the **Quickstart** folder.
 
 ## Run the notebook
 
@@ -83,14 +83,14 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Select **01.run-experiment.ipynb** to open the notebook.
 
-1. If you see a "Kernel not found" alert, select the kernel **Python 3.6 - AzureML** (approximately mid-way down the list) and set the kernel.
+1. If you see a "Kernel not found" alert, select the kernel **Python 3.6 - AzureML** (approximately halfway down the list) and set the kernel.
 
-1. Click into the first code cell and select **Run**.
+1. Select the first code cell, and then select **Run**.
 
     > [!NOTE]
-    > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.  The number tells you the order in which the cells ran.
+    > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, an asterisk appears (__[*]__). After the code completes, the number **[1]** appears.  The number tells you the order in which the cells ran.
     >
-    > Use **Shift-Enter** as a shortcut to run a cell.
+    > Use **Shift + Enter** as a shortcut to run a cell.
 
     ![Run the first code cell](media/quickstart-run-cloud-notebook/cell1.png)
 
@@ -98,21 +98,21 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. When complete, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell, only the number appears to show that the cell ran successfully.
+1. When complete, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell. You'll only see the number, which appears to show that the cell ran successfully.
 
     ![Success message](media/quickstart-run-cloud-notebook/success.png)
 
-1. Run the rest of the code cells.  As each cell finishes running, you will see its cell number appear. Only the last cell displays any other output.  
+1. Run the rest of the code cells. As each cell finishes running, its cell number appears. Only the last cell displays any other output.  
 
-    In the largest code cell, you see `run.log`  used in multiple places. Each `run.log` adds its value to your workspace.
+    In the largest code cell, `run.log` appears in multiple places. Each `run.log` adds its value to your workspace.
 
 ## View logged values
 
-1. The output from the `run` cell contains a link back to the Azure portal to view the experiment results in your workspace.
+1. The output from the `run` cell contains a link back to the Azure portal, where you can view the experiment results in your workspace.
 
     ![View experiments](./media/quickstart-run-cloud-notebook/view-exp.png)
 
-1. Click the **Link to Azure portal** to view information about the run in your workspace.  This link opens your workspace in the Azure portal.
+1. Select **Link to Azure Portal** to view information about the run in your workspace. This link opens your workspace in the Azure portal.
 
 1. The plots of logged values you see were automatically created in the workspace. Whenever you log multiple values with the same name parameter, a plot is automatically generated for you. Here is an example:
 
@@ -144,18 +144,9 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-In this quickstart, you completed these tasks:
+After completing these tasks, go to the Jupyter Notebook web page. In the **Quickstart** folder, open and run the **02.deploy-web-service.ipynb** notebook to learn how to deploy a web service.
 
-* Create a workspace
-* Create a notebook VM.
-* Launch the Jupyter web interface.
-* Open a notebook that contains code to estimate pi and logs errors at each iteration.
-* Run the notebook.
-* View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
-
-On the Jupyter Notebook webpage, in the **quickstart** folder, open and run the **02.deploy-web-service.ipynb** notebook to learn how to deploy a web service.
-
-Also on the Jupyter Notebook webpage, browse through other notebooks in the samples folder to learn more about Azure Machine Learning service.
+Also on the Jupyter Notebook web page, browse through other notebooks in the samples folder to learn more about Azure Machine Learning service.
 
 For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model:  
 
