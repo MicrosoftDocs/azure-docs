@@ -3,15 +3,15 @@ title: Create and manage Azure Cosmos DB using PowerShell
 description: Use Azure Powershell manage your Azure Cosmos DB accounts, databases, containers, and throughput. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
-ms.date: 05/23/2019
+ms.topic: sample
+ms.date: 07/03/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ---
 
 # Manage Azure Cosmos DB SQL API resources using PowerShell
 
-The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB, including the account, database, container, and throughput. Management of Azure Cosmos DB is not through Azure Cosmos DB-specific cmdlets but with the resource provider directly through the AzResource cmdlet. To view all of the properties that can be managed using PowerShell for the Azure Cosmos DB resource provider, see [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
+The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB resources, including account, database, container, and throughput. Management of Azure Cosmos DB is handled through the AzResource cmdlet directly to the Azure Cosmos DB resource provider. To view all of the properties that can be managed using PowerShell for the Azure Cosmos DB resource provider, see [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
 
 For cross-platform management of Azure Cosmos DB, you can use [Azure CLI](manage-with-cli.md), the [REST API][rp-rest-api], or the [Azure portal](create-sql-api-dotnet.md#create-account).
 
@@ -40,17 +40,17 @@ The following sections demonstrate how to manage the Azure Cosmos account, inclu
 
 ### <a id="create-account"></a> Create an Azure Cosmos account
 
-This command allows you to create an Azure Cosmos DB database account. Configure your new database account as either single-region or [multi-region][distribute-data-globally] with a certain [consistency policy](consistency-levels.md).
+This command creates an Azure Cosmos DB database account with [multiple-regions][distribute-data-globally], bounded-staleness [consistency policy](consistency-levels.md).
 
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
-$location = "West US"
+$location = "West US 2"
 $accountName = "mycosmosaccount" # must be lower case.
 
 $locations = @(
-    @{ "locationName"="West US"; "failoverPriority"=0 },
-    @{ "locationName"="East US"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 }
 )
 
 $consistencyPolicy = @{
@@ -63,7 +63,7 @@ $CosmosDBProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
     "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
+    "enableMultipleWriteLocations"="false"
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
@@ -71,8 +71,8 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-* `$accountName` The name for the Azure Cosmos account. Must be lowercase, accepts alphanumeric and the '-' character, and between 3 and 50 characters.
-* `$location` The location for the Azure Cosmos account.
+* `$accountName` The name for the Azure Cosmos account. Must be lowercase, accepts alphanumeric and the '-' character, and between 3 and 31 characters.
+* `$location` The location for the Azure Cosmos account resource.
 * `$locations` The replica regions for the database account. There must be one write region per database account with a failover priority value of 0.
 * `$consistencyPolicy` The default consistency level of the Azure Cosmos account. For more information, see [Consistency Levels in Azure Cosmos DB](consistency-levels.md).
 * `$CosmosDBProperties` The property values passed to the Cosmos DB Azure Resource Manager Provider to provision the account.
@@ -106,7 +106,7 @@ This command allows you to update your Azure Cosmos DB database account properti
 * Enabling Multi-master
 
 > [!NOTE]
-> This command allows you to add and remove regions but does not allow you to modify failover priorities. To modify failover priorities, see [Modify failover priority for an Azure Cosmos account](#modify-failover-priority).
+> This command allows you to add and remove regions but does not allow you to modify failover priorities. To modify failover priority, see [Modify failover priority for an Azure Cosmos account](#modify-failover-priority).
 
 ```azurepowershell-interactive
 # Update an Azure Cosmos Account and set Consistency level to Session
@@ -219,12 +219,12 @@ Select-Object $keys
 
 ### <a id="modify-failover-priority"></a> Modify Failover Priority
 
-For multi-region database accounts, you can change the failover priority of the various regions that the Azure Cosmos DB database account exists in. For more information on failover in your Azure Cosmos DB database account, see [Distribute data globally with Azure Cosmos DB][distribute-data-globally].
+For multi-region database accounts, you can change the order in which a Cosmos account will promote secondary read-replicas should a regional failover occur on the primary write replica. When the region with `failoverPriority=0` is modified, this command can also be used to initiate a disaster recovery drill to test disaster recovery planning.
 
-For the example below, assume the account has a current failover priority of westus=0 and eastus=1. This example below will flip the regions.
+For the example below, assume the account has a current failover priority of westus=0 and eastus=1 and flip the regions.
 
 > [!CAUTION]
-> This operation will trigger a manual failover for your account to the new region with a failoverPriority of zero.
+> This operation will trigger a manual failover for an Azure Cosmos account.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -248,6 +248,7 @@ The following sections demonstrate how to manage the Azure Cosmos database, incl
 
 * [Create an Azure Cosmos database](#create-db)
 * [Create an Azure Cosmos database with shared throughput](#create-db-ru)
+* [Get the throughput of an Azure Cosmos database](#get-db-ru)
 * [List all Azure Cosmos databases in an account](#get-all-db)
 * [Get a single Azure Cosmos database](#get-db)
 * [Delete an Azure Cosmos database](#delete-db)
@@ -263,7 +264,8 @@ $resourceName = $accountName + "/sql/" + $databaseName
 
 $DataBaseProperties = @{
     "resource"=@{"id"=$databaseName}
-} 
+}
+
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $resourceName -PropertyObject $DataBaseProperties
@@ -285,6 +287,21 @@ $DataBaseProperties = @{
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $resourceName -PropertyObject $DataBaseProperties
+```
+
+### <a id="get-db-ru"></a>Get the throughput of an Azure Cosmos database
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$databaseThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/settings"
+$databaseThroughputResourceName = $accountName + "/sql/" + $databaseName + "/throughput"
+
+Get-AzResource -ResourceType $databaseThroughputResourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $databaseThroughputResourceName  | Select-Object Properties
 ```
 
 ### <a id="get-all-db"></a>Get all Azure Cosmos databases in an account
@@ -331,6 +348,7 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
 The following sections demonstrate how to manage the Azure Cosmos container, including:
 
 * [Create an Azure Cosmos container](#create-container)
+* [Get the throughput of an Azure Cosmos container](#get-container-ru)
 * [Create an Azure Cosmos container with shared throughput](#create-container-ru)
 * [Create an Azure Cosmos container with custom indexing](#create-container-custom-index)
 * [Create an Azure Cosmos container with indexing turned off](#create-container-no-index)
@@ -343,7 +361,7 @@ The following sections demonstrate how to manage the Azure Cosmos container, inc
 ### <a id="create-container"></a>Create an Azure Cosmos container
 
 ```azurepowershell-interactive
-# Create an Azure Cosmos container with default indexes and throughput at 400 RU 
+# Create an Azure Cosmos container with default indexes and throughput at 400 RU
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
@@ -352,17 +370,33 @@ $resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
 
 $ContainerProperties = @{
     "resource"=@{
-        "id"=$containerName; 
+        "id"=$containerName;
         "partitionKey"=@{
-            "paths"=@("/myPartitionKey"); 
+            "paths"=@("/myPartitionKey");
             "kind"="Hash"
         }
-    }; 
+    };
     "options"=@{ "Throughput"="400" }
-} 
+}
+
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $resourceName -PropertyObject $ContainerProperties
+```
+
+### <a id="get-container-ru"></a>Get the throughput of an Azure Cosmos container
+
+```azurepowershell-interactive
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$containerThroughputResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers/settings"
+$containerThroughputResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName + "/throughput"
+
+Get-AzResource -ResourceType $containerThroughputResourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $containerThroughputResourceName  | Select-Object Properties
 ```
 
 ### <a id="create-container-ru"></a>Create an Azure Cosmos container with shared throughput
@@ -378,12 +412,13 @@ $ContainerProperties = @{
     "resource"=@{
         "id"=$containerName; 
         "partitionKey"=@{
-            "paths"=@("/myPartitionKey"); 
+            "paths"=@("/myPartitionKey");
             "kind"="Hash"
         }
-    }; 
+    };
     "options"=@{}
-} 
+}
+
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $resourceName -PropertyObject $ContainerProperties 
@@ -407,20 +442,10 @@ $ContainerProperties = @{
             "kind"="Hash"
         }; 
         "indexingPolicy"=@{
-            "indexingMode"="Consistent"; 
+            "indexingMode"="Consistent";
             "includedPaths"= @(@{
                 "path"="/*";
-                "indexes"= @(@{
-                        "kind"="Range";
-                        "dataType"="number";
-                        "precision"=-1
-                    },
-                    @{
-                        "kind"="Range";
-                        "dataType"="string";
-                        "precision"=-1
-                    }
-                )
+                "indexes"= @()
             });
             "excludedPaths"= @(@{
                 "path"="/myPathToNotIndex/*"
@@ -428,7 +453,7 @@ $ContainerProperties = @{
         }
     };
     "options"=@{ "Throughput"="400" }
-} 
+}
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
@@ -438,7 +463,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 ### <a id="create-container-no-index"></a>Create an Azure Cosmos container with indexing turned off
 
 ```azurepowershell-interactive
-# Create an Azure Cosmos container with no indexing 
+# Create an Azure Cosmos container with no indexing
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
@@ -449,9 +474,9 @@ $ContainerProperties = @{
     "resource"=@{
         "id"=$containerName; 
         "partitionKey"=@{
-            "paths"=@("/myPartitionKey"); 
+            "paths"=@("/myPartitionKey");
             "kind"="Hash"
-        }; 
+        };
         "indexingPolicy"=@{
             "indexingMode"="none"
         }
@@ -476,26 +501,16 @@ $resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
 
 $ContainerProperties = @{
     "resource"=@{
-        "id"=$containerName; 
+        "id"=$containerName;
         "partitionKey"=@{
-            "paths"=@("/myPartitionKey"); 
+            "paths"=@("/myPartitionKey");
             "kind"="Hash"
         }; 
         "indexingPolicy"=@{
-            "indexingMode"="Consistent"; 
+            "indexingMode"="Consistent";
             "includedPaths"= @(@{
                 "path"="/*";
-                "indexes"= @(@{
-                        "kind"="Range";
-                        "dataType"="number";
-                        "precision"=-1
-                    },
-                    @{
-                        "kind"="Range";
-                        "dataType"="string";
-                        "precision"=-1
-                    }
-                )
+                "indexes"= @()
             });
             "excludedPaths"= @()
         };
@@ -508,9 +523,9 @@ $ContainerProperties = @{
             })
         };
         "defaultTtl"= 100;
-    }; 
+    };
     "options"=@{ "Throughput"="400" }
-} 
+}
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
@@ -522,7 +537,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 To create a conflict resolution policy to use a stored procedure, set `"mode"="custom"` and set the resolution path as the name of the stored procedure, `"conflictResolutionPath"="myResolverStoredProcedure"`. To write all conflicts to the ConflictsFeed and handle separately, set `"mode"="custom"` and `"conflictResolutionPath"=""`
 
 ```azurepowershell-interactive
-# Create container with last-writer-wins conflict resolution policy 
+# Create container with last-writer-wins conflict resolution policy
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
@@ -533,16 +548,17 @@ $ContainerProperties = @{
     "resource"=@{
         "id"=$containerName;
         "partitionKey"=@{
-            "paths"=@("/myPartitionKey"); 
+            "paths"=@("/myPartitionKey");
             "kind"="Hash"
-        }; 
+        };
         "conflictResolutionPolicy"=@{
-            "mode"="lastWriterWins"; 
+            "mode"="lastWriterWins";
             "conflictResolutionPath"="/myResolutionPath"
         }
-    }; 
+    };
     "options"=@{ "Throughput"="400" }
-} 
+}
+
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $resourceName -PropertyObject $ContainerProperties
@@ -551,7 +567,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 ### <a id="list-all-container"></a>List all Azure Cosmos containers in a database
 
 ```azurepowershell-interactive
-# List all Azure Cosmos containers in a database 
+# List all Azure Cosmos containers in a database
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"

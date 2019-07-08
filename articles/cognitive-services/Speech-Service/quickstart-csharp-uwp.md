@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Quickstart: Recognize speech in a UWP app by using the Speech SDK
 
-Quickstarts are also available for [speech-translation](quickstart-translate-speech-uwp.md) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
+Quickstarts are also available for [text-to-speech](quickstart-text-to-speech-csharp-uwp.md), [speech-translation](quickstart-translate-speech-uwp.md) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
 
 If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
