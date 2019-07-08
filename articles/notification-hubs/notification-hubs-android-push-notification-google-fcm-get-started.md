@@ -97,8 +97,6 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 3. If you see the **Confirm Change** dialog box, select **OK**. The Component Installer installs the requested components. Select **Finish** after the components are installed.
 4. Select **OK** to close the **Settings for New Projects** dialog box.  
 5. Select **Sync Now** icon in the toolbar.
-
-    ![Sync with Gradle](./media/notification-hubs-android-studio-add-google-play-services/gradle-sync.png)
 1. Open the AndroidManifest.xml file, and then add the following tag to the *application* tag.
 
     ```xml
