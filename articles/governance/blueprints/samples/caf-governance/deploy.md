@@ -9,9 +9,9 @@ ms.service: blueprints
 manager: anushar
 ms.custom: fasttrack-new
 ---
-# Deploy the CAF governance blueprint blueprint sample
+# Deploy the CAF governance blueprint sample
 
-To deploy the CAF governance blueprint blueprint sample, the following steps must be taken:
+To deploy the CAF governance blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
@@ -77,19 +77,16 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 1. Provide the parameter values for the blueprint assignment:
 
    - Basics
-
-     - **Organization**: Enter your organization name (e.g. Contoso), must be unique.
-     - **HUB-RG-Location**: Select 1 Azure Region for Deployment.
-     - **Policy_Allowed-Locations**: Which Azure Regions will you allow resources to be built in?
-     - **Policy_Allowed-VM-SKUs**: Allowed virtual machine SKUs.
-     - **Policy_Allowed-StorageAccount-SKUs**: SKU used in Diagnostic Log storage accounts.
-     - **Policy_Allowed-Resource-Types**: Which Azure Resources you want to allow in your environment.
-     - **Policy_CostCenter_Tag**: Append CostCenter TAG & its value from the Resource Group.
-     - **LocalAdmin-Username**: KeyVault-Secret LocalAdmin Username.
-     - **Local-Admin-Password**: KeyVault-Secret LocalAdmin Password.
-     - **KeyVault-user-id**: AAD object ID of the user that requires access to Key Vault.
-     - **LogAnalytics_DataRetention**: Number of days data will be retained in Log Analytic.
-     - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint sample.
+       - **Subscriptions**: Select one or more of the subscriptions that are in the management group
+       you saved your copy of the blueprint sample to. If you select more than one subscription, an
+       assignment will be created for each using the parameters entered.
+     - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
+       Change as needed or leave as is.
+     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint uses
+       this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
+       [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
+       sample.
 
    - Lock Assignment
 
@@ -104,6 +101,10 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
      The parameters defined in this section are used by many of the artifacts in the blueprint
      definition to provide consistency.
 
+     - **Organization**: Enter your organization name, such as Contoso, must be unique.
+     - **Azure Region**: Select the Azure Region for Deployment.
+     - **Allowed locations**: Which Azure Regions will you allow resources to be built in?
+     
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
@@ -126,13 +127,14 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Deploy Policy|Policy|Policy_Allowed-Locations|**Locked** - Which Azure Regions will you allow resources to be built in?|
-|Deploy Policy|Policy|Policy_Allowed-VM-SKUs|**Locked** - Allowed virtual machine SKUs|
-|Deploy Policy|Policy|Policy_Allowed-StorageAccount-SKUs|**Locked** - SKU used in Diagnostic Log storage accounts|
-|Deploy Policy|Policy|Policy_Allowed-Resource-Types|**Locked** - Which Azure Resources you want to allow in your environment|
-|Deploy Policy|Policy|Policy_CostCenter_Tag|**Locked** - Append CostCenter TAG and its value from the Resource Group|
+|Allowed storage account SKUs|Policy assignment|Policy_Allowed-StorageAccount-SKUs|SKU used in Diagnostic Log storage accounts|
+|Allowed virtual machine SKUs|Policy assignment|Policy_Allowed-VM-SKUs|Allowed virtual machine SKUs|                    
+|Append CostCenter TAG to Resource Groups|Policy assignment|Policy_CostCenter_Tag|Append CostCenter TAG and its value from the Resource Group|
+|Resource Types that you do not want to allow in your environment|Policy assignment|Policy_Allowed-Resource-Types|Which Azure Resources you want to allow in your environment|            
+|Deploy Key Vault|Resource Manager template|KV-AccessPolicy|**Locked** - Azure AD Group or User <Object ID> to grant permissions to in Key Vault|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_DataRetention|**Locked** - Number of days data will be retained in Log Analytics|
-|Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region to use when establishing the workspace|
+|Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region used when establishing the workspace|
+|Deploy vNET landing zone|Resource Manager template|IPAddress_Space|**Locked** - Virtual Network IP Addressspace - Provide first 2 octets example, 10.0|
 
 ## Next steps
 

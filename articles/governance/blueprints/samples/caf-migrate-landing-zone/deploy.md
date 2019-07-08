@@ -36,8 +36,10 @@ First, implement the blueprint sample by creating a new blueprint in your enviro
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
-   - **Blueprint name**: Provide a name for your copy of the CAF Migrate landing zone blueprint sample.
-   - **Definition location**: Use the ellipsis and select the management group or subscription to save your copy of the sample to.
+  - **Blueprint name**: Provide a name for your copy of the CAF governance blueprint
+     sample.
+   - **Definition location**: Use the ellipsis and select the management group to save your copy of
+     the sample to.
 
 1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the
    page.
@@ -81,7 +83,6 @@ provided to make each deployment of the copy of the blueprint sample unique.
 1. Provide the parameter values for the blueprint assignment:
 
    - Basics
-
      - **Subscriptions**: Select one or more of the subscriptions that are in the management group
        you saved your copy of the blueprint sample to. If you select more than one subscription, an
        assignment will be created for each using the parameters entered.
@@ -92,7 +93,7 @@ provided to make each deployment of the copy of the blueprint sample unique.
        [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
        sample.
-
+    
    - Lock Assignment
 
      Select the blueprint lock setting for your environment. For more information, see [blueprints resource locking](../../concepts/resource-locking.md).
@@ -108,12 +109,7 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
        - **Organization**: Enter your organization name such as Contoso or Fabrikam, must be unique.
        - **AzureRegion**: Select one Azure Region for Deployment.
-       - **IPAddress_Space**: Provide first 2 octets i.e. 10.0.	
-       - **KV-AccessPolicy**: User ID to grant permissions to in Key Vault.
-       - **LogAnalytics_DataRetention**: Number of days data will be retained in in Log Analytics.
-       - **LogAnalytics_Location**: Region used when establishing the workspace.
-       - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint sample.
-
+       
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
@@ -136,7 +132,7 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Deploy vNET Landing Zone|Resource Manager template|IPAddress_Space|**Locked** - Provide first 2 octets i.e. 10.0|
+|Deploy vNET Landing Zone|Resource Manager template|IPAddress_Space|**Locked** - Provide first 2 octets example, 10.0|
 |Deploy Key Vault|Resource Manager template|KV-AccessPolicy|**Locked** - Group or User Object ID to grant permissions to in Key Vault|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_DataRetention|**Locked** - Number of days data will be retained in in Log Analytics|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region used when establishing the workspace|
