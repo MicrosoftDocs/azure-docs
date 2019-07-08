@@ -32,16 +32,16 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1799"
-     inkscape:window-height="934"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      id="namedview6245"
      showgrid="false"
      inkscape:zoom="1.8216971"
-     inkscape:cx="279.78948"
+     inkscape:cx="412.46498"
      inkscape:cy="180.1788"
-     inkscape:window-x="0"
-     inkscape:window-y="6"
-     inkscape:window-maximized="0"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
      inkscape:current-layer="svg6243" />
   <defs
      id="defs4995">
@@ -65,33 +65,33 @@
        width="780.72"
        height="465.5"
        id="rect4999"
-       fill="#fff"
-       style="" />
+       style=""
+       fill="#fff" />
     <rect
        x="315.57"
        y="60"
        width="10"
        height="405"
        id="rect5001"
+       style=""
        fill="#50e6ff"
-       opacity="0.15"
-       style="" />
+       opacity="0.15" />
     <rect
        x="545.57"
        y="60"
        width="10"
        height="405"
        id="rect5003"
+       style=""
        fill="#50e6ff"
-       opacity="0.15"
-       style="" />
+       opacity="0.15" />
     <rect
        x="11.63"
        width="678.4"
        height="35"
        id="rect5005"
-       fill="#0072c6"
-       style="" />
+       style=""
+       fill="#0072c6" />
     <path
        d="M684.31,80a12,12,0,0,0-19,14.61,11.83,11.83,0,0,0,9.52,4.69,12.16,12.16,0,0,0,7.31-2.47A12,12,0,0,0,684.31,80Zm.55,10c-.42-.32-1-.79-1.81-1.42a2.33,2.33,0,0,0-.27-2.19,2.27,2.27,0,0,0-2.93-.52c-1.05-1-2.2-2-3.42-3.25A12.16,12.16,0,0,1,683,80.89a1.49,1.49,0,0,0,.12.14A10.39,10.39,0,0,1,684.86,90Zm-6.58,2.83a2.37,2.37,0,0,0-.37-.81,2,2,0,0,0-2.76-.48,20.84,20.84,0,0,1-2.8-1.86l-.25-.21a3.18,3.18,0,0,0-.44-3.09l-.06-.06c.21-.22.42-.44.65-.65A19.6,19.6,0,0,1,675,83.48h0l0,0,0,0c1.31,1.21,2.69,2.35,4,3.37a2.25,2.25,0,0,0,.19,2.29,2.3,2.3,0,0,0,3.18.44s.08-.09.13-.13l2.11,1.46a10.32,10.32,0,0,1-1.17,2.29A11,11,0,0,1,678.28,92.86Zm3.21-13.5a11.33,11.33,0,0,0-7,1.29c-.94-1-1.94-2.12-2.95-3.25a10.43,10.43,0,0,1,9.92,2Zm-13.07-.31A10.92,10.92,0,0,1,670.16,78,21.23,21.23,0,0,0,673,81.53,18,18,0,0,0,670.1,84c-.34.38-.67.76-1,1.14a3.09,3.09,0,0,0-1.48.37,8.27,8.27,0,0,1-1.12-4.61A10.57,10.57,0,0,1,668.42,79.05Zm-3.11,3.87a7.48,7.48,0,0,0,1,4,3.15,3.15,0,0,0,.29,3.41h0a19.1,19.1,0,0,0-.47,3A10.4,10.4,0,0,1,665.31,82.92Zm15.81,12.72a10.4,10.4,0,0,1-13-.29,14.17,14.17,0,0,1,.53-3.88,3.15,3.15,0,0,0,2.34-.52l.28.21a17.53,17.53,0,0,0,3,1.9,2.06,2.06,0,0,0,.41,1.54,2.11,2.11,0,0,0,2.93.37,2,2,0,0,0,.49-.55,18.44,18.44,0,0,0,4,.42A10.14,10.14,0,0,1,681.12,95.64Z"
        id="path5007"
@@ -102,25 +102,25 @@
        width="5"
        height="360"
        id="rect5009"
+       style=""
        fill-opacity="0.65"
-       fill="#0072c6"
-       style="" />
+       fill="#0072c6" />
     <rect
        x="170.73"
        y="105"
        width="5"
        height="360"
        id="rect5011"
-       fill="#0072c6"
-       style="" />
+       style=""
+       fill="#0072c6" />
     <rect
        x="671.66"
        y="105"
        width="5"
        height="360"
        id="rect5013"
-       fill="#75757a"
-       style="" />
+       style=""
+       fill="#75757a" />
     <g
        id="g5019"
        style="">
@@ -131,9 +131,9 @@
          y2="255"
          stroke-miterlimit="10"
          id="line5015"
+         style=""
          stroke="#000"
-         fill="none"
-         style="" />
+         fill="none" />
       <polygon
          points="164.25 258.74 170.73 255 164.25 251.26 164.25 258.74"
          id="polygon5017"
@@ -175,9 +175,9 @@
          y2="320"
          stroke-miterlimit="10"
          id="line5031"
+         style=""
          stroke="#000"
-         fill="none"
-         style="" />
+         fill="none" />
       <polygon
          points="544.25 323.74 550.73 320 544.25 316.26 544.25 323.74"
          id="polygon5033"
@@ -190,9 +190,9 @@
        y2="360"
        stroke-miterlimit="10"
        id="line5037"
+       style=""
        stroke="#000"
-       fill="none"
-       style="" />
+       fill="none" />
     <g
        id="g5043"
        style="">
@@ -203,9 +203,9 @@
          y2="400"
          stroke-miterlimit="10"
          id="line5039"
+         style=""
          stroke="#000"
-         fill="none"
-         style="" />
+         fill="none" />
       <polygon
          points="665.19 403.74 671.66 400 665.19 396.26 665.19 403.74"
          id="polygon5041"
@@ -221,9 +221,9 @@
          y2="360"
          stroke-miterlimit="10"
          id="line5045"
+         style=""
          stroke="#000"
-         fill="none"
-         style="" />
+         fill="none" />
       <polygon
          points="182.21 363.74 175.73 360 182.21 356.26 182.21 363.74"
          id="polygon5047"
@@ -236,9 +236,9 @@
          d="M676.66,405h53.91a5,5,0,0,1,5,5v15a5,5,0,0,1-5,5H682.05"
          stroke-miterlimit="10"
          id="path5051"
+         style=""
          stroke="#000"
-         fill="none"
-         style="" />
+         fill="none" />
       <polygon
          points="683.14 426.29 676.66 430.02 683.14 433.76 683.14 426.29"
          id="polygon5053"
@@ -250,52 +250,52 @@
        width="5.38"
        height="16.06"
        id="rect5057"
-       fill="#fff"
-       style="" />
+       style=""
+       fill="#fff" />
     <g
        id="g5073"
        style="">
       <path
          d="M180.73,98.12a1.19,1.19,0,0,1-1.2,1.2H167.87a1.18,1.18,0,0,1-1.2-1.2V76.52a1.18,1.18,0,0,1,1.2-1.2h11.66a1.19,1.19,0,0,1,1.2,1.2Z"
          id="path5059"
-         fill="#3e3e3e"
-         style="" />
+         style=""
+         fill="#3e3e3e" />
       <path
          d="M168.68,88.28a1.51,1.51,0,0,1,1.54-1.53h7a1.51,1.51,0,0,1,1.53,1.53h0a1.51,1.51,0,0,1-1.53,1.54h-7a1.55,1.55,0,0,1-1.54-1.54Z"
          id="path5061"
-         fill="#1e1e1e"
-         style="" />
+         style=""
+         fill="#1e1e1e" />
       <circle
          cx="170.31"
          cy="88.28"
          r="1.01"
          id="circle5063"
-         fill="#b8d432"
-         style="" />
+         style=""
+         fill="#b8d432" />
       <path
          d="M168.68,83.72a1.51,1.51,0,0,1,1.54-1.53h7a1.51,1.51,0,0,1,1.53,1.53h0a1.51,1.51,0,0,1-1.53,1.54h-7a1.55,1.55,0,0,1-1.54-1.54Z"
          id="path5065"
-         fill="#1e1e1e"
-         style="" />
+         style=""
+         fill="#1e1e1e" />
       <circle
          cx="170.31"
          cy="83.72"
          r="1.01"
          id="circle5067"
-         fill="#b8d432"
-         style="" />
+         style=""
+         fill="#b8d432" />
       <path
          d="M168.68,79.21a1.52,1.52,0,0,1,1.54-1.54h7a1.52,1.52,0,0,1,1.53,1.54h0a1.52,1.52,0,0,1-1.53,1.54h-7a1.58,1.58,0,0,1-1.54-1.54Z"
          id="path5069"
-         fill="#1e1e1e"
-         style="" />
+         style=""
+         fill="#1e1e1e" />
       <circle
          cx="170.31"
          cy="79.21"
          r="1.01"
          id="circle5071"
-         fill="#b8d432"
-         style="" />
+         style=""
+         fill="#b8d432" />
     </g>
     <g
        clip-path="url(#clip-path)"
@@ -304,18 +304,18 @@
       <path
          d="M35.73,75.6H10.3a1.83,1.83,0,0,0-1.82,1.79V93a1.81,1.81,0,0,0,1.82,1.78H35.73A1.81,1.81,0,0,0,37.55,93V77.39A1.83,1.83,0,0,0,35.73,75.6Z"
          id="path5075"
-         fill="#fff"
-         style="" />
+         style=""
+         fill="#fff" />
       <path
          d="M37.55,77.24v4.93H8.48V77.24A1.64,1.64,0,0,1,10.1,75.6H35.93A1.64,1.64,0,0,1,37.55,77.24Z"
          id="path5077"
-         fill="#e5e5e5"
-         style="" />
+         style=""
+         fill="#e5e5e5" />
       <path
          d="M35.74,75.14H10.29A2.29,2.29,0,0,0,8,77.39V93a2.29,2.29,0,0,0,2.28,2.25H22.52l-.18,2.81H16.92L15.51,99h15l-1.4-.94H23.69l-.18-2.81H35.74A2.28,2.28,0,0,0,38,93V77.38A2.27,2.27,0,0,0,35.74,75.14ZM37.08,93a1.34,1.34,0,0,1-1.35,1.32H10.29A1.34,1.34,0,0,1,9,93V77.4a1.35,1.35,0,0,1,1.34-1.33H35.74a1.35,1.35,0,0,1,1.34,1.32Z"
          id="path5079"
-         fill="#3c3c41"
-         style="" />
+         style=""
+         fill="#3c3c41" />
     </g>
     <g
        id="g5087"
@@ -326,17 +326,17 @@
          width="295"
          height="40"
          id="rect5083"
-         fill="#fff"
-         style="" />
+         style=""
+         fill="#fff" />
       <rect
          x="25.73"
          y="110"
          width="295"
          height="40"
          id="rect5085"
+         style=""
          fill="#d83b01"
-         opacity="0.15"
-         style="" />
+         opacity="0.15" />
     </g>
     <g
        id="g5095"
@@ -347,21 +347,21 @@
          width="3"
          height="1"
          id="rect5089"
-         fill="#d83b01"
-         style="" />
+         style=""
+         fill="#d83b01" />
       <path
          d="M314.75,110.5h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.93,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.93,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.93,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.93,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.93,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.93,0h-6v-1h6Zm-8.94,0h-6v-1h6Zm-8.94,0h-6v-1h6Z"
          id="path5091"
-         fill="#d83b01"
-         style="" />
+         style=""
+         fill="#d83b01" />
       <rect
          x="317.73"
          y="109.5"
          width="3"
          height="1"
          id="rect5093"
-         fill="#d83b01"
-         style="" />
+         style=""
+         fill="#d83b01" />
     </g>
     <g
        id="g5103"
@@ -373,9 +373,9 @@
          y2="150"
          stroke-miterlimit="10"
          id="line5097"
+         style=""
          stroke="#d83b01"
-         fill="none"
-         style="" />
+         fill="none" />
       <line
          x1="31.71"
          y1="150"
@@ -383,10 +383,10 @@
          y2="150"
          stroke-miterlimit="10"
          id="line5099"
+         style=""
          stroke-dasharray="5.96 2.98"
          stroke="#d83b01"
-         fill="none"
-         style="" />
+         fill="none" />
       <line
          x1="317.73"
          y1="150"
@@ -394,9 +394,9 @@
          y2="150"
          stroke-miterlimit="10"
          id="line5101"
+         style=""
          stroke="#d83b01"
-         fill="none"
-         style="" />
+         fill="none" />
     </g>
     <rect
        x="165.73"
@@ -404,8 +404,8 @@
        width="15"
        height="32.39"
        id="rect5105"
-       fill="#fff"
-       style="" />
+       style=""
+       fill="#fff" />
     <g
        id="g5111"
        style="">
@@ -413,9 +413,9 @@
          d="M175.73,260h99.58a5,5,0,0,1,5,5v30.88a5,5,0,0,1-5,5h-94.2"
          stroke-miterlimit="10"
          id="path5107"
+         style=""
          stroke="#000"
-         fill="none"
-         style="" />
+         fill="none" />
       <polygon
          points="182.21 297.1 175.73 300.84 182.21 304.58 182.21 297.1"
          id="polygon5109"
@@ -427,8 +427,8 @@
        width="10"
        height="30"
        id="rect5113"
-       fill="#fff"
-       style="" />
+       style=""
+       fill="#fff" />
     <line
        x1="295.73"
        y1="320"
@@ -436,9 +436,9 @@
        y2="320"
        stroke-miterlimit="10"
        id="line5115"
+       style=""
        stroke="#000"
-       fill="none"
-       style="" />
+       fill="none" />
     <line
        x1="230.73"
        y1="400"
@@ -446,9 +446,9 @@
        y2="400"
        stroke-miterlimit="10"
        id="line5117"
+       style=""
        stroke="#000"
-       fill="none"
-       style="" />
+       fill="none" />
     <line
        x1="450.73"
        y1="440"
@@ -456,9 +456,9 @@
        y2="440"
        stroke-miterlimit="10"
        id="line5119"
+       style=""
        stroke="#000"
-       fill="none"
-       style="" />
+       fill="none" />
     <g
        id="g5125"
        style="">
@@ -469,9 +469,9 @@
          y2="440"
          stroke-miterlimit="10"
          id="line5121"
+         style=""
          stroke="#000"
-         fill="none"
-         style="" />
+         fill="none" />
       <polygon
          points="182.21 436.26 175.73 440 182.21 443.74 182.21 436.26"
          id="polygon5123"
@@ -531,16 +531,16 @@
        width="170"
        height="25"
        id="rect5151"
-       fill="#50e6ff"
-       style="" />
+       style=""
+       fill="#50e6ff" />
     <rect
        x="235.73"
        y="35"
        width="170"
        height="25"
        id="rect5153"
-       fill="#50e6ff"
-       style="" />
+       style=""
+       fill="#50e6ff" />
   </g>
   <g
      id="Text">
@@ -2241,21 +2241,8 @@
            height="155.89859"
            x="361.20166"
            y="142.72406" /></flowRegion><flowPara
-         id="flowPara6284"></flowPara></flowRoot>  </g>
-  <flowRoot
-     transform="translate(0.54893842,94.417453)"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
-     id="flowRoot6265"
-     xml:space="preserve"><flowRegion
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
-       id="flowRegion6261"><rect
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
-         y="320.03125"
-         x="704.83728"
-         height="31.83843"
-         width="111.98348"
-         id="rect6259" /></flowRegion><flowPara
-       id="flowPara6263">Validates access_token</flowPara></flowRoot>  <text
+         id="flowPara6284" /></flowRoot>  </g>
+  <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
      x="31.289494"
@@ -2273,17 +2260,28 @@
        id="tspan6300"
        x="31.289494"
        y="249.53577">Redirect URI</tspan></text>
-  <flowRoot
-     xml:space="preserve"
-     id="flowRoot6843"
+  <text
+     id="text556"
+     y="403.46991"
+     x="230.55423"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
-     transform="translate(-152.05602,262.39269)"><flowRegion
-       id="flowRegion6845"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"><rect
-         id="rect6847"
-         width="380.41452"
-         height="17.017097"
-         x="383.15921"
-         y="129.54953"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start" /></flowRegion><flowPara
-       id="flowPara6851">Calls Web API with access_token in authorization header</flowPara></flowRoot></svg>
+     xml:space="preserve"><tspan
+       y="403.46991"
+       x="230.55423"
+       id="tspan554"
+       sodipodi:role="line">Calls Web API with access_token in authorization header</tspan></text>
+  <text
+     id="text568"
+     y="424.32959"
+     x="704.83722"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.66666698px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+     xml:space="preserve"><tspan
+       sodipodi:role="line"
+       id="tspan580"
+       x="704.83722"
+       y="424.32959">Validates </tspan><tspan
+       sodipodi:role="line"
+       id="tspan582"
+       x="704.83722"
+       y="437.66293">access_token</tspan></text>
+</svg>
