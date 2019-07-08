@@ -251,7 +251,7 @@ While the request format is the same as the previous version, the response forma
 
 ### Example C# code
 
-You can find an example C# application that calls this version of sentiment analysis on [github](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
+You can find an example C# application that calls this version of sentiment analysis on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
 ## Summary
 
