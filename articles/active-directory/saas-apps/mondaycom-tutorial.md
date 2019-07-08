@@ -138,7 +138,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Setup configuration](common/setup-sso.png)
 
-1. In a different web browser window, sign in to monday.com as an Administrator.
+1. If you want to setup monday.com manually, open a new web browser window and sign in to monday.com as an administrator and perform the following steps:
 
 1. Go to the **Profile** on the top right corner of page and click on **Admin**.
 
