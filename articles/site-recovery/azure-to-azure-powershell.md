@@ -155,7 +155,7 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 
-In case of Azure to Azure migration, you can just set the vault context to the newly created vault 
+For an Azure-to-Azure migration, you can set the vault context to the newly created vault: 
 
 ```azurepowershell
 
