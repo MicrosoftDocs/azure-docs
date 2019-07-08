@@ -12,10 +12,10 @@ ms.custom: mvc
 
 # About Azure Migrate
 
-This article provides a quick overview of the Azure Migrate hub.
+This article provides a quick overview of Azure Migrate.
 
-[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate servers, apps, and data to the Microsoft Azure cloud. Azure Migrate offers hub of services, including Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. It provides:
- 
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate servers, apps, and data to the Microsoft Azure cloud. Azure Migrate provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and AWS/GCP VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. It provides:
+
 
 - **Unified migration platform**: Use a single portal to strat, run, and track your migration journey to Azure.
 - **Range of tools**: Azure Migrate provides native tools, and integrates with other Azure services, as well as with independent software vendor (ISV) tools. Select the right assessment and migration tools based on your organizational needed.
