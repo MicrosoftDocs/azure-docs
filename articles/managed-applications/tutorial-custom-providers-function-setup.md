@@ -35,7 +35,7 @@ To start this tutorial, you should follow the tutorial, [creating your first Azu
 This section will go through quick steps for installing the Azure Table storage bindings.
 
 1. Navigate to the `Integrate` tab for the HttpTrigger.
-2. Hit the `+ New Input`.
+2. Click on the `+ New Input`.
 3. Select `Azure Table Storage`.
 4. Install the `Microsoft.Azure.WebJobs.Extensions.Storage` if it is not already installed.
 5. Update the `Table parameter name` to "tableStorage" and the `Table name` to "myCustomResources".

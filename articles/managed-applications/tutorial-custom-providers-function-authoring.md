@@ -354,7 +354,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-If you got lost during any point of this tutorial, the completed code sample can be found at the [custom provider C# RESTful endpoint reference](./reference-custom-providers-csharp-endpoint.md). Once, the function is complete save the trigger URL for the function as it will be used in later tutorials.
+If you got lost during any point of this tutorial, the completed code sample can be found at the [custom provider C# RESTful endpoint reference](./reference-custom-providers-csharp-endpoint.md). Once the function is complete, save the function URL that can be used to trigger the function as it will be used in later tutorials.
 
 ## Next steps
 

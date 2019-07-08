@@ -122,7 +122,7 @@ After we have created a custom provider, we can utilize the new Azure APIs. The 
 ```azurecli-interactive
 az resource invoke-action --action myCustomAction \
                           --ids /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider \
-                          --request-body \
+                          --request-body
                             '{
                                 "hello": "world"
                             }'
@@ -152,7 +152,7 @@ Create a custom resource:
 ```azurecli-interactive
 az resource create --is-full-object \
                    --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1 \
-                   --properties \
+                   --properties
                     '{
                         "location": "eastus",
                         "properties": {
