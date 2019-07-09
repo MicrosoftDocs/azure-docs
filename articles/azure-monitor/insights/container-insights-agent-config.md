@@ -59,7 +59,7 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 | | `prometheus.io/port` | String | 9102 | Specify a port to listen on. If port is not set, it will default to 9102. |
 | Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
 | Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the [prometheus_data_collection_settings.node] and/or [prometheus_data_collection_settings.cluster] to time units such as ns, us (or Âµs), ms, s, m, h. |
-| Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | You can specify certain metrics to be collected or not from the endpoint by setting the allow and disallow listing. You must set the allow list first. |
+| Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | | You can specify certain metrics to be collected or not from the endpoint by setting the allow and disallow listing. You must set the allow list first. |
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
 
