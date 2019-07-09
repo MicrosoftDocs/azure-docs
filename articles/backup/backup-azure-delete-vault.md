@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 07/02/2019
 ms.author: raynew
 ---
 # Delete a Recovery Services vault
@@ -23,7 +23,6 @@ Before you start, it's important to understand that you can't delete a Recovery 
     - Backed up items
     - Protected servers
     - Backup management servers (Azure Backup Server, DPM)
-    ![select your vault to open its dashboard](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 - If you don't want to retain any data in the Recovery Services vault, and want to delete the vault, you can delete the vault by force.
 - If you try to delete a vault, but can't, the vault is still configured to receive backup data.
 
@@ -112,26 +111,59 @@ To delete the backup items from Backup Infrastructure, navigate to your on-premi
 - Launch the MARS Management console, go to the **Actions** pane and choose **Schedule Backup**.
 - From **Modify or Stop a Scheduled Backup** wizard, choose the option **Stop using this backup schedule and delete all the stored backups** and click **Next**.
 
-    ![Modify or Stop a Scheduled Backup](./media/backup-azure-delete-vault/modify_schedule_backup.png)
+    ![Modify or Stop a Scheduled Backup](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
 - From **Stop a Scheduled Backup** wizard, click **Finish**.
 
-    ![Stop a Scheduled Backup](./media/backup-azure-delete-vault/stop_schedule_backup.png)
+    ![Stop a Scheduled Backup](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 - You are prompted to enter a Security Pin. To generate the PIN, perform the below steps:
   - Sign in to the Azure portal.
   - Browse to **Recovery Services vault** > **Settings** > **Properties**.
   - Under **Security PIN**, click **Generate**. Copy this PIN.(This PIN is valid for only five minutes)
 - In the Management Console (client app) paste the PIN and click **Ok**.
 
-  ![Security Pin](./media/backup-azure-delete-vault/security_pin.png)
+  ![Security Pin](./media/backup-azure-delete-vault/security-pin.png)
 
 - In the **Modify Backup Progress** wizard you will see *Deleted backup data will be retained for 14 day. After that time, backup data will be permanently deleted.*  
 
-    ![Delete Backup Infrastructure](./media/backup-azure-delete-vault/deleted_backup_data.png)
+    ![Delete Backup Infrastructure](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
 Now that you have deleted the backup items from on-premises, complete the below steps from the portal:
-- For MABS and DPM follow the steps in [Remove Azure Backup management servers](#remove-azure-backup-management-servers)
 - For MARS follow the steps in [Remove Azure Backup agent recovery points](#remove-azure-backup-agent-recovery-points)
+
+### For MABS agent
+
+There are different methods to stop/delete online protection, perform any one of the below methods:
+
+**Method 1**
+
+Launch the **MABS Management** console. In the **Select data protection method** section, un-select **I want online protection**.
+
+  ![select data protection method](./media/backup-azure-delete-vault/data-protection-method.png)
+
+**Method 2**
+
+To delete a protection group, you must first stop protection of the group. Use the following procedure to stop protection and enable deletion of a protection group.
+
+1.	In DPM Administrator Console, click **Protection** on the navigation bar.
+2.	In the display pane, select the protection group member that you want to remove. Right-click to choose **Stop Protection of Group Members** option.
+3.	From the **Stop Protection** dialog box, select **Delete protected data** > **Delete storage online** checkbox and then click **Stop Protection**.
+
+    ![Delete storage online](./media/backup-azure-delete-vault/delete-storage-online.png)
+
+The protected member status is now changed to **Inactive replica available**.
+
+5. Right-click the inactive protection group and select **Remove inactive protection**.
+
+    ![Remove inactive protection](./media/backup-azure-delete-vault/remove-inactive-protection.png)
+
+6. From the **Delete Inactive Protection** window, select **Delete online storage** and click **Ok**.
+
+    ![Remove replicas on disk and online](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+
+Now that you have deleted the backup items from on-premises, complete the below steps from the portal:
+- For MABS and DPM follow the steps in [Remove Azure Backup management servers](#remove-azure-backup-management-servers).
+
 
 ### Remove Azure Backup management servers
 
@@ -152,6 +184,8 @@ Before removing the Azure backup management server, make sure to perform the ste
 > If you are seeing the below error, then first perform the steps listed in [Deleting backup items from management console](#deleting-backup-items-from-management-console).
 >
 >![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> If you are unable to perform the steps to delete backups from the management console, for example, due to unavailability of the server with the management console, contact Microsoft support.
 
 6. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
 7. After the job completes, the service sends a message: **the backup process was stopped and the backup data was deleted**.
@@ -188,8 +222,9 @@ Before removing the Azure backup recovery point, make sure to perform the steps 
 > [!NOTE]
 > If you are seeing the below error, then first perform the steps listed in [Deleting backup items from management console](#deleting-backup-items-from-management-console).
 >
->
 >![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
+>
+> If you are unable to perform the steps to delete backups from the management console, for example, due to unavailability of the server with the management console, contact Microsoft support.
 
 8. To verify that the delete job completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png).
 9. After deleting an item in the list, on the **Backup Infrastructure** menu, click **Refresh** to see the items in the vault.

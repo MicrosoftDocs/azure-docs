@@ -17,7 +17,7 @@ This article explains the hardware specifications for Azure FXT Edge Filer hardw
 | Component | FXT 6600 | FXT 6400 |
 |----------|-----------|-----------|
 | CPU cores |  16 | 16 |
-| DRAM (GB) | 1536 GB | 768 GB |
+| DRAM  | 1536 GB | 768 GB |
 | Network ports | 6 x 25/10 Gb + 2 x 1 Gb | 6 x 25/10 Gb + 2 x 1 Gb |
 | NVMe SSD capacity | 25.6 TB | 12.8 TB |
 
