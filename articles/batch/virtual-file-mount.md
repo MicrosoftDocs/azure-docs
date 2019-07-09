@@ -17,7 +17,7 @@ ms.author: lahugh
 
 # Mount a virtual file system on a Batch pool
 
-Azure Batch now allows you to mount cloud storage or an external file system on Windows or Linux compute nodes in your Batch pools. When a compute node joins a pool, the virtual file system is mounted and treated as a local drive on that node. You can mount file systems such as Azure Files, Azure Blob storage, Network File System (NFS) including an Avere vFXT cache, or Common Internet File System (CIFS).
+Azure Batch now allows you to mount cloud storage or an external file system on Windows or Linux compute nodes in your Batch pools. When a compute node joins a pool, the virtual file system is mounted and treated as a local drive on that node. You can mount file systems such as Azure Files, Azure Blob storage, Network File System (NFS) including an [Avere vFXT cache](https://azure.microsoft.com/en-au/services/storage/avere-vfxt/), or Common Internet File System (CIFS).
 
 In this article, you'll learn how to mount a virtual file system on a pool of compute nodes using the [Batch Management Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
