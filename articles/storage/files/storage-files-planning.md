@@ -206,6 +206,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |West Europe     |LRS|No         |
 |West US 2     |LRS, ZRS|No         |
 
+To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 
 ### Steps to onboard
 
@@ -223,7 +224,7 @@ To verify your registration status, you can run the following command:
 Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 ```
 
-It may take up to 15 minutes for your status to update to "registered" however, you should be able to use the feature despite that.
+It may take up to 15 minutes for your status to update to **registered**. Once your status is **registered**, you should be able to use the feature.
 
 ### Use larger file shares
 

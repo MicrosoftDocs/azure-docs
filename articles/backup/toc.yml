@@ -62,6 +62,10 @@
       href: backup-azure-files-faq.md
     - name: FAQ-Back up SQL Server databases on Azure VMs
       href: faq-backup-sql-server.md
+    - name: FAQ-Azure Backup Server and DPM
+      href: backup-azure-dpm-azure-server-faq.md
+    - name: FAQ-Azure Backup monitor alert
+      href: backup-azure-monitor-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Role-Based Access Control
@@ -126,7 +130,7 @@
     items:
     - name: About Azure VM backup
       href: backup-azure-vms-introduction.md
-    - name: Backup and restore Azure VMs with Azure Backup Instant Restore
+    - name: Back up and restore Azure VMs with Azure Backup Instant Restore
       href: backup-instant-restore-capability.md
     - name: Back up Azure VMs
       items:
