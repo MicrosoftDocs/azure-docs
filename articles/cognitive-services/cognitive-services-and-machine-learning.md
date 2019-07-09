@@ -75,9 +75,9 @@ The following data categorizes each service by which kind of data it allows or r
 |[Speech speech-to-text (STT)](/speech-service/speech-to-text.md)|x|x||
 |[Speech translation](speech-service/speech-translation.md)|x|||
 |[Text analytics](./text-analytics/overview.md)|x|||
-|[Translator text](./translator/translator-info-overview)|x|||
+|[Translator text](./translator/translator-info-overview.md)|x|||
 |[Translator text - custom translator]()||x||
-|[Video indexer](./video-indexer/video-indexer-overview)||||
+|[Video indexer](./video-indexer/video-indexer-overview.md)||||
 
 ## Where can you use Cognitive Services?
  
