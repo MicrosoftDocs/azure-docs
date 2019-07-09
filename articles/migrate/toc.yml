@@ -24,13 +24,14 @@
         href: tutorial-migrate-vmware-agent.md
   - name: Hyper-V assessment and migration
     items:
-    
     - name: Prepare Hyper-V for assessment and migration
       href: tutorial-prepare-hyper-v.md
     - name: Assess Hyper-V VMs for migration
       href: tutorial-assess-hyper-v.md
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
+  - name: Migrate physical servers and virtual machines
+    href: tutorial-migrate-physical-virtual-machines.md
 - name: Concepts
   items:
   - name: Support matrices
@@ -41,19 +42,19 @@
       href: migrate-support-matrix-vmware.md
     - name: Support matrix for Hyper-V assessment and migration
       href: migrate-support-matrix-hyper-v.md
-  - name: Azure Migrate architecture
-    href: migrate-architecture.md
+  - name: Hyper-V migration architecture
+    href: hyper-v-migration-architecture.md
+  - name: Agent-based migration architecture
+    href: agent-based-migration-architecture.md
   - name: Azure Migrate appliance
     href: migrate-appliance.md
   - name: Azure Migrate replication appliance
     href: migrate-replication-appliance.md
-  - name: Collector version upgrades
-    href: concepts-collector-upgrade.md
   - name: Best practices for assessments
     href: best-practices-assessment.md
   - name: Assessment calculations
     href: concepts-assessment-calculation.md
-  - name: About dependency visualization
+  - name: Dependency visualization
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
@@ -63,28 +64,29 @@
     href: how-to-add-tool-first-time.md
   - name: Add assessment tools
     href: how-to-assess.md
+  items:
+  - name: Group machines for assessment
+    items:
+    - name: Create a group
+      href: how-to-create-a-group.md
+    - name: Group machines using machine dependencies
+      href: how-to-create-group-machine-dependencies.md
+    - name: Refine a group using group dependencies
+      href: how-to-create-group-dependencies.md
+  - name: Customize an assessment
+    href: how-to-modify-assessment.md
   - name: Add migration tools
     href: how-to-migrate.md
+  - name: Deploy an appliance for VMware migration
+    href: how-to-set-up-appliance-vmware.md
   - name: Scale assessment and migration
     items:
     - name: Assess large numbers of VMware VMs
       href: scale-vmware-assessment.md
     - name: Assess large numbers of Hyper-V VMs
       href: scale-hyper-v-assessment.md
-    - name: Scale an assessment
-      href: how-to-scale-assessment.md
-  - name: Group machines
-    href: how-to-create-a-group.md
-  - name: Group machines using machine dependencies
-    href: how-to-create-group-machine-dependencies.md
-  - name: Refine a group using group dependencies
-    href: how-to-create-group-dependencies.md
-  - name: Customize an assessment
-    href: how-to-modify-assessment.md
-  - name: Migrate machines after assessment
-    href: how-to-get-migration-tool.md
-  - name: Automate migration of large number of VMs
-    href: how-to-migrate-at-scale.md
+    - name: Automate migration of large number of VMs
+      href: how-to-migrate-at-scale.md
   - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
 - name: Resources
