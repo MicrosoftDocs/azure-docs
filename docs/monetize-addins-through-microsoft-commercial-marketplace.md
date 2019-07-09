@@ -1,11 +1,11 @@
 ---
-title: Monetize your add-in through Microsoft Commercial Marketplace
+title: Monetize your Office 365 add-in through Microsoft Commercial Marketplace
 description: 
 ms.date: 06/22/2019
 localization_priority: Priority
 ---
 
-# Monetize your add-in through Microsoft Commercial Marketplace
+# Monetize your Office 365 add-in through Microsoft Commercial Marketplace
 
 We’re making it easier for customers to discover bundled solutions and deploy across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
 
@@ -26,5 +26,7 @@ In this monetization model, your add-in is authenticated by your SaaS offering, 
 To kickstart your SaaS migration, and to answer any questions you might have, contact [OVMC@microsoft.com](mailto:OVMC@microsoft.com). 
 
 > [!NOTE] 
-> Starting July 22, 2019, we will no longer accept new paid add-in submissions to AppSource. Customers will be able to purchase existing paid add-ins in AppSource until July 2020, and then they will be removed from AppSource and for existing users unless they are listed as free. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). We will provide additional migration information in the near future.
+> Starting July 29th 2019, we will no longer accept new paid add-in submissions to AppSource. Customers will be able to purchase Existing paid add-ins in AppSource will be purchasable until January 2020. They will then be hidden from the store, but still be available for existing users. If these add-ins have not been migrated by July 2020, they will be removed from AppSource and for existing users. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md).
+
+We will provide additional migration information in the near future.
 
