@@ -36,15 +36,15 @@ You can monitor the following account metrics.
 
 |Metric name|Display name|Description|
 |---|---|---|
-||Asset count||
-||Asset quota||
-||Asset quota used percentage||
-||Content Key Policy count||
-||Content Key Policy quota||
-||Content Key Policy quota used percentage||
-||Streaming Policy count||
-||Streaming Policy quota||
-||Streaming Policy quota used percentage||
+|AssetCount|Asset count|Assets in your account.|
+|AssetQuota|Asset quota|Asset quota in your account.|
+|AssetQuotaUsedPercentage|Asset quota used percentage|The percentage of the asset quota already used.|
+|ContentKeyPolicyCount|Content Key Policy count|Content key policies in your account.|
+|ContentKeyPolicyQuota|Content Key Policy quota|Content key policies quota in your account.|
+|ContentKeyPolicyQuotaUsedPercentage|Content Key Policy quota used percentage|The percentage of the content key policy quota already used.|
+|StreamingPolicyCount|Streaming Policy count|Streaming policies in your account.|
+|StreamingPolicyQuota|Streaming Policy quota|Streaming policies quota in your account.|
+|StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage|The percentage of the streaming policy quota already used.|
  
 You should also review [account quotas and limiatations](limits-quotas-constraints.md).
 
