@@ -8,7 +8,7 @@ ms.date: 07/09/2019
 ms.author: tomfitz
 ---
 
-# Move resources to new resource group or subscription
+# Move resources to a new resource group or subscription
 
 This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
 
@@ -142,7 +142,7 @@ While the operation is still running, you continue to receive the 202 status cod
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## Use portal
+## Use the portal
 
 To move resources, select the resource group with those resources, and then select the **Move** button.
 
