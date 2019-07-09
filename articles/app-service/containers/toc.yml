@@ -99,8 +99,8 @@
       href: configure-language-ruby.md
     - name: Configure custom container
       href: configure-custom-container.md
-    - name: Serve content with Storage
-      href: how-to-serve-content-from-azure-storage.md
+    - name: Configure Azure Storage
+      href: configure-connect-to-azure-storage.md.md
   - name: Deploy to Azure
     items:
     - name: Deploy the app
