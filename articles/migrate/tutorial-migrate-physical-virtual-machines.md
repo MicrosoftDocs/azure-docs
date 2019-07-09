@@ -92,7 +92,7 @@ The tenant/global admin can grant permissions as follows
 1. In Azure AD, the tenant/global admin should navigate to **Azure Active Directory** > **Users** > **User Settings**.
 2. The admin should set **App registrations** to **Yes**.
 
-    ![Azure AD permissions](./media/tutorial-migrate-physical-virtual-machine/aad.png)
+    ![Azure AD permissions](./media/tutorial-migrate-physical-virtual-machines/aad.png)
 
 > [!NOTE]
 > This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
@@ -142,13 +142,13 @@ Set up an Azure Migrate project, and then add the Azure Migrate Server Migration
 3. In **Overview**, click **Assess and migrate servers**.
 4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
 
-    ![Discover and assess servers](./media/tutorial-migrate-physical-virtual-machine/assess-migrate.png)
+    ![Discover and assess servers](./media/tutorial-migrate-physical-virtual-machines/assess-migrate.png)
 
 5. In **Discover, assess and migrate servers**, click **Add tools**.
 6. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
 7. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**
 
-    ![Create an Azure Migrate project](./media/tutorial-migrate-physical-virtual-machine/migrate-project.png)
+    ![Create an Azure Migrate project](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
     You can create an Azure Migrate project in any of these geographies.
 
@@ -173,7 +173,7 @@ The first step of migration is to set up the replication appliance. You  downloa
 
 1. In the Azure Migrate project > **Servers**, in ***Azure Migrate: Server Migration**, click **Discover**.
 
-    ![Discover VMs](./media/tutorial-migrate-physical-virtual-machine/migrate-discover.png)
+    ![Discover VMs](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
 3. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized/Other**.
 4. In **Target region**, select the Azure region to which you want to migrate the machines.
