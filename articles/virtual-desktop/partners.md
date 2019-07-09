@@ -23,7 +23,7 @@ Lakeside Software’s digital experience monitoring solution, SysTrack, can help
 
 ## Nerdio
 
-Nerdio is an Azure IT automation platform that makes it easy to deploy and manage Windows Virtual Desktop. Nerdio provides the knowledge and technology to deploy, price, package, manage, and optimize customers’ Azure deployments – with Windows Virtual Desktop front-and-center.
+Nerdio is an Azure IT automation platform that makes it easy to deploy and manage Windows Virtual Desktop. Nerdio provides the knowledge and technology to deploy, price, package, manage, and optimize customers’ Azure deployments—with Windows Virtual Desktop front-and-center.
 
 Nerdio extends the value of Windows Virtual Desktop by making it easy to provision Azure resources and streamline deployment. With Nerdio for Azure, IT can automatically deploy and manage a complete Azure environment, including Windows Virtual Desktop, in under two hours.
 
