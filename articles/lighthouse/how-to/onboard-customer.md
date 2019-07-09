@@ -116,7 +116,7 @@ As a service provider, you may want to use multiple offers with a single custome
 To make management easier, we recommend using Azure AD user groups for each role, allowing you to add or remove individual users to the group rather than assigning permissions directly to that user. You may also want to assign roles to a service principal. Be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors. For more info, see [Recommended security practices](../concepts/recommended-security-practices.md).
 
 > [!NOTE]
-> Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). All built-in roles are currently supported with Azure delegated resource management except for Owner, User Access Administrator, or any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission. Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are also not supported.
+> Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). All built-in roles are currently supported with Azure delegated resource management except for Owner and any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission. The User Access Administrator built-in role is supported for limited use as described below. Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are also not supported.
 
 In order to define authorizations, you'll need to know the ID values for each user, user group, or service principal to which you want to grant access. You'll also need the role definition ID for each built-in role you want to assign. If you don't have them already, you can retrieve them in one of the following ways.
 
@@ -167,7 +167,7 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](http
 |**mspName**     |Service provider name         |
 |**mspOfferDescription**     |A brief description of your offer (for example, "Contoso VM management offer")      |
 |**managedByTenantId**     |Your tenant ID         |
-|**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each mapped to a built-in **roleDefinitionId** value to specify the level of access         |
+|**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each with a **principalIdDisplayName** to help your customer understand the purpose of the authorization and mapped to a built-in **roleDefinitionId** value to specify the level of access         |
 
 To onboard a customer's subscription, use the appropriate Azure Resource Manager template that we provide in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/), along with a corresponding parameters file that you modify to match your configuration and define your authorizations. Separate templates are provided depending on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription. We also provide a template that can be used for customers who purchased a managed service offer that you published to Azure Marketplace, if you prefer to onboard their subscription(s) this way.
 
@@ -187,33 +187,55 @@ The following example shows a modified **resourceProjection.parameters.json** fi
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "mspName": {
-            "value": "Contoso MSP"
+            "value": "Fabrikam Managed Services - Interstellar"
         },
         "mspOfferDescription": {
-            "value": "Contoso VM management offer"
+            "value": "Fabrikam Managed Services - Interstellar"
         },
         "managedByTenantId": {
-            "value": "b2a0bb8e-3f26-47f8-9040-209289b412a8"
+            "value": "df4602a3-920c-435f-98c4-49ff031b9ef6"
         },
         "authorizations": {
             "value": [
                 {
-                    "principalId": "9ecfa873-0557-4d13-a6e2-92bbb9ac8dc7",
-                    "roleDefinitionId": "e7975a8b-bc78-4af0-a2ed-e42e1ce0a888"
+                    "principalId": "0019bcfb-6d35-48c1-a491-a701cf73b419",
+                    "principalIdDisplayName": "Tier 1 Support",
+                    "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
                 },
                 {
-                    "principalId": "9d56d1a0-e255-4e75-be6b-271b5342c099",
-                    "roleDefinitionId": "5fdebb7d-8ac0-4e7c-9b07-92da805136a9"
+                    "principalId": "0019bcfb-6d35-48c1-a491-a701cf73b419",
+                    "principalIdDisplayName": "Tier 1 Support",
+                    "roleDefinitionId": "36243c78-bf99-498c-9df9-86d9f8d28608"
+                },
+                {
+                    "principalId": "0afd8497-7bff-4873-a7ff-b19a6b7b332c",
+                    "principalIdDisplayName": "Tier 2 Support",
+                    "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
+                },
+                {
+                    "principalId": "9fe47fff-5655-4779-b726-2cf02b07c7c7",
+                    "principalIdDisplayName": "Service Automation Account",
+                    "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
+                },
+                {
+                    "principalId": "3kl47fff-5655-4779-b726-2cf02b05c7c4",
+                    "principalIdDisplayName": "Policy Automation Account",
+                    "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+                    "delegatedRoleDefinitionIds": [
+                        "b24988ac-6180-42a0-ab88-20f7382dd24c",
+                        "92aaf0da-9dab-42b6-94a3-d43ce8d16293"
+                    ]
                 }
             ]
         }
     }
 }
 ```
+The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to managed identities. Note that no other permissions normally associated with the User Access Administrator role will apply to this user.
 
 ## Deploy the Azure Resource Manager templates
 
