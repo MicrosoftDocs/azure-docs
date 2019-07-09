@@ -17,7 +17,7 @@ abstract:
       height: 110
       src: media/azure-friday.png
       width: 250  
-    title: Azure Data Share on Azure Friday's
+    title: Azure Data Share on Azure Friday
     href: https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny
     width: 250
 
