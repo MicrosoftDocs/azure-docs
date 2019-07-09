@@ -38,26 +38,25 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
-3. Select **Add** and then in the Select Product Type pane, select **SQL Database** to purchase a new reservation for SQL Database.
+3. Select **Add** and then in the Purchase reservations pane, select **SQL Database** to purchase a new reservation for SQL Database.
 4. Fill-in the required fields. Existing or new single databases, elastic pools, or managed instances that match the attributes you select qualify to get the reserved capacity discount. The actual number of your SQL Database instances that get the discount depend on the scope and quantity selected.
+    ![Screenshot before submitting the SQL Database reserved capacity purchase](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
 
-   ![Screenshot before submitting the SQL Database reserved capacity purchase](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+The following table describes required fields.
 
-    | Field      | Description|
-    |:------------|:--------------|
-    |Name        |The name of this reservation.|
-    |Subscription|The subscription used to pay for the SQL Database reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the SQL Database reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.|
-    |Scope       |The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: <br/><br/>**Single subscription** - The vCore reservation discount is applied to SQL Database instances in this subscription. <br/><br/>**Shared subscription** - The vCore reservation discount is applied to SQL Database instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.|
-    |Region      |The Azure region that’s covered by the SQL Database reserved capacity reservation.|
-    |Deployment Type|The SQL resource type that you want to buy the reservation for.|
-    |Performance Tier|The service tier for the SQL Database instances.
-    |Term        |One year or three years.|
-    |Quantity    |The number of instances being purchased within the SQL Database reserved capacity reservation. The quantity is the number of running SQL Database instances that can get the billing discount. For example, if you are running 10 SQL Database instances in the East US, then you would specify quantity as 10 to maximize the benefit for all running machines. |
-    |||
+| Field      | Description|
+|------------|--------------|
+|Subscription|The subscription used to pay for the SQL Database reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the SQL Database reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.|
+|Scope       |The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: <br/><br/>**Shared**, the vCore reservation discount is applied to SQL Database instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.<br/><br/>**Single subscription**, the vCore reservation discount is applied to SQL Database instances in this subscription. <br/><br/>**Single resource group**, the reservation discount is applied to SQL Database instances in the selected subscription and the selected resource group within that subscription.|
+|Region      |The Azure region that’s covered by the SQL Database reserved capacity reservation.|
+|Deployment Type|The SQL resource type that you want to buy the reservation for.|
+|Performance Tier|The service tier for the SQL Database instances.
+|Term        |One year or three years.|
+|Quantity    |The number of instances being purchased within the SQL Database reserved capacity reservation. The quantity is the number of running SQL Database instances that can get the billing discount. For example, if you are running 10 SQL Database instances in the East US, then you would specify quantity as 10 to maximize the benefit for all running machines. |
 
-5. Review the cost of the SQL Database reserved capacity reservation in the **Costs** section.
-6. Select **Purchase**.
-7. Select **View this Reservation** to see the status of your purchase.
+1. Review the cost of the SQL Database reserved capacity reservation in the **Costs** section.
+1. Select **Purchase**.
+1. Select **View this Reservation** to see the status of your purchase.
 
 ## Cancellations and exchanges
 

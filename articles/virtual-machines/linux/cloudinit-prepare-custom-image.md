@@ -4,7 +4,7 @@ description: How to prepare an pre-existing Azure VM image for deployment with c
 services: virtual-machines-linux
 documentationcenter: ''
 author: danis
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

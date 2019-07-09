@@ -66,6 +66,7 @@ The following documents contain provisions, which, through reference in this tex
 |Standard  |Definition  |
 |---------|---------|
 |[Adobe-Primetime] | [Primetime Digital Program Insertion Signaling Specification 1.2](https://www.adobe.com/content/dam/acom/en/devnet/primetime/PrimetimeDigitalProgramInsertionSignalingSpecification.pdf) |
+|[Adobe-Flash-AS] | [FLASH ActionScript Language Reference](https://help.adobe.com/archive/en_US/as2/flashlite_2.x_3.x_aslr.pdf) |
 | [AMF0]            | ["Action Message Format AMF0"](https://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf) |
 | [DASH-IF-IOP]     | DASH Industry Forum Interop Guidance v 4.2 [https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html](https://dashif-documents.azurewebsites.net/DASH-IF-IOP/master/DASH-IF-IOP.html) |
 | [HLS-TMD]         | Timed Metadata for HTTP Live Streaming - [https://developer.apple.com/streaming](https://developer.apple.com/streaming) |
@@ -79,7 +80,7 @@ The following documents contain provisions, which, through reference in this tex
 | [RFC8216]         | R. Pantos, Ed.; W. May. HTTP Live Streaming. August 2017. Informational. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216) |
 | [RFC4648]         |The Base16, Base32, and Base64 Data Encodings - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648) |
 | [RTMP]            |[“Adobe’s Real-Time Messaging Protocol”, December 21, 2012](https://www.adobe.com/devnet/rtmp.html)  |
-| [SCTE-35-2019]    | SCTE 35: 2019 - Digital Program Insertion Cueing Message for Cable - https://www.scte.org/SCTEDocs/Standards/SCTE%2035%202019.pdf  |
+| [SCTE-35-2019]    | SCTE 35: 2019 - Digital Program Insertion Cueing Message for Cable - https://www.scte.org/SCTEDocs/Standards/ANSI_SCTE%2035%202019r1.pdf  |
 | [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH for IP-Based Cable Services Part 1: MPD Constraints and Extensions |
 | [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH for IP-Based Cable Services Part 3: DASH/FF Profile |
 | [SCTE-224]        | SCTE 224 2018r1 – Event Scheduling and Notification Interface |
@@ -92,17 +93,19 @@ The following documents contain provisions, which, through reference in this tex
 
 ## 2.1 RTMP Ingest
 
-[RTMP] supports timed metadata signals sent as [AMF0] cue messages embedded within the [RTMP] stream. The cue messages may be sent some time before the actual custom event, or [SCTE35] ad splice insertion needs to occur. To support this scenario, the actual time of the splice or segment is sent within the cue message. For more information, see [AMF0].
+The [RTMP] allows for timed metadata signals to be sent as [AMF0] cue messages embedded within the [RTMP] stream. The cue messages may be sent sometime before the actual event or [SCTE35] ad splice signal needs to occur. To support this scenario, the actual time of the event is sent within the cue message. For more information, see [AMF0].
 
-The following table describes the format of the AMF message payload that Media Services will ingest.
+The following tables describes the format of the AMF message payload that Media Services will ingest for both "simple" and [SCTE35] message modes.
 
-The name of the AMF message can be used to differentiate multiple event streams of the same type.  For [SCTE-35] messages, the name of the AMF message MUST be “onAdCue” as recommended in [Adobe-Primetime].  Any fields not listed below MUST be ignored, so that innovation of this design is not inhibited in the future.
+The name of the [AMF0] message can be used to differentiate multiple event streams of the same type.  For both [SCTE-35] messages and "simple" mode, the name of the AMF message MUST be “onAdCue” as required in the [Adobe-Primetime] specification.  Any fields not listed below SHALL be ignored by Azure Media Services at ingest.
 
 ## 2.1.1 RTMP Signal Syntax
 
-For RTMP simple mode, Media Services supports a single AMF cue message called "onAdCue" using a payload of "Simple Mode" or "SCTE-35 Mode" in compliance with  [Adobe-Primetime]:
+Azure Media Services can listen and respond to several [AMF0] message types which can be used to signal various real time synchronized metadata in the live stream.  The [Adobe-Primetime] specification defines two cue types called "simple" and "SCTE-35" mode. For "simple" mode, Media Services supports a single AMF cue message called "onAdCue" using a payload that matches the table below defined for the  "Simple Mode" signal.  
 
-## 2.1.2 RTMP Simple Mode
+The following section shows RTMP "simple" mode" payload, which can be used to signal a basic "spliceOut" ad signal that will be carried through to the client manifest for HLS, DASH, and Microsoft Smooth Streaming. This is very useful for scenarios where the customer does not have a complex SCTE-35 based ad signaling deployment or insertion system, and is using a basic on-premises encoder to send in the cue message via an API. Typically the on-premises encoder will support a REST based API to trigger this signal, which will also "splice-condition" the video stream by inserting an IDR frame into the video, and starting a new GOP.
+
+## 2.1.2  Simple Mode Ad Signaling with RTMP
 
 | Field Name | Field Type | Required? | Descriptions                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
@@ -113,8 +116,14 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 | time       | Number     | Required | Shall be the time of the splice, in presentation time. Units are fractional seconds.                                     |
 
 ---
+ 
+## 2.1.3 SCTE-35 Mode Ad Signaling with RTMP
 
-## 2.1.3 RTMP SCTE-35 Mode
+When you are working with a more advanced broadcast production workflow that requires the full SCTE-35 payload message to be carried through to the HLS or DASH manifest, it is best to use the "SCTE-35 Mode" of the [Adobe-Primetime] specification.  This mode supports in-band SCTE-35 signals being sent directly into an on-premises live encoder, which then encodes the signals out into the RTMP stream using the "SCTE-35 Mode" specified in the [Adobe-Primetime] specification. 
+
+Typically SCTE-35 messages can appear only in MPEG-2 transport stream (TS) inputs on an on-premises encoder. Check with your encoder manufacturer for details on how to configure a transport stream ingest that contains SCTE-35 and enable it for pass-through to RTMP in Adobe SCTE-35 mode.
+
+In this scenario, the following payload MUST be sent from the on-premises encoder using the **"onAdCue"** [AMF0] message type.
 
 | Field Name | Field Type | Required? | Descriptions                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
@@ -126,8 +135,25 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 | time       | Number     | Required | The presentation time of the event or ad splice.  The presentation time and duration **SHOULD** align with Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. For HLS egress, time and duration **SHOULD** align with segment boundaries. The presentation time and duration of different event messages within the same event stream MUST not overlap. Units are fractional seconds.
 
 ---
+## 2.1.4 Elemental Live "onCuePoint" Ad Markers with RTMP
 
-### 2.1.4 Cancellation and Updates
+The Elemental Live on-premises encoder supports ad markers in the RTMP signal. Azure Media Services currently only supports the "onCuePoint" Ad Marker type for RTMP.  This can be enabled in the Adobe RTMP Group Settings in the Elemental Media Live encoder settings or API by setting the "**ad_markers**" to "onCuePoint".  Please refer to the Elemental Live documentation for details. 
+Enabling this feature in the RTMP Group will pass SCTE-35 signals to the Adobe RTMP outputs to be processed by Azure Media Services.
+
+The "onCuePoint" message type is defined in [Adobe-Flash-AS] and has the following payload structure when sent from the Elemental Live RTMP output.
+
+
+|Property  |Description  |
+|---------|---------|
+|name     | The name SHOULD be '**scte35**' by Elemental Live. |
+|time     |  The time in seconds at which the cue point occurred in the video file during timeline |
+| type     | The type of cue point SHOULD be set to "**event**". |
+| parameters | A associative array of name/value pair strings containing the information from the SCTE-35 message, including Id and duration. These values are parsed out by Azure Media Services and included in the manifest decoration tag.  |
+
+
+When this mode of ad marker is used, the HLS manifest output is similar to Adobe "Simple" mode. 
+
+### 2.1.5 Cancellation and Updates
 
 Messages can be canceled or updated by sending multiple messages with the same
 presentation time and ID. The presentation time and ID uniquely identify the
@@ -230,7 +256,7 @@ with [SCTE-35] and/or the client’s streaming protocol:
 4.  ID – an optional unique identifier for the event.
 5.  Message – the event data.
 
-## 3.1 Smooth Streaming Manifest  
+## 3.1 Microsoft Smooth Streaming Manifest  
 
 Refer to sparse track handling [MS-SSTR] for details on how to format a sparse message track.
 For [SCTE35] messages, Smooth Streaming will output the base64-encoded splice_info_section() into a sparse fragment.
@@ -275,17 +301,26 @@ The StreamIndex **MUST** have a Subtype of "DATA", and the CustomAttributes **MU
 </SmoothStreamingMedia>
 ~~~
 
-## 3.2 Apple HLS with EXT-X-DATERANGE
+## 3.2 Apple HLS Manifest Decoration
+
+Azure Media Services supports the following HLS manifest tags for signaling ad avail information during a live or on-demand event. 
+
+- EXT-X-DATERANGE as defined in Apple HLS [RFC8216]
+- EXT-X-CUE as defined in [Adobe-Primetime] - this mode is considered "legacy". Customers should  adopt the EXT-X-DATERANGE tag when possible.
+
+The data output to each tag will vary based on the ingest signal mode used. For example, RTMP ingest with Adobe Simple mode does not contain the full SCTE-35 base64-encoded payload.
+
+## 3.2.1 Apple HLS with Adobe Primetime EXT-X-DATERANGE (recommended)
 
 The Apple HTTP Live Streaming [RFC8216] specification allows for signaling of [SCTE-35] messages. The messages are inserted into the segment playlist in an EXT-X-DATERANGE tag per [RFC8216] section titled "Mapping SCTE-35 into EXT-X-DATERANGE".  The client application layer can parse the M3U playlist and process M3U tags, or receive the events through the Apple player framework.  
 
-The **RECOMMENDED** approach in Azure Media Services (version 3 API only) is to follow [RFC8216] and output the EXT-X_DATERANGE tag using the SCTE35 attributes.
+The **RECOMMENDED** approach in Azure Media Services (version 3 API) is to follow [RFC8216] and use the EXT-X_DATERANGE tag for [SCTE35] ad avail decoration in the manifest.
 
-## 3.3 Apple HLS with Adobe Primetime EXT-X-CUE (legacy)
+## 3.2.2 Apple HLS with Adobe Primetime EXT-X-CUE (legacy)
 
 There is also a "legacy" implementation provided in Azure Media Services (version 2 and 3 API) that uses the EXT-X-CUE tag as defined in [Adobe-Primetime] "SCTE-35 Mode". In this mode, Azure Media Services will embed base64-encoded [SCTE-35] splice_info_section() in the EXT-X-CUE tag.  
 
-The "legacy" EXT-X-CUE tag is defines as below and also can be normative referenced in the [Adobe-Primetime] specification. This should only be used for legacy SCTE35 signaling where needed, otherwise the recommended tag is defined in [RFC8216] as EXT-X_DATERANGE. 
+The "legacy" EXT-X-CUE tag is defined as below and also can be normative referenced in the [Adobe-Primetime] specification. This should only be used for legacy SCTE35 signaling where needed, otherwise the recommended tag is defined in [RFC8216] as EXT-X-DATERANGE. 
 
 | **Attribute Name** | **Type**                      | **Required?**                             | **Description**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -299,7 +334,9 @@ The "legacy" EXT-X-CUE tag is defines as below and also can be normative referen
 
 The HLS player application layer will use the TYPE to identify the format of the message, decode the message, apply the necessary time conversions, and process the event.  The events are time synchronized in the segment playlist of the parent track, according to the event timestamp.  They are inserted before the nearest segment (#EXTINF tag).
 
-### HLS Segment Playlist Example using "Legacy" Adobe Primetime EXT-X-CUE
+### 3.2.3 HLS Segment Playlist Example using "Legacy" Adobe Primetime EXT-X-CUE
+
+The following example shows HLS manifest decoration using the Adobe Primetime EXT-X-CUE tag.  The "CUE" parameter contains the full base64-encoded SCTE-35 splice_info payload which indicates that this signal came in using RTMP in Adobe SCTE-35 signal mode, or it came in via Smooth Streaming SCTE-35 signal mode. 
 
 ~~~
 #EXTM3U
@@ -318,7 +355,7 @@ KeyFrames(video_track=15447164634627600,format=m3u8-aapl)
 KeyFrames(video_track=15447165474627600,format=m3u8-aapl)
 ~~~
 
-### HLS Message Handling for "Legacy" Adobe Primetime EXT-X-CUE
+### 3.2.4 HLS Message Handling for "Legacy" Adobe Primetime EXT-X-CUE
 
 Events are signaled in the segment playlist of each video and audio track. The
 position of the EXT-X-CUE tag **MUST** always be either immediately before the first
@@ -335,33 +372,31 @@ When a sliding presentation window is enabled, the EXT-X-CUE tags are removed
 from the segment playlist when the media time that they refer to has rolled out
 of the sliding presentation window.
 
-## 3.4 DASH manifest output (MPD)
+## 3.3 DASH Manifest Decoration (MPD)
 
 [MPEGDASH] provides three ways to signal events:
 
-1.  Events signaled in the MPD
-2.  Events signaled in-band in the Representation (using Event Message Box
-    (‘emsg’)
+1.  Events signaled in the MPD EventStream
+2.  Events signaled in-band using the Event Message Box (‘emsg’)
 3.  A combination of both 1 and 2
 
-Events signaled in the MPD are useful for VOD streaming because clients have
-access to all the events, immediately when the MPD is downloaded. The in-band
-solution is useful for live streaming because clients do not need to download the MPD again. For time-based segmentation, the client determines the URL for the next segment by adding the duration and timestamp of the current segment. If that request fails, the client assumes a discontinuity and downloads the MPD, but otherwise continues streaming without downloading the MPD.
+Events signaled in the MPD EventStream are useful for VOD streaming because clients have
+access to all the events, immediately when the MPD is downloaded. It is also useful for SSAI signaling, where the downstream SSAI vendor needs to parse the signals from a multi-period MPD manifest, and insert ad content dynamically.  The in-band ('emsg')solution is useful for live streaming where clients do not need to download the MPD again, or there is no SSAI manifest manipulation happening between the client and the origin. 
 
-Azure Media Services will do both signaling in the MPD and in-band signaling using the Event Message Box ('emsg').
+Azure Media Services default behavior for DASH is to signal both in the MPD EventStream and in-band using the Event Message Box ('emsg').
 
-Cue messages ingested over [RTMP] or [MS-SSTR-Ingest] are mapped into DASH events, using in-band 'emsg' boxes and/or in-MPD events
-In-band SCTE-35 signaling for DASH follows the definition and requirements defined in [SCTE-214-3] and also in [DASH-IF-IOP] section 13.12.2 ('SCTE35 Events').
+Cue messages ingested over [RTMP] or [MS-SSTR-Ingest] are mapped into DASH events, using in-band 'emsg' boxes and/or in-MPD EventStreams. 
 
-For in-band [SCTE-35] carriage, signals **MUST** use the schemeId = "urn:scte:scte35:2013:bin".
-For MPD carriage, the schemeId uses "urn:scte:scte35:2014:xml+bin".  
+In-band SCTE-35 signaling for DASH follows the definition and requirements defined in [SCTE-214-3] and also in [DASH-IF-IOP] section 13.12.2 ('SCTE35 Events'). 
 
-Normative definitions of carriage of [SCTE-35] cue messages are in [SCTE-214-1] sec 6.7.4 (MPD) and [SCTE-214-3] sec 7.3.2 (Carriage of SCTE 35 cue messages).
+For in-band [SCTE-35] carriage, the Event Message box ('emsg') uses the schemeId = "urn:scte:scte35:2013:bin". 
+For MPD manifest decoration the EventStream schemeId uses "urn:scte:scte35:2014:xml+bin".  This format is an XML representation of the event which includes a binary base64-encoded output of the complete SCTE-35 message that arrived at ingest. 
 
-### 3.4.1 MPEG DASH (MPD) EventStream Signaling
+Normative reference definitions of carriage of [SCTE-35] cue messages in DASH are available in [SCTE-214-1] sec 6.7.4 (MPD) and [SCTE-214-3] sec 7.3.2 (Carriage of SCTE 35 cue messages).
 
-Events will be signaled in the MPD using the EventStream element, which appears
-within the Period element. The schemeId used is "urn:scte:scte35:2014:xml+bin".
+### 3.3.1 MPEG DASH (MPD) EventStream Signaling
+
+Manifest (MPD) decoration of events will be signaled in the MPD using the EventStream element, which appears within the Period element. The schemeId used is "urn:scte:scte35:2014:xml+bin".
 
 > [!NOTE]
 > For brevity purposes [SCTE-35] allows use of the base64-encoded section in Signal.Binary element (rather than the
@@ -377,10 +412,10 @@ The EventStream element has the following attributes:
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | scheme_id_uri      | string                  | Required      | Identifies the scheme of the message. The scheme is set to the value of the Scheme attribute in the Live Server Manifest box. The value **SHOULD** be a URN or URL identifying the message scheme; The supported output schemeId should be "urn:scte:scte35:2014:xml+bin" per [SCTE-214-1] sec 6.7.4 (MPD), as the service supports only "xml+bin" at this time for brevity in the MPD.  |
 | value              | string                  | Optional      | An additional string value used by the owners of the scheme to customize the semantics of the message. In order to differentiate multiple event streams with the same scheme, the value **MUST** be set to the name of the event stream (trackName for [MS-SSTR-Ingest] or AMF message name for [RTMP] ingest). |
-| Timescale          | 32-bit unsigned integer | Required      | The timescale, in ticks per second, of the times and duration fields within the ‘emsg’ box.                                                                                                                                                                                                       |
+| Timescale          | 32-bit unsigned integer | Required      | The timescale, in ticks per second.                                                                                                                                                                                                       |
 
 
-### 3.4.2 Example MPEG DASH manifest (MPD) signaling of SCTE-35 using EventStream
+### 3.3.2 Example MPEG DASH manifest (MPD) signaling of SCTE-35 using EventStream
 
 ~~~ xml
 <!-- Example MPD using xml+bin style signaling per [SCTE-214-1] -->
@@ -409,7 +444,7 @@ The EventStream element has the following attributes:
 > If not present, the value of the presentation time is 0.
 
 
-### 3.4.3 MPEG DASH In-band Event Message Box Signaling
+### 3.3.3 MPEG DASH In-band Event Message Box Signaling
 
 An in-band event stream requires the MPD to have an InbandEventStream element at the Adaptation Set level.  This element has a mandatory schemeIdUri attribute and optional timescale attribute, which also appear in the Event Message Box (‘emsg’).  Event message boxes with scheme identifiers that are not defined in the MPD **SHOULD** not be present.
 
@@ -428,13 +463,15 @@ The following details outline the specific values the client should expect in th
 | Id                      | 32-bit unsigned integer | Required      | Identifies this instance of the message. Messages with equivalent semantics shall have the same value. If the ID is not specified when the message is ingested, Azure Media Services will generate a unique id.                                                                                                                                                    |
 | Message_data            | byte array              | Required      | The event message. For [SCTE-35] messages, the message data is the binary splice_info_section() in compliance with [SCTE-214-3] |
 
-### 3.4.4 DASH Message Handling
+### 3.3.4 DASH Message Handling
 
 Events are signaled in-band, within the ‘emsg’ box, for both video and audio tracks.  The signaling occurs for all segment requests for which the presentation_time_delta is 15 seconds or less. 
 
 When a sliding presentation window is enabled, event messages are removed from the MPD when the sum of the time and duration of the event message is less than the time of the media data in the manifest.  In other words, the event messages are removed from the manifest when the media time to which they refer has rolled out of the sliding presentation window.
 
-## 4. SCTE-35 Ingest Implementation Guidance
+## 4. SCTE-35 Ingest Implementation Guidance for Encoder Vendors
+
+The following guidelines are common issues that can impact an encoder vendor's implementation of this specification.  The guidelines below have been collected based on real world partner feedback to make it easier to implement this specification for others. 
 
 [SCTE-35] messages are ingested in binary format using the Scheme
 **“urn:scte:scte35:2013:bin”** for [MS-SSTR-Ingest] and the type **“scte35”** for
@@ -445,13 +482,13 @@ provided by the event presentation time (the fragment_absolute_time field for
 Smooth ingest and the time field for RTMP ingest). The mapping is necessary because the
 33-bit PTS value rolls over approximately every 26.5 hours.
 
-Smooth Streaming ingest [MS-SSTR-Ingest] requires that the Media Data Box (‘mdat’) **MUST** contain the
-**splice_info_section()** defined in [SCTE-35]. 
+Smooth Streaming ingest [MS-SSTR-Ingest] requires that the Media Data Box (‘mdat’) **MUST** contain the **splice_info_section()** defined in [SCTE-35]. 
 
-For RTMP ingest,the cue attribute of the AMF message is set to the base64-encoded
-**splice_info_section()**defined in [SCTE-35].  
+For RTMP ingest,the cue attribute of the AMF message is set to the base64-encoded **splice_info_section()** defined in [SCTE-35].  
 
-When the messages have the format described above, they are sent to HLS, Smooth, and DASH clients as defined above.
+When the messages have the format described above, they are sent to HLS, Smooth, and DASH clients as defined above.  
+
+When testing your implementation with the Azure Media Services platform, please start testing with a "pass-through" LiveEvent first, before moving to testing on an encoding LiveEvent.
 
 ---
 

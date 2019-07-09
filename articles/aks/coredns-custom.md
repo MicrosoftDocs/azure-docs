@@ -7,7 +7,7 @@ author: jnoller
 ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
-ms.author: jnoller
+ms.author: jenoller
 
 #Customer intent: As a cluster operator or developer, I want to learn how to customize the CoreDNS configuration to add sub domains or extend to custom DNS endpoints within my network
 ---

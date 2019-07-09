@@ -5,7 +5,7 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/03/2019
 ms.author: banders
 ---
 
@@ -37,17 +37,53 @@ EA customers can limit purchases to EA admins by disabling the **Add Reserved In
 
 A reservation discount only applies to resources associated with subscriptions purchased through Enterprise, CSP, and individual plans with pay-as-you-go rates.
 
-## Reservation scope
+## Scope reservations
 
-A reservation scope determines the resources to which the reservation discount applies. A reservation scope can have following values:
+You can scope a reservation to a subscription or resource groups. Setting the scope for a reservation selects where the reservation savings apply. When you scope the reservation to a resource group, reservation discounts apply only to the resource group — not the entire subscription.
 
-**Shared scope** - The reservation discount is applied to the matching resources in eligible subscriptions within the billing context.
+### Reservation scoping options
 
-- For Enterprise Agreement customers, the billing context is the enrollment. For customers that have individual plans with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
+With resource group scoping you have three options to scope a reservation, depending on your needs:
 
-**Single subscription** - The reservation discount is applied to the matching resources in the selected subscription.
+- **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
+- **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
+- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 
-You can [update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+While applying reservation discounts on your usage, Azure processes the reservation in the following order:
+
+1. Reservations that are scoped to a resource group
+2. Single scope reservations
+3. Shared scope reservations
+
+A single resource group can get reservation discounts from multiple reservations, depending on how you scope your reservations.
+
+### Scope a reservation to a resource group
+
+You can scope the reservation to a resource group when you buy the reservation, or you set the scope after purchase. You must be a subscription owner to scope the reservation to a resource group.
+
+To set the scope, go to the [Purchase reservation](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) page in the Azure portal. Then, select the reservation type that you want to buy. On the **Select the product that you want to purchase** selection form, change the **Scope** value to **Single resource group** and select a resource group.
+
+![Example showing VM reservation purchase selection](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
+
+Purchase recommendations for the resource group in the virtual machine reservation are shown. Recommendations are calculated by analyzing your usage over the last 30 days. A purchase recommendation is made if the cost of running resources with reserved instances is cheaper than the cost of running resources with pay-as-you-go rates. For more information about reservation purchase recommendations, see the [Get Reserved Instance purchase recommendations based on usage pattern](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations) blog post.
+
+You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration** and rescope the reservation. Rescoping a reservation is not a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+
+![Example showing a reservation scope change](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
+
+### Monitor and optimize reservation usage
+
+You can monitor your reservation usage in multiple ways – through Azure portal, through APIs, or through usage data. To see all the reservations that you have access to, go to **Reservations** in the Azure portal. The reservations grid shows the last recorded utilization percentage for the reservation. Click the reservation to see long term utilization of the reservation.
+
+You can also get reservation utilization using [APIs](billing-reservation-apis.md#see-reservation-usage) and from your [usage data](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) if you are an enterprise agreement customer.
+
+If you notice that the utilization of your resource group scoped reservation is low, then you can update the reservation scope to single subscription or share it across the billing context. You can also split the reservation and apply the resulting reservations to different resource groups.
+
+### Other considerations
+
+If you don't have matching resources in a resource group, then the reservation will be underutilized. The reservation doesn't automatically apply to a different resource group or subscription where there's low utilization.
+
+A reservation scope doesn't automatically update if you move the resource group from one subscription to another. You will have to rescope the reservation. Otherwise, the reservation will be underutilized.
 
 ## Discounted subscription and offer types
 

@@ -4,7 +4,7 @@ description: Compare CoreMark compute benchmark scores for Azure VMs running Lin
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
