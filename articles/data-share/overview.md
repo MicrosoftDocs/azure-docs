@@ -72,11 +72,11 @@ Azure Data Share leverages the underlying security that Azure offers to protect 
 
 Access controls can be set on the Azure Data Share resource level to ensure it is accessed by those that are authorized. 
 
-Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
+Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. Managed identities for Azure Resources are leveraged for access to the storage accounts that are being used for data sharing. There is no exchange of credentials between a data provider and a data consumer. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
 
 ## Pricing
 
-Azure Data Share Preview bills for two components. The first component is for data share management. Azure Data Share charges for the volume of datasets managed by your Data Share account. While in preview, Data Share Management will be free.
+Azure Data Share Preview bills for two components. The first component is for data share management. While in preview, data share management will be free.
 
 The second component is for movement. Aure Data Share charges for the movement of data from the data provider’s Azure tenant to the data consumer’s Azure tenant. You pay for dataset movement per dataset movement operation and the compute required to move a dataset. Dataset movement compute is charged per vCore-hour. Dataset movement compute charges are prorated by the minute in and rounded up. While in preview, dataset movement operations are free. 
 
