@@ -15,7 +15,8 @@ After the move from paid to free, the add-in will still be sent licensing tokens
 
 The user experience can depend on whether the license is for a new or existing user and whether the payment option was previously a subscription or one-time purchase.
 
-For details about how to monetize add-ins going forward, see [Monetize your add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md).
+For details about how to monetize add-ins going forward, see [Monetize your Office 365 add-in through Microsoft Commercial Marketplace](monetize-addins-through-microsoft-commercial-marketplace.md).
+
 ## Add-in user experience
 
 The following table describes the add-in user experience for different purchase types, and the action that you can take to transition from paid to free add-ins.
