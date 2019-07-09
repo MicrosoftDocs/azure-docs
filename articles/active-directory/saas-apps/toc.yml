@@ -183,7 +183,7 @@
         href: box-tutorial.md
       - name: Boxcryptor
         href: boxcryptor-tutorial.md
-      - name: Bpmâonline
+      - name: Bpm’online
         href: bpmonline-tutorial.md
       - name: Brandfolder
         href: brandfolder-tutorial.md
@@ -449,7 +449,7 @@
         href: floqast-tutorial.md
       - name: Fluxx Labs
         href: fluxxlabs-tutorial.md
-      - name: FM:Systems
+      - name: FM&#58Systems
         href: fm-systems-tutorial.md
       - name: Folloze
         href: folloze-tutorial.md
@@ -577,7 +577,7 @@
         href: infogix-tutorial.md
       - name: Infor CloudSuite
         href: infor-cloud-suite-tutorial.md
-      - name: Infor Retail â Information Management
+      - name: Infor Retail - Information Management
         href: inforretailinformationmanagement-tutorial.md
       - name: Inkling
         href: inkling-tutorial.md
@@ -1426,6 +1426,10 @@
         href: dropboxforbusiness-provisioning-tutorial.md
       - name: Dynamic Signal
         href: dynamic-signal-provisioning-tutorial.md
+      - name: Dialpad
+        href: dialpad-provisioning-tutorial.md
+      - name: Figma
+        href: figma-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1442,6 +1446,8 @@
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart
         href: lucidchart-provisioning-tutorial.md
+      - name: Leapsome
+        href: leapsome-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
     - name: N - Z
@@ -1450,6 +1456,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: Peakon
+        href: peakon-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox

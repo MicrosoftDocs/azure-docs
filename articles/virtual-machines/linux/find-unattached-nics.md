@@ -4,7 +4,7 @@ description: How to find and delete Azure NICs that are not attached to VMs with
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
