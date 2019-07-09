@@ -96,6 +96,12 @@ the following port and URLs are required for State Configuration (DSC) to commun
 * Global URL of US Gov Virginia: *.azure-automation.us
 * Agent service: https://\<workspaceId\>.agentsvc.azure-automation.net
 
+This provides network connectivity for the managed node to communicate with Azure Automation.
+If you are using DSC resources that communicate between nodes,
+such as the [WaitFor* resources](https://docs.microsoft.com/en-us/powershell/dsc/reference/resources/windows/waitForAllResource),
+you will also need to allow traffic beween nodes.
+See the documentation for each DSC resource to understand those network requirements.
+
 #### Proxy Support
 
 Proxy support for the DSC agent is available in Windows version 1809 and later.

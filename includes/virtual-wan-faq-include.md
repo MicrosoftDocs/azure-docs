@@ -104,7 +104,7 @@ Yes.
 
 ### How is Virtual WAN different from the existing Azure Virtual Network Gateway?
 
-Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections with 2 Gbps in the hub for all regions except the West Central region. For the West Central region, 20 Gbps is available. We will be rolling out 20 Gbps to additional regions in the future. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
+Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections with 20 Gbps in the hub for all regions. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
