@@ -9,7 +9,6 @@ ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: kirankumarkolli
 
-
 ---
 # Build a .NET console app to manage data in Azure Cosmos DB SQL API account
 
