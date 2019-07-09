@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author:  clauren
 ms.reviewer: jmartens
-ms.date: 05/02/2018
+ms.date: 07/09/2018
 ms.custom: seodec18
 ---
 
@@ -381,20 +381,12 @@ In some cases, you may need to interactively debug the Python code contained in 
     import ptvsd
     # Allows other computers to attach to ptvsd on this IP address and port.
     ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
-    # Pause the script until a remote debugger is attached and timeout after 30 sec
+    # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
     ptvsd.wait_for_attach(timeout = 30)
     print("Debugger attached...")
     ```
 
-1. During debugging, you may want to make changes to the files in the image without having to recreate it. To install a text editor (vim) in the Docker image, create a new text file named `Dockerfile.steps` and use the following as the contents of the file:
-
-    ```text
-    RUN apt-get update && apt-get -y install vim
-    ```
-
-    A text editor allows you to modify the files inside the docker image to test changes without creating a new image.
-
-1. To create an image that uses the `Dockerfile.steps` file, use the `docker_file` parameter when creating an image. The following example demonstrates how to do this:
+1. Create an image using the modified `score.py` and conda environment. The following example demonstrates how to do this:
 
     > [!NOTE]
     > This example assumes that `ws` points to your Azure Machine Learning workspace, and that `model` is the model being deployed. The `myenv.yml` file contains the conda dependencies created in step 1.
@@ -403,8 +395,7 @@ In some cases, you may need to interactively debug the Python code contained in 
     from azureml.core.image import Image, ContainerImage
     image_config = ContainerImage.image_configuration(runtime= "python",
                                  execution_script="score.py",
-                                 conda_file="myenv.yml",
-                                 docker_file="Dockerfile.steps")
+                                 conda_file="myenv.yml")
 
     image = Image.create(name = "myimage",
                      models = [model],
@@ -480,36 +471,6 @@ At this point, VS Code connects to PTVSD inside the Docker container and stops a
 
 For more information on using VS Code to debug Python, see [Debug your Python code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
 
-<a id="editfiles"></a>
-### Modify the container files
-
-To make changes to files in the image, you can start a new container and then connect to a bash shell inside the container. From there, you can use vim to edit files:
-
-1. To start the container and connect to a bash shell in the container, use the following command:
-
-    ```bash
-    docker run -it --rm --name debug -p 8000:5001 -p 5678:5678 debug:1 /bin/bash
-    ```
-
-1. To find the files used by the service, use the following command from the bash shell in the container:
-
-    ```bash
-    cd /var/azureml-app
-    ```
-
-    From here, you can use vim to edit the `score.py` file. For more information on using vim, see [Using the Vim editor](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
-
-1. Changes to a container are not normally persisted. To save any changes you make, use the following command:
-
-    ```bash
-    docker commit debug debug:2
-    ```
-
-    This command creates a new image named `debug:2` that contains your edits.
-
-    > [!TIP]
-    > You may need to stop the current container and start using the new version before changes take effect.
-
 ### Stop the container
 
 To stop the container, use the following command:
@@ -517,49 +478,6 @@ To stop the container, use the following command:
 ```bash
 docker stop debug
 ```
-
-### Directly launching score.py
-
-Instead of allowing the container to start the web service, another approach is to start the container with a bash shell, and then manually run the `score.py` file from PTVSD. 
-
-1. Use the steps in the [Modify the container files](#editfiles) section and connect to the container, then change directories to `/var/azureml-app`.
-
-1. Use vim to make the following changes to the files:
-
-    1. Remove the section of code that imports ptvsd and waits for a connection. The following code is what this section looks like:
-
-        ```python
-        import ptvsd
-        # Allows other computers to attach to ptvsd at this IP address and port.
-        ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
-        # Pause the script until a remote debugger is attached and timeout after 30 sec
-        ptvsd.wait_for_attach(timeout = 30)
-        print("Debugger attached...")
-        ```
-
-    1. Since you are running the file directly, and not through the web service, you must provide input data. Create a new file named `score.json` and add JSON data to it that your `score.py` file expects.
-
-    1. To use the `score.json` file, add the following code to the end of the `score.py` file:
-
-        ```python
-        # this code assumes you put a file called scoring.json
-            # in the working directory of the container (/var/azureml-app)
-        # that has records to score.
-        if __name__ == "__main__":
-            init()
-            with open('scoring.json') as infile:
-                test_input_data = json.load(infile)
-            output = run(json.dumps(test_input_data))
-            print(output)
-        ```
-
-1. To start the `score.py` file using ptvsd, use the following command:
-
-    ```bash
-    python -m ptvsd --host 0.0.0.0 --port 5678 --wait score.py
-    ```
-
-    This command starts ptvsd and waits for a connection. At this point, you can use VS Code to connect and debug the `score.py` file.
 
 ## Next steps
 
