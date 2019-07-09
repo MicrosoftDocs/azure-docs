@@ -100,7 +100,7 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Kind StorageV2 `
     -EnableAzureActiveDirectoryDomainServicesForFile $true
 ```
-To enable this feature on exisiting storage acccounts, use the following command:
+To enable this feature on existing storage accounts, use the following command:
 
 ```powershell
 # Get a storage account
@@ -137,9 +137,9 @@ We have introduced two Azure Built-in roles for granting share level permissions
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials. 
 
-You can use Azure Portal, PowerShell or Azure CLI to assign the built-in roles to the Azure AD identity of an user for granting share level permissions. 
+You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of an user for granting share level permissions. 
 
-#### Azure Portal
+#### Azure portal
 To assign a RBAC role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, navigate to your file share, or [create a file share in Azure Files](storage-how-to-create-file-share.md).
