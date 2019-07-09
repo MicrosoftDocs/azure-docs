@@ -50,6 +50,7 @@ Taking the same example again:
 - the `headquarters`'s `employees` path is `/headquarters/employees/?`
 - the `locations`' `country` path is `/locations/[]/country/?`
 - the path to anything under `headquarters` is `/headquarters/*`
+- The system property "etag" is excluded from indexing by default, unless the etag is added to the included path for indexing.
 
 When a path is explicitly included in the indexing policy, it also has to define which index types should be applied to that path and for each index type, the data type this index applies to:
 
