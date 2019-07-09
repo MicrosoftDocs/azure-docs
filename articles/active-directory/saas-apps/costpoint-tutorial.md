@@ -126,7 +126,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Return to **Costpoint Configuration Utility** and copy **App Federation Metadata Url** into **IdP Federation Metadata XML** text box. Continue the instructions from **DeltekCostpoint711Security.pdf** manual and finish Costpoint SAML setup.
 
-![Costpoint Configuration Utility](./media/costpoint-tutorial/config-utility.png)
+![Costpoint Configuration Utility](./media/costpoint-tutorial/config-utility-idp.png)
 
 
 ### Create an Azure AD test user
