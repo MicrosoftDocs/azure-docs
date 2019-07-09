@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 07/03/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -98,11 +98,14 @@ For Microsoft public cloud, the base Azure AD authority is as follows, where *te
 
 The tenant ID identifies the Azure AD tenant to use for authentication. It is also referred to as the directory ID. To retrieve the tenant ID, navigate to the **Overview** page for your app registration in the Azure portal, and copy the value from there.
 
-#### Storage resource ID
+#### Azure Storage resource ID
 
-Use the Azure Storage resource ID to acquire a token for authorizing requests to Azure Storage:
+The Azure AD resource ID indicates the audience for which a token that is issued can be used to provide access to an Azure resource. In the case of Azure Storage, the resource ID may be specific to a single storage account, or it may apply to any storage account. The following table describes the values that you can provide for the resource ID:
 
-`https://storage.azure.com/`
+|Resource ID  |Description  |
+|---------|---------|
+|`https://<storage-account>.blob.core.windows.net`    | The root URI of a storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account only. Replace the value in brackets with the name of your storage account.      |
+|`https://storage.azure.com/`     | Use to acquire a token for authorizing requests to any Azure Storage account.        |
 
 ### Create a storage account and container
 
@@ -173,9 +176,11 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 #### Get an OAuth token from Azure AD
 
-Next, add a method that requests a token from Azure AD. The token you request will be on behalf of the user, and we will use the GetTokenOnBehalfOfUser method.
+Next, add a method that requests a token from Azure AD on the behalf of the user. This method defines the scope for which permissions are to be granted. For more information about permissions and scopes, see [Permissions and consent in the Microsoft identity platform endpoint](../../active-directory/develop/v2-permissions-and-consent.md).
 
-Remember that if you have recently logged in, and you are requesting a token for the `storage.azure.com` resource, you will need to present the user with a UI where the user can consent to such an action on their behalf. To facilitate that you need to catch the `MsalUiRequiredException` and add the functionality to request user consent, as shown in the following example:
+The value of the scope is constructed using the resource ID. The example below uses the resource ID together with the `user_impersonation` scope to construct the scope to use in requesting the token.
+
+Keep in mind that you may need to present the user with an interface that enables the user to consent to request the token their behalf. When consent is necessary, the example catches the **MsalUiRequiredException** and calls another method to facilitate the request for consent:
 
 ```csharp
 public async Task<IActionResult> Blob()
@@ -190,7 +195,8 @@ public async Task<IActionResult> Blob()
     }
     catch (MsalUiRequiredException ex)
     {
-        AuthenticationProperties properties = BuildAuthenticationPropertiesForIncrementalConsent(scopes, ex);
+        AuthenticationProperties properties =
+            BuildAuthenticationPropertiesForIncrementalConsent(scopes, ex);
         return Challenge(properties);
     }
 }
@@ -201,15 +207,18 @@ Consent is the process of a user granting authorization to an application to acc
 The following method constructs the authentication properties for requesting incremental consent:
 
 ```csharp
-private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes, MsalUiRequiredException ex)
+private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes,
+                                                                                    MsalUiRequiredException ex)
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET / MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that ADAL.NET / MASL.NET need for the Token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
-    properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope, scopes.Union(additionalBuildInScopes).ToList());
+    properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
+                                                 scopes.Union(additionalBuildInScopes).ToList());
 
-    // Attempt to set the login_hint so that the logged-in user is not presented with an account selection dialog.
+    // Attempts to set the login_hint to avoid the logged-in user to be presented 
+    // with an account selection dialog.
     string loginHint = HttpContext.User.GetLoginHint();
     if (!string.IsNullOrWhiteSpace(loginHint))
     {
@@ -219,7 +228,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
         properties.SetParameter<string>(OpenIdConnectParameterNames.DomainHint, domainHint);
     }
 
-    // Specify any additional claims that are required (for instance, MFA).
+    // Additional claims required (for instance MFA)
     if (!string.IsNullOrEmpty(ex.Claims))
     {
         properties.Items.Add("claims", ex.Claims);
@@ -231,7 +240,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## View and run the completed sample
 
-To run the sample application, first clone or download it from [GitHub](https://aka.ms/aadstorage). Then update the application as described in the following sections.
+To run the sample application, first clone or download it from [GitHub](https://github.com/Azure-Samples/storage-dotnet-azure-ad-msal). Then update the application as described in the following sections.
 
 ### Provide values in the settings file
 
