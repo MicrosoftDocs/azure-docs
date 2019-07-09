@@ -6,13 +6,13 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
 # Create an Azure Search service in the portal
 
-Azure Search is a standalone resource used to plug in a search experience in custom apps. Although Azure Search integrates easily with other Azure services, you can also use it by itself, with apps on network servers, or with software running on other cloud platforms.
+Azure Search is a standalone resource used to plug in a search experience in custom apps. Although Azure Search integrates easily with other Azure services, you can also use it as a standalone component, or integrate it with apps on network servers, or with software running on other cloud platforms.
 
 In this article, learn how to create an Azure Search resource in the [Azure portal](https://portal.azure.com/).
 
@@ -67,10 +67,10 @@ As an Azure service, Azure Search can be hosted in datacenters around the world.
 
 If you are indexing data provided by another Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), we recommend creating your Azure Search service in the same region to avoid bandwidth charges. There are no charges for outbound data when services are in the same region.
 
-If you are using cognitive search AI enrichments, create your service in the same region as your Cognitive Services resource. Co-location of services is a requirement for AI enrichment.
+If you are using cognitive search AI enrichments, create your service in the same region as your Cognitive Services resource. *Co-location of Azure Search and Cognitive Services in the same region is a requirement for AI enrichment*.
 
 > [!Note]
-> Central India is currently unavailable for new services. For services already in Central India, you can scale up with no restrictions, and your service is fully supported in that region. The restriction on this region is temporary and we will remove this note when it longer applies.
+> Central India is currently unavailable for new services. For services already in Central India, you can scale up with no restrictions, and your service is fully supported in that region. The restriction on this region is temporary and limited to new services only. We will remove this note when the restriction longer applies.
 
 ## Select a pricing tier (SKU)
 
@@ -82,27 +82,29 @@ A pricing tier cannot be changed once the service is created. If you need a high
 
 ## Create your service
 
-Remember to pin your service to the dashboard for easy access whenever you sign in.
+Enter the necessary inputs to create the service. 
 
-![Pin to the dashboard](./media/search-create-service-portal/new-service3.png "Pin the resource to your dashboard for convenient access")
+![Review and create the service](./media/search-create-service-portal/new-service3.png "Review and create the service")
+
+Your service is deployed within minutes, which you can monitor through Azure notifications. Consider pinning the service to your dashboard for easy access in the future.
+
+![Monitor and pin the service](./media/search-create-service-portal/monitor-notifications.png "Monitor and pin the service")
 
 ## Get a key and URL endpoint
 
-With few exceptions, using your new service requires that you provide the URL endpoint and an authorization api-key. Quickstarts, tutorials such as [Explore Azure Search REST APIs (Postman)](search-get-started-postman.md) and [How to use Azure Search from .NET](search-howto-dotnet-sdk.md), samples, and custom code all need an endpoint and key to run on your particular resource.
+Unless you are using the portal, accessing your new service requires that you provide the URL endpoint and an authentication api-key.
 
 1. In the service overview page, locate and copy the URL endpoint on the right side of the page.
 
-   ![Service overview page with URL endpoint](./media/search-create-service-portal/url-endpoint.png "URL endpoint and other service details")
-
 2. In the left navigation pane, select **Keys** and then copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service.
 
-   ![Keys page showing primary and secondary keys](./media/search-create-service-portal/admin-api-keys.png "Admin api-keys for authorization")
+   ![Service overview page with URL endpoint](./media/search-create-service-portal/get-url-key.png "URL endpoint and other service details")
 
-An endpoint and key are not needed for portal-based tasks. The portal is already linked to your Azure Search resource with admin rights. For a portal tutorial, start with [Tutorial: Import, index, and query in Azure Search](search-get-started-portal.md).
+An endpoint and key are not needed for portal-based tasks. The portal is already linked to your Azure Search resource with admin rights. For a portal walkthrough, start with [Quickstart: Create an Azure Search index in the portal](search-get-started-portal.md).
 
 ## Scale your service
 
-It can take a few minutes to create a service (15 minutes or more depending on the tier). After your service is provisioned, you can scale it to meet your needs. Because you chose the Standard tier for your Azure Search service, you can scale your service in two dimensions: replicas and partitions. Had you chosen the Basic tier, you can only add replicas. If you provisioned the free service, scale is not available.
+After your service is provisioned, you can scale it to meet your needs. If you chose the Standard tier for your Azure Search service, you can scale your service in two dimensions: replicas and partitions. Had you chosen the Basic tier, you can only add replicas. If you provisioned the free service, scale is not available.
 
 ***Partitions*** allow your service to store and search through more documents.
 
@@ -120,7 +122,7 @@ Adding resources increases your monthly bill. The [pricing calculator](https://a
 ![Add capacity](./media/search-create-service-portal/settings-scale.png "Add capacity through replicas and partitions")
 
 > [!Note]
-> Each tier has different [limits](search-limits-quotas-capacity.md) on the total number of Search Units allowed in a single service (Replicas * Partitions = Total Search Units).
+> Per-partition storage and speed increases at higher tiers. For more information, see [capacity and limits](search-limits-quotas-capacity.md).
 
 ## When to add a second service
 
@@ -142,4 +144,4 @@ A second service is not required for high availability. High availability for qu
 After provisioning an Azure Search service, you can continue in the portal to create your first index.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Import data, index, and run queries in the portal](search-get-started-portal.md)
+> [Quickstart: Create an Azure Search index in the portal](search-get-started-portal.md)
