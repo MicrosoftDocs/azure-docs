@@ -82,7 +82,7 @@ This tutorial will create a new project. If you want to download the completed t
 
 1. In Android Studio's project pane, navigate to **app\src\main\res**.
 2. Right-click **res** and choose **New** > **Directory**. Enter `raw` as the new directory name and click **OK**.
-3. In **app** > **src** >> **res** > **raw**, create a new JSON file called `auth_config.json` and paste the MSAL Configuration that you saved earlier. See [MSAL Configuration for more info](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
+3. In **app** > **src** > **res** > **raw**, create a new JSON file called `auth_config.json` and paste the MSAL Configuration that you saved earlier. See [MSAL Configuration for more info](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
    <!-- Workaround for Docs conversion bug -->
 4. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below. This entry allows Microsoft to call back to your application after it completes the authentication:
 
@@ -113,7 +113,7 @@ This tutorial will create a new project. If you want to download the completed t
 
 ### Create the app's UI
 
-1. In the Android Studio project window, navigate to **app** > **src** > **main** > **res** > **layout**, and then open **activity_main.xml** and open the **Text** view.
+1. In the Android Studio project window, navigate to **app** > **src** > **main** > **res** > **layout** and open **activity_main.xml** and open the **Text** view.
 2. Change the activity layout, for example `<androidx.coordinatorlayout.widget.CoordinatorLayout` to `<androidx.coordinatorlayout.widget.LinearLayout`.
 3. Add the `android:orientation="vertical"` property to the `LinearLayout` node.
 4. Paste the following code into the `LinearLayout` node, replacing the current content:
@@ -227,7 +227,7 @@ private PublicClientApplication sampleApp;
 private IAuthenticationResult authResult;
 ```
 
-Replace the contents of `onCreate(...)` with the following code to instantiate MSAL:
+Replace the contents of `onCreate()` with the following code to instantiate MSAL:
 
 ```java
 super.onCreate(savedInstanceState);
@@ -267,7 +267,7 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 });
 ```
 
-The code above attempts to sign in users silently when they open your application through `getAccounts(...)` and, if successful, `acquireTokenSilentAsync(...)`.  In the next few sections, we'll implement the callback handler for the case there are no signed in accounts.
+The code above attempts to sign in users silently when they open your application through `getAccounts()` and, if successful, `acquireTokenSilentAsync()`.  In the next few sections, we'll implement the callback handler for the case there are no signed in accounts.
 
 #### Use MSAL to get Tokens
 
@@ -312,7 +312,7 @@ private void onCallGraphClicked() {
 }
 ```
 
-Add a method to get the current activity and process silent & interactive callbacks:
+Add the following methods to get the current activity and process silent & interactive callbacks:
 
 ```java
 public Activity getActivity() {
@@ -456,7 +456,7 @@ private void onSignOutClicked() {
 
 #### Call the Microsoft Graph API
 
-Once we have received a token, we can make a request to the [Microsoft Graph API](https://graph.microsoft.com) The access token will be inside the `AuthenticationResult` inside the auth callback's `onSuccess(...)` method. To construct an authorized request, your app will need to add the access token to the HTTP header:
+Once we have received a token, we can make a request to the [Microsoft Graph API](https://graph.microsoft.com) The access token will be inside the `AuthenticationResult` inside the auth callback's `onSuccess()` method. To construct an authorized request, your app will need to add the access token to the HTTP header:
 
 | header key    | value                 |
 | ------------- | --------------------- |
@@ -465,7 +465,7 @@ Once we have received a token, we can make a request to the [Microsoft Graph API
 Add the following two methods inside the `MainActivity` class to call graph and update the UI:
 
 ```java
-    /* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
+/* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
 private void callGraphAPI() {
     Log.d(TAG, "Starting volley request to graph");
 
@@ -521,20 +521,20 @@ private void updateGraphUI(JSONObject graphResponse) {
 
 #### Multi-account applications
 
-This app is built for a single account scenario. MSAL also supports multi-account scenarios, but it requires some additional work from apps. You will need to create UI to help user's select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use via the `getAccounts(...)` method.
+This app is built for a single account scenario. MSAL also supports multi-account scenarios, but it requires some additional work from apps. You will need to create UI to help user's select which account they want to use for each action that requires tokens. Alternatively, your app can implement a heuristic to select which account to use via the `getAccounts()` method.
 
 ## Test your app
 
 ### Run locally
 
-If you have followed the steps above, build and deploy the app to a test device or emulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
+Build and deploy the app to a test device or emulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
 
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
 
-### Consent to your app
+### Consent
 
 The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested.  While most users are capable of consenting, some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
 
 ## Get help
 
-See [Help and support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) if you have trouble with this tutorial, or with the Microsoft identity platform.
+Visit [Help and support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) if you have trouble with this tutorial or with the Microsoft identity platform.
