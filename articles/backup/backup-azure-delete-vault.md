@@ -80,7 +80,7 @@ Remove Backup Items
 
 1. From portal > Recovery Services Vault > Backup Items choose the protected items in cloud (ex. Azure Files, SQL in Azure VM and Azure Virtual Machine).
 
-    ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected.png)
+    ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected.jpg)
 
 2. For each item, you need to Right-click and choose **Stop backup**.
 
