@@ -1,5 +1,5 @@
---
-title: How does agent-based VMware VM migration with Azure Migrate Server Migration work?| Microsoft Docs
+---
+title: Agent-based migration architecture in Azure Migrate Server Migration
 description: Provides an overview of agent-based VMware VM migration with Azure Migrate Server Migration.
 author: rayne-wiselman
 ms.service: azure-migrate
@@ -9,25 +9,26 @@ ms.author: raynew
 ---
 
 
-# How does VMware agent-based migration work?
+# Agent-based migration architecture
 
-This article provides an overview of the architecture and processes used for agent-based VMware VM replication with the Azure Migrate Server Migration tool.
+This article provides an overview of the architecture and processes used for agent-based replication with the Azure Migrate Server Migration tool.
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and AWS/GCP VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
-## Migration methods
+## Agent-based replication
 
-The Azure Migrate Server Migration tool offers a couple of options for VMware VM migration:
+Agent-based replication in the Azure Migrate Server Replication tool is used to migrate on-premises VMware VMs and physical servers to Azure. It can also be used to migrate other on-premises virtualized servers, as well as private and public cloud VMs, including AWS instances, and GCP VMs.
 
-- Migration using agentless replication. Migrate VMs without needing to install anything on them.
-- Migration with an agent for replication. Install an agent on the VM for replication.
+For VMware migration, the Azure Migrate Server Migration tool offers a couple of options:
 
-Learn more about the [considerations for selecting a migration method](server-migrate-overview.md).
+- Migration using agent-based replication, as described in this article.
+- Agentless replication, to migrate VMs without needing to install anything on them.
+
+Learn more about [selecting a migration method for VMware](server-migrate-overview.md).
 
 ## Server Migration and Azure Site Recovery
 
-Azure Migrate Server Migration is a tool for migrating on-premises workloads, and cloud-based VMs to Azure. Site Recovery is a disaster recovery tool. The tools share some common technology components used for replication of data, but serve different purposes. Server Migration and Site Recovery do share some software components.
-
+Azure Migrate Server Migration is a tool for migrating on-premises and public cloud workloads to Azure. It's optimized for migration. Site Recovery is a disaster recovery tool. Azure Server Migration and Site Recovery share some common technology components used for data replication, but serve different purposes.
 
 ## Architectural components
 
@@ -35,19 +36,19 @@ Azure Migrate Server Migration is a tool for migrating on-premises workloads, an
 
 The table summarizes the components used for agent-based migration.
 
-Component | Deployment | Details
-
-**Replication appliance** | The replication appliance (configuration server) is an on-premises machine that acts as a bridge between the on-premises environment and Azure Migrate Server Migration.<br/> The appliance discovers the on-premises VM inventory, so that the Server Migration tool can orchestrate replication and migration. The appliance has two components:<br/><br/> **Configuration server**: Connects to Azure Migrate Server Migration and coordinates replication.<br/> **Process server**: Handles data replication. It receives VM data, compresses and encrypts it, and sends to the Azure subscription. There, Server Migration writes the data to managed disks.<br/> By default the process server is installed together with the configuration server on the replication appliance.
-**Mobility service*** | The Mobility service is an agent installed on each machine you want to replicate and migrate. It sends replication data to the process server. There are a number of different Mobility service agents located on the replication appliance. You download and install the agent version you need, in accordance with the operating system and version of the machine you want to replicate.
+**Component** | **Deployment** | **Details**
+--- | --- | ---
+**Replication appliance** | The replication appliance (configuration server) is an on-premises machine that acts as a bridge between the on-premises environment, and the Azure Migrate Server Migration tool. The appliance discovers the on-premises VM inventory, so that Azure Server Migration can orchestrate replication and migration. The appliance has two components:<br/><br/> **Configuration server**: Connects to Azure Migrate Server Migration and coordinates replication.<br/> **Process server**: Handles data replication. It receives VM data, compresses and encrypts it, and sends to the Azure subscription. There, Server Migration writes the data to managed disks.<br/> By default the process server is installed together with the configuration server on the replication appliance.
+**Mobility service*** | The Mobility service is an agent installed on each machine you want to replicate and migrate. It sends replication data from the machine to the process server. There are a number of different Mobility service agents available. Installation files for the Mobility service are located on the replication appliance. You download and install the agent you need, in accordance with the operating system and version of the machine you want to replicate.
 
 ### Mobility service installation
 
 You can deploy the Mobility Service using the following methods:
 
-**Push installation**: The Mobility service is installed by the process server when you enable protection for a machine. 
-**Install manually**: You can install the Mobility service manually on each machine through UI or command prompt.
+- **Push installation**: The Mobility service is installed by the process server when you enable protection for a machine. 
+- **Install manually**: You can install the Mobility service manually on each machine through UI or command prompt.
 
-The Mobility service communicates with the replication appliance and machines being replicated. If you have antivirus software running on the replication appliance, process servers, or machines being replicated, these folders should be excluded from scanning:
+The Mobility service communicates with the replication appliance and replicated machines. If you have antivirus software running on the replication appliance, process servers, or machines being replicated, the following folders should be excluded from scanning:
 
 
 - C:\Program Files\Microsoft Azure Recovery Services Agent
@@ -62,9 +63,11 @@ The Mobility service communicates with the replication appliance and machines be
 ## Replication process
 
 1. When you enable replication for a VM, initial replication to Azure begins.
-2. During initial replication the Mobility service reads data from the machines disks and replicates it by sending it to the process server. This data is used to seed a copy of the disk in your Azure subscription. Replication is block-level, and near-continuous.
-3. After initial replication finishes, replication of delta changes to Azure begins. The Mobility Service intercepts any writes to disk memory, by integrating with the storage subsystem of the operating system. With this method, disk I/O operations on the replicating machine are avoided for incremental replication. 
-4. Tracked changes for a machine are sent to the process server on port HTTPS 9443 inbound. This port can be modified.
+2. During initial replication, the Mobility service reads data from the machine disks, and sends it to the process server.
+3. This data is used to seed a copy of the disk in your Azure subscription. 
+4. After initial replication finiishes, replication of delta changes to Azure begins. Replication is block-level, and near-continuous.
+4. The Mobility Service intercepts writes to VM disk memory, by integrating with the storage subsystem of the operating system. This method avoids disk I/O operations on the replicating machine for incremental replication. 
+5. Tracked changes for a machine are sent to the process server on port HTTPS 9443 inbound. This port can be modified. The process server compresses and encrypts it, and sends it to Azure. 
 
 ## Ports
 
@@ -85,7 +88,7 @@ If you're replicating VMware VMs, you can use the [Site Recovery Deployment Plan
 
 ### Replication appliance capacity
 
-The guidelines in this table can be used to figure out whether you need an additional process server in your deployment.
+The values in this table can be used to figure out whether you need an additional process server in your deployment.
 
 - If your daily change rate (churn rate) is over 2 TB, deploy an additional process server.
 - If you're replicating more than 200 machines, deploy an additional replication appliance.
@@ -104,7 +107,7 @@ If you need to deploy a scale-out process server, this table can help you to fig
 --- | --- | --- | --- 
 4 vCPUs (2 sockets * 2 cores \@ 2.5 GHz), 8 GB memory | 300 GB | 250 GB or less | Up to 85 machines 
 8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12 GB memory | 600 GB | 251 GB to 1 TB	| 86-150 machines.
-12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz), 24 GB memory | 1-2 TB | 151-225 machines.
+12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz), 24 GB memory | 1 TB | 1-2 TB | 151-225 machines.
 
 ## Control upload throughput
 
@@ -123,8 +126,8 @@ If you have spare bandwidth for replication, and want to increase uploads, you c
 
 1. Open the registry with Regedit.
 2. Navigate to key HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
-3. Increase the value for the number of threads used for data upload for each replicating VM. The default value is 4 and the max value is 32. 
+3. Increase the value for the number of threads used for data upload for each replicating VM. The default value is 4 and the maximum value is 32. 
 
 ## Next steps
 
-Try out agent-based [VMware VM migration](tutorial-migrate-vmware-agent.md) with Azure Migrate Server Migration.
+Try out agent-based [VMware VM migration](tutorial-migrate-vmware-agent.md) using Azure Migrate Server Migration.
