@@ -12,7 +12,7 @@ ms.author: tomfitz
 
 This article provides suggestions to help resolve problems when moving resources.
 
-## Upgrade subscription
+## Upgrade a subscription
 
 If you actually want to upgrade your Azure subscription (such as switching from free to pay-as-you-go), you need to convert your subscription.
 
