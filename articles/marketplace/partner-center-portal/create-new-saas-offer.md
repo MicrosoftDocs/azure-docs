@@ -200,6 +200,9 @@ Remember to **Save** before moving on to the next section!
 
 The Offer listing tab displays the languages (and markets) where your offer is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
+> [!NOTE]
+> Offer listing content (such as offer description, documents, screenshots, terms of use and privacy policy) is not required to be in English as long as the offer description begins with the phrase, "This application is available only in [non-English language].” It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+
 ### Offer listings
 
 Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
