@@ -14,16 +14,16 @@ ms.date: 11/25/2017
 
 This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) to run **Spark Failure Debug** applications. 
 
-## **Prerequisites**
-* **[Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)**. This tutorial uses Java version 8.0.202.
+## Prerequisites
+* [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). This tutorial uses Java version 8.0.202.
   
-* **IntelliJ IDEA**. This article uses [IntelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
+* IntelliJ IDEA. This article uses [IntelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
-* **Azure Toolkit for IntelliJ**. See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ. See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
-* **Connect to your HDInsight cluster**. See [Connect to your HDInsight cluster](apache-spark-intellij-tool-plugin.md).
+* Connect to your HDInsight cluster. See [Connect to your HDInsight cluster](apache-spark-intellij-tool-plugin.md).
 
-* **Microsoft Azure Storage Explorer**. See [Download Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* Microsoft Azure Storage Explorer. See [Download Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/).
 
 ## Create a project with debugging template 
 
