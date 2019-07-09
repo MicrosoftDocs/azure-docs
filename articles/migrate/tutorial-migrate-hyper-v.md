@@ -52,7 +52,7 @@ Before you begin this tutorial, you should:
 1. [Review](migrate-architecture.md) the Hyper-V migration architecture.
 2. [Complete the first tutorial](tutorial-prepare-hyper-v.md) in this series to set up Azure and Hyper-V for migration. Specifically, in this tutorial you need to:
     - [Prepare Azure](tutorial-prepare-hyper-v.md#prepare-azure) for migration.
-    - [Prepare the on-premises environment](tutorial-prepare-vmware.md#prepare-for-hyper-v-migration) for migration.
+    - [Prepare the on-premises environment](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration) for migration.
 3. We recommend that you try assessing Hyper-V VMs with Azure Migrate Server Assessment before migrating them to Azure. To set up assessment, [complete the second tutorial](tutorial-assess-hyper-v.md) in this series. Although we recommend that you try out an assessment, but you don't have to run an assessment before you try a migration.
 4. Make sure that your Azure account is assigned the Virtual Machine Contributor role, so that you have permissions to:
 
@@ -71,7 +71,7 @@ If you followed the second tutorial and already have an Azure Migrate project se
 1. In the Azure Migrate project, click **Overview**. 
 2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.
 
-     ![Assess and migrate servers](./media/tutorial-migrate-hyper-vassess-migrate.png)
+     ![Assess and migrate servers](./media/tutorial-migrate-hyper-v/assess-migrate.png)
 
 3. In **Migration tools**, select **Click here to add a migration tool when you are ready to migrate**.
 
@@ -241,7 +241,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 1. In the Azure Migrate project > **Servers** > **Azure Migrate: Server Migration**, click **Replicating servers**.
 
-    ![Replicating servers](./media/tutorial-migrate-hyper-v/eplicate-servers.png)
+    ![Replicating servers](./media/tutorial-migrate-hyper-v/replicate-servers.png)
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
