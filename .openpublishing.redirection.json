@@ -3407,7 +3407,7 @@
     },
     {
       "source_path": "articles/dotnet-sdk.md",
-      "redirect_url": "https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet",
+      "redirect_url": "https://docs.microsoft.com/azure/dotnet",
       "redirect_document_id": false
     },
     {
@@ -10507,7 +10507,7 @@
     },
     {
       "source_path": "articles/dotnet/index.md",
-      "redirect_url": "/dotnet/azure/",
+      "redirect_url": "https://docs.microsoft.com/azure/dotnet/",
       "redirect_document_id": false
     },
     {
