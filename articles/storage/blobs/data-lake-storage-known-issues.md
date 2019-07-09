@@ -48,8 +48,8 @@ Under these circumstances, we can restore access to the Blob API for a limited p
 The following table lists all other features and tools that are not yet supported or only partially supported with storage accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2).
 
 | Feature / Tool    | More information    |
-| **APIs for Data Lake Storage Gen2 storage accounts** | Partially supported <br><br>.NET, Java, Python SDKs are currently in public preview and is available only in the **West US 2** and **West Central US** regions. You can also use Data Lake Storage Gen2 **REST** APIs.|
 |--------|-----------|
+| **APIs for Data Lake Storage Gen2 storage accounts** | Partially supported <br><br>.NET, Java, Python SDKs are currently in public preview and is available only in the **West US 2** and **West Central US** regions. You can also use Data Lake Storage Gen2 **REST** APIs.|
 | **AzCopy** | Version-specific support <br><br>Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.|
 | **Azure Blob storage lifecycle management policies** | Currently in public preview and is available only in the **West US 2** and **West Central US** regions. Cool and archive access tiers are supported in the preview. The deletion of blob snapshots is not yet supported. |
 | **Azure Content Delivery Network (CDN)** | Not yet supported|
@@ -65,5 +65,5 @@ The following table lists all other features and tools that are not yet supporte
 | **Static websites** |Not yet supported <br><br>Specifically, the ability to serve files to [Static websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
 | **Third party applications** | Limited support <br><br>Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. <br>If you have an application that uses Blob APIs, that application will most likely work, but Blob API interoperability with Data Lake Storage Gen2 is currently in public preview and is available only in the **West US 2** and **West Central US** regions. Therefore, the application might have issues if you use that application with Data Lake Storage Gen2. To learn more, see the [Blob storage APIs are disabled for Data Lake Storage Gen2 storage accounts](#blob-apis-disabled) section of this article.|
 | **Versioning features** |Not yet supported <br><br>This includes [snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) and [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).|
-|
+
 

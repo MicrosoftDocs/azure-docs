@@ -41,11 +41,9 @@ Existing tools and applications that use the Blob API gain these benefits automa
 
 ![Interop conceptual](./media/data-lake-storage-interop/interop-concept.png)    
 
-## Blob Features now available in Data Lake Storage Gen2
+## Features now available to Data Lake Storage Gen2
 
-Blob and Data Lake Storage Gen2 interoperability unlocks several blob account features to accounts that have a hierarchical namespace.
-
-The following table describes features available in the current public preview of Blob and Data Lake Storage Gen2 interoperability. 
+Interoperability unlocks several features to accounts that have a hierarchical namespace. The following table describes them.
 
 | Feature     | More information    |
 |--------|-----------|
