@@ -99,13 +99,11 @@ Then, add the following members variables into your `AzureSpatialAnchorsScript` 
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-42,48-52,60-79)]
 
-**Setting the prefab on our script in Unity**
+Before we continue, we need to set the sphere prefab we created on our spherePrefab member variable. Go back to **Unity**.
+1. In **Unity**, select the **MixedRealityCloud** object in the **Hierarchy** pane.
+2. Click on the **Sphere** prefab that you saved in the **Project** pane. Drag the **Sphere** you clicked on into the **Sphere Prefab** area under **Azure Spatial Anchors Script (Script)** in the **Inspector** pane.
 
-Before we continue, we need to set the sphere prefab we created on our spherePrefab member variable.
-1. In Unity, select the **MixedRealityCloud** object in the **Hierarchy** pane.
-2. Select the **Sphere** object under the **Project** pane. Drag the **Sphere** into the **Sphere Prefab** area under **Azure Spatial Anchors Script (Script)** in the **Inspector** pane.
-
-With this, we can use this prefab. Build from **Unity** and then open the resulting **Visual Studio** solution again, like you just did in [Trying it out](#trying-it-out). 
+You should now have the **Sphere** set as the prefab on your script. Build from **Unity** and then open the resulting **Visual Studio** solution again, like you just did in [Trying it out](#trying-it-out). 
 
 In **Visual Studio**, open up `AzureSpatialAnchorsScript.cs` again. Add the following code into your `Start()` method. This code will hook up `GestureRecognizer`, which will detect when there is an air tap and call `HandleTap`.
 
@@ -113,7 +111,7 @@ In **Visual Studio**, open up `AzureSpatialAnchorsScript.cs` again. Add the foll
 
 We now have to add the following `HandleTap()` method below `Update()`. It will do a ray cast and get a hit point at which to place a sphere. 
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=269-279,300-302,306-312)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-277,299-300,304-312)]
 
 We now need to create the sphere. The sphere will initially be white, but this value will be adjusted later on. Add the following `CreateAndSaveSphere()` method:
 
@@ -171,7 +169,7 @@ Now, let's hook your `initializeSession()` method into your `Start()` method.
 
 Finally, add the following code into your `CreateAndSaveSphere()` method. It will attach a local Azure Spatial Anchor to the sphere that we're placing in the real world.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=316-340,393&highlight=16-31)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-338,389&highlight=14-25)]
 
 Before proceeding any further, you'll need to create an Azure Spatial Anchors account Identifier and Key, if you don't already have them. Follow the following section to obtain them.
 
@@ -198,7 +196,7 @@ One your anchor is uploaded to the cloud, we're ready to attempt locating it aga
 * Initialize `CloudSpatialAnchorSession` again. We do this so we're sure the anchor we're going to locate comes from the cloud instead of being the local anchor we created.
 * Create a **Watcher** that will look for the anchor we uploaded to Azure Spatial Anchors.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-305&highlight=13-31,34-36)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-305&highlight=13-31,35-36)]
 
 Let's now add our `ResetSession()` and `CleanupObjects()` methods. You can put them below `QueueOnUpdate()`
 
