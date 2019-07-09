@@ -4,7 +4,7 @@ description: Learn how to install and configure PostgreSQL on a Linux virtual ma
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
