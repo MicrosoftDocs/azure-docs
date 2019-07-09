@@ -43,6 +43,18 @@ You can monitor the following account metrics.
 * Streaming Policy quota
 * Streaming Policy quota used percentage
 
+|Metric name|Display name|Description|
+|---|---|---|
+||Asset count||
+||Asset quota||
+||Asset quota used percentage||
+||Content Key Policy count||
+||Content Key Policy quota||
+||Content Key Policy quota used percentage||
+||Streaming Policy count||
+||Streaming Policy quota||
+||Streaming Policy quota used percentage||
+ 
 #### See also
 
 Review [account quotas and limiatations](limits-quotas-constraints.md).
@@ -51,7 +63,7 @@ Review [account quotas and limiatations](limits-quotas-constraints.md).
 
 Currently, the following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are emitted by Azure:
 
-|Metric|Display name|Description|
+|Metric name|Display name|Description|
 |---|---|---|
 |Requests|Requests|Gives details around total # of requests serviced by the Streaming Endpoint.|
 |Egress|Egress|Total number of egress bytes. For example, bytes streamed by the Streaming Endpoint.|
