@@ -24,7 +24,7 @@ You can download the [Project Acoustics Unity plugin](https://www.microsoft.com/
 
 ## Does Project Acoustics support &lt;x&gt; platform?
 
-Project Acoustics platform support evolves based on customer needs. Please contact us on the [Project Acoustics forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) to inquire about support for additional platforms.
+Project Acoustics platform support evolves based on customer needs. Please contact us on the [Project Acoustics issue forum](https://github.com/microsoft/ProjectAcoustics/issues) to inquire about support for additional platforms.
 
 ## Is Azure used at runtime?
 
