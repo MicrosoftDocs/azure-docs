@@ -302,7 +302,7 @@ After the replication appliance is registered, Azure Migrate Server Assessment c
 
 ## Replicate VMs
 
-1. . In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
+1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 
     ![Replicate VMs](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
