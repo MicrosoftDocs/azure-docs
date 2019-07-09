@@ -273,7 +273,7 @@
         href: image-builder-gallery.md
       - name: Update an existing image
         href: image-builder-gallery-update-image-version.md
-      - name: Storing scripts
+      - name: Store scripts
         href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       - name: Template reference
         href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json

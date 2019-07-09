@@ -4,7 +4,7 @@ description: include file
 services: functions
 author: astay
 manager: edlaure
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 08/30/2018
 ms.author: astay

@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Cloud upload and storage with Azure Media Services | Microsoft Docs
-description: This article cloud upload and storage concepts. 
+title: Azure Storage accounts with Azure Media Services accounts | Microsoft Docs
+description: When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account.  
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,11 +11,11 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/01/2019
 ms.author: juliako
 ---
 
-# Cloud upload and storage
+# Azure Storage accounts
 
 To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. When creating a Media Services account, you need to supply the name of an Azure Storage account resource. The specified storage account is attached to your Media Services account. 
 

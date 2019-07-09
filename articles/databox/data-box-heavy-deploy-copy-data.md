@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Copy data to Azure Data Box Heavy via SMB (preview)
+# Tutorial: Copy data to Azure Data Box Heavy via SMB
 
 This tutorial describes how to connect to and copy data from your host computer using the local web UI.
 
