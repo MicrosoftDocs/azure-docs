@@ -7,7 +7,7 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 07/09/2019
 
 #Customer intent: I want to use create an Azure Data Explorer proxy for cross product queries with Log Analytics and Application Insights 
 ---
@@ -35,7 +35,8 @@ The Azure Data Explorer proxy flow is depicted below:
 
 1. In the **Add Cluster** window:
 
-    * Add the URL to the LA or AI cluster. For example: `https://ade.loganalytics.io/subscriptions/<Subscription ID>/workspaces/<Workspace name>`
+    * Add the URL to the LA or AI cluster. For example: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+
     * Select **Add**.
 
     ![Add cluster](media/adx-proxy/add-cluster.png)
@@ -74,29 +75,34 @@ Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 
 ![Query LA workspace](media/adx-proxy/query-la.png)
 
-### Query against your LA or AI cluster from the ADX proxy  
+### Query your LA or AI cluster from the ADX proxy  
 
-When you run queries on your LA or AI cluster from the proxy, verify your ADX native cluster is selected in the left pane
+When you run queries on your LA or AI cluster from the proxy, verify your ADX native cluster is selected in the left pane. The following example demonstrates a query of the LA workspace using the native ADX cluster
 
 ```kusto
-cluster(`https://ade.loganalytics.io/subscriptions/<subscription ID>/workspaces/<workspace name>`) .database(`<workspace name).Perf
-| take 10 // Demonstrate query of the LA workspace through the native DX cluster
+cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name').Perf
+| take 10 
 ```
 
 ![Query from Azure Data Explorer proxy](media/adx-proxy/query-adx-proxy.png)
 
 ### Cross query of LA or AI cluster and the ADX cluster from the ADX proxy 
 
-When you run cross cluster queries from the proxy, verify your ADX native cluster is selected in the left pane
+When you run cross cluster queries from the proxy, verify your ADX native cluster is selected in the left pane. The following examples demonstrate combining ADX cluster tables (using `union`) with LA workspace.
 
 ```kusto
-unionStormEvents, cluster(`https://ade.loganalytics.io/subscriptions/<subscription ID>/workspaces/<workspace name>`).database(<workspace name>).Perf
-| take 10 // union tables from both the ADX cluster and the LA workspace
+union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
+| take 10 
+```
+
+```kusto
+let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
+union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 
 ![Cross query from the Azure Data Explorer proxy](media/adx-proxy/cross-query-adx-proxy.png)
 
-Using the [`join` operator](/azure/kusto/query/joinoperator) may require a hint to run it on an Azure Data Explorer native cluster (and not on the proxy). 
+Using the [`join` operator](/azure/kusto/query/joinoperator), instead of union, may require a hint to run it on an Azure Data Explorer native cluster (and not on the proxy). 
 
 ## Additional syntax examples
 
@@ -104,17 +110,16 @@ The following syntax options are available when calling the Application Insights
 
 |Syntax Description  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| Database within a cluster that contains all apps in this subscription    |   (`https://ade.applicationinsights.io/subscriptions/<subscription-id>`).database(`<database-name>`)      |    (`https://ade.loganalytics.io/subscriptions/<subscription-id>`).database(`<database-name>`)     |
-|Cluster that contains all apps/workspaces in this subscription    |     (`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    (`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
-|Cluster that contains all apps/workspaces in the subscription and are members of this resource group    |   (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)     |
-|Cluster that contains only this app/workspace (recommended)    |     (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/apps/<ai-app-name>`) or  (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/providers/microsoft.insights/components/<ai-app-name>`)  | (`https://ade.loganalytics.io/subscriptions/<subscription-id>/workspaces/<ai-app-name>`)  or   (`https://ade.loganalytics.io/subscriptions/<subscription-id>/providers/microsoft.operationalinsights/workspaces/<ai-app-name>`)   |
-|Cluster that contains only this resource group      |    (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/apps/<ai-app-name>`) or  (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/workspaces/<ai-app-name>`) or  (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<ai-app-name>`)    |
+| Database within a cluster that contains only the defined resource in this subscription (**recommended for cross cluster queries**) |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
+| Cluster that contains all apps/workspaces in this subscription    |     cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
+|Cluster that contains all apps/workspaces in the subscription and are members of this resource group    |   cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
+|Cluster that contains only the defined resource in this subscription      |    cluster(`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster(`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
 
 ### Application Insights app and Log Analytics workspace names
 
 * If names contain special characters, they are replaced by URL encoding in the proxy cluster name. 
-* If names include characters that don't meet [KQL identifier name rules](/azure/kusto/query/schema-entities/entity-names), the are replaced by the dash character **-**.
+* If names include characters that don't meet [KQL identifier name rules](/azure/kusto/query/schema-entities/entity-names), the are replaced by the dash **-** character.
 
 ## Next steps
 
-* [Write queries](write-queries.md)
+[Write queries](write-queries.md)
