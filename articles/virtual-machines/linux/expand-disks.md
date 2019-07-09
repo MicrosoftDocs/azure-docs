@@ -4,7 +4,7 @@ description: Learn how to expand virtual hard disks on a Linux VM with the Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: roygara
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid:
