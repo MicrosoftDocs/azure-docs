@@ -13,6 +13,7 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 07/08/2019
 ---
+
 # Creating and using active geo-replication
 
 Active geo-replication is Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a SQL Database server in the same or different data center (region).
@@ -37,7 +38,6 @@ You can manage replication and failover of an individual database or a set of da
 - [Transact-SQL: Single database or elastic pool](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: Single database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
 Active geo-replication leverages the [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) technology of SQL Server to asynchronously replicate committed transactions on the primary database to a secondary database using snapshot isolation. Auto-failover groups provide the group semantics on top of active geo-replication but the same asynchronous replication mechanism is used. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to never have partial transactions. Cross-region redundancy enables applications to quickly recover from a permanent loss of an entire datacenter or parts of a datacenter caused by natural disasters, catastrophic human errors, or malicious acts. The specific RPO data can be found at [Overview of Business Continuity](sql-database-business-continuity.md).
 
@@ -102,6 +102,10 @@ To achieve real business continuity, adding database redundancy between datacent
 - **Keeping credentials and firewall rules in sync**
 
 We recommend using [database-level IP firewall rules](sql-database-firewall-configure.md) for geo-replicated databases so these rules can be replicated with the database to ensure all secondary databases have the same IP firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting both the primary and secondary databases. Similarly, using [contained database users](sql-database-manage-logins.md) for data access ensures both primary and secondary databases always have the same user credentials so during a failover, there is no disruptions due to mismatches with logins and passwords. With the addition of [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), customers can manage user access to both primary and secondary databases and eliminating the need for managing credentials in databases altogether.
+
+## Preparing the secondary database for failover
+
+To ensure that your application can immediately access the new primary after failover,  ensure the authentication requirements for your secondary server and database are properly configured. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md). To guarantee compliance after failover, make sure that the backup retention policy on the secondary database matches that of the primary. These settings are not part of the data set and are not replicated. By default, the secondary will be configured with a default PITR retention period of seven days. For details, see [SQL Database automated backups](sql-database-automated-backups.md).
 
 ## Configuring secondary database
 
