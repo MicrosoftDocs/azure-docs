@@ -43,6 +43,11 @@ The option to restrict an app to a specific set of users or security groups in a
 
 ## Update the app to enable user assignment
 
+There are two ways to create an application with enabled user assignment.
+One requires **Global Administrator** roles, the second does not.
+
+### Enterprise Applications (requires Global Adminstrator Role)
+
 1. Go to the [**Azure portal**](https://portal.azure.com/) and sign-in as a **Global Administrator.**
 1. On the top bar, select the signed-in account. 
 1. Under **Directory**, select the Azure AD tenant where the app will be registered.
@@ -58,6 +63,19 @@ The option to restrict an app to a specific set of users or security groups in a
 
 1. Select the application you want to assign a user or security group to from the list.
 1. In the application's **Overview** page, select **Properties** from the application’s left-hand navigation menu.
+1. Locate the setting **User assignment required?** and set it to **Yes**. When this option is set to **Yes**, then users must first be assigned to this application before being able to access it.
+1. Select **Save** to save this configuration change.
+
+### App Registration
+
+1. Go to the [**Azure portal**](https://portal.azure.com/)
+1. On the top bar, select the signed-in account. 
+1. Under **Directory**, select the Azure AD tenant where the app will be registered.
+1. In the navigation on the left, select **Azure Active Directory**. If Azure Active Directory is not available in the navigation pane, then follow these steps:
+1. In the **Azure Active Directory** pane, select **App Registrations** from the **Azure Active Directory** left-hand navigation menu.
+1. Create or select the App you want to manage. You need to be **Owner** of this App registration
+1. In the application's **Overview** page, follow the **Managed application in local directory** link under the essentials in the top of the page. This will take you to the _managed Enterprise Application_ of your App registration.
+1. From the navigation blade on the left, select **Properties**
 1. Locate the setting **User assignment required?** and set it to **Yes**. When this option is set to **Yes**, then users must first be assigned to this application before being able to access it.
 1. Select **Save** to save this configuration change.
 
