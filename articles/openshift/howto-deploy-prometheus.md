@@ -21,13 +21,13 @@ Target setup:
 - One project (prometheus-project), which contains Prometheus and Alertmanager.
 - Two projects (app-project1 and app-project2), which contain the applications to monitor.
 
-You'll prepare some Prometheus config files locally. Create a new folder to store them. Config files are stored in the cluster as Secrets, in case Secret tokens are added later to the cluster.
+You'll prepare some Prometheus config files locally. Create a new folder to store them. Config files are stored in the cluster as secrets, in case secret tokens are added later to the cluster.
 
 ## Sign in to the cluster by using the OC tool
 
 1. Open a web browser, and then go to the web console of your cluster (https://openshift.*random-id*.*region*.azmosa.io).
 2. Sign in with your Azure credentials.
-3. Select your username in the top-right corner, and then select **Copy Login Command**.
+3. Select your username in the upper-right corner, and then select **Copy Login Command**.
 4. Paste your username into the terminal that you'll use.
 
 > [!NOTE]
@@ -46,7 +46,7 @@ oc new-project app-project2
 > [!NOTE]
 > You can either use the `-n` or `--namespace` parameter, or select an active project by running the `oc project` command.
 
-## Prepare the Prometheus config file
+## Prepare the Prometheus configuration file
 Create a prometheus.yml file by entering the following content:
 ```
 global:
@@ -68,12 +68,12 @@ scrape_configs:
           - app-project1
           - app-project2
 ```
-Create a Secret called Prom by entering the following configuration:
+Create a secret called Prom by entering the following configuration:
 ```
 oc create secret generic prom --from-file=prometheus.yml -n prometheus-project
 ```
 
-The prometheus.yml file is a basic Prometheus config file. It sets the intervals and configures auto discovery in three projects (prometheus-project, app-project1, app-project2). In the previous config file, the auto-discovered endpoints are scraped over HTTP without authentication.
+The prometheus.yml file is a basic Prometheus configuration file. It sets the intervals and configures auto discovery in three projects (prometheus-project, app-project1, app-project2). In the previous configuration file, the auto-discovered endpoints are scraped over HTTP without authentication.
 
 For more information about scraping endpoints, see [Prometheus scape config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
@@ -97,26 +97,23 @@ receivers:
 - name: default
 - name: deadmansswitch
 ```
-Create a Secret called Prom-Alerts by entering the following configuration:
+Create a secret called Prom-Alerts by entering the following configuration:
 ```
 oc create secret generic prom-alerts --from-file=alertmanager.yml -n prometheus-project
 ```
 
-Alertmanager.yml is the Alert Manager config file.
+Alertmanager.yml is the Alert Manager configuration file.
 
 > [!NOTE]
 > To verify the two previous steps, run the `oc get secret -n prometheus-project` command.
 
 ## Start Prometheus and Alertmanager
 Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) and download the [prometheus-standalone.yaml](
-https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) template. Apply the template to prometheus-project by entering the following command:
+https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) template. Apply the template to prometheus-project by entering the following configuration:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
-The prometheus-standalone.yml file is an OpenShift template, which creates a Prometheus instance
-that begins with oauth-proxy.
-
-The prometheus-standalone.yml file also creates an Alertmanager instance, secured with oauth-proxy. In this template, oauth-proxy is configured to allow any user who can "get" the prometheus-project namespace (see the `-openshift-sar` flag).
+The prometheus-standalone.yaml file is an OpenShift template. It will create a Prometheus instance with oauth-proxy in front of it and an Alertmanager instance, also secured with oauth-proxy. In this template, oauth-proxy is configured to allow any user who can "get" the prometheus-project namespace (see the `-openshift-sar` flag).
 
 > [!NOTE]
 > To verify if the prom StatefulSet has equal DESIRED and CURRENT number replicas, run the `oc get statefulset -n prometheus-project` command. To check all resources in the project, run the `oc get all -n prometheus-project` command.
@@ -176,16 +173,17 @@ oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
 To have Prometheus to gather metrics from itself, apply the permissions in prometheus-project.
 
 > [!NOTE]
-> To verify if Role and RoleBinding were created correctly, run the `oc get role` and `oc get rolebinding` commands.
+> To verify that Role and RoleBinding were created correctly, run the `oc get role` and `oc get rolebinding` commands.
 
 ## Optional: Deploy example application
 
-If everything is working without metrics sources, go to the [Prometheus URL](https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/) and then run the following command:
+Everything is working, but there are no metrics sources. Go to the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/). You can find it by using following command.
+
 ```
 oc get route prom -n prometheus-project
 ```
 > [!IMPORTANT]
-> Remember to add the https:// prefix to beginning of the hostname.
+> Remember to add the https:// prefix to beginning of the host name.
 
 The **Status > Service Discovery** page will show 0/0 active targets.
 
