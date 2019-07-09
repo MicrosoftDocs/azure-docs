@@ -131,7 +131,7 @@ az acr task create \
   --assign-identity $resourceID
 ```
 
-In the command output, the `identity` section shows an identity of type `UserAssigned` is set in the task. The `principalId` is the service principal ID of the identity:
+In the command output, the `identity` section shows the identity of type `UserAssigned` is set in the task:
 
 ```console
 [...]
@@ -295,7 +295,7 @@ The task steps do the following:
 * Build an image using a sample Dockerfile in the [Azure-Samples/acr-tasks](https://github.com/Azure-Samples/acr-tasks.git) repo.
 * Push the image to the private Docker Hub repository.
 
-Create a task by executing the following [az acr task create][az-acr-task-create] command. The task context is the local system, and the command references the file `dockerhubtask.yaml` in the working directory. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task. T
+Create a task by executing the following [az acr task create][az-acr-task-create] command. The task context is the local system, and the command references the file `dockerhubtask.yaml` in the working directory. The `--assign-identity` parameter with no additional value creates a system-assigned identity for the task.
 
 ```azurecli
 az acr task create \
