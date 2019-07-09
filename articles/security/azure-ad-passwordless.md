@@ -36,11 +36,11 @@ Windows Hello for Business, Microsoft Authenticator, and FIDO2 security keys all
 
 In Windows 10, Windows Hello for Business replaces passwords with strong two-factor authentication on PCs and devices. The authentication consists of a new type of user credential that is tied to a device and uses a biometric gesture or PIN that enables users to authenticate to Azure AD as well as an on-premises Active Directory. Simply signing into a device using Windows Hello for Business is easy. You either use a PIN or biometric gesture such as a fingerprint or facial recognition.
 
-### Windows Hello for Business Scenarios
+### Windows Hello for Business scenarios
 
 Windows Hello for Business is ideal for information workers who have their own designated Windows PC. The biometric and credentials are directly tied to the user's PC, which prevents access from anyone other than the owner. With PKI integration and built-in support for single sign-on (SSO), Windows Hello for Business provides a simple and convenient method for seamlessly accessing corporate resources on-premises and in the cloud.
 
-### Windows Hello for Business Deployment Considerations
+### Windows Hello for Business deployment considerations
 
 Windows Hello for Business is a distributed system that uses several components to accomplish device registration, provisioning, and authentication. Therefore, deployment requires proper planning across multiple teams within the organization. The Windows Hello for Business [planning guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) can be used to help you make decisions on the type of Windows Hello for Business deployment and the options you'll need to consider.
 
@@ -131,11 +131,11 @@ Sometimes users have to fall back to using passwords. [Self-service password res
 
 Microsoft Authenticator is another passwordless solution that can be used to sign in to Azure AD accounts using phone sign-in. You must still verify your identity by providing something you know and something you have, but phone sign-in lets you skip entering your password and performs all your identity verification on your mobile device using your fingerprint, face, or PIN.
 
-### Microsoft Authenticator Scenarios
+### Microsoft Authenticator scenarios
 
 The Microsoft Authenticator app enables users to verify their identity and authenticate to their work or personal account. It can also be used to augment a password with a one-time passcode or push notification or replace the need for a password altogether. Instead of using a password, users confirm their identity using their mobile phone through fingerprint scan, facial or iris recognition, or PIN. Built on secure technology similar to what Windows Hello uses, this tool is packaged into a simple app on a mobile device making it a convenient option for users. The Microsoft Authenticator app is available for Android and iOS.
 
-### Microsoft Authenticator Deployment Considerations
+### Microsoft Authenticator deployment considerations
 
 Prerequisites for using the Microsoft Authenticator app to sign in to Azure AD include the following:
 
@@ -158,7 +158,7 @@ To avoid the potential of getting locked out of your account or having to recrea
 Since most users are accustomed to using only passwords to authenticate, it is important that your organization educates users regarding this process. Awareness can reduce the likelihood that users call your help desk for any [issues](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#known-issues) related to signing in using the Microsoft Authenticator app.
 
 > [!NOTE]
-> A potential point of failure for this solution is when a roaming user is in a location where there is no Internet connectivity. FIDO security keys and Windows Hello for Business are not subject to the same limitation.
+> A potential point of failure for this solution is when a roaming user is in a location where there is no Internet connectivity. FIDO2 security keys and Windows Hello for Business are not subject to the same limitation.
 
 ### How Microsoft Authenticator works
 
@@ -212,11 +212,11 @@ WebAuthN defines an API that enables the development and implementation of stron
 
 Devices and tokens that adhere to FIDO2, WebAuthN, and CTAP protocols bring about a cross-platform solution of strong authentication without using passwords. Microsoft partners are working on a variety of security key form factors, such as USB security keys and NFC-enabled smart cards.
 
-### FIDO2 Security Keys Scenarios
+### FIDO2 security keys scenarios
 
 FIDO2 security keys can be used to sign in to Azure AD by choosing the security key as the credential provider at the Windows 10 lock screen. A username or password is not required which makes it an ideal solution for first line workers who share PCs among multiple users. They are also an excellent authentication option when corporate policies dictate that a user's credentials must be physically separate from their device. Users can also choose to sign in to web sites by using their FIDO2 security key inside of the Microsoft Edge browser on Windows 10 version 1809 or higher.
 
-### FIDO2 Security Keys Deployment Considerations
+### FIDO2 security keys deployment considerations
 
 Administrators can enable FIDO2 support in Azure AD and assign the capability to users or groups. Polices can also be created for how keys are provisioned and configure restrictions such as allowing or blocking a specific set of hardware security keys. Keys must be physically distributed to end users.
 
@@ -238,7 +238,7 @@ FIDO2-compliant form factors include USB, NFC, and Bluetooth devices. We recomme
 
 We also recommend that each organization create a protocol for users and administrators to follow should a security key be lost or stolen. Users should report the lost or stolen key so that administrators or the user can delete their security keys from the user's profile and provision a new one.
 
-### How FIDO2 Security Keys works
+### How FIDO2 security keys works
 
 #### User sets up FIDO2 security key
 
@@ -271,19 +271,19 @@ FIDO2 security keys provide secure authentication, independent of the form facto
 
 1. The user plugs the FIDO2 device into the computer.
 
-2. Windows detects the FIDO2 device.
+2. Windows detects the FIDO2 security key.
 
 3. Windows sends an authentication request.
 
 4. Azure AD sends back a nonce.
 
-5. The user completes their gesture to unlock the private key stored in the FIDO2 device's secure enclave.
+5. The user completes their gesture to unlock the private key stored in the FIDO2 security key's secure enclave.
 
-6. The FIDO2 device signs the nonce with the private key.
+6. The FIDO2 security key signs the nonce with the private key.
 
 7. The PRT token request with signed nonce is sent to Azure AD.
 
-8. Azure AD verifies the FIDO key.
+8. Azure AD verifies the signed nonce using the FIDO2 public key.
 
 9. Azure AD returns PRT to enable access to on-premises resources.
 
