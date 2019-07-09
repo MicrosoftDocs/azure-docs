@@ -94,7 +94,7 @@
       href: event-hubs-event-processor-host.md
   - name: Process data
     items:
-    - name: Process data from Event Hubs using Azure Stream Analytics 
+    - name: Process data using Azure Stream Analytics 
       href: process-data-azure-stream-analytics.md
   - name: Use client libraries
     items:

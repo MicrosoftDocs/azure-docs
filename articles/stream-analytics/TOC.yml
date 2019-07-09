@@ -16,6 +16,9 @@
     href: stream-analytics-quick-create-vs.md
   - name: Create a job - Visual Studio Code
     href: quick-create-vs-code.md
+  - name: Create a job - Azure Event Hubs
+    href: ../event-hubs/process-data-azure-stream-analytics.md
+    maintainContext: true
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job

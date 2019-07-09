@@ -5,13 +5,13 @@ services: event-hubs
 author: spelluru
 manager: 
 ms.author: spelluru
-ms.date: 07/08/2019
+ms.date: 07/09/2019
 ms.topic: article
 ms.service: event-hubs
 ---
 
 
-# View and process data from your event hub using Azure Stream Analytics
+# Process data from your event hub using Azure Stream Analytics
 The Azure Stream Analytics service makes it easy to ingest, process, and analyze streaming data from Azure Event Hubs, enabling powerful insights to drive real-time action. This integration allows you to create a hot-path analytics pipeline in less time and clicks. You can use the Azure portal to visualize incoming data and write a Stream Analytics query. Once your query is ready, you can move it into production in only a few clicks. 
 
 ## Key benefits
@@ -72,7 +72,7 @@ The Azure Stream Analytics service makes it easy to ingest, process, and analyze
 
 
 ## Known limitations
-While testing your query, the test results take approximately 6 seconds to load. We are working on improving the performance of testing. However, when deployed in production, Azure Stream Analytics will have subsecond latency.
+While testing your query, the test results take approximately 6 seconds to load. We're working on improving the performance of testing. However, when deployed in production, Azure Stream Analytics will have subsecond latency.
 
 ## Streaming units
 Your Azure Stream Analytics job defaults to three streaming units (SUs). To adjust this setting, select **Scale** on the left menu in the **Stream Analytics job** page in the Azure portal. To learn more about streaming units, see [Understand and adjust Streaming Units](../stream-analytics/stream-analytics-streaming-unit-consumption.md).
