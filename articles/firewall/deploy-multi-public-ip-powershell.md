@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/12/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ---
 
 # Deploy an Azure Firewall with multiple public IP addresses using Azure PowerShell
 
 > [!IMPORTANT]
-> Azure Firewall with multiple public IP addresses and the associated portal user interface is being added to regions incrementally, and will be available in all regions when the rollout completes.
+> Azure Firewall with multiple public IP addresses is available via Azure PowerShell, Azure CLI, REST, and templates. The portal user interface is being added to regions incrementally, and will be available in all regions when the rollout completes.
 
 You can deploy an Azure Firewall with up to 100 public IP addresses.
 

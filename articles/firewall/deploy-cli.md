@@ -4,7 +4,7 @@ description: In this article, you learn how to deploy and configure Azure Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 7/12/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ms.topic: article
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.

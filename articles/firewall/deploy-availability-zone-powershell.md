@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/12/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ---
 

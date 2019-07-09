@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 7/12/2019
+ms.date: 7/10/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -75,7 +75,7 @@ Inbound network traffic to your firewall public IP address is translated (Destin
 ## Multiple public IP addresses
 
 > [!IMPORTANT]
-> Azure Firewall with multiple public IP addresses and the associated portal user interface is being added to regions incrementally, and will be available in all regions when the rollout completes.
+> Azure Firewall with multiple public IP addresses is available via Azure PowerShell, Azure CLI, REST, and templates. The portal user interface is being added to regions incrementally, and will be available in all regions when the rollout completes.
 
 
 You can associate multiple public IP addresses (up to 100) with your firewall.
