@@ -59,7 +59,7 @@ The following snippet shows the new schema for host.json. The main change to be 
         "eventGrid": {
           "topicEndpoint": <string?>,
           "keySettingName": <string?>,
-          "publishRetryCount": <string?>,
+          "publishRetryCount": <int?>,
           "publishRetryInterval": <hh:mm:ss?>,
           "publishRetryHttpStatus": <int[]?>,
           "publishEventTypes": <string[]?>
@@ -67,7 +67,7 @@ The following snippet shows the new schema for host.json. The main change to be 
       }
       "maxConcurrentActivityFunctions": <int?>,
       "maxConcurrentOrchestratorFunctions": <int?>,
-      "customLifeCycleNotificationHelperType",
+      "customLifeCycleNotificationHelperType": <string?>,
       "extendedSessionsEnabled": <bool?>,
       "extendedSessionIdleTimeoutInSeconds": <int?>
   }
