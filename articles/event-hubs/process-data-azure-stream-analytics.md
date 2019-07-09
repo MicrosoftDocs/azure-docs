@@ -12,11 +12,11 @@ ms.service: event-hubs
 
 
 # Process data from your event hub using Azure Stream Analytics
-The Azure Stream Analytics service makes it easy to ingest, process, and analyze streaming data from Azure Event Hubs, enabling powerful insights to drive real-time action. This integration allows you to create a hot-path analytics pipeline in less time and clicks. You can use the Azure portal to visualize incoming data and write a Stream Analytics query. Once your query is ready, you can move it into production in only a few clicks. 
+The Azure Stream Analytics service makes it easy to ingest, process, and analyze streaming data from Azure Event Hubs, enabling powerful insights to drive real-time actions. This integration allows you to quickly create a hot-path analytics pipeline. You can use the Azure portal to visualize incoming data and write a Stream Analytics query. Once your query is ready, you can move it into production in only a few clicks. 
 
 ## Key benefits
-
-- **Preview data** – You can preview incoming data in the Azure portal.
+Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integration: 
+- **Preview data** – You can preview incoming data from an event hub in the Azure portal.
 - **Test your query** – Prepare a transformation query and test it directly in the Azure portal. For the query language syntax, see [Stream Analytics Query Language](/stream-analytics-query/built-in-functions-azure-stream-analytics) documentation.
 - **Deploy your query to production** – You can deploy the query into production by creating and starting an Azure Stream Analytics job.
 
@@ -42,7 +42,7 @@ The Azure Stream Analytics service makes it easy to ingest, process, and analyze
 1. Select **Create** in the **Input preview** pane as shown in the preceding image. 
 1. You'll immediately see a snapshot of the latest incoming data in this tab.
     - The serialization type in your data is automatically detected (JSON/CSV). You can manually change it as well to JSON/CSV/AVRO.
-    - You can preview the incoming data in the table format or raw format. 
+    - You can preview incoming data in the table format or raw format. 
     - If your data shown isn't current, select **Refresh** to see the latest events. 
 
         Here is an example of data in the **table format**: 

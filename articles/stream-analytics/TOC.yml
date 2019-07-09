@@ -16,9 +16,6 @@
     href: stream-analytics-quick-create-vs.md
   - name: Create a job - Visual Studio Code
     href: quick-create-vs-code.md
-  - name: Create a job - Azure Event Hubs
-    href: ../event-hubs/process-data-azure-stream-analytics.md
-    maintainContext: true
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
@@ -121,6 +118,9 @@
       href: stream-analytics-threshold-based-rules.md
     - name: Process Kafka events
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+      maintainContext: true
+    - name: Process Event Hubs data 
+      href: ../event-hubs/process-data-azure-stream-analytics.md
       maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md
