@@ -37,7 +37,7 @@ For public preview, an admin must first add a policy via powershell to allow use
 
 ### Steps to enable
 
-Follow the steps in the article [Enable passwordless sign in for Azure AD](howto-authentication-passwordless-enable.md#enable-new-passwordless-authenticationmethods), to enable passwordless authentication methods in your directory.
+Follow the steps in the article [Enable passwordless sign in for Azure AD](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods), to enable passwordless authentication methods in your directory.
 
 ## How do my end users enable phone sign-in?
 
