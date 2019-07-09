@@ -29,9 +29,16 @@ It is recommended to let Media Services to autogenerate content keys. Typically,
 
 **Content Key Policies** are updatable. It can take up to 15 minutes for the Key Delivery caches to update and pick up the updated policy. 
 
+> [!NOTE]
+> Properties of **Content Key Policies** that are of the Datetime type are always in UTC format.
+
+## Best practice
+
 > [!IMPORTANT]
-> * Properties of **Content Key Policies** that are of the Datetime type are always in UTC format.
-> * You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
+> Please review the following recommendations.
+
+* You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
+* If you do need to create a new policy, you have to create a new Streaming Locator for the asset.<br/>Using a new locator avoids caching issues.
 
 ### Example
 
