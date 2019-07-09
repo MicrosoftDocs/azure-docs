@@ -40,7 +40,7 @@ At a high level, here's how Azure delegated resource management works:
 
 ## Support for Azure delegated resource management
 
-If you need help related to Azure delegated resource management, you can open a support request in the Azure portal. For **Issue type**, choose **Technical**. Select a subscription, then select **Delegated Resource Management – Preview** (under **Monitoring & Management**).
+If you need help related to Azure delegated resource management, you can open a support request in the Azure portal. For **Issue type**, choose **Technical**. Select a subscription, then select **Delegated Resource Management** (under **Monitoring & Management**).
 
 ## Next steps
 
