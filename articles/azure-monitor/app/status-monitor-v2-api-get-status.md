@@ -25,7 +25,7 @@ This article describes a cmdlet that's a member of the [Az.ApplicationMonitor Po
 ## Description
 
 This cmdlet provides troubleshooting information about Status Monitor.
-Use this cmdlet to investigate attach status, version of the PowerShell Module, and to inspect the running process.
+Use this cmdlet to investigate the monitoring status, version of the PowerShell Module, and to inspect the running process.
 This cmdlet will report version information and information about key files required for monitoring.
 
 > [!IMPORTANT] 
@@ -73,11 +73,11 @@ AppAlreadyInstrumented : true
 ```
 
 In this example;
-- **Machine Identifier** is an anonymous id used to uniquely identify your server. If you create a support request, we will need this id to find logs for your server.
+- **Machine Identifier** is an anonymous ID used to uniquely identify your server. If you create a support request, we will need this ID to find logs for your server.
 - **Default Web Site** is Stopped in IIS
-- **DemoWebApp111** is Started in IIS, but has not received any requests so has no running process (process id: not found).
+- **DemoWebApp111** has been started in IIS, but has not received any requests and therefor has no running process (ProcessId: not found).
 - **DemoWebApp222** is running and is being monitored (Instrumented: true). Based on the user configuration, Instrumentation Key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 was matched for this site.
-- **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Status Monitor detected this and will not monitor this site.
+- **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Status Monitor detected the SDK and will not monitor this site.
 
 
 ### Example: PowerShell module information
@@ -177,7 +177,7 @@ listdlls64.exe -accepteula w3wp
 ### (No parameters)
 
 By default, this cmdlet will report the monitoring status of web applications.
-Use this to review if Status Monitor successfully instrumented your application and which Instrumentation Key was matched to your site.
+Use this option to review if Status Monitor successfully instrumented your application and which Instrumentation Key was matched to your site.
 
 
 ### -PowerShellModule
