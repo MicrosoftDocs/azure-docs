@@ -109,7 +109,7 @@ Alertmanager.yml is the Alert Manager config file.
 
 ## Start Prometheus and Alertmanager
 Go to [openshift/origin repository](https://github.com/openshift/origin/tree/release-3.11/examples/prometheus) and download the [prometheus-standalone.yaml](
-https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) template. Apply the template to prometheus-project by entering the following configuration:
+https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml) template. Apply the template to prometheus-project by entering the following command:
 ```
 oc process -f https://raw.githubusercontent.com/openshift/origin/release-3.11/examples/prometheus/prometheus-standalone.yaml | oc apply -f - -n prometheus-project
 ```
