@@ -11,16 +11,6 @@
       href: share-your-data.md
     - name: Accept and receive data
       href: subscribe-to-data-share.md
-- name: How To
-  items:
-    - name: Add datasets to an existing data share
-      href: how-to-add-datasets-to-share.md
-    - name: Add recipients to an existing data share
-      href: how-to-add-recipients-to-share.md
-    - name: Delete an invitation
-      href: how-to-delete-invitation.md
-    - name: Revoke a share subscription
-      href: how-to-revoke-share-subscription.md
 - name: Concepts
   items:
   - name: Azure Data Share Terminology 
@@ -35,6 +25,14 @@
     href: how-to-configure-mapping.md
   - name: Troubleshoot 
     href: data-share-troubleshoot.md
+  - name: Add datasets to an existing data share
+    href: how-to-add-datasets-to-share.md
+  - name: Add recipients to an existing data share
+    href: how-to-add-recipients-to-share.md
+  - name: Delete an invitation
+    href: how-to-delete-invitation.md
+  - name: Revoke a share subscription
+    href: how-to-revoke-share-subscription.md
 - name: Resources
   items:
   - name: Blog
