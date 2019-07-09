@@ -24,16 +24,20 @@ Each action is made up of the following properties:
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-## Create an action group by using the Azure portal ##
-1. In the [portal](https://portal.azure.com), select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
+## Create an action group by using the Azure portal
+
+1. In the [Azure portal](https://portal.azure.com), select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 
     ![The "Monitor" service](./media/action-groups/home-monitor.png)
+    
 1. Select **Alerts** then select **Manage actions**.
 
     ![Manage Actions button](./media/action-groups/manage-action-groups.png)
+    
 1. Select **Add action group**, and fill in the fields.
 
     ![The "Add action group" command](./media/action-groups/add-action-group.png)
+    
 1. Enter a name in the **Action group name** box, and enter a name in the **Short name** box. The short name is used in place of a full action group name when notifications are sent using this group.
 
       ![The Add action group" dialog box](./media/action-groups/action-group-define.png)
@@ -44,23 +48,25 @@ For information on how to use Azure Resource Manager templates to configure acti
 
 1. Define a list of actions. Provide the following for each action:
 
-    a. **Name**: Enter a unique identifier for this action.
+    1. **Name**: Enter a unique identifier for this action.
 
-    b. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
+    1. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
-    c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
+    1. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
     
-    d. **Common alert schema**: You can choose to enable the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+    1. **Common alert schema**: You can choose to enable the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
 
 1. Select **OK** to create the action group.
 
-## Manage your action groups ##
+## Manage your action groups
+
 After you create an action group, it's visible in the **Action groups** section of the **Monitor** pane. Select the action group you want to manage to:
 
 * Add, edit, or remove actions.
 * Delete the action group.
 
 ## Action specific information
+
 > [!NOTE]
 > See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
 
@@ -73,7 +79,7 @@ Emails will be sent from the following email addresses. Ensure that your email f
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article
+You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
 ### ITSM
 ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
@@ -129,18 +135,27 @@ You may have a limited number of Webhook actions in an Action Group.
 #### Secure Webhook
 **The Secure Webhook functionality is currently in Preview.**
 
-The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. An overview of Azure AD Applications and service principals is available here: https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview.
-1. Create an Azure AD Application for your protected web API. See https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-overview.
-    - Configure your protected API to be called by a daemon app
-2. Enable Action Groups to use your Azure AD Application. NOTE: You must be a member of the [Azure AD Application Administrator role] (https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
-    - Modify the PowerShell script's Connect-AzureAD call to use your Azure AD Tenant Id.
-    - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object Id of your Azure AD Application
-    - Run the modified script
-3. Configure the Action Group Webhook action
-    - Copy the value $myApp.ObjectId from the script and enter it in the Application Object ID field in the Webhook action definition
+The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+
+1. Create an Azure AD Application for your protected web API. See https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
+    - Configure your protected API to be called by a daemon app.
+    
+1. Enable Action Groups to use your Azure AD Application.
+
+    > [!NOTE]
+    > You must be a member of the [Azure AD Application Administrator role] (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
+    
+    - Modify the PowerShell script's Connect-AzureAD call to use your Azure AD Tenant ID.
+    - Modify the PowerShell script's variable $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application
+    - Run the modified script.
+    
+1. Configure the Action Group Webhook action.
+    - Copy the value $myApp.ObjectId from the script and enter it in the Application Object ID field in the Webhook action definition.
+    
     ![Secure Webhook action](./media/action-groups/action-groups-secure-webhook.png)
 
 ##### Secure Webhook PowerShell Script
+
 ```PowerShell
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
 	
@@ -209,7 +224,7 @@ Write-Host $myApp.AppRoles
 ```
 
 
-## Next steps ##
+## Next steps
 * Learn more about [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Gain an [understanding of the activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md)
