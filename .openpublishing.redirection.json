@@ -1556,6 +1556,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/sql-api-dotnet-application-preview.md",
+      "redirect_url": "/azure/cosmos-db/sql-api-dotnet-application",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-dotnet-get-started-preview.md",
       "redirect_url": "/azure/cosmos-db/sql-api-get-started",
       "redirect_document_id": false
@@ -1571,6 +1576,15 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/search-fiddler.md",
+      "redirect_url": "/azure/search/search-get-started-postman",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-create-index-rest-api.md",
+      "redirect_url": "/azure/search/search-get-started-powershell",
+      "redirect_document_id": false
+    },    {
       "source_path": "articles/search/search-create-index-dotnet.md",
       "redirect_url": "/azure/search/search-get-started-dotnet",
       "redirect_document_id": false
