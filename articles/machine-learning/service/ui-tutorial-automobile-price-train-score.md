@@ -51,7 +51,7 @@ The visual interface tool provides an interactive, visual place to build predict
 
 1. Create a new experiment by selecting **+New** at the bottom of the visual interface window.
 
-![Add new experiment](./media/ui-tutorial-automobile-price-train-score/add-new.png)
+    ![Add new experiment](./media/ui-tutorial-automobile-price-train-score/add-new.png)
 
 1. Select **Blank Experiment**.
 
