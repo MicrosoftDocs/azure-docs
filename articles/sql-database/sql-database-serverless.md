@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/12/2019
+ms.date: 07/05/2019
 ---
 # Azure SQL Database serverless (preview)
 
@@ -160,7 +160,7 @@ Creating a new database or moving an existing database into a serverless compute
    |Parameter|Value choices|Default value|
    |---|---|---|---|
    |Min vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
-   |Autopause delay|Minimum: 360 minutes (6 hours)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|360 minutes|
+   |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable autopause: -1|60 minutes|
 
 > [!NOTE]
 > Using T-SQL to move an existing database into serverless or change its compute size is not currently supported but can be done via the Azure portal or PowerShell.
@@ -247,6 +247,8 @@ The user resource pool is the inner most resource management boundary for a data
 
 ### Metrics
 
+Metrics for monitoring the resource usage of the app package and user pool of a serverless database are listed in the following table:
+
 |Entity|Metric|Description|Units|
 |---|---|---|---|
 |App package|app_cpu_percent|Percentage of vCores used by the app relative to max vCores allowed for the app.|Percentage|
@@ -257,10 +259,6 @@ The user resource pool is the inner most resource management boundary for a data
 |User pool|log_IO_percent|Percentage of log MB/s used by user workload relative to max log MB/s allowed for user workload.|Percentage|
 |User pool|workers_percent|Percentage of workers used by user workload relative to max workers allowed for user workload.|Percentage|
 |User pool|sessions_percent|Percentage of sessions used by user workload relative to max sessions allowed for user workload.|Percentage|
-____
-
-> [!NOTE]
-> Metrics in the Azure portal are available in the database pane for a single database under **Monitoring**.
 
 ### Pause and resume status
 

@@ -4,8 +4,8 @@ description: This article is intended to help you understand how to use the Azur
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
@@ -33,7 +33,7 @@ The following diagram shows a conceptual view of the behavior and data flow with
 
 Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant.
 
-Once a CVE is release, it takes 2-3 hours for the patch to show up for Linux machines for assessment.  For Windows machines, it takes 12-15 hours for the patch to show up for assessment after it has been released.
+Once a package is released, it takes 2-3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12-15 hours for the patch to show up for assessment after it has been released.
 
 After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows computer, the compliance scan is run every 12 hours by default.
 

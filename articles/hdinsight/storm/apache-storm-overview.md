@@ -10,6 +10,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
+#Customer intent: As a developer, I want to understand how Storm on HDInsight is different from Storm on other platforms.
 ---
 
 # What is Apache Storm on Azure HDInsight?
@@ -40,7 +41,7 @@ Storm on HDInsight provides the following features:
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-To get started using Storm, see [Get started with Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md).
+To get started using Storm, see [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md).
 
 ## How does Apache Storm work
 
@@ -64,7 +65,7 @@ The default configuration for Apache Storm clusters is to have only one Nimbus n
 
 ## Ease of creation
 
-You can create a new Storm cluster on HDInsight in minutes. For more information on creating a Storm cluster, see [Get started with Storm on HDInsight](apache-storm-tutorial-get-started-linux.md).
+You can create a new Storm cluster on HDInsight in minutes. For more information on creating a Storm cluster, see [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Ease of use
 
@@ -172,5 +173,5 @@ For an example topology that demonstrates how to configure logging, see [Java-ba
 
 Learn more about real-time analytics solutions with Apache Storm on HDInsight:
 
-* [Get started with Apache Storm on HDInsight](apache-storm-tutorial-get-started-linux.md)
+* [Create and monitor an Apache Storm topology in Azure HDInsight](apache-storm-quickstart.md)
 * [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md)

@@ -41,7 +41,7 @@ Azure Disk Encryption supports the following customer scenarios:
 It also supports the following scenarios for VMs when they're enabled in Microsoft Azure:
 
 * Integration with Azure Key Vault.
-* [Standard tier VMs](https://azure.microsoft.com/pricing/details/virtual-machines/). [Linux VMs](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) within these tiers must meet the minimum memory requirement of 7 GB. 
+* [Standard tier VMs](https://azure.microsoft.com/pricing/details/virtual-machines/) that meet the [minimum memory requirement](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes). 
 * Enabling encryption on Windows and Linux VMs, managed disk, and scale set VMs from the supported Azure Gallery images.
 * Disabling encryption on OS and data drives for Windows VMs, scale set VMs, and managed disk VMs.
 * Disabling encryption on data drives for Linux VMs, scale set VMs, and managed disk VMs.
@@ -52,7 +52,7 @@ It also supports the following scenarios for VMs when they're enabled in Microso
 * Enabling encryption on the Linux VM OS and data disks.
 
    > [!NOTE]
-   > OS drive encryption for some Linux distributions isn't supported. For more information, see the [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) article.
+   > OS drive encryption for some Linux distributions isn't supported. For more information, see the [Azure Disk Encryption supported operating systems: Linux](azure-security-disk-encryption-prerequisites.md#linux).
    
 * Enabling encryption on VMs that are configured with Windows Storage Spaces beginning in Windows Server 2016.
 * Back up and restoration of encrypted VMs for both key encryption key (KEK) and non-KEK scenarios.
@@ -89,8 +89,6 @@ Azure Disk Encryption for VMs for Windows and Linux includes:
 * [The PowerShell disk encryption cmdlets](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0).
 * [The Azure CLI disk encryption cmdlets](/cli/azure/vm/encryption?view=azure-cli-latest).
 * [The Azure Resource Manager disk encryption templates](azure-security-disk-encryption-appendix.md#resource-manager-templates).
-
-Azure Disk Encryption is supported on VMs that run Windows or Linux OS. For more information about the supported operating systems, see [Frequently asked questions](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 
 > [!NOTE]
 > There's no additional charge to encrypt VM disks with Azure Disk Encryption. Standard [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) applies to the key vault that's used to store the encryption keys. 

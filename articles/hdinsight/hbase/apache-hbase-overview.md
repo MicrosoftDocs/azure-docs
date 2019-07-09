@@ -8,6 +8,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
+#Customer intent: As a developer new to Apache HBase and Apache HBase in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache HBase in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
 
 # What is Apache HBase in Azure HDInsight

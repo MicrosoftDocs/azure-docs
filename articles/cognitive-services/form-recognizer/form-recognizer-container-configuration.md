@@ -5,9 +5,9 @@ description: Learn how to configure the Form Recognizer container to parse form 
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
-ms.topic: overview
-ms.date: 06/10/2019
+ms.subservice: forms-recognizer
+ms.topic: conceptual
+ms.date: 06/19/2019
 ms.author: dapine
 ---
 # Configure Form Recognizer containers

@@ -79,13 +79,13 @@ The policy definitions for an Azure VM are listed in the following table.
 
 |Name |Description |Type |
 |-----|------------|-----|
-|[Preview]: Enable Azure Monitor for VMs |Enable Azure Monitor for the virtual machines in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |
-|[Preview]: Audit Dependency agent deployment – VM image (OS) unlisted |Reports VMs as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Audit Log Analytics agent deployment – VM image (OS) unlisted |Reports VMs as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Deploy Dependency agent for Linux VMs |Deploy Dependency agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Deploy Dependency agent for Windows VMs |Deploy Dependency agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Deploy Log Analytics agent for Linux VMs |Deploy Log Analytics agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Deploy Log Analytics agent for Windows VMs |Deploy Log Analytics agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Enable Azure Monitor for VMs |Enable Azure Monitor for the virtual machines in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. |Initiative |
+|\[Preview\]: Audit Dependency agent deployment – VM image (OS) unlisted |Reports VMs as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Audit Log Analytics agent deployment – VM image (OS) unlisted |Reports VMs as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Deploy Dependency agent for Linux VMs |Deploy Dependency agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Deploy Dependency agent for Windows VMs |Deploy Dependency agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Deploy Log Analytics agent for Linux VMs |Deploy Log Analytics agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Deploy Log Analytics agent for Windows VMs |Deploy Log Analytics agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
 
 ### Policies for Azure virtual machine scale sets
 
@@ -93,19 +93,19 @@ The policy definitions for an Azure virtual machine scale set are listed in the 
 
 |Name |Description |Type |
 |-----|------------|-----|
-|[Preview]: Enable Azure Monitor for virtual machine scale sets |Enable Azure Monitor for the virtual machine scale sets in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. Note: If your scale set upgrade policy is set to Manual, apply the extension to all the VMs in the set by calling upgrade on them. In the CLI, this is az vmss update-instances. |Initiative |
-|[Preview]: Audit Dependency agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Audit Log Analytics agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Deploy Dependency agent for Linux virtual machine scale sets |Deploy Dependency agent for Linux virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Deploy Dependency agent for Windows virtual machine scale sets |Deploy Dependency agent for Windows virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Deploy Log Analytics agent for Linux virtual machine scale sets |Deploy Log Analytics agent for Linux virtual machine scale sets if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
-|[Preview]: Deploy Log Analytics agent for Windows virtual machine scale sets |Deploy Log Analytics agent for Windows virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Enable Azure Monitor for virtual machine scale sets |Enable Azure Monitor for the virtual machine scale sets in the specified scope (management group, subscription, or resource group). Takes Log Analytics workspace as a parameter. Note: If your scale set upgrade policy is set to Manual, apply the extension to all the VMs in the set by calling upgrade on them. In the CLI, this is az vmss update-instances. |Initiative |
+|\[Preview\]: Audit Dependency agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Audit Log Analytics agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Deploy Dependency agent for Linux virtual machine scale sets |Deploy Dependency agent for Linux virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Deploy Dependency agent for Windows virtual machine scale sets |Deploy Dependency agent for Windows virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Deploy Log Analytics agent for Linux virtual machine scale sets |Deploy Log Analytics agent for Linux virtual machine scale sets if the VM Image (OS) is defined in the list and the agent isn't installed. |Policy |
+|\[Preview\]: Deploy Log Analytics agent for Windows virtual machine scale sets |Deploy Log Analytics agent for Windows virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |Policy |
 
 Standalone policy (not included with the initiative) is described here:
 
 |Name |Description |Type |
 |-----|------------|-----|
-|[Preview]: Audit Log Analytics workspace for VM – Report mismatch |Report VMs as noncompliant if they aren't logging to the Log Analytics workspace specified in the policy or initiative assignment. |Policy |
+|\[Preview\]: Audit Log Analytics workspace for VM – Report mismatch |Report VMs as noncompliant if they aren't logging to the Log Analytics workspace specified in the policy or initiative assignment. |Policy |
 
 ### Assign the Azure Monitor initiative
 To create the policy assignment from the **Azure Monitor for VMs Policy Coverage** page, follow these steps. To understand how to complete these steps, see [Create a policy assignment from the Azure portal](../../governance/policy/assign-policy-portal.md).
@@ -177,19 +177,19 @@ Based on the results of the policies included with the initiative, VMs are repor
 
 * Log Analytics agent or Dependency agent isn't deployed.  
     This scenario is typical for a scope with existing VMs. To mitigate it, deploy the required agents by [creating remediation tasks](../../governance/policy/how-to/remediate-resources.md) on a noncompliant policy.  
-    - [Preview]: Deploy Dependency agent for Linux VMs
-    - [Preview]: Deploy Dependency agent for Windows VMs
-    - [Preview]: Deploy Log Analytics agent for Linux VMs
-    - [Preview]: Deploy Log Analytics agent for Windows VMs
+    - \[Preview\]: Deploy Dependency agent for Linux VMs
+    - \[Preview\]: Deploy Dependency agent for Windows VMs
+    - \[Preview\]: Deploy Log Analytics agent for Linux VMs
+    - \[Preview\]: Deploy Log Analytics agent for Windows VMs
 
 * VM image (OS) isn't identified in the policy definition.  
     The criteria of the deployment policy include only VMs that are deployed from well-known Azure VM images. Check the documentation to see whether the VM OS is supported. If it isn't supported, duplicate the deployment policy and update or modify it to make the image compliant.  
-    - [Preview]: Audit Dependency agent deployment – VM image (OS) unlisted
-    - [Preview]: Audit Log Analytics agent deployment – VM image (OS) unlisted
+    - \[Preview\]: Audit Dependency agent deployment – VM image (OS) unlisted
+    - \[Preview\]: Audit Log Analytics agent deployment – VM image (OS) unlisted
 
 * VMs aren't logging in to the specified Log Analytics workspace.  
     It's possible that some VMs in the initiative scope are logging in to a Log Analytics workspace other than the one that's specified in the policy assignment. This policy is a tool to identify which VMs are reporting to a noncompliant workspace.  
-    - [Preview]: Audit Log Analytics workspace for VM – Report mismatch
+    - \[Preview\]: Audit Log Analytics workspace for VM – Report mismatch
 
 ## Edit an initiative assignment
 

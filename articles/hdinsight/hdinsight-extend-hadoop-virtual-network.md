@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ---
 
 # Extend Azure HDInsight using an Azure Virtual Network
@@ -62,9 +62,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
     Once joined, HDInsight installed in the Resource Manager network can interact with resources in the classic network.
 
-2. Do you use forced tunneling? Forced tunneling is a subnet setting that forces outbound Internet traffic to a device for inspection and logging. HDInsight does not support forced tunneling. Either remove forced tunneling before deploying HDInsight into an existing subnet, or create a new subnet with no forced tunneling for HDInsight.
-
-3. Do you use network security groups, user-defined routes, or Virtual Network Appliances to restrict traffic into or out of the virtual network?
+2. Do you use network security groups, user-defined routes, or Virtual Network Appliances to restrict traffic into or out of the virtual network?
 
     As a managed service, HDInsight requires unrestricted access to several IP addresses in the Azure data center. To allow communication with these IP addresses, update any existing network security groups or user-defined routes.
     
@@ -103,7 +101,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
         For more information, see the [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md) document.
 
-4. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
+3. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
 
     * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -206,13 +204,13 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
 ## <a id="networktraffic"></a> Controlling network traffic
 
-### Controlling inbound traffic to HDInsight clusters
+### Techniques for controlling inbound and outbound traffic to HDInsight clusters
 
 Network traffic in an Azure Virtual Networks can be controlled using the following methods:
 
 * **Network security groups** (NSG) allow you to filter inbound and outbound traffic to the network. For more information, see the [Filter network traffic with network security groups](../virtual-network/security-overview.md) document.
 
-* **Network virtual appliances** replicate the functionality of devices such as firewalls and routers. For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
+* **Network virtual appliances** (NVA) can be used with outbound traffic only. NVAs replicate the functionality of devices such as firewalls and routers.  For more information, see the [Network Appliances](https://azure.microsoft.com/solutions/network-appliances) document.
 
 As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
 
@@ -242,14 +240,14 @@ Forced tunneling is a user-defined routing configuration where all traffic from 
 
 ## <a id="hdinsight-ip"></a> Required IP addresses
 
-> [!IMPORTANT]  
-> The Azure health and management services must be able to communicate with HDInsight. If you use network security groups or user-defined routes, allow traffic from the IP addresses for these services to reach HDInsight.
->
+If you use network security groups or user defined routes to control traffic, you must allow traffic from the IP addresses for Azure health and management services so that they can communicate with your HDInsight cluster. Some of the IP addresses are region specific, and some of them apply to all Azure regions. You may also need to allow traffic from the Azure DNS service if you aren't using custom DNS. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
+
+> [!Note]  
 > If you do not use network security groups or user-defined routes to control traffic, you can ignore this section.
 
-If you use network security groups, you must allow traffic from the Azure health and management services to reach HDInsight clusters on port 443. You must also allow traffic between VMs inside the subnet. Use the following steps to find the IP addresses that must be allowed:
+1. If you are using the Azure-provided DNS service, allow access from __168.63.129.16__ on port 53. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document. If you are using custom DNS, skip this step.
 
-1. You must always allow traffic from the following IP addresses:
+2. Allow traffic from the following IP addresses for Azure health and management services which apply to all Azure regions:
 
     | Source IP address | Destination  | Direction |
     | ---- | ----- | ----- |
@@ -258,7 +256,7 @@ If you use network security groups, you must allow traffic from the Azure health
     | 168.61.48.131 | \*:443 | Inbound |
     | 138.91.141.162 | \*:443 | Inbound |
 
-2. If your HDInsight cluster is in one of the following regions, then you must allow traffic from the IP addresses listed for the region:
+3. Allow traffic from the IP addresses listed for the Azure health and management services in the specific region where your resources are located:
 
     > [!IMPORTANT]  
     > If the Azure region you are using is not listed, then only use the four IP addresses from step 1.
@@ -298,8 +296,6 @@ If you use network security groups, you must allow traffic from the Azure health
     | &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Inbound |
 
     For information on the IP addresses to use for Azure Government, see the [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
-
-3. You must also allow access from __168.63.129.16__. This address is Azure's recursive resolver. For more information, see the [Name resolution for VMs and Role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) document.
 
 For more information, see the [Controlling network traffic](#networktraffic) section.
 

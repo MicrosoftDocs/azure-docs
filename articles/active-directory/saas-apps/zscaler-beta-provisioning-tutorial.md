@@ -6,7 +6,6 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-
 ms.assetid: 83db6b8d-503b-48f3-b918-f9fba1369d53
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant-msft
+ms.author: "jeedes"
 ---
 
 # Tutorial: Configure Zscaler Beta for automatic user provisioning

@@ -4,7 +4,7 @@ description: Deploys Azure Disk Encryption for Linux to a virtual machine using 
 services: virtual-machines-linux 
 documentationcenter: ''
 author: ejarvi 
-manager: jeconnoc 
+manager: gwallace 
 editor: ''
 
 ms.assetid: 
@@ -30,7 +30,7 @@ For a full list of prerequisites, see [Azure Disk Encryption Prerequisites](
 
 ### Operating system
 
-Azure Disk Encryption is currently supported on select distributions and versions.  See the [Azure Disk Encryption FAQ](../../security/azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) for the list of Linux distributions that are supported.
+Azure Disk Encryption is currently supported on select distributions and versions.  See the [Azure Disk Encryption supported operating systems: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) for the list of Linux distributions that are supported.
 
 ### Internet connectivity
 

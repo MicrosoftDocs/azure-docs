@@ -3,7 +3,6 @@ title: Set up a source transformation in the Mapping Data Flow feature of Azure 
 description: Learn how to set up a source transformation in Mapping Data Flow. 
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
@@ -119,6 +118,14 @@ If your source is in SQL Database or SQL Data Warehouse, you have additional opt
 
 * **Query**: Enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. Note that **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow.
 * **Batch size**: Enter a batch size to chunk large data into reads.
+* **Isolation Level**: Default for SQL sources in ADF Mapping Data Flows is Read Uncommitted. You can change the isolation level here to one of these values:
+* Read Committed
+* Read Uncommitted
+* Repeatable Read
+* Serializable
+* None (ignore isolation level)
+
+![Isolation Level](media/data-flow/isolationlevel.png "Isolation Level")
 
 > [!NOTE]
 > File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
@@ -134,6 +141,12 @@ If your text file has no defined schema, select **Detect data type** so that Dat
 You can modify the column data types in a later derived-column transformation. Use a select transformation to modify the column names.
 
 ![Settings for default data formats](media/data-flow/source2.png "Default formats")
+
+### Add dynamic content
+
+When you click inside of fields in the setting panel, you will see a hyperlink for "Add dynamic content". When you click here, you will launch the Expression Builder. This is where you can set values for settings dynamically using expressions, static literal values, or parameters.
+
+![Parameters](media/data-flow/params6.png "Parameters")
 
 ## Next steps
 

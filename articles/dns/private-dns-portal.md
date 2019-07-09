@@ -36,11 +36,13 @@ If you prefer, you can complete this tutorial using [Azure PowerShell](private-d
 
 The following example creates a DNS zone called **private.contoso.com** in a resource group called **MyAzureResourceGroup**.
 
-A DNS zone contains the DNS entries for a domain. To start hosting your domain in Azure DNS, you create a DNS zone for that domain name. 
+A DNS zone contains the DNS entries for a domain. To start hosting your domain in Azure DNS, you create a DNS zone for that domain name.
 
-1. On the portal page upper left, select **Create a resource**, then **Networking**. Type **Private DNS zone** in the search text box and press **Enter**.
+![Private DNS zones search](media/private-dns-portal/search-private-dns.png)
+
+1. On the portal search bar, type **private dns zones** in the search text box and press **Enter**.
 1. Select **Private DNS zone**.
-2. Select **Create**.
+2. Select **Create private dns zone**.
 
 1. On the **Create Private DNS zone** page, type or select the following values:
 
@@ -65,6 +67,8 @@ It may take a few minutes to create the zone.
 ## Link the virtual network
 
 To link the private DNS zone to a virtual network, you create a virtual network link.
+
+![Add virtual network link](media/private-dns-portal/dns-add-virtual-network-link.png)
 
 1. Open the **MyAzureResourceGroup** resource group and select the **private.contoso.com** private zone.
 2. On the left pane, select **Virtual network links**.

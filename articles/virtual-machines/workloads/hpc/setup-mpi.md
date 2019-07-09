@@ -4,7 +4,7 @@ description: Learn how to set up MPI for HPC on Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -66,7 +66,7 @@ Install UCX as previously described.
 Build MPICH.
 
 ```bash
-wget http://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
+wget https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
 tar -xvf mpich-3.3.tar.gz
 cd mpich-3.3
 ./configure --with-ucx=<ucx-install-path> --prefix=<mpich-install-path> --with-device=ch4:ucx

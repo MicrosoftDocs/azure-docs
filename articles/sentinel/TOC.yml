@@ -43,6 +43,8 @@
         href: connect-azure-atp.md
       - name: Connect Azure Security Center
         href: connect-azure-security-center.md
+      - name: Connect domain name server
+        href: connect-dns.md
       - name: Connect Microsoft web application firewall
         href: connect-microsoft-waf.md
       - name: Connect Windows firewall
@@ -54,6 +56,8 @@
       items:
       - name: Connect generic CEF
         href: connect-common-event-format.md
+      - name: Connect AWS
+        href: connect-aws.md
       - name: Connect Barracuda
         href: connect-barracuda.md
       - name: Connect Check Point
