@@ -50,7 +50,6 @@ Taking the same example again:
 - the `headquarters`'s `employees` path is `/headquarters/employees/?`
 - the `locations`' `country` path is `/locations/[]/country/?`
 - the path to anything under `headquarters` is `/headquarters/*`
-- The system property "etag" is excluded from indexing by default, unless the etag is added to the included path for indexing.
 
 When a path is explicitly included in the indexing policy, it also has to define which index types should be applied to that path and for each index type, the data type this index applies to:
 
@@ -69,6 +68,8 @@ Any indexing policy has to include the root path `/*` as either an included or a
 - Exclude the root path to selectively include paths that need to be indexed.
 
 - For paths with regular characters that include: alphanumeric characters and _ (underscore), you don’t have to escape the path string around double quotes (for example, "/path/?"). For paths with other special characters, you need to escape the path string around double quotes (for example, "/\"path-abc\"/?"). If you expect special characters in your path, you can escape every path for safety. Functionally it doesn’t make any difference if you escape every path Vs just the ones that have special characters.
+
+- The system property "etag" is excluded from indexing by default, unless the etag is added to the included path for indexing.
 
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples.
 
