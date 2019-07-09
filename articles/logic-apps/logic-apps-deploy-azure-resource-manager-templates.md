@@ -1,6 +1,6 @@
 ---
-title: Deploy logic apps with Azure Resource Manager templates - Azure Logic Apps
-description: Deploy logic apps by using Azure Resource Manager templates
+title: Deploy logic app templates - Azure Logic Apps
+description: Learn how to deploy Azure Resource Manager templates created for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 07/26/2019
 ---
 
-# Deploy logic apps with Azure Resource Manager templates
+# Deploy Azure Resource Manager templates for Azure Logic Apps
 
 After you create an Azure Resource Manager template for your logic app, you can deploy your template in these ways:
 

@@ -1,6 +1,6 @@
 ---
-title: Overview - Automate logic app deployment with Azure Resource Manager templates - Azure Logic Apps
-description: Overview for automating deployment for logic apps with Azure Resource Manager templates
+title: Overview - Automate deployment for Azure Logic Apps
+description: Learn about Azure Resource Manager templates to automate deployment for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 07/26/2019
 ---
 
-# Overview: Automate deployment for logic apps with Azure Resource Manager templates
+# Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
 
 When you're ready to automate creating and deploying your logic app, you can expand your logic app's underlying workflow definition into an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). This template defines the infrastructure, resources, parameters, and other information for provisioning and deploying your logic app. By defining parameters for values that vary at deployment, also known as *parameterizing*, you can repeatedly and consistently deploy logic apps based on different deployment needs.
 
