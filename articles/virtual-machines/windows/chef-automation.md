@@ -287,22 +287,23 @@ In this step, you make a copy of the Cookbook that you have created on the local
 ## Deploy a virtual machine with Knife Azure
 Deploy an Azure virtual machine and apply the “Webserver” Cookbook which installs the IIS web service and default web page.
 
-In order to do this, use the **knife azure server create** command.
+In order to do this, use the **knife azurerm server create** command.
 
 An example of the command appears next.
 
-    knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
+    knife azurerm server create --azure-resource-group-name rg-chefdeploy --azure-storage-account store --azure-vm-name chefvm --azure-vm-size 'Standard_DS2_v2' --azure-service-location 'westus' --azure-image-reference-offer 'WindowsServer' --azure-image-reference-publisher 'MicrosoftWindowsServer' --azure-image-reference-sku '2016-Datacenter' --azure-image-reference-version 'latest' -x myuser -P myPassword123 --tcp-endpoints '80,3389' --chef-daemon-interval 1 -r "recipe[webserver]"
+
 
 The parameters are self-explanatory. Substitute your particular variables and run.
 
 > [!NOTE]
-> Through the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
+> Through the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to the web page and RDP session.
 >
 >
 
 Once you run the command, go to the Azure portal to see your machine begin to provision.
 
-![][13]
+![][15]
 
 The command prompt appears next.
 
@@ -330,6 +331,8 @@ Thank you! Go and start your infrastructure as code journey with Azure today!
 [10]: media/chef-automation/10.png
 [11]: media/chef-automation/11.png
 [13]: media/chef-automation/13.png
+[14]: media/chef-automation/14.png
+[15]: media/chef-automation/15.png
 
 
 <!--Link references-->
