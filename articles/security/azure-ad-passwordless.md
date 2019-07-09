@@ -28,7 +28,7 @@ This article is the beginning of your journey to help you understand and impleme
 
 These days, banks, credit card companies, and other organizations and online services often protect your account by requiring you to verify your identity twice: once by using your password, then again by phone, text, or an app. While multi-factor authentication addresses the security issue of passwords being shared, stolen, or guessed, it does not address the inconvenience factor of trying to remember them. What users and organizations want in today's cloud era is passwordless authentication methods that are highly secure *and* convenient.
 
-![Convenience vs security](./media/azure-adazure-ad-pwdless-image1.png)
+![Convenience vs security](./media/azure-ad/azure-ad-pwdless-image1.png)
 
 Windows Hello for Business, Microsoft Authenticator, and FIDO2 security keys all share a simple, common architecture that provide users with an authentication method that is both highly secure and convenient to use. All three are based on public/private-key technology, need a local gesture such as a biometric or PIN, and private-keys bound to a single device and securely stored and never shared.
 
