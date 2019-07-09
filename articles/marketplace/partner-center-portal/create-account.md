@@ -91,7 +91,7 @@ Another user from the same tenant can add a new publisher by following the steps
    b) **PublisherID**: An identifier used by Partner Center to uniquely identify your publisher. The default for this field maps to an existing `PublisherID` in the system, which cannot be reused, and therefore this field needs to be updated. <br>
    c) **Contact information**: Update the contact information when necessary.
 
-1. After you complete the process, you can manage your newly created publisher by going to the Commercial Marketplace program listed in the left navigation menu. If you don't see the Commercial Marketplace program, refresh the page.  The new publisher will appear in the **Publishers** list.
+1. After you complete the process, you can manage your newly created publisher by going to the **Commercial Marketplace** program listed in the left navigation menu. If you don't see the **Commercial Marketplace** program, refresh the page.  The new publisher will appear in the **Publishers** list.
 
 ## Next steps
 
