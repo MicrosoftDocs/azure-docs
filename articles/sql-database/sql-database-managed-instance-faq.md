@@ -18,7 +18,7 @@ ms.date: 07/08/2019
 This article contains many of the most common questions about [SQL Database managed instance](sql-database-managed-instance.md).
 
 ## Where can I find a list of features that are supported on managed instance?
-  
+
 For a list of supported features in managed instance, see [Azure SQL Database versus SQL Server](sql-database-features.md).
 
 For differences in syntax and behavior between Azure SQL Database managed instance and on-premises SQL Server, see [T-SQL differences from SQL Server](sql-database-managed-instance-transact-sql-information.md).
@@ -28,24 +28,26 @@ For differences in syntax and behavior between Azure SQL Database managed instan
 
 For available hardware generation characteristics, see [technical differences in hardware generations](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 For available service tiers and their characteristics, see [technical differences between service tiers](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
- 
+
 ## Where can I find known issues and bugs?
 
-For bugs and known issues, see [behavioral changes](sql-database-managed-instance-transact-sql-information.md#Changes) and [known issues](sql-database-managed-instance-transact-sql-information#Issues).
+For bugs and known issues, see [behavioral changes](sql-database-managed-instance-transact-sql-information.md#Changes) and [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
 
 
-## Can managed instance have the same name as on-premises SQL Server? 
- 
+## Can a managed instance have the same name as on-premises SQL Server?
+
 Managed instance must have a name that ends with *database.windows.net*. To use another DNS zone instead of the default, for example, **mi-another-name**.contoso.com: 
 - Use CliConfig to define an alias (the tool is just a registry settings wrapper, so this could also be done using group policy or script).
 - Use *CNAME* with *TrustServerCertificate=true* option.
- 
-## How can I move database from managed instance back to SQL Server or Azure SQL Database
-  
-You can [export database to bacpac](sql-database-export.md) and then [import backpac file]( sql-database-import.md). This approach is recommended if your database is smaller than 100GB.
+
+
+## How can I move database from managed instance back to SQL Server or Azure SQL Database?
+
+You can [export database to bacpac](sql-database-export.md) and then [import the bacpac file]( sql-database-import.md). This approach is recommended if your database is smaller than 100 GB.
+
 Transactional replication can be used if all tables in the database have primary keys.
 
-Native `COPY_ONLY` backups taken from managed instance cannot be restored to SQL Server because managed instance has higher database version compared to SQL Server.
+Native `COPY_ONLY` backups taken from managed instance cannot be restored to SQL Server because managed instance has a higher database version compared to SQL Server.
 
 ## How can I migrate my instance database to a single Azure SQL Database?
 
@@ -55,15 +57,15 @@ This is the recommended approach if your database is smaller than 100 GB. Transa
 
 ## How do I choose between Gen 4 and Gen 5 hardware generation for managed instance?
 
-This depends on your workload as some hardware generation is better for certain types of workloads than the other. While the topic of performance is rather a complex one to simplify, please note the following differences between the hardware generations affecting the workload performance:
-- Gen 4 provides a better compute support as it is based on physical processors, versus Gen 5 which is based on vCore processors. This might be more advantageous for compute intensive workloads.
+This depends on your workload as some hardware generation is better for certain types of workloads than the other. While the subject of performance is rather a complex one to simplify, the following differences between the hardware generations affecting the workload performance:
+- Gen 4 provides a better compute support as it is based on physical processors, versus Gen 5 that is based on vCore processors. This might be more advantageous for compute intensive workloads.
 - Gen 5 supports accelerated networking resulting in a better IO bandwidth to remote storage. This might be advantageous for IO intensive workloads on general purpose service tiers. Gen 5 uses faster SSD local disks compared to Gen 4. This might be advantageous for IO intensive workloads on business critical service tiers.
 
-Customers are strongly advised to test the performance of actual workloads intended for production prior to going live to determine which hardware generation will work better in your case.
+Customers are advised to test the performance of actual workloads intended for production prior to going live to determine which hardware generation will work better in your case.
 
 ## Can I switch my managed instance hardware generation between Gen 4 and Gen 5 online? 
 
-Automated online switching between hardware generations is possible if both hardware generations are available in the same region where your managed instance is provisioned. In this case you have an option in the pricing tier section of the Azure portal to switch between hardware generations.
+Automated online switching between hardware generations is possible if both hardware generations are available in the same region where your managed instance is provisioned. In this case, you have an option in the pricing tier section of the Azure portal to switch between hardware generations.
 
 This is a long running operation as the new managed instance will be provisioned at the back end and databases automatically transferred between the old and new instance. This process will be seamless for customers.
 
@@ -72,9 +74,9 @@ If both hardware generations are not supported in the same region, changing the 
 
 ## How do I tune performance of my managed instance? 
 
-General purpose managed instance uses remote storage due to which size of data and log files matters to performance. To tune general purpose service tier performance please follow instructions in this blog post.
+General purpose managed instance uses remote storage due to which size of data and log files matters to performance. To tune general purpose service tier performance, follow instructions in this blog post.
 
-For IO intensive workloads consider using Gen 5 hardware, versus using Gen 4 for compute intensive workloads. For more information see FAQ section on choosing between hardware generations.
+For IO intensive workloads consider using Gen 5 hardware, versus using Gen 4 for compute intensive workloads. For more information, see FAQ section on choosing between hardware generations.
 
 If your workload consists of lots of small transactions, consider switching the connection type from proxy to redirect mode.
 
@@ -134,7 +136,7 @@ DNS configuration is eventually refreshed:
 - when DHCP lease expires.
 - on platform upgrade.
 
-As a workaround, downgrade the managed instance to 4 vCore and upgrade it again afterword. This has a side effect of refreshing the DNS configuration.
+As a workaround, downgrade the managed instance to 4 vCore and upgrade it again afterward. This has a side effect of refreshing the DNS configuration.
 
 
 ## Can a managed instance have a static IP address?
@@ -163,7 +165,7 @@ Data loads are often slower on managed instance than in SQL Server due to mandat
 Yes, you don't need to decrypt your database to be able to restore it to managed instance. You do need to provide a certificate/key used as an encryption key protector in the source system to the managed instance to be able to read data from the encrypted backup file. There are two possible ways to do this:
 
 - Upload certificate-protector to the managed instance. This can be done using PowerShell only. The sample script describes the whole process.
-- Upload asymmetric key-protector to Azure Key Vault (AKV) and point managed instance to it. This approach resembles bring-your-own-key (BYOK) TDE use case which also leverages AKV integration to store the encryption key. If you just want to make key uploaded to AKV available to managed instance for restoring encrypted databases without actually using the key as an encryption key protector, follow instructions for setting up BYOK TDE, and don’t check the checkbox Make the selected key the default TDE protector.
+- Upload asymmetric key-protector to Azure Key Vault (AKV) and point managed instance to it. This approach resembles bring-your-own-key (BYOK) TDE use case that also uses AKV integration to store the encryption key. If you just want the key uploaded to AKV available to managed instance for restoring encrypted databases without actually using the key as an encryption key protector, follow instructions for setting up BYOK TDE, and don’t check the checkbox Make the selected key the default TDE protector.
 
 Once you make the encryption protector available to managed instance, you can proceed with the standard database restore procedure.
 
