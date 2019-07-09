@@ -51,24 +51,28 @@ The following snippet shows the new schema for host.json. The main change to be 
           "maxQueuePollingInterval": <hh:mm:ss?>
         }
       },
+      "tracing": {
+        "traceInputsAndOutputs": <bool?>,
+        "traceReplayEvents": <bool?>
+      },
+      "notifications": {
+        "eventGrid": {
+          "topicEndpoint": <string?>,
+          "keySettingName": <string?>,
+          "publishRetryCount": <string?>,
+          "publishRetryInterval": <hh:mm:ss?>,
+          "publishRetryHttpStatus": <int[]?>,
+          "publishEventTypes": <string[]?>
+        }
+      }
       "maxConcurrentActivityFunctions": <int?>,
       "maxConcurrentOrchestratorFunctions": <int?>,
-      "traceInputAndOutputs": <bool?>,
-      "eventGridTopicEndpoint": <string?>,
-      "eventGridKeySettingName": <string?>,
-      "eventGridPublishRetryCount": <string?>,
-      "eventGridPublishRetryInterval": <hh:mm:ss?>,
-      "eventGridPublishRetryHttpStatus": <int[]?>,
-      "eventgridPublishEventTypes": <string[]?>,
-      "customLifeCycleNotificationHelperType"
+      "customLifeCycleNotificationHelperType",
       "extendedSessionsEnabled": <bool?>,
-      "extendedSessionIdleTimeoutInSeconds": <int?>,
-      "logReplayEvents": <bool?>
+      "extendedSessionIdleTimeoutInSeconds": <int?>
   }
 }
 ```
-
-As Durable Functions 2.0 continues to stabilize, more changes will be introduced to the `durableTask` section host.json. For more information on these changes, see [this GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/641).
 
 ### Public interface changes
 
