@@ -196,4 +196,4 @@ In this tutorial, you completed these tasks:
 Continue with **part 2** of this tutorial to train and deploy a simple machine learning model.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Train and deploy a model]()
+> [Tutorial: Train and deploy your first model]()
