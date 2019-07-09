@@ -84,6 +84,8 @@ System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
+
+
 ## Instantiate the client and make a request
 
 These lines instantiate the `HttpClient` and the `HttpRequestMessage`:
@@ -138,6 +140,8 @@ static string PrettyPrint(string s)
     return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
 }
 ```
+
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## Put it all together
 

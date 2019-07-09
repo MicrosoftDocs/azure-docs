@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -92,7 +92,7 @@ Make sure you are making the best use of the ranking features QnA Maker supports
 
 ### Choosing a threshold
 
-The default [confidence score](confidence-score.md#) that is used as a threshold is 50, however you can [change the threshold](confidence-score.md#set-threshold) for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB. 
+The default [confidence score](confidence-score.md) that is used as a threshold is 50, however you can [change the threshold](confidence-score.md#set-threshold) for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB. 
 
 ### Choosing Ranker type
 By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.

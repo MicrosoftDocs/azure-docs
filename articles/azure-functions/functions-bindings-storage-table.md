@@ -4,7 +4,7 @@ description: Understand how to use Azure Table storage bindings in Azure Functio
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.service: azure-functions
@@ -532,7 +532,7 @@ The Table storage input binding supports the following scenarios:
 Use an Azure Table storage output binding to write entities to a table in an Azure Storage account.
 
 > [!NOTE]
-> This output binding does not support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) to update an existing entity.   
+> This output binding does not support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) to update an existing entity.   
 
 ## Output - example
 

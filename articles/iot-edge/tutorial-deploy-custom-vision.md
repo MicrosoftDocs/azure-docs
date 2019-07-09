@@ -70,10 +70,11 @@ Once your image classifier is built and trained, you can export it as a Docker c
    | ----- | ----- |
    | Name | Provide a name for your project, like **EdgeTreeClassifier**. |
    | Description | Optional project description. |
-   | Resource Group | Accept the default **Limited trial**. |
+   | Resource Group | Select one of your Azure Resource Groups that includes a Custom Vision Service Resource or **create new** if you haven't yet added one. |
    | Project Types | **Classification** |
-   | Classification Types | **Multiclass (single tag per image)** | 
+   | Classification Types | **Multiclass (single tag per image)** |
    | Domains | **General (compact)** |
+   | Export Capabilities | **Basic platforms (Tensorflow, CoreML, ONNX, ...)** |
 
 5. Select **Create project**.
 
