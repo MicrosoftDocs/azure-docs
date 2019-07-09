@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 ms.author: mbullwin
 
 ---
@@ -29,7 +29,7 @@ Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingT
 |---------------|-------|
 |Http/Https | Local or Remote http/https calls |
 |WCF calls| Only tracked automatically if Http-based bindings are used.|
-|SQL | Calls made with `SqlClient`. See [this](##advanced-sql-tracking-to-get-full-sql-query) for capturing SQL query .  |
+|SQL | Calls made with `SqlClient`. See [this](##advanced-sql-tracking-to-get-full-sql-query) for capturing SQL query.  |
 |[Azure storage (Blob, Table, Queue )](https://www.nuget.org/packages/WindowsAzure.Storage/) | Calls made with Azure Storage Client. |
 |[EventHub Client SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | Version 1.1.0 and above. |
 |[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
@@ -100,7 +100,7 @@ For ASP.NET applications, full SQL query is collected with the help of byte code
 | --- | --- |
 | Azure Web App |In your web app control panel, [open the Application Insights blade](../../azure-monitor/app/azure-web-apps.md) and enable SQL Commands under .NET |
 | IIS Server (Azure VM, on-prem, and so on.) | [Install Status Monitor on your server where application is running](../../azure-monitor/app/monitor-performance-live-website-now.md) and restart IIS.
-| Azure Cloud Service |[Use startup task](../../azure-monitor/app/cloudservices.md) to [Install Status Monitor](monitor-performance-live-website-now.md#download) |
+| Azure Cloud Service | Add [startup task to install StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Your app should be onboarded to ApplicationInsights SDK at build time by installing NuGet packages for [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) or [ASP.NET Core applications](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Not supported
 
 In the above cases, the correct way of validating that instrumentation engine is correctly installed is by validating that the SDK version of collected `DependencyTelemetry` is 'rddp'. 'rdddsd' or 'rddf' indicates dependencies are collected via DiagnosticSource or EventSource callbacks, and hence full SQL query won't be captured.
@@ -109,47 +109,25 @@ In the above cases, the correct way of validating that instrumentation engine is
 
 * [Application Map](app-map.md) visualizes dependencies between your app and neighboring components.
 * [Transaction Diagnostics](transaction-diagnostics.md) shows unified, correlated server data.
-* [Browsers blade](javascript.md#ajax-performance) shows AJAX calls from your users' browsers.
+* [Browsers tab](javascript.md#ajax-performance) shows AJAX calls from your users' browsers.
 * Click through from slow or failed requests to check their dependency calls.
-* [Analytics](#analytics) can be used to query dependency data.
+* [Analytics](#logs-analytics) can be used to query dependency data.
 
 ## <a name="diagnosis"></a> Diagnose slow requests
 
-Each request event is associated with the dependency calls, exceptions and other events that are tracked while your app is processing the request. So if some requests are doing badly, you can find out whether it's because of slow responses from a dependency.
-
-Let's walk through an example of that.
+Each request event is associated with the dependency calls, exceptions, and other events that are tracked while your app is processing the request. So if some requests are doing badly, you can find out whether it's because of slow responses from a dependency.
 
 ### Tracing from requests to dependencies
 
-Open the Performance blade, and look at the grid of requests:
+Open the **Performance** tab and navigate to the **Dependencies** tab at the top next to operations.
 
-![List of requests with averages and counts](./media/asp-net-dependencies/02-reqs.png)
+Click on a **Dependency Name** under overall. After you select a dependency a graph of that dependency's distribution of durations will show up on the right.
 
-The top one is taking long. Let's see if we can find out where the time is spent.
+![In the performance tab click on the Dependency tab at the top then a Dependency name in the chart](./media/asp-net-dependencies/2-perf-dependencies.png)
 
-Click that row to see individual request events:
+Click on the blue **Samples** button on the bottom right and then on a sample to see the end-to-end transaction details.
 
-![List of request occurrences](./media/asp-net-dependencies/03-instances.png)
-
-Click any long-running instance to inspect it further, and scroll down to the remote dependency calls related to this request:
-
-![Find Calls to Remote Dependencies, identify unusual Duration](./media/asp-net-dependencies/04-dependencies.png)
-
-It looks like most of the time servicing this request was spent in a call to a local service.
-
-Select that row to get more information:
-
-![Click through that remote dependency to identify the culprit](./media/asp-net-dependencies/05-detail.png)
-
-Looks like this dependency is where the problem is. We've pinpointed the problem, so now we just need to find out why that call is taking so long.
-
-### Request timeline
-
-In a different case, there is no dependency call that is particularly long. But by switching to the timeline view, we can see where the delay occurred in our internal processing:
-
-![Find Calls to Remote Dependencies, identify unusual Duration](./media/asp-net-dependencies/04-1.png)
-
-There seems to be a large gap after the first dependency call, so we should look at our code to see why that is.
+![Click on a sample to see the end-to-end transaction details](./media/asp-net-dependencies/3-end-to-end.png)
 
 ### Profile your live site
 
@@ -157,35 +135,35 @@ No idea where the time goes? The [Application Insights profiler](../../azure-mon
 
 ## Failed requests
 
-Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.
+Failed requests might also be associated with failed calls to dependencies.
 
-![Click the failed requests chart](./media/asp-net-dependencies/06-fail.png)
+We can go to the **Failures** tab on the left and then click on the **dependencies** tab at the top.
 
-Click through to an occurrence of a failed request, and look at its associated events.
+![Click the failed requests chart](./media/asp-net-dependencies/4-fail.png)
 
-![Click a request type, click the instance to get to a different view of the same instance, click it to get exception details.](./media/asp-net-dependencies/07-faildetail.png)
+Here you will be able to see the failed dependency count. To get more details about a failed occurrence trying clicking on a dependency name in the bottom table. You can click on the blue **Dependencies** button at the bottom right to get the end-to-end transaction details.
 
-## Analytics
+## Logs (Analytics)
 
 You can track dependencies in the [Kusto query language](/azure/kusto/query/). Here are some examples.
 
 * Find any failed dependency calls:
 
-```
+``` Kusto
 
     dependencies | where success != "True" | take 10
 ```
 
 * Find AJAX calls:
 
-```
+``` Kusto
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
 * Find dependency calls associated with requests:
 
-```
+``` Kusto
 
     dependencies
     | where timestamp > ago(1d) and  client_Type != "Browser"
@@ -196,17 +174,13 @@ You can track dependencies in the [Kusto query language](/azure/kusto/query/). H
 
 * Find AJAX calls associated with page views:
 
-```
+``` Kusto 
 
     dependencies
     | where timestamp > ago(1d) and  client_Type == "Browser"
     | join (browserTimings | where timestamp > ago(1d))
       on operation_Id
 ```
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## Frequently asked questions
 
@@ -216,7 +190,6 @@ You can track dependencies in the [Kusto query language](/azure/kusto/query/). H
 
 ## Open-source SDK
 Like every Application Insights SDK, dependency collection module is also open-source. Read and contribute to the code, or report issues at [the official GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
-
 
 ## Next steps
 

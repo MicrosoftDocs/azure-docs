@@ -29,22 +29,22 @@ ms.subservice: files
 
     SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support mounting option specified in the table headers. 
 
-* **Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)**    
+### Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)
 
-    |   | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on premises and cross-region) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+|   | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on premises and cross-region) |
+| --- | :---: | :---: |
+| Ubuntu Server | 14.04+ | 16.04+ |
+| RHEL | 7+ | 7.5+ |
+| CentOS | 7+ |  7.5+ |
+| Debian | 8+ |   |
+| openSUSE | 13.2+ | 42.3+ |
+| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-    If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:
+If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:
 
-   ```bash
-   uname -r
-   ```
+```bash
+uname -r
+```
 
 * <a id="install-cifs-utils"></a>**The cifs-utils package is installed.**  
     The cifs-utils package can be installed using the package manager on the Linux distribution of your choice. 
@@ -70,7 +70,7 @@ ms.subservice: files
 
     On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Decide on the directory/file permissions of the mounted share**: In the examples below, the permission `0777` is used to give read, write, and execute permissions to all users. You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired, though this will mean potentially restricting access. If you do use other permissions, you should consider also using uid and gid in order to retain access for local groups of your choice.
+* **Decide on the directory/file permissions of the mounted share**: In the examples below, the permission `0777` is used to give read, write, and execute permissions to all users. You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired, though this will mean potentially restricting access. If you do use other permissions, you should consider also using uid and gid in order to retain access for local users and groups of your choice.
 
 > [!NOTE]
 > If you do not explicitly assign directory and file permission with dir_mode and file_mode, they will default to 0755.

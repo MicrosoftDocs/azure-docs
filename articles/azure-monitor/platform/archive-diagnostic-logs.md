@@ -67,7 +67,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | Category |No |Comma-separated list of log categories to enable. |
 | Enabled |Yes |Boolean indicating whether diagnostics are enabled or disabled on this resource. |
 | RetentionEnabled |No |Boolean indicating if a retention policy are enabled on this resource. |
-| RetentionInDays |No |Number of days for which events should be retained between 1 and 2147483647. A value of zero stores the logs indefinitely. |
+| RetentionInDays |No |Number of days for which events should be retained between 1 and 365. A value of zero stores the logs indefinitely. |
 
 ## Archive diagnostic logs via the Azure CLI
 

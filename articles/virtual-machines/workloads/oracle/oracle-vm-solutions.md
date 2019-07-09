@@ -64,6 +64,18 @@ Oracle supports running Oracle DB 12.1 Standard and Enterprise editions in Azure
 
 Attached disks rely on the Azure Blob storage service. Each standard disk is capable of a theoretical maximum of approximately 500 input/output operations per second (IOPS). Our premium disk offering is preferred for high-performance database workloads and can achieve up to 5000 IOps per disk. You can use a single disk if that meets your performance needs. However, you can improve the effective IOPS performance if you use multiple attached disks, spread database data across them, and then use Oracle Automatic Storage Management (ASM). See [Oracle Automatic Storage overview](https://www.oracle.com/technetwork/database/index-100339.html) for more Oracle ASM specific information. For an example of how to install and configure Oracle ASM on a Linux Azure VM, see the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.
 
+### Shared storage configuration options
+
+Azure NetApp Files was designed to meet the core requirements of running high-performance workloads like databases in the cloud, and provides;
+- Azure native shared NFS storage service for running Oracle workloads either through VM native NFS client, or Oracle dNFS
+- Scalable performance tiers that reflect the real-world range of IOPS demands
+- Low latency
+- High availability, high durability and manageability at scale, typically demanded by mission critical enterprise workloads (like SAP and Oracle)
+- Fast and efficient backup and recovery, to achieve the most aggressive RTO and RPO SLA’s
+
+These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems running within Azure data center environment – as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. See [Azure NetApp Files documentation](https://docs.microsoft.com/azure/azure-netapp-files/) for more information on how to deploy and access Azure NetApp Files NFS volumes. See [Oracle on Azure Deployment Best Practice Guide Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) for best practice recommendations for operating an Oracle database on Azure NetApp Files.
+
+
 ## Oracle Real Application Cluster (Oracle RAC)
 Oracle RAC is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration. It relies on two on-premises technologies which are not native to hyper-scale public cloud environments: network multi-cast and shared disk. If your database solution requires Oracle RAC in Azure, you need third=party software to enable these technologies. For more information on Oracle RAC, see the [FlashGrid SkyCluster page](https://www.flashgrid.io/oracle-rac-in-azure/).
 

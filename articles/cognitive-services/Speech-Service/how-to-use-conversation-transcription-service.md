@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/05/2019
 ms.author: jhakulin
 ---
 
@@ -38,7 +38,7 @@ The first step is to create voice signatures for the conversation participants. 
 * The input audio wave file for creating voice signatures shall be in 16-bit samples, 16 kHz sample rate, and a single channel (Mono) format.
 * The recommended length for each audio sample is between 30 seconds and two minutes.
 
-The following example shows two different ways to create voice signature by [using the REST API.] (https://aka.ms/cts/signaturegenservice) from C#:
+The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) from C#:
 
 ```csharp
 class Program
@@ -154,7 +154,7 @@ public class MyConversationTranscriber
                 transcriber.ConversationId = "AConversationFromTeams";
 
                 // Add participants to the conversation.
-                // Create voice signatures using REST API described in the earlier section in this document. 
+                // Create voice signatures using REST API described in the earlier section in this document.
                 // Voice signature needs to be in the following format:
                 // { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
 

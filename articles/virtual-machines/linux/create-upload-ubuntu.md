@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/24/2019
 ms.author: szark
 
 ---
@@ -121,15 +121,6 @@ This article assumes that you have already installed an Ubuntu Linux operating s
    > [!Note]
    >  The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
-For Ubuntu 18.04/18.10, update the Azure Data Source, edit this: /etc/cloud/cloud.cfg.d/90-azure.cfg, add this code to the end of the file:
-
-**Important:The code must be added exactly as shown, including spaces.**
-
-```bash
-datasource:
-   Azure:
-     agent_command: [service, walinuxagent, start]
-```
 
 1. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
    

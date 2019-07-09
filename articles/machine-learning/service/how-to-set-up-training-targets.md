@@ -9,12 +9,12 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 06/12/2019
 ms.custom: seodec18
 ---
 # Set up compute targets for model training 
 
-With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-target). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
+With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
 You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, Azure CLI or Azure Machine Learning VS Code extension. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
  
@@ -69,7 +69,7 @@ The following code shows an example of configuring training runs for a user-mana
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## Set up compute targets with Python
+## Set up in Python
 
 Use the sections below to configure these compute targets:
 
@@ -265,7 +265,7 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## Set up compute in the Azure portal
+## Set up in Azure portal
 
 You can access the compute targets that are associated with your workspace in the Azure portal.  You can use the portal to:
 
@@ -352,7 +352,7 @@ Follow the steps described earlier to view the list of compute targets. Then use
 1. Select __Attach__. 
 1. View the status of the attach operation by selecting the compute target from the list.
 
-## Set up compute with the CLI
+## Set up with CLI
 
 You can access the compute targets that are associated with your workspace using the [CLI extension](reference-azure-machine-learning-cli.md) for Azure Machine Learning service.  You can use the CLI to:
 
@@ -362,7 +362,7 @@ You can access the compute targets that are associated with your workspace using
 
 For more information, see [Resource management](reference-azure-machine-learning-cli.md#resource-management).
 
-## Set up compute with VS Code
+## Set up with VS Code
 
 You can access, create and manage the compute targets that are associated with your workspace using the [VS Code extension](how-to-vscode-tools.md#create-and-manage-compute-targets) for Azure Machine Learning service.
 
@@ -379,7 +379,7 @@ After you create a run configuration, you use it to run your experiment.  The co
 >
 > To prevent files from being included in the snapshot, create a [.gitignore](https://git-scm.com/docs/gitignore) or `.amlignore` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the [.gitignore](https://git-scm.com/docs/gitignore) file. If both files exist, the `.amlignore` file takes precedence.
 > 
-> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
+> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
 
 ### Create an experiment
 

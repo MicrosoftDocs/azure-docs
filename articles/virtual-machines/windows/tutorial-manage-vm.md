@@ -182,10 +182,10 @@ The following table categorizes sizes into use cases.
 | Type                     | Common sizes           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [General purpose](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanced CPU-to-memory. Ideal for dev / test and small to medium applications and data solutions.  |
-| [Compute optimized](sizes-compute.md)   | Fsv2            | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
-| [Memory optimized](sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, Dv2  | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
-| [Storage optimized](sizes-storage.md)      | Lsv2, Ls                | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, NDv2, ND   | Specialized VMs targeted for heavy graphic rendering and video editing.       |
+| [Compute optimized](sizes-compute.md)   | Fsv2          | High CPU-to-memory. Good for medium traffic applications, network appliances, and batch processes.        |
+| [Memory optimized](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | High memory-to-core. Great for relational databases, medium to large caches, and in-memory analytics.                 |
+| [Storage optimized](sizes-storage.md)      | Lsv2, Ls              | High disk throughput and IO. Ideal for Big Data, SQL, and NoSQL databases.                                                         |
+| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Specialized VMs targeted for heavy graphic rendering and video editing.       |
 | [High performance](sizes-hpc.md) | H        | Our most powerful CPU VMs with optional high-throughput network interfaces (RDMA). |
 
 ### Find available VM sizes

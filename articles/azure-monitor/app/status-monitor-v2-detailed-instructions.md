@@ -198,7 +198,7 @@ For more information, see [Installing a PowerShell Module](https://docs.microsof
 
 ### Option 2: Unzip and import nupkg manually
 Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
-For more information, see [Installing a PowerShell Module](https://docs.mircrosoft.com/powershell/developer/module/installing-a-powershell-module).
+For more information, see [Installing a PowerShell Module](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
 If you're installing the module into any other directory, manually import the module by using [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 

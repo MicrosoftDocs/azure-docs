@@ -139,6 +139,8 @@
           href: scenario-protected-web-api-app-registration.md
         - name: Code configuration
           href: scenario-protected-web-api-app-configuration.md
+        - name: Verification of scopes or app roles
+          href: scenario-protected-web-api-verification-scope-app-roles.md
         - name: Move to production
           href: scenario-protected-web-api-production.md
       - name: Web API that calls web APIs
@@ -299,6 +301,8 @@
         href: app-objects-and-service-principals.md
       - name: How and why apps are added to Azure AD
         href: active-directory-how-applications-are-added.md
+      - name: Redirect URI/reply URL restrictions and limitations
+        href: reply-url.md
       - name: Single tenant and multi-tenant apps
         href: single-and-multi-tenant-apps.md
     - name: Permissions and consent
@@ -531,7 +535,7 @@
         href: consent-framework.md
       - name: Application consent experiences
         href: application-consent-experience.md
-    - name: Conditional access
+    - name: Conditional Access
       href: conditional-access-dev-guide.md
     - name: National Clouds
       href: authentication-national-cloud.md

@@ -50,6 +50,8 @@ For information on how to use Azure Resource Manager templates to configure acti
     b. **Action Type**: Select Email/SMS/Push/Voice, Logic App, Webhook, ITSM, or Automation Runbook.
 
     c. **Details**: Based on the action type, enter a phone number, email address, webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
+    
+    d. **Common alert schema**: You can choose to enable the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
 
 1. Select **OK** to create the action group.
 
@@ -61,7 +63,7 @@ After you create an action group, it's visible in the **Action groups** section 
 
 ## Action specific information
 > [!NOTE]
-> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) for numeric limits on each of the items below.  
+> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) for numeric limits on each of the items below.  
 
 **Azure app Push** - You may have a limited number of Azure app actions in an Action Group.
 

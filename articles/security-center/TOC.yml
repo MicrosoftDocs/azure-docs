@@ -38,8 +38,15 @@
     href: security-center-data-security.md
   - name: Use recommendations to enhance security
     href: security-center-using-recommendations.md
+  - name: Detect threats
+    href: security-center-detection-capabilities.md
+  - name: Manage Security alerts
+    href: security-center-managing-and-responding-alerts.md
+  - name: Security incidents
+    href: security-center-incident.md
   - name: Incident response
     href: security-center-incident-response.md  
+
 - name: How-to guides
   items:
   - name: Improve your secure score
@@ -48,7 +55,7 @@
     href: security-center-onboarding.md
   - name: Server protection with Windows Defender ATP
     href: security-center-wdatp.md
-  - name: Advanced data security for IaaS
+  - name: Advanced data security for SQL on Azure VMs (Public Preview)
     href: security-center-iaas-advanced-data.md
   - name: Protect App Service
     href: security-center-app-services.md
@@ -77,15 +84,16 @@
   - name: Tenant-wide visibility
     href: security-center-management-groups.md
   - name: Implement security recommendations
-    href: security-center-recommendations.md
     items:
+    - name: What are security recommendations
+      href: security-center-recommendations.md
     - name: Strengthen security posture
       href: security-center-monitoring.md
     - name: Protect your machines and apps
       href: security-center-virtual-machine-protection.md
     - name: Protect network resources
       href: security-center-network-recommendations.md
-    - name: Protect SQL service and data
+    - name: Protect data and storage services
       href: security-center-sql-service-recommendations.md
     - name: Protect identity and access
       href: security-center-identity-access.md  
@@ -99,20 +107,25 @@
       href: security-center-file-integrity-monitoring.md
     - name: Adaptive network hardening
       href: security-center-adaptive-network-hardening.md
-  - name: Detect threats
-    href: security-center-detection-capabilities.md
+  - name: Threat detection alerts
     items:
-    - name: Security alerts
-      href: security-center-managing-and-responding-alerts.md
-    - name: Security incidents
-      href: security-center-incident.md
-    - name: Understanding security alerts
-      href: security-center-alerts-type.md
-    - name: Alert validation
+    - name: Security alerts overview
+      href: security-center-alerts-overview.md
+    - name: Threat detection for VMs & servers
+      href: security-center-alerts-iaas.md
+    - name: Threat detection for cloud native compute
+      href: security-center-alerts-compute.md
+    - name: Threat detection for data services
+      href: security-center-alerts-data-services.md
+    - name: Threat detection for Azure service layer
+      href: security-center-alerts-service-layer.md   
+    - name: Integration with Azure Security Products
+      href: security-center-alerts-integration.md
+    - name: Cloud Smart Alert correlation (incidents)
+      href: security-center-alerts-cloud-smart.md 
+    - name: Alert validation (EICAR test file)
       href: security-center-alert-validation.md
-    - name: UEBA for Azure resources and users
-      href: security-center-ueba-mcas.md
-   
+      
   - name: Archive
     items:
     - name: Apply disk encryption
@@ -171,6 +184,10 @@
       href: security-center-search.md    
     - name: Planning and operations
       href: security-center-planning-and-operations-guide.md
+    - name: Understanding security alerts
+      href: security-center-alerts-type.md
+    - name: UEBA for Azure resources and users
+      href: security-center-ueba-mcas.md
 
 - name: Reference
   items:
@@ -187,6 +204,8 @@
     href: /learn/browse/?term=securityS
   - name: Manage user data
     href: security-center-privacy.md
+  - name: Manage IoT
+    href: https://docs.microsoft.com/en-us/azure/asc-for-iot/
   - name: FAQ
     href: security-center-faq.md
   - name: Azure Security

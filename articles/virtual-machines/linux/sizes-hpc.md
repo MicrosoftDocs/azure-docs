@@ -53,7 +53,15 @@ The Azure Marketplace has many Linux distributions that support RDMA connectivit
   "typeHandlerVersion": "1.0",
   } 
   ```
- 
+  
+  The following command installs the latest version 1.0 InfiniBandDriverLinux extension on all RDMA-capable VMs in an existing VM scale set named *myVMSS* deployed in the resource group named *myResourceGroup*:
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+  
   > [!NOTE]
   > On the CentOS-based HPC images, kernel updates are disabled in the **yum** configuration file. This is because Linux RDMA drivers are distributed as an RPM package, and driver updates might not work if the kernel is updated.
   >
@@ -69,7 +77,7 @@ The Azure Marketplace has many Linux distributions that support RDMA connectivit
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]  
 
-  For more details on enabling InfiniBand, setting up MPI, see [Enable InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband-with-sriov).
+  For more details on enabling InfiniBand, setting up MPI, see [Enable InfiniBand](../workloads/hpc/enable-infiniband.md).
 
 
 ### Cluster configuration options
@@ -79,6 +87,8 @@ Azure provides several options to create clusters of Linux HPC VMs that can comm
 * **Virtual machines**  - Deploy the RDMA-capable HPC VMs in the same availability set (when you use the Azure Resource Manager deployment model). If you use the classic deployment model, deploy the VMs in the same cloud service. 
 
 * **Virtual machine scale sets** - In a virtual machine scale set, ensure that you limit the deployment to a single placement group. For example, in a Resource Manager template, set the `singlePlacementGroup` property to `true`. 
+
+* **MPI among virtual machines** - If MPI communication if required between virtual machines (VMs), ensure that the VMs are in the same availability set or the virtual machine same scale set.
 
 * **Azure CycleCloud** - Create an HPC cluster in [Azure CycleCloud](/azure/cyclecloud/) to run MPI jobs on Linux nodes.
 
@@ -104,5 +114,5 @@ Azure provides several options to create clusters of Linux HPC VMs that can comm
 
 ## Next steps
 
-- Learn more about how to setup, optimize and scale [HPC workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc) on Azure.
+- Learn more about how to setup, optimize and scale [HPC workloads](../workloads/hpc/configure.md) on Azure.
 - Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

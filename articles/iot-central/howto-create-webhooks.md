@@ -3,7 +3,7 @@ title: Create webhooks on rules in Azure IoT Central | Microsoft Docs
 description: Create webhooks in Azure IoT Central to automatically notify other applications when rules fire.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/16/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

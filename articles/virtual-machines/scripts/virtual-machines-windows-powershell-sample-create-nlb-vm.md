@@ -65,6 +65,16 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Create a virtual machine. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
+You can also create the VMs using your own custom managed image. In the VM configuration, for `Set-AzVMSourceImage` use the `-Id` and `-VM` parameters instead of `-PublisherName`, `-Offer`, `-Skus`, and `-Version`.
+
+For example, creating the VM config would be:
+
+```powershell
+$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 -AvailabilitySetId $as.Id | `
+  Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred | `
+  Set-AzVMSourceImage -Id <Image.ID of the custom managed image> | Add-AzVMNetworkInterface -Id $nicVM3.Id
+ ```
+
 ## Next steps
 
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).

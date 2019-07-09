@@ -118,6 +118,8 @@ Array | Array
 Null, Undefined | NULL
 Any other type (for example, a function or error) | Not supported (results in runtime error)
 
+JavaScript language is case sensitive and casing of the object fields in JavaScript code must match the casing of the fields in the incoming data. Please note that jobs with compatibility level 1.0 will convert fields from SQL SELECT statement to be lowercase. Under compatibility level 1.1 and higher, fields from SELECT statement will have the same casing as specified in the SQL query.
+
 ## Troubleshooting
 JavaScript runtime errors are considered fatal, and are surfaced through the Activity log. To retrieve the log, in the Azure portal, go to your job and select **Activity log**.
 

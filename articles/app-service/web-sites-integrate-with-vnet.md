@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/14/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -28,8 +28,8 @@ This document goes through the two VNet Integration features, which is for use i
 
 There are two forms to the VNet Integration feature
 
-1. One version enables integration with VNets in the same region. This form of the feature requires a subnet in a VNet in the same region
-2. The other version enables integration with VNets in other regions or with Classic VNets. This version of the feature requires deployment of a Virtual Network Gateway into your VNet.
+1. One version enables integration with VNets in the same region. This form of the feature requires a subnet in a VNet in the same region. This feature is still in preview but is supported for Windows app production workloads with some caveats noted below.
+2. The other version enables integration with VNets in other regions or with Classic VNets. This version of the feature requires deployment of a Virtual Network Gateway into your VNet. This is the point-to-site VPN based feature.
 
 An app can only use one form of the VNet Integration feature at a time. The question then is which feature should you use. You can use either for many things. The clear differentiators though are:
 
@@ -58,28 +58,29 @@ There are some things that VNet Integration doesn't support including:
 * AD integration 
 * NetBios
 
-## regional VNet Integration 
+## Regional VNet Integration 
 
 When VNet Integration is used with VNets in the same region as your app, it requires the use of a delegated subnet with at least 32 addresses in it. The subnet cannot be used for anything else. Outbound calls made from your app will be made from the addresses in the delegated subnet. When you use this version of VNet Integration, the calls are made from addresses in your VNet. Using addresses in your VNet enables your app to:
 
-* make calls to service endpoint secured services
-* access resources across ExpressRoute connections
-* access resources in the VNet you are connected to
-* access resources across peered connections including ExpressRoute connections
+* Make calls to service endpoint secured services
+* Access resources across ExpressRoute connections
+* Access resources in the VNet you are connected to
+* Access resources across peered connections including ExpressRoute connections
 
-This feature is in preview but, it is supported for production workloads with the following limitations:
+This feature is in preview but, it is supported for Windows app production workloads with the following limitations:
 
-* you can only reach addresses that are in the RFC 1918 range. Those are addresses in the 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 address blocks.
-* you cannot reach resources across global peering connections
-* you cannot set routes on the traffic coming from your app into your VNet
-* the feature is only available from newer App Service scale units that support PremiumV2 App Service plans.
-* the feature cannot be used by Isolated plan apps that are in an App Service Environment
-* the feature requires an unused subnet with at least 32 addresses in your Resource Manager VNet.
-* the app and the VNet must be in the same region
-* one address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.
-* you cannot delete a VNet with an integrated app. You must remove the integration first 
+* You can only reach addresses that are in the RFC 1918 range. Those are addresses in the 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 address blocks.
+* You cannot reach resources across global peering connections
+* You cannot set routes on the traffic coming from your app into your VNet
+* The feature is only available from newer App Service scale units that support PremiumV2 App Service plans.
+* The feature cannot be used by Isolated plan apps that are in an App Service Environment
+* The feature requires an unused subnet with at least 32 addresses in your Resource Manager VNet.
+* The app and the VNet must be in the same region
+* One address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.
+* You cannot delete a VNet with an integrated app. You must remove the integration first 
+* You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet. 
 
-To use the VNet Integration feature with a Resource Manager VNet in the same region:
+The feature is in preview also for Linux. To use the VNet Integration feature with a Resource Manager VNet in the same region:
 
 1. Go to the Networking UI in the portal. If your app is able to use the new feature, then you will see an option to Add VNet (preview).  
 
@@ -97,6 +98,10 @@ To disconnect your app from the VNet, select **Disconnect**. This will restart y
 
 The new VNet Integration feature enables you to use service endpoints.  To use service endpoints with your app, use the new VNet Integration to connect to a selected VNet and then configure service endpoints on the subnet you used for the integration. 
 
+#### Web App for Containers
+
+If you use App Service on Linux with the built-in images, the regional VNet Integration feature works without additional changes. If you use Web App for Containers, you need to modify your docker image in order to use VNet Integration. In your docker image, use the PORT environment variable as the main web server’s listening port, instead of using a hardcoded port number. The PORT environment variable is automatically set by App Service platform at the container startup time.
+
 ### How VNet Integration works
 
 Apps in the App Service are hosted on worker roles. The Basic and higher pricing plans are dedicated hosting plans where there are no other customers workloads running on the same workers. VNet Integration works by mounting virtual interfaces with addresses in the delegated subnet. Because the from address is in your VNet, it has access to most things in or through your VNet just like a VM in your VNet would. The networking implementation is different than running a VM in your VNet and that is why some networking features are not yet available while using this feature.
@@ -105,7 +110,7 @@ Apps in the App Service are hosted on worker roles. The Basic and higher pricing
 
 When VNet Integration is enabled, your app will still make outbound calls to the internet through the same channels as normal. The outbound addresses that are listed in the app properties portal are still the addresses used by your app. What changes for your app are that calls to service endpoint secured services or RFC 1918 addresses goes into your VNet. 
 
-The feature only supports one virtual interface per worker.  One virtual interface per worker means one virtual interface per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration but if you need to connect to an additional VNet, you will need to create another App Service plan. The virtual interface used is not a resource that customers have direct access to.
+The feature only supports one virtual interface per worker.  One virtual interface per worker means one regional VNet Integration per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration but if you need an app to connect to an additional VNet, you will need to create another App Service plan. The virtual interface used is not a resource that customers have direct access to.
 
 Due to the nature of how this technology operates, the traffic that is used with VNet Integration does not show up in Network Watcher or NSG flow logs.  
 
@@ -113,17 +118,18 @@ Due to the nature of how this technology operates, the traffic that is used with
 
 The Gateway required VNet Integration feature:
 
-* can be used to connect to VNets in any region be they Resource Manager or Classic VNets
-* enables an app to connect to only 1 VNet at a time
-* enables up to five VNets to be integrated with in an App Service Plan 
-* allows the same VNet to be used by multiple apps in an App Service Plan without impacting the total number that can be used by an App Service plan.  If you have 6 apps using the same VNet in the same App Service plan, that counts as 1 VNet being used. 
-* requires a Virtual Network Gateway that is configured with Point to Site VPN
-* supports a 99.9% SLA due to the SLA on the gateway
+* Can be used to connect to VNets in any region be they Resource Manager or Classic VNets
+* Enables an app to connect to only 1 VNet at a time
+* Enables up to five VNets to be integrated with in an App Service Plan 
+* Allows the same VNet to be used by multiple apps in an App Service Plan without impacting the total number that can be used by an App Service plan.  If you have 6 apps using the same VNet in the same App Service plan, that counts as 1 VNet being used. 
+* Requires a Virtual Network Gateway that is configured with Point to Site VPN
+* Is not supported for use with Linux apps
+* Supports a 99.9% SLA due to the SLA on the gateway
 
 This feature does not support:
 
-* accessing resources across ExpressRoute 
-* accessing resources across Service Endpoints 
+* Accessing resources across ExpressRoute 
+* Accessing resources across Service Endpoints 
 
 ### Getting started
 
@@ -196,7 +202,7 @@ The ASP VNet Integration UI will show you all of the VNets that are used by the 
 * **Add routes** Adding routes will drive outbound traffic into your VNet.
 
 **Routing** 
-The routes that are defined in your VNet are used to direct traffic into your VNet from your app. If you need to send additional outbound traffic into the VNet, then you can add those address blocks here. This capabilty only works with gateway required VNet Integration.
+The routes that are defined in your VNet are used to direct traffic into your VNet from your app. If you need to send additional outbound traffic into the VNet, then you can add those address blocks here. This capability only works with gateway required VNet Integration.
 
 **Certificates**
 When the gateway required VNet Integration enabled, there is a required exchange of certificates to ensure the security of the connection. Along with the certificates are the DNS configuration, routes, and other similar things that describe the network.
