@@ -1,7 +1,7 @@
 ---
 title: Validation policies for apps and add-ins submitted to AppSource (version 2.2)
 description: Criteria that are used to validate Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals for listing in the AppSource.
-ms.date: 06/06/2019
+ms.date: 07/12/2019
 localization_priority: Priority
 ---
 
@@ -17,6 +17,7 @@ This document describes the criteria that are used to validate that Office Add-i
 |1.1|Your app or add-in must offer unique value or utility within the app or add-in experience that extends Office or SharePoint functionality for AppSource customers.|
 |1.2|Your app or add-in must work according to your description, and must not be in an unfinished state.|
 |1.3|Your app or add-in's trial functionality must reasonably resemble its paid version.|
+|1.4|Effective July 29th 2019, new paid add-ins accepted for publication to AppSource must be free. Updates to existing paid add-ins will be supported until July 2020. For more information, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md).
 
 <a name="bk_2"> </a>
 ## 2. Apps or add-ins can display certain ads
@@ -268,6 +269,7 @@ Thank you again for joining us in this commitment to delivering fantastic experi
 
 |**Version**|**Last modified**|**Description**|
 |:-----|:-----|:-----|
+|2.2|July 12, 2019|Added policy 1.4.|
 |2.2|June 6, 2019|Updated policy 14.10.|
 |2.2|May 6, 2019|Added section 15.|
 |2.2|April 19, 2019|Updated policy 14.10.|
