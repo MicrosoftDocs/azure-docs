@@ -36,15 +36,15 @@ This procedure requires several tools that must be installed and run locally:
 
 ## Request access to the container registry
 
-- Complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/). 
+Complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/speechcontainerspreview/). 
 
-- [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
+[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
-- [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## Docker Compose file
 
-The YAML file defines all the services to be deployed. These services rely on either a Dockerfile or an existing container image. In this case, we'll use two preview images. Copy and paste the following YAML file, and save it as **docker-compose.yaml**. Provide the appropriate **apikey**, **billing**, and **EndpointUri** values in the file.
+The YAML file defines all the services to be deployed. These services rely on either a `DockerFile` or an existing container image. In this case, we'll use two preview images. Copy and paste the following YAML file, and save it as **docker-compose.yaml**. Provide the appropriate **apikey**, **billing**, and **EndpointUri** values in the file.
 
 ```yaml
 version: '3.7'
@@ -58,10 +58,11 @@ services:
        FormRecognizer__ComputerVisionApiKey: # < Your form recognizer API key >
        FormRecognizer__ComputerVisionEndpointUri: # < Your form recognizer URI >
     volumes:
-       - type: bind         source: e:\publicpreview\output
+       - type: bind
+         source: E:\publicpreview\output
          target: /output
        - type: bind
-         source: e:\publicpreview\input
+         source: E:\publicpreview\input
          target: /input
     ports:
       - "5010:5000"
@@ -155,9 +156,9 @@ ocr_1    | Now listening on: http://0.0.0.0:5000
 ocr_1    | Application started. Press Ctrl+C to shut down.
 ```
 
-## Verify service availability
+## Verify the service availability
 
-[Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 Here's some example output:
 
