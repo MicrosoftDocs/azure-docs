@@ -52,11 +52,11 @@ First, prep your workstation by creating a directory to store Chef configuration
 
 Create a directory called C:\Chef.
 
-Download and install the latest [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) version on to your workstation.
+Download and install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version on to your workstation.
 
 ## Configure Azure Service Principal
 
-In simplest of terms and Azure Service Principal is a service account.   We will be using a Service Principal to help us create Azure resources from our Chef Workstation.  To create the relevant Service Principal with the required permissions we need to run the following commands within Powershell:
+In simplest of terms and Azure Service Principal is a service account.   We will be using a Service Principal to help us create Azure resources from our Chef Workstation.  To create the relevant Service Principal with the required permissions we need to run the following commands within PowerShell:
  
 ```powershell
 Login-AzureRmAccount
