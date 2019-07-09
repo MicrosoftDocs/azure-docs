@@ -160,7 +160,7 @@ In the example below a user has already provisioned their FIDO2 security key. Th
 
 For information about signing in using the Microsoft Authenticator app see the article, [Sign in to your accounts using the Microsoft Authenticator app](../user-help/user-help-auth-app-sign-in.md).
 
-## Known Issues
+## Known issues
 
 ### FIDO2 security keys
 
