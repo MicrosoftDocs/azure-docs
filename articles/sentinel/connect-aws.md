@@ -26,6 +26,7 @@ Azure Sentinel. This is accomplished on AWS by creating a role that gives permis
 
 You must have write permission on the Azure Sentinel workspace.
 
+## Connect AWS 
  
 1.  In your Amazon Web Services console, under **Security, Identity & Compliance**, click on **IAM**.
 
@@ -64,3 +65,11 @@ You must have write permission on the Azure Sentinel workspace.
     ![AWS9](./media/connect-aws/aws-9.png)
 
 10. To use the relevant schema in Log Analytics for AWS events, search for **AWSCloudTrail**.
+
+
+
+## Next steps
+In this document, you learned how to connect AWS CloudTrail to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+
