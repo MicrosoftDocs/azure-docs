@@ -20,7 +20,7 @@ AVS by Virtustream is a VMware validated solution with on-going validation and t
 
 Figure 1 shows the adjacency of private clouds to VNets in Azure, Azure services, and on-premises environments. Network access from private clouds to Azure services or VNets in Azure occurs over the secure Azure backbone network and provides SLA-driven integration of Azure service endpoints. Private cloud access from on-premises environments uses ExpressRoute Global Reach for a private and secure connection.
 
-![Image of AVS by Virtustream private cloud adjacency to Azure and on-prem](./media/Resource-providers-Microsoft-Azure.png)
+![Image of AVS by Virtustream private cloud adjacency to Azure and on-prem](./media/adjacency-overview-drawing-final.svg)
 
 ## Hosts, clusters, and private clouds
 
