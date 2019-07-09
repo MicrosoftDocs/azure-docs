@@ -6,7 +6,6 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd
-
 ms.assetid: na
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: zchia
+ms.author: "jeedes"
 ---
 
 # Tutorial: Configure Dropbox for Business for automatic user provisioning

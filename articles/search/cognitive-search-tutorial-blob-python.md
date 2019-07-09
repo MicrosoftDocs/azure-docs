@@ -505,4 +505,4 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself.
 
 > [!div class="nextstepaction"]
-> [Example: create a custom skill](cognitive-search-create-custom-skill-example.md)
+> [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
