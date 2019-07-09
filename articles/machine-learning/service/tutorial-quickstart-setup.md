@@ -1,7 +1,7 @@
 ---
-title: 'Regression model tutorial: Automated ML'
+title:
 titleSuffix: Azure Machine Learning service
-description: Learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you. Then the final model is deployed with Azure Machine Learning service.
+description:
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -138,6 +138,14 @@ Use these instructions to install and use the SDK from your local computer. Befo
 > *  'azureml-sdk[notebooks]'
 > * 'azureml-sdk[automl]'
 
+#### Get workspace credentials
+
+The most secure method of attaching your workspace subscription information to the SDK code is to use a JSON file. Use the following steps to get the file, which is necessary for **part two** of this tutorial series.
+
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).
+1. On the **Overview** (default) tab, click **Download config.json** at the top of the page.
+1. Move this file into the same directory as your Anaconda installation so it will be available for the next notebook.
+
 #### Start notebook server
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
@@ -153,3 +161,39 @@ Use these instructions to install and use the SDK from your local computer. Befo
     ```
 
 1. In the Jupyter file tree, navigate to the cloned repository, and open the file `tutorials/tutorial-quickstart-train-deploy.ipynb`.
+
+## Clean up resources
+
+Do not complete this section if you plan on continuing to **part 2** of the tutorial.
+
+### Stop the notebook VM
+
+If you used a cloud notebook server, stop the VM when you are not using it to reduce cost.
+
+1. In your workspace, select **Notebook VMs**.
+
+   ![Stop the VM server](./media/quickstart-run-cloud-notebook/stop-server.png)
+
+1. From the list, select the VM.
+
+1. Select **Stop**.
+
+1. When you're ready to use the server again, select **Start**.
+
+### Delete everything
+
+[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+
+You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
+
+## Next steps
+
+In this tutorial, you completed these tasks:
+
+* Created an Azure Machine Learning service workspace.
+* Chose a development environment and setup SDK packages.
+
+Continue with **part 2** of this tutorial to train and deploy a simple machine learning model.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Train and deploy a model]()
