@@ -33,7 +33,7 @@ the platform would meet a given quality bar. When you follow these steps to enro
 [Microsoft Partner Center](https://partner.microsoft.com) is the place where you'll manage your account settings for the new Business Applications ISV Program.
 
 > [!NOTE]
-> This step requires an *Owner* or *Manager* role in Cloud Partner Portal for your given account.
+> This step requires an *Owner* role in Cloud Partner Portal for your given account.
 
 If you've already published Dynamics CE and/or Dynamics Ops offers, most likely your Cloud Partner Portal (CPP) account has already been migrated and activated on Microsoft Partner Center. If not, you can manually activate your Partner Center account from your CPP publisher profile.
 
