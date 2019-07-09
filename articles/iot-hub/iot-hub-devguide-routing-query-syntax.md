@@ -52,6 +52,8 @@ System properties help identify contents and source of the messages.
 | contentEncoding | string | The user specifies the encoding type of the message. Allowed values are UTF-8, UTF-16, UTF-32 if the contentType is set to application/JSON. |
 | iothub-connection-device-id | string | This value is set by IoT Hub and identifies the ID of the device. To query, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
+| iothub-interface-id | string | This value is set by IoT Hub and represents the ID of the digital twin interface that implements the telemetry message. To query, use `$interfaceId`. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). |
+| iothub-interface-name | string | This value is set by IoT Hub and represents the name of the digital twin interface that implements the telemetry message. To query, use `$interfaceName`. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). |
 
 As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to **contentType**, **contentEncoding**, and **enqueuedTime**, the **connectionDeviceId** and **connectionModuleId** can also be queried.
 

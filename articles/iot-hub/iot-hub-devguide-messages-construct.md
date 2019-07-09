@@ -58,6 +58,8 @@ The following table lists the set of system properties in IoT Hub messages.
 | iothub-connection-auth-generation-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **generationId** (as per [Device identity properties](iot-hub-devguide-identity-registry.md#device-identity-properties)) of the device that sent the message. | No for D2C messages; yes otherwise. |
 | iothub-connection-auth-method |An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | No for D2C messages; yes otherwise. |
 | iothub-creation-time-utc | Date and time the message was created on a device. A device must set this value explicitly. | Yes |
+| iothub-interface-id | This value is set by IoT Hub and represents the ID of the digital twin interface that implements the telemetry message. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). | No |
+| iothub-interface-name | This value is set by IoT Hub and represents the name of the digital twin interface that implements the telemetry message. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). | No |
 
 ## Message size
 
