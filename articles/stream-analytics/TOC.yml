@@ -119,6 +119,9 @@
     - name: Process Kafka events
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
       maintainContext: true
+    - name: Process Event Hubs data 
+      href: ../event-hubs/process-data-azure-stream-analytics.md
+      maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md
   - name: Monitor
