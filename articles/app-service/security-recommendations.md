@@ -9,6 +9,7 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: barclayn
+ms.custom: security-recommendations
 
 ---
 
