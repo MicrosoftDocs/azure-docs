@@ -30,6 +30,8 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > [!IMPORTANT]
 > Resizing the OS Disk of an Azure Virtual Machine will cause it to restart.
 >
+> To learn about size limitations and other constraints, when expanding OS and data disks, please see [FAQ](../../../includes/virtual-machines-faq-for-disks.md#new-disk-sizes-managed-and-unmanaged).
+>
 > After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
 > 
 
