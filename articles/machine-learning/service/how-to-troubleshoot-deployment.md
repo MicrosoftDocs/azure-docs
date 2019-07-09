@@ -386,7 +386,15 @@ In some cases, you may need to interactively debug the Python code contained in 
     print("Debugger attached...")
     ```
 
-1. Create an image using the modified `score.py` and conda environment. The following example demonstrates how to do this:
+1. During debugging, you may want to make changes to the files in the image without having to recreate it. To install a text editor (vim) in the Docker image, create a new text file named `Dockerfile.steps` and use the following as the contents of the file:
+
+    ```text
+    RUN apt-get update && apt-get -y install vim
+    ```
+
+    A text editor allows you to modify the files inside the docker image to test changes without creating a new image.
+
+1. To create an image that uses the `Dockerfile.steps` file, use the `docker_file` parameter when creating an image. The following example demonstrates how to do this:
 
     > [!NOTE]
     > This example assumes that `ws` points to your Azure Machine Learning workspace, and that `model` is the model being deployed. The `myenv.yml` file contains the conda dependencies created in step 1.
@@ -395,29 +403,26 @@ In some cases, you may need to interactively debug the Python code contained in 
     from azureml.core.image import Image, ContainerImage
     image_config = ContainerImage.image_configuration(runtime= "python",
                                  execution_script="score.py",
-                                 conda_file="myenv.yml")
+                                 conda_file="myenv.yml",
+                                 docker_file="Dockerfile.steps")
 
     image = Image.create(name = "myimage",
                      models = [model],
                      image_config = image_config, 
                      workspace = ws)
+    # Print the location of the image in the repository
+    print(image.image_location)
     ```
 
-Once the image has been created, you can download and run it locally.
+Once the image has been created, the image location in the registry is displayed. The location is similar to the following text:
+
+```text
+myregistry.azurecr.io/myimage:1
+```
+
+In this text example, the registry name is `myregistry` and the image is named `myimage`. The image version is `1`.
 
 ### Download the image
-
-1. Use the [Azure portal](https://portal.azure.com) and navigate to your Azure Machine Learning workspace. From the __Overview__ section, copy the name of the __Registry__. Save this name, as it is used later in this section.
-
-    ![Overview of workspace](media/how-to-troubleshoot-deployment/workspace-overview.png)
-
-1. To find the image path within the repository, select __Images__ from the left side of your Azure Machine learning workspace and then select the image name:
-
-    ![Images within workspace on the portal](media/how-to-troubleshoot-deployment/machine-learning-images.png)
-
-    From __Details__ for the image, copy the __Location__ value. This location is the path to the image. Save this value as it is used later in this section.
-
-    ![Details of one particular image within workspace on portal](media/how-to-troubleshoot-deployment/image-details.png)
 
 1. Open a command prompt, terminal, or other shell and use the following [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) command to authenticate to the Azure subscription that contains your Azure Machine Learning workspace:
 
@@ -425,17 +430,19 @@ Once the image has been created, you can download and run it locally.
     az login
     ```
 
-1. To authenticate to the Azure Container Registry (ACR) that contains your image, use the following command. Replace `myregistry` with the name you retrieved in step 1.
+1. To authenticate to the Azure Container Registry (ACR) that contains your image, use the following command. Replace `myregistry` with the one returned when you registered the image:
 
     ```azurecli
     az acr login --name myregistry
     ```
 
-1. To download the image to your local Docker, use the following command. Replace `myimagepath` with the location value from step 2.
+1. To download the image to your local Docker, use the following command. Replace `myimagepath` with the location returned when you registered the image:
 
     ```bash
     docker pull myimagepath
     ```
+
+    The image path should be similar to `myregistry.azurecr.io/myimage:1`. Where `myregistry` is your registry, `myimage` is your image, and `1` is the image version.
 
     > [!TIP]
     > The authentication from the previous step does not last forever. If you wait long enough between the authentication command and the pull command, you will receive an authentication failure. If this happens, reauthenticate.
@@ -463,13 +470,45 @@ Once the image has been created, you can download and run it locally.
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. To attach to PTVSD inside the container open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning service: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning service: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
+1. To attach VS Code to PTVSD inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning service: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning service: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
     ![The debug icon, start debugging button, and configuration selector](media/how-to-troubleshoot-deployment/start-debugging.png)
 
 At this point, VS Code connects to PTVSD inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
 For more information on using VS Code to debug Python, see [Debug your Python code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
+
+<a id="editfiles"></a>
+### Modify the container files
+
+To make changes to files in the image, you can attach to the running container, and execute a bash shell. From there, you can use vim to edit files:
+
+1. To connect to the running container and launch a bash shell in the container, use the following command:
+
+    ```bash
+    docker exec -it debug /bin/bash
+    ```
+
+1. To find the files used by the service, use the following command from the bash shell in the container:
+
+    ```bash
+    cd /var/azureml-app
+    ```
+
+    From here, you can use vim to edit the `score.py` file. For more information on using vim, see [Using the Vim editor](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
+
+1. Changes to a container are not normally persisted. To save any changes you make, use the following command, before you exit the shell started in the step above (that is, in another shell):
+
+    ```bash
+    docker commit debug debug:2
+    ```
+
+    This command creates a new image named `debug:2` that contains your edits.
+
+    > [!TIP]
+    > You will need to stop the current container and start using the new version before changes take effect.
+
+1. Make sure to keep the changes you make to files in the container in sync with the local files that VS Code uses. Otherwise, the debugger experience will not work as expected.
 
 ### Stop the container
 
