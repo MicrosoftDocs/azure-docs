@@ -108,7 +108,7 @@
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
     - name: Configure Azure Storage (container)
-      href: configure-connect-to-azure-storage.md.md      
+      href: configure-connect-to-azure-storage.md
   - name: Deploy to Azure
     items:
     - name: Deploy the app
