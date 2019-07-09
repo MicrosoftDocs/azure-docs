@@ -288,7 +288,7 @@ To manually configure the licensing mode:
 
 1. Go to your **Start menu** search box, then find and open **gpedit.msc** to access the local Group Policy editor. 
 2. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**. 
-3. Set the Remote Desktop licensing mode to **Per user**.
+3. Select **Set the Remote Desktop licensing mode** and change it to **Per user**.
 
 We're currently looking into the notification and grace period timeout issues and plan to address them in a future update. 
 
