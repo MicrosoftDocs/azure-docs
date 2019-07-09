@@ -27,11 +27,11 @@ Several breaking changes are introduced in Durable Functions 2.0. Existing appli
 
 ### Host.json schema
 
-The following snippet shows the new schema for host.json. The main changes to be aware of are the new sub-sections:
+The following snippet shows the new schema for host.json. The main changes to be aware of are the new subsections:
 
-* `"storageProvider"` (and the `"azureStorage"` sub-section) for storage-specific configuration
+* `"storageProvider"` (and the `"azureStorage"` subsection) for storage-specific configuration
 * `"tracking"` for tracking and logging configuration
-* `"notifications"` (and the `"eventGrid"` sub-section) for event grid notification configuration
+* `"notifications"` (and the `"eventGrid"` subsection) for event grid notification configuration
 
 ```json
 {
@@ -122,7 +122,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-This model works best for very simple entity implementations, or implementations that have a dynamic set of operations. However, there is also a class-based programming model which is useful for entities that are static but have more complex implementations. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
+This model works best for simple entity implementations, or implementations that have a dynamic set of operations. However, there is also a class-based programming model that is useful for entities that are static but have more complex implementations. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
 
 ```csharp
 public class Counter
@@ -142,7 +142,7 @@ public class Counter
 }
 ```
 
-The class-based model is very similar to the programming model popularized by [Orleans](https://www.microsoft.com/en-us/research/project/orleans-virtual-actors/). In this model, an entity type is defined as a .NET class. Each method of the class is an operation that can be invoked by an external client. Unlike Orleans, however, .NET interfaces are optional. The previous *Counter* example did not use an interface, but it can still be invoked via other functions or via HTTP API calls.
+The class-based model is similar to the programming model popularized by [Orleans](https://www.microsoft.com/en-us/research/project/orleans-virtual-actors/). In this model, an entity type is defined as a .NET class. Each method of the class is an operation that can be invoked by an external client. Unlike Orleans, however, .NET interfaces are optional. The previous *Counter* example did not use an interface, but it can still be invoked via other functions or via HTTP API calls.
 
 Entity *instances* are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of:
 
@@ -198,7 +198,7 @@ Durable entities can be invoked from ordinary functions via the `orchestrationCl
 * **SignalEntityAsync**: sends a one-way message to an entity, and waits for it to be enqueued.
 * **SignalEntityAsync\<T>**: same as `SignalEntityAsync` but uses a generated proxy object of type `T`.
 
-The previous `SignalEntityAsync` call requires specifying the name of the entity operation as a `string` and the payload of the operation as an `object`. The following is an example of this pattern:
+The previous `SignalEntityAsync` call requires specifying the name of the entity operation as a `string` and the payload of the operation as an `object`. The following sample code is an example of this pattern:
 
 ```csharp
 EntityId id = // ...
@@ -222,7 +222,7 @@ public class Counter : ICounter
 }
 ```
 
-Client code could then use `SignalEntityAsync<T>` and specify the `ICounter` interface as the type parameter to generate a type-safe proxy. This is demonstrated in the following code sample:
+Client code could then use `SignalEntityAsync<T>` and specify the `ICounter` interface as the type parameter to generate a type-safe proxy. This use of type-safe proxies is demonstrated in the following code sample:
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]

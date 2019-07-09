@@ -595,7 +595,7 @@ The responses for this API do not contain any content.
 
 ### Signal entity (preview)
 
-Sends a one-way operation message to a [Durable Entity](durable-functions-types-features-overview.md#durable-entities). If the entity doesn't exist, it will be created automatically.
+Sends a one-way operation message to a [Durable Entity](durable-functions-types-features-overview.md#entity-functions). If the entity doesn't exist, it will be created automatically.
 
 #### Request
 
