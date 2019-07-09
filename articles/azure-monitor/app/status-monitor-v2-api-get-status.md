@@ -75,7 +75,7 @@ AppAlreadyInstrumented : true
 In this example;
 - **Machine Identifier** is an anonymous ID used to uniquely identify your server. If you create a support request, we'll need this ID to find logs for your server.
 - **Default Web Site** is Stopped in IIS
-- **DemoWebApp111** has been started in IIS, but hasn't received any requests and therefore has no running process (ProcessId: not found).
+- **DemoWebApp111** has been started in IIS, but hasn't received any requests. This report shows that there is no running process (ProcessId: not found).
 - **DemoWebApp222** is running and is being monitored (Instrumented: true). Based on the user configuration, Instrumentation Key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 was matched for this site.
 - **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Status Monitor detected the SDK and won't monitor this site.
 
