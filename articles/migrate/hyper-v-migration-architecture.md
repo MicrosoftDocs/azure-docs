@@ -26,7 +26,7 @@ Azure Migrate Server Migration is a tool for migrating on-premises workloads, an
 
 ## Architectural components
 
-![Architecture](./media/hyper-v-migration-architecture/architecture.png)
+![Architecture](./media/hyper-v-replication-architecture/architecture.png)
 
 
 The components are installed by a single setup file, downloaded from Azure Migrate Server Migration in the portal.
