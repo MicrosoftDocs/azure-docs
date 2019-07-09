@@ -4,7 +4,7 @@ description: Learn about solutions that integrate Oracle apps running on Microso
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: 
 
 ms.assetid: 
