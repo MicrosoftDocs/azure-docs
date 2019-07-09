@@ -1432,7 +1432,7 @@
         href: dialpad-provisioning-tutorial.md
       - name: Figma
         href: figma-provisioning-tutorial.md
-      - name: Federated-Directory
+      - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
