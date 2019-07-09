@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: Mario.Hewardt
+ms.author: marioh
 ms.reviewer: mbullwin
 ---
 

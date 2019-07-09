@@ -266,6 +266,8 @@
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
+    - name: Use container instances
+      href: deploy-luis-on-container-instances.md
 - name: Reference
   items:
   - name: User privacy

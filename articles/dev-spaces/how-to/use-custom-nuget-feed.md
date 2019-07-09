@@ -9,7 +9,7 @@ ms.date: "05/11/2018"
 ms.topic: "conceptual"
 description: "Use a custom NuGet feed to access and use NuGet packages in an Azure Dev Space."
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
-manager: "ghogen"
+manager: gwallace
 ---
 #  Use a custom NuGet feed in an Azure Dev Space
 
