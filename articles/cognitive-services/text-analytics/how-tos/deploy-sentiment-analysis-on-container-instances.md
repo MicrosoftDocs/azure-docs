@@ -1,6 +1,6 @@
 ---
 title: Run Azure Container Instances
-titleSuffix: Text Analytics - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Deploy the text analytics containers with the sentiment analysis image, to the Azure Container Instance, and test it in a web browser. 
 services: cognitive-services
 author: IEvangelist
@@ -12,9 +12,9 @@ ms.date: 06/21/2019
 ms.author: dapine
 ---
 
-# Deploy a Sentiment Analysis container to Azure Container Instances (ACI)
+# Deploy a Sentiment Analysis container to Azure Container Instances
 
-Learn how to deploy the Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container with the Sentiment Analysis image to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). This procedure exemplifies the creation of a Text Analytics resource, the creation of an associated Sentiment Analysis image and the ability to exercise this orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
+Learn how to deploy the Cognitive Services [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers) container with the Sentiment Analysis image to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). This procedure exemplifies the creation of a Text Analytics resource, the creation of an associated Sentiment Analysis image and the ability to exercise this orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Learn how to deploy the Cognitive Services [Text Analytics](https://docs.microso
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](../../containers/includes/create-aci-resource.md)]
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](../../containers/includes/create-container-instances-resource.md)]
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
