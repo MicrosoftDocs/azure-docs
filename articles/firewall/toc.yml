@@ -49,7 +49,7 @@
       href: deploy-availability-zone-powershell.md
     - name: Integrate with load balancer
       href: integrate-lb.md
-    - name: Configure application rules with SQL FQDNs
+    - name: Application rules with SQL FQDNs
       href: sql-fqdn-filtering.md
 - name: Reference
   items:
