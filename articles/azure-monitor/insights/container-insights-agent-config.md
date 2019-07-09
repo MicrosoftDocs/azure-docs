@@ -17,7 +17,9 @@ ms.author: magoedte
 
 # Configure agent data collection for Azure Monitor for containers
 
-Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) from the containerized agent. This agent can also collect time series data (also referred to as metrics) from Prometheus using the containerized agent without having to setup and manage a Prometheus server and database. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
+Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) from the containerized agent. This agent can also collect time series data (also referred to as metrics) from Prometheus using the containerized agent without having to setup and manage a Prometheus server and database. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
+
+This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
 
 ## Configure your cluster with custom data collection settings
 
