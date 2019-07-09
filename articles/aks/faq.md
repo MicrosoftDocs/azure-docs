@@ -62,7 +62,7 @@ Each AKS deployment spans two resource groups:
 
 ## Can I provide my own name for the AKS node resource group?
 
-Yes. By default, AKS will name the node resource group using the following scheme: *MC_clustername_resourcegroupname_location*, but you can also provide your own name.
+Yes. By default, AKS will name the node resource group *MC_clustername_resourcegroupname_location*, but you can also provide your own name.
 
 To specify your own resource group name, install the [aks-preview][aks-preview-cli] Azure CLI extension version *0.3.2* or later. When you create an AKS cluster by using the [az aks create][az-aks-create] command, use the *--node-resource-group* parameter and specify a name for the resource group. If you [use an Azure Resource Manager template][aks-rm-template] to deploy an AKS cluster, you can define the resource group name by using the *nodeResourceGroup* property.
 
