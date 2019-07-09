@@ -80,11 +80,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.hypeinnovation.com/Shibboleth.sso/Login`
+    1. . In the **Sign on URL** text box, type a URL using the following pattern:
+    
+        `https://<SUBDOMAIN>.hypeinnovation.com/Shibboleth.sso/Login`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.hypeinnovation.com`
+    1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    
+        `https://<SUBDOMAIN>.hypeinnovation.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Hype Client support team](mailto:itsupport@hype.de) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -126,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+   ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -142,7 +144,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Hype tile in the Access Panel, you should be automatically signed in to the Hype for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
