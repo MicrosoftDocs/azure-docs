@@ -7,7 +7,7 @@ manager: barbkess
 
 ms.service: vm-service
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 07/09/2019
 ms.author: barclayn
 
 ---
@@ -31,7 +31,7 @@ Security center
 
 # Security recommendations for Windows Virtual machines in Azure
 
-This article contains security recommendations for virtual machines in Azure. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your Web App solutions. For more information on what Microsoft does to fulfill service provider responsibilities, read [Azure infrastructure security](../security/azure-security-infrastructure.md).
+This article contains security recommendations for virtual machines in Azure. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model. For more information on what Microsoft does to fulfill service provider responsibilities, read [Azure infrastructure security](../../security/azure-security-infrastructure.md).
 
 ## General
 
@@ -44,6 +44,7 @@ This article contains security recommendations for virtual machines in Azure. Im
 
 | Recommendation | Comments |
 |-|----|
+| Centralize VM authentication | You can centralize the authentication of your Windows and Linux virtual machines using [Azure AD authentication(https://docs.microsoft.com/en-us/azure/kusto/management/access-control/aad.md). |
 | Use multi-factor authentication  | Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It requires a second form of authentication for more information see [How it works: Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)|
 
 ## Data security
@@ -51,21 +52,21 @@ This article contains security recommendations for virtual machines in Azure. Im
 | Recommendation | Comments |
 |-|-|
 | Encrypt VM disks | [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md) helps you encrypt your Windows and Linux IaaS virtual machine disks. Encrypting disks make the contents unreadable without the necessary keys. This protects the data from unauthorized access |
-| Limit installed software | Limiting installed software to those required to support your 
-| Use antivirus/Antimalware | In Azure you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, and Kaspersky. This software helps protect your virtual machines from malicious files, adware, and other threats. Microsoft Antimalware for Azure is a single-agent solution for applications and tenant environments. It's designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring. For more information on Microsoft Antimalware for Azure see [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/azure-security-antimalware.md) |
+| Limit installed software | Limiting installed software to what is required to successfully implement your solution |
+| Use antivirus/Antimalware | In Azure you can use antimalware software from security vendors such as Microsoft, Symantec, Trend Micro, and Kaspersky. This software helps protect your virtual machines from malicious files, adware, and other threats. Microsoft Antimalware for Azure is a single-agent solution for applications and tenant environments. It's designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring. For more information on Microsoft Antimalware for Azure see [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../../security/azure-security-antimalware.md) |
 
 ## Networking
 
 | Recommendation | Comments |
 |-|-|
-| Restrict access to management ports | Attackers scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. [Just-in-time (JIT) virtual machine (VM) access](../security-center/security-center-just-in-time.md) can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. |
+| Restrict access to management ports | Attackers scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. [Just-in-time (JIT) virtual machine (VM) access](../../security-center/security-center-just-in-time.md) can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. |
 | Limit network access | Network security groups allow you to restrict network access and control the number of exposed endpoints. For more information, see [Create, change, or delete a network security group](../../virtual-network/manage-network-security-group.md) |
 
 ## Monitoring
 
 | Recommendation | Comments |
 |-|-|
-|Use Azure Security Center standard tier | [Azure Security Center](../../security-center/security-center-app-services.md) is natively integrated with Azure App Service. It can run assessments and provide security recommendations |
+| Monitor your virtual machines | You can use [Azure monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) to monitor your Azure virtual machines and virtual machine scale sets. ]
 
 ## Business continuity
 
