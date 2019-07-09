@@ -24,7 +24,7 @@ The available ports will be dynamic and will be available by PowerShell to view 
 * Amsterdam
 * Amsterdam2
 * Auckland
-* Aucklkand 
+* Auckland 
 * Chicago
 * Dallas
 * Dublin
