@@ -163,7 +163,7 @@ az network lb rule create \
 --backend-pool-name dsLbBackEndPool_v4
 
 
-az network lb rule create \ 
+az network lb rule create \
 --lb-name dsLB  \
 --name dsLBrule_v6  \
 --resource-group DsResourceGroup01 \
@@ -193,7 +193,7 @@ az vm availability-set create \
 
 ### Create network security group
 
-Create a network security group for the rules that will govern inbound and outbound communication in your VNET.
+Create a network security group for the rules that will govern inbound and outbound communication in your VNet.
 
 #### Create a network security group
 
@@ -347,7 +347,7 @@ Create virtual machine *dsVM0* as follows:
 --nics dsNIC0 \
 --size Standard_A2 \
 --availability-set dsAVset \
---image MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest  
+--image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest  
 ```
 Create virtual machine *dsVM1* as follows:
 
@@ -358,7 +358,7 @@ az vm create \
 --nics dsNIC1 \
 --size Standard_A2 \
 --availability-set dsAVset \
---image MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest 
+--image MicrosoftWindowsServer:WindowsServer:2019-Datacenter:latest 
 ```
 
 ## View IPv6 dual stack virtual network in Azure portal
