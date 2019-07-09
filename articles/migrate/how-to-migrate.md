@@ -42,7 +42,7 @@ If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for mi
 1. Click **Assess and Migrate Servers**.
 2. In **Azure Migrate - Servers**, if you haven't added migration tools yet, under **Migration tools**, select **Click here to add a migration tool**. If you've already added migration tools, in **Add more migration tools**, select **Click here**.
 
-    ![Migration tools](./media/how-to-assess/migration-tool.png)
+    ![Migration tools](./media/how-to-migrate/migration-tool.png)
 
     > [!NOTE]
     > If you need to navigate to a different project, in **Azure Migrate - Servers**, next to **See details for a different migrate project**, click **Click here**.
