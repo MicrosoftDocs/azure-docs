@@ -4,7 +4,7 @@ description: PowerShell sample script to upload a generalized VHD to Azure and c
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
