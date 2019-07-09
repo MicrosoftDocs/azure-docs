@@ -363,7 +363,7 @@ $server = New-AzSqlServer -ResourceGroupName $ResourceGroupName `
    -ServerName $ServerName `
    -Location $Location `
    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-   -ArgumentList $AdminLogin, $(ConvertTo-SecureString ring $Password -AsPlainText -Force))
+   -ArgumentList $AdminLogin, $(ConvertTo-SecureString -String $Password -AsPlainText -Force))
 
 # Create a server firewall rule that allows access from the specified IP range
 $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
@@ -378,7 +378,7 @@ $database = New-AzSqlDatabase  -ResourceGroupName $ResourceGroupName `
    -VCore 1 `
    -ComputeGeneration Gen4  `
    -MinimumCapacity 1 `
-   -SampleName "AdventureWorksLT" `
+   -SampleName "AdventureWorksLT"
 
 # Create a secondary server in the failover region
 New-AzSqlServer -ResourceGroupName $ResourceGroupName `
