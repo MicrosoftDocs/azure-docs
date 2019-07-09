@@ -34,10 +34,12 @@ Azure Monitor provides several ways to interact with metrics, including charting
 1. Navigate to your Azure Media Services account and select **Metrics**.
 
     ![Metrics](media/media-services-metrics/metrics01.png)
-1. Click in the **RESOURCE** box. In the **Select a resource** window on the right, select the resource for which you want to monitor metrics. In this case, we want to monitor **Streaming Endpoints**.
+1. Click in the **RESOURCE** box. In the **Select a resource** window on the right, select the resource for which you want to monitor metrics. In this case, we want to monitor Streaming Endpoints. 
+
+    To see what resources are currently available, see [Media Services resources](media-services-metrics-diagnostic-logs.md#media-services-metrics).
 
     ![Metrics](media/media-services-metrics/metrics02.png)
-1. Give your chart a name (edit the name by pressing the pencil at the top).
+1. (Optionally) give your chart a name (edit the name by pressing the pencil at the top).
 1. Add metrics that you want to view.
 
     ![Metrics](media/media-services-metrics/metrics03.png)
