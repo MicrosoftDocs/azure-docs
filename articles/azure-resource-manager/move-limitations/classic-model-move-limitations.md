@@ -12,7 +12,7 @@ ms.author: tomfitz
 
 The steps to move resources deployed through the classic model differ based on whether you're moving the resources within a subscription or to a new subscription.
 
-## Move in same subscription
+## Move in the same subscription
 
 When moving resources from one resource group to another resource group within the same subscription, the following restrictions apply:
 
