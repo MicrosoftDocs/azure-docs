@@ -4,7 +4,7 @@ description: Learn how to onboard a customer to Azure delegated resource managem
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/02/2019
+ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -52,11 +52,11 @@ az account set --subscription <subscriptionId/name>
 az account show
 ```
 
-## Register the customer's subscription for onboarding
+## Ensure the customer's subscription is registered for onboarding
 
-Each subscription must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. For more info, see [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
+Each subscription must be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider. The customer can register a subscription by following the steps outlined in [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md).
 
-You can confirm that the subscription is ready for onboarding (from within the customer's tenant) in one of the following ways.
+The customer can confirm that the subscription is ready for onboarding in one of the following ways.
 
 ### Azure portal
 
@@ -169,19 +169,21 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](http
 |**managedByTenantId**     |Your tenant ID         |
 |**authorizations**     |The **principalId** values for the users/groups/SPNs from your tenant, each mapped to a built-in **roleDefinitionId** value to specify the level of access         |
 
-To onboard a customer's subscription, use the appropriate Azure Resource Manager template that we provide in our [samples repo](https://github.com/Azure/Azure-Service-Provider-Management-Toolkit-samples/tree/master/Azure-Delegated-Resource-Management/templates), along with a corresponding parameters file that you modify to match your configuration and define your authorizations. Separate templates are provided depending on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription. We also provide a template that can be used for customers who purchased a managed service offer that you published to Azure Marketplace, if you prefer to onboard their subscription(s) this way.
+To onboard a customer's subscription, use the appropriate Azure Resource Manager template that we provide in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/), along with a corresponding parameters file that you modify to match your configuration and define your authorizations. Separate templates are provided depending on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription. We also provide a template that can be used for customers who purchased a managed service offer that you published to Azure Marketplace, if you prefer to onboard their subscription(s) this way.
 
-|**To onboard this ...**  |**Use this Azure Resource Manager template ...**  |**... and modify this parameter file** |
+|**To onboard this**  |**Use this Azure Resource Manager template**  |**And modify this parameter file** |
 |---------|---------|---------|
-|Subscription   |delegated-resource-management\ delegatedResourceManagement.json  |delegated-resource-management\ delegatedResourceManagement.parameters.json    |
-|Resource group   |rg-delegated-resource-management\ rgDelegatedResourceManagement.json  |rg-delegated-resource-management\ rgDelegatedResourceManagement.parameters.json    |
-|Multiple resource groups within a subscription   |rg-delegated-resource-management\ multipleRgDelegatedResourceManagement.json  |rg-delegated-resource-management\ multipleRgDelegatedResourceManagement.parameters.json    |
-|Subscription (when using an offer published to Azure Marketplace)   |marketplace-delegated-resource-management\ marketplaceDelegatedResourceManagement.json  |marketplace-delegated-resource-management\ marketplaceDelegatedResourceManagement.parameters.json    |
+|Subscription   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
+|Resource group   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|Multiple resource groups within a subscription   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Subscription (when using an offer published to Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> The process described here requires a separate deployment for each subscription being onboarded (or for each subscription containing resource group(s) that are being onboarded).
+> The process described here requires a separate deployment for each subscription being onboarded.
+> 
+> Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
 
-The following example shows a modified **resourceProjection.parameters.json** file that will be used to onboard a subscription. The resource group parameter files (located in the rg-delegated-resource-management folder) are similar, but also include an **rgName** parameter to identify the specific resource group(s) to be onboarded.
+The following example shows a modified **resourceProjection.parameters.json** file that will be used to onboard a subscription. The resource group parameter files (located in the [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) folder) are similar, but also include an **rgName** parameter to identify the specific resource group(s) to be onboarded.
 
 ```json
 {
@@ -215,7 +217,7 @@ The following example shows a modified **resourceProjection.parameters.json** fi
 
 ## Deploy the Azure Resource Manager templates
 
-Once you have updated your parameter file, you must deploy the Resource Management template in the customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
+Once you have updated your parameter file, the customer must deploy the Resource Management template in their customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
 
 > [!IMPORTANT]
 > The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded).

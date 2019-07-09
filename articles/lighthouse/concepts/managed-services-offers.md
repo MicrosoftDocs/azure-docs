@@ -4,7 +4,7 @@ description: Managed services offers allow service providers to sell resource ma
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/01/2019
+ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
 ---

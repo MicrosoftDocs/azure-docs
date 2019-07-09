@@ -4,7 +4,7 @@ description: Azure delegated resource management enables a cross-tenant manageme
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/02/2019
+ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -109,7 +109,7 @@ Support requests:
 
 With all scenarios, please be aware of the following current limitations:
 
-- While Azure Resource Manager operations are supported, Resource Provider operations (such as KeyVault secrets access, storage data access, VM login, etc.) can’t be performed using Azure delegated resource management.
+- While Azure Resource Manager operations are supported, certain resource provider operations for data access (such as KeyVault secrets access, storage data access, VM login, etc.) can’t be performed using Azure delegated resource management.
 - Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). All built-in roles are currently supported with Azure delegated resource management except for Owner, User Access Administrator, or any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission. Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are also not supported.
 - Currently, you can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the **Microsoft.ManagedServices** resource provider, you won’t be able to create a Databricks workspace for that subscription at this time.
 

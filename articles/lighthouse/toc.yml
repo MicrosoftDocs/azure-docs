@@ -1,10 +1,15 @@
-- name: Azure Lighthouse documentation | Microsoft Docs 
+- name: Azure Lighthouse documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Lighthouse?
     displayName: management at scale, service providers
     href: overview.md
+- name: Samples
+  items:
+  - name: Index
+    displayName: template, sample
+    href: ./samples/index.md
 - name: Concepts
   items:
   - name: Azure delegated resource management
@@ -44,6 +49,8 @@
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
   - name: Azure SDK for Python
     href: https://docs.microsoft.com/python/api/azure-mgmt-managedservices
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/managedservices/
   - name: OpenAPI
     href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
 - name: Resources

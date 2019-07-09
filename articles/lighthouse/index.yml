@@ -10,7 +10,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/26/2019
+  ms.date: 07/11/2019
   ms.author: jenhayes
 abstract:
   description: Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale and enhanced governance. 
@@ -38,6 +38,15 @@ sections:
     - html: <a href="how-to/publish-managed-services-offers">Publish Managed Services offers to Azure Marketplace</a>
     - html: <a href="how-to/view-manage-customers">View and manage customers and delegated resources</a>
     - html: <a href="how-to/view-manage-service-providers">View and manage service providers</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Review the samples and templates available to help you use Azure Lighthouse.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="samples/index">Samples index</a>
 - title: Reference
   items:
   - type: list
@@ -47,4 +56,4 @@ sections:
     - title: Languages
       html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">Azure SDK for .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">Azure SDK for .NET (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Azure SDK for Python</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Azure SDK for Python (PyPi)</a></p>
     - title: REST
-      html: <p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview">2018-06-01-preview (OpenAPI)</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/managedservices/">API Reference</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01 (OpenAPI)</a></p>
