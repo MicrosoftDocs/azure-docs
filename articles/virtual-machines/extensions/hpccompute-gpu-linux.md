@@ -4,7 +4,7 @@ description: Microsoft Azure Extension for installing NVIDIA GPU Drivers on N-se
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid:

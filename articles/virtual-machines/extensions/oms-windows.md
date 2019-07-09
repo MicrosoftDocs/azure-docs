@@ -4,7 +4,7 @@ description: Deploy the Log Analytics agent on Windows virtual machine using a v
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
