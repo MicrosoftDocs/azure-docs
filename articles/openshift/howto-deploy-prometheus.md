@@ -177,7 +177,7 @@ To have Prometheus to gather metrics from itself, apply the permissions in prome
 
 ## Optional: Deploy example application
 
-Everything is working, but there are no metrics sources. Go to the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/). You can find it by using following command.
+Everything is working, but there are no metrics sources. Go to the Prometheus URL (https://prom-prometheus-project.apps.*random-id*.*region*.azmosa.io/). You can find it by using following command:
 
 ```
 oc get route prom -n prometheus-project
