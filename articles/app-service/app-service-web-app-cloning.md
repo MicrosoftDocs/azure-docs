@@ -126,6 +126,7 @@ Here are the known restrictions of app cloning:
 * TiP rules are not cloned
 * Database content is not cloned
 * Outbound IP Addresses changes if cloning to a different scale unit
+* Not available for Linux Apps
 
 ### References
 * [App Service Cloning](app-service-web-app-cloning.md)

@@ -7,7 +7,7 @@ manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: srinathvasireddy
+ms.author: srinathv
 ---
 
 # Azure Backup Monitoring Alert - FAQ
