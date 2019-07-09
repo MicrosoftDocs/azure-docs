@@ -7,7 +7,7 @@ author: mumian
 
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/08/19
+ms.date: 05/08/2019
 ms.author: jgao
 
 ---

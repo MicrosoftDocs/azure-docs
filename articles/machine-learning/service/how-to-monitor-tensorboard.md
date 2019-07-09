@@ -1,16 +1,14 @@
 ---
-title: Visualize experiments with TensorBoard and Azure Machine Learning service
+title: Visualize experiments with TensorBoard
+titleSuffix: Azure Machine Learning service
 description: Launch TensorBoard to visualize experiment run histories, and identify potential areas for hyperparameter tuning and retraining.
 services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: article
 author: maxluk
 ms.author: maxluk
-ms.reviewer: nibaccam
-ms.service: machine-learning
-ms.component: core
-ms.workload: data-services
-ms.topic: article
 ms.date: 06/28/2019
-
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning

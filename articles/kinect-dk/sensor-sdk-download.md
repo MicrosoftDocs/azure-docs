@@ -43,7 +43,7 @@ Now, you can install the necessary packages. The `k4a-tools` package includes th
 
  The basic tutorials require the `libk4a<major>.<minor>-dev` package. To install it, run
 
- `sudo apt install libk4a1.1-dev`.
+ `sudo apt install libk4a1.1-dev`
 
 If the command succeeds, the SDK is ready for use.
 

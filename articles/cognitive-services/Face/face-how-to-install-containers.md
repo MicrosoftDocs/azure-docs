@@ -37,7 +37,6 @@ You must meet the following prerequisites before you use the Face API containers
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Face API container.
