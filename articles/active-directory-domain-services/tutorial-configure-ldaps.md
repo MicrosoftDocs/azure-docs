@@ -38,6 +38,8 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
+    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
 * The *LDP.exe* tool installed on your computer.
     * If needed, [install the Remote Server Administration Tools (RSAT)][rsat] for *Active Directory Domain Services and LDAP*.
 
@@ -142,6 +144,9 @@ With a digital certificate created and exported to the correct format, now enabl
     Toggle **Allow secure LDAP access over the internet** to **Enable**.
 
 1. Select the folder icon next to **.PFX file with secure LDAP certificate**. Browse to the path of the *.PFX* file, then select the certificate created in the previous step.
+
+    As noted in the previous section on certificate requirements, you can't use a certificate from a public CA with the default *.onmicrosoft.com* domain. Microsoft owns the *.onmicrosoft.com* domain, so a public Certificate Authority (CA) won't issue a certificate. Make sure your certificate is in the appropriate format. If it's not, the Azure platform generates certificate validation errors when you enable secure LDAP.
+
 1. Enter the **Password to decrypt .PFX file** set in the previous step when the certificate was exported to a *.PFX* file.
 1. Select **Save** to enable secure LDAP.
 
@@ -207,7 +212,7 @@ To connect and bind to your Azure AD DS managed domain and search over LDAP, you
 1. Enter the secure LDAP DNS domain name of your managed domain created in the previous step, such as *ldaps.contoso100.com*. To use secure LDAP, set **Port** to *636*, then check the box for **SSL**.
 1. Select **OK** to connect to the managed domain.
 
-Next, bind to your Azure AD DS managed domain. Users (and service accounts) can't perform LDAP simple binds if you have disabled NTLM password hash synchronization on your Azure AD DS instance. For more information on disabling NTLM password hash synchronization, see [Secure your Azure AD DS managed domain](secure-your-domain.md).
+Next, bind to your Azure AD DS managed domain. Users (and service accounts) can't perform LDAP simple binds if you have disabled NTLM password hash synchronization on your Azure AD DS instance. For more information on disabling NTLM password hash synchronization, see [Secure your Azure AD DS managed domain][secure-domain].
 
 1. Select the **Connection** menu option, then choose **Bind...**.
 1. Provide the credentials of a user account belonging to the *AAD DC Administrators* group, such as *contosoadmin*. Enter the user account's password, then enter your domain, such as *contoso100.com*.
@@ -223,8 +228,7 @@ To see of the objects stored in your Azure AD DS managed domain:
 
     ![Search for objects in your Azure AD DS managed domain using LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
-To directly query a specific container, from the **View > Tree** menu, you can specify a **BaseDN** such as *OU=AADDC Users,DC=CONTOSO100,DC=COM* or *OU=AADDC Computers,DC=CONTOSO100,DC=COM*. For more information on how to format and create queries, see [LDAP query basics](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter).
-
+To directly query a specific container, from the **View > Tree** menu, you can specify a **BaseDN** such as *OU=AADDC Users,DC=CONTOSO100,DC=COM* or *OU=AADDC Computers,DC=CONTOSO100,DC=COM*. For more information on how to format and create queries, see [LDAP query basics][ldap-query-basics]
 ## Clean up resources
 
 If you no longer wish to use secure LDAP for your Azure AD DS managed domain, disable the feature using the following steps:
@@ -250,6 +254,9 @@ In this tutorial, you learned how to:
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: 
+[secure-domain]: secure-your-domain.md
 
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
+[ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
