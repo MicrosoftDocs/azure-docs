@@ -14,35 +14,20 @@ ms.custom: MVC
 
 This article shows you how to migrate on-premises Hyper-V VMs to Azure, using agentless migration with the Azure Migrate Server Migration tool.
 
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and AWS/GCP VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 This tutorial is the third in a series that demonstrates how to assess and migrate Hyper-V to Azure using Azure Migrate Server Assessment and Migration. In this tutorial, you learn how to:
 
 
 > [!div class="checklist"]
 > * Prepare Azure and your on-premises Hyper-V environment
-> * Set up the source environment, including deployment of an on-premises Azure Migrate configuration server.
-> * Set up the target environment for migration.
-> * Set up a replication policy.
+> * Set up the source environment, and deploy a replication appliance.
+> * Set up the target environmen..
 > * Enable replication.
 > * Run a test migration to make sure everything's working as expected.
 > * Run a a full migration to Azure.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
-
-## Prerequisites
-
-Before you begin this tutorial, you should:
-
-1. [Review](migrate-architecture.md) the VMware migration architecture.
-2. Make sure that your Azure account is assigned the Virtual Machine Contributor role, so that you have permissions to:
-
-    - Create a VM in the selected resource group.
-    - Create a VM in the selected virtual network.
-    - Write to an Azure managed disk. 
-
-3. [Set up an Azure network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). On-premises machines are replicated to Azure managed disks. When you fail over to Azure for migration, Azure VMs are created from these managed disks, and joined to an Azure network you specify when you set up migration.
-
 
 
 ## Prerequisites
@@ -50,10 +35,10 @@ Before you begin this tutorial, you should:
 Before you begin this tutorial, you should:
 
 1. [Review](migrate-architecture.md) the Hyper-V migration architecture.
-2. [Complete the first tutorial](tutorial-prepare-hyper-v.md) in this series to set up Azure and Hyper-V for migration. Specifically, in this tutorial you need to:
+2. [Complete the first tutorial](tutorial-prepare-hyper-v.md) in this series to set up Azure and Hyper-V for migration. In the first tutorial, you:
     - [Prepare Azure](tutorial-prepare-hyper-v.md#prepare-azure) for migration.
     - [Prepare the on-premises environment](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration) for migration.
-3. We recommend that you try assessing Hyper-V VMs with Azure Migrate Server Assessment before migrating them to Azure. To set up assessment, [complete the second tutorial](tutorial-assess-hyper-v.md) in this series. Although we recommend that you try out an assessment, but you don't have to run an assessment before you try a migration.
+3. We recommend that you try assessing Hyper-V VMs, using Azure Migrate Server Assessment, before migrating them to Azure. To do this, [complete the second tutorial](tutorial-assess-hyper-v.md) in this series. Although we recommend that you try out an assessment, you don't have to run an assessment before you migrate VMs.
 4. Make sure that your Azure account is assigned the Virtual Machine Contributor role, so that you have permissions to:
 
     - Create a VM in the selected resource group.
@@ -64,15 +49,12 @@ Before you begin this tutorial, you should:
 
 ## Add the Azure Migrate Server Migration tool
 
-If you didn't follow the second tutorial to assess Hyper-V VMs, you need to [follow these instructions](how-to-add-tool-first-time.md) to set up an Azure Migrate project, and add the Azure Migrate Server Migration tool. 
+If you didn't follow the second tutorial to assess Hyper-V VMs, you need to [follow these instructions](how-to-add-tool-first-time.md) to set up an Azure Migrate project, and add the Azure Migrate Server Migration tool to the project.
 
 If you followed the second tutorial and already have an Azure Migrate project set-up, add the Azure Migrate Server Migration tool as follows:
 
 1. In the Azure Migrate project, click **Overview**. 
 2. In **Discover, assess, and migration servers**, click **Assess and migrate servers**.
-
-     ![Assess and migrate servers](./media/tutorial-migrate-hyper-v/assess-migrate.png)
-
 3. In **Migration tools**, select **Click here to add a migration tool when you are ready to migrate**.
 
     ![Select a tool](./media/tutorial-migrate-hyper-v/select-migration-tool.png)
@@ -84,15 +66,20 @@ If you followed the second tutorial and already have an Azure Migrate project se
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate Server Migration runs a lightweight Hyper-V VM appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Migration. The same appliance is also used by the Azure Migrate Server Assessment tool.
+Azure Migrate Server Migration runs a lightweight Hyper-V VM appliance.
 
-If you followed the second tutorial to assess Hyper-V VMs, you already set up the appliance during that tutorial. If you didn't follow that tutorial, you need to set up the appliance now. To do this, you: 
+- The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Migration.
+- The same appliance is also used by the Azure Migrate Server Assessment tool.
 
-- Download a compressed Hyper-V VHD from the Azure portal.
-- Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
-- Configure the appliance for the first time, and register it with the Azure Migrate project.
+To set up the appliance:
+- If you followed the second tutorial to assess Hyper-V VMs, you already set up the appliance during that tutorial.
+- If you didn't follow that tutorial, you need to set up the appliance now. To do this, you: 
 
-Follow the instructions in [this article](how-to-set-up-appliance-hyper-v.md) to set up the appliance.
+    - Download a compressed Hyper-V VHD from the Azure portal.
+    - Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
+    - Configure the appliance for the first time, and register it with the Azure Migrate project.
+
+    Follow the instructions in [this article](how-to-set-up-appliance-hyper-v.md) to set up the appliance.
 
 ## Prepare Hyper-V hosts
 
@@ -119,7 +106,7 @@ Follow the instructions in [this article](how-to-set-up-appliance-hyper-v.md) to
 
 It can take up to 15 minutes after finalizing registration until discovered VMs appear in Azure Migrate Server Migration. As VMs are discovered, the **Discovered servers** count rises.
 
-    ![Discovered servers](./media/tutorial-migrate-hyper-v/discovered-servers.png)
+![Discovered servers](./media/tutorial-migrate-hyper-v/discovered-servers.png)
 
 ### Register Hyper-V hosts
 
@@ -148,18 +135,18 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
     - If you didn't run an assessment, or you don't want to use the assessment settings, select the **No** options.
     - If you selected to use the assessment, select the VM group, and assessment name.
 
-    ![Select assessment](./media/tutorial-migrate-hyper-v/select-assessment.png)
+        ![Select assessment](./media/tutorial-migrate-hyper-v/select-assessment.png)
 
-5. In **Virtual machines**, search for VMs as needed, and check each VM you want to migrate. Then click **Next: Target settings**.
+4. In **Virtual machines**, search for VMs as needed, and check each VM you want to migrate. Thenc, lick **Next: Target settings**.
 
     ![Select VMs](./media/tutorial-migrate-hyper-v/select-vms.png)
 
-6. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.
-7. In**Replication Storage Account**, select the Azure storage account in which replicated data will be stored in Azure.
+5. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.
+7. In **Replication Storage Account**, select the Azure storage account in which replicated data will be stored in Azure.
 8. **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
 9. In **Azure Hybrid Benefit**:
 
-    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
+    - Select **No** if you don't want to apply Azure Hybrid Benefit. Thenc, lick **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
     ![Target settings](./media/tutorial-migrate-hyper-v/target-settings.png)
