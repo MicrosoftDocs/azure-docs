@@ -118,6 +118,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 ## Create the guest virtual machine
 
+>[!IMPORTANT] 
+>
+>The Azure guest agent is not supported on nested VMs, and may cause issues on both the host and nested VMs. Don’t install the Azure agent on nested VMs, and don't use an image for creating the nested VMs that already has the Azure guest agent installed.
+
 1. Open Hyper-V Manager and create a new virtual machine. Configure the virtual machine to use the new Internal network you created.
     
     ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
