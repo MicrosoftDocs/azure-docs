@@ -14,12 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2017
+ms.date: 07/09/2019
 ms.author: diviso
 
 ---
 # Automating Azure virtual machine deployment with Chef
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef is a great tool for delivering automation and desired state configurations.
 
@@ -68,7 +67,7 @@ New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
 ```
 
-Please take a note of your SubscriptionID, TenantID, ClientID and Client Secret (aka the password you set above), you will need this later on. 
+Please take a note of your SubscriptionID, TenantID, ClientID and Client Secret (the password you set above), you will need this later on. 
 
 ## Setup Chef Server
 
