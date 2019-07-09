@@ -1410,8 +1410,6 @@
         href: box-userprovisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
-      - name: Cisco Spark
-        href: cisco-spark-provisioning-tutorial.md
       - name: Cisco Webex
         href: cisco-webex-provisioning-tutorial.md
       - name: Comeet Recruiting Software
