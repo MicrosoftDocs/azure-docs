@@ -45,7 +45,7 @@ For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md
 
 ### What is the process of moving a Media Services account between subscriptions?  
 
-For details, see [Moving a Media Services account between subscriptions ](media-services-account-concept.md).
+For details, see [Moving a Media Services account between subscriptions](media-services-account-concept.md).
 
 ## Live streaming 
 
