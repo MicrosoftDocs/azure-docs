@@ -47,7 +47,7 @@
     href: concepts-view-definition.md
 - name: How-to guides
   items:
-  - name: custom providers
+  - name: Custom providers
     items:
     - name: Add custom actions to Azure
       href: custom-providers-action-endpoint-how-to.md
@@ -77,7 +77,7 @@
       href: approve-just-in-time-access.md
 - name: Reference
   items:
-  - name: Custom resource providers
+  - name: Custom providers
     items:
     - name: Custom resource proxy reference
       href: custom-providers-proxy-resource-endpoint-reference.md

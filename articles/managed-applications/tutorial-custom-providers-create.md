@@ -75,6 +75,9 @@ Replace `endpoint` with the trigger URL from the function created earlier in the
 
 ## Deploying the custom provider
 
+> [!NOTE]
+> The `endpoint` should be replaced with the function URL.
+
 The above custom provider can be deployed using an Azure Resource Manager Template.
 
 ```JSON
@@ -216,6 +219,9 @@ resourceProviderName | *yes* | The custom provider instance name.
 customResourceName | *yes* | The custom resource name.
 
 ---
+
+> [!NOTE]
+> After you have finished deploying and using the custom provider, remember to clean up any created resources including the Azure Function.
 
 ## Next steps
 
