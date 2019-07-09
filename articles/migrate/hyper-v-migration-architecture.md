@@ -11,17 +11,17 @@ ms.author: raynew
 
 # How does Hyper-V replication work?
 
-This article provides an overview of the architecture and processes used for Hyper-V replication with the Azure Migrate Server Migration tool.
+This article provides an overview of the architecture and processes used when you migrate Hyper-V VMs with the Azure Migrate Server Migration tool.
 
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and AWS/GCP VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 ## Agentless migration
 
-Azure Migrate Server Migration provides agentless replication for on-premises Hyper-V VMs. Azure Migration Server Migration tool provides a migration workflow that's optimized for Hyper-V. You install a software agent on Hyper-V hosts or cluster nodes. Nothing needs to be installed on Hyper-V VMs.
+The Azure Migrate Server Migration tool provides agentless replication for on-premises Hyper-V VMs, using a migration workflow that's optimized for Hyper-V. You install a software agent only on Hyper-V hosts or cluster nodes. Nothing needs to be installed on Hyper-V VMs.
 
 ## Server Migration and Azure Site Recovery
 
-Azure Migrate Server Migration is a tool for migrating on-premises workloads, and cloud-based VMs to Azure. Site Recovery is a disaster recovery tool. The tools share some common technology components used for replication of data, but serve different purposes. Server Migration and Site Recovery do share some software components.
+Azure Migrate Server Migration is a tool for migrating on-premises workloads, and cloud-based VMs, to Azure. Site Recovery is a disaster recovery tool. The tools share some common technology components used for data replication, but serve different purposes. 
 
 
 ## Architectural components
@@ -29,13 +29,13 @@ Azure Migrate Server Migration is a tool for migrating on-premises workloads, an
 ![Architecture](./media/hyper-v-replication-architecture/architecture.png)
 
 
-The components are installed by a single setup file, downloaded from Azure Migrate Server Migration in the portal.
 
-Component | Deployment | Details
-
-**Replication provider** | The Microsoft Azure Site Recovery provider is installed on Hyper-V hosts, and registered with Azure Migration Server Migration. | Orchestrates replication for Hyper-V VMs.
+**Component** | **Deployment** | **Details**
+--- | --- | ---
+**Replication provider** | The Microsoft Azure Site Recovery provider is installed on Hyper-V hosts, and registered with Azure Migration Server Migration. | The provider orchestrates replication for Hyper-V VMs.
 **Recovery Services agent** | The Microsoft Azure Recovery Service agent handles data replication. It works with the provider to replicate data from Hyper-V VMs to Azure.<br/> The replicated data is uploaded to a storage account in your Azure subscription. The Server Migration tool the processes the replicated data, and applies it to replica disks in the subscription. The replica disks are used to create the Azure VMs when you migrate.
 
+- The components are installed by a single setup file, downloaded from Azure Migrate Server Migration in the portal.
 - The provider and appliance use outbound HTTPS port 443 connections to communicate with Azure Migrate Server Migration.
 - Communications from the provider and agent are secure and encrypted.
 
@@ -43,8 +43,9 @@ Component | Deployment | Details
 ## Replication process
 
 1. When you enable replication for a Hyper-V VM, initial replication begins.
-2. A Hyper-V VM snapshot is taken. VHDs on the VM are replicated one-by-one, until they're all copied to Azure. Initial replication time depends on the VM size, and network bandwidth.
-3. Disk changes that occur during initial replication are tracked using Hyper-V Replica, and stored in log files (hrl files).
+2. A Hyper-V VM snapshot is taken.
+3. VHDs on the VM are replicated one-by-one, until they're all copied to Azure. Initial replication time depends on the VM size, and network bandwidth.
+4. Disk changes that occur during initial replication are tracked using Hyper-V Replica, and stored in log files (hrl files).
     - Log files are in the same folder as the disks.
     - Each disk has an associated hrl file that's sent to secondary storage.
     - The snapshot and log files consume disk resources while initial replication is in progress.
@@ -54,7 +55,7 @@ Component | Deployment | Details
 
 ## Performance and scaling
 
-Replication performance for Hyper-V is influenced by factors that include VM size, the data change rate (churn) of the VMs, available space on the Hyper-V host for log file storage,  bandwidth for uploading replication data to Azure, and target storage in Azure.
+Replication performance for Hyper-V is influenced by factors that include VM size, the data change rate (churn) of the VMs, available space on the Hyper-V host for log file storage,  upload bandwidth for replication data, and target storage in Azure.
 
 - If you're replicating multiple machines at the same time, use the [Azure Site Recovery Deployment Planner](../site-recovery/hyper-v-deployment-planner-overview.md) for Hyper-V, to help optimize replication.
 - Plan your Hyper-V replication, and distribute replication over Azure storage accounts, in accordance with capacity.
@@ -83,4 +84,4 @@ If you have spare bandwidth for replication, and want to increase uploads, you c
 
 ## Next steps
 
-Try out [Hyper-V migration](tutorial-migrate-hyper-v.md) with Azure Migrate Server Migration.
+Try out [Hyper-V migration](tutorial-migrate-hyper-v.md) using Azure Migrate Server Migration.
