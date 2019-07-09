@@ -8,7 +8,7 @@ ms.date: 07/09/2019
 ms.author: tomfitz
 ---
 
-# Move guidance for Virtual Machines
+# Move guidance for virtual machines
 
 This article describes the scenarios that aren't currently supported and the steps to move virtual machines with backup.
 
