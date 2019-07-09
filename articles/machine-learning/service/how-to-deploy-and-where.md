@@ -354,10 +354,10 @@ To deploy locally, you need to have **Docker installed** on your local machine.
 
 + **Using the CLI**
 
-    To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
+    To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model:
 
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
     The entries in the `deploymentconfig.json` document map to the parameters for [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
@@ -398,7 +398,7 @@ To see quota and region availability for ACI, see the [Quotas and region availab
     To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
     ```azurecli-interactive
-    az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
     ```
 
     The entries in the `deploymentconfig.json` document map to the parameters for [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
@@ -409,7 +409,7 @@ To see quota and region availability for ACI, see the [Quotas and region availab
     | `containerResourceRequirements` | NA | Contains configuration elements for the CPU and memory allocated for the container. |
     | &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
     | &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
-    | `location` | `location` | The Azure region to deploy this Webservice to. If not specified the Workspace location will be used. More details on available regions can be found here: [ACI Regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `location` | `location` | The Azure region to deploy this Webservice to. If not specified the Workspace location will be used. More details on available regions can be found here: [ACI Regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
     | `authEnabled` | `auth_enabled` | Whether or not to enable auth for this Webservice. Defaults to False |
     | `sslEnabled` | `ssl_enabled` | Whether or not to enable SSL for this Webservice. Defaults to False. |
     | `appInsightsEnabled` | `enable_app_insights` | Whether or not to enable AppInsights for this Webservice. Defaults to False |
@@ -467,7 +467,7 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
     To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
 
     The entries in the `deploymentconfig.json` document map to the parameters for [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
