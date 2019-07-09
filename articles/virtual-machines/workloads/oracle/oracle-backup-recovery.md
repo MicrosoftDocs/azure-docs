@@ -4,7 +4,7 @@ description: Learn how to back up and recover an Oracle Database 12c database in
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 

@@ -222,6 +222,8 @@
         href: web-application-firewall-troubleshoot.md
       - name: Resource Health
         href: resource-health-overview.md
+      - name: Use Log Analytics
+        href: log-analytics.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference

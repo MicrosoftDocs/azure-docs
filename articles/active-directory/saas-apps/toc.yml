@@ -1428,6 +1428,8 @@
         href: dynamic-signal-provisioning-tutorial.md
       - name: Dialpad
         href: dialpad-provisioning-tutorial.md
+      - name: Figma
+        href: figma-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1454,6 +1456,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: Peakon
+        href: peakon-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
