@@ -112,11 +112,6 @@ You can do a few things to speed up your database migration using the service:
 * Use the multi CPU General Purpose Pricing Tier when you create your service instance to allow the service to take advantage of multiple vCPUs for parallelization and faster data transfer.
 * Temporarily scale up your Azure SQL Database target instance to the Premium tier SKU during the data migration operation to minimize Azure SQL Database throttling that may impact data transfer activities when using lower-level SKUs.
 
-## Product suggestions and questions
-
-**Q. Where can I submit product suggestions or ask additional questions about Azure Database Migration Service?**
-We want to hear from you. Send any product suggestions or ideas you have about Azure Database Migration Service via User Voice, [here](https://feedback.azure.com/forums/906100-azure-database-migration-service). You can also send questions to  the Database Migration Team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
-
 ## Next steps
 
 For an overview of the Azure Database Migration Service and regional availability, see the article [What is the Azure Database Migration Service](dms-overview.md).
