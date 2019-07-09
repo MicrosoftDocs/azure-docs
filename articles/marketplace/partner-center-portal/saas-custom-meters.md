@@ -276,7 +276,7 @@ sequenceDiagram
     participant ISV as ISV's SaaS service
     C->>Mktpl: Login to Microsoft storefront
     C->>+Mktpl: Change plan
-    Note right of Mktpl: Customer <br />unsubscribes in <br />Microsoft's storefront
+    Note right of Mktpl: Customer <br />unsubscribes in <br/> Microsoft's storefront
     Mktpl->>ISV: Notify ISV about unsubscribe
     Mktpl->>-C: Ack unsubscribe
     Note over Mktpl,C: Customer billing <br />stopped from <br />next billing cycle
