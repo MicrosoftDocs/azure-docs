@@ -235,7 +235,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 1. In the Azure Migrate project > **Servers** > **Azure Migrate: Server Migration**, click **Replicating servers**.
 
-    [Replicating servers](./media/tutorial-migrate-vmware/replicate-servers.png)
+    ![Replicating servers](./media/tutorial-migrate-vmware/replicate-servers.png)
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
