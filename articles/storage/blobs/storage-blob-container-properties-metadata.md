@@ -1,6 +1,6 @@
 ---
 title: Manage properties and metadata for a blob container with .NET - Azure Storage
-description: Learn how to set and retrieve system properties and store custom metadata on blob containers in Azure Storage using the .NET client library.
+description: Learn how to set and retrieve system properties and store custom metadata on blob containers in your Azure Storage account using the .NET client library.
 services: storage
 author: tamram
 
@@ -27,7 +27,7 @@ Retrieving property and metadata values for a Blob storage resource is a two-ste
 
 Metadata name/value pairs are valid HTTP headers, and so should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. Metadata values containing non-ASCII characters should be Base64-encoded or URL-encoded.
 
-## Retrieving container properties
+## Retrieve container properties
 
 To retrieve container properties, call one of the following methods:
 
@@ -59,7 +59,7 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 }
 ```
 
-## Setting and retrieving metadata
+## Set and retrieve metadata
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call one of the following methods to write the values:
 
