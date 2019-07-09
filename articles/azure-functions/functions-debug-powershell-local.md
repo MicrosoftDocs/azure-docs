@@ -95,7 +95,7 @@ To debug your PowerShell functions in Visual Studio Code, you must have the foll
 
 * [PowerShell extension for Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions extension for Visual Studio Code](functions-create-first-function-vs-code.md)
-* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell#powershell-core)
+* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](functions-create-first-function-powershell.md).
 

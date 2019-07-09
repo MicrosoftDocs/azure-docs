@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
 
@@ -103,7 +103,7 @@ You must complete specific configuration steps in the operating system for the v
         # logout
 14. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
-- - -
+---
 ## Oracle Linux 7.0+
 **Changes in Oracle Linux 7**
 

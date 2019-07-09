@@ -49,6 +49,33 @@
     - name: Steps to deploy
       displayName: standards, iso, 27001
       href: ./samples/iso27001-ase-sql-workload/deploy.md
+  - name: NIST SP 800-53 Rev 4
+    items:
+    - name: Control mapping
+      displayName: standards, nist, 800-53
+      href: ./samples/nist-sp-800-53-rev4/control-mapping.md
+  - name: PCI-DSS v3.2.1
+    items:
+    - name: Overview
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/index.md
+    - name: Control mapping
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, Payment Card Industry Data Security Standard
+      href: ./samples/pci-dss-3.2.1/deploy.md
+  - name: UK OFFICIAL and UK NHS
+    items:
+    - name: Overview
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/index.md
+    - name: Control mapping
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, uk official, uk nhs
+      href: ./samples/ukofficial/deploy.md
 - name: Concepts
   items:
   - name: Lifecycle of a blueprint

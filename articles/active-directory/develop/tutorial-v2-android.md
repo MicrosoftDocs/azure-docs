@@ -277,7 +277,7 @@ Now, we can implement the app's UI processing logic and getting tokens interacti
 
 MSAL exposes two primary methods for getting tokens: `acquireTokenSilentAsync` and `acquireToken`.  
 
-`acquireTokenSilentAsync` signs in a user and get tokens without any user interaction if an account is present. If it succeeds, MSAL will handoff the tokens to your app, if it fails it will generate a `MsalUiRequiredException`.  If this exception is generated or you want your user to have an interactive sign in experience (credentials, mfa, or other conditional access policies may or may not be required), then you can use `acquireToken`.  
+`acquireTokenSilentAsync` signs in a user and get tokens without any user interaction if an account is present. If it succeeds, MSAL will handoff the tokens to your app, if it fails it will generate a `MsalUiRequiredException`.  If this exception is generated or you want your user to have an interactive sign in experience (credentials, mfa, or other Conditional Access policies may or may not be required), then you can use `acquireToken`.  
 
 `acquireToken` will always show UI when attempting to sign in the user and get tokens; however, it might use session cookies in the browser or an account in the Microsoft authenticator to give an interactive-SSO experience. 
 
@@ -461,7 +461,7 @@ Once we have successfully gotten a token, we can make a request to the Microsoft
 
 | header key    | value                 |
 | ------------- | --------------------- |
-| Authorization | Bearer <access-token> |
+| Authorization | Bearer \<access-token> |
 
 To do so in code, add the following two methods to your app to call graph and update the UI: 
 

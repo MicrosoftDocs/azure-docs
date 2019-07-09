@@ -110,16 +110,18 @@ We encourage you to use the alerts map functionality built into Security Center:
 
 ## Custom alert rules (Preview)<a name="menu_customalerts"></a>
 
-We're [retiring the custom alerts experience](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) on June 30, 2019 because its underlying infrastructure is retiring. Until then, you can edit existing custom alert rules, but you aren't able to add new ones. We recommend that you enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) to automatically migrate your existing alerts and create new ones. Alternatively, you can create your alerts with Azure Monitor log alerts.
+We're [retiring the custom alerts experience](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) on June 30, 2019 because its underlying infrastructure is retiring. Until then, you can edit existing custom alert rules, but you aren't able to add new ones. Following retirement date, any custom alerts defined will not take effect and security alerts based on these rules will not be generated.
+We recommend that you enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) and re-create your custom alerts there. Alternatively, you can create your alerts with Azure Monitor log alerts.
 
-To keep your existing alerts and migrate them to Azure Sentinel:
+To keep your existing alerts and create them with Azure Sentinel:
 
-1. Open Azure Sentinel and select the workspace where your custom alerts are stored.
-1. Select **Analytics** from the menu to automatically migrate your alerts.
+1. [Open Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) and select the workspace where your custom alerts are stored
+1. Select **Analytics** from the menu
+1. Follow instructions in the following [tutorial](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) on how to create custom alerts in Azure Sentinel
+
+If you're not interested in using Azure Sentinel, you can create your alerts with Azure Monitor log alerts. For instructions, see [Create, view, and manage log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) and [Log alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ![Custom alerts][13]
-
-If you're not interested in transitioning to Azure Sentinel, we encourage you to create your alerts with Azure Monitor log alerts. For instructions, see [Create, view, and manage log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) and [Log alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 For more information on custom alerts retirement, see [Custom Alert Rules in Azure Security Center (Preview)](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
 

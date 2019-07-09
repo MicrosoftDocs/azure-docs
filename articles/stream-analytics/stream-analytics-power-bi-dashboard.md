@@ -7,10 +7,10 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.custom: seodec18
+ms.date: 06/11/2019
 ---
-# Tutorial: Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
+# Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
+
 Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, [Microsoft Power BI](https://powerbi.com/). In this article, you learn how create business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to create and use a real-time dashboard.
 
 This article continues from the Stream Analytics [real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial. It builds on the workflow created in that tutorial and adds a Power BI output so that you can visualize fraudulent phone calls that are detected by a Streaming Analytics job. 
@@ -32,41 +32,31 @@ In the real-time fraud detection tutorial, the output is sent to Azure Blob stor
 
 1. In the Azure portal, open the Streaming Analytics job that you created earlier. If you used the suggested name, the job is named `sa_frauddetection_job_demo`.
 
-2. Select the **Outputs** box in the middle of the job dashboard and then select **+ Add**.
+2. On the left menu, select **Outputs** under **Job topology**. Then, select **+ Add** and choose **Power BI** from the dropdown menu.
 
-3. For **Output Alias**, enter `CallStream-PowerBI`. You can use a different name. If you do, make a note of it, because you need the name later. 
+3. Select **+ Add** > **Power BI**. Then fill the form with the following details and select **Authorize**:
 
-4. Under **Sink**, select **Power BI**.
+   |**Setting**  |**Suggested value**  |
+   |---------|---------|
+   |Output alias  |  CallStream-PowerBI  |
+   |Dataset name  |   sa-dataset  |
+   |Table name |  fraudulent-calls  |
 
-   ![Create an output for Power BI](./media/stream-analytics-power-bi-dashboard/create-power-bi-ouptut.png)
+   ![Configure Stream Analytics output](media/stream-analytics-power-bi-dashboard/configure-stream-analytics-output.png)
 
-5. Click **Authorize**.
+   > [!WARNING]
+   > If Power BI has a dataset and table that have the same names as the ones that you specify in the Stream Analytics job, the existing ones are overwritten.
+   > We recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn't return any results, the dataset and table are not  created.
+   >
 
-    A window opens where you can provide your Azure credentials for a work or school account. 
-
-    ![Enter credentials for access to Power BI](./media/stream-analytics-power-bi-dashboard/power-bi-authorization-credentials.png)
-
-6. Enter your credentials. Be aware then when you enter your credentials, you're also giving permission to the Streaming Analytics job to access your Power BI area.
-
-7. When you're returned to the **New output** blade, enter the following information:
-
-   * **Group Workspace**: Select a workspace in your Power BI tenant where you want to create the dataset.
-   * **Dataset Name**:  Enter `sa-dataset`. You can use a different name. If you do, make a note of it for later.
-   * **Table Name**: Enter `fraudulent-calls`. Currently, Power BI output from Stream Analytics jobs can have only one table in a dataset.
-
-     ![Power BI workspace dataset and table](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
-
-     > [!WARNING]
-     > If Power BI has a dataset and table that have the same names as the ones that you specify in the Stream Analytics job, the existing ones are overwritten.
-     > We recommend that you do not explicitly create this dataset and table in your Power BI account. They are automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn't return any results, the dataset and table are not  created.
-     >
+4. When you select **Authorize**, a pop-up window opens and you are asked to provide credentials to authenticate to your Power BI account. Once the authorization is successful, **Save** the settings.
 
 8. Click **Create**.
 
 The dataset is created with the following settings:
 
-* **defaultRetentionPolicy: BasicFIFO**: Data is FIFO, with a maximum of 200,000 rows.
-* **defaultMode: pushStreaming**: The dataset supports both streaming tiles and traditional report-based visuals (a.k.a. push).
+* **defaultRetentionPolicy: BasicFIFO** - Data is FIFO, with a maximum of 200,000 rows.
+* **defaultMode: pushStreaming** - The dataset supports both streaming tiles and traditional report-based visuals (also known as push).
 
 Currently, you can't create datasets with other flags.
 
@@ -84,54 +74,52 @@ For more information about Power BI datasets, see the [Power BI REST API](https:
     >[!NOTE]
     >If you did not name the input `CallStream` in the fraud-detection tutorial, substitute your name for `CallStream` in the **FROM** and **JOIN** clauses in the query.
 
-        ```SQL
-        /* Our criteria for fraud:
-        Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
+   ```SQL
+   /* Our criteria for fraud:
+   Calls made from the same caller to two phone switches in different locations (for example, Australia and Europe) within five seconds */
 
-        SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
-        INTO "CallStream-PowerBI"
-        FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
-        JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
+   SELECT System.Timestamp AS WindowEnd, COUNT(*) AS FraudulentCalls
+   INTO "CallStream-PowerBI"
+   FROM "CallStream" CS1 TIMESTAMP BY CallRecTime
+   JOIN "CallStream" CS2 TIMESTAMP BY CallRecTime
 
-        /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
-        ON CS1.CallingIMSI = CS2.CallingIMSI
+   /* Where the caller is the same, as indicated by IMSI (International Mobile Subscriber Identity) */
+   ON CS1.CallingIMSI = CS2.CallingIMSI
 
-        /* ...and date between CS1 and CS2 is between one and five seconds */
-        AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
+   /* ...and date between CS1 and CS2 is between one and five seconds */
+   AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
 
-        /* Where the switch location is different */
-        WHERE CS1.SwitchNum != CS2.SwitchNum
-        GROUP BY TumblingWindow(Duration(second, 1))
-        ```
+   /* Where the switch location is different */
+   WHERE CS1.SwitchNum != CS2.SwitchNum
+   GROUP BY TumblingWindow(Duration(second, 1))
+   ```
 
 4. Click **Save**.
 
 
 ## Test the query
+
 This section is optional, but recommended. 
 
 1. If the TelcoStreaming app is not currently running, start it by following these steps:
 
-    * Open a command window.
+    * Open Command Prompt.
     * Go to the folder where the telcogenerator.exe and modified telcodatagen.exe.config files are.
     * Run the following command:
 
        `telcodatagen.exe 1000 .2 2`
 
-2. In the **Query** blade, click the dots next to the `CallStream` input and then select **Sample data from input**.
+2. On the **Query** page for your Stream Analytics job, click the dots next to the `CallStream` input and then select **Sample data from input**.
 
 3. Specify that you want three minutes' worth of data and click **OK**. Wait until you're notified that the data has been sampled.
 
-4. Click **Test** and make sure you're getting results.
-
+4. Click **Test** and review the results.
 
 ## Run the job
 
-1. Make sure that the TelcoStreaming app is running.
+1. Make sure the TelcoStreaming app is running.
 
-2. Close the **Query** blade.
-
-3. In the job blade, click **Start**.
+2. Navigate to the **Overview** page for your Stream Analytics job and select **Start**.
 
     ![Start the Stream Analytics job](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -248,5 +236,5 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

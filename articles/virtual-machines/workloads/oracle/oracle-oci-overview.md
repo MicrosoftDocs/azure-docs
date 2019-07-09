@@ -4,7 +4,7 @@ description: Learn about solutions that integrate Oracle apps running on Microso
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: 
 
 ms.assetid: 
@@ -40,7 +40,7 @@ Applications you can run in a cross-cloud configuration include:
 * Oracle Retail applications
 * Oracle Hyperion Financial Management
 
-The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. Depending on the application architecutre, your solution could include additional tiers such as a web tier in Azure. For more information, see the following sections.
+The following diagram is a high-level overview of the connected solution. For simplicity, the diagram shows only an application tier and a data tier. Depending on the application architecture, your solution could include additional tiers such as a web tier in Azure. For more information, see the following sections.
 
 ![Azure OCI solution overview](media/oracle-oci-overview/crosscloud.png)
 
@@ -69,5 +69,7 @@ Identity is one of the core pillars of the partnership between Microsoft and Ora
 Currently, this integration allows you to manage in one central location, which is Azure Active Directory. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
 ## Next steps
+
+Get started with a [cross-cloud network](configure-azure-oci-networking.md) between Azure and OCI. 
 
 For more information and whitepapers about OCI, see the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation.

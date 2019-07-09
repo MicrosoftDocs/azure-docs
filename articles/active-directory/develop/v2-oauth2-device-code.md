@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/20/2019
+ms.date: 06/12/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -27,9 +27,11 @@ ms.collection: M365-identity-device-management
 The Microsoft identity platform supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
 
 > [!IMPORTANT]
-> At this time, the Microsoft identity platform endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use an endpoint set up as a tenant, or the `organizations` endpoint.  
+> At this time, the Microsoft identity platform endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use an endpoint set up as a tenant, or the `organizations` endpoint.  This support will be enabled soon. 
 >
 > Personal accounts that are invited to an Azure AD tenant will be able to use the device flow grant, but only in the context of the tenant.
+>
+> As an additional note, the `verification_uri_complete` response field is not included or supported at this time.  
 
 > [!NOTE]
 > The Microsoft identity platform endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
@@ -46,7 +48,7 @@ The client must first check with the authentication server for a device and user
 
 > [!TIP]
 > Try executing this request in Postman!
-> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -74,7 +76,6 @@ A successful response will be a JSON object containing the required information 
 |`device_code`     | String | A long string used to verify the session between the client and the authorization server. The client uses this parameter to request the access token from the authorization server. |
 |`user_code`       | String | A short string shown to the user that's used to identify the session on a secondary device.|
 |`verification_uri`| URI | The URI the user should go to with the `user_code` in order to sign in. |
-|`verification_uri_complete`| URI | A URI that combines the `user_code` and the `verification_uri`, used for non-textual transmission to the user (for example, via Bluetooth to a device, or through a QR code).  |
 |`expires_in`      | int | The number of seconds before the `device_code` and `user_code` expire. |
 |`interval`        | int | The number of seconds the client should wait between polling requests. |
 | `message`        | String | A human-readable string with instructions for the user. This can be localized by including a **query parameter** in the request of the form `?mkt=xx-XX`, filling in the appropriate language culture code. |

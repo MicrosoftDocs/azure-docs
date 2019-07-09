@@ -670,14 +670,14 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |d2c.endpoints.latency.serviceBusQueues|Routing: message latency for Service Bus Queue|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus queue endpoint.|No Dimensions|
 |d2c.endpoints.egress.serviceBusTopics|Routing: messages delivered to Service Bus Topic|Count|Total|The number of times IoT Hub routing successfully delivered messages to Service Bus topic endpoints.|No Dimensions|
 |d2c.endpoints.latency.serviceBusTopics|Routing: message latency for Service Bus Topic|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a Service Bus topic endpoint.|No Dimensions|
-|d2c.endpoints.egress.builtIn.events|Routing: messages delivered to messages/events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events).|No Dimensions|
-|d2c.endpoints.latency.builtIn.events|Routing: message latency for messages/events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into the built-in endpoint (messages/events).|No Dimensions|
+|d2c.endpoints.egress.builtIn.events|Routing: messages delivered to messages/events|Count|Total|The number of times IoT Hub routing successfully delivered messages to the built-in endpoint (messages/events). This metric only starts working when routing is enabled (https://aka.ms/iotrouting) for the IoT hub.|No Dimensions|
+|d2c.endpoints.latency.builtIn.events|Routing: message latency for messages/events|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into the built-in endpoint (messages/events). This metric only starts working when routing is enabled (https://aka.ms/iotrouting) for the IoT hub.|No Dimensions|
 |d2c.endpoints.egress.storage|Routing: messages delivered to storage|Count|Total|The number of times IoT Hub routing successfully delivered messages to storage endpoints.|No Dimensions|
 |d2c.endpoints.latency.storage|Routing: message latency for storage|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and telemetry message ingress into a storage endpoint.|No Dimensions|
 |d2c.endpoints.egress.storage.bytes|Routing: data delivered to storage|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|No Dimensions|
 |d2c.endpoints.egress.storage.blobs|Routing: blobs delivered to storage|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|No Dimensions|
-|EventGridDeliveries|Event Grid deliveries (preview)|Count|Total|The number of requests for IoT Hub to emit events to Event Grid. This number includes successful and failed requests. Use the Result dimension for the number of different type of response. To see the where the requests come from, use the EventType dimension.|Result, EventType|
-|EventGridLatency|Event Grid latency (preview)|Milliseconds|Average|The average latency (milliseconds) between event ingress to IoT Hub and event ingress into Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType|
+|EventGridDeliveries|Event Grid deliveries (preview)|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result, EventType|
+|EventGridLatency|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType|
 |d2c.twin.read.success|Successful twin reads from devices|Count|Total|The count of all successful device-initiated twin reads.|No Dimensions|
 |d2c.twin.read.failure|Failed twin reads from devices|Count|Total|The count of all failed device-initiated twin reads.|No Dimensions|
 |d2c.twin.read.size|Response size of twin reads from devices|Bytes|Average|The average, min, and max of all successful device-initiated twin reads.|No Dimensions|
@@ -902,15 +902,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Cache Utilization|Percent|Average|Utilization level in the cluster scope|No Dimensions|
-|QueryDuration|Query Duration|Milliseconds|Average|Queries’ duration in seconds|QueryStatus|
-|IngestionsLoadFactor|Ingestion Utilization|Percent|Average|Ratio of used ingestion slots in the cluster|No Dimensions|
-|IsEngineAnsweringQuery|Keep Alive|Count|Average|Sanity check indicates the cluster responds to queries|No Dimensions|
-|IngestCommandOriginalSizeInMb|Ingestion Volume (In MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|No Dimensions|
-|IngestedEventAgeSeconds|Ingestion Latency (In seconds)|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|No Dimensions|
-|EventRecievedFromEventHub|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|No Dimensions|
-|IngestionResult|Ingestion Result|Count|Count|Number of ingestion operations|IngestionResultDetails|
-|EngineCPU|CPU|Percent|Average|CPU utilization level|No Dimensions|
+|CacheUtilization|Cache Utilization|Percent|Average|Utilization level in the cluster scope|None|
+|QueryDuration|Query Duration|Milliseconds|Average|Queries’ duration in seconds|Query Status|
+|IngestionUtilization|Ingestion Utilization|Percent|Average|Ratio of used ingestion slots in the cluster|None|
+|KeepAlive|Keep Alive|Count|Average|Sanity check indicates the cluster responds to queries|None|
+|IngestionVolumeInMB|Ingestion Volume (In MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|Database|
+|IngestionLatencyInSeconds|Ingestion Latency (In seconds)|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|None|
+|EventProcessedForEventHubs|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|None|
+|IngestionResult|Ingestion Result|Count|Count|Number of ingestion operations|Status|
+|CPU|CPU|Percent|Average|CPU utilization level|None|
+| ContinuousExportNumOfRecordsExported | Number of records exported in continuous export | Count | Total | Number of records exported for every storage artifact written during the export operation  | None |
+| ExportUtilization | Export Utilization | Percent | Maximum | Export utilization | None |
+| ContinuousExportPendingCount | Continuous Export Pending Count | Count | Maximum | The number of pending continuous export jobs ready for execution | None |
+| ContinuousExportMaxLatenessMinutes | Continuous Export Max Lateness Minutes | Count | Maximum | The max time in minutes of all continuous exports which are pending and ready for execution | None |
 
 ## Microsoft.LocationBasedServices/accounts
 
