@@ -29,7 +29,9 @@ ms.collection: M365-identity-device-management
 
 Devices that you will be piloting with must be running Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
 
-## Enable security keys for Windows sign-in
+## Enable security keys for Windows sign in
+
+Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign in.
 
 ### Enable credential provider via Intune
 
@@ -37,7 +39,7 @@ Devices that you will be piloting with must be running Windows 10 version 1809 o
 1. Browse to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**.
 1. Under **Settings** set **Use security keys for sign-in** to **Enabled**.
 
-Configuration of security keys for sign-in is not dependent on configuring Windows Hello for Business.
+Configuration of security keys for sign in, is not dependent on configuring Windows Hello for Business.
 
 #### Enable targeted Intune deployment
 
@@ -178,15 +180,15 @@ We are working on supporting a feature that allows UPN change on hybrid AADJ and
 
 #### AD FS Integration
 
-When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign-in verification without the user taking an additional step to click “Use your password instead.” This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. The exception to this process is if a login_hint is specified, a user will be autoforwarded to AD FS, and bypass the option to use the passwordless credential.
+When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign in verification without the user taking an additional step to click “Use your password instead.” This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. The exception to this process is if a login_hint is specified, a user will be autoforwarded to AD FS, and bypass the option to use the passwordless credential.
 
 #### Azure MFA server
 
-End users who are enabled for MFA through an organization’s on-premises Azure MFA server can still create and use a single passwordless phone sign-in credential. If the user attempts to upgrade multiple installations (5+) of the Microsoft Authenticator with the credential, this change may result in an error.  
+End users who are enabled for MFA through an organization’s on-premises Azure MFA server can still create and use a single passwordless phone sign in credential. If the user attempts to upgrade multiple installations (5+) of the Microsoft Authenticator with the credential, this change may result in an error.  
 
 #### Device Registration
 
-One of the prerequisites to create this new, strong credential, is that the device where it resides is registered within the Azure AD tenant, to an individual user. Due to device registration restrictions, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
+One of the prerequisites to create this new, strong credential, is that the device where it resides is registered within the Azure AD tenant, to an individual user. Due to device registration restrictions, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign in.
 
 ## Next steps
 
