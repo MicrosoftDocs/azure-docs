@@ -4,7 +4,7 @@ description: High-availability guide for SAP NetWeaver on SUSE Linux Enterprise 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
