@@ -142,7 +142,7 @@ sections:
         values:
           - href: 
           - href: 
-          - href: https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa
+          - href: /azure/sql-database/scripts/sql-managed-instance-restore-geo-backup.md
           - href: 
       - title: Set public IP endpoint
         values:
