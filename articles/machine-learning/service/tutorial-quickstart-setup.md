@@ -120,7 +120,7 @@ Use these instructions to install and use the SDK from your local computer. Befo
 1. In the activated conda environment, install the core components of the Machine Learning SDK with Jupyter notebook capabilities. The installation takes a few minutes to finish based on the configuration of your machine.
 
     ```shell
-    pip install --upgrade azureml-sdk[notebooks]
+    pip install --upgrade azureml-sdk[notebooks] scikit-learn
     ```
 
 1. To use this environment for other Azure Machine Learning tutorials, install these packages. Skip this step if you only intend on running this quickstart tutorial series.
