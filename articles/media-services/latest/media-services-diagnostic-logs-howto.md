@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 07/08/2019
 ms.author: juliako
 
 ---
@@ -27,6 +27,28 @@ This article shows you how to rout data to the storage account and then view the
 
 - [Create a Media Services account](create-account-cli-how-to.md)
 - Review  [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
+
+## Route data to the storage account using portal
+
+1. Log in to the Azure portal at https://portal.azure.com.
+1. Navigate to your Media Services account in and click **Diagnostic Settings** under **Monitor**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. 
+
+    ![Diagnostic settings section](media/media-services-diagnostic-logs/logs01.png)
+
+1. Click **Add diagnostic setting**.
+
+   A resource diagnostic setting is a definition of *what* monitoring data should be routed from a particular resource and *where* that monitoring data should go.
+
+1. In the section that appears, give your setting a **name** and check the box for **Archive to a storage account**.
+
+    Select the storage account to which you want to send logs and press **OK**.
+1. Check all the boxes under **Log** and **Metric**. Depending on the resource type, you may only have one of these options. These checkboxes control what categories of log and metric data available for that resource type are sent to the destination you've selected, in this case, a storage account.
+
+   ![Diagnostic settings section](media/media-services-diagnostic-logs/logs02.png)
+1. Set the **Retention (days)** slider to 30. This slider sets a number of days to retain the monitoring data in the storage account. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
+1. Click **Save**.
+
+Monitoring data from your resource is now flowing into the storage account.
 
 ## Route data to the storage account using CLI
 
@@ -57,28 +79,6 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --resource-group "amsv3ResourceGroup" \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
-
-## Route data to the storage account using portal
-
-1. Log in to the Azure portal at https://portal.azure.com.
-1. Navigate to your Media Services account in and click **Diagnostic Settings** under **Monitor**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. 
-
-    ![Diagnostic settings section](media/media-services-diagnostic-logs/logs01.png)
-
-1. Click **Add diagnostic setting**.
-
-   A resource diagnostic setting is a definition of *what* monitoring data should be routed from a particular resource and *where* that monitoring data should go.
-
-1. In the section that appears, give your setting a **name** and check the box for **Archive to a storage account**.
-
-    Select the storage account to which you want to send logs and press **OK**.
-1. Check all the boxes under **Log** and **Metric**. Depending on the resource type, you may only have one of these options. These checkboxes control what categories of log and metric data available for that resource type are sent to the destination you've selected, in this case, a storage account.
-
-   ![Diagnostic settings section](media/media-services-diagnostic-logs/logs02.png)
-1. Set the **Retention (days)** slider to 30. This slider sets a number of days to retain the monitoring data in the storage account. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
-1. Click **Save**.
-
-Monitoring data from your resource is now flowing into the storage account.
 
 ## View data in the storage account using portal
 
