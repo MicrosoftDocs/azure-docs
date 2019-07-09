@@ -65,7 +65,7 @@ Follow these steps to configure the storage account for a Recovery Services vaul
       ![View diagnostic setting step 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> After you configure reports by saving the storage account, *wait for 24 hours* for the initial data push to finish. Import the Azure Backup App in Power BI only after that time. For more information, see the [FAQ section](backup-azure-monitor-alert.md).
+> After you configure reports by saving the storage account, *wait for 24 hours* for the initial data push to finish. Import the Azure Backup App in Power BI only after that time. For more information, see the [FAQ section](backup-azure-monitor-alert-faq.md).
 >
 >
 
