@@ -50,7 +50,7 @@ The Azure AD resource ID indicates the audience for which the token can be used 
 
 |Resource ID  |Description  |
 |---------|---------|
-|`https://<storage-account>.blob.core.windows.net`    | The root URI of a storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account only. Replace the value in brackets with the name of your storage account.      |
+|`https://<account>.blob.core.windows.net`    | The root URI of a storage account. Use this value to acquire a token for authorizing requests to that specific Azure Storage account only. Replace the value in brackets with the name of your storage account.      |
 |`https://storage.azure.com/`     | Use to acquire a token for authorizing requests to any Azure Storage account.        |
 
 ### Install packages
