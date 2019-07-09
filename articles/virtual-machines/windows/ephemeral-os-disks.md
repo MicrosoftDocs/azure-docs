@@ -3,7 +3,7 @@ title: Ephemeral OS disks for Azure Windows Virtual Machines | Microsoft Docs
 description: Learn more about ephemeral OS disks for Azure VMs.
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services

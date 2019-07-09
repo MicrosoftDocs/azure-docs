@@ -4,7 +4,7 @@ description: Common PowerShell commands to get you started creating and managing
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
