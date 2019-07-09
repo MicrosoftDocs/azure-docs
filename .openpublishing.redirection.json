@@ -2831,6 +2831,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/key-vault/key-vault-versions.md",
+      "redirect_url": "/azure/key-vault",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
       "redirect_document_id": true
