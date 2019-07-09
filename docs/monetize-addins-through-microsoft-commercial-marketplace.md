@@ -12,8 +12,6 @@ We’re making it easier for customers to discover bundled solutions and deploy 
 You can submit a single software-as-a-service (SaaS) application with connected add-ins, apps, and extensions and reach Microsoft customers through AppSource, in addition to selling your service through partners and through the Microsoft sales team. 
 
 Monetize your add-in by using Partner Center to submit your service for purchase as a SaaS offer; for example, you can offer your service for a set price per user per month. For your customers, your add-in will be free to download, but will require a license to your service.
-  
-We’re offering a 1:1 migration service to help you create your new SaaS offering and any additional licensing mechanisms, and guide you through the process of tying your add-in to the SaaS offering.  Alternatively, you can also choose to use your own billing and licensing mechanism.  
 
 In this monetization model, your add-in is authenticated by your SaaS offering, which verifies its subscription status with the Microsoft SaaS service. Your responses from this service are used to update your user database. The following diagram shows this model.
 
