@@ -146,13 +146,23 @@ This error means that Cost Management is unable to call the AWS AssumeRole API. 
 - The **Require MFA** choice is cleared.
 - The trusted AWS account in the AWS Role is _432263259397_.
 
-### Collection failed with Access Denied
+### Collection failed with Access Denied - CUR Report definitions
 
-- **Error code:** _AccessDeniedReportDefinitions_ 
-- **Error code:** _AccessDeniedListReports_ 
-- **Error code:** _AccessDeniedDownloadReport_ 
+**Error code:** _AccessDeniedReportDefinitions_ 
 
-This error messages means that Cost Management is unable to access the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
+This error messages means that Cost Management is unable to see the Cost and Usage Report definitions, we use this permission to validate that the CUR is defined as expected by Azyre Cost Management, see [Create a Cost and Usage report in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
+
+### Collection failed with Access Denied - List reports
+
+**Error code:** _AccessDeniedListReports_ 
+
+This error messages means that Cost Management is unable to list the object in the S3 bucket where the CUR is located, please note in the AWS IAM policy we reuqire a permission on the bucket and on the objects in the bucket, see [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws)
+
+### Collection failed with Access Denied - Download report 
+
+**Error code:** _AccessDeniedDownloadReport_ 
+
+This error messages means that Cost Management is unable to access and download the CUR files stored in the Amazon S3 bucket. Make sure that the AWS JSON policy attached to the role resembles the example shown at the bottom of the [Create a role and policy in AWS](aws-integration-set-up-configure.md#create-a-role-and-policy-in-aws) section.
 
 ### Collection failed since we did not find the Cost and Usage Report
 
