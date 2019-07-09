@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Use MLflow with Azure Machine Learning service (Preview)
 
-This article demonstrates how to use MLflow's tracking URI and logging API, collectively also known as MLflow Tracking, with Azure Machine Learning service to track and log your experiment metrics and artifacts in your [Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store your training metrics and models.
+This article demonstrates how to use MLflow's tracking URI and logging API, collectively also known as MLflow Tracking, with Azure Machine Learning service to track and log your experiment metrics and artifacts in your [Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store your training metrics and models.
 
 [MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. [MLFlow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is a component of MLflow that logs and tracks your training run metrics and model artifacts, whether your experiments are run locally, on a virtual machine, or on a remote compute cluster.
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram.png)

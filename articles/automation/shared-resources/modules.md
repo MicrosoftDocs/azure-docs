@@ -3,7 +3,6 @@ title: Manage Modules in Azure Automation
 description: This article describes how to manage modules in Azure Automation
 services: automation
 ms.service: automation
-ms.subservice: shared-resources
 author: bobbytreed
 ms.author: robreed
 ms.date: 06/05/2019
