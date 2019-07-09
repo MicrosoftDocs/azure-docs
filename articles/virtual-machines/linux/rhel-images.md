@@ -4,7 +4,7 @@ description: Learn about Red Hat Enterprise Linux images in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: BorisB2015
-manager: gwallace
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
