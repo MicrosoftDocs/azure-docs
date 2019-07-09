@@ -32,7 +32,7 @@ If you're an Enterprise Agreement(EA) customer, your enterprise administrators c
 
 1. Select **Subscriptions** from the left-hand pane. Depending on your access, you may need to select a billing scope and then select **Subscriptions** or **Azure subscriptions**.
 
-1. Select **Transfer to other account** for the subscription that you want to transfer. 
+1. Select **Transfer billing ownership** for the subscription that you want to transfer. 
 
    ![Select subscription to transfer](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 

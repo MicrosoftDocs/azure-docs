@@ -288,13 +288,13 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
   - SQL Server Analysis Services aren't supported.
 - Notifications are partially supported.
 - Email notification is supported, although it requires that you configure a Database Mail profile. SQL Server Agent can use only one Database Mail profile, and it must be called `AzureManagedInstance_dbmail_profile`. 
-  - Pager isn't supported. 
+  - Pager isn't supported.
   - NetSend isn't supported.
   - Alerts aren't yet supported.
-  - Proxies aren't supported. 
+  - Proxies aren't supported.
 - EventLog isn't supported.
 
-The following features currently aren't supported but will be enabled in the future:
+The following SQL Agent features currently aren't supported:
 
 - Proxies
 - Scheduling jobs on an idle CPU
@@ -393,7 +393,14 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 
 ### Replication
 
-Replication is available for public preview for Managed Instance. For information about replication, see [SQL Server replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replication is available for public preview for Managed Instance with some constraints:
+- Publisher, Distributor, Pull Subscriber, and Push Subscriber can be placed on Managed Instance.
+- Transactional, Snapshot, and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication and updateable subscriptions are not supported.
+- Published and Distributor must be on the same instance.
+- Managed Instance can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
+
+For information about replication, see [SQL Server replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### RESTORE statement 
 
@@ -585,6 +592,7 @@ You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encr
 ### Point-in-time restore follows time by the time zone set on the source instance
 
 Point-in-time restore currently interprets time to restore to by following time zone of the source instance instead by following UTC.
+Check [Managed Instance time zone known issues](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) for more details.
 
 ## Next steps
 
