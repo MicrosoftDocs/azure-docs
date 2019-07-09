@@ -4,7 +4,7 @@ description: Utilize Azure infrastructure VM restart to achieve “higher availa
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
