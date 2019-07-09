@@ -112,7 +112,7 @@ Before you can use the digital certificate with your Azure AD DS managed domain,
     ![Export certificate in the Microsoft Management Console](./media/tutorial-configure-ldaps/export-cert.png)
 
 1. In the **Certificate Export Wizard**, select **Next**.
-1. The private key for with the certificate must exported. If the *.PFX* file that doesn't contain the private key for the certificate, the action to enable secure LDAP for your managed domain fails.
+1. The private key for with the certificate must be exported. If the *.PFX* file that doesn't contain the private key for the certificate, the action to enable secure LDAP for your managed domain fails.
 
     On the **Export Private Key** page, choose **Yes, export the private key**, then select **Next**.
 1. Azure AD DS managed domains only support the *.PFX* file format. Don't export the certificate as *.CER* file format.
@@ -153,7 +153,7 @@ It takes a few minutes to enable secure LDAP for your managed domain. If the sec
 
 ## Lock down secure LDAP access to your managed domain over the internet
 
-When you enable secure LDAP access over the internet to your Azure AD DS managed domain, it creates a security threat. The managed domain is reachable from the internet on TCP port 636. It's recommend to restrict access to the managed domain to specific known IP addresses for your environment. An Azure network security group rule can be used to limit access to secure LDAP.
+When you enable secure LDAP access over the internet to your Azure AD DS managed domain, it creates a security threat. The managed domain is reachable from the internet on TCP port 636. It's recommended to restrict access to the managed domain to specific known IP addresses for your environment. An Azure network security group rule can be used to limit access to secure LDAP.
 
 Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a specified set of IP addresses. A default *DenyAll* rule with a lower priority applies to all other inbound traffic from the internet, so only the specified addresses can reach your Azure AD DS managed domain using secure LDAP.
 
