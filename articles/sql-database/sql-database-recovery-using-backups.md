@@ -71,7 +71,7 @@ You generally restore a database to an earlier point for recovery purposes. You 
 
 - **Database replacement**
 
-  If the restored database is intended as a replacement for the original database, you should specify the orinal database's compute size and service tier. You can then rename the original database and give the restored database the original name using the [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) command in T-SQL.
+  If the restored database is intended as a replacement for the original database, you should specify the original database's compute size and service tier. You can then rename the original database and give the restored database the original name using the [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) command in T-SQL.
 
 - **Data recovery**
 
