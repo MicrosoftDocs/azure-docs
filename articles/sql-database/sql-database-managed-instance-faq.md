@@ -86,7 +86,7 @@ Storage size for managed instance depends the selected service tier (General Pur
 
 ## Is the backup storage deducted from my managed instance storage? 
 
-No, backup storage is not deducted from your managed instance storage space. The backup storage is independent from the instance storage space and is not limited in size. Backup storage is limited by the time to retain the backup of your instance databases, configurable from 7 to 35 days. For details, see [Automated backups](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automated-backups).
+No, backup storage is not deducted from your managed instance storage space. The backup storage is independent from the instance storage space and is not limited in size. Backup storage is limited by the time to retain the backup of your instance databases, configurable from 7 to 35 days. For details, see [Automated backups](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
   
 ## How can I set inbound NSG rules on management ports?
 
@@ -133,8 +133,8 @@ Currently, we don't provide a feature to refresh DNS server configuration for ma
 
 DNS configuration is eventually refreshed:
 
-- when DHCP lease expires.
-- on platform upgrade.
+- When DHCP lease expires.
+- On platform upgrade.
 
 As a workaround, downgrade the managed instance to 4 vCore and upgrade it again afterward. This has a side effect of refreshing the DNS configuration.
 
@@ -157,7 +157,7 @@ Workarounds include creating a new managed instance with the proper time zone an
 
 For a performance comparison between managed instance and SQL Server, a good starting point is [best practices for performance comparison between Azure SQL managed instance and SQL Server ](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
 
-Data loads are often slower on managed instance than in SQL Server due to mandatory full recovery model and [limits](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) on transaction log write throughput. Sometimes, this can be worked around by loading transient data into tempdb instead of user database, or using clustered columnstore, or memory-optimized tables.
+Data loads are often slower on managed instance than in SQL Server due to mandatory full recovery model and [limits](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics) on transaction log write throughput. Sometimes, this can be worked around by loading transient data into tempdb instead of user database, or using clustered columnstore, or memory-optimized tables.
 
 
 ## Can I restore my encrypted database to managed instance?
