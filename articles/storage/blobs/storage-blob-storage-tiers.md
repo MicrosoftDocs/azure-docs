@@ -71,7 +71,7 @@ Example usage scenarios for the archive access tier include:
 
 ### Blob rehydration
 
-[!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
+[!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
 
 For more information regarding blob rehydration, see [Rehydrating and reading object data from Archive](storage-blob-rehydration.md).
 
