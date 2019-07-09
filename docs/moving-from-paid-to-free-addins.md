@@ -9,7 +9,7 @@ localization_priority: Priority
 
 The licensing framework for Office and SharePoint Add-ins is in the process of being retired. For more information about the licensing framework, see [License your add-ins](license-your-add-ins.md).
 
-**Starting July 22, 2019, we will no longer accept new paid add-ins to AppSource**. Existing paid add-ins in AppSource will be purchasable until July 2020. They will then be removed both for existing users and removed from the Store.  You will be able to change paid add-ins pricing models, including transitioning them to free add-ins, via the Seller Dashboard until July 2020.  
+Starting July 29th 2019, we will no longer accept new paid add-ins to AppSource. Existing paid add-ins in AppSource (that do not move to an alternate SaaS/billing model) will be purchasable until January 2020. They will then be hidden from AppSource, but still be available for existing users. If these add-ins have not been migrated by July 2020, they will be removed both for existing users and removed from AppSource. You will be able to change paid add-ins pricing models – including transitioning them to free add-ins - via Seller Dashboard until July 2020.
 
 After the move from paid to free, the add-in will still be sent licensing tokens containing the information about the user’s license, and those tokens will still need to be parsed. 
 
