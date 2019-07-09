@@ -322,7 +322,8 @@ The command prompt appears next.
 
 ![][16]
 
-Once the deployment is complete, you should be able to connect to the web service over port 80, because you opened the port when you provisioned the virtual machine with the Knife Azure command. 
+Once the deployment is complete, the public IP address of the new virtual machine will be displayed on the completion of the deployment, you can copy this and paste it into a web browser and view the website that you deployed. When we deployed the virtual machine we opened port 80 so it should be available externally.   
+
 ![][11]
 
 This example uses creative HTML code.
