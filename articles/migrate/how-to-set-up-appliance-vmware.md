@@ -24,9 +24,9 @@ The VMware VM appliance is a lightweight appliance used by Azure Migrate Server 
 ## Appliance deployment steps
 
 To set up the appliance you:
-    - Download an OVA template file, and import it to vCenter Server.
-    - Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
-    - Configure the appliance for the first time, and register it with the Azure Migrate project.
+- Download an OVA template file, and import it to vCenter Server.
+- Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
+- Configure the appliance for the first time, and register it with the Azure Migrate project.
 
 ## Download the OVA template
 
@@ -114,7 +114,7 @@ Now, connect from the appliance to vCenter Server, and start VM discovery.
 4. After the connection is established, click **Save and start discovery**.
 
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the portal. T
+This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the portal. 
 
 
 ## Next steps
