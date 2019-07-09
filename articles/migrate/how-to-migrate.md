@@ -11,7 +11,7 @@ ms.author: raynew
 
 
 
-# Add igration tools
+# Add migration tools
 
 This article describes how to add migration tools in [Azure Migrate](migrate-overview.md).
 
