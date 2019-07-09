@@ -170,7 +170,7 @@ If you did not configure DHCP to dynamically assign an IP address to the guest v
 
 2. Right-click the guest virtual machine and click Connect.
 
-3. Log on to the guest virtual machine.
+3. Sign in to the guest virtual machine.
 
 4. On the guest virtual machine, open the Network and Sharing Center.
 
