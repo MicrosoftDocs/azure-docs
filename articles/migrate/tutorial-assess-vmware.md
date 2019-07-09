@@ -56,20 +56,13 @@ Set up a new Azure Migrate project as follows.
 
 4. In **Getting started**, click **Add tools**.
 5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-role-assignment-permissions).
-6. In **Project Details**, specify the project name, and the region in which you want to create the project. 
+6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, and the United States are supported.
+
+    - The project geography is used only to store the metadata gathered from on-premises VMs.
+    - You can select any target region when you run a migration.
 
     ![Create an Azure Migrate project](./media/tutorial-assess-vmware/migrate-project.png)
-
-    You can create an Azure Migrate project in these regions.
-
-    **Geography** | **Region**
-    --- | ---
-    Asia | Southeast Asia
-    Europe | North Europe or West Europe
-    United States | East US or West Central US
-
-    - The project region is used only to store the metadata gathered from on-premises VMs.
-    - You can select any target region when you run a migration.
+    
 
 7. Click **Next**.
 8. In **Select assessment tool**, select **Azure Migrate: Server Assessment** > **Next**.

@@ -65,6 +65,8 @@
     href: how-to-assess.md
   - name: Add migration tools
     href: how-to-migrate.md
+  - name: Deploy an Azure Migrate appliance for VMware
+    href: how-to-set-up-appliance-vmware.md
   - name: Scale assessment and migration
     items:
     - name: Assess large numbers of VMware VMs
