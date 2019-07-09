@@ -11,7 +11,7 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: shwetams
+ms.author: shg
 ---
 
 # Get started with Batch SDK for Node.js

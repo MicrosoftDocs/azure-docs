@@ -97,7 +97,7 @@
       href: container-instances-monitor.md
     - name: Get container logs and events
       href: container-instances-get-logs.md
-    - name: Logging with Azure Log Analytics
+    - name: Logging with Azure Monitor logs
       href: container-instances-log-analytics.md
   - name: Troubleshoot
     items:
