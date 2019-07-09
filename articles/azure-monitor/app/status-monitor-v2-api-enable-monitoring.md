@@ -87,7 +87,7 @@ You can create a single installation script for several computers by setting `Ma
 - **MachineFilter** is a required C# regex of the computer or VM name.
 	- '.*' will match all
 	- 'ComputerName' will match only computers with the exact name specified.
-- **AppFilter** is a required C# regex of the IIS Site Name. You can get a list of sites on your server by running the command `Get-IisSite`  
+- **AppFilter** is a required C# regex of the IIS Site Name. You can get a list of sites on your server by running the command `Get-IISSite`  
 	- '.*' will match all
 	- 'SiteName' will match only IIS apps with the exact name specified.
 - **InstrumentationKey** is required to enable monitoring of apps that match the preceding two filters.
