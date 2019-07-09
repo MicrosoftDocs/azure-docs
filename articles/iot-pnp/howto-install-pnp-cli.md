@@ -54,51 +54,51 @@ To use the Azure IoT Extension for Azure CLI, you need:
 
 ### Interact with a device
 
-Double-click a device on the overview page to view the next level of detail. There are two sections: **Device** and **Digital Twin**.
+You can view and interact with IoT Plug and Play devices that represented by digital twins and are connected to an IoT Hub.
 
 #### List devices and interfaces
 
 List all IoT Plug and Play devices on an IoT Hub:
 
-    az iot pnp list-devices --hub-name [IoTHub Name]
+    az iot digitaltwin list-devices --hub-name [IoTHub Name]
     
 List all IoT Plug and Play devices on an IoT Hub that implement a target interface:
 
-    az iot pnp list-devices --interface [Interface Id] --hub-name [IoTHub Name]
+    az iot digitaltwin list-devices --interface [Interface Id] --hub-name [IoTHub Name]
 
 List all interfaces registered by an IoT Plug and Play device:
 
-    az iot pnp list-interfaces --hub-name [IoTHub Name] --device-id [Device Id]
+    az iot digitaltwin list-interfaces --hub-name [IoTHub Name] --device-id [Device Id]
 
 #### Properties
 
 List all properties and property values for a device
 
-    az iot pnp list-properties --hub-name [IoTHub Name] --device-id [Device Id]
+    az iot digitaltwin list-properties --hub-name [IoTHub Name] --device-id [Device Id]
 
 Set the value of a read-write property.
 
-    az iot pnp update-property --property-name [Property Name] --property-value [Property Value] --interface [Interface Id] --hub-name [IoTHub Name] --device-id [Device Id]
+    az iot digitaltwin update-property --property-name [Property Name] --property-value [Property Value] --interface [Interface Id] --hub-name [IoTHub Name] --device-id [Device Id]
 
 #### Commands
 
 List all commands for a device
 
-    az iot pnp list-commands --login [IoTHub Connection string] --device-id [Device ID] --repository [Plug and Play model repo end point]
+    az iot digitaltwin list-commands --login [IoTHub Connection string] --device-id [Device ID] --repository [Plug and Play model repo end point]
 
 Invoke a command 
 
-    az iot pnp invoke-command --command-name [Interface Command Name] --command-payload [Command Payload, may be file path] --interface [Interface Id] --hub-name [IoTHub Name] --device-id [Device Id]
+    az iot digitaltwin invoke-command --command-name [Interface Command Name] --command-payload [Command Payload, may be file path] --interface [Interface Id] --hub-name [IoTHub Name] --device-id [Device Id]
 
 #### Telemetry
 
 Monitor all IoT Plug and Play telemetry from all devices and interfaces:
     
-    az iot pnp monitor-events --hub-name [IoTHub Name]
+    az iot digitaltwin monitor-events --hub-name [IoTHub Name]
 
 Monitor all telemetry from a particular IoT Plug and Play device:
     
-    az iot pnp monitor-events --hub-name [IoTHub Name] --device-id [Device Id]
+    az iot digitaltwin monitor-events --hub-name [IoTHub Name] --device-id [Device Id]
 
 ### Manage interfaces in the model repository
 
