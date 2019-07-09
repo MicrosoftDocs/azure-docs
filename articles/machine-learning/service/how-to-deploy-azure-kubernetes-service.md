@@ -158,7 +158,7 @@ For more information, see the [az ml computetarget attach aks](https://docs.micr
 
 To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-**Using the SDK**
+### Using the SDK
 
 ```python
 aks_target = AksCompute(ws,"myaks")
@@ -179,7 +179,7 @@ For more information on the classes, methods, and parameters used in this exampl
 * [Model.deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)
 * [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
 
-**Using the CLI**
+### Using the CLI
 
 To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
@@ -191,55 +191,74 @@ The entries in the `deploymentconfig.json` document map to the parameters for [A
 
 | JSON entity | Method parameter | Description |
 | ----- | ----- | ----- |
+| `computeType` | NA | The compute target. For AKS, the value must be `aks`. |
 | `autoScaler` | NA | Contains configuration elements for autoscale. See the autoscaler table. |
 | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Whether or not to enable autoscaling for the web service. If `numReplicas` = `0`, `True`; otherwise, `False`. |
 | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | The minimum number of containers to use when autoscaling this web service. Default, `1`. |
-| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | The maximum number of containers to use when autoscaling this web servicee. Default, `10`. |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | The maximum number of containers to use when autoscaling this web service. Default, `10`. |
 | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | How often the autoscaler attempts to scale this web service. Default, `1`. |
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service. Default, `70`. |
-| `datacollection` | NA | Contains configuration elements for data collection. |
+| `dataCollection` | NA | Contains configuration elements for data collection. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Whether or not to enable model data collection for the web service. Default, `False`. |
 | `authEnabled` | `auth_enabled` | Whether or not to enable authentication for the web service. Default, `True`. |
 | `containerResourceRequirements` | NA | Contains configuration elements for the CPU and memory allocated for the container. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
-| &emsp;&emsp;`memoryInGb` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
 | `appInsightsEnabled` | `enable_app_insights` | Whether or not to enable Application Insights logging for the web service. Default, `False`. |
-| `scoringTimeoutMs` | `scoring_timeeout_ms` | A timeout to enforce for scoring calls to the web service. Default, `60000`. |
+| `scoringTimeoutMs` | `scoring_timeout_ms` | A timeout to enforce for scoring calls to the web service. Default, `60000`. |
 | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | The maximum concurrent requests per node for this web service. Default, `1`. |
 | `maxQueueWaitMs` | `max_request_wait_time` | The maximum time a request will stay in thee queue (in milliseconds) before a 503 error is returned. Default, `500`. |
 | `numReplicas` | `num_replicas` | The number of containers to allocate for this web service. No default value. If this parameter is not set, the autoscaler is enabled by default. |
+| `keys` | NA | Contains configuration elements for keys. |
+| &emsp;&emsp;`primaryKey` | `primary_key` | A primary auth key to use for this Webservice |
+| &emsp;&emsp;`secondaryKey` | `secondary_key` | A secondary auth key to use for this Webservice |
+| `gpuCores` | `gpu_cores` | The number of GPU cores to allocate for this Webservice. Default is 1. |
+| `livenessProbeRequirements` | NA | Contains configuration elements for liveness probe requirements. |
+| &emsp;&emsp;`periodSeconds` | `period_seconds` | How often (in seconds) to perform the liveness probe. Default to 10 seconds. Minimum value is 1. |
+| &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Number of seconds after the container has started before liveness probes are initiated. Defaults to 310 |
+| &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Number of seconds after which the liveness probe times out. Defaults to 2 seconds. Minimum value is 1 |
+| &emsp;&emsp;`successThreshold` | `success_threshold` | Minimum consecutive successes for the liveness probe to be considered successful after having failed. Defaults to 1. Minimum value is 1. |
+| &emsp;&emsp;`failureThreshold` | `failure_threshold` | When a Pod starts and the liveness probe fails, Kubernetes will try failureThreshold times before giving up. Defaults to 3. Minimum value is 1. |
 | `namespace` | `namespace` | The Kubernetes namespace that the webservice is deployed into. Up to 63 lowercase alphanumeric ('a'-'z', '0'-'9') and hyphen ('-') characters. The first and last characters cannot be hyphens. |
 
 The following JSON is an example deployment configuration for use with the CLI:
 
 ```json
 {
+    "computeType": "aks",
     "autoScaler":
     {
-        "autoscaleEnabled": False,
+        "autoscaleEnabled": true,
         "minReplicas": 1,
-        "maxReplicas": 2,
-        "refreshPeriodInSeconds": 30,
+        "maxReplicas": 3,
+        "refreshPeriodInSeconds": 1,
         "targetUtilization": 70
     },
-    "dataCollection": { "storageEnabled" },
-    "authEnabled": false,
+    "dataCollection":
+    {
+        "storageEnabled": true
+    },
+    "authEnabled": true,
     "containerResourceRequirements":
     {
-        "cpu": 1,
-        "memoryInGb": 2
+        "cpu": 0.5,
+        "memoryInGB": 1.0
     }
 }
 ```
 
+## Using VS Code
 
-**Using VS Code**
-
-You can also [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models).
+For information on using VS Code, see [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT] 
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
 
+## Next steps
 
-
-
+* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
+* [Secure Azure Machine Learning web services with SSL](how-to-secure-web-service.md)
+* [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
