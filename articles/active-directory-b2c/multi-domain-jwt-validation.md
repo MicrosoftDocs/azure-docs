@@ -1,5 +1,5 @@
 ---
-title: Enable multiple token issuer URIs in a .NET web API
+title: Migrate an OWIN application to b2clogin.com by supporting multiple token issuers
 description: Learn how to enable a .NET web API to validate tokens from multiple issuers.
 services: active-directory-b2c
 author: mmacy
@@ -8,26 +8,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 07/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Enable multiple token issuer URIs in a .NET web API
+# Migrate an OWIN application to b2clogin.com by supporting multiple token issuer URIs
 
-Azure Active Directory (AD) B2C supports the validation of multiple JWT tokens that have been issued by different domains. You might use this scenario when you're migrating your applications from *login.microsoftonline.com* to *b2clogin.com* and you want to support both token issuers during the migration.
-
-This article provides an example of how to enable multiple issuers in a .NET web API.
+When you're migrating your applications from *login.microsoftonline.com* to *b2clogin.com*, you might want to support tokens issued by both endpoints during the migration. This article provides an example of how to enable multiple issuers in a .NET web application implemented with [Open Web Interface for .NET (OWIN)](http://owin.org/).
 
 ## Prerequisites
 
 You need the following resources in place before continuing with the steps in this article:
 
-:white_check_mark: [Azure AD B2C tenant](tutorial-create-tenant.md)
+* [Azure AD B2C tenant](tutorial-create-tenant.md)
+* [Application registered](tutorial-register-applications.md) in your tenant
+* [User flows created](tutorial-create-user-flows.md) in your tenant
 
-:white_check_mark: [Application registered](tutorial-register-applications.md) in your tenant
+In addition, you need the following in your local development environment:
 
-:white_check_mark: [User flows created](tutorial-create-user-flows.md) in your tenant
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## Get the sample code
 
@@ -47,7 +47,7 @@ First, select one of your existing user flows:
 1. Under **Policies**, select **User flows (policies)**
 1. Select an existing policy, for example *B2C_1_signupsignin1*, then select **Run user flow**
 
-Next, record the issuer URIs for both domains (`<your-b2c-tenant>.b2clogin.com` and `login.microsoft.com`). You update the sample project with these values in the next section.
+Next, complete the following steps to record the issuer URIs for both domains (`b2clogin.com` and `login.microsoft.com`). You update the sample project with these values in the next section.
 
 1. Under the **Run user flow** heading near the top of the page, click the hyperlink to navigate to the user flow's well-known URI.
 
