@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 07/09/2018
 ms.author: jingwang
 
 ---
@@ -33,7 +33,7 @@ Specifically, this SAP table connector supports:
   - SAP S/4HANA.
   - Other products in SAP Business Suite version 7.01 or later.
 
-- Copying data from both an SAP transparent table and a view.
+- Copying data from both an SAP transparent table, a pooled table, a clustered table, and a view.
 - Copying data by using basic authentication or Secure Network Communications (SNC), if SNC is configured.
 - Connecting to an SAP application server or SAP message server.
 

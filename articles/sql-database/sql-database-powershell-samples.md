@@ -62,6 +62,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**Create and configure managed instances**||
 | [Create and manage a Managed Instance](scripts/sql-database-create-configure-managed-instance-powershell.md) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell |
 | [Create and manage a Managed Instance using Azure Resource Manager template](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script shows you how to create and manage a Managed Instance using the Azure PowerShell and Azure Resource Manager template.|
+| [Restore database to a Managed Instance in another Geo-region](scripts/sql-managed-instance-restore-geo-backup.md) | This PowerShell script is taking a backup of one database and restore it to another region. This is known as Geo-Restore disaster recovery scenario. |
 | **Configure Transparent Data Encryption (TDE)**||
 | [Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures Transparent Data Encryption (TDE) in Bring Your Own Key scenario for Azure SQL Managed Instance, using a key from Azure Key Vault|
 |||

@@ -64,23 +64,10 @@ Cloud tiering is an optional feature of Azure File Sync in which frequently acce
 ## Azure File Sync system requirements and interoperability 
 This section covers Azure File Sync agent system requirements and interoperability with Windows Server features and roles and third-party solutions.
 
-### Evaluation Tool
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
+### Evaluation cmdlet
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
-#### Download Instructions
-1. Make sure that you have the latest version of PackageManagement and PowerShellGet installed (this allows you to install preview modules)
-    
-    ```powershell
-        Install-Module -Name PackageManagement -Repository PSGallery -Force
-        Install-Module -Name PowerShellGet -Repository PSGallery -Force
-    ```
- 
-2. Restart PowerShell
-3. Install the modules
-    
-    ```powershell
-        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
-    ```
+The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 #### Usage  
 You can invoke the evaluation tool in a few different ways: you can perform the system checks, the dataset checks, or both. To perform both the system and dataset checks: 
@@ -110,11 +97,11 @@ To display the results in CSV:
 
     | Version | Supported SKUs | Supported deployment options |
     |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter and Standard | Full (server with a UI) |
-    | Windows Server 2016 | Datacenter and Standard | Full (server with a UI) |
-    | Windows Server 2012 R2 | Datacenter and Standard | Full (server with a UI) |
+    | Windows Server 2019 | Datacenter and Standard | Full and Core |
+    | Windows Server 2016 | Datacenter and Standard | Full and Core |
+    | Windows Server 2012 R2 | Datacenter and Standard | Full and Core |
 
-    Future versions of Windows Server will be added as they are released. Earlier versions of Windows might be added based on user feedback.
+    Future versions of Windows Server will be added as they are released.
 
     > [!Important]  
     > We recommend keeping all servers that you use with Azure File Sync up to date with the latest updates from Windows Update. 
@@ -215,8 +202,7 @@ Because antivirus works by scanning files for known malicious code, an antivirus
 Microsoft's in-house antivirus solutions, Windows Defender and System Center Endpoint Protection (SCEP), both automatically skip reading files that have this attribute set. We have tested them and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
 
 > [!Note]  
-> Antivirus vendors can check compatibility between their product and Azure File Sync using the [Azure File Sync Antivirus Compatibility Test Suite]
-(https://www.microsoft.com/download/details.aspx?id=58322), which is available for download on the Microsoft Download Center.
+> Antivirus vendors can check compatibility between their product and Azure File Sync using the [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), which is available for download on the Microsoft Download Center.
 
 ### Backup solutions
 Like antivirus solutions, backup solutions might cause the recall of tiered files. We recommend using a cloud backup solution to back up the Azure file share instead of an on-premises backup product.
