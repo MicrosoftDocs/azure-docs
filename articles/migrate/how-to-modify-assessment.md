@@ -12,7 +12,7 @@ ms.author: raynew
 
 This article describes how to customize assessments created by Azure Migrate Server Assessment.
 
-[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and AWS/GCP VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 You can use the Azure Migrate Server Assessment tool to create assessments for on-premises VMware VMs and Hyper-V VMs, in preparation for migration to Azure. 
 
