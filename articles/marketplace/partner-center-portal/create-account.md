@@ -17,13 +17,13 @@ To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft
 
 In this article, we'll cover how to create a Partner Center account, including how to: 
 
-- [Register using the Partner Center enrollment page](#register-for-an-account-using-the-enrollment-page)
+- [Register using the Partner Center enrollment page](#to-create-a-commercial-marketplace-account-in-partner-center)
 - [Sign in with a work account](#sign-in-with-a-work-account)
 - [Agree to the terms and conditions](#agree-to-terms-and-conditions) 
 - [Provide your publisher profile](#provide-your-publisher-profile)
 
 >[!Important]
->If you have an account in the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) that has been moved to Partner Center, you do not need to create a new account. See [Publishers moving from CPP](#publishers-migrated-from-cpp) for more information. 
+>If you have an account in the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com) that has been moved to Partner Center, you do not need to create a new account. See [Publishers moving from CPP](#publishers-moving-from-cpp) for more information. 
 
 ### Before you begin
 
