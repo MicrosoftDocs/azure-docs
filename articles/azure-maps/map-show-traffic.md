@@ -1,7 +1,7 @@
 ---
 title: Show traffic with Azure Maps | Microsoft Docs
 description: How to display traffic data on a Javascript map
-author: jingjing-z
+author: jinzh
 ms.author: jinzh
 ms.date: 11/10/2018
 ms.topic: conceptual
