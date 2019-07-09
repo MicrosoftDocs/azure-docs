@@ -31,7 +31,7 @@ Allow your employee’s phone to become a passwordless authentication method. Yo
 
 It turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign in to any platform or browser by getting a notification to their phone, matching a number displayed on the screen to the one on their phone and then using their biometric (touch or face) or PIN to confirm.
 
-## FIDO2 Security Keys
+## FIDO2 security keys
 
 FIDO2 security keys are an unphishable standards-based passwordless authentication method that can come in any form factor. Fast Identity Online (FIDO) is an open standard for passwordless authentication. It allows users and organizations to leverage the standard to sign in to their resources without a username or password using an external security key or a platform key built into a device.
 
