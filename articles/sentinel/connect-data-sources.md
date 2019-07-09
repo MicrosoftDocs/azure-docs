@@ -31,11 +31,11 @@ To on-board Azure Sentinel, you first need to connect to your data sources. Azur
 
 1. On the menu, select **Data connectors**. This page lets you see the full list of connectors that Azure Sentinel provides and their status. Select the connector you want to connect and select **Open connector page**. 
 
-  ![Data collectors](./media/collect-data/collect-data-page.png)
+   ![Data collectors](./media/collect-data/collect-data-page.png)
 
 1. On the specific connector page, make sure you have fulfilled all the prerequisites and follow the instructions to connect the data to Azure Sentinel. It may take some time for the logs to start syncing with Azure Sentinel. After you connect, you see a summary of the data in the **Data received** graph, and connectivity status of the data types.
 
-  ![Connect collectors](./media/collect-data/opened-connector-page.png)
+   ![Connect collectors](./media/collect-data/opened-connector-page.png)
   
 1. Click the **Next steps** tab to get a list of out-of-the-box content Azure Sentinel provides for the specific data type.
 
