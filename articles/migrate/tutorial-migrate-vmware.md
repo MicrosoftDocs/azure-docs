@@ -193,8 +193,6 @@ If this is the first VM you're replicating in the Azure Migrate project, Azure M
 
 You can track job status in the portal notifications.
 
-![Track job](./media/tutorial-migrate-vmware/jobs.png)
-
 You can monitor replication status by clicking on **Replicating servers** in **Azure Migrate: Server Migration**.
 ![Monitor replication](./media/tutorial-migrate-vmware/replicating-servers.png)
 
