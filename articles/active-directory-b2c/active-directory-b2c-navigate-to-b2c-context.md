@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/13/2017
+ms.date: 04/13/2017
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -32,7 +32,7 @@ The Azure portal refreshes.  Now you are signed into the Azure portal in the con
 1. Click **Browse** on the left-hand navigation.
 1. Click **All services** and then search for `Azure AD B2C` in the left navigation pane.  (To pin to your left-hand Startboard, click the star to the left of Azure AD B2C)
 1. Click **Azure AD B2C** to access the B2C features pane.
-   
+
     ![Screenshot of Browse to B2C features pane](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]

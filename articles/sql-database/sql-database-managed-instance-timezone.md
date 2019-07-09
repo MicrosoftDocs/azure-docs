@@ -10,7 +10,7 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
 manager: craigg
-ms.date: 05/22/2019
+ms.date: 07/05/2019
 ---
 # Time zones in Azure SQL Database Managed Instance
 
@@ -24,7 +24,9 @@ Use [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-tra
 
 ## Supported time zones
 
-A set of supported time zones is inherited from the underlying operating system of the managed instance. It's regularly updated to get new time zone definitions and reflect changes to the existing ones. 
+A set of supported time zones is inherited from the underlying operating system of the managed instance. It's regularly updated to get new time zone definitions and reflect changes to the existing ones.
+
+[Daylight saving time/time zone changes policy](https://aka.ms/time) guarantees historical accuracy from 2010 forward.
 
 A list with names of the supported time zones is exposed through the [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) system view.
 
@@ -37,7 +39,7 @@ A time zone of a managed instance can be set during instance creation only. The 
 
 ### Set the time zone through the Azure portal
 
-When you enter parameters for a new instance, select a time zone from the list of supported time zones. 
+When you enter parameters for a new instance, select a time zone from the list of supported time zones.
   
 ![Setting a time zone during instance creation](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -76,7 +78,10 @@ You can restore a backup file or import data to a managed instance from an insta
 
 ### Point-in-time restore
 
-When you perform a point-in-time restore, the time to restore to is interpreted as UTC time. This setting avoids any ambiguity due to daylight saving time and its potential changes.
+<del>When you perform a point-in-time restore, the time to restore to is interpreted as UTC time. This setting avoids any ambiguity due to daylight saving time and its potential changes.<del>
+
+ >[!WARNING]
+  > Current behavior is not in line with the statement above, and time to restore to is interpreted as per the time zone of the source managed instance where automatic database backups are taken from. We are working on correcting this behavior to interpret given point in time as UTC time. See [Known issues](sql-database-managed-instance-timezone.md#known-issues) for more details.
 
 ### Auto-failover groups
 
@@ -89,6 +94,21 @@ Using the same time zone across a primary and secondary instance in a failover g
 
 - The time zone of the existing managed instance can't be changed.
 - External processes launched from the SQL Server Agent jobs don't observe the time zone of the instance.
+
+## Known issues
+
+When point-in-time restore (PITR) operation is performed, the time to restore to is interpreted as per time zone set on the managed instance where automatic database backups are taken from, even though portal page for PITR suggests that the time is interpreted as UTC.
+
+Example:
+
+Say that instance where automatic backups are taken from has Eastern Standard Time (UTC-5) time zone set.
+Portal page for point-in-time restore suggests that the time you are choosing to restore to is UTC time:
+
+![PITR with local time using portal](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+However, the time to restore to is actually interpreted as Eastern Standard Time, and in this specific example database will be restored to the state at 9 AM Eastern Standard Time, and not UTC time.
+
+If you want to do point-in-time restore to a specific point in UTC time, first calculate equivalent time in the time zone of the source instance and use that time in the portal or PowerShell/CLI script.
 
 ## List of supported time zones
 

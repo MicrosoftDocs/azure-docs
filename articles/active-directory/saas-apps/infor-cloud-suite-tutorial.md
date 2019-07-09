@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 14-04-2019
+ms.date: 04/14/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
