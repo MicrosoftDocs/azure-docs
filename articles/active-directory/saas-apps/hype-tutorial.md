@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    1. . In the **Sign on URL** text box, type a URL using the following pattern:
+    1. In the **Sign on URL** text box, type a URL using the following pattern:
     
         `https://<SUBDOMAIN>.hypeinnovation.com/Shibboleth.sso/Login`
 
