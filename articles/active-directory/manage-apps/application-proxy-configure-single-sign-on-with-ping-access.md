@@ -202,7 +202,7 @@ Example to include email address into the access_token that PingAccess will cons
 
 ### Use of claims mapping policy (optional)
 
-[Claims Mapping Policy (preview)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) for attributes which do not exist in AzureAD. Claims mapping allows you to migrate old on-prem apps to the cloud by adding additional custom claims that are backed by your ADFS or user objects
+[Claims Mapping Policy (preview)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) for attributes which do not exist in AzureAD. Claims mapping allows you to migrate old on-prem apps to the cloud by adding additional custom claims that are backed by your ADFS or user objects
 
 To make your application use a custom claim and include additional fields, be sure you've also [created a custom claims mapping policy and assigned it to the application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 

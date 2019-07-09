@@ -6,7 +6,6 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-
 ms.assetid: 385a1153-0f47-4e41-8f44-da1b49d7629e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: v-ant-msft
+ms.author: "jeedes"
 ---
 
 # Tutorial: Configure Zscaler Three for automatic user provisioning
