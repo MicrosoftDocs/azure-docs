@@ -4,7 +4,7 @@ description: Learn to how to use C# and a Resource Manager template to deploy an
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
