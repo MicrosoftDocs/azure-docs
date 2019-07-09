@@ -50,12 +50,6 @@ You can try some of these operations using the following examples:
 
 All Azure SQL databases (single, pooled, and managed instance databases) have a default backup retention period of  **seven** days. You can [change backup retention period up to 35 days](#how-to-change-the-pitr-backup-retention-period).
 
-> [!NOTE]
-> Starting July 2019, the default backup retention period for DTU-based databases became **seven** days. Previously, the default retention period for DTU-based databases was dependent on service tier:
->- Basic service tier was **one** week.
->- Standard service tier was **five** weeks.
->- Premium service tier was **five** weeks.
-
 If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
 
 If you need to keep the backups for longer than the maximum retention period, you can modify the backup properties to add one or more long-term retention periods to your database. For more information, see [Long-term retention](sql-database-long-term-retention.md).
