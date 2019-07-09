@@ -4,7 +4,7 @@ description: Create a new VM by attaching a specialized unmanaged disk, in the R
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

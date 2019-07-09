@@ -308,7 +308,7 @@ This section describes the resulting behavior of the folder path and file name w
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) is a Hadoop native command-line tool to do distributed copy in a Hadoop cluster. When run a Distcp command, it will first list all the files to be copied, create several Map jobs into the Hadoop cluster, and each Map job will do binary copy from source to sink.
 
-Copy Activity support using DistCp to copy files as-is into Azure Blob (including [staged copy](copy-activity-performance.md) or Azure Data Lake Store, in which case it can fully leverage your cluster's power instead of running on the Self-hosted Integration Runtime. It will provide better copy throughput especially if your cluster is very powerful. Based on your configuration in Azure Data Factory, Copy activity automatically construct a distcp command, submit to your Hadoop cluster, and monitor the copy status.
+Copy Activity support using DistCp to copy files as-is into Azure Blob (including [staged copy](copy-activity-performance.md)) or Azure Data Lake Store, in which case it can fully leverage your cluster's power instead of running on the Self-hosted Integration Runtime. It will provide better copy throughput especially if your cluster is very powerful. Based on your configuration in Azure Data Factory, Copy activity automatically construct a distcp command, submit to your Hadoop cluster, and monitor the copy status.
 
 ### Prerequisites
 
