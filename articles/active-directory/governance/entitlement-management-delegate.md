@@ -83,7 +83,7 @@ The following table lists the tasks that these roles can perform.
 | [Edit a catalog](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Delete a catalog](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Add a catalog owner or an access package manager to a catalog](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Create a new access package in a catalog](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
+| [Create a new access package in a catalog](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |:heavy_check_mark:  |  |
 | [Manage resource roles in an access package](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Specify who can request an access package](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Directly assign a user to an access package](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
