@@ -17,22 +17,21 @@ ms.author: lahugh
 
 # Mount a virtual file system on a Batch pool
 
-Azure Batch enables you to mount cloud storage on Windows or Linux compute nodes in your Batch pools. When a compute node joins a pool, the virtual file system is mounted and treated as a local drive on that node. You can mount file systems such as Azure files, Azure blob storage, Network File System (NFS), or Common Internet File System (CIFS).
+Azure Batch now allows you to mount cloud storage or an external file system on Windows or Linux compute nodes in your Batch pools. When a compute node joins a pool, the virtual file system is mounted and treated as a local drive on that node. You can mount file systems such as Azure Files, Azure Blob storage, Network File System (NFS) including an Avere vFXT cache, or Common Internet File System (CIFS).
 
-In this article, you'll learn how to mount a virtual file system on a pool of compute nodes using the [Batch management library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
+In this article, you'll learn how to mount a virtual file system on a pool of compute nodes using the [Batch Management Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
 > [!NOTE]
 > The mount feature is supported on Batch pools created on or after (TODO date).
 
 ## Benefits of mounting on a pool
 
-Mounting the filesystem to the pool instead letting tasks get their own data from a large data set makes it easier for tasks to get information. Consider a scenario with multiple tasks processing similar data, like a rendering a movie. Each task renders one or more frames at a time from the scene files. By mounting a drive that contains the scene files, it's easier for nodes to share data. (TODO, add more context about benefits for this scenario)
+Mounting the file system to the pool, instead of letting tasks retrieve their own data from a large data set, makes it easier and more efficient for tasks to access the necessary data. Consider a scenario with multiple tasks requiring access to a common set of data, like rendering a movie. Each task renders one or more frames at a time from the scene files. By mounting a drive that contains the scene files, it's easier for nodes to access shared data. Additionally, the underlying file system can be chosen and scaled independently based on the performance and scale (throughput and IOPS) required by the number of compute nodes concurrently accessing the data. As an example, an Avere vFXT distributed in-memory cache can be used to support very large motion picture-scale renders with thousands of concurrent render nodes, accessing source data that resides on-premises. Alternatively, for data that already resides in cloud-based Blob storage, [blobfuse](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) can be used to mount this data as a local file system. Blobfuse is only available on Linux nodes, however, [Azure Files](https://azure.microsoft.com/en-au/blog/a-new-era-for-azure-files-bigger-faster-better/) provides a similar workflow and is available on both Windows and Linux.
 
-Each task needs to know where input data comes from to make sure that data is available. If the data is stored in a large data set and is not mounted on the pool, it's time consuming for the task to verify that data set. Each task potentially downloads data that isn't needed, increasing the runtime, wasting storage resources, and delaying the execution of the task. Tasks also have a limit to the number of input files.
 
 ## Mount a virtual file system on a pool  
 
-Mounting a virtual file system on the pool level makes the file system available to every compute node in the pool. The file system is configured when a compute node joins a pool and when the node is restarted or re-imaged.
+Mounting a virtual file system on the pool makes the file system available to every compute node in the pool. The file system is configured when a compute node joins a pool and when the node is restarted or re-imaged.
 
 To mount a file system on a pool, create a `MountConfiguration` object. Choose the object that fits your virtual file system: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration`, `NfsMountConfiguration`, or `CifsMountConfiguration`.
 
@@ -49,9 +48,9 @@ Once the `MountConfiguration` object is created, assign the object to the `Mount
 
 The following code examples demonstrate mounting a variety of file shares to a pool of compute nodes.
 
-### Azure file share
+### Azure Files share
 
-Azure file shares are the standard Azure cloud file system. To learn more about how to get any of the parameters in the mount configuration code sample, see [Use an Azure file share](../storage/files/storage-how-to-use-files-windows.md).
+Azure Files is the standard Azure cloud file system offering. To learn more about how to get any of the parameters in the mount configuration code sample, see [Use an Azure Files share](../storage/files/storage-how-to-use-files-windows.md).
 
 ```csharp
 new PoolAddParameter
@@ -74,9 +73,9 @@ new PoolAddParameter
 }
 ```
 
-### Azure blob file system
+### Azure Blob file system
 
-Another option is to use the Azure blob file system via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [View account keys](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string), or [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [View account keys](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string), or [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```csharp
 new PoolAddParameter
@@ -100,9 +99,9 @@ new PoolAddParameter
 }
 ```
 
-### Network file system
+### Network File System (NFS)
 
-TODO
+NFS file systems can also be mounted to pool nodes allowing traditional file systems to be easily accessed by Azure Batch nodes. This could be a single NFS server either deployed in the cloud or an on-premises NFS server accessed over a virtual network. Alternatively, to take advantage of the [Avere vFXT distributed in-memory cache solution](https://azure.microsoft.com/en-au/services/storage/avere-vfxt/) which provides seamless connectivity to on-premises storage, reading data on-demand into its cache, and delivers extremely high performance and scale to cloud-based compute nodes.
 
 ```csharp
 new PoolAddParameter
@@ -123,9 +122,9 @@ new PoolAddParameter
 }
 ```
 
-### Common internet file system
+### Common Internet File System (CIFS)
 
-TODO
+CIFS file systems can also be mounted to pool nodes allowing traditional file systems to be easily accessed by Azure Batch nodes. CIFS is a file-sharing protocol that provides an open and cross-platform mechanism for requesting network server files and services. CIFS is based on the enhanced version of Microsoft's Server Message Block (SMB) protocol for internet and intranet file sharing and is generally used to mount external file systems on Windows nodes.
 
 ```csharp
 new PoolAddParameter
@@ -173,7 +172,7 @@ TODO: add common mount errors and solutions
 
 ## Next steps
 
-- Learn more details about mounting an Azure file share with [Windows](../storage/files/storage-how-to-use-files-windows.md) or [Linux](../storage/files/storage-how-to-use-files-linux.md).
+- Learn more details about mounting an Azure Files share with [Windows](../storage/files/storage-how-to-use-files-windows.md) or [Linux](../storage/files/storage-how-to-use-files-linux.md).
 - Learn about using and mounting [blobfuse](https://github.com/Azure/azure-storage-fuse) virtual file systems.
 - See [Network File System overview](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview) to learn about NFS and its applications.
 - See [Microsoft SMB protocol and CIFS protocol overview](https://docs.microsoft.com/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) to learn more about CIFS.
