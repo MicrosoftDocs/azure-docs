@@ -31,7 +31,7 @@ Azure Migrate Server Migration is a tool for migrating on-premises workloads, an
 
 ## Architectural components
 
-![Architecture](./media/agent-based-migration-architecture/architecture.png)
+![Architecture](./media/agent-based-replication-architecture/architecture.png)
 
 The table summarizes the components used for agent-based migration.
 
