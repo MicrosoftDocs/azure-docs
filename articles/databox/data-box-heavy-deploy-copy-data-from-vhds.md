@@ -4,7 +4,7 @@ description: Learn how to copy data from VHDs from on-premises VM workloads to y
 services: databox
 author: alkohli
 ms.service: databox
-ms.subservice: Heavy
+ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli

@@ -255,21 +255,6 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud GRS storage usage associated with the vault
 
 
-## Frequently asked questions
-
-### How long does it take for the Azure backup agent job status to reflect in the portal?
-The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
-
-### When a backup job fails, how long does it take to raise an alert?
-An alert is raised within 20 mins of the Azure backup failure.
-
-### Is there a case where an email won’t be sent if notifications are configured?
-Yes. In the following situations, notifications are not sent.
-
-* If notifications are configured hourly, and an alert is raised and resolved within the hour
-* When a job is canceled
-* If a second backup job fails because the original backup job is in progress
-
 ## Troubleshooting Monitoring Issues
 
 **Issue:** Jobs and/or alerts from the Azure Backup agent do not appear in the portal.
