@@ -43,8 +43,11 @@ Before you install Azure AD Connect, there are a few things that you need.
 * It is recommended to [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
 
 ### Azure AD Connect server
+>[!IMPORTANT]
+>The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in [the Active Directory administrative tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
+
 * Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better.
-* Installing Azure AD Connect on a Domain Controller is not recommended due to security practices and more restrictive settings that can prevent Azure AD Connect from installing correctly
+* Installing Azure AD Connect on a Domain Controller is not recommended due to security practices and more restrictive settings that can prevent Azure AD Connect from installing correctly.
 * The Azure AD Connect server must have a full GUI installed. It is **not supported** to install on server core.
 >[!IMPORTANT]
 >Installing Azure AD Connect on small business server, server essentials, or server core is not supported.

@@ -7,7 +7,7 @@ author: lichard
 manager: erikre
 editor: ''
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na

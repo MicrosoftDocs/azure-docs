@@ -79,7 +79,7 @@ Azure AD B2C requires you to register two applications that are used to sign up 
 1. In **App registrations (Legacy)**, select **New application registration**.
 2. For **Name**, enter `ProxyIdentityExperienceFramework`.
 3. For **Application type**, choose **Native**.
-4. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `yourtenant` is your Azure AD B2C tenant.
+4. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant.
 5. Click **Create**. After it's created, copy the application ID and save it to use later.
 6. On the Settings page, select **Required permissions**, and then select **Add**.
 7. Choose **Select an API**, search for and select **IdentityExperienceFramework**, and then click **Select**.

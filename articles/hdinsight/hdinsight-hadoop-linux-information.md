@@ -14,9 +14,6 @@ ms.date: 03/20/2019
 
 Azure HDInsight clusters provide Apache Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 ## Prerequisites
 
 Many of the steps in this document use the following utilities, which may need to be installed on your system.
@@ -283,7 +280,6 @@ To use a different version of a component, upload the version you need and use i
 
 ## Next steps
 
-* [Migrate from Windows-based HDInsight to Linux-based](hdinsight-migrate-from-windows-to-linux.md)
 * [Manage HDInsight clusters by using the Apache Ambari REST API](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)

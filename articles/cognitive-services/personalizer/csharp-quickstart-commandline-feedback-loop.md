@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 06/11/2019
 ms.author: edjez
 #Customer intent: 
 
@@ -51,6 +51,7 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 
 1. Create a new Visual C# Console App in Visual Studio.
 1. Install the Personalizer client library NuGet package. On the menu, select **Tools**, select **Nuget package Manager**, then **Manage NuGet Packages for Solution**.
+1. Check **Include prerelease**.
 1. Select the **Browse** tab, and in the **Search** box type `Microsoft.Azure.CognitiveServices.Personalizer`.
 1. Select **Microsoft.Azure.CognitiveServices.Personalizer** when it displays.
 1. Select the checkbox next to your project name, and select **Install**.

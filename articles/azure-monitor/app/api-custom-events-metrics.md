@@ -244,8 +244,8 @@ namespace User.Namespace.Example01
 ## TrackMetric
 
 > [!NOTE]
-> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is deprecated in the .NET SDK. Metrics should always be pre-aggregated across a time period before being sent. Use one of the GetMetric(..) overloads to get a metric object for accessing SDK pre-aggregation capabilities. If you are implementing your own pre-aggregation logic, you can 
-use the Track(ITelemetry metricTelemetry) method to send the resulting aggregates. If your application requires sending a separate telemetry item at every occasion without aggregation across time, you likely have a use case for event telemetry; see TelemetryClient.TrackEvent 
+> Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is not the preferred method for sending metrics. Metrics should always be pre-aggregated across a time period before being sent. Use one of the GetMetric(..) overloads to get a metric object for accessing SDK pre-aggregation capabilities. If you are implementing your own pre-aggregation logic, you can 
+use the TrackMetric() method to send the resulting aggregates. If your application requires sending a separate telemetry item at every occasion without aggregation across time, you likely have a use case for event telemetry; see TelemetryClient.TrackEvent 
 (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights can chart metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.

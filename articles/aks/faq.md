@@ -2,13 +2,13 @@
 title: Frequently asked questions for Azure Kubernetes Service (AKS)
 description: Find answers to some of the common questions about Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
-ms.author: iainfou
+ms.date: 07/08/2019
+ms.author: mlearned
 ---
 
 # Frequently asked questions about Azure Kubernetes Service (AKS)
@@ -21,21 +21,23 @@ For a complete list of available regions, see [AKS regions and availability][aks
 
 ## Does AKS support node autoscaling?
 
-Yes, autoscaling is available through the [Kubernetes autoscaler][auto-scaler] as of Kubernetes 1.10. For information on how to manually configure and use the cluster autoscaler, see [Cluster autoscale on AKS][aks-cluster-autoscale].
-
-You can also use the built-in cluster autoscaler (currently in preview in AKS) to manage the scaling of nodes. For more information, see [Automatically scale a cluster to meet application demands in AKS][aks-cluster-autoscaler].
-
-## Does AKS support Kubernetes RBAC?
-
-Yes, Kubernetes role-based access control (RBAC) is enabled by default when clusters are created with the Azure CLI. You can enable RBAC for clusters that were created by using the Azure portal or templates.
+Yes, the ability to automatically scale agent nodes horizontally in AKS is currently available in preview. See [Automatically scale a cluster to meet application demands in AKS][aks-cluster-autoscaler] for instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler].
 
 ## Can I deploy AKS into my existing virtual network?
 
 Yes, you can deploy an AKS cluster into an existing virtual network by using the [advanced networking feature][aks-advanced-networking].
 
+## Can I limit who has access to the Kubernetes API server?
+
+Yes, you can limit access to the Kubernetes API server using [API Server Authorized IP Ranges][api-server-authorized-ip-ranges], which is currently in preview.
+
 ## Can I make the Kubernetes API server accessible only within my virtual network?
 
-Not at this time. The Kubernetes API server is exposed as a public fully qualified domain name (FQDN). You can control access to your cluster by using [Kubernetes RBAC and Azure Active Directory (Azure AD)][aks-rbac-aad].
+Not at this time, but this is planned. You can track progress on the [AKS GitHub repo][private-clusters-github-issue].
+
+## Can I have different VM sizes in a single cluster?
+
+Yes, you can use different virtual machine sizes in your AKS cluster by creating [multiple node pools][multi-node-pools], which is currently in preview.
 
 ## Are security updates applied to AKS agent nodes?
 
@@ -56,30 +58,28 @@ For Windows Server nodes (currently in preview in AKS), Windows Update does not 
 Each AKS deployment spans two resource groups:
 
 1. You create the first resource group. This group contains only the Kubernetes service resource. The AKS resource provider automatically creates the second resource group during deployment. An example of the second resource group is *MC_myResourceGroup_myAKSCluster_eastus*. For information on how to specify the name of this second resource group, see the next section.
-1. The second resource group, such as *MC_myResourceGroup_myAKSCluster_eastus*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. The purpose of this resource group is to simplify resource cleanup.
+1. The second resource group, known as the *node resource group*, contains all of the infrastructure resources associated with the cluster. These resources include the Kubernetes node VMs, virtual networking, and storage. By default, the node resource group has a name like *MC_myResourceGroup_myAKSCluster_eastus*. AKS automatically deletes the node resource whenever the cluster is deleted, so it should only be used for resources which share the cluster's lifecycle.
 
-If you create resources to use with your AKS cluster, such as storage accounts or reserved public IP addresses, place them in the automatically generated resource group.
+## Can I provide my own name for the AKS node resource group?
 
-## Can I provide my own name for the AKS infrastructure resource group?
-
-Yes. By default, the AKS resource provider automatically creates a secondary resource group (such as *MC_myResourceGroup_myAKSCluster_eastus*) during deployment. To comply with corporate policy, you can provide your own name for this managed cluster (*MC_*) resource group.
+Yes. By default, AKS will name the node resource group *MC_clustername_resourcegroupname_location*, but you can also provide your own name.
 
 To specify your own resource group name, install the [aks-preview][aks-preview-cli] Azure CLI extension version *0.3.2* or later. When you create an AKS cluster by using the [az aks create][az-aks-create] command, use the *--node-resource-group* parameter and specify a name for the resource group. If you [use an Azure Resource Manager template][aks-rm-template] to deploy an AKS cluster, you can define the resource group name by using the *nodeResourceGroup* property.
 
 * The secondary resource group is automatically created by the Azure resource provider in your own subscription.
 * You can specify a custom resource group name only when you're creating the cluster.
 
-As you work with the *MC_* resource group, keep in mind that you cannot:
+As you work with the node resource group, keep in mind that you cannot:
 
-* Specify an existing resource group for the *MC_* group.
-* Specify a different subscription for the *MC_* resource group.
-* Change the *MC_* resource group name after the cluster has been created.
-* Specify names for the managed resources within the *MC_* resource group.
-* Modify or delete tags of managed resources within the *MC_* resource group. (See additional information in the next section.)
+* Specify an existing resource group for the node resource group.
+* Specify a different subscription for the node resource group.
+* Change the node resource group name after the cluster has been created.
+* Specify names for the managed resources within the node resource group.
+* Modify or delete tags of managed resources within the node resource group. (See additional information in the next section.)
 
-## Can I modify tags and other properties of the AKS resources in the MC_ resource group?
+## Can I modify tags and other properties of the AKS resources in the node resource group?
 
-If you modify or delete Azure-created tags and other resource properties in the *MC_* resource group, you could get unexpected results such as scaling and upgrading errors. AKS allows you to create and modify custom tags. You might want to create or modify custom tags, for example, to assign a business unit or cost center. By modifying the resources under the *MC_* in the AKS cluster, you break the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
+If you modify or delete Azure-created tags and other resource properties in the node resource group, you could get unexpected results such as scaling and upgrading errors. AKS allows you to create and modify custom tags. You might want to create or modify custom tags, for example, to assign a business unit or cost center. By modifying the resources under the node resource group in the AKS cluster, you break the service-level objective (SLO). For more information, see [Does AKS offer a service-level agreement?](#does-aks-offer-a-service-level-agreement)
 
 ## What Kubernetes admission controllers does AKS support? Can admission controllers be added or removed?
 
@@ -142,12 +142,14 @@ AKS agent nodes are billed as standard Azure virtual machines, so if you've purc
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
+[multi-node-pools]: ./use-multiple-node-pools.md
 
 <!-- LINKS - external -->
 
@@ -156,3 +158,4 @@ AKS agent nodes are billed as standard Azure virtual machines, so if you've purc
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
+[private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948

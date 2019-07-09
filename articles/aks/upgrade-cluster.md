@@ -2,12 +2,12 @@
 title: Upgrade an Azure Kubernetes Service (AKS) cluster
 description: Learn how to upgrade an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Upgrade an Azure Kubernetes Service (AKS) cluster
@@ -59,7 +59,7 @@ To confirm that the upgrade was successful, use the [az aks show][az-aks-show] c
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-The following example output shows that the cluster now runs *1.11.6*:
+The following example output shows that the cluster now runs *1.12.8*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

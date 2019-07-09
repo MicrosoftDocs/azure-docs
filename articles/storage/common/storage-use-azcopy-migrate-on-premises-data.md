@@ -75,7 +75,7 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 ## Upload contents of a folder to Blob storage
 
-You can use AzCopy to upload all files in a folder to Blob storage on [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) or [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download). To upload all blobs in a folder, enter the following AzCopy command:
+You can use AzCopy to upload all files in a folder to Blob storage on [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) or [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). To upload all blobs in a folder, enter the following AzCopy command:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true

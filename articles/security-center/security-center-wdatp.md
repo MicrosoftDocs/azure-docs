@@ -41,10 +41,6 @@ These capabilities are now available in Azure Security Center:
 
 ![Azure Security Center, displaying a list of alerts and general information about each alert](media/security-center-wdatp/image1.png)
 
-You can [investigate the alert](security-center-investigation.md) in Azure Security Center:
-
-![The alert investigation dashboard in Azure Security Center](media/security-center-wdatp/image2.png)
-
 You can further investigate the alert by pivoting to Windows Defender ATP. There you can see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
 ![Windows Defender ATP page with detailed information about an alert](media/security-center-wdatp/image3.png)
@@ -71,7 +67,7 @@ To onboard servers to Security Center, click **Go to Azure Security Center to on
 
 ## Enable Windows Defender ATP integration
 
-To view if Windows Defender ATP integration is enabled, select **Security center** > **Security policy** > **Subscription** > **Edit settings**.
+To view if Windows Defender ATP integration is enabled, select **Security center** > **Pricing & settings** > click on your subscription.
 
   ![Azure Security Center Policy Management](media/security-center-wdatp/policy-management.png)
 
@@ -93,7 +89,7 @@ Follow the instructions in [Assign user access to the portal](https://docs.micro
 
 ## Set the firewall configuration
 
-If you have a proxy or firewall that is blocking anonymous traffic, as a Windows Defender ATP sensor is connecting from the system context, make sure that anonymous traffic is permitted. Follow the instructions in [Enable access to Windows Defender ATP service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-windows-defender-atp-service-urls-in-the-proxy-server).
+If you have a proxy or firewall that is blocking anonymous traffic, as a Windows Defender ATP sensor is connecting from the system context, make sure that anonymous traffic is permitted. Follow the instructions in [Enable access to Windows Defender ATP service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/configure-proxy-internet-windows-defender-advanced-threat-protection#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
 ## Test the feature
 

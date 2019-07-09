@@ -7,7 +7,7 @@ author: areddish
 manager: daauld
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
@@ -27,8 +27,8 @@ This article provides information and sample code to help you get started using 
 To install the Custom Vision service SDKs for Node.js, run the following commands:
 
 ```command
-npm install azure-cognitiveservices-customvision-training
-npm install azure-cognitiveservices-customvision-prediction
+npm install @azure/cognitiveservices-customvision-training
+npm install @azure/cognitiveservices-customvision-prediction
 ```
 
 You can download the images with the [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples).

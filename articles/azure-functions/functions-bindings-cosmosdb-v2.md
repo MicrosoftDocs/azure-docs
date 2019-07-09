@@ -4,7 +4,7 @@ description: Understand how to use Azure Cosmos DB triggers and bindings in Azur
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.service: azure-functions
@@ -1239,6 +1239,7 @@ Here's the Python code:
 ```python
 import azure.functions as func
 
+
 def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Document:
     if documents:
         document = documents[0]
@@ -1292,6 +1293,7 @@ Here's the Python code:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     if not todoitems:
@@ -1350,6 +1352,7 @@ Here's the Python code:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     if not todoitems:

@@ -5,7 +5,7 @@ services: virtual-desktop
 author: ChJenk
 
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: v-chjenk
 ---
@@ -24,7 +24,9 @@ This article also assumes you have elevated access on the VM, whether it's provi
 
 Shared computer activation lets you to deploy Office 365 ProPlus to a computer in your organization that is accessed by multiple users. For more information about shared computer activation, see [Overview of shared computer activation for Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
 
-Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports Office 365 ProPlus.
+Use the [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117) to install Office. Windows 10 Enterprise multi-session only supports the following versions of Office:
+- Office 365 ProPlus
+- Office 365 Business that comes with a Microsoft 365 Business subscription
 
 The Office Deployment Tool requires a configuration XML file. To customize the following sample, see the [Configuration Options for the Office Deployment Tool](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
 
@@ -60,7 +62,7 @@ The following XML sample will install the Insiders release.
 
 ```xml
 <Configuration>
-    <Add OfficeClientEdition="64" SourcePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
+    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
         <Product ID="O365ProPlusRetail">
             <Language ID="en-US" />
             <Language ID="MatchOS" Fallback = "en-US"/>
@@ -84,7 +86,7 @@ The following XML sample will install the Insiders release.
         </Product>
     </Add>
     <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="http://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
+    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
     <Display Level="None" AcceptEULA="TRUE" />
     <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
     <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>

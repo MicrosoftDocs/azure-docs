@@ -83,6 +83,10 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
 
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
+
 > [!div renderon="docs"]
 > Where:
 > - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered in the Azure portal. You can find **Application (client) ID** in the app's **Overview** page.

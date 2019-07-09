@@ -20,7 +20,7 @@ Event Hubs clusters offer single-tenant deployments for customers with the most 
 Dedicated clusters are provisioned and billed by **Capacity Units (CUs)**, a pre-allocated amount of CPU and memory resources. You can purchase 1, 2, 4, 8, 12, 16 or 20 CUs for each cluster. In this quickstart, we will walk you through creating a 1 CU Event Hubs cluster through the Azure portal.
 
 > [!NOTE]
-> This self-serve experience is currently available in preview. If you are interested in creating an Event Hubs cluster through the Azure portal, please reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
+> This self-serve experience is currently available in preview on [Azure Portal](https://aka.ms/eventhubsclusterquickstart). If you have any questions about the Dedicated offering, please reach out to the [Event Hubs team](mailto:askeventhubs@microsoft.com).
 
 
 ## Prerequisites
@@ -36,9 +36,8 @@ An Event Hubs cluster provides a unique scoping container in which you can creat
 
 To create a cluster in your resource group using the Azure portal, please complete the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), select **+ Create a Resource** from the left navigation menu.
-2. Type **Event Hubs Clusters** on the search bar, then press ENTER.
-3. On the **Create Cluster** page, configure the following:
+1. Follow [this link](https://aka.ms/eventhubsclusterquickstart) to create a cluster on Azure portal. Conversely, select **All services** from the left navigation pane, then type in "Event Hubs Clusters" in the search bar and select "Event Hubs Clusters" from the list of results.
+2. On the **Create Cluster** page, configure the following:
     1. Enter a **name for the cluster**. The system immediately checks to see if the name is available.
     2. Select the **subscription** in which you want to create the cluster.
     3. Select the **resource group** in which you want to create the cluster.
@@ -46,12 +45,12 @@ To create a cluster in your resource group using the Azure portal, please comple
     5. Select the **Next: Tags** button at the bottom of the page. You may have to wait a few minutes for the system to fully provision the resources.
 
         ![Create Event Hubs Cluster - Basics page](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-basics-page.png)
-4. On the **Tags** page, configure the following:
+3. On the **Tags** page, configure the following:
     1. Enter a **name** and a **value** for the tag you want to add. This step is **optional**.  
     2. Select the **Review + Create** button.
 
         ![Create Event Hubs Cluster page - Tags page](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-tags-page.png)
-5. On the **Review + Create** page, review the details, and select **Create**. 
+4. On the **Review + Create** page, review the details, and select **Create**. 
 
     ![Create Event Hubs Cluster page - Review + Create page](./media/event-hubs-dedicated-cluster-create-portal/create-event-hubs-clusters-review-create-page.png)
 

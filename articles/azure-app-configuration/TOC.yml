@@ -47,6 +47,8 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Event handling
+      href: concept-app-configuration-event.md
     - name: High availability
       items:
         - name: Resiliency and disaster recovery
@@ -57,6 +59,8 @@
       href: howto-integrate-azure-managed-service-identity.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
+    - name: Route events to a custom endpoint
+      href: howto-app-configuration-event.md
     - name: Best practices
       href: howto-best-practices.md
 - name: Reference
@@ -69,10 +73,12 @@
           href: https://go.microsoft.com/fwlink/?linkid=2074664
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
-        - name: Java Spring provider
-          href: https://go.microsoft.com/fwlink/?linkid=2074659
         - name: .NET Azure SDK
           href: https://go.microsoft.com/fwlink/?linkid=2092056
+        - name: Java Spring provider
+          href: https://go.microsoft.com/fwlink/?linkid=2074659
+        - name: Java Azure SDK
+          href: https://go.microsoft.com/fwlink/?linkid=2098196
         - name: REST
           href: https://go.microsoft.com/fwlink/?linkid=2078296
     - name: Feature management
