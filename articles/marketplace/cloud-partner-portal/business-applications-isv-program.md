@@ -18,7 +18,7 @@ The [Business Applications ISV Program](https://partner.microsoft.com/solutions/
 
 In order to enroll and take advantage of all the [technical, marketing, and sales enablement benefits](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview) of the Business Applications ISV Program, we're asking existing ISV partners (with *Dynamics CE* and *Ops* offers) to complete several prerequisites explained in this guide. These steps include: 
 
- - [Setting up your account](#activate-your-account-in-partner-center) for Microsoft Partner Center
+ - [Setting up your account](#set-up-your-microsoft-partner-center-account) for Microsoft Partner Center
  - [Signing the agreement](#sign-the-business-applications-isv-program-agreement) for the Business Applications ISV Program
  - [Specifying your billing info](#set-up-your-billing-information), and
  - [Republishing your application](#recertify-your-application) to Microsoft AppSource
@@ -48,7 +48,7 @@ For more info, see [*Account migration from Cloud Partner Portal to Partner Cent
 Participation in this program requires you to review and accept the *Microsoft Business Applications ISV Addendum* agreement.
 
 > [!NOTE]
-> This step requires an *Owner* or *Manager* role in Partner Center for your given account in order to sign legal agreements. If you completed your Cloud Partner Portal account migration by [activating your Partner Center account](#activate-your-account-in-partner-center) in the previous step, your permissions have also migrated to Partner Center.
+> This step requires an *Owner* or *Manager* role in Partner Center for your given account in order to sign legal agreements. If you completed your Cloud Partner Portal account migration by [activating your Partner Center account](#set-up-your-microsoft-partner-center-account) in the previous step, your permissions have also migrated to Partner Center.
 
 1. Go to https://partner.microsoft.com/dashboard/account/agreements (and sign in to Partner Center as prompted).
 
