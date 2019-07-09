@@ -1,6 +1,6 @@
 ---
-title: PowerShell example Restore Geo-backup - Azure SQL database | Microsoft Docs
-description: Azure PowerShell example script to restore an Azure SQL Managed Instance Database from a geo-reduntand backup.
+title: PowerShell example Restore Geo-backup - Azure SQL Database | Microsoft Docs
+description: Azure PowerShell example script to restore an Azure SQL Managed Instance Database from a geo-redundant backup.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -21,7 +21,7 @@ This PowerShell script example restores an Azure SQL Managed Instance database f
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sample script
 
@@ -75,6 +75,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information about PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
