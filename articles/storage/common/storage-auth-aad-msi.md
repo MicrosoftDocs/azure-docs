@@ -40,11 +40,9 @@ For more information about assigning RBAC roles, see one of the following articl
 
 ## .NET code example: Create a block blob
 
-The code example shows how to get an access token from Azure AD and use it to authorize a request to create a block blob. To get this example working, first follow the steps outlined in the preceding sections.
+The code example shows how to get an OAuth 2.0 token from Azure AD and use it to authorize a request to create a block blob. To get this example working, first follow the steps outlined in the preceding sections.
 
-To authorize requests against Blob and Queue storage with a managed identity, your application or script must acquire an OAuth token. The [Microsoft Azure App Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) client library for .NET (preview) simplifies the process of acquiring and renewing a token from your code.
-
-The App Authentication client library manages authentication automatically. The library uses the developer's credentials to authenticate during local development. Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers. When the solution is later deployed to Azure, the library automatically switches to using application credentials.
+The [Microsoft Azure App Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) client library for .NET (preview) simplifies the process of acquiring and renewing a token from your code. The App Authentication client library manages authentication automatically. The library uses the developer's credentials to authenticate during local development. Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers. When the solution is later deployed to Azure, the library automatically switches to using application credentials.
 
 ### Azure Storage resource ID
 

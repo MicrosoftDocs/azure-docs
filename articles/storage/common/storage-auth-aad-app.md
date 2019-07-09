@@ -178,7 +178,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 Next, add a method that requests a token from Azure AD on the behalf of the user. This method defines the scope for which permissions are to be granted. For more information about permissions and scopes, see [Permissions and consent in the Microsoft identity platform endpoint](../../active-directory/develop/v2-permissions-and-consent.md).
 
-The value of the scope is constructed using the resource ID. The example below uses the resource ID together with the `user_impersonation` scope to construct the scope to use in requesting the token.
+Use the resource ID to construct the scope for which to acquire the token. The example constructs the scope by using the resource ID together with the built-in `user_impersonation` scope, which indicates that the token is being requested on behalf of the user.
 
 Keep in mind that you may need to present the user with an interface that enables the user to consent to request the token their behalf. When consent is necessary, the example catches the **MsalUiRequiredException** and calls another method to facilitate the request for consent:
 
@@ -212,12 +212,12 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET / MASL.NET need for the Token cache.
+    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
     properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
                                                  scopes.Union(additionalBuildInScopes).ToList());
 
-    // Attempts to set the login_hint to avoid the logged-in user to be presented 
+    // Attempt to set the login_hint so that the logged-in user is not presented
     // with an account selection dialog.
     string loginHint = HttpContext.User.GetLoginHint();
     if (!string.IsNullOrWhiteSpace(loginHint))
@@ -228,7 +228,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
         properties.SetParameter<string>(OpenIdConnectParameterNames.DomainHint, domainHint);
     }
 
-    // Additional claims required (for instance MFA)
+    // Specify any additional claims that are required (for instance, MFA).
     if (!string.IsNullOrEmpty(ex.Claims))
     {
         properties.Items.Add("claims", ex.Claims);
