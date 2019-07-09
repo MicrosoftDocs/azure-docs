@@ -90,7 +90,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## Submit a DataDriftDetector run
 
-With the `DataDriftDetector` object configured, you can submit a [data drift run](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) on a given date for the model. Also as part of the run,  you can set the `drift_threshold` parameter, which enables DataDriftDetector alerts. 
+With the `DataDriftDetector` object configured, you can submit a [data drift run](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) on a given date for the model. As part of the run, enable DataDriftDetector alerts by setting the `drift_threshold` parameter. If the [datadrift_coefficient](#metrics) is above the given `drift_threshold`, an email is sent.
 
 ```python
 # adhoc run today
@@ -110,7 +110,10 @@ RunDetails(dd_run).show()
 
 ## Visualize drift metrics
 
+<a name="metrics"></a>
+
 After you submit your DataDriftDetector run, you are able to see the drift metrics that are saved in each run iteration for a data drift task:
+
 
 |Metric|Description|
 --|--|
@@ -141,8 +144,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## Schedule data drift scans 
 
-When you enable data drift detection, a DataDriftDetector is run at the specified, scheduled frequency. If the drift coefficient is above the given `drift_threshold`, an email is sent.
-
+When you enable data drift detection, a DataDriftDetector is run at the specified, scheduled frequency. If the datadrift_coefficient reaches the given `drift_threshold`, an email is sent with each scheduled run. 
 
 ```python
 datadrift.enable_schedule()
@@ -169,7 +171,7 @@ In order for you to set up custom alerts and actions, all data drift metrics are
 
 ## Retrain your model after drift
 
-When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. The following `diff()` method will give you an initial sense of what changed between the old and new training data sets. 
+When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. The following `diff()` method gives you an initial sense of what changed between the old and new training data sets. 
 
 ```python
 from azureml.core import Dataset
