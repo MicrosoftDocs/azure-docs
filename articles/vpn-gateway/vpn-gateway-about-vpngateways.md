@@ -143,6 +143,8 @@ You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute,
 
 [!INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)]
 
+For legacy gateway SKU pricing, see the [ExpressRoute pricing page](https://azure.microsoft.com/pricing/details/expressroute/) and scroll to the **Virtual Network Gateways** section.
+
 For more information about gateway SKUs for VPN Gateway, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 ## <a name="faq"></a>FAQ
