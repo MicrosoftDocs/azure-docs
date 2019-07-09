@@ -51,9 +51,24 @@ Chef also uses the concepts of “Cookbooks” and “Recipes”, which are effe
 
 First, prep your workstation by creating a directory to store Chef configuration files and cookbooks.
 
-Create a directory called C:\chef.
+Create a directory called C:\Chef.
 
-Download your Azure PowerShell [publish settings](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
+Download and install the latest [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) version on to your workstation.
+
+## Configure Azure Service Principal
+
+In simplest of terms and Azure Service Principal is a service account.   We will be using a Service Principal to help us create Azure resources from our Chef Workstation.  To create the relevant Service Principal with the required permissions we need to run the following commands within Powershell:
+ 
+```powershell
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<yourSubscriptionName>"
+$myApplication = New-AzureRmADApplication -DisplayName "automation-app" -HomePage "https://chef-automation-test.com" -IdentifierUris "https://chef-automation-test.com" -Password "#1234p$wdchef19"
+New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
+```
+
+Please take a note of your SubscriptionID, TenantID, ClientID and Client Secret (aka the password you set above), you will need this later on. 
 
 ## Setup Chef Server
 
@@ -82,7 +97,7 @@ Once your organization is created, download the starter kit.
 
 This starter kit zip file contains your organization configuration files and user key in the `.chef` directory.
 
-The `organization-validator.pem` must be downloaded separately, because it is a private key and private keys should not be stored on the Chef Server. From [Chef Manage](https://manage.chef.io/) and select "Reset Validation Key", which provides a file for you to download separately. Save the file to c:\chef.
+The `organization-validator.pem` must be downloaded separately, because it is a private key and private keys should not be stored on the Chef Server. From [Chef Manage](https://manage.chef.io/), go into the Administration section and select "Reset Validation Key", which provides a file for you to download separately. Save the file to c:\chef.
 
 ### Configuring your Chef workstation
 
@@ -134,19 +149,20 @@ validation_client_name   "myorg-validator"
 
 validation_key           "#{current_dir}/myorg.pem"
 
-Also add the following line reflecting the name of your Azure publish settings file.
+knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
-    knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+knife[:azure_subscription_id] =   "11111111-bbbbb-cccc-1111-222222222222"
 
-Modify the “cookbook_path” by removing the /../ from the path so it appears as:
+knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 
-    cookbook_path  ["#{current_dir}/cookbooks"]
+knife[:azure_client_secret] =     "#1234p$wdchef19"
 
-These lines will ensure that Knife references the cookbooks directory under c:\chef\cookbooks, and also uses our Azure Publish Settings file during Azure operations.
+
+These lines will ensure that Knife references the cookbooks directory under c:\chef\cookbooks, and also uses the Azure Service Principal that you created during Azure operations.
 
 Your knife.rb file should now look similar to the following example:
 
-![][6]
+![][14]
 
 <!--- Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
 // However, the starter kit hasn't been updated
@@ -155,17 +171,19 @@ Your knife.rb file should now look similar to the following example:
 <!--- update image [6] knife.rb -->
 
 ```rb
-knife.rb
 current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
-node_name                "mynode"
-client_key               "#{current_dir}/user.pem"
-chef_server_url          "https://api.chef.io/organizations/myorg"
+node_name                "myorg"
+client_key               "#{current_dir}/myorg.pem"
 validation_client_name   "myorg-validator"
-validation_key           ""#{current_dir}/myorg.pem"
-cookbook_path            ["#{current_dir}/cookbooks"]
-knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+validation_key           "#{current_dir}/myorg-validator.pem"
+chef_server_url          "https://api.chef.io/organizations/myorg"
+cookbook_path            ["#{current_dir}/../cookbooks"]
+knife[:azure_tenant_id] = "0000000-1111-aaaa-bbbb-222222222222"
+knife[:azure_subscription_id] = "11111111-bbbbb-cccc-1111-222222222222"
+knife[:azure_client_id] = "11111111-bbbbb-cccc-1111-2222222222222"
+knife[:azure_client_secret] = "#1234p$wdchef19"
 ```
 
 ## Install Chef Workstation
@@ -178,13 +196,13 @@ On the desktop, you'll see a "CW PowerShell", which is an environment loaded wit
 `chef --version` should return something like:
 
 ```
-Chef Workstation: 0.2.29
-  chef-run: 0.2.2
-  Chef Client: 14.6.47x
-  delivery-cli: master (6862f27aba89109a9630f0b6c6798efec56b4efe)
-  berks: 7.0.6
-  test-kitchen: 1.23.2
-  inspec: 3.0.12
+Chef Workstation: 0.4.2
+  chef-run: 0.3.0
+  chef-client: 15.0.300
+  delivery-cli: 0.0.52 (9d07501a3b347cc687c902319d23dc32dd5fa621)
+  berks: 7.0.8
+  test-kitchen: 2.2.5
+  inspec: 4.3.2
 ```
 
 > [!NOTE]
@@ -214,7 +232,7 @@ It’s likely that a number of dependencies will also be installed at the same t
 
 To ensure everything is configured correctly, run the following command.
 
-    knife azure image list
+    knife azurerm server list
 
 If everything is configured correctly, you will see a list of available Azure images scroll through.
 
