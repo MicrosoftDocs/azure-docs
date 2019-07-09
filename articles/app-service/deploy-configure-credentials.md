@@ -12,7 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 03/10/2019
-ms.author: cephalin;byvinyal
+ms.author: cephalin
+ms.reviewer: byvinyal
 ms.custom: seodec18
 
 ---
