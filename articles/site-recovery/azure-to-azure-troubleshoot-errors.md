@@ -231,14 +231,14 @@ You can either choose to  protect the disks or ignore the warning to make the re
 
 ## Remove the virtual machine from the vault completed with information  (error code 150225)
 
-At the time of protecting the virtual machine, Azure Site Recovery creates some links on the source virtual machine. When you remove the protection or disable replication, Azure Site Recovery remove these links as a part of cleanup job. In case the virtual machine has a resource lock then the job gets completed with the information. It tells that the virtual machine has been removed from the recovery services vault but some of the stale links couldn't be cleaned up from the source machine. </br>
+At the time of protecting the virtual machine, Azure Site Recovery creates some links on the source virtual machine. When you remove the protection or disable replication, Azure Site Recovery remove these links as a part of cleanup job. In case the virtual machine has a resource lock then the job gets completed with the information. It tells that the virtual machine has been removed from the Recovery services vault but some of the stale links couldn't be cleaned up from the source machine. </br>
 You can ignore this warning if you never intend to protect this virtual machine again in future. However, if you have to protect this virtual machine later then you should clean up the links as mentioned in the steps below. 
 
 **Note:** If you don't do the clean up then:
 
 
-1.  Enabling replication through Recovery services vault, virtual machine will not be listed. 
-2.  if you try to protect the VM through **Virtual machine>Settings> Disaster Recovery** it will failed with the error "Replication cannot be enabled because of the existing stale resource links on the VM".
+1.  During the time of enabling the replication through Recovery services vault, virtual machine will not be listed. 
+2.  if you try to protect the VM through **Virtual machine>Settings> Disaster Recovery** it will failed with the error "*Replication cannot be enabled because of the existing stale resource links on the VM*".
 
 
 ### Fix the problem
@@ -253,7 +253,7 @@ You can ignore this warning if you never intend to protect this virtual machine 
 2. Download script [Remove stale ASR configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
 3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
 4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
-5. If asked Azure credentials, please provide that and you should see the success 
+5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures. 
 
 
 ## Replication cannot be enabled because of the existing stale resource links on the VM (error code 150226)
@@ -278,7 +278,7 @@ The stale configuration could be left on an Azure VM in the following cases:
 2. Download script [Remove stale ASR configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
 3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
 4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
-5. If asked Azure credentials, please provide that and you should see the success 
+5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures.  
 
 ## Unable to see the Azure VM or Resource group  for selection in "enable replication"
 
@@ -302,9 +302,16 @@ If you don't see the VM you want to enable for replication, it might be because 
 >[!NOTE]
 >
 >Make sure to update the ""AzureRM.Resources"" module before using the below script.
+>Azure Site Recovery doesn't delete source virtual machine or impact it in any way while performing below steps.
 
-You can use [Remove stale ASR configuration script](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) and remove the stale Site Recovery configuration on the Azure VM. You should be able to see the VM after removing the stale configuration.
 
+1. Remove the lock from the VM or VM resource group, if there are any.</br>
+*For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
+ ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm_locks.png)</br>
+2. Download script [Remove stale ASR configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
+3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
+4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
+5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures.  
 ## Unable to select Virtual machine for protection
  **Cause 1:  Virtual machine has some extension installed in a failed or unresponsive state** <br>
  Go to Virtual machines > Setting > Extensions and check if there are any extensions in a failed state. Uninstall the failed extension and retry protecting the virtual machine.<br>
