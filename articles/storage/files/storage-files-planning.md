@@ -214,7 +214,8 @@ To enroll your subscription to the larger file shares preview, you need to use A
 First, make sure the subscription you want to enroll in the preview is selected:
 
 ```powershell
-Select-AzSubscription -SubscriptionId "yoursubid"
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
 ```
 
 Then, enroll in the preview using the following commands:
