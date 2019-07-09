@@ -71,9 +71,9 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 
    1. Provide an **IoT Hub Device ID** for your device if you'd like. You can use device IDs to target an individual device for module deployment. If you don't provide a device ID, the registration ID is used.
 
-   1. Select **True** to declare that this virtual machine is an IoT Edge device.
+   1. Select **True** to declare that the enrollment is for an IoT Edge device. For a group enrollment, all devices must be IoT Edge devices or none of them can be.
 
-   1. Accept the default value from the Data Provisioning Service's allocation policy for **how you want to assign devices to hubs** or choose a different value that is specific to this enrollment.
+   1. Accept the default value from the Device Provisioning Service's allocation policy for **how you want to assign devices to hubs** or choose a different value that is specific to this enrollment.
 
    1. Choose the linked **IoT Hub** that you want to connect your device to. You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy.
 
@@ -159,7 +159,7 @@ You'll need the following information when provisioning your device:
 
 ### Linux device
 
-If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
+Follow the instructions for your device's architecture. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
 
 * [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md)
 * [Install the Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)

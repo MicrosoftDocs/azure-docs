@@ -110,9 +110,9 @@ For more information about these installation options, skip ahead to learn about
 
 ### Option 2: Install and automatically provision
 
-In this second option, you provision the device using the IoT Hub Device Provisioning Service. Provide the **Scope ID** from a Device Provisioning Service instance, and the **Registration ID** from your device. Additional values might be required according to your attestation mechanism when provisioning with DPS.
+In this second option, you provision the device using the IoT Hub Device Provisioning Service. Provide the **Scope ID** from a Device Provisioning Service instance, and the **Registration ID** from your device. Additional values might be required according to your attestation mechanism when provisioning with DPS, such as when using [symmetric keys](how-to-auto-provision-symmetric-keys.md).
 
-The following example demonstrates an automatic installation with Windows containers:
+The following example demonstrates an automatic installation with Windows containers and TPM attestation:
 
 1. Follow the steps in [Create and provision a simulated TPM IoT Edge device on Windows](how-to-auto-provision-simulated-device-windows.md) to set up the Device Provisioning Service and retrieve its **Scope ID**, simulate a TPM device and retrieve its **Registration ID**, then create an individual enrollment. Once your device is registered in your IoT hub, continue with these installation steps.  
 
