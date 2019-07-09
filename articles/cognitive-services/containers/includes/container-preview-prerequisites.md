@@ -1,8 +1,9 @@
 ---
-title: Containers Public Preview Prerequisites
+title: Container Public Preview Prerequisites
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
+description: The common prerequisite for public preview containers 
 ms.service: cognitive-services
 ms.topic: include 
 ms.date: 7/5/2019

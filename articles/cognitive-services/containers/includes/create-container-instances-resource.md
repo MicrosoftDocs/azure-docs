@@ -1,7 +1,7 @@
 ---
 title: Container support
 titleSuffix: Azure Cognitive Services
-description: Learn how to create an Azure container instance (ACI) resource.
+description: Learn how to create an Azure container instance resource.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 7/3/2019
 ms.author: dapine
 ---
 
-## Create an Azure Container Instance (ACI) resource
+## Create an Azure Container Instance resource
 
 1. Go to the [Create](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) page for Container Instances.
 

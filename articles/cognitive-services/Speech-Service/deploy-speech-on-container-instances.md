@@ -1,6 +1,6 @@
 ---
 title: Run Azure Container Instances
-titleSuffix: Speech Service - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Deploy the Speech Service container to an Azure Container Instance, and test it in a web browser.
 services: cognitive-services
 author: IEvangelist
@@ -12,9 +12,9 @@ ms.date: 7/5/2019
 ms.author: dapine
 ---
 
-# Deploy the Speech Service container to Azure Container Instances (ACI)
+# Deploy the Speech Service container to Azure Container Instances
 
-Learn how to deploy the Cognitive Services [Speech Service](speech-container-howto.md) container to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). This procedure demonstrates the creation of an Azure Speech Service resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
+Learn how to deploy the Cognitive Services [Speech Service](speech-container-howto.md) container to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). This procedure demonstrates the creation of an Azure Speech Service resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
@@ -26,7 +26,7 @@ You must first complete and submit the [Cognitive Services Speech Containers Req
 
 [!INCLUDE [Create a Cognitive Services Speech Service resource](includes/create-speech-resource.md)]
 
-[!INCLUDE [Create an Speech Service container on Azure Container Instances](../containers/includes/create-aci-resource-from-azure-cli.md)]
+[!INCLUDE [Create an Speech Service container on Azure Container Instances](../containers/includes/create-container-instances-resource-from-azure-cli.md)]
 
 [!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 

@@ -229,14 +229,11 @@
     - name: Configure containers
       href: speech-container-configuration.md
       displayName: docker, container, billing, apikey, pull, logging, on-premises
-<<<<<<< HEAD
     - name: Use on-premises
       displayName: kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises
       href: speech-container-howto-on-premises.md
-=======
-    - name: Use container instances (ACI)
-      href: use-speech-on-aci.md
->>>>>>> Added the other services to the fold.
+    - name: Use container instances
+      href: deploy-speech-on-container-instances.md
 - name: Samples
   items:
   - name: Speech SDK
