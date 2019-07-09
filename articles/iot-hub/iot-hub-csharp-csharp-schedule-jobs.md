@@ -57,7 +57,7 @@ To complete this tutorial, you need the following:
 
 ## Get the IoT hub connection string
 
-In this article, you create a backend service that schedules a job to invoke a direct method on a device, schedules a job to update the device twin, and monitors the progress of each job. To perform these operations, your service needs the service connect and registry read permissions. There is no default shared access policy that contains only these two permissions, so you need to create one.
+In this article, you create a backend service that schedules a job to invoke a direct method on a device, schedules a job to update the device twin, and monitors the progress of each job. To perform these operations, your service needs the **service connect** and **registry read** permissions. There is no default shared access policy that contains only these two permissions, so you need to create one.
 
 [!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
