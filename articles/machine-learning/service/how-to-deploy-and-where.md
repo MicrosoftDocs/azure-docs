@@ -511,7 +511,7 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
         "computeType": "aks",
         "autoScaler":
         {
-            "autoscaleEnabled": false,
+            "autoscaleEnabled": true,
             "minReplicas": 1,
             "maxReplicas": 3,
             "refreshPeriodInSeconds": 1,
