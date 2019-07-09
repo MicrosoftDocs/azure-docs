@@ -73,8 +73,6 @@ Example usage scenarios for the archive access tier include:
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
 
-For more information regarding blob rehydration, see [Rehydrating and reading object data from Archive](storage-blob-rehydration.md).
-
 ## Account-level tiering
 
 Blobs in all three access tiers can coexist within the same account. Any blob that does not have an explicitly assigned tier infers the tier from the account access tier setting. If the access tier is inferred from the account, you see the **Access Tier Inferred** blob property set to "true", and the blob **Access Tier** blob property matches the account tier. In the Azure portal, the _access tier inferred_ property is displayed with the blob access tier as **Hot (inferred)** or **Cool (inferred)**.
