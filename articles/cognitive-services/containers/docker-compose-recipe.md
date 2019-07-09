@@ -85,7 +85,7 @@ services:
 A Docker Compose file enables the management of all the stages in a defined service's life cycle: starting, stopping, and rebuilding services; viewing the service status; and log streaming. Open a command-line interface from the project directory (where the docker-compose.yaml file is located).
 
 > [!NOTE]
-> To avoid errors, make sure that the host machine correctly shares drives with Docker Engine. For example, if **e:\publicpreview** is used as a directory in the **docker-compose.yaml** file, share drive E with Docker.
+> To avoid errors, make sure that the host machine correctly shares drives with Docker Engine. For example, if E:\publicpreview is used as a directory in the *docker-compose.yaml* file, share drive E with Docker.
 
 From the command-line interface, execute the following command to start (or restart) all the services defined in the docker-compose.yaml file:
 
