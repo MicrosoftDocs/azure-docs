@@ -29,7 +29,7 @@ The only prerequisite for this tutorial is an Azure subscription. If you don’t
 
 ## Create a workspace
 
-If you already have an Azure Machine Learning service workspace, skip to the [next section](#choose-development-environment). Otherwise, create one now.
+A workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the SDK. If you already have an Azure Machine Learning service workspace, skip to the [next section](#choose-development-environment). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
