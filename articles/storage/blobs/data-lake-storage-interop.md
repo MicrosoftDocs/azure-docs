@@ -58,7 +58,9 @@ The following table describes features available in the current public preview o
 | **Azure service ecosystem** | Use these Azure services with accounts that have a hierarchical namespace: <br><li> Azure Stream Analytics<li>IOT Hub Capture<li>Event Hubs Capture<li>Data Box<li>Power BI|
 | **Partner Ecosystem** | Third party providers and partners that have existing Blob connectors can use those same connectors to work with accounts that have a hierarchical namespace. |
 
+## Next steps
 
+See [Known issues](data-lake-storage-known-issues.md)
 
 
 
