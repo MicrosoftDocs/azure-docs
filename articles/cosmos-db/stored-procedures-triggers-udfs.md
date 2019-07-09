@@ -33,7 +33,7 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 * **Encapsulation:** Stored procedures can be used to group logic in one place. Encapsulation adds an abstraction layer on top of the data, which enables you to evolve your applications independently from the data. This layer of abstraction is helpful when the data is schema-less and you don't have to manage adding additional logic directly into your application. The abstraction lets your keep the data secure by streamlining the access from the scripts.
 
 > [!TIP]
-> Stored procedures are best suited for operations that are write heavy. When deciding where to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read operations so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit.
+> Stored procedures are best suited for operations that are write-heavy and require a transaction across a partition key value. When deciding whether to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read or query operations, so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit. For best performance, these read-heavy operations should be done on the client-side, using the Cosmos SDK. 
 
 ## Transactions
 
