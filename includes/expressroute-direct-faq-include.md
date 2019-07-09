@@ -22,22 +22,29 @@ Customers will need to work with their local carriers and co-location providers 
 The available ports will be dynamic and will be available by PowerShell to view the capacity. Locations include and *are subject to change based on availability*:
 
 * Amsterdam
+* Amsterdam2
+* Auckland
+* Auckland 
 * Chicago
-* Washington DC
-* Dallas 
+* Dallas
+* Dublin
 * Hong Kong SAR
 * London
 * Los Angeles
+* Melbourne
 * New York City
-* Paris
 * Perth
-* Toronto
 * San Antonio
 * Seattle
 * Seoul
 * Silicon Valley
-* Singapore 
+* Singapore2 
 * Sydney
+* Taipei
+* Tokyo
+* Toronto
+* Washington DC
+* Washington DC2
 
 ### What is the SLA for ExpressRoute Direct?
 
