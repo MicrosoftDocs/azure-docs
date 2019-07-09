@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04-07-2019
+ms.date: 07/04/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -41,11 +41,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
 * Wandera supports **IDP** initiated SSO
-
-
-
 
 ## Adding Wandera from the gallery
 
@@ -150,7 +146,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Wandera tile in the Access Panel, you should be automatically signed in to the Wandera for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
