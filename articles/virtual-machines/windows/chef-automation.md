@@ -291,10 +291,23 @@ In order to do this, use the **knife azurerm server create** command.
 
 An example of the command appears next.
 
-    knife azurerm server create --azure-resource-group-name rg-chefdeploy --azure-storage-account store --azure-vm-name chefvm --azure-vm-size 'Standard_DS2_v2' --azure-service-location 'westus' --azure-image-reference-offer 'WindowsServer' --azure-image-reference-publisher 'MicrosoftWindowsServer' --azure-image-reference-sku '2016-Datacenter' --azure-image-reference-version 'latest' -x myuser -P myPassword123 --tcp-endpoints '80,3389' --chef-daemon-interval 1 -r "recipe[webserver]"
+    knife azurerm server create `
+    --azure-resource-group-name rg-chefdeployment `
+    --azure-storage-account store `
+    --azure-vm-name chefvm `
+    --azure-vm-size 'Standard_DS2_v2' `
+    --azure-service-location 'westus' `
+    --azure-image-reference-offer 'WindowsServer' `
+    --azure-image-reference-publisher 'MicrosoftWindowsServer' `
+    --azure-image-reference-sku '2016-Datacenter' `
+    --azure-image-reference-version 'latest' `
+    -x myuser -P myPassword123 `
+    --tcp-endpoints '80,3389' `
+    --chef-daemon-interval 1 `
+    -r "recipe[webserver]"
 
 
-The parameters are self-explanatory. Substitute your particular variables and run.
+The example above will create a Standard_DS2_v2 virtual machine with Windows Server 2016 installed within the West US region. Substitute your particular variables and run.
 
 > [!NOTE]
 > Through the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to the web page and RDP session.
@@ -307,13 +320,16 @@ Once you run the command, go to the Azure portal to see your machine begin to pr
 
 The command prompt appears next.
 
-![][10]
+![][16]
 
-Once the deployment is complete, you should be able to connect to the web service over port 80, because you opened the port when you provisioned the virtual machine with the Knife Azure command. As this virtual machine is the only virtual machine in this cloud service, connect to it with the cloud service url.
-
+Once the deployment is complete, you should be able to connect to the web service over port 80, because you opened the port when you provisioned the virtual machine with the Knife Azure command. 
 ![][11]
 
 This example uses creative HTML code.
+
+You can also view the node's status [Chef Manage](https://manage.chef.io/). 
+
+![][17]
 
 Don’t forget you can also connect through an RDP session from the Azure portal via port 3389.
 
@@ -333,6 +349,8 @@ Thank you! Go and start your infrastructure as code journey with Azure today!
 [13]: media/chef-automation/13.png
 [14]: media/chef-automation/14.png
 [15]: media/chef-automation/15.png
+[16]: media/chef-automation/16.png
+[17]: media/chef-automation/17.png
 
 
 <!--Link references-->
