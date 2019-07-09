@@ -102,7 +102,7 @@ The Teradata linked service supports the following properties:
 
 > [!NOTE]
 >
-> If you were using Teradata linked service empowered by .NET Data Provider for Teradata with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
+> The following payload is still supported. Going forward, however, you should use the new one.
 
 **Previous payload:**
 
