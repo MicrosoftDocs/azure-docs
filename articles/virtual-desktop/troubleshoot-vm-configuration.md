@@ -286,7 +286,7 @@ If you sign in to Windows 10 Enterprise multi-session using an administrative ac
 
 To manually configure the licensing mode:  
 
-1. Open **gpedit.msc** to access the local Group Policy editor. 
+1. Go to your **Start menu** search box, then find and open **gpedit.msc** to access the local Group Policy editor. 
 2. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**. 
 3. Set the Remote Desktop licensing mode to **Per user**.
 
