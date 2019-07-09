@@ -62,7 +62,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
-
 |[CACI Inc - Federal](https://www.caci.com/)|
 |[Cambria Solutions, Inc.](https://www.cambriasolutions.com/)|
 |[Capgemini Government Solutions LLC](https://www.capgemini.com/us-en/service/capgemini-government-solutions/)|
@@ -138,7 +137,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Global Justice Solutions, LLC](https://www.globaljusticesolutions.us/)|
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
-
 |[GovPlace](https://www.govplace.com/)|
 |[Gravity Pro Consulting](https://www.gravitypro.com/)|
 |[Green House Data](https://www.greenhousedata.com/)|
@@ -157,7 +155,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Imperitive Solutions LLC](https://www.imperitiv.com/)|
 |[Indicium Technologies Inc](https://www.istech-corp.com/)|
 |[Info Gain Consulting LLC](http://infogainconsulting.com/)|
-
 |[Infocone Inc.](https://www.infocone.com/)|
 |[Inforeliance LLC](https://www.inforeliance.com/)|
 |[Infosys Public Services, Inc.](https://www.infosyspublicservices.com/)|
@@ -329,7 +326,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 
 
 ## Approved indirect CSP Providers
-
 
 |Partner Name|
 |----------------------------|

@@ -4,7 +4,7 @@ description: Learn how to use Azure portal to create and share virtual machine i
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

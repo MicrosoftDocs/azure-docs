@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure PowerShell to manage A
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 
 ms.service: virtual-machines-windows
