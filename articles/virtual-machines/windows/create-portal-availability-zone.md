@@ -4,7 +4,7 @@ description: Create a Windows VM in an availability zone with the Azure portal
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 
