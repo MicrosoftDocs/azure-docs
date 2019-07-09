@@ -1,5 +1,5 @@
 ---
-title: Select assessment tools in the Azure Migrate hub | Microsoft Docs
+title: Add assessment tools in Azure Migrate | Microsoft Docs
 description: Describes how to add assessment tools in the Azure Migrate hub. 
 author: rayne-wiselman
 ms.service: azure-migrate
@@ -9,7 +9,7 @@ ms.author: raynew
 ---
 
 
-# Select assessment tools
+# Add assessment tools
 
 This article describes how to add assessment tools in [Azure Migrate](migrate-overview.md).
 
@@ -19,32 +19,33 @@ If you want to add an assessment tool and you don't yet have an Azure Migrate pr
 
 ## Selecting an ISV tool
 
-If you choose an [ISV tool](migrate-services-overview.md#isv-integration), you can start by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions to connect the app workspace with Azure Migrate. 
+If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for assessment, you can start by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions to connect the tool workspace with Azure Migrate. 
 
 
 ## Select an assessment scenario
 
-Select the assessment scenario you want to use:
+1. In the Azure Migrate project, click **Overview**.
+2. Select the assessment scenario you want to use:
 
     - To discover and assess machines and workloads for migration to Azure, select **Assess and migrate servers**.
     - To assess on-premises SQL machines, select **Assess and migrate databases**.
     - To assess on-premises web apps, select **Assess and migrate web apps**.
-   
 
     ![Assessment scenario](./media/how-to-assess/assess-scenario.png)
 
 ## Select a server assessment tool 
 
 1. Click **Assess and Migrate Servers**.
-2. In **Azure Migrate - Servers**, if you don't have any assessment tools yet, under Assessment tools, select **Click here to add an assessment tool**. If you've already added assessment tools, in **Add more assessment tools**, select **Click here**.
-
-    ![Assessment tools](./media/how-to-assess/assess-tool.png)
-
+2. In **Azure Migrate - Servers**, if you haven't added an assessment tool, under **Assessment tools**, select **Click here to add an assessment tool**. If you've already added assessment tools, in **Add more assessment tools**, select **Click here**.
 
     > [!NOTE]
     > If you need to navigate to a different project, in **Azure Migrate - Servers**, next to **See details for a different migrate project**, click **Click here**.
 
 3. In **Azure Migrate**, select the assessment tool you want to use.
+
+    
+    ![Assessment tools](./media/how-to-assess/assess-tool.png)
+
     - If you use Azure Migrate Server Assessment, you can set up, run, and view assessments directly in the Azure Migrate project.
     - If you use a third-party assessment tool, navigate to the link provided for their site, and run the assessment in accordance with the instructions they provide.
 
@@ -55,7 +56,7 @@ Select the assessment scenario you want to use:
 2. In **Databases**, click **Add tools**.
 3. In Add a tool > **Select assessment tool**, select the tool you want to use to assess your database.
 
-![Database assessment](./media/how-to-assess/db-assessment.png)
+    ![Database assessment](./media/how-to-assess/db-assessment.png)
 
 ## Select a web app assessment tool
 
