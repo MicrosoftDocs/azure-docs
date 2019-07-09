@@ -46,4 +46,4 @@ ms.date: 05/21/2019
 
 1. When the process is finished, a deployment success message appears. It's also present in the notifications section. To view the new workspace, select **Go to resource**.
 
-   ![Workspace creation status](./media/aml-create-in-portal/notifications-05-2019.png)
+   ![Workspace creation status](./media/aml-create-in-portal/notifications.png)
