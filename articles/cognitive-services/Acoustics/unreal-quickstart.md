@@ -46,7 +46,7 @@ The Project Acoustics Unreal plugin requires additional behavior be exposed from
 
     ![Screenshot of Windows Explorer window showing script to patch Wwise project](media/patch-wwise-script.png)
 
-* If you don't have the DirectX SDK installed, you'll need to comment out the line containing DXSDK_DIR in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* If you don't have the DirectX SDK installed, depending on the version of Wwise you're using, you might need to comment out the line that contains `DXSDK_DIR` in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Screenshot of code editor showing DXSDK commented out](media/directx-sdk-comment.png)
 
