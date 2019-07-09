@@ -52,13 +52,16 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 | Cluster-wide | | | | Specify any one of the following three methods to scrape endpoints for metrics. |
 | | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
 | | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br>``prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod. |
 | | `prometheus.io/scheme` | String | http or https | Defaults to scrapping over HTTP. If required, set to `https`. | 
 | | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation. |
 | | `prometheus.io/port` | String | 9102 | Specify a port to listen on. If port is not set, it will default to 9102. |
 | Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
 
+The collection interval default is one minute (60 seconds). You can modify the collection for either the [prometheus_data_collection_settings.node] and/or [prometheus_data_collection_settings.cluster] to time units such as ns, us (or Âµs), ms, s, m, h by modifying the key `interval`.  
+
+ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
 ### Configure and deploy ConfigMaps
 
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
