@@ -1,4 +1,4 @@
-﻿---
+---
  title: include file
  description: include file
  services: virtual-machines
@@ -386,4 +386,4 @@ Learn more about the available disk types:
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 
 * [Performance Best Practices for SQL Server in Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage provides highest performance for SQL Server in Azure VM](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Azure Premium Storage provides highest performance for SQL Server in Azure VM](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
