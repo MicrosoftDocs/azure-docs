@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 07/08/2019
 ms.author: juliako
 
 ---
@@ -28,20 +28,11 @@ This topic discusses currently available [Media Services Metrics](#media-service
 
 ## Media Services metrics
 
-Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
+Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic. For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
 ### Account
 
 You can monitor the following account metrics. 
-
-* Asset count
-* Asset quota
-* Asset quota used percentage
-* Content Key Policy quota
-* Content Key Policy quota used percentage
-* Streaming Policy count
-* Streaming Policy quota
-* Streaming Policy quota used percentage
 
 |Metric name|Display name|Description|
 |---|---|---|
@@ -55,9 +46,7 @@ You can monitor the following account metrics.
 ||Streaming Policy quota||
 ||Streaming Policy quota used percentage||
  
-#### See also
-
-Review [account quotas and limiatations](limits-quotas-constraints.md).
+You should also review [account quotas and limiatations](limits-quotas-constraints.md).
 
 ### Streaming Endpoint
 
@@ -88,8 +77,6 @@ Here are examples of how monitoring Media Services metrics can help you understa
 * How can I see the breakdown of requests failing and what is causing the failure?
 * How can I see how many HLS or DASH requests are being pulled from the packager?
 * How do I set an alert to know when the threshold value of # of failed requests was hit? 
-
-For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
 ## Media Services diagnostic logs
 
