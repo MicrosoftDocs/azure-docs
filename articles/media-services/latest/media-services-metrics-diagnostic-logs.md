@@ -32,7 +32,7 @@ Metrics are collected at regular intervals whether or not the value changes. The
 
 ### Account
 
-You can monitor the following account metrics. For more information, see [account quotas and limiatations](limits-quotas-constraints.md).
+You can monitor the following account metrics. 
 
 * Asset count
 * Asset quota
@@ -42,6 +42,10 @@ You can monitor the following account metrics. For more information, see [accoun
 * Streaming Policy count
 * Streaming Policy quota
 * Streaming Policy quota used percentage
+
+#### See also
+
+Review [account quotas and limiatations](limits-quotas-constraints.md).
 
 ### Streaming Endpoint
 
