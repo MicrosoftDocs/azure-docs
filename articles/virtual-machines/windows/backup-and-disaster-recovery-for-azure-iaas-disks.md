@@ -5,7 +5,7 @@
   cloud: Azure
   documentationcenter: na
   author: roygara
-  manager: jeconnoc
+  manager: gwallace
 
   ms.assetid:
   ms.service: virtual-machines-linux

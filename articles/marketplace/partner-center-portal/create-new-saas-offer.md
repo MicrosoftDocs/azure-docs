@@ -15,7 +15,7 @@ To begin creating Software as a Service (SaaS) offers, ensure that you first [Cr
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
-Select the + **Create a new…** button, then select the **Software as a Service** menu item. 
+Select the + **New offer…** button, then select the **Software as a Service** menu item. 
 
 If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time. 
 
@@ -26,13 +26,14 @@ The **New offer** dialog box is displayed.
 ![New offer dialog box](./media/new-offer-popup.png)
 
 
-## Offer ID and name
+## Offer ID and alias
 
-- **Offer ID**: Create a unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be updated after you select create.  
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be changed after you select *Create*.  
 Example: test-offer-1 
 <br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Offer name**: The official name of your SaaS application offer, consistent across publications, advertisements, and web sites.  This name may be trademarked.  Offer name must not contain whitespace, emojis (unless they are the trademark or copyright symbol) and must be limited to 50 characters.
+- **Offer alias**: The name used to refer to the offer within the Partner Center portal. This name won't be used in the marketplace and is different than the *Offer Name* and other values that will be shown to customers. This value can't be changed after you select *Create*.
+
 <br>Example: Test Offer 1&#8482;
 
 Select **Create**.  An **Offer overview** page is created for this offer.  

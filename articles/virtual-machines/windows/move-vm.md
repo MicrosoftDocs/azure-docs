@@ -4,7 +4,7 @@ description: Move a Windows VM to another Azure subscription or resource group i
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
