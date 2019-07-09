@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 06/11/2019
+ms.date: 7/5/2019
 ms.author: dapine
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -103,7 +103,7 @@ Individual containers can have their own requirements, as well, including server
 
 ## Next steps
 
-Learn about [container recipes](/containers/container-reuse-recipe.md) you can use with the Cognitive Services.
+Learn about [container recipes](containers/container-reuse-recipe.md) you can use with the Cognitive Services.
 
 Install and explore the functionality provided by containers in Azure Cognitive Services:
 

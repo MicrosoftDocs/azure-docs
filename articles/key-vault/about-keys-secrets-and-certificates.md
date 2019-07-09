@@ -473,5 +473,4 @@ For more information, see the [Storage account operations in the Key Vault REST 
 ## See Also
 
 - [Authentication, requests, and responses](authentication-requests-and-responses.md)
-- [Key Vault versions](key-vault-versions.md)
 - [Key Vault Developer's Guide](/azure/key-vault/key-vault-developers-guide)

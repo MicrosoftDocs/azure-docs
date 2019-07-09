@@ -4,7 +4,7 @@ description: Understand how to handle Event Grid events in Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords:
 
 ms.service: azure-functions

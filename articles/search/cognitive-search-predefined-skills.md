@@ -41,7 +41,7 @@ Several skills are flexible in what they consume or produce. In general, most sk
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Allows extensibility of cognitive search pipeline by making an HTTP call into a custom Web API |
 
 
-For guidance on creating a [custom skill](cognitive-search-custom-skill-web-api.md), see [How to define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md).
+For guidance on creating a [custom skill](cognitive-search-custom-skill-web-api.md), see [How to define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md).
 
 ## See also
 
