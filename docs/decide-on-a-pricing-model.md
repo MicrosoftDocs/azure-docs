@@ -7,6 +7,9 @@ localization_priority: Normal
 
 # Decide on a pricing model for your AppSource submission
 
+> [!NOTE]
+> Upcoming changes to the add-in payment model will affect all paid add-ins. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). 
+
 AppSource provides a variety of pricing options. You don't have to set your pricing model until you submit your app or add-in, and you don't have to specify anything in your app or add-in to support the pricing option you choose. However, it's a good idea to decide on your pricing model during your design and development process. The pricing model you choose might influence the features and behavior you include. Also, certain monetizing strategies, such as using the licensing framework, or offering ads or additional purchases, require you to implement custom code.
 
 > [!NOTE]

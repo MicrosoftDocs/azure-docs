@@ -2,6 +2,10 @@
   href: submit-to-the-office-store.md
 - name: Optimize add-in placement and ranking in AppSource
   href: optimize-for-store-discovery.md
+- name: Moving from paid to free add-ins
+  href: moving-from-paid-to-free-addins.md
+- name: Monetize your add-ins
+  href: monetize-addins-through-microsoft-commercial-marketplace.md
 - name: License your add-ins
   items:
   - name: Overview
