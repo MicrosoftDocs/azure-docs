@@ -2,12 +2,12 @@
 title: Azure Site Recovery troubleshooting for Azure-to-Azure replication issues and errors| Microsoft Docs
 description: Troubleshooting errors and issues when replicating Azure virtual machines for disaster recovery
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: sujayt
+ms.author: asgang
 
 ---
 # Troubleshoot Azure-to-Azure VM replication issues
@@ -252,7 +252,8 @@ If you don't do the clean up then the virtual machine will not be visible throug
 ## Unable to see the Azure VM or Resource group  for selection in "enable replication"
 
  **Cause 1:  Resource group and source Virtual machine are in different location** <br>
-Azure Site Recovery currently mandates that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine during the time of protection. As a workaround, you can Enable replication from the VM instead of the Recovery services vault. Go to Sourece VM > Properties > Disaster Recovery and Enable the replication.
+Azure Site Recovery currently mandates that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine or resource group during the time of protection. </br>
+**As a workaround**, you can Enable replication from the VM instead of the Recovery services vault. Go to Sourece VM > Properties > Disaster Recovery and Enable the replication.
 
 **Cause 2: Resource group is not part of selected subscription** <br>
 You might not be able to find the resource group at the  time of protection if it is not part of the given subscription. Make sure that the resource group belongs to the subscription which is being used.
@@ -262,6 +263,8 @@ If you don't see the VM you want to enable for replication, it might be because 
 
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the Site Recovery vault without explicitly disabling replication on the VM.
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the resource group containing the Site Recovery vault without explicitly disabling replication on the VM.
+
+- You enabled replication for the Azure VM by using Site Recovery and then disable replication but the source VM had a resource lock.
 
 ### Fix the problem
 
