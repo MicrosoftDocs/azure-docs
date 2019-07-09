@@ -6,7 +6,7 @@ author: kasinh
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 07/09/2019
 ms.author: kasinh
 ---
 # Recover data from Azure Backup Server
