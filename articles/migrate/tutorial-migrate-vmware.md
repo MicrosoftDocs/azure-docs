@@ -160,7 +160,7 @@ With discovery completed, you can begin replication of VMware VMs to Azure.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
     - **Availability set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
 
-    ![VM compute settings](./media/tutorial-migrate-vmware/compute.png)
+    ![VM compute settings](./media/tutorial-migrate-vmware/compute-settings.png)
 
 9. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
