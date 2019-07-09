@@ -1,5 +1,5 @@
 ---
-title: 'Failure spark job debugging with Azure Toolkit for IntelliJ '
+title: 'Failure spark job debugging with Azure Toolkit for IntelliJ(Preview) '
 description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through SSH
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 ms.service: hdinsight
@@ -10,7 +10,7 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
 ---
-# Failure spark job debugging with Azure Toolkit for IntelliJ
+# Failure spark job debugging with Azure Toolkit for IntelliJ(Preview)
 
 This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) to run **Spark Failure Debug** applications. 
 

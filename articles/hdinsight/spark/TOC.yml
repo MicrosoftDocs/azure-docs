@@ -24,7 +24,7 @@
       href: ../hdinsight-for-vscode.md
     - name: Use IntelliJ to run Apache Spark queries
       href: apache-spark-intellij-tool-plugin.md
-    - name: Failure spark job debugging in IntelliJ
+    - name: Failure spark job debugging in IntelliJ(Preview)
       href: apache-spark-intellij-tool-failure-debug.md
     - name: Analyze data using BI tools
       href: apache-spark-use-bi-tools.md
