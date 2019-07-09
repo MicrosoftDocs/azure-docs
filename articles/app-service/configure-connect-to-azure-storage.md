@@ -1,6 +1,6 @@
 ---
-title: Serve content from Azure Files
-description: How to configure and serve content from Azure Files in Windows Container app in Azure App Service.
+title: Configure and connect to Azure Files
+description: How to configure and connect to Azure Files in Windows Container on App Service.
 author: msangapu-msft
 manager: gwallace
 
@@ -10,7 +10,11 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu-msft
 ---
-# Serve content from Azure Files in a Windows Container on App Service
+# Configure and connect to Azure Files in a Windows Container on App Service
+
+> [!NOTE]
+> This article applies to custom Windows containers. Only Azure Files and Premium Files are supported. To deploy to App Service on _Linux_, see [Serve Content from Azure Storage](./containers/how-to-serve-content-from-azure-storage.md).
+>
 
 ## Prerequisites
 
