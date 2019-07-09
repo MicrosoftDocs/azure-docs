@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ---
 
@@ -21,6 +21,15 @@ Moving a resource only moves it to a new resource group or subscription. It does
 There are some important steps to do before moving a resource. By verifying these conditions, you can avoid errors.
 
 1. The resources you want to move must support the move operation. For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
+
+1. Some services have specific limitations or requirements when moving resources. If you've moving any of the following services, check that guidance before moving.
+
+   * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
+   * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+   * [Classic deployment model move guidance](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks, and Cloud Services
+   * [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
+   * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
+   * [Virtual Networks move guidance](./move-limitations/virtual-network-move-limitations.md)
 
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
@@ -153,6 +162,8 @@ When it has completed, you're notified of the result.
 
 ![show move result](./media/resource-group-move-resources/show-result.png)
 
+If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
+
 ## Use Azure PowerShell
 
 To move existing resources to another resource group or subscription, use the [Move-AzResource](/powershell/module/az.resources/move-azresource) command. The following example shows how to move several resources to a new resource group.
@@ -165,6 +176,8 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 To move to a new subscription, include a value for the `DestinationSubscriptionId` parameter.
 
+If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
+
 ## Use Azure CLI
 
 To move existing resources to another resource group or subscription, use the [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) command. Provide the resource IDs of the resources to move. The following example shows how to move several resources to a new resource group. In the `--ids` parameter, provide a space-separated list of the resource IDs to move.
@@ -176,6 +189,8 @@ az resource move --destination-group newgroup --ids $webapp $plan
 ```
 
 To move to a new subscription, provide the `--destination-subscription-id` parameter.
+
+If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
 
 ## Use REST API
 
@@ -194,15 +209,8 @@ In the request body, you specify the target resource group and the resources to 
 }
 ```
 
+If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
+
 ## Next steps
 
 For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
-
-Some services require additional considerations when moving resources. See guidance for:
-
-* [App Services](./move-limitations/app-service-move-limitations.md)
-* [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
-* [Classic deployment model](./move-limitations/classic-model-move-limitations.md)
-* [Recovery Services](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
-* [Virtual Machines](./move-limitations/virtual-machines-move-limitations.md)
-* [Virtual Networks](./move-limitations/virtual-network-move-limitations.md)

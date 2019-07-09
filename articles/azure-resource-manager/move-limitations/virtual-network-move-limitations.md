@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move virtual networks to a new resour
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ---
 
