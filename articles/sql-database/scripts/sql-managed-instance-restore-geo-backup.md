@@ -13,9 +13,9 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 07/03/2019
 ---
-# Use PowerShell to restore an Azure SQL single database to an earlier point in time
+# Use PowerShell to restore a Managed Instance database to another geo-region
 
-This PowerShell script example restores an Azure SQL database from a remote geo-region.  
+This PowerShell script example restores an Azure SQL Managed Instance database from a remote geo-region (geo-restore).  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -28,7 +28,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 ```azurepowershell-interactive
 # Connect-AzAccount
 # The SubscriptionId in which to create these objects
-$SubscriptionId = ''
+$SubscriptionId = '<put subscription_id here>'
 # Set the information for your managed instance
 $SourceResourceGroupName = "myResourceGroup-$(Get-Random)"
 $SourceInstanceName = "myManagedInstance-$(Get-Random)"
