@@ -4,7 +4,7 @@ description: Create a Linux VM in an availability zone with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: 
 

@@ -4,7 +4,7 @@ description: How to vertically scale a Linux Virtual Machine in response to moni
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

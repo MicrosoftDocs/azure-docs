@@ -4,7 +4,7 @@ description: Lists the different sizes available for Windows high performance co
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
