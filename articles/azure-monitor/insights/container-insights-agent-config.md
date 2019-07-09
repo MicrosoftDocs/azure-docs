@@ -26,11 +26,17 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 * Cluster-wide - HTTP URL and discover targets from listed endpoints of a service, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section *Prometheus data_collection_settings.cluster*.
 * Node-wide - HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section  *Prometheus_data_collection_settings.node*.
 
-|Scope | Description |
-|------|-------------|
-| Cluster-wide | Specify any one of the following three methods to scrape endpoints for metrics. |
-| |- HTTP endpoint (Either IP address or valid URL path specified). For example: $NODE_IP/metrics. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used as instead of node IP address).<br> - K8s services, such as kube-dns and kube-state-metrics. For example: `http://my-service-dns.my-namespace:9100/metrics` or ` https://metrics-server.kube-system.svc.cluster.local/metrics`.<br> - Pod annotations (applications specifically).<br> When `monitor_kubernetes_pods = true` in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:<true/false>:` - Enable scraping for this pod.<br> `prometheus.io/scheme:<http/https>:` - If the metrics endpoint is secured then you will need to set this to `https` (default is `http`).<br> `prometheus.io/path:` - The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation.<br>  `# - prometheus.io/port:` - Specify a port to listen on. If port is not set, it will default to `9102`. |
-| Node-wide | HTTP endpoint scraping method only.<br> For example: $NODE_IP/metrics .|
+|Scope | Key | Data type | Value | Description |
+|------|-----|-----------|-------|-------------|
+| Cluster-wide | | | | Specify any one of the following three methods to scrape endpoints for metrics. |
+| | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
+| | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br>``prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod. |
+| | `prometheus.io/scheme` | String | http or https | Defaults to scrapping over HTTP. If required, set to `https`. | 
+| | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation. |
+| | `prometheus.io/port` | String | 9102 | Specify a port to listen on. If port is not set, it will default to 9102. |
+| Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
 
 ## Configure your cluster with custom data collection settings
 
