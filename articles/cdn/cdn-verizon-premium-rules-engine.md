@@ -4,7 +4,7 @@ description: The rules engine allows you to customize how HTTP requests are hand
 services: cdn
 author: mdgattuso
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus

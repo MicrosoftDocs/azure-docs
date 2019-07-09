@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Troubleshooting Network Security
 description: Troubleshooting NSG configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager:
 editor:
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Troubleshoot invalid networking configuration for your managed domain

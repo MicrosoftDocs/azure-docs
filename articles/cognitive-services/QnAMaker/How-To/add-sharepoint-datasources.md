@@ -22,9 +22,12 @@ If the QnA Maker knowledge base manager is not the Active Directory manager, you
 
 ## Add supported file types to knowledge base
 
-You can add all QnA Maker-supported [file types](../Concepts/data-sources-supported.md) from a SharePoint server to your knowledge base. You may have to grant [permissions](#permissions) if the file resource is secured.
+You can add all QnA Maker-supported [file types](../Concepts/data-sources-supported.md) from a SharePoint site to your knowledge base. You may have to grant [permissions](#permissions) if the file resource is secured.
 
-1. [Copy a link to the file from SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c). Select **People with existing access**.
+1. From the library with the SharePoint site, select the file's ellipsis menu, `...`.
+1. Copy the file's URL.
+
+   ![Get the SharePoint file URL by selecting the file's ellipsis menu then copying the URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. In the QnA Maker portal, on the **Settings** page, [add the URL](edit-knowledge-base.md#add-datasource) to the knowledge base. 
 
@@ -59,7 +62,7 @@ The request begins with a pop-up to authenticate to an Active Directory account.
 
 ![Authenticate User Account](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Once the QnA Maker manager selects the account, the Active Directory administrator will receive a notice that they need to allow the QnA Maker app (not the QnA Maker manager) access to the SharePoint resource. The Active Directory manager will need to do this for every SharePoint resource, but not every document in that resource. 
+Once the QnA Maker manager selects the account, the Azure Active Directory administrator will receive a notice that they need to allow the QnA Maker app (not the QnA Maker manager) access to the SharePoint resource. The Azure Active Directory manager will need to do this for every SharePoint resource, but not every document in that resource. 
 
 ### Active directory manager: grant file read access to QnA Maker
 
