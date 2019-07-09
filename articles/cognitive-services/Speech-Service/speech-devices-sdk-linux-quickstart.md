@@ -84,7 +84,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. Also from the **Edit Configuration** window select the **Environment** page and **New**. The **New Environment Variable** window appears. In the **Name** field enter **LD_LIBRARY_PATH** and in the **value** field enter the folder containing the *.so files, for example **/home/wcaltest/JRE-Sample-Release**
 
-1. Copy kws.table and participants.properties into the project folder **target/classes**
+1. Copy `kws.table` and `participants.properties` into the project folder **target/classes**
 
 
 ## Configure the sample application
@@ -109,12 +109,12 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, **/home/wcaltest/JRE-Sample-Release/keyword/Computer** contains the files used for the wake word "Computer".
+1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, `/home/wcaltest/JRE-Sample-Release/keyword/Computer` contains the files used for the wake word "Computer".
 
    > [!TIP]
    > You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
 
-    To use a new wake word, update the following two lines in `FunctionsList.java`, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package kws-machine.zip:
+    To use a new wake word, update the following two lines in `FunctionsList.java`, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package `kws-machine.zip`:
 
    * Copy the wake word package into the project folder **target/classes**.
 
@@ -148,7 +148,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
  
    ![Screenshot of Runnable JAR File Export](media/speech-devices-sdk/eclipse-export-jar-linux.png)
 
-1. Please put **kws.table** and **participants.properties** in the destination folder chosen above as these files are needed by the application.
+1. Please put `kws.table` and `participants.properties` in the destination folder chosen above as these files are needed by the application.
 
 1. Set the LD_LIBRARY_LIB to the folder containing the *.so files
 

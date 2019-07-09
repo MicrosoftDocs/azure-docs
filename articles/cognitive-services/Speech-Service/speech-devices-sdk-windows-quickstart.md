@@ -61,7 +61,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
    ![Screenshot of Package explorer](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
-1. Copy kws.table, participants.properties and Microsoft.CognitiveServices.Speech.extension.pma.dll into the project folder **target\classes**
+1. Copy `kws.table`, `participants.properties` and `Microsoft.CognitiveServices.Speech.extension.pma.dll` into the project folder **target\classes**
 
 ## Configure the sample application
 
@@ -85,12 +85,12 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, C:\SDSDK\JRE-Sample-Release\keyword\Computer contains the files used for the wake word "Computer".
+1. The default wake word (keyword) is "Computer". You can also try one of the other provided wake words, like "Machine" or "Assistant". The resource files for these alternate wake words are in the Speech Devices SDK, in the keyword folder. For example, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contains the files used for the wake word "Computer".
 
    > [!TIP]
    > You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
 
-    To use a new wake word, update the following two lines in `FunctionsList.java`, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package kws-machine.zip:
+    To use a new wake word, update the following two lines in `FunctionsList.java`, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package `kws-machine.zip`:
 
    * Copy the wake word package into the project folder **target/classes**.
 
@@ -127,7 +127,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
  
    ![Screenshot of Runnable JAR File Export](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
-1. Please put **kws.table**, **participants.properties**, **unimic_runtime.dll**, **pma.dll** and **Microsoft.CognitiveServices.Speech.extension.pma.dll**  in the destination folder chosen above as these files are needed by the application.
+1. Please put `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` and `Microsoft.CognitiveServices.Speech.extension.pma.dll`  in the destination folder chosen above as these files are needed by the application.
 
 1. To run the standalone application
 
