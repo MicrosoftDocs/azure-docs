@@ -13,13 +13,13 @@
       href: quickstart-cli.md
     - name: Run an application with a Dockerfile
       href: quickstart-cli-dockerfile.md
-    - name: Run and Debug Java with VS Code
+    - name: Run and debug Java with VS Code
       href: quickstart-java.md
-    - name: Run and Debug .NET Core with VS Code
+    - name: Run and debug .NET Core with VS Code
       href: quickstart-netcore.md
-    - name: Run and Debug Node.js with VS Code
+    - name: Run and debug Node.js with VS Code
       href: quickstart-nodejs.md
-    - name: Run and Debug .NET Core with Visual Studio
+    - name: Run and debug .NET Core with Visual Studio
       href: quickstart-netcore-visualstudio.md
   - name: Tutorials
     items:
