@@ -227,6 +227,28 @@ You can either choose to  protect the disks or ignore the warning to make the re
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. To dismiss the warning. Go to Replicated items > VM > Click on the dismiss alert under overview section.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
+
+
+## Remove the virtual machine from the vault completed with information  (error code 150225)
+
+At the time of protecting the virtual machine, Azure Site Recovery creates some links on the source virtual machine. When you remove the protection or disable replication, Azure Site Recovery remove these links as a part of cleanup job. In case the virtual machine has a resource lock then the job gets completed with the information. It tells that the virtual machine has been removed from the recovery services vault but some of the stale links couldn't be cleaned up from the source machine. </br>
+You can ignore this warning if you never intend to protect this virtual machine again in future. However, if you have to protect this virtual machine later then you should clean up the links as mentioned in the steps below. 
+
+If you don't do the clean up then the virtual machine will not be visible through the Recovery services vault blade and even if you go ahead with the protection it will failed with the error stale resource link 
+
+>[!NOTE]
+>
+>Azure Site Recovery doesn't delete source virtual machine or impact it in any way while performing below steps.
+>
+
+
+1. Remove the lock from the VM or VM resource group. For example: Below VM name "MoveDemo" has the resource lock that needs to be deleted.
+ ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm_locks.png)</br>
+2. Download script [Remove stale ASR configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
+3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
+4. Provide the subscription ID, Resource group in which the VM is located and the name of VM as asked by the script 
+5. If asked Azure credentials please provide that and you should see the success 
+
 ## Unable to see the Azure VM or Resource group  for selection in "enable replication"
 
  **Cause 1:  Resource group and source Virtual machine are in different location** <br>
