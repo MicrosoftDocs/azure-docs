@@ -18,6 +18,9 @@ ms.author: victorh
 
 You can now configure Azure Firewall application rules with SQL FQDNs. This allows you to limit access from your virtual networks to only the specified SQL server instances.
 
+> [!IMPORTANT]
+> SQL FQDNs and the associated portal user interface is being added to regions incrementally, and will be available in all regions when the rollout completes.
+
 With SQL FQDNs, you can filter traffic:
 
 - From your VNets to an Azure SQL Database or an Azure SQL Data Warehouse. For example: Only allow access to *sql-server1.database.windows.net*.
