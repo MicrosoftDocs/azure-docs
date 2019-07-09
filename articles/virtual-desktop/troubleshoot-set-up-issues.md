@@ -6,7 +6,7 @@ author: ChJenk
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 07/09/2019
 ms.author: v-chjenk
 ---
 # Tenant and host pool creation
@@ -113,6 +113,17 @@ Example of raw error:
 **Cause 2:** Domain name doesn't resolve.
 
 **Fix 2:** See the "Domain name doesn't resolve" error for VMs are not joined to the domain in [Session host VM configuration](troubleshoot-vm-configuration.md).
+
+
+### Error: Your deployment failed...\Unauthorized
+
+```Error
+{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
+```
+
+**Cause:** The subscription you're using is a type that can't access required features in the region where customer is trying to deploy, such as MSDN, Free, or Edu.
+
+**Fix:** Changing the sub type or region will fix the issue.
 
 ### Error: VMExtensionProvisioningError
 
