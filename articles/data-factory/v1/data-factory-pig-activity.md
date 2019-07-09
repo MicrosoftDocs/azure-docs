@@ -90,7 +90,7 @@ The HDInsight Pig activity in a Data Factory [pipeline](data-factory-create-pipe
 | outputs |One or more outputs produced by the Pig activity |Yes |
 | linkedServiceName |Reference to the HDInsight cluster registered as a linked service in Data Factory |Yes |
 | script |Specify the Pig script inline |No |
-| script path |Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
+| scriptPath |Store the Pig script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
 | defines |Specify parameters as key/value pairs for referencing within the Pig script |No |
 
 ## Example

@@ -4,7 +4,7 @@ description: Lists the different sizes available for Windows virtual machines in
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
