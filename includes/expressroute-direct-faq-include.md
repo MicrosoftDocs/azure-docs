@@ -29,7 +29,6 @@ The available ports will be dynamic and will be available by PowerShell to view 
 * Dallas
 * Dublin
 * Hong Kong SAR
-* Johannesburg
 * London
 * Los Angeles
 * Melbourne
