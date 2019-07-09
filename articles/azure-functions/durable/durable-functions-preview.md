@@ -8,7 +8,7 @@ keywords:
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
 ---
 
@@ -16,22 +16,22 @@ ms.author: azfuncdf
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you are not already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
 
-Durable Functions is a GA (Generally Available) feature of Azure Functions, but also contains several subfeatures that are currently in public preview. This article describes newly released preview features and goes into details on how they work and how you can start using them.
+Durable Functions 1.x is a GA (Generally Available) feature of Azure Functions, but also contains several subfeatures that are currently in public preview. This article describes newly released preview features and goes into details on how they work and how you can start using them.
 
 > [!NOTE]
-> These preview features are part of a Durable Functions 2.0 release, which is currently an **alpha quality release** with several breaking changes. The Azure Functions Durable extension package builds can be found on nuget.org with versions in the form of **2.0.0-alpha**. These builds are not suitable for any production workloads, and subsequent releases may contain additional breaking changes.
+> These preview features are part of a Durable Functions 2.0 release, which is currently a **preview quality release** with several breaking changes. The Azure Functions Durable extension package builds can be found on nuget.org with versions in the form of **2.0.0-betaX**. These builds are not intended for production workloads, and subsequent releases may contain additional breaking changes.
 
 ## Breaking changes
 
 Several breaking changes are introduced in Durable Functions 2.0. Existing applications are not expected to be compatible with Durable Functions 2.0 without code changes. This section lists some of the changes:
 
-### Dropping .NET Framework support
-
-Support for .NET Framework (and therefore Functions 1.0) has been dropped for Durable Functions 2.0. The primary reason is to enable non-Windows contributors to easily build and test changes they make to Durable Functions from macOS and Linux platforms. The secondary reason is to help encourage developers to move to the latest version of the Azure Functions runtime.
-
 ### Host.json schema
 
-The following snippet shows the new schema for host.json. The main change to be aware of is the new `"storageProvider"` section, and the `"azureStorage"` section underneath it. This change was done to support [alternate storage providers](durable-functions-preview.md#alternate-storage-providers).
+The following snippet shows the new schema for host.json. The main changes to be aware of are the new sub-sections:
+
+* `"storageProvider"` (and the `"azureStorage"` sub-section) for storage-specific configuration
+* `"tracking"` for tracking and logging configuration
+* `"notifications"` (and the `"eventGrid"` sub-section) for event grid notification configuration
 
 ```json
 {
@@ -51,19 +51,25 @@ The following snippet shows the new schema for host.json. The main change to be 
           "maxQueuePollingInterval": <hh:mm:ss?>
         }
       },
+      "tracking": {
+        "traceInputsAndOutputs": <bool?>,
+        "traceReplayEvents": <bool?>,
+      },
+      "notifications": {
+        "eventGrid": {
+          "topicEndpoint": <string?>,
+          "keySettingName": <string?>,
+          "publishRetryCount": <string?>,
+          "publishRetryInterval": <hh:mm:ss?>,
+          "publishRetryHttpStatus": <int[]?>,
+          "publishEventTypes": <string[]?>,
+        }
+      },
       "maxConcurrentActivityFunctions": <int?>,
       "maxConcurrentOrchestratorFunctions": <int?>,
-      "traceInputAndOutputs": <bool?>,
-      "eventGridTopicEndpoint": <string?>,
-      "eventGridKeySettingName": <string?>,
-      "eventGridPublishRetryCount": <string?>,
-      "eventGridPublishRetryInterval": <hh:mm:ss?>,
-      "eventGridPublishRetryHttpStatus": <int[]?>,
-      "eventgridPublishEventTypes": <string[]?>,
-      "customLifeCycleNotificationHelperType"
       "extendedSessionsEnabled": <bool?>,
       "extendedSessionIdleTimeoutInSeconds": <int?>,
-      "logReplayEvents": <bool?>
+      "customLifeCycleNotificationHelperType": <string?>
   }
 }
 ```
@@ -161,11 +167,11 @@ There are some important differences, however, that are worth noting:
 * Durable entities can be used in conjunction with durable orchestrations, and can serve as distributed locks, which are described later in this article.
 * Request/response patterns in entities are limited to orchestrations. For entity-to-entity communication, only one-way messages (also known as "signaling") are permitted, as in the original actor model. This behavior prevents distributed deadlocks.
 
-### Durable Entity APIs
+### Durable Entity .NET APIs
 
 Entity support involves several APIs. For one, there is a new API for defining entity functions, as shown above, which specify what should happen when an operation is invoked on an entity. Also, existing APIs for clients and orchestrations have been updated with new functionality for interaction with entities.
 
-### Implementing entity operations
+#### Implementing entity operations
 
 The execution of an operation on an entity can call these members on the context object (`IDurableEntityContext` in .NET):
 
@@ -184,24 +190,90 @@ Operations are less restricted than orchestrations:
 * Operations can call external I/O, using synchronous or asynchronous APIs (we recommend using asynchronous ones only).
 * Operations can be non-deterministic. For example, it is safe to call `DateTime.UtcNow`, `Guid.NewGuid()` or `new Random()`.
 
-### Accessing entities from clients
+#### Accessing entities from clients
 
 Durable entities can be invoked from ordinary functions via the `orchestrationClient` binding (`IDurableOrchestrationClient` in .NET). The following methods are supported:
 
 * **ReadEntityStateAsync\<T>**: reads the state of an entity.
 * **SignalEntityAsync**: sends a one-way message to an entity, and waits for it to be enqueued.
+* **SignalEntityAsync\<T>**: same as `SignalEntityAsync` but uses a generated proxy object of type `T`.
 
-These methods prioritize performance over consistency: `ReadEntityStateAsync` can return a stale value, and `SignalEntityAsync` can return before the operation has finished. In contrast, calling entities from orchestrations (as described next) is strongly consistent.
+The previous `SignalEntityAsync` call requires specifying the name of the entity operation as a `string` and the payload of the operation as an `object`. The following is an example of this pattern:
 
-### Accessing entities from orchestrations
+```csharp
+EntityId id = // ...
+object amount = 5;
+context.SignalEntityAsync(id, "Add", amount);
+```
 
-Orchestrations can access entities using the context object. They can choose between one-way communication (fire and forget) and two-way communication (request and response). The respective methods are
+It's also possible to generate a proxy object for type-safe access. To generate a type-safe proxy, the entity type must implement an interface. For example, suppose the `Counter` entity mentioned earlier implemented an `ICounter` interface, defined as follows:
+
+```csharp
+public interface ICounter
+{
+    void Add(int amount);
+    void Reset();
+    int Get();
+}
+
+public class Counter : ICounter
+{
+    // ...
+}
+```
+
+Client code could then use `SignalEntityAsync<T>` and specify the `ICounter` interface as the type parameter to generate a type-safe proxy. This is demonstrated in the following code sample:
+
+```csharp
+[FunctionName("UserDeleteAvailable")]
+public static async Task AddValueClient(
+    [QueueTrigger("my-queue")] string message,
+    [OrchestrationClient] IDurableOrchestrationClient client)
+{
+    int amount = int.Parse(message);
+    var target = new EntityId(nameof(Counter), "MyCounter");
+    await client.SignalEntityAsync<ICounter>(target, proxy => proxy.Add(amount));
+}
+```
+
+In the previous example, the `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Add` into the equivalent (untyped) call to `SignalEntityAsync`.
+
+> [!NOTE]
+> It's important to note that the `ReadEntityStateAsync` and `SignalEntityAsync` methods of `IDurableOrchestrationClient` prioritize performance over consistency. `ReadEntityStateAsync` can return a stale value, and `SignalEntityAsync` can return before the operation has finished.
+
+#### Accessing entities from orchestrations
+
+Orchestrations can access entities using the `IDurableOrchestrationContext` object. They can choose between one-way communication (fire and forget) and two-way communication (request and response). The respective methods are:
 
 * **SignalEntity**: sends a one-way message to an entity.
 * **CallEntityAsync**: sends a message to an entity, and waits for a response indicating that the operation has completed.
 * **CallEntityAsync\<T>**: sends a message to an entity, and waits for a response containing a result of type T.
 
 When using two-way communication, any exceptions thrown during the execution of the operation are also transmitted back to the calling orchestration and rethrown. In contrast, when using fire-and-forget, exceptions are not observed.
+
+For type-safe access, orchestration functions can generate proxies based on an interface. The `CreateEntityProxy` extension method can be used for this purpose:
+
+```csharp
+public interface IAsyncCounter
+{
+    Task AddAsync(int amount);
+    Task ResetAsync();
+    Task<int> GetAsync();
+}
+
+[FunctionName("CounterOrchestration)]
+public static async Task Run(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    // ...
+    IAsyncCounter proxy = context.CreateEntityProxy<IAsyncCounter>("MyCounter");
+    await proxy.AddAsync(5);
+    int newValue = await proxy.GetAsync();
+    // ...
+}
+```
+
+In the previous example, a "counter" entity was assumed to exist which implements the `IAsyncCounter` interface. The orchestration was then able to use the `IAsyncCounter` type definition to generate a proxy type for synchronously interacting with the entity.
 
 ### Locking entities from orchestrations
 
@@ -298,4 +370,4 @@ The [DurableTask.Redis](https://www.nuget.org/packages/Microsoft.Azure.DurableTa
 The `connectionStringName` must reference the name of an app setting or environment variable. That app setting or environment variable should contain a Redis connection string value in the form of *server:port*. For example, `localhost:6379` for connecting to a local Redis cluster.
 
 > [!NOTE]
-> The Redis provider is currently experimental and only supports function apps running on a single node.
+> The Redis provider is currently experimental and only supports function apps running on a single node. It is not guaranteed that the Redis provider will ever be made generally available, and it may be removed in a future release.
