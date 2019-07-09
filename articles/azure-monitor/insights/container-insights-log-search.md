@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 07/12/2019
 ms.author: magoedte
 ---
 
@@ -34,7 +34,7 @@ Examples of records that are collected by Azure Monitor for containers and the d
 | Services in the Kubernetes cluster | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
 | Performance metrics for nodes part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Performance metrics for containers part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| InsightsMetrics | Computer, Name, Namespace, Origin, SourceSystem, Tags, TimeGenerated, Type, Value |
+| Custom Metrics |`InsightsMetrics` | Computer, Name, Namespace, Origin, SourceSystem, Tags, TimeGenerated, Type, Va, _ResourceId | 
 
 ## Search logs to analyze data
 Azure Monitor Logs can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally. Pre-defined log searches are provided for you to immediately start using or to customize to return the information the way you want. 
@@ -55,6 +55,34 @@ It's often useful to build queries that start with an example or two and then mo
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Image inventory | 
 | **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container CPU | 
 | **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container memory |
+
+Example Prometheus kubelete metrics query:
+
+```
+let data = InsightsMetrics 
+| where Namespace contains 'prometheus' 
+| where Name == 'kubelet_docker_operations' or Name == 'kubelet_docker_operations_errors'    
+| extend Tags = todynamic(Tags) 
+| extend OperationType = tostring(Tags['operation_type']), HostName = tostring(Tags.hostName) 
+| extend partitionKey = strcat(HostName, '/' , Name, '/', OperationType) 
+| partition by partitionKey ( 
+    order by TimeGenerated asc 
+    | extend PrevVal = prev(Val, 1), PrevTimeGenerated = prev(TimeGenerated, 1) 
+    | extend Rate = iif(TimeGenerated == PrevTimeGenerated, 0.0, Val - PrevVal) 
+    | where isnull(Rate) == false 
+) 
+| project TimeGenerated, Name, HostName, OperationType, Rate; 
+let operationData = data 
+| where Name == 'kubelet_docker_operations' 
+| project-rename OperationCount = Rate; 
+let errorData = data 
+| where Name == 'kubelet_docker_operations_errors' 
+| project-rename ErrorCount = Rate; 
+operationData 
+| join kind = inner ( errorData ) on TimeGenerated, HostName, OperationType 
+| project-away TimeGenerated1, Name1, HostName1, OperationType1 
+| extend SuccessPercentage = iif(OperationCount == 0, 1.0, 1 - (ErrorCount / OperationCount))
+```
 
 ## Next steps
 Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 

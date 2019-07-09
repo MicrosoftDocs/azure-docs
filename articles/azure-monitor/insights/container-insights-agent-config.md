@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/14/2019
+ms.date: 07/12/2019
 ms.author: magoedte
 ---
 
@@ -44,8 +44,8 @@ The following are the settings that can be configured to control data collection
 
 Active scraping of metrics from Prometheus are performed from one of two perspectives:
 
-* Cluster-wide - HTTP URL and discover targets from listed endpoints of a service, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section *Prometheus data_collection_settings.cluster*.
-* Node-wide - HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section  *Prometheus_data_collection_settings.node*.
+* Cluster-wide - HTTP URL and discover targets from listed endpoints of a service, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus data_collection_settings.cluster]*.
+* Node-wide - HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus_data_collection_settings.node]*.
 
 |Scope | Key | Data type | Value | Description |
 |------|-----|-----------|-------|-------------|
@@ -58,8 +58,8 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 | | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation. |
 | | `prometheus.io/port` | String | 9102 | Specify a port to listen on. If port is not set, it will default to 9102. |
 | Node-wide | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
-| Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the [prometheus_data_collection_settings.node] and/or [prometheus_data_collection_settings.cluster] to time units such as ns, us (or Âµs), ms, s, m, h. |
-| Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow and disallow listing. You must set the allow list first. |
+| Node-wide or Cluster-wide | `interval` | String | 60s | The collection interval default is one minute (60 seconds). You can modify the collection for either the *[prometheus_data_collection_settings.node]* and/or *[prometheus_data_collection_settings.cluster]* to time units such as ns, us (or Âµs), ms, s, m, h. |
+| Node-wide or Cluster-wide | `fieldpass`<br> `fielddrop`| String | Comma-separated array | You can specify certain metrics to be collected or not from the endpoint by setting the allow (`fieldpass`) and disallow (`fielddrop`) listing. You must set the allow list first. |
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
 
@@ -68,7 +68,7 @@ ConfigMap is a global list and there can be only one ConfigMap applied to the ag
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
 
 1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml.  
-1. Edit the ConfigMap yaml file with your customizations. 
+1. Edit the ConfigMap yaml file with your customizations.
 
     - To exclude specific namespaces for stdout log collection, you configure the key/value using the following example: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally, and then follow the steps [here](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
@@ -114,6 +114,20 @@ The output will show similar to the following with the annotation schema-version
 	                schema-versions=v1 
 ```
 
+## Proactively monitor Prometheus data usage 
+To identify what each metrics size is in bytes in order to determine if the volume received and retained in your workspace is cost-efficient, the following query is provided. 
+
+```
+ InsightsMetrics  
+| summarize sum(_BilledSize) by Name  
+```
+
+The output will show results similar to the following:
+
+![Log query for Prometheus data volume](./media/container-insights-agent-config/log-query-example-usage-01.png)
+
+## Next steps
+Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 
 ## Next steps
 
 - To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
