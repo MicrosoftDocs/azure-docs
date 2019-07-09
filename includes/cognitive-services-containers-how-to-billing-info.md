@@ -1,9 +1,9 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/16/2019
 ---
 
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `<ApiKey>`.

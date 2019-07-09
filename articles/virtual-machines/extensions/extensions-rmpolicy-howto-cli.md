@@ -4,7 +4,7 @@ description: Use Azure Policy to restrict VM extension deployments.
 services: virtual-machines-linux 
 documentationcenter: ''
 author: roiyz-msft 
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux

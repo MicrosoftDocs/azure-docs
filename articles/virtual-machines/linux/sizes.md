@@ -4,7 +4,7 @@ description: Lists the different sizes available for Linux virtual machines in A
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
