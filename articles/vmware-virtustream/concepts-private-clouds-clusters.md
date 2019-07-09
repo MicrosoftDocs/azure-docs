@@ -18,7 +18,7 @@ The Azure VMware Solution by Virtustream (AVS by Virtustream) delivers VMware-ba
 
 Figure 1 shows a logical relationship between subscriptions, private clouds, clusters, and hosts. In the diagram, there are two private clouds in a single Azure subscription. The private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters, with smaller cluster sizes in the development environment. To show the lower potential needs of a development environment, lower capacity hosts are used in that environment. All of these concepts are described in the sections below.
 
-![Image of two private clouds in a customer subscription](./media/subs-clouds-clusters-hosts.png)
+![Image of two private clouds in a customer subscription](./media/hosts-clusters-private-clouds-final.svg)
 
 Private cloud interconnectivity and networking concepts are described in detail in the <!-- [Interconnectivity and Networking Concepts article][concepts-networking] -->.
 
