@@ -33,16 +33,15 @@ There are two versions of the Azure Migrate service:
 
 ## ISV integration
 
-Azure Migrate integrates with a number of ISV offerings. You identify the tool you need, add it to your Azure Migrate project, and track your assessment and migration tools from a single location.
+In addition to Azure Migrate Server Assessment and Server Migration, Azure Migrate integrates with a number of ISV offerings. You identify the tool you need, add it to your Azure Migrate project, and track your assessment and migration tools from a single location.
 
-**ISV**	| **Feature**
---- | ---
-Carbonite | Assess & migrate
-Cloudamize | Assess
-Corent Technology	| Assess & migrate
-Turbonomic	| Assess
-UnifyCloud | Assess
-Device42 | Assess
+**ISV**	| **Feature** 
+--- | --- 
+[Cloudamize](https://www.cloudamize.com/platform) | Assess
+[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess
+[Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess & migrate
+[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf | Migrate
+
 
 ## Azure Migrate Server Assessment 
 
