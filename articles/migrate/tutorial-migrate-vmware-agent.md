@@ -18,6 +18,7 @@ This article shows you how to migrate on-premises VMware VMs to Azure, using age
 
 
 In this tutorial, you learn how to:
+> [!div class="checklist"]
 > * Set up the source environment, and deploy an Azure Migrate replication appliance for agent-based migration.
 > * Set up the target environment for migration.
 > * Set up a replication policy.
@@ -170,7 +171,7 @@ Prepare the account as follows:
 Make sure VMware servers and VMs comply with requirements for migration to Azure. 
 
 
- [!NOTE]
+> [!NOTE]
 > Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
 1. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware server requirements.
@@ -209,7 +210,7 @@ If you didn't follow the tutorial to assess VMware VMs, set up an Azure Migrate 
 
     The geography specified for the project is only used to store the metadata gathered from on-premises VMs. You can select any target region for the actual migration.
 4. In **Select assessment tool**, select **Skip adding an assessment tool for now** > **Next**.
-5. In **Select migration tool**, select **Azure Migrate: Server Migration > **Next**.
+5. In **Select migration tool**, select **Azure Migrate: Server Migration** > **Next**.
 6. In **Review + add tools**, review the settings and click **Add tools**
 7. After adding the tool, it appears in the Azure Migrate project > **Servers** > **Migration tools**.
 
@@ -227,7 +228,7 @@ To set up the replication appliance, you download a prepared Open Virtualization
 
 Download the template as follows:
 
-1. In the Azure Migrate project click ***Servers** under **Migration Goals**.
+1. In the Azure Migrate project click **Servers** under **Migration Goals**.
 2. In **Azure Migrate - Servers** > **Azure Migrate: Server Migration**, click **Discover**.
 
     ![Discover VMs](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
@@ -393,7 +394,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 1. In the Azure Migrate project > **Servers** > **Azure Migrate: Server Migration**, click **Replicating servers**.
 
-    [Replicating servers](./media/tutorial-migrate-vmware-agent/replicate-servers.png)
+    ![Replicating servers](./media/tutorial-migrate-vmware-agent/replicate-servers.png)
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
