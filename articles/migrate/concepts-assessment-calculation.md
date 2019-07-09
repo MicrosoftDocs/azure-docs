@@ -10,31 +10,35 @@ ms.author: raynew
 
 # Assessment calculations
 
-[Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. This article provides information about how assessments are calculated.
+Azure Migrate Server Assessment assesses on-premises workloads for migration to Azure. This article provides information about how assessments are calculated.
 
+
+[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and AWS/GCP VM instances, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 ## Overview
 
-An Azure Migrate assessment has three stages. Assessment starts with a suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be done.
+An Azure Migrate Server Assessment assessment has three stages. Assessment starts with a suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be done.
 
 
 ## What's in an assessment?
 
-Assessment settings can be customized based on your needs. Assessment properties are summarized in the following table.
-
 **Property** | **Details**
 --- | ---
-**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 30 regions. [Check regions](https://azure.microsoft.com/global-infrastructure/services/). By default, the target region is set to West US 2.
-**Storage type** | the type of disks you want to allocate in Azure. This is applicable when the sizing criterion is **as on-premises**. You specify the target disk type either as premium (the default) or standard managed disks. For performance-based sizing, the disk sizing recommendation is automatically done based on the performance data of the VMs.
-**Sizing criterion** | Sizing can be based on **performance history** of the on-premises VMs, or **as on-premises** (the default), without considering performance history.
-**Azure offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled to. Azure Migrate estimates the cost accordingly.
-**Azure Hybrid Benefit** | Whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) with discounted costs.
-**Reserved Instances** |  Whether you have [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Azure Migrate estimates the cost accordingly.
-**VM uptime** | The duration for which VMs will run in Azure. Cost estimations are done accordingly.
-**Pricing tier** | The [pricing tier (basic/standard)](../virtual-machines/windows/sizes-general.md) for the target Azure VMs. For example, if you are planning to migrate a production environment, you might consider the standard tier, which provides VMs with low latency, but might cost more. On the other hand, in a test environment, you could use the basic tier with higher latency and lower costs. By default the [standard](../virtual-machines/windows/sizes-general.md) tier is used.
-**Performance history** | By default, Azure Migrate evaluates the performance of on-premises machines using performance history for the last day, with a 95% percentile value.
-**VM series** | The VM series used for size estimations. For example, if you have a production environment that you do not plan to migrate to A-series VMs in Azure, you can exclude A-series from the list or series. Sizing is based on the selected series only.   
-**Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. The default comfort setting is 1.3x.
+**Target location** | The Azure location to which you want to migrate.<br/> Azure Migrate currently supports these target regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, East US2, Germany Central, Germany Northeast, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US2.<br/> By default, the target region is set to West US 2.
+**Storage type** | Standard HHD disks/Standard SSD disks/Premium.<br/> When you specify the storage type as automatic in an assessment, the disk recommendation is based on the performance data of the disks (IOPS and throughput).<br/> If you specify the storage type as Premium/Standard, the assessment recommends a disk SKU within the storage type selected.<br/> If you want to achieve a single instance VM SLA of 99.9%, you can set the storage type as Premium-managed disks. Then all disks in the assessment will be recommended as Premium-managed disks. <br/> Azure Migrate only supports managed disks for migration assessment.<br/> 
+**Reserved Instances (RI)** | Specify this property if you have reserved instances in Azure. Cost estimations in the assessment will take RI discounts into account. Reserved instances are currently only supported for Pay-As-You-Go offers in Azure Migrate.
+**Sizing criterion** | Used to right-size VMs. Sizing can be performance-based, or **as on-premises**, without considering performance history.
+**Performance history** | The duration to consider for evaluating VM performance. This property is only applicable when sizing is performance-based.
+**Percentile utilization** | The percentile value of the performance sample that is used for right-sizing VMs. This property is only applicable when sizing is performance-based.
+**VM series** | The VM series used for size estimations. For example, if you have a production environment that you do not plan to migrate to A-series VMs in Azure, you can exclude A-series from the list or series. Sizing is based on the selected series only.
+**Comfort factor** | Azure Migrate Server Assessment considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead.
+**Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled to. Azure Migrate estimates the cost accordingly.
+**Currency** | Billing currency. 
+**Discount (%)** | Any subscription-specific discount you receive on top of the Azure offer.<br/> The default setting is 0%.
+**VM uptime** | If your VMs are not going to be running 24x7 in Azure, you can specify the duration (number of days per month and number of hours per day) for which they would be running and the cost estimations would be done accordingly.<br/> The default value is 31 days per month and 24 hours per day.
+**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are considered for Windows VMs. | Default is Yes.
+
+
 
 ## Azure suitability analysis
 
@@ -58,10 +62,10 @@ Azure Migrate reviews the following properties of the on-premises VM to identify
 **Networking** | A machine must have 32 or less NICs attached to it. | Ready if within limits.
 
 ### Guest operating system
-Along with VM properties, Azure Migrate also looks at the guest OS of the on-premises VM to identify if the VM can run on Azure.
+Along with VM properties, Azure Migrate Server Assessment also looks at the guest OS of the on-premises VM to identify if the VM can run on Azure.
 
 > [!NOTE]
-> Azure Migrate considers the OS specified in vCenter Server to do the following analysis. Since the discovery done by Azure Migrate is appliance-based, it does not have a way to verify if the OS running inside the VM is same as the one specified in vCenter Server.
+> Azure Migrate Server Assessment considers the OS specified in vCenter Server to do the following analysis. Since the discovery done by Azure Migrate is appliance-based, it does not have a way to verify if the OS running inside the VM is same as the one specified in vCenter Server.
 
 The following logic is used by Azure Migrate to identify the Azure readiness of the VM based on the operating system.
 

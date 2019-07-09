@@ -41,12 +41,12 @@ Set up a new Azure Migrate project in an Azure subscription, and add a tool. In 
 
     > [!NOTE]
     > When you create a project you need to add at least one assessment or migration tool.
-5. In **Select assessment tool**, add an assessment tool to discover and assess VMware VMs or Hyper-V VMs for migration. If you don't need an assessment tool, select **Skip adding an assessment tool for now** > **Next**. 
+5. In **Select assessment tool**, add an assessment tool. If you don't need an assessment tool, select **Skip adding an assessment tool for now** > **Next**. 
 2. In **Select migration tool**, add a migration tool as required. If you don't need a migration tool right now, select **Skip adding a migration tool for now** > **Next**.
 3. In **Review + add tools**, review the settings and click **Add tools**.
 
-After creating the project you can select additional tools for assessment and migration.
+After creating the project you can select additional tools for assessment and migration of servers and workloads, databases, and web apps.
 
 ## Next steps
 
-Try out an assessment for [Hyper-V](tutorial-prepare-hyper-v.md) or [VMware](tutorial-prepare-vmware.md) VMs.
+Learn how to add additional [assessment](how-to-assess.md) and [migration](how-to-migrate.md) tools. 

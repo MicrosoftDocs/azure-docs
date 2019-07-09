@@ -1,4 +1,4 @@
----
+--
 title: How does agent-based VMware VM migration with Azure Migrate Server Migration work?| Microsoft Docs
 description: Provides an overview of agent-based VMware VM migration with Azure Migrate Server Migration.
 author: rayne-wiselman
@@ -30,6 +30,8 @@ Azure Migrate Server Migration is a tool for migrating on-premises workloads, an
 
 
 ## Architectural components
+
+![Architecture](./media/agent-based-migration-architecture/architecture.png)
 
 The table summarizes the components used for agent-based migration.
 
