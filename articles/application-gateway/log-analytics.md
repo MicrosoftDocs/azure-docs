@@ -11,11 +11,11 @@ ms.author: victorh
 
 # Use Log Analytics to examine Application Gateway Web Application Firewall Logs
 
-You can enable logs to inspect what is happening with each request to your Application Gateway Web Application Firewall (WAF) once it is operational. Firewall logs give insight to what the WAF is evaluating and blocking. With Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about creating a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md). For more information about log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+You can enable logs to inspect what is happening with each request to your Application Gateway Web Application Firewall (WAF) once it's operational. Firewall logs give insight to what the WAF is evaluating and blocking. With Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about creating a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md). For more information about log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## Import WAF logs
 
-To import your firewall logs into Log Analytics, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md#diagnostic-logging). When have the firewall logs in your Log Analytics workspace, you can view data, write queries, create visualizations, and add them to your portal dashboard.
+To import your firewall logs into Log Analytics, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md#diagnostic-logging). When you have the firewall logs in your Log Analytics workspace, you can view data, write queries, create visualizations, and add them to your portal dashboard.
 
 ## Explore data with examples
 
