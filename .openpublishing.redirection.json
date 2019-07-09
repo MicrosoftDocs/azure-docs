@@ -7331,11 +7331,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/active-directory/saas-apps/cisco-webex-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/active-directory-saas-ciscocloud-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/ciscocloud-tutorial",
       "redirect_document_id": true
