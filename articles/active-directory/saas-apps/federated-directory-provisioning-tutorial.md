@@ -49,11 +49,11 @@ Before configuring and enabling automatic user provisioning, you should decide w
 	
  ## Set up Federated Directory for provisioning
 
- Before configuring Federate Directory for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on federate Directory..
+Before configuring Federated Directory for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Federate Directory.
 
 1. Sign in to your [Federated Directory Admin Console](https://federated.directory/of)
 
-![Federated Directory tutorial](media/federated-directory-provisioning-tutorial/companyname.png)
+	![Federated Directory tutorial](media/federated-directory-provisioning-tutorial/companyname.png)
 
 2. Navigate to **Directories > User directories** and select your tenant. 
 
