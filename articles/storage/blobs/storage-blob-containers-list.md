@@ -58,7 +58,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
         do
         {
             // List containers beginning with the specified prefix, returning segments of 5 results each.
-            // Passing null for the maxResults parameter returns the maximum number of results (up to 5000).
+            // Passing null for the maxResults parameter returns the max number of results (up to 5000).
             // Requesting the container's metadata with the listing operation populates the metadata,
             // so it's not necessary to also call FetchAttributes() to read the metadata.
             resultSegment = await blobClient.ListContainersSegmentedAsync(
