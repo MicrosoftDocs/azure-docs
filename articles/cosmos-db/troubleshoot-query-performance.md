@@ -17,7 +17,7 @@ This article covers how to identify, diagnose, and troubleshoot Azure Cosmos DB 
 The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/#services) article.
 
 ## Check consistency level
-Consistency level can impact performance and charges. Make sure your consistency level is appropriate for the given scenario. For more details see [Choosing Consistency Level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-choosing)
+Consistency level can impact performance and charges. Make sure your consistency level is appropriate for the given scenario. For more details see [Choosing Consistency Level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-choosing).
 
 ## Log query metrics
 Use `QueryMetrics` to troubleshoot slow or expensive queries. 
@@ -28,15 +28,15 @@ Use `QueryMetrics` to troubleshoot slow or expensive queries.
   
       * Whether any specific component of the query pipeline took abnormally long to complete (in order of hundreds of milliseconds or more). 
 
-          * Look at `TotalExecutionTime`  
+          * Look at `TotalExecutionTime`.
           * If the `TotalExecutionTime` of the query is less than the end to end execution time, then the time is being spent in client side or network. Double check that the client and Azure region are collocated.
       
       * Whether there were false positives in the documents analyzed (if Output Document Count is much less than Retrieved Document Count).  
 
-          * Look at `Index utilization`
-          * Index Utilization = (Number of returned documents / Number of loaded documents)
-          * If the number of returned documents is much less than the number loaded, then false positives are being analyzed
-          * Limit the number of documents being retrieved with narrower filters     
+          * Look at `Index Utilization`.
+          * `Index Utilization` = (Number of returned documents / Number of loaded documents)
+          * If the number of returned documents is much less than the number loaded, then false positives are being analyzed.
+          * Limit the number of documents being retrieved with narrower filters.  
 
       * How individual round-trips fared (see the `Partition Execution Timeline` from the string representation of `QueryMetrics`). 
       * Whether the query consumed high request charge. 
