@@ -452,6 +452,8 @@
       href: ./partner-center-portal/offer-creation-checklist.md
     - name: Create a SaaS offer
       href: ./partner-center-portal/create-new-saas-offer.md
+    - name: SaaS metered billing
+      href: ./partner-center-portal/saas-metered-billing.md
     - name: SaaS Fulfillment APIs
       href: ./partner-center-portal/pc-saas-fulfillment-apis.md
       items:
