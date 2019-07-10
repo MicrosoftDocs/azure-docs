@@ -1,5 +1,5 @@
 ---
-title: Metered billing using the Marketplace metering service | Commercial Marketplace program
+title: Metered billing using the Marketplace metering service | Commercial marketplace program
 description: This documentation is a guide for ISVs publishing SaaS offers with flexible billing models. 
 author: qianw211 
 manager: evansma
@@ -11,7 +11,7 @@ ms.date: 07/10/2019
 
 # Metered billing using the Marketplace metering service
 
-With the Marketplace metering service, you can create software-as-a-service (SaaS) offers in the Commercial Marketplace program that are charged according to non-standard units.  Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed.  Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the Marketplace metering service API of billable events as they occur.  
+With the Marketplace metering service, you can create software-as-a-service (SaaS) offers in the commercial marketplace program that are charged according to non-standard units.  Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed.  Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the Marketplace metering service API of billable events as they occur.  
 
 ## Prerequisites for metered billing
 
@@ -39,7 +39,7 @@ When it comes to defining the offer along with its pricing models, it is importa
 
 ## Sample offer
 
-As an example, Contoso is a publisher with a SaaS service called Contoso Notification Services (CNS). CNS allows customers to send notifications either via email or text. Contoso is registered as a publisher in Partner Center for the Commercial Marketplace program to publish offers to Azure customers.  There are two plans associated with CNS, outlined below:
+As an example, Contoso is a publisher with a SaaS service called Contoso Notification Services (CNS). CNS allows customers to send notifications either via email or text. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish offers to Azure customers.  There are two plans associated with CNS, outlined below:
 
 * Base plan
     * Send 10000 emails and 1000 texts for $0/month
