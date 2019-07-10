@@ -34,6 +34,8 @@ The libraries used to protect a Web App (and a Web API) are:
 
 ## ASP.NET Core configuration
 
+Code snippets in this article and the following are extracted from the [ASP.NET Core Web app incremental tutorial, chapter 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). You might want to refer to that tutorial for full implementation details.
+
 ### Application configuration files
 
 In ASP.NET Core, a Web application signing-in users with the Microsoft identity platform is configured through the `appsettings.json` file. The settings that you need to fill in are:
