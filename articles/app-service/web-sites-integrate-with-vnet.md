@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 ---
 # Integrate your app with an Azure Virtual Network
-This document describes the Azure App Service virtual network integration feature and how to set it up with apps in the [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Networks][VNETOverview] (VNets) allow you to place many of your Azure resources in a non-internet routeable network.  
+This document describes the Azure App Service virtual network integration feature and how to set it up with apps in the [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Networks][VNETOverview] (VNets) allow you to place many of your Azure resources in a non-internet routable network.  
 
 The Azure App Service has two variations. 
 
@@ -80,7 +80,7 @@ This feature is in preview but, it is supported for Windows app production workl
 * You cannot delete a VNet with an integrated app. You must remove the integration first 
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet. 
 
-One address is used for each App Service plan instance. If you scaled your app to 5 instances, that is 5 addresses used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accomodate whatever scale your app may reach. A /27 with 32 addresses is the recommended size as that would accommodate an Premium App Service plan that is scaled to 20 instances.
+One address is used for each App Service plan instance. If you scaled your app to 5 instances, that is 5 addresses used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accommodate whatever scale your app may reach. A /27 with 32 addresses is the recommended size as that would accommodate an Premium App Service plan that is scaled to 20 instances.
 
 The feature is in preview also for Linux. To use the VNet Integration feature with a Resource Manager VNet in the same region:
 
