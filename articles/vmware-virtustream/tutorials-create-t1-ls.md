@@ -25,9 +25,9 @@ AVS by Virtustream private clouds provide Azure-based environments to run VMware
 
 ## Prerequisites
 
-In previous tutorials, you created a private cloud in Azure and received the credentials for access vCenter and NSX-T manager. If you haven't created a private cloud and want to follow along step-by-step with this tutorial, start at <!-- [Tutorial 1 – Create a private cloud][tutorials-create-private-cloud] -->.
+In previous tutorials, you created a private cloud in Azure and received the credentials for access vCenter and NSX-T manager. If you haven't created a private cloud and want to follow along step-by-step with this tutorial, start at Tutorial 1 – Create a private cloud<!-- [[tutorials-create-private-cloud] -->.
 
-This tutorial requires that you have access to vCenter and NSX-T Manager in your private cloud. If you need to establish access, see <!-- [Tutorial 3 -- Access private cloud][tutorial-access-private-cloud] -->.
+This tutorial requires that you have access to vCenter and NSX-T Manager in your private cloud. If you need to establish access, see Tutorial 3 - Access private cloud<!-- [][tutorial-access-private-cloud] -->.
 
 Ensure that you have the IP address and admin credentials for the NSX-T Manager. These items were provided when the private cloud was deployed and are available in the Azure portal.
 
