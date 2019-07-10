@@ -286,7 +286,7 @@
       - name: Compliance
         href: compliance.md
     - name: Service quotas
-      href: cosmosdb-service-quotas.md
+      href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
