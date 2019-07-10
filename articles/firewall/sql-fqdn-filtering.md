@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/10/2019
+ms.date: 7/11/2019
 ms.author: victorh
 ---
 
@@ -24,15 +24,16 @@ You can now configure Azure Firewall application rules with SQL FQDNs. This allo
 With SQL FQDNs, you can filter traffic:
 
 - From your VNets to an Azure SQL Database or an Azure SQL Data Warehouse. For example: Only allow access to *sql-server1.database.windows.net*.
-- From on-premises to your VNets, or spoke-to-spoke for Azure SQL Managed Instances.
-- From your VNets to deployed SQL IaaS instances.
+- From on-premises to Azure SQL Managed Instances or SQL IaaS running in your VNets.
+- From spoke-to-spoke to Azure SQL Managed Instances or SQL IaaS running in your VNets.
 
 During the public preview, SQL FQDN filtering is supported in [proxy-mode](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) only (port 1433). If you use SQL in the default redirect mode, you can filter access using the SQL service tag as part of [network rules](overview.md#network-traffic-filtering-rules).
-If you use non-default ports for SQL IaaS traffic, you can configure those ports in the Firewall application rules.
+If you use non-default ports for SQL IaaS traffic, you can configure those ports in the firewall application rules.
 
-SQL FQDN filtering is currently available using REST APIs, templates, and Azure CLI. 
+> [!IMPORTANT]
+> Application rules with SQL FQDNs is currently available in all regions via Azure CLI, REST, and templates. The portal user interface is being added to regions incrementally, and will be available in all regions when the rollout completes.
 
-## Configure an application rule with a SQL FQDN using Azure CLI
+## Configure using Azure CLI
 
 1. Deploy an [Azure Firewall using Azure CLI](deploy-cli.md).
 2. If you filter traffic to Azure SQL Database, SQL Data Warehouse, or SQL Managed Instance, ensure the SQL connectivity mode is set to **Proxy**. To learn how to switch SQL connectivity mode, see [Azure SQL Connectivity Architecture](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#change-azure-sql-database-connection-policy). 
@@ -53,7 +54,7 @@ SQL FQDN filtering is currently available using REST APIs, templates, and Azure 
    --target-fqdns sql-serv1.database.windows.net
    ```
 
-## Configure an application rule with a SQL FQDN using the Azure portal
+## Configure using the Azure portal
 1. Deploy an [Azure Firewall using Azure CLI](deploy-cli.md).
 2. If you filter traffic to Azure SQL Database, SQL Data Warehouse, or SQL Managed Instance, ensure the SQL connectivity mode is set to **Proxy**. To learn how to switch SQL connectivity mode, see [Azure SQL Connectivity Architecture](../sql-database/sql-database-connectivity-architecture.md#change-azure-sql-database-connection-policy). 
 
