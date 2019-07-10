@@ -196,7 +196,7 @@ The first step of migration is to set up the replication appliance. You  downloa
 
 It can take up to 15 minutes after finalizing registration until discovered machines appear in Azure Migrate Server Migration. As VMs are discovered, the **Discovered servers** count rises.
 
-    ![Discovered servers](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
+![Discovered servers](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 
 
 ## Install the Mobility service
@@ -377,7 +377,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Deploy [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
--  Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
+    - Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
 
 
 ## Next steps
