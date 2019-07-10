@@ -1,5 +1,6 @@
 ---
-title: "Quickstart: Detect anomalies as a batch using the Anomaly Detector REST API and Python | Microsoft Docs"
+title: "Quickstart: Detect anomalies as a batch using the Anomaly Detector REST API and Python"
+titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API to detect abnormalities in your data series either as a batch or on streaming data.
 services: cognitive-services
 author: aahill
