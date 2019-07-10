@@ -171,7 +171,8 @@ In order for you to set up custom alerts and actions, all data drift metrics are
 
 ## Retrain your model after drift
 
-When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. The following `diff()` method gives you an initial sense of what changed between the old and new training data sets. 
+When data drift negatively impacts the performance of your deployed model, it is time to retrain the model. The following [`diff()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
+) method gives you an initial sense of what changed between the old and new training data sets. 
 
 ```python
 from azureml.core import Dataset
@@ -179,7 +180,7 @@ from azureml.core import Dataset
 old_training_dataset.diff(new_training_dataset)
 ```
 
-Based on the output of the previous code, you may want to retrain your model. To do so proceed with the following steps.
+Based on the output of the previous code, you may want to retrain your model. To do so, proceed with the following steps.
 
 * Investigate the collected data and prepare data to train the new model.
 * Split it into train/test data.
