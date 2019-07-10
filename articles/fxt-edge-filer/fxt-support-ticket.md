@@ -24,7 +24,7 @@ Use the Azure portal to open a support ticket with Microsoft Customer Service an
     1. In the **Basics** tab, choose the **Issue type** ``Technical``. 
     1. Select your subscription. 
     1. Under **Service**, select **Azure FXT Edge Filer**. You might need to click the **All services** control to find it. 
-    1. Enter a **Summary** and choose the **Issue type**. 
+    1. Enter a **Summary** and choose the **Problem type**. 
     ![Screenshot of blank support request form](media/fxt-support-populated.png) 
     1. Click **Next** to continue. 
 1. In the **Details** tab, add more information about the problem and how to contact you. You can upload a file related to the problem. 
