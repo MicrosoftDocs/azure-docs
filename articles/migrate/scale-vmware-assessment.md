@@ -5,14 +5,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 07/10/2019
 ms.author: raynew
 ---
 
 # Assess large numbers of VMware VMs for migration to Azure
 
 
-This article describes how to assess large numbers (1000-35,000) of on-premises VMware VMs for migration to Azure, using the [Azure Migrate](migrate-services-overview.md) service.
+This article describes how to assess large numbers (1000-35,000) of on-premises VMware VMs for migration to Azure, using the Azure Migrate Server Assessment tool
+
+[Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -29,9 +31,9 @@ In this article, you learn how to:
 
 When planning for assessment of large number of VMware VMs, there are a couple of things to think about:
 
-- **Plan Azure Migrate projects**: You can create a single Azure Migrate project in the Azure portal. 
+- **Plan Azure Migrate projects**: Figure out how to deploy Azure Migrate projects. For example, if your data centers are in different geographies, or you need to store discovery, assessment or migration-related metadata in a different geography, you might need multiple projects. 
 - **Plan appliances**: Azure Migrate uses an on-premises Azure Migrate appliance, deployed as a VMware VM, to continually discover VMs. The appliance monitors environment changes such as adding VMs, disks, or network adapters. It also sends metadata and performance data about them to Azure. You need to figure out how many appliances you need to deploy.
-- **Plan accounts for discovery**: The Azure Migrate appliance uses an account with access to vCenter Server in order to discover VMs for assessment and migration. If you're discovering more than 10,000 VMs, plan to set up multiple accounts.
+- **Plan accounts for discovery**: The Azure Migrate appliance uses an account with access to vCenter Server in order to discover VMs for assessment and migration. If you're discovering more than 10,000 VMs, set up multiple accounts.
 
 
 ## Planning limits
@@ -70,21 +72,29 @@ If you're planning for a multi-tenant environment, you can scope discovery on vC
 Prepare Azure and VMware for server assessment. 
 
 1. Verify [VMware support requirements and limitations](migrate-support-matrix-vmware.md).
-2. Set up permissions for your Azure account to create Azure Active Directory (Azure AD) apps and verify on-premises VMware settings.
-3. Set up vCenter Server accounts, in line with your planning requirements.
-4. Verify internet access, so that the Azure Migrate appliance can reach Azure URLs.
+2. Set up permissions for your Azure account to interact with Azure Migrate.
+3. Prepare VMware for assessment.
 
-Follow the instructions in [this tutorial](tutorial-prepare-vmware.md) to configure these settings, and then come back to this article.
 
-## Create a project and assessment
+Follow the instructions in [this tutorial](tutorial-prepare-vmware.md) to configure these settings.
+
+
+## Create a project
 
 In accordance with your planning requirements, do the following:
 
-1. Create an Azure Migrate project.
-2. Set up one or more Azure Migrate appliances, and create assessments.
-3. Review the assessments in preparation for migration planning.
+1. Create an Azure Migrate projects.
+2. Add the Azure Migrate Server Assessment tool to the projects.
 
-Follow the instructions in [this tutorial](tutorial-assess-vmware.md) to configure these settings, and then come back to this article.
+[Learn more](how-to-add-tool-first-time.md)
+
+## Create and review an assessment
+
+1. Create assessments for VMware VMs.
+1. Review the assessments in preparation for migration planning.
+
+
+Follow the instructions in [this tutorial](tutorial-assess-vmware.md) to configure these settings.
     
 
 ## Next steps

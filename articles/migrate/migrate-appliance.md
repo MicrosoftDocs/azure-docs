@@ -13,7 +13,7 @@ ms.author: raynew
 
 This article describes the Azure Migrate appliance. You deploy the appliance when you use Azure Migrate Assessment and Migration tools to discover, assess and migrate apps, infrastructure, and workloads to Microsoft Azure. 
 
-These tools are available in The [Azure Migrate](migrate-overview.md) hub. The hub provides native tools for assessment and migration, as well as tools from other Azure services, and from third-party independent software vendors (ISVs).
+[[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 
 
@@ -23,13 +23,12 @@ The Azure Migrate appliance types and usage are as follows.
 
 **Deployed as** | **Used for** | **Details**
 --- | --- |  ---
-VMware VM | VMware VM assessment with the Azure Migrate Assessment tool. | Download OVA template and import to vCenter Server to create the appliance VM.
-VMware VM | VMware VM migration when doing agentless migration with the Azure Migrate Migration tool. | Download OVA template and import to vCenter Server to create the appliance VM.
+VMware VM | VMware VM assessment with the Azure Migrate Assessment tool.<br/><br/> VMware VM agentless migration with the Azure Migrate Server Migration tool | Download OVA template and import to vCenter Server to create the appliance VM.
 Hyper-V VM | Hyper-V VM assessment with the Azure Migrate Assessment tool. | Download zipped VHD and import to Hyper-V to create the appliance VM.
 
 ## Appliance access
 
-After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the web management app for the appliance, on port 44368 with URL: https://<appliance-ip-or-name>:44368.
+After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the web management app for the appliance, on port 44368 with URL: **https://<appliance-ip-or-name>:44368**.
 
 ## Appliance license
 The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
@@ -39,8 +38,8 @@ The appliance has these agents installed.
 
 **Agent** | **Details**
 --- | ---
-Discovery agent | Collects VM configuration metadata
-Assessment agent | Collects VM performance data
+Discovery agent | Collects configuration data from on-premises VMs.
+Assessment agent | Profiles the on-premises environment to collect VM performance data.
 Migration adapter | Orchestrates VM replication, and coordinates communication between VMs and Azure.
 Migration gateway | Sends replicated VM data to Azure.
 
@@ -51,23 +50,121 @@ Migration gateway | Sends replicated VM data to Azure.
 - [Review](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) the deployment requirements for a Hyper-V appliance, and the URLs that the appliance  needs to access.
 
 
-## Collected data
+## Collected performance data-VMware
 
-Here's what the appliance collects and sends to Azure.
+Here's the VMware VM performance data that the appliance collects and sends to Azure.
 
-### VMware VM data
+**Data** | **Counter** | **Assessment impact**
+--- | --- | ---
+CPU utilization | cpu.usage.average | Recommended VM size/cost
+Memory utilization | mem.usage.average | Recommended VM size/cost
+Disk read throughput (MB per second) | virtualDisk.read.average | Calculation for disk size, storage cost, VM size
+Disk write throughput (MB per second) | virtualDisk.write.average | Calculation for disk size, storage cost, VM size
+Disk read operations per second | virtualDisk.numberReadAveraged.average | Calculation for disk size, storage cost, VM size
+Disk write operations per second | virtualDisk.numberWriteAveraged.average  | Calculation for disk size, storage cost, VM size
+NIC read throughput (MB per second) | net.received.average | Calculation for VM size
+NIC write throughput (MB per second) | net.transmitted.average  |Calculation for VM size
 
-**Action** | **Details**
---- | ---
-**Collected metadata** | vCenter VM name<br/> vCenter VM path (host/cluster/folder)<br/> IP and MAC addresses<br/> Operating system<br/> Number of cores/disks/NICs<br/> Memory and disk size.
-**Collected performance data** | CPU and memory usage<br/> Data for each disk (disk read/write throughput; disk reads/writes per second)<br/> Data for each NIC (network in, network out).<br/><br/> Performance data is collected continually after the appliance connects to vCenter Server. Historical data isn't collected.
 
-### Hyper-V VM data
+## Collected metadata-VMware
 
-**Action** | **Details**
---- | ---
-**Collected metadata** | VM name<br/> VM path <br/> IP and MAC addresses<br/> Operating system<br/> Number of cores/disks/NICs<br/> Memory and disk size.
-**Collected performance data** |  CPU and memory usage<br/> Data for each disk (disk read/write throughput; disk reads/writes per second)<br/> Data for each NIC (network in, network out).<br/><br/> Performance data is collected continually after the appliance connects to the Hyper-V host. Historical data isn't collected.
+Here's the full list of VMware VM metadata that the appliance collects and sends to Azure.
+
+**Data** | **Counter**
+--- | --- 
+**Machine details** | 
+VM ID | vm.Config.InstanceUuid 
+VM name | vm.Config.Name
+vCenter Server ID | VMwareClient.Instance.Uuid
+VM description | vm.Summary.Config.Annotation
+License product name | vm.Client.ServiceContent.About.LicenseProductName
+Operating system type | vm.SummaryConfig.GuestFullName
+Boot type | vm.Config.Firmware
+Number of cores | vm.Config.Hardware.NumCPU
+Memory (MB) | vm.Config.Hardware.MemoryMB
+Number of disks | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk).count
+Disk size list | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualDisk)
+Network adapters list | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count
+CPU utilization | cpu.usage.average
+Memory utilization |mem.usage.average
+**Per disk details** | 
+Disk key value | disk.Key
+Dikunit number | disk.UnitNumber
+Disk controller key value | disk.ControllerKey.Value
+Gigabytes provisioned | virtualDisk.DeviceInfo.Summary
+Disk name | Value generated using disk.UnitNumber, disk.Key, disk.ControllerKey.VAlue
+Read operations per second | virtualDisk.numberReadAveraged.average
+Write operations per second | virtualDisk.numberWriteAveraged.average
+Read throughput (MB per second) | virtualDisk.read.average
+Write throughput (MB per second) | virtualDisk.write.average
+**Per NIC details** | 
+Network adapter name | nic.Key
+MAC address | ((VirtualEthernetCard)nic).MacAddress
+IPv4 addresses | vm.Guest.Net
+IPv6 addresses | vm.Guest.Net
+Read throughput (MB per second) | net.received.average
+Write throughput (MB per second) | net.transmitted.average
+**Inventory path details** | 
+Name | container.GetType().Name
+Type of child object | container.ChildType
+Reference details | container.MoRef
+Parent details | Container.Parent
+Folder details per VM | ((Folder)container).ChildEntity.Type
+Datacenter details per VM | ((Datacenter)container).VmFolder
+Datacenter details per host folder | ((Datacenter)container).HostFolder
+Cluster details per host | ((ClusterComputeResource)container).Host
+Host details per VM | ((HostSystem)container).VM
+
+
+
+## Collected performance data-Hyper-V
+
+Here's the VMware VM performance data that the appliance collects and sends to Azure.
+
+**Performance counter class** | **Counter** | **Assessment impact**
+--- | --- | ---
+Hyper-V Hypervisor Virtual Processor | % Guest Run Time | Recommended VM size/cost
+Hyper-V Dynamic Memory VM | Current Pressure (%)<br/> Guest Visible Physical Memory (MB) | Recommended VM size/cost
+Hyper-V Virtual Storage Device | Read Bytes/Second | Calculation for disk size, storage cost, VM size
+Hyper-V Virtual Storage Device | Write Bytes/Second | Calculation for disk size, storage cost, VM size
+Hyper-V Virtual Network Adapter | Bytes Received/Second | Calculation for VM size
+Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
+
+- CPU utilization is the sme of all usage for all virtual processors attached to a VM.
+- Memory utilization is (Current Pressure * Guest Visible Physical Memory) / 100.
+- Disk and network utilization values are collected from the listed Hyper-V performance counters.
+
+# Collected metadata-Hyper-V
+
+Here's the full list of Hyper-V VM metadata that the appliance collects and sends to Azure.
+
+**Data** | **WMI class** | **WMI class property**
+--- | --- | ---
+**Machine details** | 
+Serial number of BIOS _ Msvm_BIOSElement | BIOSSerialNumber
+VM type (Gen 1 or 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
+VM display name | Msvm_VirtualSystemSettingData | ElementName
+VM version | Msvm_ProcessorSettingData | VirtualQuantity
+Memory (bytes) | Msvm_MemorySettingData | VirtualQuantity
+Maximum memory that can be consumed by VM | Msvm_MemorySettingData | Limit
+Dynamic memory enabled | Msvm_MemorySettingData | DynamicMemoryEnabled
+Operating system name/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsciExchangeItems Name Data
+VM power status | Msvm_ComputerSystem | EnabledState
+**Per disk details** | 
+Disk identifier | Msvm_VirtualHardDiskSettingData | VirtualDiskId
+Virtual hard disk type | Msvm_VirtualHardDiskSettingData | Type
+Virtual hard disk size | Msvm_VirtualHardDiskSettingData | MaxInternalSize
+Virtual hard disk parent | Msvm_VirtualHardDiskSettingData | ParentPath
+**Per NIC details** | 
+IP addresses (synthetic NICs) | Msvm_GuestNetworkAdapterConfiguration | IPAddresses
+DHCP enabled (synthetic NICs) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
+NIC ID (synthetic NICs) | Msvm_SyntheticEthernetPortSettingData | InstanceID
+NIC MAC address (synthetic NICs) | Msvm_SyntheticEthernetPortSettingData | Address
+NIC ID (legacy NICs) | MsvmEmulatedEthernetPortSetting Data | InstanceID
+NIC MAC ID (legacy NICs) | MsvmEmulatedEthernetPortSetting Data | Address
+
+
+
 
 ## Discovery and collection process
 
