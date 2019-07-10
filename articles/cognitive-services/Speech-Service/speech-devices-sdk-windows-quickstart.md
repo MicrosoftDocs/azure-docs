@@ -41,7 +41,7 @@ Conversation Transcription is currently only available for "en-US" and "zh-CN", 
 
 If you plan to use the intents you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). A [sample LUIS model](https://aka.ms/sdsdk-luis) is available for this app.
 
-## Create and configure project
+## Create and configure the project
 
 1. Start Eclipse.
 
@@ -115,7 +115,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
    ![Demo Conversation Transcription application](media/speech-devices-sdk/cts-sample-app-windows.png)
 
-## Create and run standalone application
+## Create and run a standalone application
 
 1. In the **Package explorer**, right-click your project. Choose **Export**. 
 
