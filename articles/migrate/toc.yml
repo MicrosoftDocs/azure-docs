@@ -34,6 +34,8 @@
     href: tutorial-migrate-physical-virtual-machines.md
 - name: Concepts
   items:
+  - name: Common questions
+    href: resources-faq.md
   - name: Support matrices
     items:
     - name: Support matrix for Azure Migrate
@@ -60,10 +62,15 @@
   items:
   - name: Migration examples-Contoso series
     href: contoso-migration-overview.md
+  - name: Deploy an appliance for VMware assessment/migration (agentless)
+    href: how-to-set-up-appliance-vmware.md
+  - name: Deploy an appliance for Hyper-V assessment/migration
   - name: Add an assessment/migration tool for the first time
     href: how-to-add-tool-first-time.md
   - name: Add assessment tools
     href: how-to-assess.md
+  - name: Add migration tools
+    href: how-to-migrate.md
   - name: Group machines for assessment
     items:
     - name: Create a group
@@ -74,10 +81,6 @@
       href: how-to-create-group-dependencies.md
   - name: Customize an assessment
     href: how-to-modify-assessment.md
-  - name: Add migration tools
-    href: how-to-migrate.md
-  - name: Deploy an appliance for VMware migration
-    href: how-to-set-up-appliance-vmware.md
   - name: Scale assessment and migration
     items:
     - name: Assess large numbers of VMware VMs
@@ -90,8 +93,6 @@
     href: troubleshooting-general.md
 - name: Resources
   items:
-  - name: FAQ
-    href: resources-faq.md
   - name: Migration in the Cloud Adoption Framework
     href: https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index
   - name: REST API
