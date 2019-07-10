@@ -63,7 +63,7 @@ The following table lists the set of system properties in IoT Hub messages.
 
 ## Message size
 
-IoT Hub measures message size in a protocol-agnostic way, considering only the actual payload. The size in bytes is calculated as the sum of the following:
+IoT Hub measures message size in a protocol-agnostic way, considering only the actual payload. The size in bytes is calculated as the sum of the following values:
 
 * The body size in bytes.
 * The size in bytes of all the values of the message system properties.
