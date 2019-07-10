@@ -43,10 +43,10 @@ ms.author: juergent
 [rhel-azr-supp]:https://access.redhat.com/articles/3131341
 [rhel-azr-inst]:https://access.redhat.com/articles/3252491
 [rhel-db2-supp]:https://access.redhat.com/articles/3144221
-[ascs-ha-rhel]:https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
-[glusterfs]:https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
-[rhel-pcs-azr]:https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
-[anf-rhel]:(https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
+[ascs-ha-rhel]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel
+[glusterfs]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs
+[rhel-pcs-azr]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker
+[anf-rhel]:(https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -107,13 +107,13 @@ The following graphics display a setup of two database server Azure VMs. Both da
 
 HADR is only a replication functionality. It has no failure detection and no automatic takeover or failover facilities. A takeover or transfer to the standby server must be initiated manually by a database administrator. To achieve an automatic takeover and failure detection, you can use the Linux Pacemaker clustering feature. Pacemaker monitors the two database server instances. When the primary database server instance crashes, Pacemaker initiates an *automatic* HADR takeover by the standby server. Pacemaker also ensures that the virtual IP address is assigned to the new primary server.
 
-![IBM Db2 high availability overview](./media/dbms-guide-ha-ibm-rhel/ha-db2-hadr-lb-rhel.png)
+![IBM Db2 high availability overview](./media/high-availability-guide-rhel-ibm-db2-luw/ha-db2-hadr-lb-rhel.png)
 
 To have SAP application servers connect to primary database, you need a virtual host name and a virtual IP address. In the event of a failover, the SAP application servers will connect to new primary database instance. In an Azure environment, an [Azure load balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) is required to use a virtual IP address in the way that's required for HADR of IBM Db2. 
 
 To help you fully understand how IBM Db2 LUW with HADR and Pacemaker fits into a highly available SAP system setup, the following image presents an overview of a highly available setup of an SAP system based on IBM Db2 database. This article covers only IBM Db2, but it provides references to other articles about how to set up other components of an SAP system.
 
-![IBM DB2 high availability full environment overview](./media/dbms-guide-ha-ibm-rhel/end-2-end-ha-rhel.png)
+![IBM DB2 high availability full environment overview](./media/high-availability-guide-rhel-ibm-db2-luw/end-2-end-ha-rhel.png)
 
 
 ### High-level overview of the required steps
@@ -214,7 +214,7 @@ To set up the primary IBM Db2 LUW database instance:
 
 > [!IMPORTANT] 
 > Write down the "Database Communication port" that's set during installation. It must be the same port number for both database instances.
->![SAP SWPM Port Definition](./media/dbms-guide-ha-ibm-rhel/hadr-swpm-db2-port.png)
+>![SAP SWPM Port Definition](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-swpm-db2-port.png)
 
 ### IBM Db2 HADR settings for Azure
 
@@ -234,7 +234,7 @@ We recommend the preceding parameters based on initial failover/takeover testing
 >+ Do not select **IBM Db2 pureScale**.
 >+ Do not select **Install IBM Tivoli System Automation for Multiplatforms**.
 >+ Do not select **Generate cluster configuration files**.
->![SAP SWPM - DB2 HA options](./media/dbms-guide-ha-ibm-rhel/swpm-db2ha-opt.png)
+>![SAP SWPM - DB2 HA options](./media/high-availability-guide-rhel-ibm-db2-luw/swpm-db2ha-opt.png)
 
 
 To set up the Standby database server by using the SAP homogeneous system copy procedure, execute these steps:
@@ -579,7 +579,7 @@ Daemon Status:
 
 The original status in an SAP system is documented in Transaction DBACOCKPIT > Configuration > Overview, as shown in the following image:
 
-![DBACockpit - Pre Migration](./media/dbms-guide-ha-ibm-rhel/hadr-sap-mgr-org-rhel.png)
+![DBACockpit - Pre Migration](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-org-rhel.png)
 
 
 
@@ -617,7 +617,7 @@ Full list of resources:
 
 The original status in an SAP system is documented in Transaction DBACOCKPIT > Configuration > Overview, as shown in the following image:
 
-![DBACockpit - Post Migration](./media/dbms-guide-ha-ibm-rhel/hadr-sap-mgr-post-rhel.png)
+![DBACockpit - Post Migration](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-post-rhel.png)
 
 Resource migration with "pcs resource move" creates location constraints. Location constraints in this case are preventing running IBM Db2 instance on az-idb01. If location constraints are not deleted, the resource cannot fail back.
 
@@ -639,7 +639,7 @@ Full list of resources:
      vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02</code></pre>
 
-![DBACockpit - Removed location constrain](./media/dbms-guide-ha-ibm-rhel/hadr-sap-mgr-clear-rhel.png)
+![DBACockpit - Removed location constrain](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-clear-rhel.png)
 
 
 Migrate the resource back to *az-idb01* and clear the location constraints
