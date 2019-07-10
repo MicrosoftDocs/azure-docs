@@ -32,7 +32,7 @@ For example, when a quantity of Data Analytics – Standard tier is consumed, th
 
 ## Determine plan use
 
-To determine your DBCU plan use, go to the Azure portal \&gt; **Reservations** and click the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](billing-reservation-apismd#see-reservation-usage) article.
+To determine your DBCU plan use, go to the Azure portal \&gt; **Reservations** and click the purchased Databricks plan. Your utilization to-date is shown with any remaining units. For more information about determining your reservation use, see the [See reservation usage](billing-reservation-apis.md#see-reservation-usage) article.
 
 ## Usage data discount application
 
