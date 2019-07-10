@@ -1,6 +1,6 @@
 ---
-title: Monitor Media Services metrics and diagnostic logs via Azure Monitor | Microsoft Docs
-description: This article gives an overview of how to monitor Media Services metrics and diagnostic logs via Azure Monitor.
+title: Monitor Azure Media Services metrics and diagnostic logs via Azure Monitor | Microsoft Docs
+description: This article gives an overview of how to monitor Azure Media Services metrics and diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -108,5 +108,7 @@ See [How to monitor Media Service diagnostic logs](media-services-diagnostic-log
 
 ## Next steps 
 
+* [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
 * [How to monitor Media Services metrics](media-services-metrics-howto.md)
 * [How to monitor Media Service diagnostic logs](media-services-diagnostic-logs-howto.md)
