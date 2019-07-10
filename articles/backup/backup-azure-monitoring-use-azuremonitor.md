@@ -21,7 +21,7 @@ Azure Backup provides [built-in monitoring and alerting capabilities](backup-azu
 - If users want alerts for more scenarios
 - If you want to view information from an on-premises component such as System Center Data Protection Manager in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) or [**Backup Alerts**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
 
-## Using a Log Analytics workspace
+## Using Log Analytics workspace
 
 > [!NOTE]
 > Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings. 
