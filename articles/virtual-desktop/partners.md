@@ -29,14 +29,6 @@ CloudJumper’s software, Cloud Workspace Management Suite extends the value of 
 
 [Go to partner website.](https://cloudjumper.com/wvd/)
 
-## ControlUp
-
-ControlUp is a Windows Virtual Desktop value-added services provider that equips IT with tools to manage and control Windows Virtual Desktop deployments. With ControlUp, one easy-to-use console provides real-time monitoring, troubleshooting, and automation capabilities for Windows Virtual Desktop.
-
-When used with Windows Virtual Desktop, ControlUp provides additional capabilities to optimize user experience. From a single console, IT gains visibility into user environments to effectively monitor and troubleshoot performance issues. An intuitive dashboard provides insights and analytics for Windows Virtual Desktop deployments, as well as options for automated reporting enriched with community benchmarks.
-
-[Go to partner website.](https://www.controlup.com/solutions/ms_wvd)
-
 ## Lakeside Software
 
 Lakeside Software is a Windows Virtual Desktop value-added services provider that equips IT teams with software for monitoring performance and assessing Azure migration readiness of user workloads. With this software, IT gains clearer visibility into application usage and resource consumption to streamline the migration process. Lakeside Software collects data at every workspace to create a comprehensive report on user environments, enabling quick troubleshooting and optimization of assets.
