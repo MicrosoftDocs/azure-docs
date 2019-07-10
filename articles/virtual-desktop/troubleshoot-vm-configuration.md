@@ -6,7 +6,7 @@ author: ChJenk
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 07/10/2019
 ms.author: v-chjenk
 ---
 # Tenant and host pool creation
@@ -279,6 +279,18 @@ If your operating system is Microsoft Windows 10, continue with the instructions
     ```
 
 16. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
+
+## Remote Licensing model is not configured
+
+If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, “Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode." If you see this message, that means you need to manually configure the licensing mode to **Per user**.
+
+To manually configure the licensing mode:  
+
+1. Go to your **Start menu** search box, then find and open **gpedit.msc** to access the local Group Policy editor. 
+2. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Licensing**. 
+3. Select **Set the Remote Desktop licensing mode** and change it to **Per user**.
+
+We're currently looking into the notification and grace period timeout issues and plan to address them in a future update. 
 
 ## Next steps
 
