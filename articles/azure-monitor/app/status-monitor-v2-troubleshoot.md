@@ -92,15 +92,16 @@ If a module hasn't been loaded into a PowerShell session, you can manually load 
 Run the command `Get-Command -Module Az.ApplicationMonitor` to get the available commands:
 
 ```
-Command type     Name                                               Version    Source
+CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Disable-ApplicationInsightsMonitoring              0.2.1      Az.ApplicationMonitor
-Cmdlet          Disable-InstrumentationEngine                      0.2.1      Az.ApplicationMonitor
-Cmdlet          Enable-ApplicationInsightsMonitoring               0.2.1      Az.ApplicationMonitor
-Cmdlet          Enable-InstrumentationEngine                       0.2.1      Az.ApplicationMonitor
-Cmdlet          Get-ApplicationInsightsMonitoringConfig            0.2.1      Az.ApplicationMonitor
-Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.2.1      Az.ApplicationMonitor
-Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.2.1      Az.ApplicationMonitor
+Cmdlet          Disable-ApplicationInsightsMonitoring              0.4.0      Az.ApplicationMonitor
+Cmdlet          Disable-InstrumentationEngine                      0.4.0      Az.ApplicationMonitor
+Cmdlet          Enable-ApplicationInsightsMonitoring               0.4.0      Az.ApplicationMonitor
+Cmdlet          Enable-InstrumentationEngine                       0.4.0      Az.ApplicationMonitor
+Cmdlet          Get-ApplicationInsightsMonitoringConfig            0.4.0      Az.ApplicationMonitor
+Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.4.0      Az.ApplicationMonitor
+Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az.ApplicationMonitor
+Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
 #### Determine the current version of the Status Monitor v2 module
