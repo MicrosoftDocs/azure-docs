@@ -44,7 +44,6 @@ In this tutorial, you will configure and test Azure AD SSO in a test environment
 ## Generate Costpoint Metadata
 
 Costpoint SAML SSO configuration is explained in the **DeltekCostpoint711Security.pdf** guide. Download this guide from the Deltek Costpoint support site and refer to the **SAML Single Sign-on Setup -> Configure SAML Single Sign-on between Costpoint and Microsoft Azure** section. Follow the instructions and generate **Costpoint SP Federation Metadata XML** file. 
-
 ![Costpoint Configuration Utility](./media/costpoint-tutorial/config-utility.png)
 
 
@@ -81,9 +80,9 @@ To configure and test Azure AD SSO with Costpoint, complete the following buildi
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 1. **[Configure Costpoint](#configure-costpoint)** to configure the SAML SSO settings on application side.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-1. **[Create Costpoint test user](#create-costpoint-test-user)** to have a counterpart of Britta Simon in Costpoint that is linked to the Azure AD representation of user.
+1. **[Create an Azure AD Test User](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
+1. **[Assign the Azure AD Test User](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
+1. **[Create Costpoint Test User](#create-costpoint-test-user)** to have a counterpart of Britta Simon in Costpoint that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 
