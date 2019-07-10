@@ -85,7 +85,7 @@ To opt out of receiving marketing emails:
 
 When you opt out of marketing communications, you still receive service notifications, based on your account.
 
-### Change the subscription name
+## Change the subscription name
 
 1. Sign in to the [Azure portal](https://portal.azure.com), select **Subscription** from the left pane, and then select the subscription that you want to rename.
 1. Select **Overview**, and then select **Rename** from the command bar.
