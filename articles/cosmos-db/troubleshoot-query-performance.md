@@ -4,198 +4,99 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: ginamr
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
+
 # Troubleshoot query performance for Azure Cosmos DB
-This article covers how to identify, diagnose, and troubleshoot Azure Cosmos DB SQL query issues and is broken up into three major sections:
+This article covers how to identify, diagnose, and troubleshoot Azure Cosmos DB SQL query issues.
 
-* [How to solve most query issues](#solve-most-issues)
-* [Common reasons for slow/expensive queries](#common-reasons) 
-* [Recommended steps](#recommended-steps)
+Steps outlined in this article:
 
-## <a name="solve-most-issues"></a> Most query issues can be solved via:
+1. [Collocate clients in same Azure region](#collocate-clients)
+2. [Check consistency level](#consistency-level)
+3. [Log query metrics](#query-metrics)
+4. [Tune Query Feed Options Parameters](#feed-options) 
+5. [Drain continuations fully](#drain-continuations)
+6. [Choose system functions that utilize index](#system-functions)
+7. [Check Indexing policy](#indexing-policy)
+8. [Check ordering of points for Spatial data](#spatial-data)
+9. [Optimize JOIN expressions](#optimize-join)
+10. [Optimize ORDER BY expressions](#optimize-order-by)
+11. [Many large documents being loaded and processed](#many-large-documents)
+12. [Low Provisioned Throughput](#low-provisioned-throughput)
+13. [Try upgrading to the latest SDK version](#latest-sdk)
+14. [Avoid lazy indexing mode](#avoid-lazy-indexing)
 
-1. [Logging Query Metrics](#log-query-metrics)
-2. [Draining Continuations Fully](#drain-continuations-fully) (Use continuation token until you get all the results) 
-3. [Tuning Feed Options](#tune-feed-options)
-4. [Updating Indexing Policy (Included/Excluded Paths)](#update-indexing-policy)
-5. [Check Ordering of Points for Spatial data](#spatial-ordering-of-points)
-6. [Slow Queries: Finding where time is spent](#slow-queries)
-7. [Understanding why expensive queries can have no results](#expensive-queries-no-results)
-8. Updating To Latest SDK
-
-### <a name="log-query-metrics"></a> Log query metrics
-Use [QueryMetrics](https://docs.microsoft.com/azure/cosmos-db/profile-sql-api-query) to troubleshoot slow or expensive queries.
-
-* You need to set `FeedOptions.PopulateQueryMetrics = true` to have `QueryMetrics` in the response.
-* `QueryMetrics` class has an overloaded `.ToString()` function that can be invoked to get the string representation of `QueryMetrics`. 
-* For cross partition queries the `FeedResponse` will consist of a dictionary of `QueryMetrics` where the keys are partitions that your query fanned out to and the values are the `QueryMetrics` for that partition. 
-* The `QueryMetrics` class has an overloaded + operator that can be used to aggregate `QueryMetrics` across continuations, partitions, and queries. 
-* The metrics can be utilized to derive the following insights, among others: 
-
-    * Whether any specific component of the query pipeline took abnormally long to complete (in order of hundreds of milliseconds or more). 
-    * Whether there were false positives in the documents analyzed (if Output Document Count is much less than Retrieved Document Count).  
-    * How individual round-trips fared (See `QueryMetrics` "Partition Execution Timeline"). 
-    * Whether the query consumed high request charge. 
-
-### <a name="drain-continuations-fully"></a> Drain continuations fully
-Don't think you're getting all the results? Be sure to drain the continuation fully. In other words, use the continuation token to drain all the results.
-
-Fully draining can be achieved with either of the following patterns:
-
-  * Continue processing results while continuation is not empty.
-  * Continue processing while query has more results. 
-  ```csharp
-            // using AsDocumentQuery you get access to whether or not the query HasMoreResults
-            // If it does, just call ExecuteNextAsync until there are no more results
-            // No need to supply a continuation token here as the server keeps track of progress
-            var query = client.CreateDocumentQuery<Family>(collectionLink, options).AsDocumentQuery();
-            while (query.HasMoreResults)
-            {
-                foreach (Family family in await query.ExecuteNextAsync())
-                {
-                    families.Add(family);
-                }
-            }
- ```
-
-### <a name="tune-feed-options"></a> Tune feed options
-Query performance can be tuned via the request's [Feed Options](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) Parameters. 
-
-Try setting the below options:
-
-  * Set `MaxDegreeOfParallelism` to -1 first and then compare performance across different values. 
-  * Set `MaxBufferedItemCount` to -1 first and then compare performance across different values. 
-  * Set `MaxItemCount` to -1.
-
-### <a name="update-indexing-policy"></a> Update indexing policy
-To verify that the current [Indexing Policy]((https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-manage-indexing-policy)) is optimal:
-
-  * Ensure all JSON paths from the query are included in the index policy for faster reads.
-  * Exclude unused paths for faster writes.
-
-### <a name="spatial-ordering-of-points"></a> Spatial data: Check ordering of points
-Points within a Polygon must be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
-
-### <a name="slow-queries"></a> Slow queries: Identify where time is spent 
-
-Use `QueryMetrics` to determine where the time is being spent:
-
-1. Look at the `TotalExecutionTime` from the `QueryMetrics`. 
-2. If this time does not account for the total end to end time, then the issue is not with the query execution itself. 
-3. If the issue is persistent, it is likely the time is being spent in client-side transport/network.
-4. Double check that the client and Azure region are collocated. 
- 
-### <a name="expensive-queries-no-results"></a> Expensive queries with no results
-
-The RUs charged on the query are not only from the size of the response, 
-but the work done by the entire query processing pipeline. 
-
-For example, the query could have done a large amount of work in evaluating multiple filter conditions before deriving the fact that there are no documents that satisfy the query. 
-
-Example query: 
-
-```sql
-
-SELECT * FROM root 
-WHERE root.timestamp > "2018-01-01"
-      and root.personnelNumber > 10000
-      and root.personnelNumber < 1000000
-
-```
-
-Each of the individual predicates themselves may be expensive to evaluate from the index, whereas the intersection of these predicates may return no results. 
-
-However, the query has performed significant work in this case, and that will be reflected in the request charges. 
-
-## <a name="common-reasons"></a> Common reasons for slow/expensive queries
-
-* Non-optimal Indexing Policy (Included/Excluded Paths)
-
-  * Include paths used in queries for more performant reads
-  * Exclude paths not used in queries for more performant writes
-
-* Low provisioned throughput
-
-  * Increase RU budget for impacted collection(s)
-
-* Low parallelism (for cross partition queries)
-
-  * Increase Feed Options `MaxDegreeOfParallelism` value to match number of partitions or set to -1 fot the SDK to choose a default value
-
-* Non-optimal `MaxItemCount` value
-
-  * Optimal value for `MaxItemCount` is usually -1 
-
-* Using operators that can only be served via scans like `CONTAINS`
-
-  * When possible, write queries to use a filter on partition key
-
-* ORDER BY on sparse/non-indexed fields
-
-  * Decrease the search space as much as possible with filters
-
-* JOIN expanding out into large cross product
-
-  * Narrower filter or move filter higher up in the query when possible
-
-* Many large documents being loaded and processed
-
-  * Time and RUs increase proportionally to work being done. The amount of work done for large documents, is larger. Thus more time and RUs are required to load and process large documents. 
-
-* Query pipeline component took abnormally long to complete (in order of hundreds of milliseconds or more)
-
-  * Use `QueryMetrics` to identify where the time is being spent. 
-
-* Performance of individual round trips
-
-  * Populate `QueryMetrics` and use the "Partition Execution Timeline" to troubleshoot.
-
-* False positive documents analyzed (Output Document Count is much less than Retrieved Document Count)
-
-  * Limit the number of documents being retrieved with narrower filters
-
-## <a name="recommended-steps"></a> Recommended Steps
-
+## Recommended Steps
 In order to achieve optimal performance for Azure Cosmos DB queries, there are a few common troubleshooting steps you can try:
 
-1. Try upgrading to the latest SDK version
-2. If you are using Lazy indexing mode, we recommend Consistent
-3. Collocate clients in same Azure region 
+1. <a name="collocate-clients"></a> Collocate clients in same Azure region 
 
-  * Make sure that clients are querying against collocated regions 
+  * The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/#services).
 
-4. Log Query Metrics
-
-  * Look at `Index utilization`
-
-      * Index Utilization = (# returned documents / # loaded documents)
-
-  * Look at `TotalExecutionTime`
-
-      * If the `TotalExecutionTime` of the query is less than the end to end execution time, then the time is being spent in client side or network
-
-5. Tune Query Feed Options Parameters 
-
-  * Set `MaxDegreeOfParallelism` to -1 first and then compare performance across different values 
-  * Set `MaxBufferedItemCount` to -1 first and then compare performance across different values 
-  * Set `MaxItemCount` to -1
-
-6. Check Indexing policy
-
-  * Ensure all JSON paths from the query are included in the index policy for faster reads
-  * Exclude unused paths for faster writes
-
-7. Consistency Level
+2. <a name="consistency-level"></a> Check consistency level
 
   * Consistency level can impact performance and charges. Make sure your consistency level is appropriate for the given scenario.
+  * For more details see: [Choosing Consistency Level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-choosing)
 
-8. Filter before and between JOINS (rather than after)
+3. <a name="query-metrics"></a> Log query metrics
 
-9. Choose system functions which utilize the index when possible. Not all string system functions can utilize the index. If the expression can be translated into a range of string values, then it can utilize the index; otherwise, it cannot. 
+  * Use `QueryMetrics` to troubleshoot slow or expensive queries. For more details see: [QueryMetrics](https://docs.microsoft.com/azure/cosmos-db/profile-sql-api-query)
+  * Set `FeedOptions.PopulateQueryMetrics = true` to have `QueryMetrics` in the response.
+  * The metrics can be utilized to derive the following insights, among others: 
+  
+      * Whether any specific component of the query pipeline took abnormally long to complete (in order of hundreds of milliseconds or more). 
+
+          * Look at `TotalExecutionTime`  
+          * If the `TotalExecutionTime` of the query is less than the end to end execution time, then the time is being spent in client side or network. Double check that the client and Azure region are collocated.
+      
+      * Whether there were false positives in the documents analyzed (if Output Document Count is much less than Retrieved Document Count).  
+
+          * Look at `Index utilization`
+          * Index Utilization = (# returned documents / # loaded documents)
+          * If # returned documents is much less than the number loaded, then false positives are being analyzed
+          * Limit the number of documents being retrieved with narrower filters     
+
+      * How individual round-trips fared (See `QueryMetrics` "Partition Execution Timeline"). 
+      * Whether the query consumed high request charge. 
+        
+4. <a name="feed-options"></a> Tune Query Feed Options Parameters 
+
+  * Query performance can be tuned via the request's [Feed Options](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) Parameters. 
+  * Try setting the below options:
+
+      * Set `MaxDegreeOfParallelism` to -1 first and then compare performance across different values. 
+      * Set `MaxBufferedItemCount` to -1 first and then compare performance across different values. 
+      * Set `MaxItemCount` to -1.
+
+5. <a name="drain-continuations"></a> Drain continuations fully
+
+  * Don't think you're getting all the results? Be sure to drain the continuation fully. In other words, use the continuation token to drain all the results.
+  * Fully draining can be achieved with either of the following patterns:
+
+      * Continue processing results while continuation is not empty.
+      * Continue processing while query has more results. 
+
+    ```csharp
+    // using AsDocumentQuery you get access to whether or not the query HasMoreResults
+    // If it does, just call ExecuteNextAsync until there are no more results
+    // No need to supply a continuation token here as the server keeps track of progress
+    var query = client.CreateDocumentQuery<Family>(collectionLink, options).AsDocumentQuery();
+    while (query.HasMoreResults)
+    {
+        foreach (Family family in await query.ExecuteNextAsync())
+        {
+            families.Add(family);
+        }
+    }
+    ```
+
+6. <a name="system-functions"></a> Choose system functions that utilize index
+
+  * If the expression can be translated into a range of string values, then it can utilize the index; otherwise, it cannot. 
 
     Here is the list of string functions that can utilize the index: 
     
@@ -223,7 +124,8 @@ In order to achieve optimal performance for Azure Cosmos DB queries, there are a
 
     ```
 
-  * Avoid system functions in the filter/WHERE clause that are not served by the index (CONTAINS, UPPER, LOWER). 
+  * Avoid system functions in the filter/WHERE clause that are not served by the index (CONTAINS, UPPER, LOWER).
+  * When possible, write queries to use a filter on partition key
   * To achieve performant queries for UPPER/LOWER filters, insert and 
 maintain the desired casing. 
 
@@ -244,8 +146,64 @@ maintain the desired casing.
     SELECT * FROM c WHERE c.name = "JOE"
 
     ```
+   
+7. <a name="indexing-policy"></a> Check Indexing policy
 
-## **Recommended Documents**
+  * To verify that the current [Indexing Policy]((https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy)) is optimal:
+
+      * Ensure all JSON paths from the query are included in the indexing policy for faster reads.
+      * Exclude unused paths for faster writes.
+      * Ensure all JSON paths used in queries are included in the indexing policy for faster reads
+      * Exclude paths not used in queries for more performant writes
+
+8. <a name="spatial-data"></a> Spatial data: Check ordering of points
+
+  * Points within a Polygon must be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
+
+9. <a name="optimize-join"></a> Optimize `JOIN` expressions
+  
+  * `JOIN` expressions can expand into large cross products. 
+  * When possible, query against a smaller search space via a more narrow filter.
+  * Multi-value subqueries can optimize `JOIN` expressions by pushing predicates after each select-many expression rather than after all cross-joins in the `WHERE` clause. 
+  * For a detailed example see: [Optimize Join Expressions](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions)
+
+10. <a name="optimize-order-by"></a> Optimize `ORDER BY` expressions 
+
+  * `ORDER BY` query performance may suffer if the fields are sparse or not included in the index policy.
+  * For sparse fields such as time, decrease the search space as much as possible with filters. 
+  * For single property `ORDER BY`, include property in index policy. 
+  * For multiple property `ORDER BY` expressions, define a [composite index](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) on fields being sorted.  
+
+11. <a name="many-large-documents"></a> Many large documents being loaded and processed
+
+  * Time and RUs increase proportionally to work being done by the entire query processing pipeline, not only from the size of the response. More work is performed for large documents, thus more time and RUs are required to load and process large documents.
+  * Some queries may return no results, but still perform a large amount of work. For example, the query could have done a large amount of work in evaluating multiple filter conditions before deriving the fact that there are no documents that satisfy the query. 
+
+    For example: 
+    
+    ```sql
+    
+    SELECT * FROM root 
+    WHERE root.timestamp > "2018-01-01"
+          and root.personnelNumber > 10000
+          and root.personnelNumber < 1000000
+
+    ```
+
+  * Each of the individual predicates themselves may be expensive to evaluate from the index, whereas the intersection of these predicates may return no results. 
+  * However, the query has performed significant work in this case, and that will be reflected in the request charges. 
+
+12. <a name="low-provisioned-throughput"></a> Low provisioned throughput
+  
+  * Ensure provisioned throughput can handle workload. Increase RU budget for impacted collections.
+
+13. <a name="latest-sdk"></a> Try upgrading to the [latest SDK version](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet)
+
+14. <a name="avoid-lazy-indexing"></a> Avoid lazy indexing mode
+
+  * If you are using Lazy indexing mode, we recommend Consistent.
+
+## Recommended Documents
 Refer to documents below on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
 * [Get SQL query execution metrics using .NET SDK](https://docs.microsoft.com/azure/cosmos-db/profile-sql-api-query)
@@ -257,3 +215,4 @@ Refer to documents below on how to measure RUs per query, get execution statisti
 * [Choosing Consistency Level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-choosing)
 * [Performance tips for .NET SDK](https://docs.microsoft.com/azure/cosmos-db/performance-tips)
 * [Getting started with SQL queries](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query)
+* [Latest SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet)
