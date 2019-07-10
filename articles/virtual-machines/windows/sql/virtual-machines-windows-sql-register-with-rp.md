@@ -100,7 +100,7 @@ To register your SQL Server 2008 or 2008 R2 on Windows Server 2008 instance, use
 ## Verify registration status
 You can verify if your SQL Server has already been registered with the SQL VM resource provider using the Azure portal, Azure CLI, or PowerShell. 
 
-### Azure Portal
+# [Azure Portal](#tab/azure-portal)
 To verify the status of registration using the Azure portal, do the following.
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
@@ -110,7 +110,7 @@ To verify the status of registration using the Azure portal, do the following.
 
     ![Verify status with SQL RP registration](media/virtual-machines-windows-sql-register-with-rp/verify-registration-status.png)
 
-### Az CLI
+# [AZ CLI](#tab/bash)
 
 Verify current SQL Server VM registration status with the following AZ CLI command. `ProvisioningState` will show `Succeeded` if registration was successful. 
 
@@ -119,7 +119,7 @@ Verify current SQL Server VM registration status with the following AZ CLI comma
   ```
 
 
-### PowerShell
+# [PowerShell](#tab/powershell)
 
 Verify current SQL Server VM registration status with the following PowerShell cmdlet. `ProvisioningState` will show `Succeeded` if registration was successful. 
 
@@ -134,7 +134,8 @@ An error indicates that the SQL Server VM has not been registered with the resou
 
 To register your SQL Server VM with the SQL VM resource provider, you must register the resource provider to your subscription. You can do so with the Azure portal, or Azure CLI.
 
-### Azure Portal
+# [Azure Portal](#tab/azure-portal)
+
 
 The following steps will register the SQL VM resource provider to your Azure subscription using the Azure portal. 
 
@@ -146,7 +147,7 @@ The following steps will register the SQL VM resource provider to your Azure sub
 
    ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
-### Az CLI 
+# [AZ CLI](#tab/bash)
 
 The following code snippet will register the SQL VM resource provider to your Azure subscription. 
 
@@ -155,7 +156,7 @@ The following code snippet will register the SQL VM resource provider to your Az
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-### PowerShell
+# [PowerShell](#tab/powershell)
 
 The following PowerShell code snippet will register the SQL VM resource provider to your Azure subscription.
 
