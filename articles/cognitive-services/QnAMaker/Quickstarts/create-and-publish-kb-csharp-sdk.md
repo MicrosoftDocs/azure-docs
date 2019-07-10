@@ -1,47 +1,30 @@
 ---
 title: "Quickstart: QnA Maker client library for .NET | Microsoft Docs"
-description: Get started with the QnA Maker client library for .NET...
+description:
+Get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. 
 services: cognitive-services
-author: 
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 
-ms.author: 
+ms.date: 07/10/2019
+ms.author: diberry
 ---
-
-<!-- 
-You can find more guidance for formatting these quickstarts at: 
-https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187
-
-
-Title: 
-    The H1 of your Quickstart should be in the format: # Quickstart: QnA Maker client library for [Language]
--->
 
 # Quickstart: QnA Maker client library for .NET
 
-Get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. 
-
-<!-- 
-    After the above line, briefly describe the service. You can often use the first line of the service's docs landing page for this.
-
-    Next, add a bulleted list of the most common tasks supported by the library, prefaced with "Use the QnA Maker client library for [Language] to:". You provide code snippets for these tasks in the Code examples section later in the Quickstart. Keep the list short but include those tasks most developers need to perform with the library.
-
-    Lastly, include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, for example NuGet instead of PyPi:
--->
+Get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. 
 
 Use the QnA Maker client library for .NET to:
 
-* TBD
-* TBD
+* Create a knowledge base 
+* Update a knowledge base
+* Publish a knowledge base
+* Download a knowledge base
+* Delete a knowledge base
 
-<!--
-    Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
--->
-
-[Reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
 ## Prerequisites
 
@@ -50,29 +33,22 @@ Use the QnA Maker client library for .NET to:
 
 ## Setting up
 
-<!--
-    Walk the reader through preparing their environment for working with the client library. Include instructions for creating the Azure resources required to make calls to the service, obtaining credentials, and setting up their local development environment.
-
-    See the "setting up" section for more details: 
-    https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187#setting-up -->
-
 ### Create a QnA Maker Azure resource
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for QnA Maker using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
-* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure Portal](https://portal.azure.com/).
 
-After getting a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `TBD_KEY`.
+After getting a key from your resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `QNAMAKER_SUBSCRIPTION_KEY`.
 
 ### Create a new C# application
 
 Create a new .NET Core application in your preferred editor or IDE. 
 
-In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `(product-name)-quickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`. 
+In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `qna-maker-quickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`. 
 
 ```console
-dotnet new console -n (product-name)-quickstart
+dotnet new console -n qna-maker-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:
@@ -91,27 +67,22 @@ Build succeeded.
 ...
 ```
 
-From the project directory, open the Program.cs file in your preferred editor or IDE. Add the following `using` directives:
+From the project directory, open the **Program.cs** file in your preferred editor or IDE. Add the following `using` directives:
 
-```csharp
-using ...
-using ...
-```
+[!code-csharp[Using statements](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=usingStatements)]
 
 In the application's `main()` method, create variables for your resource's Azure location, and your key as an environment variable. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
 
 ```csharp
-static void Main(string[] args){
-...
-}
+[!code-csharp[Main method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=main)]
 ```
 
 ### Install the client library
 
-Within the application directory, install the [product] client library for .NET with the following command:
+Within the application directory, install the QnA Maker client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.[product] --version x.y
+dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 1.0.0
 ```
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
@@ -119,10 +90,16 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 ## Object model
 
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-    Briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
+The QnA Maker client is a [QnAMakerClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) object that authenticates to Azure using [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), which contains your key.
+
+Once the client is created, use the [Knowledgebase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerClient_Knowledgebase) property to access the following methods:
+
+* [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.createasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_CreateAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_CreateKbDTO_System_Threading_CancellationToken_) - create a knowledgebase
+* [DeleteAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.deleteasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_DeleteAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_System_String_System_Threading_CancellationToken_) - delete a knowledgebase
+* [DownloadAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.downloadasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_DownloadAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_System_String_System_String_System_Threading_CancellationToken_) - download a knowledgebase
+* [PublishAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.publishasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_PublishAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_System_String_System_Threading_CancellationToken_) - publish knowledgebase to endpoint
+* [UpdateAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.updateasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_UpdateAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_System_String_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_UpdateKbOperationDTO_System_Threading_CancellationToken_) - update knowledgebase 
+
 
 ## Code examples
 
@@ -132,7 +109,7 @@ If you're using the Visual Studio IDE, the client library is available as a down
     Include links to the service's reference content when introducing a class for the first time
 -->
 
-These code snippets show you how to do the following with the [product] client library for .NET:
+These code snippets show you how to do the following with the QnA Maker client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
 * [link to example task 1]()
@@ -151,7 +128,7 @@ These code snippets show you how to do the following with the [product] client l
 -->
 
 > [!NOTE]
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your [product] key, named `TBD_KEY`.
+> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your QnA Maker key, named `TBD_KEY`.
 
 
 In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
@@ -202,7 +179,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > [!div class="nextstepaction"]
 >[Next article]()
 
-* [What is the [product] API?](../overview.md)
+* [What is the QnA Maker API?](../overview.md)
 * [Article2](../overview.md)
 * [Article3](../overview.md)
 * The source code for this sample can be found on [GitHub]().
