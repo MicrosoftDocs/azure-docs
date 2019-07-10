@@ -1,33 +1,32 @@
 ---
 title: Use Kubernetes on-premises
 titleSuffix: Azure Cognitive Services
-description: Using Kubernetes (K8s) and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
+description: Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 7/10/2019
 ms.author: dapine
 ---
 
 # Use Kubernetes on-premises
 
-Using Kubernetes (K8s) and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options.
+Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options.
 
 ## Prerequisites
 
-This procedure requires several tools that must be installed and run locally.
+You must meet the following prerequisites before using Speech containers on-premises:
 
-* Use an Azure subscription. If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin.
-* Install the [Azure CLI][azure-cli] (az).
-* Install the [Kubernetes CLI][kubernetes-cli] (kubectl).
-* Install the [Helm][helm-install] client, the Kubernetes package manager.
-    * Install the Helm server, [Tiller][tiller-install].
-* An Azure resource with the correct pricing tier. Not all pricing tiers work with these container images:
-    * **Speech** resource with F0 or Standard pricing tiers only.
-    * **Cognitive Services** resource with the S0 pricing tier.
+|Required|Purpose|
+|--|--|
+| Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
+| Container Registry access | In order for Kubernetes to pull the docker images into the cluster, it will need access to the container registry. You need to [request access to the container registry][speech-preview-access] first. |
+| Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
+| Helm CLI | As part of the [Helm CLI][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
+|Speech resource |In order to use these containers, you must have:<br><br>A _Speech_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}**: resource key<br><br>**{ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## The recommended host computer configuration
 
@@ -38,19 +37,13 @@ Refer to the [Speech Service container host computer][speech-container-host-comp
 | **Speech-to-Text** | one decoder requires a minimum of 1,150 millicores. If the `optimizedForAudioFile` is enabled, then 1,950 millicores are required. (default: two decoders) | Required: 2 GB<br>Limited:  4 GB |
 | **Text-to-Speech** | one concurrent request requires a minimum of 500 millicores. If the `optimizeForTurboMode` is enabled, then 1,000 millicores are required. (default: two concurrent requests) | Required: 1 GB<br> Limited: 2 GB |
 
-## Request access to the container registry
-
-Submit the [Cognitive Services Speech Containers Request form][speech-preview-access] to request access to the container. 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
 ## Connect to the Kubernetes cluster
 
 The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](../../aks/tutorial-kubernetes-deploy-cluster.md) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer.
 
 ### Sharing Docker credentials with the Kubernetes cluster
 
-To allow the Kubernetes cluster to `docker pull` the configured image(s) from the `containerpreview.azurecr.io` container registry, you need to transfer the docker credentials into the cluster. Execute the [`kubectl create`][kubectl-create] command below to create a *docker-registry secret* based on the credentials provided from the container [registry access](#request-access-to-the-container-registry) section.
+To allow the Kubernetes cluster to `docker pull` the configured image(s) from the `containerpreview.azurecr.io` container registry, you need to transfer the docker credentials into the cluster. Execute the [`kubectl create`][kubectl-create] command below to create a *docker-registry secret* based on the credentials provided from the container registry access prerequisite.
 
 From your command-line interface of choice, run the following command. Be sure to replace the `<username>`, `<password>`, and `<email-address>` with the container registry credentials.
 
