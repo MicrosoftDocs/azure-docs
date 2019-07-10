@@ -45,7 +45,7 @@ If you have questions or need help, [create a support request](https://portal.az
 ## Next steps
 
 - To learn how to manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
-- To learn more about pre-purchasing Azure Databricks to save money, see [Optimize Azure Databricks costs with a pre-purchase](billing-prepay-databricks-reserved-capacity.md)
+- To learn more about pre-purchasing Azure Databricks to save money, see [Optimize Azure Databricks costs with a pre-purchase](billing-prepay-databricks-reserved-capacity.md).
 - To learn more about Azure Reservations, see the following articles:
   - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
   - [Manage Reservations in Azure](billing-manage-reserved-vm-instance.md)
