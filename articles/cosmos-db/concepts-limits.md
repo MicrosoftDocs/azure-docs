@@ -106,7 +106,7 @@ Once an operation like query reaches the execution timeout or response size limi
 
 Cosmos DB uses HMAC for authorization. You can use either a master key, or a [resource tokens](secure-access-to-data.md) for fine-grained access control to resources like containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
 
-| Resource | Default limit|
+| Resource | Default limit |
 | --- | --- |
 | Maximum master token expiry time | 15 min  |
 | Minimum resource token expiry time | 10 min  |
