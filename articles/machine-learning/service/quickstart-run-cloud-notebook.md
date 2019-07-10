@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning service
 
-This quickstart teaches you how to start using Azure Machine Learning service by using a managed notebook server in the cloud. No install is required. If you want to instead install the SDK into your own Python environment, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).
+This quickstart teaches you how to start using Azure Machine Learning service by using a managed notebook server in the cloud. No installation is required. If you want to instead install the SDK into your own Python environment, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).
 
 This quickstart shows you how to use the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md) to keep track of your machine learning (ML) experiments. You do this by creating a [notebook virtual machine (preview)](how-to-configure-environment.md#notebookvm): a secure, cloud-based Azure workstation that provides a Jupyter notebook server, JupyterLab, and a fully prepared ML environment. You then run a Python notebook on this virtual machine (VM) that logs values into the workspace.
 
@@ -28,7 +28,7 @@ To do this, take the following actions:
 * Run the notebook.
 * View the logged error values in your workspace. The following example shows how the workspace helps you keep track of information generated in a script.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
 
 ## Create a workspace
 
@@ -51,7 +51,7 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 1. Provide a name for your VM. Then select **Create**.
 
     > [!NOTE]
-    > Your notebook VM's name needs to be between 2 and 16 characters. Letters, digits, and hyphens are valid characters. The name needs to be unique across your Azure subscription.
+    > Your notebook VM's name must be between 2 and 16 characters. Letters, digits, and hyphens are valid characters. The name must be unique across your Azure subscription.
 
     ![Create a new VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
@@ -66,9 +66,9 @@ After your VM is running, use the **Notebook VMs** section to open the Jupyter w
 
     ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
-    The link starts your notebook server and opens the Jupyter notebook web page in a new browser tab. This link will work only for the person who creates the VM.
+    The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab. This link will work only for the person who creates the VM.
 
-1. On the Jupyter notebook web page, the top folder's name is your username. Select this folder.
+1. On the Jupyter notebook webpage, the top folder's name is your username. Select this folder.
 
     > [!TIP]
     > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself. You can delete the notebook VM and still keep all your work. When you create a new notebook VM later, it will load this same folder.
@@ -94,11 +94,11 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Run the first code cell](media/quickstart-run-cloud-notebook/cell1.png)
 
-1. Run the second code cell. If you see instructions to authenticate, copy the code and follow the link to sign in. Once you sign in, your browser will remember this setting.  
+1. Run the second code cell. If you see instructions to authenticate, copy the code and follow the link to sign in. After you sign in, your browser will remember this setting.  
 
     ![Authenticate](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. When complete, the cell number __[2]__ appears.  If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell. You'll only see the number, which appears to show that the cell ran successfully.
+1. When the code cell is complete, the cell number __[2]__ appears. If you had to sign in, you will see a successful authentication status message.   If you didn't have to sign in, you won't see any output for this cell. You'll only see the number, which appears to show that the cell ran successfully.
 
     ![Success message](media/quickstart-run-cloud-notebook/success.png)
 
