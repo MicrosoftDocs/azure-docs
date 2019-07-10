@@ -127,13 +127,7 @@ public async Task CreateDirectory(CloudBlobClient cloudBlobClient,
 
 ## Rename or move a directory
 
-Move or rename a directory by calling the [Put method here](https://www.microsoft.com) method. Pass these items as parameters to the method:
-
-* The name of the container.
-
-* The path that you want to give the directory.
-
-* The path of the existing directory.
+Move or rename a directory by calling the [MoveAsync](https://www.microsoft.com) method. Pass the Uri of the desired directory location as a parameter. 
 
 This example moves a directory named `my-directory` to a sub-directory of another directory named `my-directory-2`. 
 
@@ -190,18 +184,15 @@ public async Task RenameDirectory(CloudBlobClient cloudBlobClient,
 }
 ```
 
-### APIs featured in this snippet
+### APIs featured in these snippets
 
-> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
-> * [BlockBlobService.rename_path](https://www.microsoft.com) method.
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
+> * [CloudBlobDirectory.MoveAsync](https://www.microsoft.com) method.
 
 ## Delete a directory from a file system (container)
 
-The following example deletes a directory by calling the [Put method here](https://www.microsoft.com) method. Pass these items as parameters to the method:
-
-* The name of the container.
-
-* The path of the directory that you want to delete.
+The following example deletes a directory by calling the [CloudBlobDirectory.Delete](https://www.microsoft.com) method. 
 
 This method deletes a directory named `my-directory` from the `my-directory-2` directory.  
 
@@ -229,8 +220,9 @@ public void DeleteDirectory(CloudBlobClient cloudBlobClient,
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
-> * [BlockBlobService.service.delete_directory](https://www.microsoft.com) method.
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
+> * [CloudBlobDirectory.Delete](https://www.microsoft.com) method.
 
 ## Get the access permissions of a directory
 
@@ -254,6 +246,13 @@ The short form of an ACL might look something like the following:
 
 This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
+> * [CloudBlobDirectory.FetchAccessControls](https://www.microsoft.com) method.
+
 ## Set the access permissions of a directory
 
 Set the access permissions of a directory by calling the [BlockBlobService.set_directory_permissions](https://www.microsoft.com) method. Pass these items as parameters to the method:
@@ -275,8 +274,9 @@ For more information about access control lists, see [Access control in Azure Da
 ### APIs featured in this snippet
 
 > [!div class="checklist"]
-> * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
-> * [BlockBlobService.set_path_access_control](https://www.microsoft.com) method.
+> * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
+> * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
+> * [CloudBlobDirectory.SetAcl](https://www.microsoft.com) method.
 
 ## Next steps
 
