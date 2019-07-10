@@ -81,10 +81,16 @@ To opt out of receiving marketing emails:
 1. Go to the [request form](https://account.microsoft.com/profile/permissions-link-request) to submit a request by using your profile email address. You'll receive a link by email to update your preferences.
 2. Select the link to open the **Manage communication permissions** page. This page shows you the types of marketing communications that the email address is opted in to. Clear any topics that you want to opt out of, and then select **Save**.
 
-
 ![Example of the page for managing communication permissions](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 When you opt out of marketing communications, you still receive service notifications, based on your account.
+
+### Change the subscription name
+
+1. Sign in to the [Azure portal](https://portal.azure.com), select **Subscription** from the left pane, and then select the subscription that you want to rename.
+1. Select **Overview**, and then select **Rename** from the command bar.
+    ![Example of renaming Azure subscription](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. After you have changed the name, select **Save**.
 
 ## Need help? Contact us.
 
