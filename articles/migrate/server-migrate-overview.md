@@ -45,15 +45,16 @@ SSD).
 
 After reviewing the limitations, understanding the steps involved in deploying each solution might help you decide which option to choose.
 
-**Agentless** | **With agent**
---- | ---
-**1. Prepare Windows/Linux VMs**.<br/>You need to configure a number of settings on Windows and Linux VMs. | NA
-**2. Server Migration**: Add the server migration tool in the Azure Migrate project. | NA
-**3. Set up vCenter accounts**: Configure specific account permissions for migration. | NA
-**4. Replicate VMs**. Start VM replication. Azure Migrate can use Azure Migrate assessments for replication settings.<br/> After the initial replication, delta replication continues for VMs. | NA
-**5. Deploy the Azure Migrate appliance on-premises**. If you've already run Azure Migrate Server Assessment, then the appliance is already deployed. | NA
-**6. Run a test migration**. A test migration simulates a migration by creating an Azure VM using replicated data. Migration is usually to a different (non-production) Azure VNet, and doesn't impact on-premises servers operations or replication. | NA
-**7. Run a full migration**. After a full migration, you can manage the migrated VM as an Azure VM in the portal. You complete migration by stopping VM replication. This cleans up associated replication state information for the machine. | NA
+**Task** | **Details** |**Agentless** | **Agent-based**
+--- | --- | --- | ---
+**1. Prepare VMware servers and VMs for migration** | Configure a number of settings on VMware servers and VMs. | Required | Required
+**2. Add the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
+**3. Deploy the Azure Migrate appliance** | Set up a lightweight appliance on a VMware VM for VM discovery and assessment. | Required | Not required.
+**4. Install the Mobility service on VMs** | Install the Mobility service on each VM you want to replicate | Not required | Required
+**5. Deploy the Azure Migrate Server Migration replication appliance**. Set up an appliance on a VMware VM to discover VMs, and bridge between the Mobility service running on VMs and Azure Migrate Server Migration | Not required | Required
+**6. Replicate VMs**. Enable VM replication. | Required | Required
+**7. Run a test migration**.| Run a test migration to make sure everything's working as expected. | Required | Required
+**7. Run a full migration**. Migrate the VMs. | Required | Required
 
 
 
