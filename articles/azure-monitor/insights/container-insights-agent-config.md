@@ -123,16 +123,21 @@ The output will show similar to the following with the annotation schema-version
 ```
 
 ## Review Prometheus data usage 
-To identify what each metrics size is in bytes in order to determine if the volume received and retained in your workspace is cost-efficient, the following query is provided. 
+To identify what each metrics size is in bytes to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
 ```
- InsightsMetrics  
-| summarize sum(_BilledSize) by Name  
+ InsightsMetrics
+| where TimeGenerated > startofday(ago(31d))
+| where Namespace == "container.azm.ms/prometheus" 
+| summarize Bytes = sum(_BilledSize) by Name
+| render barchart
 ```
 
 The output will show results similar to the following:
 
 ![Log query for Prometheus data volume](./media/container-insights-agent-config/log-query-example-usage-01.png)
+
+Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md).
 
 ## Next steps
 
