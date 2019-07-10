@@ -414,7 +414,7 @@ For more information on creating or attaching an AKS cluster, see [Deploy a mode
 
 <a id="deploy-aks"></a>
 
-If you already have an AKS cluster attached, you can deploy to it.
+If you already have an AKS cluster attached, you can deploy to it using the information in the following sections.
 
 #### Using the SDK
 
