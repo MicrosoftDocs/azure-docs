@@ -87,11 +87,11 @@ Manage your knowledge base by sending a JSON object. For immediate operations, a
 
 These code snippets show you how to do the following with the QnA Maker client library for .NET:
 
-* [Create a knowledge base](#create-a-knowledgebase)
-* [Update a knowledge base](#update-a-knowledgebase)
-* [Download a knowledge base](#download-a-knowledgebase)
-* [Publish a knowledge base](#publish-a-knowledgebase)
-* [Delete a knowledge base](#delete-a-knowledgebase)
+* [Create a knowledge base](#create-a-knowledge-base)
+* [Update a knowledge base](#update-a-knowledge-base)
+* [Download a knowledge base](#download-a-knowledge-base)
+* [Publish a knowledge base](#publish-a-knowledge-base)
+* [Delete a knowledge base](#delete-a-knowledge-base)
 * [Get status of an operation](#get-status-of-an-operation)
 
 ## Add the dependencies
