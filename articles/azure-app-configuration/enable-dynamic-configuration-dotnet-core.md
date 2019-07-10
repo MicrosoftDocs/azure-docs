@@ -19,7 +19,7 @@ ms.author: abarora
 ---
 # Tutorial: Use dynamic configuration in a .NET Core app
 
-The App Configuration .NET Core client library supports updating a set of configuration settings on demand without causing an application to restart. This can be implemented by first getting an instance of `IConfigurationRefresher` from the options for the configuration provider and then calling `Refresh` on that instance anywehere in your code.
+The App Configuration .NET Core client library supports updating a set of configuration settings on demand without causing an application to restart. This can be implemented by first getting an instance of `IConfigurationRefresher` from the options for the configuration provider and then calling `Refresh` on that instance anywhere in your code.
 
 In order to keep the settings updated and avoid too many calls to the configuration store, a cache is used for each setting. Until the cached value of a setting has expired, the refresh operation does not update the value, even when the value has changed in the configuration store. The default expiration time for each request is 30 seconds, but it can be overridden if required.
 
@@ -83,7 +83,7 @@ class Program
 }
 ```
 
-The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the app configuration store when a refresh operation is triggered. An instance of `IConfigurationRefresher` can be retieved by calling `GetRefresher` method on the options provided to `AddAzureAppConfiguration` method, and the `Refresh` method on this instance could be used to trigger a refresh operation anywhere in your code.
+The `ConfigureRefresh` method is used to specify the settings used to update the configuration data with the app configuration store when a refresh operation is triggered. An instance of `IConfigurationRefresher` can be retrieved by calling `GetRefresher` method on the options provided to `AddAzureAppConfiguration` method, and the `Refresh` method on this instance could be used to trigger a refresh operation anywhere in your code.
     
 > [!NOTE]
 > The default cache expiration time for a configuration setting is 30 seconds, but can be overridden by calling the `SetCacheExpiration` method on the options initializer passed as an argument to the `ConfigureRefresh` method.
