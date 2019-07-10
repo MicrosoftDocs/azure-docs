@@ -97,7 +97,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### Configure CORS
 
-This step is not related to authentication and authorization. However, you need it later to [call the back-end API from the front-end browser code](#call-api-securely-from-browser-code), so that your browser allows the cross-domain API calls from your Angular.js app. App Service on Linux doesn't have built-in CORS functionality like [its Windows counterpart does](../app-service-web-tutorial-rest-api.md#add-cors-functionality), so you need to add it manually for the back-end app.
+This step is not related to authentication and authorization. However, you need it later to [call the back-end API from the front-end browser code](#call-api-securely-from-browser-code), so that your browser allows the cross-domain API calls from your Angular.js app. App Service on Linux now supports CORS functionality like [its Windows counterpart does](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 In the local repository, open the _Startup.cs_ file. In the `ConfigureServices(IServiceCollection services)` method, add the following line of code:
 
