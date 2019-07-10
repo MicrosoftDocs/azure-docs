@@ -248,10 +248,11 @@ You can ignore this warning if you never intend to protect this virtual machine 
 >
 
 1. Remove the lock from the VM or VM resource group. For example: Below VM name "MoveDemo" has the resource lock that needs to be deleted.
- ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-2. Download script [Remove stale Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
-3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
-4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Download script [Remove stale Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Provide the subscription ID, VM Resource Group and VM name as a parameter.
 5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures. 
 
 
@@ -272,27 +273,25 @@ The stale configuration could be left on an Azure VM in the following cases:
 >Azure Site Recovery doesn't delete source virtual machine or impact it in any way while performing below steps.
 
 
-1. Remove the lock from the VM or VM resource group, if there are any.
-
-*For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
- ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-
-2. Download script [Remove stale Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
-3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
-4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
+1. Remove the lock from the VM or VM resource group, if there are any. *For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
+   
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Download script [Remove stale Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Provide the subscription ID, VM Resource Group and VM name as a parameter.
 5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures.  
 
 ## Unable to see the Azure VM or Resource group  for selection in "enable replication"
 
- **Cause 1:  Resource group and source Virtual machine are in different location** <br>
+ **Cause 1:  Resource group and source Virtual machine are in different location**
 Azure Site Recovery currently mandates that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine or resource group during the time of protection. 
 
 **As a workaround**, you can Enable replication from the VM instead of the Recovery services vault. Go to Source VM > Properties > Disaster Recovery and Enable the replication.
 
-**Cause 2: Resource group is not part of selected subscription** <br>
+**Cause 2: Resource group is not part of selected subscription**
 You might not be able to find the resource group at the  time of protection if it is not part of the given subscription. Make sure that the resource group belongs to the subscription which is being used.
 
- **Cause 3: Stale Configuration** <br>
+ **Cause 3: Stale Configuration**
 If you don't see the VM you want to enable for replication, it might be because of a stale Site Recovery configuration left on the Azure VM. The stale configuration could be left on an Azure VM in the following cases:
 
 - You enabled replication for the Azure VM by using Site Recovery and then deleted the Site Recovery vault without explicitly disabling replication on the VM.
@@ -302,22 +301,19 @@ If you don't see the VM you want to enable for replication, it might be because 
 
 ### Fix the problem
 
->[!NOTE]
+> [!NOTE]
 >
->Make sure to update the ""AzureRM.Resources"" module before using the below script.
->Azure Site Recovery doesn't delete source virtual machine or impact it in any way while performing below steps.
+> Make sure to update the ""AzureRM.Resources"" module before using the below script. Azure Site Recovery doesn't delete source virtual machine or impact it in any way while performing below steps.
+>
 
-1. Remove the lock from the VM or VM resource group, if there are any.
+1. Remove the lock from the VM or VM resource group, if there are any. *For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
 
-*For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Download script [Remove stale configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Provide the subscription ID, VM Resource Group and VM name as a parameter.
+5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures.
 
- ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
-
-2. Download script [Remove stale 
-3.  configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
-3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
-4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
-5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures.  
 ## Unable to select Virtual machine for protection
  **Cause 1:  Virtual machine has some extension installed in a failed or unresponsive state** <br>
  Go to Virtual machines > Setting > Extensions and check if there are any extensions in a failed state. Uninstall the failed extension and retry protecting the virtual machine.<br>
