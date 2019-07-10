@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/10/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -47,9 +47,10 @@ Each time a user or administrator resets or changes an Azure AD password, it flo
 
 ## What do users see
 
-When a user attempts to reset a password to something that would be banned, they see the following error message:
+When a user attempts to reset a password to something that would be banned, they see one of the following error messages:
 
-Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password.
+* Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password.
+* Unfortunately, you can't use that password because it contains words or characters that have been blocked by your administrator. Please try again with a different password.
 
 ## Next steps
 
