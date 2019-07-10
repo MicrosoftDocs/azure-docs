@@ -1,6 +1,6 @@
 ---
-title: Data rehydration for blobs in the Archive access tier - Azure Storage
-description: Reading your blob data from Archive storage. Options and expectations for rehydration.
+title: Accessing blob data from the Archive tier
+description: Accessing your blob data from Archive storage. Options and expectations for rehydration.
 services: storage
 author: mhopkins-msft
 
@@ -12,7 +12,7 @@ ms.reviewer: hux
 ms.component: blobs
 ---
 
-# Reading blob data from the Archive tier
+# Accessing blob data from the Archive tier
 
 The archive access tier is an offline tier meant to provide lowest cost of storage for data that is retained long-term and rarely retrieved for access. While a blob is in archive storage, the underlying data is offline and cannot be read or modified. However, the blob metadata remains online and available, allowing you to list the blob and its properties. Blobs in the offline archive tier may be switched to an online tier using the [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API or a new online copy may be created using the [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) API. Data read and modification is available only with online tiers such as a hot or cool. For more information about Blob access tiers, see [Azure Blob Access Tiers](storage-blob-storage-tiers.md)
 
