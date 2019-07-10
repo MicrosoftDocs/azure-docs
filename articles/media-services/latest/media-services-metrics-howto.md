@@ -36,7 +36,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
     ![Metrics](media/media-services-metrics/metrics01.png)
 1. Click the **RESOURCE** box and select the resource for which you want to monitor metrics. 
 
-    The **Select a resource** window appears on the right. Select the resource for which you want to monitor metrics and press **Apply**. For details about supported resources and metrics, see [Monitor Media Services metrics](media-services-metrics-diagnostic-logs.md).
+    The **Select a resource** window appears on the right. Select the resource and press **Apply**. For details about supported resources and metrics, see [Monitor Media Services metrics](media-services-metrics-diagnostic-logs.md).
  
     ![Metrics](media/media-services-metrics/metrics02.png)
     
