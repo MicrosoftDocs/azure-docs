@@ -131,15 +131,18 @@ Possible values are:
 
 When you select a custom timeframe, you can configure a start time and an  
 
-## Drawer tabs (need to reword)
+## Drawer tabs (needs work)
 
-The **Steps** tab outlines the fours steps taken to provision a user. Note that not all 4 steps all 4 steps will be present in every case. If we skip a user for example, step 3 / 4 won't be present. 
+The **Steps** tab outlines the steps taken to provision a user. Provisioning a user can consist of four steps: 
 
-The 4 steps are import user, determine if user is in scope, match user between source and target, provision user (take action - this could be a create, update, delete, or disable)
+- Import user
+- Determine if user is in scope
+- Match user between source and target
+- Provision user (take action - this could be a create, update, delete, or disable)
 
-The **troubleshoot and recomendations** tab provides the error code and reason. This is only available if there is a failure. 
+The **troubleshoot and recomendations** tab provides the error code and reason. The error information is only available in the case of a failure. 
 
-The **modified properties** shows the old value and new value. In cases where there is no old value the old value column will be blank. 
+The **modified properties** shows the old value and new value. In cases where there is no old value the old value column is blank. 
 
 The **summary** tab provides an overview of what happened and identifiers for the object in the source and target system. 
 
