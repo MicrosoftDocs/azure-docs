@@ -94,7 +94,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
 
    JavaScript SDK uses the generic terms *container* and *item*. A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. 
    
-   `module.exports = config;` code isused to export your ```config``` object, so that you can reference it within the ```app.js``` file.
+   `module.exports = config;` code is used to export your ```config``` object, so that you can reference it within the ```app.js``` file.
 
 ## <a id="Connect"></a>Connect to an Azure Cosmos DB account
 
