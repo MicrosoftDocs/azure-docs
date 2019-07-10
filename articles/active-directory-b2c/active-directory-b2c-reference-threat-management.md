@@ -32,14 +32,14 @@ The first 10 lockout periods are one minute long. The next 10 lockout periods ar
 
 To manage password protection settings, including the lockout threshold:
 
-1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Select the **Directory + Subscription** filter in the top-right menu of the portal, then select your Azure AD B2C tenant
-1. Select **Azure Active Directory** in the left-hand menu (or select **All services** in the upper-left section of the portal, then search for and select *Azure Active Directory*)
-1. Under **Security**, select **Authentication methods**, then select **Password protection**
-1. Enter your desired password protection settings, then select **Save**
+1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + Subscription** filter in the top-right menu of the portal, then select your Azure AD B2C tenant.
+1. Select **Azure Active Directory** in the left-hand menu (or select **All services** in the upper-left section of the portal, then search for and select *Azure Active Directory*).
+1. Under **Security**, select **Authentication methods**, then select **Password protection**.
+1. Enter your desired password protection settings, then select **Save**.
 
     ![Azure portal Password protection page in Azure AD settings](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
-    <br />*Setting the lockout threshold to 5 in **Password protection** settings*
+    <br />*Setting the lockout threshold to 5 in **Password protection** settings*.
 
 ## View locked-out accounts
 
