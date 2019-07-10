@@ -48,7 +48,7 @@ Device42 | Assess
 
 Azure Migrate Server Assessment discovers and assesses on-premises VMware VMs and Hyper-V VMs for migration to Azure. It uses a lightweight appliance that you deploy on-premises, and register with the Azure Migrate service. The appliance connects to Azure Migrate Server Assessment, and continually sends metadata and performance-related data to Azure Migrate.
 - Discovery is agentless. Nothing needs to be installed on the VMs you're discovering.
-- Collected data includes VM metadata, and performance data. [Learn more](migrate-appliance.md#collected-data).
+- Collected data includes VM metadata, and performance data. Learn more about data collected for [VMware](migrate-appliance.md#collected-performance-data-vmware) and [Hyper-V](migrate-appliance.md#collected-performance-data-hyper-v).
 
 After machines are discovered, in the Azure portal you gather them into groups that typically consist of VMs that you'd like to migrate together, and then run an assessment for a group. You can then analyze the assessment to figure out your migration strategy.
 

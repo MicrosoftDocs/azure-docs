@@ -187,12 +187,16 @@ The appliance communicates with vCenter Servers and Hyper-V hosts/cluster using 
 4. **Assess and migrate**: You can now create assessments from the metadata collected by the appliance using Azure Migrate Server Assessment. In addition, you can also start migrating VMware VMs using Azure Migrate Server Migration to orchestrate agentless VM replication.
 
 
+![Architecture](./media/migrate-appliance/architecture.png)
+
+
 ## Appliance upgrades
 
 The appliance is upgraded as the Azure Migrate agents running on the appliance are updated.
 
 - This happens automatically because the auto-update is enabled on the appliance by default.
-- You can change this default setting to update the agents manually. 
+- You can change this default setting to update the agents manually.
+- To disable automatic updates, set registry key Appliance Auto Update, in HKLM\SOFTWAREMicrosoft\Azure.
 
 ### Set agent updates to manual
 

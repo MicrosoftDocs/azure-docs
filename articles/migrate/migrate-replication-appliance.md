@@ -9,11 +9,11 @@ ms.author: raynew
 ---
 
 
-# Azure Migrate replication appliance
+# Replication appliance
 
-This article describes the Azure Migrate replication appliance. You deploy the replication appliance when you use the Azure Migrate Server Migration tool to migrate apps, infrastructure, and workloads to Microsoft Azure.
+This article describes the replication appliance used by Azure Migrate: Server Assessment when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using an agent-based migration. 
 
-The tool is available in The [Azure Migrate](migrate-overview.md) hub. The hub provides native tools for assessment and migration, as well as tools from other Azure services, and from third-party independent software vendors (ISVs).
+The tool is available in the [Azure Migrate](migrate-overview.md) hub. The hub provides native tools for assessment and migration, as well as tools from other Azure services, and from third-party independent software vendors (ISVs).
 
 
 ## Appliance overview
@@ -22,7 +22,7 @@ The replication appliance is deployed as a single on-premises machine, either as
 - **Replication appliance**: The replication appliance coordinates communications, and manages data replication, for on-premises VMware VMs and physical servers replicating to Azure.
 - **Process server**: The process server, which is installed by default on the replication appliance, and does the following:
     - **Replication gateway**: It acts as a replication gateway. It receives replication data from machines enabled for replication. It optimizes replication data with caching, compression, and encryption, and sends it to Azure.
-    - **Agent installer**: Performs a push installation of the Site Recovery Mobility Service. This service must be installed and running on each on-premises machine that you want to replicate for migration.
+    - **Agent installer**: Performs a push installation of the Mobility Service. This service must be installed and running on each on-premises machine that you want to replicate for migration.
 
 ## Appliance deployment
 
@@ -50,8 +50,9 @@ The appliance comes with a Windows Server 2016 evaluation license, which is vali
     - The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
     - VMs send replication data to the process server (running on the replication appliance) on port HTTPS 9443 inbound. This port can be modified.
     - The process server receives replication data, optimizes and encrypts it, and sends it to Azure storage over port 443 outbound.
-5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure managed disk (**asr seed disk**).
+5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure managed disk.
 
+![Architecture](./media/migrate-replication-appliance/architecture.png)
 
 ## Appliance upgrades
 
