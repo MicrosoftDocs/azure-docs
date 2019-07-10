@@ -36,7 +36,7 @@ An Azure Migrate Server Assessment assessment has three stages. Assessment start
 **Currency** | Billing currency. 
 **Discount (%)** | Any subscription-specific discount you receive on top of the Azure offer.<br/> The default setting is 0%.
 **VM uptime** | If your VMs are not going to be running 24x7 in Azure, you can specify the duration (number of days per month and number of hours per day) for which they would be running and the cost estimations would be done accordingly.<br/> The default value is 31 days per month and 24 hours per day.
-**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are considered for Windows VMs. | Default is Yes.
+**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are considered for Windows VMs. 
 
 
 
@@ -92,7 +92,7 @@ OS specified as **Other** in vCenter Server | Azure Migrate cannot identify the 
 After a machine is marked as ready for Azure, Azure Migrate sizes the VM and its disks for Azure.
 
 - If the assessment uses performance-based sizing, Azure Migrate considers the performance history of the machine to identify the VM size and disk type in Azure. This method is especially helpful if you've over-allocated the on-premises VM, but the utilization is low, and you want to right-size the VM in Azure to save costs.
-- If you using an as on-premises assessment, Azure Migrate Server Assessment will size the VMs based on the on-premises settings, without considering utilization data. Disk sizing, in this case, is based on the Storage type you specify in the assessment properties (Standard disk or Premium disk).
+- If you're using an as on-premises assessment, Azure Migrate Server Assessment will size the VMs based on the on-premises settings, without considering utilization data. Disk sizing, in this case, is based on the Storage type you specify in the assessment properties (Standard disk or Premium disk).
 
 ### Performance-based sizing
 
@@ -103,7 +103,7 @@ For performance-based sizing, Azure Migrate starts with the disks attached to th
     - If Azure Migrate can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure. [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.
     - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
     - If there are multiple eligible disks, it selects the one with the lowest cost.
-    - If performance data for disks in unavailable, all the disks are mapped to standard disks in Azure.
+    - If performance data for disks is unavailable, all the disks are mapped to standard disks in Azure.
 
 - **Network**: Azure Migrate tries to find an Azure VM that can support the number of network adapters attached to the on-premises machine and the performance required by these network adapters.
     - To get the effective network performance of the on-premises VM, Azure Migrate aggregates the data transmitted per second (MBps) out of the machine (network out), across all network adapters, and applies the comfort factor. This number is used to find an Azure VM that can support the required network performance.
@@ -118,7 +118,7 @@ For performance-based sizing, Azure Migrate starts with the disks attached to th
 
 ### As on-premises sizing
 
-If you use as on-premises sizing, allocates a VM SKU in Azure based on the size allocated on-premises. Similarly for disk sizing, it looks at the Storage type specified in assessment properties (Standard/Premium) and recommends the disk type accordingly. The default storage type is Premium disks.
+If you use as on-premises sizing, Server Assessment allocates a VM SKU in Azure based on the size on-premises. Similarly for disk sizing, it looks at the Storage type specified in assessment properties (Standard/Premium) and recommends the disk type accordingly. The default storage type is Premium disks.
 
 ## Confidence ratings
 Each performance-based assessment in Azure Migrate is associated with a confidence rating that ranges from one (lowest) to five starts (highest).
@@ -128,7 +128,7 @@ Each performance-based assessment in Azure Migrate is associated with a confiden
 - For performance-based sizing, Azure Migrate Server Assessment needs:
     - The utilization data for CPU, and VM memory.
     - Additionally, for every disk attached to the VM, it needs the disk IOPS and throughput data.
-    - Similarly for each network adapter attached to a VM, it needs the network in/out to do performance-based sizing.
+    - Similarly for each network adapter attached to a VM, the confidence rating needs the network I/O to do performance-based sizing.
     - If any of the above utilization numbers are not available in vCenter Server, the size recommendation might not be reliable. 
 
 Depending on the percentage of data points available, the confidence rating for the assessment is provided as below:
