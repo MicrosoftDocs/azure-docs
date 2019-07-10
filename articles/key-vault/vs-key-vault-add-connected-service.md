@@ -4,8 +4,7 @@ description: Use this tutorial to help you learn how to add Key Vault support to
 services: key-vault
 author: ghogen
 manager: jillfra
-ms.prod: visual-studio
-ms.technology: vs-azure
+ms.service: key-vault
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 03/21/2019

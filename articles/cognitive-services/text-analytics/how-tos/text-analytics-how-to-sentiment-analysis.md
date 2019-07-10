@@ -134,7 +134,7 @@ The [next version of Sentiment Analysis](https://westcentralus.dev.cognitive.mic
 > * The sentiment analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
 > * At this time, Sentiment analysis V3: 
 >    * Currently only supports the English language.  
->    * Is available in the following regions: `Central US`, `Central Canada`, ` East Asia` 
+>    * Is available in the following regions: `Central US`, `Central Canada`, `East Asia` 
 
 |Feature |Description  |
 |---------|---------|

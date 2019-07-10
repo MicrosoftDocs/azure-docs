@@ -4,7 +4,7 @@ description: Learn how to use Azure PowerShell to create a shared virtual machin
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

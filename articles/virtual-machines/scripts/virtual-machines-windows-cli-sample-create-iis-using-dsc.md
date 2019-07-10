@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create a Windows Server 2016 VM with IIS 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: 
 

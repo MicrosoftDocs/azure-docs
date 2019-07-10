@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
-manager: jeconnoc
+manager: gwallace
 ---
 # Preview: Create a Windows image and distribute it to a Shared Image Gallery 
 
