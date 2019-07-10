@@ -12,7 +12,7 @@ ms.author: sutalasi
 ---
 # Set up disaster recovery for SQL Server
 
-This article describes how to protect the SQL Server back end of an application. You do so by using a combination of SQL Server business continuity and disaster recovery (BCDR) technologies and [Azure Site Recovery](site-recovery-overview.md).
+This article describes how to help protect the SQL Server back end of an application. You do so by using a combination of SQL Server business continuity and disaster recovery (BCDR) technologies and [Azure Site Recovery](site-recovery-overview.md).
 
 Before you start, make sure you understand SQL Server disaster recovery capabilities. These capabilities include:
 
@@ -20,26 +20,26 @@ Before you start, make sure you understand SQL Server disaster recovery capabili
 * Always On availability groups
 * Database mirroring
 * Log shipping
-* Active-geo replication
+* Active geo-replication
 * Auto-failover groups
 
 ## Combining BCDR technologies with Site Recovery
 
 Your choice of a BCDR technology to recover SQL Server instances should be based on your recovery time objective (RTO) and recovery point objective (RPO) needs as described in the following table. Combine Site Recovery with the failover operation of your chosen technology to orchestrate recovery of your entire application.
 
-Deployment Type | BCDR Technology | Expected RTO for SQL | Expected RPO for SQL |
+Deployment type | BCDR technology | Expected RTO for SQL | Expected RPO for SQL |
 --- | --- | --- | ---
 SQL Server on an Azure infrastructure as a service (IaaS) virtual machine (VM) or at on-premises.| [Always On availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | The time taken to make the secondary replica as primary. | Because replication to the secondary replica is asynchronous, there's some data loss.
 SQL Server on an Azure IaaS VM or at on-premises.| [Failover clustering (Always On FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | The time taken to fail over between the nodes. | Because it uses shared storage, the same view of the storage instance is available on failover.
 SQL Server on an Azure IaaS VM or at on-premises.| [Database mirroring (high-performance mode)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | The time taken to force the service, which uses the mirror server as a warm standby server. | Replication is asynchronous. The mirror database might lag somewhat behind the principal database. The lag is typically small. But it can become large if the principal or mirror server's system is under a heavy load.<br/><br/>Log shipping can be a supplement to database mirroring. It's a favorable alternative to asynchronous database mirroring.
 SQL as platform as a service (PaaS) on Azure.<br/><br/>This deployment type includes elastic pools and Azure SQL Database servers. | Active geo-replication | 30 seconds after it's triggered.<br/><br/>When failover is activated for one of the secondary databases, all other secondaries are automatically linked to the new primary. | RPO of five seconds.<br/><br/>Active geo-replication uses the Always On technology of SQL Server. It asynchronously replicates committed transactions on the primary database to a secondary database by using snapshot isolation.<br/><br/>The secondary data is guaranteed to never have partial transactions.
-SQL as PaaS configured with active geo-replication on Azure.<br/><br/>This deployment type includes an instance managed by SQL Database, elastic pools, and SQL Database servers. | Auto-failover groups | RTO of one hour. | RPO of five seconds.<br/><br/>Auto-failover groups provide the group semantics on top of active geo-replication. But the same asynchronous replication mechanism is used.
+SQL as PaaS configured with active geo-replication on Azure.<br/><br/>This deployment type includes a SQL Database managed instance, elastic pools, and SQL Database servers. | Auto-failover groups | RTO of one hour. | RPO of five seconds.<br/><br/>Auto-failover groups provide the group semantics on top of active geo-replication. But the same asynchronous replication mechanism is used.
 SQL Server on an Azure IaaS VM or at on-premises.| Replication with Azure Site Recovery | RTO is typically less than 15 minutes. To learn more, read the [RTO SLA provided by Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | One hour for application consistency and five minutes for crash consistency.
 
 > [!NOTE]
-> A few important considerations when protecting SQL workloads with Site Recovery:
-> * Site Recovery is application agnostic. Any version of SQL Server that is deployed on a supported operating system can be protected by Site Recovery. To learn more, see the [support matrix for recovery](vmware-physical-azure-support-matrix.md#replicated-machines) of replicated machines.
-> * You can choose to use Site Recovery for any deployment at Azure, Hyper-V, VMware, or physical infrastructure. Please follow the guidance at the end of this article on [how to protect a SQL Server cluster](#how-to-protect-a-sql-server-cluster) with Site Recovery.
+> A few important considerations when you're helping to protect SQL workloads with Site Recovery:
+> * Site Recovery is application agnostic. Site Recovery can help protect any version of SQL Server that is deployed on a supported operating system. To learn more, see the [support matrix for recovery](vmware-physical-azure-support-matrix.md#replicated-machines) of replicated machines.
+> * You can choose to use Site Recovery for any deployment at Azure, Hyper-V, VMware, or physical infrastructure. Please follow the guidance at the end of this article on [how to help protect a SQL Server cluster](#how-to-protect-a-sql-server-cluster) with Site Recovery.
 > * Ensure that the data change rate observed on the machine is within [Site Recovery limits](vmware-physical-azure-support-matrix.md#churn-limits). The change rate is measured in write bytes per second. For machines running Windows, you can view this change rate by selecting the **Performance** tab in Task Manager. Observe the write speed for each disk.
 > * Site Recovery supports replication of Failover Cluster Instances on Storage Spaces Direct. To learn more, see [how to enable Storage Spaces Direct replication](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 
@@ -58,7 +58,7 @@ Set up Active Directory in the secondary recovery site for SQL Server to run pro
   - If you have a large number of applications, have an Active Directory forest, and want to fail over by application or workload, set up another domain controller in the secondary datacenter or in Azure.
   -  If you're using Always On availability groups to recover to a remote site, set up another domain controller on the secondary site or in Azure. This domain controller is used for the recovered SQL Server instance.
 
-The instructions in this article assume that a domain controller is available in the secondary location. To learn more, see the procedures for [protecting Active Directory with Site Recovery](site-recovery-active-directory.md).
+The instructions in this article assume that a domain controller is available in the secondary location. To learn more, see the procedures for [helping to protect Active Directory with Site Recovery](site-recovery-active-directory.md).
 
 ### Step 2: Ensure connectivity with other tiers
 
@@ -69,12 +69,12 @@ To understand how you can design applications for connectivity considerations, s
 * [Design an application for cloud disaster recovery](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * [Elastic pool Disaster Recovery strategies](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
-### Step 3: Interoperate with Always On, active-geo replication, and auto-failover groups
+### Step 3: Interoperate with Always On, active geo-replication, and auto-failover groups
 
-BCDR technologies Always On, active-geo replication, and auto-failover groups have secondary replicas of SQL Server running in the target Azure region. The first step for your application failover is to specify this replica as primary. This step assumes you already have a domain controller in the secondary. The step may not be necessary if you choose to do an auto-failover. Fail over your web and application tiers only after the database failover is completed.
+BCDR technologies Always On, active geo-replication, and auto-failover groups have secondary replicas of SQL Server running in the target Azure region. The first step for your application failover is to specify this replica as primary. This step assumes you already have a domain controller in the secondary. The step may not be necessary if you choose to do an auto-failover. Fail over your web and application tiers only after the database failover is completed.
 
 > [!NOTE]
-> If you have protected the SQL machines with Site Recovery, you just need to create a recovery group of these machines and add their failover in the recovery plan.
+> If you have helped to protect the SQL machines with Site Recovery, you just need to create a recovery group of these machines and add their failover in the recovery plan.
 
 [Create a recovery plan](site-recovery-create-recovery-plans.md) with application and web tier virtual machines. The following steps show how to add failover of the database tier:
 
@@ -122,9 +122,9 @@ After you add the script in Step 3 and validate it in Step 4, you can do a failo
 
 The failover steps for application and web tiers should be the same in both test failover and failover recovery plans.
 
-## How to protect a SQL Server cluster
+## How to help protect a SQL Server cluster
 
-For a cluster running SQL Server Standard edition or SQL Server 2008 R2, we recommend you use Site Recovery replication to protect SQL Server.
+For a cluster running SQL Server Standard edition or SQL Server 2008 R2, we recommend you use Site Recovery replication to help protect SQL Server.
 
 ### Azure to Azure and On-premises to Azure
 
@@ -132,7 +132,7 @@ Site Recovery doesn't provide guest cluster support when replicating to an Azure
 
 1. Configure an additional standalone SQL Server instance on the primary Azure region or at on-premises site.
 
-1. Configure the instance to serve as a mirror for the databases you want to protect. Configure mirroring in high-safety mode.
+1. Configure the instance to serve as a mirror for the databases you want to help protect. Configure mirroring in high-safety mode.
 
 1. Configure Site Recovery on the primary site for [Azure](azure-to-azure-tutorial-enable-replication.md), [Hyper-V](site-recovery-hyper-v-site-to-azure.md), or [VMware VMs and physical servers](site-recovery-vmware-to-azure-classic.md).
 
@@ -146,13 +146,13 @@ For SQL Server Standard clusters, failback after an unplanned failover requires 
 
 ## Frequently Asked Questions
 
-### How does SQL Server get licensed when protected with Site Recovery?
+### How does SQL Server get licensed when used with Site Recovery?
 
 Site Recovery replication for SQL Server is covered under the Software Assurance disaster recovery benefit. This coverage applies to all Site Recovery scenarios: on-premises to Azure disaster recovery and cross-region Azure IaaS disaster recovery. See [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) for more.
 
 ### Will Site Recovery support my SQL Server version?
 
-Site Recovery is application agnostic. Any version of SQL Server that is deployed on a supported operating system can be protected by Site Recovery. For more, see the [support matrix for recovery](vmware-physical-azure-support-matrix.md#replicated-machines) of replicated machines.
+Site Recovery is application agnostic. Site Recovery can help protect any version of SQL Server that is deployed on a supported operating system. For more, see the [support matrix for recovery](vmware-physical-azure-support-matrix.md#replicated-machines) of replicated machines.
 
 ## Next steps
 
