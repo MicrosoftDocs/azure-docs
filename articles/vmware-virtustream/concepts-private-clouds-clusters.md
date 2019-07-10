@@ -14,7 +14,7 @@ ms.custom:
 
 # VMware Solution on Azure by Virtustream Private Cloud and vSphere Cluster Concepts
 
-The Azure VMware Solution by Virtustream (AVS by Virtustream) delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. AVS by Virtustream private cloud hardware and software depolyments are fully integrated and automated in Azure.
+The Azure VMware Solution by Virtustream (AVS by Virtustream) delivers VMware-based private clouds in Azure. The private clouds are built from clusters of dedicated bare-metal hosts and are deployed and managed through the Azure portal. Clusters in private clouds are provisioned with VMware vSphere, vCenter, vSAN, and NSX software. AVS by Virtustream private cloud hardware and software deployments are fully integrated and automated in Azure.
 
 Figure 1 shows a logical relationship between subscriptions, private clouds, clusters, and hosts. In the diagram, there are two private clouds in a single Azure subscription. The private clouds represent a development and a production environment, each with their own private cloud. In each of those private clouds there are two clusters, with smaller cluster sizes in the development environment. To show the lower potential needs of a development environment, lower capacity hosts are used in that environment. All of these concepts are described in the sections below.
 
@@ -30,7 +30,7 @@ The number of private clouds within a subscription is scalable. For a period of 
 
 ## Clusters
 
-You will create at least one vSAN cluster in each private cloud. When you create a private cloud there is one cluster by default. You can add additional clusters to a private cloud using the Azure portal or through the API. All clusters except trial clusters can be scaled from 3 to 16 hosts, with a default size of four hosts. The type of hosts used in a cluster must be the same type. You scale clusters using only the same type of host already used in the cluster. The hosts types are described in the next section.
+You will create at least one vSAN cluster in each private cloud. When you create a private cloud, there is one cluster by default. You can add additional clusters to a private cloud using the Azure portal or through the API. All clusters except trial clusters can be scaled from 3 to 16 hosts, with a default size of four hosts. The type of hosts used in a cluster must be the same type. You scale clusters using only the same type of host already used in the cluster. The hosts types are described in the next section.
 
 Trial clusters are available for evaluation and they're limited to three hosts and a single trial cluster per private cloud. You can scale a trial cluster by a single host during the evaluation period.
 
