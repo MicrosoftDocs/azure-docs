@@ -24,13 +24,13 @@ Figure 1 shows the adjacency of private clouds to VNets in Azure, Azure services
 
 ## Hosts, clusters, and private clouds
 
-AVS by Virtustream private clouds and clusters are built from two types of bare-metal, hyper-converged Azure infrastructure hosts. A general-purpose (GP) host configuration is available for evaluation clusters, and a high-end host configuration for any use case. The high-end hosts have 576 GB RAM, 15.36 TB (SSD) raw vSAN capacity tier, and 3.2 TB (NVMe) vSAN cache in two vSAN diskgroups, 50 Gbps dedicated network bandwidth, and dual Intel 18 core, 2.3-GHz processors. General-purpose hosts have 192 GB RAM, 7.68 TB (SSD) raw vSAN capacity tier, and 3.2 TB (NVMe) vSAN cache tier in two vSAN diskgroups, 50 Gbps dedicated network bandwidth, and dual Intel 12 core, 2.2-GHz processors.
+AVS by Virtustream private clouds and clusters are built from two types of bare-metal, hyper-converged Azure infrastructure hosts. A general-purpose (GP) host configuration is available for evaluation clusters, and a high-end host configuration for any use case. The high-end hosts have 576-GB RAM, 15.36-TB (SSD) raw vSAN capacity tier, and 3.2-TB (NVMe) vSAN cache in two vSAN diskgroups, 50 Gbps dedicated network bandwidth, and dual Intel 18 core, 2.3-GHz processors. General-purpose hosts have 192 GB RAM, 7.68-TB (SSD) raw vSAN capacity tier, and 3.2-TB (NVMe) vSAN cache tier in 2 vSAN diskgroups, 50-Gbps dedicated network bandwidth, and dual Intel 12 core, 2.2-GHz processors.
 
 New private clouds are deployed through the Azure portal. Other deployment options include the Azure CLI, PowerShell, or Azure Resource Manager templates. For more information on AVS by Virtustream private clouds, clusters, and Azure hosts, see [Private Cloud and Cluster Concepts][concepts-private-clouds-clusters].
 
 ## Networking
 
-Private management, provisioning, and vMotion networks are created when a private cloud is deployed. These networks are used for access to vCenter and NSX-T Manager and for virtual machine vMotion or deployment. All of the private networks are accessible from a VNet in Azure or from on-premises environments. ExpressRoute Global Reach is used to connect private clouds to on-premises environments, and this requires a VNet with an ExpressRoute circuit in your subscription.
+Private management, provisioning, and vMotion networks are created when a private cloud is deployed. These networks are used for access to vCenter and NSX-T Manager and for virtual machine vMotion or deployment. All of the private networks are accessible from a VNet in Azure or from on-premises environments. ExpressRoute Global Reach is used to connect private clouds to on-premises environments, and this connection requires a VNet with an ExpressRoute circuit in your subscription.
 
 Access to the internet and Azure services are provisioned when a private cloud is deployed. The access is provided so that VMs on production workload networks can consume Azure or internet-based services. Internet access is disabled by default for new private clouds, and it can be enabled or disabled at any time.
 
