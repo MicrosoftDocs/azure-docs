@@ -19,7 +19,7 @@ If you want to add an assessment tool and you don't yet have an Azure Migrate pr
 
 ## Selecting an ISV tool
 
-If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for assessment, you can start by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions to connect the tool workspace with Azure Migrate. 
+If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for assessment, you can start by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation to connect the tool workspace with Azure Migrate. 
 
 
 ## Select an assessment scenario
@@ -36,7 +36,7 @@ If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for as
 ## Select a server assessment tool 
 
 1. Click **Assess and Migrate Servers**.
-2. In **Azure Migrate - Servers**, if you haven't added an assessment tool, under **Assessment tools**, select **Click here to add an assessment tool**. If you've already added assessment tools, in **Add more assessment tools**, select **Click here**.
+2. In **Azure Migrate - Servers**, if you haven't added an assessment tool, under **Assessment tools**, select **Click here to add an assessment tool**. If you've already added assessment tools, in **Add more assessment tools**, select **Change**.
 
     > [!NOTE]
     > If you need to navigate to a different project, in **Azure Migrate - Servers**, next to **See details for a different migrate project**, click **Click here**.
@@ -55,8 +55,6 @@ If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for as
 1. Click **Assess and migrate databases**
 2. In **Databases**, click **Add tools**.
 3. In Add a tool > **Select assessment tool**, select the tool you want to use to assess your database.
-
-    ![Database assessment](./media/how-to-assess/db-assessment.png)
 
 ## Select a web app assessment tool
 
