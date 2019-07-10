@@ -64,7 +64,6 @@
     href: how-to-add-tool-first-time.md
   - name: Add assessment tools
     href: how-to-assess.md
-  items:
   - name: Group machines for assessment
     items:
     - name: Create a group
