@@ -307,7 +307,6 @@ If you don't see the VM you want to enable for replication, it might be because 
 >Make sure to update the ""AzureRM.Resources"" module before using the below script.
 >Azure Site Recovery doesn't delete source virtual machine or impact it in any way while performing below steps.
 
-
 1. Remove the lock from the VM or VM resource group, if there are any.
 
 *For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
