@@ -13,7 +13,7 @@ ms.author: raynew
 
 This article describes the Azure Migrate appliance. You deploy the appliance when you use Azure Migrate Assessment and Migration tools to discover, assess and migrate apps, infrastructure, and workloads to Microsoft Azure. 
 
-[[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
+[Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 
 
@@ -28,7 +28,7 @@ Hyper-V VM | Hyper-V VM assessment with the Azure Migrate Assessment tool. | Dow
 
 ## Appliance access
 
-After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the web management app for the appliance, on port 44368 with URL: **https://<appliance-ip-or-name>:44368**.
+After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the web management app for the appliance, on port 44368 with URL: ``` https://<appliance-ip-or-name>:44368 ```.
 
 ## Appliance license
 The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
@@ -130,7 +130,7 @@ Hyper-V Virtual Storage Device | Write Bytes/Second | Calculation for disk size,
 Hyper-V Virtual Network Adapter | Bytes Received/Second | Calculation for VM size
 Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
 
-- CPU utilization is the sme of all usage for all virtual processors attached to a VM.
+- CPU utilization is the sum of all usage, for all virtual processors attached to a VM.
 - Memory utilization is (Current Pressure * Guest Visible Physical Memory) / 100.
 - Disk and network utilization values are collected from the listed Hyper-V performance counters.
 
