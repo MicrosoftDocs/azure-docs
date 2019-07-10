@@ -6,7 +6,7 @@ author: ChJenk
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/09/2019
+ms.date: 07/10/2019
 ms.author: v-chjenk
 ---
 # Tenant and host pool creation
