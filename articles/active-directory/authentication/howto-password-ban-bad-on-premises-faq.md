@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 Microsoft's current guidance on this topic can be found at the following link:
 
-[Microsoft Password Guidance](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Microsoft Password Guidance](https://www.microsoft.com/research/publication/password-guidance)
 
 **Q: Is on-premises Azure AD Password Protection supported in non-public clouds?**
 
@@ -40,6 +40,10 @@ A password change is when a user chooses a new password after proving they have 
 A password set (sometimes called a password reset) is when an administrator replaces the password on an account with a new password, for example by using the Active Directory Users and Computers management tool. This operation requires a high level of privilege (usually Domain Admin), and the person performing the operation usually does not have knowledge of the old password. Help-desk scenarios often do this, for instance when assisting a user who has forgotten their password. You will also see password set events when a brand new user account is being created for the first time with a password.
 
 The password validation policy behaves the same regardless of whether a password change or set is being done. The Azure AD Password Protection DC Agent service does log different events to inform you whether a password change or set operation was done.  See [Azure AD Password Protection monitoring and logging](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+
+**Q: Why are duplicated password rejection events logged when attempting to set a weak password using the Active Directory Users and Computers management snap-in?**
+
+The Active Directory Users and Computers management snap-in will first try to set the new password using the Kerberos protocol. Upon failure the snap-in will make a second attempt to set the password using a legacy (SAM RPC) protocol (the specific protocols used are not important). If the new password is considered weak by Azure AD Password Protection, this will result in two sets of password reset rejection events being logged.
 
 **Q: Is it supported to install Azure AD Password Protection side by side with other password-filter-based products?**
 

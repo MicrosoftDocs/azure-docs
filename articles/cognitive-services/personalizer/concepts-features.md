@@ -7,7 +7,7 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
 ---

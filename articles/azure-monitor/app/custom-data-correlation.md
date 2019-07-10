@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.author: Evgeny.Ternovsky
+ms.author: evternov
 
 ---
 
