@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 The Azure Networking Managed Service Provider (MSP) Partner Program enables network-services focused MSPs, Telcos, and Systems Integrators (SIs) to offer cloud and hybrid networking services centered around Azure’s portfolio of networking products and services.
 
-Azure Networking MSPs are a specialized set of MSPs that address the enterprise cloud networking needs and challenges across all aspects of cloud and hybrid networking. The managed network services include one or more of the following services: network architecture, planning, deployment, operations, maintenance, and optimization.
+Azure Networking MSPs are a specialized set of managed service providers that address the enterprise cloud networking needs and challenges across all aspects of cloud and hybrid networking. The managed network services include one or more of the following services: network architecture, planning, deployment, operations, maintenance, and optimization.
 
 ![MSP][0]
 
@@ -22,7 +22,7 @@ Customers can purchase MSP-managed services offers in the Azure Marketplace, or 
 
 ## <a name="msp"></a>MSP partners
 
-Use the links in this section for more information about managed cloud networking services offered by Azure Networking MSP partners. If your cloud network services partner is not listed in the section below, have the provider contact us. They can contact us by sending an email to ManagedVirtualWAN@microsoft.com.
+Use the links in this section for more information about managed cloud networking services offered by Azure Networking MSP partners. If your cloud network services partner is not listed in the section below, have the provider contact us. They can contact us by sending an email to ManagedVirtualWAN@microsoft.com. 
 
 [Aryka](https://www.aryaka.com/)
 
