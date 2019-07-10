@@ -1430,6 +1430,8 @@
         href: dynamic-signal-provisioning-tutorial.md
       - name: Dialpad
         href: dialpad-provisioning-tutorial.md
+      - name: Envoy
+        href: envoy-provisioning-tutorial.md
       - name: Figma
         href: figma-provisioning-tutorial.md
       - name: Federated Directory
@@ -1460,6 +1462,8 @@
         href: netsuite-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: Proxyclick
+        href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
       - name: Salesforce
@@ -1496,3 +1500,5 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
+      - name: Zoom
+        href: zoom-provisioning-tutorial.md
