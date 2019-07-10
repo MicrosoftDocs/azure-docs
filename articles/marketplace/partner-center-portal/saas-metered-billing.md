@@ -1,5 +1,5 @@
 ---
-title: Metered billing using the Marketplace metering service | Commercial marketplace program
+title: Metered billing using the marketplace metering service | Commercial marketplace program
 description: This documentation is a guide for ISVs publishing SaaS offers with flexible billing models. 
 author: qianw211 
 manager: evansma
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ---
 
-# Metered billing using the Marketplace metering service
+# Metered billing using the marketplace metering service
 
-With the Marketplace metering service, you can create software-as-a-service (SaaS) offers in the commercial marketplace program that are charged according to non-standard units.  Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed.  Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the Marketplace metering service API of billable events as they occur.  
+With the marketplace metering service, you can create software-as-a-service (SaaS) offers in the commercial marketplace program that are charged according to non-standard units.  Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed.  Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the marketplace metering service API of billable events as they occur.  
 
 ## Prerequisites for metered billing
 
@@ -95,7 +95,7 @@ Metered billing using the marketplace metering service is not compatible with of
 
 ### Locking behavior
 
-Because a dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service, all of the details for a dimension are no longer editable once you publish it.  It’s important that you have your dimensions fully defined for a plan before you publish.
+Because a dimension used with the marketplace metering service represents an understanding of how a customer will be paying for the service, all of the details for a dimension are no longer editable once you publish it.  It’s important that you have your dimensions fully defined for a plan before you publish.
   
 Once an offer is published with a dimension, the offer-level details for that dimension can no longer be changed:
 
