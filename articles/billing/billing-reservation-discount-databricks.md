@@ -20,7 +20,7 @@ The pre-purchase discount applies only to Azure Databricks unit (DBU) usage. Oth
 
 ## Pre-purchase discount application
 
-Databricks pre-purchase applies to all Databricks workloads and tiers. You can think of the pre-purchase as a pool of pre-paid Databrick commit units. Usage is deducted from the pool, regardless of the workload or tier. Usage is deducted in the following ratio:
+Databricks pre-purchase applies to all Databricks workloads and tiers. You can think of the pre-purchase as a pool of pre-paid Databricks commit units. Usage is deducted from the pool, regardless of the workload or tier. Usage is deducted in the following ratio:
 
 | **Workload** | **DBU application ratio — Standard tier** | **DBU application ratio — Premium tier** |
 | --- | --- | --- |
