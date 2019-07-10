@@ -295,7 +295,9 @@
     - name: Create and manage containers
       items:
       - name: Create or delete a container
-        href: storage-blob-create-container.md
+        href: storage-blob-container-create.md
+      - name: List containers in a storage account
+        href: storage-blob-containers-list.md
       - name: Manage container properties and metadata
         href: storage-blob-container-properties-metadata.md
     - name: Secure blob data
