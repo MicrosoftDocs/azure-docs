@@ -1,3 +1,11 @@
+---
+author: msmbaldwin
+ms.service: virtual-machines  
+ms.topic: include
+ms.date: 07/10/2019
+ms.author: mbaldwin
+---
+
 ## Preventative
 
 | Security attribute | Yes/No | Notes |
