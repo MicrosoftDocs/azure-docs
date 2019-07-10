@@ -24,9 +24,9 @@ Figure 1 shows the adjacency of private clouds to VNets in Azure, Azure services
 
 ## Hosts, clusters, and private clouds
 
-AVS by Virtustream private clouds and clusters are built from two types of bare-metal, hyper-converged Azure infrastructure hosts. A general-purpose (GP) host configuration is available for evaluation clusters, and a high-end (HE) host configuration for any use case. The high-end hosts have 576-GB RAM and dual Intel 18 core, 2.3-GHz processors. The HE hosts have two vSAN diskgroups with a total 15.36 TB (SSD) raw vSAN capacity tier, and 3.2 TB (NVMe) vSAN cache tier. General-purpose hosts have 192-GB RAM and dual Intel 12 core, 2.2-GHz processors. The GP hosts have two vSAN diskgroups with a total 7.68 TB (SSD) raw vSAN capacity tier, and 3.2 TB (NVMe) vSAN cache tier.
+AVS by Virtustream private clouds and clusters are built from two types of bare-metal, hyper-converged Azure infrastructure hosts. A general-purpose (GP) host configuration is available for evaluation clusters, and a high-end (HE) host configuration for any use case. The high-end hosts have 576-GB RAM and dual Intel 18 core, 2.3-GHz processors. The HE hosts have two vSAN diskgroups with a total 15.36 TB (SSD) raw vSAN capacity tier, and 3.2 TB (NVMe) vSAN cache tier. General-purpose hosts have 192-GB RAM and dual Intel 12 core, 2.2-GHz processors. The GP hosts have a single vSAN diskgroup with a total 7.68 TB (SSD) raw vSAN capacity tier, and 1.6 TB (NVMe) vSAN cache tier.
 
-New private clouds are deployed through the Azure portal. Other deployment options include the Azure CLI, PowerShell, or Azure Resource Manager templates. For more information on AVS by Virtustream private clouds, clusters, and Azure hosts, see [Private Cloud and Cluster Concepts][concepts-private-clouds-clusters].
+New private clouds are deployed through the Azure portal. Other deployment options include the Azure CLI, PowerShell, or Azure Resource Manager templates. For more information on AVS by Virtustream private clouds, clusters, and Azure hosts, see the Networking Concepts article.
 
 ## Networking
 
@@ -34,30 +34,23 @@ Private management, provisioning, and vMotion networks are created when a privat
 
 Access to the internet and Azure services are provisioned when a private cloud is deployed. The access is provided so that VMs on production workload networks can consume Azure or internet-based services. Internet access is disabled by default for new private clouds, and it can be enabled or disabled at any time.
 
-For more information on networking and interconnectivity, see the Networking Concepts article<!-- [Interconnectivity Concepts][concepts-networking] -->.
+For more information on networking and interconnectivity, see the Networking Concepts article.
 
 ## Access and security
 
-For enhanced security, AVS by Virtustream private clouds use vSphere role-based access control. vSphere SSO LDAP capabilities can be integrated with Azure Active Directory. For more information on identity and privileges, see the Access and Identity Concepts article<!-- [Access and identity options for AVS by Virtustream][identity-concepts-identity] -->.
+For enhanced security, AVS by Virtustream private clouds use vSphere role-based access control. vSphere SSO LDAP capabilities can be integrated with Azure Active Directory. For more information on identity and privileges, see the Access and Identity Concepts article.
 
-vSAN data-at-rest encryption is enabled by default and is used to provide vSAN datastore security. It's described in more detail in the Storage Concepts article<!-- [Storage Concepts][storage-concepts-storage] -->.
+vSAN data-at-rest encryption is enabled by default and is used to provide vSAN datastore security. It's described in more detail in the Storage Concepts article.
 
 ## Host and software lifecycle maintenance
 
-Regular upgrades of the AVS by Virtustream private cloud and VMware software ensures the latest security, stability, and feature sets are running in your private clouds. More details about platform maintenance and upgrades are available in the Upgrade Concepts article<!-- [Upgrade Concepts][upgrades-concepts-upgrades] -->.
+Regular upgrades of the AVS by Virtustream private cloud and VMware software ensures the latest security, stability, and feature sets are running in your private clouds. More details about platform maintenance and upgrades are available in the Upgrade Concepts article.
 
 ## Next steps
 
-The next step is to learn key private cloud and cluster concepts.
-
-[Learn AVS by Virtustream private cloud and cluster concepts.][concepts-private-clouds-clusters]
+The next step is to learn key [private cloud and cluster concepts][concepts-private-clouds-clusters].
 
 <!-- LINKS - external -->
-<!-- [NSX-T documentation]: https://docs.vmware.com/en/VMware-NSX-T-Data-Center/index.html -->
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
-<!-- [concepts-networking]: ./concepts-networking.md -->
-<!-- [concepts-upgrades]: ./concepts-upgrades.md -->
-<!-- [concepts-storage]: ./concepts-storage.md -->
-<!-- [concepts-identity]: ./concepts-identity.md -->

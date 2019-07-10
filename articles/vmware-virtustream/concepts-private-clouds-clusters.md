@@ -20,7 +20,7 @@ Figure 1 shows a logical relationship between subscriptions, private clouds, clu
 
 ![Image of two private clouds in a customer subscription](./media/hosts-clusters-private-clouds-final.svg)
 
-Private cloud interconnectivity and networking concepts are described in detail in the Networking Concepts document<!-- [Interconnectivity and Networking Concepts article][concepts-networking] -->.
+Private cloud interconnectivity and networking concepts are described in detail in the Networking Concepts document.
 
 ## Private clouds
 
@@ -45,7 +45,7 @@ The RAM, CPU, and disk capacity differences between the host types is provided i
 | Host Type              |             CPU             |   RAM (GB)   |  vSAN NVMe cache Tier (TB, raw)  |  vSAN SSD capacity tier (TB, raw)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
 | High-End (HE)          |  dual Intel 18 core 2.3 GHz  |     576      |                3.2               |                15.20               |
-| General-Purpose (GP)   |  dual Intel 10 core 2.2 GHz  |     192      |                3.2               |                 7.68               |
+| General-Purpose (GP)   |  dual Intel 10 core 2.2 GHz  |     192      |                1.6               |                 7.68               |
 
 Hosts that are used to build or scale clusters are allocated from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted from the flash disks. When you remove a host from a cluster, the internal disks are securely wiped and the hosts are placed into the isolated pool of hosts. When you add a host to a cluster, a sanitized host from the isolated pool is used.
 
@@ -60,9 +60,9 @@ The current software versions of the VMware software used in AVS by Virtustream 
 | vSAN                  |    6.7 U2    |
 | NSX-T                 |      2.3     |
 
-For any new cluster in a private cloud, the version of software will match what is currently running in the private cloud -- consistency across the private cloud. For any new private cloud in a customer subscription, the latest version of the software stack is installed -- potential inconsistency across private clouds in a subscription.
+For any new cluster in a private cloud, the version of software will match what is currently running in the private cloud. For any new private cloud in a customer subscription, the latest version of the software stack is installed.
 
-The general upgrade policies and processes for the AVS by Virtustream platform software is described in the Upgrades Concepts document[Upgrade Concepts section][concepts-upgrades].
+The general upgrade policies and processes for the AVS by Virtustream platform software is described in the Upgrades Concepts document.
 
 ## Host maintenance and lifecycle management
 
@@ -74,7 +74,7 @@ Private cloud vCenter and NSX-T configurations are backed up hourly. Backups are
 
 ## Next steps
 
-<!-- [Learn about networking and interconnectivity concepts.][concepts-networking] -->
+The next step is to learn networking and interconnectivity concepts.
 
 <!-- LINKS - internal -->
 
