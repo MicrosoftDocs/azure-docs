@@ -35,6 +35,10 @@ To onboard a customer's tenant, it must have an active Azure subscription. You'l
 
 If you don't have this info already, you can retrieve it in one of the following ways.
 
+### Azure portal
+
+Your tenant ID can be seen by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. To select and copy your tenant ID, search for "Azure Active Directory" from within the portal, then select **Properties** and copy the value shown in the **Directory ID** field. To find the ID of a subscription, search for "Subscriptions" and then select the appropriate subscription ID.
+
 ### PowerShell
 
 ```azurepowershell-interactive
@@ -51,6 +55,7 @@ Select-AzSubscription <subscriptionId>
 az account set --subscription <subscriptionId/name>
 az account show
 ```
+
 
 ## Ensure the customer's subscription is registered for onboarding
 
