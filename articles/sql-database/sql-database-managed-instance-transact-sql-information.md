@@ -393,14 +393,13 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 
 ### Replication
 
-Replication is available for public preview for Managed Instance with some constraints:
-- Publisher, Distributor, Pull Subscriber, and Push Subscriber can be placed on Managed Instance.
+[Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on Managed Instance with some constraints:
+- Al types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on Managed Instance, but Publisher and Distributor cannot be placed on different instances.
 - Transactional, Snapshot, and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication and updateable subscriptions are not supported.
-- Published and Distributor must be on the same instance.
 - Managed Instance can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
 - Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
 
-For information about replication, see [SQL Server replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+For information about configuring replication, see [replication tutorial](replication-with-sql-database-managed-instance.md).
 
 ### RESTORE statement 
 
@@ -489,7 +488,7 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb`. `tempdb` is always re-created as an empty database when the instance start or fail-over and any change made in `tempdb` will not be preserved. 
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. `tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120GB of log. `tempdb` is always re-created as an empty database when the instance starts or fail-over and any change made in `tempdb` will not be preserved. 
 
 ### Can't restore contained database
 
