@@ -1,5 +1,5 @@
 ---
-title: Migrate an OWIN application to b2clogin.com by supporting multiple token issuers
+title: Migrate an OWIN web app to b2clogin.com by supporting multiple token issuers - Azure Active Directory B2C
 description: Learn how to enable a .NET web API to validate tokens from multiple issuers.
 services: active-directory-b2c
 author: mmacy
@@ -15,33 +15,35 @@ ms.subservice: B2C
 
 # Migrate an OWIN application to b2clogin.com by supporting multiple token issuer URIs
 
-When you're migrating your applications from *login.microsoftonline.com* to *b2clogin.com*, you might want to support tokens issued by both endpoints during the migration. This article provides an example of how to enable multiple issuers in a .NET web application implemented with [Open Web Interface for .NET (OWIN)](http://owin.org/).
+When you're migrating your Azure Active Directory (Azure AD) B2c applications from *login.microsoftonline.com* to *b2clogin.com*, you might want to support tokens issued by both endpoints during the migration. This article provides an example of how to enable multiple issuers in an [Open Web Interface for .NET (OWIN)](http://owin.org/) web application.
 
 ## Prerequisites
 
-You need the following resources in place before continuing with the steps in this article:
+You need the following Azure AD B2C resources in place before continuing with the steps in this article:
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
 * [Application registered](tutorial-register-applications.md) in your tenant
 * [User flows created](tutorial-create-user-flows.md) in your tenant
 
-In addition, you need the following in your local development environment:
+Additionally, you need the following in your local development environment:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
 
 ## Get the sample code
 
-Start by cloning the [active-directory-b2c-dotnet-webapp-and-webapi][sample-repo] GitHub repository or by downloading the repository's \*.zip archive and extracting it to a directory on your local machine.
+Start by cloning downloading the repository's \*.zip archive and extracting it to a directory on your local machine, or cloning the [active-directory-b2c-dotnet-webapp-and-webapi][sample-repo] GitHub repository.
+
+Direct download:  [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Direct download:  [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
+## Get issuer URIs
 
-## Get issuer URLs
+You now need to get both token issuer URIs that you want to support in your application.
 
-First, select one of your existing user flows:
+Start by selecting one of your existing user flows:
 
 1. In the Azure portal, navigate to your Azure AD B2C tenant
 1. Under **Policies**, select **User flows (policies)**
@@ -69,7 +71,7 @@ https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 In this section, you update the sample code to enable support for both well-known URIs.
 
 1. Open the **B2C-WebAPI-DotNet.sln** solution in Visual Studio
-1. In the **TaskService** project, open the **Startup.Auth.cs** file in your editor (`TaskService\App_Start\Startup.Auth.cs`)
+1. In the **TaskService** project, open the `TaskService\App_Start\`**`Startup.Auth.cs`** file in your editor ()
 1. Add the `ValidIssuers` property to the `TokenValidationParameters` definition and specify both URIs you recorded in the previous section:
 
     ```csharp
