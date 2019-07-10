@@ -78,12 +78,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. In the **Basic SAML Configuration** section, if you want to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     In the **Reply URL** text box, type a URL using the following pattern:
     `https://<projectname>.productboard.com/users/auth/saml/callback`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and perform the following step if you want to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<projectname>.productboard.com/`
@@ -91,13 +91,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [productboard Client support team](mailto:support@productboard.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
 ### Configure productboard SSO
 
-To configure single sign-on on **productboard** side, you need to send the **App Federation Metadata Url** to [productboard support team](mailto:support@productboard.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **productboard** side, you need to send the **App Federation Metadata Url** to the [productboard support team](mailto:support@productboard.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -131,7 +131,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create productboard test user
 
-In this section, a user called Britta Simon is created in productboard. productboard supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in productboard, a new one is created after authentication.
+In this section, a user called B.Simon is created in productboard. productboard supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in productboard, a new one is created after authentication.
 
 ### Test SSO
 
@@ -141,8 +141,8 @@ When you click the productboard tile in the Access Panel, you should be automati
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
