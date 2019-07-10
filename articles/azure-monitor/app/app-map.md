@@ -115,7 +115,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Load initializer to the active TelemetryConfiguration**
+**ASP.NET apps: Load initializer to the active TelemetryConfiguration**
 
 In ApplicationInsights.config :
 
@@ -128,9 +128,6 @@ In ApplicationInsights.config :
       </TelemetryInitializers>
     </ApplicationInsights>
 ```
-
-> [!NOTE]
-> Adding initializer using `ApplicationInsights.config` is not valid for ASP.NET Core applications.
 
 An alternate method for ASP.NET Web apps is to instantiate the initializer in code, for example in Global.aspx.cs:
 
@@ -145,15 +142,20 @@ An alternate method for ASP.NET Web apps is to instantiate the initializer in co
     }
 ```
 
+> [!NOTE]
+> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
+
+**ASP.NET Core apps: Load initializer to the TelemetryConfiguration**
+
 For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
  using CustomInitializer.Telemetry;
  public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-    }
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### Node.js
