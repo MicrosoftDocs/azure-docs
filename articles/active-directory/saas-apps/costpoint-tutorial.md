@@ -44,6 +44,7 @@ In this tutorial, you will configure and test Azure AD SSO in a test environment
 ## Generate Costpoint Metadata
 
 Costpoint SAML SSO configuration is explained in the **DeltekCostpoint711Security.pdf** guide. Download this guide from the Deltek Costpoint support site and refer to the **SAML Single Sign-on Setup -> Configure SAML Single Sign-on between Costpoint and Microsoft Azure** section. Follow the instructions and generate **Costpoint SP Federation Metadata XML** file. 
+
 ![Costpoint Configuration Utility](./media/costpoint-tutorial/config-utility.png)
 
 
