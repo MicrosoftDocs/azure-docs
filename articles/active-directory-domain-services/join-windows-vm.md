@@ -1,77 +1,108 @@
 ---
-title: 'Azure Active Directory Domain Services: Join a Windows Server VM to a managed domain | Microsoft Docs'
-description: Join a Windows Server virtual machine to Azure AD DS
-services: active-directory-ds
-documentationcenter: ''
+title: Join a Windows Server VM to a managed domain | Microsoft Docs'
+description: In this tutorial, learn how to join a Windows Server virtual machine to an Azure Active Directory Domain Services managed domain.
 author: iainfoulds
 manager: daveba
-editor: curtand
-
-ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
+`
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/10/2019
+ms.topic: tutorial
+ms.date: 07/10/2019
 ms.author: iainfou
 
+#Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to an Azure Active Directory Domain Services managed domain to provide centralized identity and policy.
+
 ---
-# Join a Windows Server virtual machine to a managed domain
-This article shows how to deploy a Windows Server virtual machine by using the Azure portal. It then shows how to join the virtual machine to an Azure Active Directory Domain Services (Azure AD DS) managed domain.
+# Tutorial: Join a Windows Server virtual machine to a managed domain
 
-[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+This tutorial shows you how to create a Windows Server VM then join it to an Azure AD DS managed domain.
 
-## Step 1: Create a Windows Server virtual machine
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * 
+
+If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+To complete this tutorial, you need the following resources:
+
+* An active Azure subscription.
+    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+    * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
+    * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+
+## Sign in to the Azure portal
+
+In this tutorial, you configure secure LDAP for the Azure AD DS managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
+
+## Create a Windows Server virtual machine
+
 To create a Windows virtual machine that's joined to the virtual network in which you've enabled Azure AD DS, do the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. At the top of the left pane, select **New**.
-3. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
+2. At the top of the left pane, select **+ Create a resource**.
+3. From **Get started**, choose **Windows Server 2016 Datacenter**.
 
-    ![The Windows Server 2016 Datacenter link](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-image.png)
+    ![Choose to create a Windows Server 2016 Datacenter VM in the Azure portal](./media/join-windows-vm/select-vm-image.png)
 
-4. In the **Basics** pane of the wizard, configure the basic settings for the virtual machine.
+4. In the **Basics** window, configure the core settings for the virtual machine. Leave the defaults for *Availability options*, *Image*, and *Size*.
+    
+    | Parameter            | Suggested value   |
+    |----------------------|-------------------|
+    | Resource group       | Select or create a resource group, such as *myResourceGroup* |
+    | Virtual machine name | Enter a name for the VM, such as *myVM* |
+    | Region               | Choose the region to create your VM in, such as *East US* |
+    | Username             | Enter a username for the local administrator account to create on the VM, such as *azureuser* |
+    | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. |
 
-    ![The Basics pane](./media/active-directory-domain-services-admin-guide/create-windows-vm-basics.png)
+5. By default, VMs created in Azure aren't accessible from the Internet. This helps improve the security of the VM and reduces the area for potential attack. In the next step of this tutorial, you connect to the VM using remote desktop protocol (RDP) and then join the Windows Server to the Azure AD DS managed domain. To do this step, you must enable *RDP* connections.
 
-    > [!TIP]
-    > The username and password you enter here are for a local administrator account that's used to log on to the virtual machine. Pick a strong password to protect the virtual machine against password brute-force attacks. Do not enter a domain user account's credentials here.
-    >
+    Under **Public inbound ports**, select the option to **Allow selected ports**. From the drop-down menu for **Select inbound ports**, choose *RDP*.
 
-5. Select a **Size** for the virtual machine. To view more sizes, select **View all** or change the **Supported disk type** filter.
+6. When done, select **Next: Disks**.
+7. From the drop-down menu for **OS disk type**, choose *Standard SSD*, then select **Next: Networking**.
 
-    ![The "Choose a size" pane](./media/active-directory-domain-services-admin-guide/create-windows-vm-size.png)
+Your VM must connect to an Azure virtual network subnet that can communicate with the subnet your Azure AD DS managed domain is deployed into. We recommend that an Azure AD DS managed domain is deployed into its own dedicated subnet. Don't deploy your VM in the same subnet as your Azure AD DS managed domain. There are two main ways to deploy your VM and connect to an appropriate virtual network subnet:
 
-6. In the **Settings** pane, select the virtual network in which your Azure AD DS-managed domain is deployed. Pick a different subnet than the one that your managed domain is deployed into. For the other settings, keep the defaults, and then select **OK**.
+    * Create, or select an existing, subnet in the same the virtual network as your Azure AD DS managed domain is deployed.
+    * Select a subnet in an Azure virtual network that is connected to it using [Azure virtual network peering][vnet-peering].
 
-    ![Virtual network settings for the virtual machine](./media/active-directory-domain-services-admin-guide/create-windows-vm-select-vnet.png)
+If you select a virtual network subnet that isn't connected to the subnet for your Azure AD DS instance, you can't join the VM to the managed domain. For this tutorial, let's create a new subnet in the Azure virtual network.
 
-    > [!TIP]
-    > **Pick the right virtual network and subnet.**
-    >
-    > Select either the virtual network in which your managed domain is deployed or a virtual network that is connected to it by using virtual network peering. If you select an unconnected virtual network, you cannot join the virtual machine to the managed domain.
-    >
-    > We recommend deploying your managed domain into a dedicated subnet. Therefore, do not pick the subnet in which you've enabled your managed domain.
+8. In the **Networking** pane, select the virtual network in which your Azure AD DS-managed domain is deployed, such as *myVnet*
+9. To create a subnet, select **Manage subnet configuration**.
 
-7. For the other settings, keep the defaults, and then select **OK**.
-8. On the **Purchase** page, review the settings, and then select **OK** to deploy the virtual machine.
-9. The VM deployment is pinned to the Azure portal dashboard.
+    ![Choose to manage the subnet configuration in the Azure portal](./media/join-windows-vm/manage-subnet.png)
 
-    ![Done](./media/active-directory-domain-services-admin-guide/create-windows-vm-done.png)
-10. After the deployment is completed, you can view information about the VM on the **Overview** page.
+10. Select **+ Subnet**, then enter a name for the subnet, such as *ManagedVMs*. Provide an **Address range (CIDR block)**, such as *10.1.1.0/24*. Make sure that this IP address range doesn't overlap with any other existing Azure or on-premises address ranges. Leave the other options as their default values, then select **OK**.
 
+    ![Create a subnet configuration in the Azure portal](./media/join-windows-vm/create-subnet.png)
 
-## Step 2: Connect to the Windows Server virtual machine by using the local administrator account
+11. It takes a few seconds to create the subnet. Once it's created, select the *X* to close the subnet window.
+12. Back in the **Networking** pane to create a VM, choose the subnet you just created from the drop-down menu, such as *ManagedVMs*.
+13. Leave the other options as their default values, then select **Management**.
+14. Set **Boot diagnostics** to *Off*. Leave the other options as their default values, then select **Review + create**.
+15. Review the VM settings, then select **Create**.
+
+It takes a few minutes to create the VM. The Azure portal shows the status of the deployment. Once the VM is ready, select **Go to resource**.
+
+![Go to the VM resource in the Azure portal once it's successfully created](./media/join-windows-vm/vm-created.png)
+
+## Connect to the Windows Server VM
 Next, connect to the newly created Windows Server virtual machine to join it to the domain. Use the local administrator credentials that you specified when you created the virtual machine.
 
 To connect to the virtual machine, perform the following steps:
 
-1. In the **Overview** pane, select **Connect**.  
-    A Remote Desktop Protocol (.rdp) file is created and downloaded.
+1. In the **Overview** pane, select **Connect**.
 
-    ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
+    ![Connect to Windows virtual machine in the Azure portal](./media/join-windows-vm/connect-to-vm.png)
+
+1. Select the option to **Download RDP File*. Save this RDP file in your web browser.
 
 2. To connect to your VM, open the downloaded RDP file. If prompted, select **Connect**.
 3. Enter your **local administrator credentials**, which you specified when you created the virtual machine (for example, *localhost\mahesh*).
@@ -80,7 +111,7 @@ To connect to the virtual machine, perform the following steps:
 At this point, you should be logged on to the newly created Windows virtual machine with your local administrator credentials. The next step is to join the virtual machine to the domain.
 
 
-## Step 3: Join the Windows Server virtual machine to the Azure AD DS-managed domain
+## Join the Windows Server VM to the Azure AD DS managed domain
 To join the Windows Server virtual machine to the Azure AD DS-managed domain, complete the following steps:
 
 1. Connect to the Windows Server VM, as shown in "Step 2." On the **Start** screen, open **Server Manager**.
@@ -124,11 +155,8 @@ To join the Windows Server virtual machine to the Azure AD DS-managed domain, co
 If the virtual machine is unable to find the domain, try the following troubleshooting steps:
 
 * Verify the virtual machine is connected to the same virtual network Azure AD DS is enabled in. Otherwise, the virtual machine is unable to connect to or join the domain.
-
 * Verify the virtual machine is on a virtual network that is in turn connected to the virtual network Azure AD DS is enabled in.
-
 * Try to ping the DNS domain name of the managed domain (for example, *ping contoso100.com*). If you're unable to do so, try to ping the IP addresses for the domain that's displayed on the page where you enabled Azure AD DS (for example, *ping 10.0.0.4*). If you can ping the IP address but not the domain, DNS may be incorrectly configured. Check to see whether the IP addresses of the domain are configured as DNS servers for the virtual network.
-
 * Try flushing the DNS resolver cache on the virtual machine (*ipconfig /flushdns*).
 
 If a window is displayed that asks for credentials to join the domain, you do not have connectivity issues.
@@ -137,15 +165,18 @@ If a window is displayed that asks for credentials to join the domain, you do no
 If you're having trouble with credentials and are unable to join the domain, try the following troubleshooting steps:
 
 * Try using the UPN format to specify credentials. If there are many users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the SAMAccountName for your account may be auto-generated. In these cases, the SAMAccountName format for your account may be different from what you expect or use in your on-premises domain.
-
 * Try to use the credentials of a user account that belongs to the *AAD DC Administrators* group.
-
 * Check that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) to your managed domain.
-
 * Check that you've used the UPN of the user as configured in Azure AD (for example, *bob\@domainservicespreview.onmicrosoft.com*) to sign in.
-
 * Wait long enough for password synchronization to be completed, as specified in the getting started guide.
 
-## Related content
+## Next steps
+
 * [Azure AD DS getting started guide](create-instance.md)
 * [Manage an Azure AD Domain Services domain](manage-domain.md)
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: create-instance.md
+[vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
