@@ -581,7 +581,7 @@ When your logic app creates and uses connections to other services and system by
 }
 ```
 
-Connection resource definitions reference the template's top-level parameters for their values, which means you can provide these values at deployment by using a parameter file. Make sure that connections use the same Azure resource group and location as your logic app. Although your logic app works end-to-end with valid parameters after deployment, you must still authorize OAuth connections to generate a valid access token. For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+Connection resource definitions reference the template's top-level parameters for their values, which means you can provide these values at deployment by using a parameter file. Make sure that connections use the same Azure resource group and location as your logic app.
 
 Here is an example resource definition for an Office 365 Outlook connection and the corresponding template parameters:
 
@@ -730,7 +730,7 @@ This example shows the interactions between your logic app's resource definition
 }
 ```
 
-<a name="secure-connection-parmameters"></a>
+<a name="secure-connection-parameters"></a>
 
 ### Secure connection parameters
 
@@ -893,6 +893,109 @@ Here is an example that provides the account name and access key for an Azure Bl
    "outputs": {}
 }
 ```
+
+<a name="authenticate-connections"></a>
+
+### Authenticate connections
+
+After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-scenarios.md). For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
+
+Some connections support using a Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) to authorize connections for a logic app that's [registered in Azure AD](../active-directory/develop/quickstart-register-app.md). For example, this Azure Data Lake connection resource definition shows how to reference the template parameters that handle the service principal's information and how the template defines these parameters:
+
+**Connection resource definition**
+
+```json
+{
+   <other-template-sections>
+   "type": "MICROSOFT.WEB/CONNECTIONS",
+   "apiVersion": "2016-06-01",
+   "name": "[parameters('azuredatalake_1_Connection_Name')]",
+   "location": "[parameters('LogicAppLocation')]",
+   "properties": {
+      "api": {
+         "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'resourceGroup().location', '/managedApis/', 'azuredatalake')]"
+      },
+      "displayName": "[parameters('azuredatalake_1_Connection_DisplayName')]",
+      "parameterValues": {
+         "token:clientId": "[parameters('azuredatalake_1_token:clientId')]",
+         "token:clientSecret": "[parameters('azuredatalake_1_token:clientSecret')]",
+         "token:TenantId": "[parameters('azuredatalake_1_token:TenantId')]",
+         "token:grantType": "[parameters('azuredatalake_1_token:grantType')]"
+      }
+   }
+}
+```
+
+| Attribute | Description |
+|-----------|-------------|
+| **token:clientId** | The application or client ID associated with your service principal |
+| **token:clientSecret** | The key value associated with your service principal |
+| **token:TenantId** | The directory ID for your Azure AD tenant |
+| **token:grantType** | The requested grant type, which must be `client_credentials`. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
+|||
+
+**Template parameter definitions**
+
+The template's top-level `parameters` section defines these parameters for the Data Lake connection:
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "azuredatalake_1_Connection_Name": {
+        "type": "string",
+        "defaultValue": "azuredatalake"
+      },
+      "azuredatalake_1_Connection_DisplayName": {
+        "type": "string",
+        "defaultValue": "<connection-name>"
+      },
+      "azuredatalake_1_token:clientId": {
+        "type": "securestring",
+        "metadata": {
+          "description": "Client (or Application) ID of the Azure Active Directory application."
+        }
+      },
+      "azuredatalake_1_token:clientSecret": {
+        "type": "securestring",
+        "metadata": {
+          "description": "Client secret of the Azure Active Directory application."
+        }
+      },
+      "azuredatalake_1_token:TenantId": {
+        "type": "securestring",
+        "metadata": {
+          "description": "The tenant ID of for the Azure Active Directory application."
+        }
+      },
+      "azuredatalake_1_token:resourceUri": {
+        "type": "string",
+        "metadata": {
+          "description": "The resource you are requesting authorization to use."
+        }
+      },
+      "azuredatalake_1_token:grantType": {
+        "type": "string",
+        "metadata": {
+          "description": "Grant type"
+        },
+        "defaultValue": "client_credentials",
+        "allowedValues": [
+          "client_credentials"
+        ]
+      },
+      // Other template parameters
+   }
+   // Other template sections
+}
+```
+
+For more information about working with service principals, see these topics:
+
+* [Create a service principal by using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Create an Azure service principal by using Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+* [Create a service principal with a certificate by using Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 <a name="parameter-references"></a>
 

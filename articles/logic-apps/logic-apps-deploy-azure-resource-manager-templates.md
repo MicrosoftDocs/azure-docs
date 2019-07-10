@@ -116,11 +116,13 @@ Here are general high-level steps for using Azure Pipelines:
 
 ## Authorize OAuth connections
 
-After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize OAuth connections to generate a valid access token. Here are ways that you can authorize OAuth connections:
+After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-scenarios.md). Here are ways that you can authorize OAuth connections:
 
 * For automated deployments, you can use a script that provides consent for each OAuth connection. Here's an example script in GitHub in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
 * To manually authorize OAuth connections, open your logic app in Logic App Designer, either in the Azure portal or in Visual Studio. In the designer, authorize any required connections.
+
+If you use an Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) instead to authorize connections, learn how to [specify service principal parameters in your logic app template](../logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 
 ## Next steps
 
