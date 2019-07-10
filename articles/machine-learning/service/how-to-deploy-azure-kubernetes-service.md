@@ -19,7 +19,13 @@ Learn how to use the Azure Machine Learning service to deploy a model as a web s
 > [!IMPORTANT]
 > Cluter scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](/azure/aks/scale-cluster.md).
 
-You can use an existing AKS cluster or create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
+When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
+
+* Create the AKS cluster using the Azure Machine Learning service SDK, the Machine Learning CLI, or the Azure portal. This automatically connects the cluster to the workspace.
+* Attach an existing AKS cluster to your Azure Machine Learning service workspace. A cluster can be attached using the Azure Machine Learning service SDK, Machine Learning CLI, or the Azure portal.
+
+> [!IMPORTANT]
+> The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detatched or deleted, you will no longer be able to deploy to the cluster.
 
 ## Prerequisites
 
