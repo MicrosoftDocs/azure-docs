@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Explore Azure costs with the cost analysis feature | Microsoft Docs
-description: This quickstart helps you use the cost analysis feature in Azure Cost Management by Cloudyn to explore and analyze your Azure organizational costs.
+description: This quickstart helps you use the cost analysis feature in Azure Cost Management to explore and analyze your Azure organizational costs.
 services: cost-management
 keywords:
 author: bandersmsft
@@ -37,7 +37,7 @@ To view cost data, [Enterprise Agreement (EA)](https://azure.microsoft.com/prici
 - Subscription
 - Resource group
 
-For more information about assigning access to data in Azure Cost Management by Cloudyn, see [Assign access to Cost Management data](assign-access-acm-data.md).
+For more information about assigning access to data in Azure Cost Management, see [Assign access to Cost Management data](assign-access-acm-data.md).
 
 ## Sign in to Azure
 
@@ -47,7 +47,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 To review your costs in cost analysis, open the scope in the Azure portal and select **Cost analysis** on the menu. For example, go to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** on the menu. Use the **Scope** pill to switch to a different scope in cost analysis. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
-The scope you select is used throughout  Azure Cost Management by Cloudyn to provide data consolidation and control access to cost information. When you use scopes, you don't multiple-select them. Instead, you select a larger scope, which others roll up to. Then, you filter down to the nested scopes you need. This approach is important to understand because some people may not have access to a single parent scope, which covers multiple nested scopes.
+The scope you select is used throughout Azure Cost Management to provide data consolidation and control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope, which others roll up to. Then, you filter down to the nested scopes you need. This approach is important to understand because some people may not have access to a single parent scope, which covers multiple nested scopes.
 
 The initial cost analysis view includes the following areas:
 
@@ -57,7 +57,7 @@ The initial cost analysis view includes the following areas:
 
 - **Accumulated cost**: Shows your total aggregate daily spending, starting at the beginning of the month. After you [create a budget](tutorial-acm-create-budgets.md) for your billing account or subscription, you can quickly see your spending trend against the budget. Hover over a date to view the accumulated cost for that day.
 
-- **Pivot (donut) charts**: Provides dynamic pivots, breaking down the total cost by a common set of standard properties. They show an expense chart for the current month, from largest to smallest. You can change pivot charts at any time by selecting a different pivot. Costs are categorized by service (meter category), location (region), and child scope by default. For example, enrollment accounts are under billing accounts, resource groups are under subscriptions, and resources are under resource groups.
+- **Pivot (donut) charts**: Provide dynamic pivots, breaking down the total cost by a common set of standard properties. They show the top cost contributors for the current month, from largest to smallest. You can change pivot charts at any time by selecting a different pivot. Costs are categorized by service (meter category), location (region), and child scope by default. For example, enrollment accounts are under billing accounts, resource groups are under subscriptions, and resources are under resource groups.
 
 ![Initial view of cost analysis in the Azure portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
@@ -90,7 +90,7 @@ Generally, you can expect to see data or notifications for consumed resources wi
 
 Use **Group by** to group common properties, in order to break down costs and identify top contributors. To group by resource tags, for example, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.
 
-Most [Azure resources support tagging](../azure-resource-manager/tag-support.md). However, some tags aren't available in billing or Azure Cost Management by Cloudyn. Additionally, resource group tags aren't supported. Azure Cost Management by Cloudyn only supports resource tags from the date that the tags are applied directly to the resource. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to learn about using the Azure tag policy to improve cost data visibility.
+Most [Azure resources support tagging](../azure-resource-manager/tag-support.md). However, some tags aren't available in billing or Azure Cost Management. Additionally, resource group tags aren't supported. Azure Cost Management only supports resource tags from the date that the tags are applied directly to the resource. Watch the [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video to learn about using the Azure tag policy to improve cost data visibility.
 
 Here's a view of Azure service costs for the last month.
 
