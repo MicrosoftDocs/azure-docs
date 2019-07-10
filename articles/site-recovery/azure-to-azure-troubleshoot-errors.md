@@ -151,7 +151,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
 - **Possible cause** </br>
-  - Connection cannot be established to site recovery endpoints due to DNS resolution failure.
+  - Connection cannot be established to Site Recovery endpoints due to DNS resolution failure.
   - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
 
 - **Resolution**
@@ -182,19 +182,19 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 ### Issue 4: A2A replication failed when the network traffic goes through on-premises proxy server (151072)
 - **Possible cause** </br>
-  - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
+  - The custom proxy settings are invalid and Azure Site Recovery Mobility Service agent did not auto-detect the proxy settings from IE
 
 
 - **Resolution**
   1. Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
-  2. If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
+  2. If you prefer to set proxy only for Azure Site Recovery Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
      - ``/usr/local/InMage/config/`` on ***Linux***
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
   3. The ProxyInfo.conf should have the proxy settings in the following INI format.</br>
                 *[proxy]*</br>
                 *Address=http://1.2.3.4*</br>
                 *Port=567*</br>
-  4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
+  4. Azure Site Recovery Mobility Service agent supports only ***un-authenticated proxies***.
 
 
 ### Fix the problem
@@ -230,15 +230,13 @@ You can either choose to  protect the disks or ignore the warning to make the re
 
 
 ## Remove the virtual machine from the vault completed with information  (error code 150225)
-
 At the time of protecting the virtual machine, Azure Site Recovery creates some links on the source virtual machine. When you remove the protection or disable replication, Azure Site Recovery remove these links as a part of cleanup job. In case the virtual machine has a resource lock then the job gets completed with the information. It tells that the virtual machine has been removed from the Recovery services vault but some of the stale links couldn't be cleaned up from the source machine. </br>
 You can ignore this warning if you never intend to protect this virtual machine again in future. However, if you have to protect this virtual machine later then you should clean up the links as mentioned in the steps below. 
 
-**Note:** If you don't do the clean up then:
-
+**If you don't do the clean up then:**
 
 1.  During the time of enabling the replication through Recovery services vault, virtual machine will not be listed. 
-2.  if you try to protect the VM through **Virtual machine>Settings> Disaster Recovery** it will failed with the error "*Replication cannot be enabled because of the existing stale resource links on the VM*".
+2.  If you try to protect the VM through **Virtual machine>Settings> Disaster Recovery** it will failed with the error "*Replication cannot be enabled because of the existing stale resource links on the VM*".
 
 
 ### Fix the problem
@@ -249,8 +247,8 @@ You can ignore this warning if you never intend to protect this virtual machine 
 >
 
 1. Remove the lock from the VM or VM resource group. For example: Below VM name "MoveDemo" has the resource lock that needs to be deleted.
- ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm_locks.png)</br>
-2. Download script [Remove stale ASR configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
+ ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)</br>
+2. Download script [Remove stale Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
 3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
 4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
 5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures. 
@@ -274,8 +272,8 @@ The stale configuration could be left on an Azure VM in the following cases:
 >
 1. Remove the lock from the VM or VM resource group, if there are any.</br>
 *For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
- ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm_locks.png)</br>
-2. Download script [Remove stale ASR configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
+ ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)</br>
+2. Download script [Remove stale Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
 3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
 4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
 5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures.  
@@ -284,7 +282,7 @@ The stale configuration could be left on an Azure VM in the following cases:
 
  **Cause 1:  Resource group and source Virtual machine are in different location** <br>
 Azure Site Recovery currently mandates that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine or resource group during the time of protection. </br>
-**As a workaround**, you can Enable replication from the VM instead of the Recovery services vault. Go to Sourece VM > Properties > Disaster Recovery and Enable the replication.
+**As a workaround**, you can Enable replication from the VM instead of the Recovery services vault. Go to Source VM > Properties > Disaster Recovery and Enable the replication.
 
 **Cause 2: Resource group is not part of selected subscription** <br>
 You might not be able to find the resource group at the  time of protection if it is not part of the given subscription. Make sure that the resource group belongs to the subscription which is being used.
@@ -307,8 +305,9 @@ If you don't see the VM you want to enable for replication, it might be because 
 
 1. Remove the lock from the VM or VM resource group, if there are any.</br>
 *For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
- ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm_locks.png)</br>
-2. Download script [Remove stale ASR configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
+ ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)</br>
+2. Download script [Remove stale 
+3.  configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
 3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
 4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
 5. If asked Azure credentials, please provide that and  check that the script gets executed without any failures.  
@@ -420,8 +419,8 @@ Few examples: </br>
 
 If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
 
-## Site recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+## Site Recovery mobility service update completed with warnings ( error code 151083)
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
 **Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
 
 
