@@ -76,13 +76,13 @@ Remove all the dependencies before the Recovery Services vault is deleted. To de
 
 ### For Protected items in Cloud
 
-Remove Backup Items
+To delete the backup items from Backup Infrastructure for Azure Files, SQL in Azure VM and Azure Virtual Machine is given below:
 
-1. From portal > Recovery Services Vault > Backup Items choose the protected items in cloud (ex. Azure Files, SQL in Azure VM and Azure Virtual Machine).
+1. From portal > Recovery Services vault > Backup Items choose the protected items in cloud.
 
     ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected.jpg)
 
-2. For each item, you need to Right-click and choose **Stop backup**.
+2. For each item, you need to right-click and choose **Stop backup**.
 
     ![select the backup type](./media/backup-azure-delete-vault/stop-backup-item.png)
 
@@ -128,7 +128,7 @@ Now that you have deleted the backup items from on-premises, complete the next s
 
 #### Step 2: From portal remove Azure Backup agent
 
-Before removing the Azure backup recovery point, make sure to perform the steps listed in [Deleting backup items from management console](#step-1-delete-backup-items-from-mabs-management-console).
+Before removing the Azure backup recovery point, make sure to perform the steps listed in [Deleting backup items from management console](#step-1-delete-backup-items-from-mars-management-console).
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
 2. Click **Protected Servers** to view the infrastructure servers.
@@ -198,7 +198,7 @@ Now that you have deleted the backup items from on-premises, complete the next s
 
 #### Step 2: From portal remove Azure Backup management servers
 
-Before removing the Azure backup management server, make sure to perform the steps listed in [Deleting backup items from management console](#step-1-delete-backup-items-from-mars-management-console).
+Before removing the Azure backup management server, make sure to perform the steps listed in [Deleting backup items from management console](step-1-delete-backup-items-from-mabs-management-console).
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
 2. Click **Backup Management Servers** to view servers.
