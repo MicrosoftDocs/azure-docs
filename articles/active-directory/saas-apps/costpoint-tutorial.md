@@ -175,7 +175,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 ### Create Costpoint test user
 
 In this section, you create a user in Costpoint. Lets say user id is BSIMON and name Britta Simon. Work with [Costpoint Client support team](https://www.deltek.com/about/contact-us) to add the users in the Costpoint platform. Users must be created and activated before you use single sign-on. 
-Once created, user's Authentication selection must list **Single Sign-on or Active Directory** as **Authentication method**, checked **SAML Single Sign-on** option and user name from Azure as **Active Directory or Certificate ID**.
+Once created, user's Authentication selection must show **Active Directory** as **Authentication method**, checked **SAML Single Sign-on** option and user name from Azure Active Directory as **Active Directory or Certificate ID**.
 
 ![Costpoint User](./media/costpoint-tutorial/costpoint-user.png)
 
