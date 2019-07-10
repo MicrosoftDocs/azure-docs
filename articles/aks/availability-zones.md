@@ -83,7 +83,8 @@ The following limitations apply when you create an AKS cluster using availabilit
 * Availability zone settings can't be updated after the cluster is created. You also can't update an existing, non-availability zone cluster to use availability zones.
 * You can't disable availability zones for an AKS cluster once it has been created.
 * The node size (VM SKU) selected must be available across all availability zones.
-* With Azure load balancer *standard* SKU, you must use Kubernetes version 1.13.5 or greater (see additional note below).
+* Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones.
+* You must use Kubernetes version 1.13.5 or greater in order to deploy Standard Load Balancers.
 
 AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU preview limitations][standard-lb-limitations].
 
@@ -107,11 +108,11 @@ In a zone outage, the nodes can be rebalanced manually or using the cluster au
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the `--node-zones` parameter defines which zones agent nodes are deployed into. The *etcd* pods, part of the AKS control plane components, are also made zone redundant when you define availability zones for the agent nodes when you create the cluster. You can't define which zones the *etcd* pods are deployed into, only the agent nodes.
+When you create a cluster using the [az aks create][az-aks-create] command, the `--node-zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components for your cluster are also spread across zones in the highest available configuration when you create a cluster specifying the `--node-zones` parameter.
 
-If you don't define any zones for the default agent pool when you create an AKS cluster, the *etcd* pods also won't use availability zones. You can add additional node pools (currently in preview in AKS) using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--node-zones` for those new agent nodes, however the *etcd* pods remain without availability zone awareness. You can't change the zone awareness for a node pool or the *etcd* pods once they're deployed.
+If you don't define any zones for the default agent pool when you create an AKS cluster, the AKS control plane components for your cluster will not use availability zones. You can add additional node pools (currently in preview in AKS) using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--node-zones` for those new agent nodes, however the control plane components remain without availability zone awareness. You can't change the zone awareness for a node pool or the AKS control plane components once they're deployed.
 
-The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*. The *etcd* pods are also distributed across availability zones since they're defined as part of the cluster create process.
+The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*. The AKS control plane components are also distributed across zones in the highest available configuration since they're defined as part of the cluster create process.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
