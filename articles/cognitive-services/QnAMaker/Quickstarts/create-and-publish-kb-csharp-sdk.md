@@ -65,15 +65,6 @@ Build succeeded.
 ...
 ```
 
-From the project directory, open the **Program.cs** file in your preferred editor or IDE. Add the following `using` directives:
-
-[!code-csharp[Using statements](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=usingStatements)]
-
-In the application's `main()` method, create variables for your resource's Azure location, and your key as an environment variable. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
-
-```csharp
-[!code-csharp[Main method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=main)]
-```
 
 ### Install the client library
 
@@ -106,14 +97,24 @@ These code snippets show you how to do the following with the QnA Maker client l
 * [Delete a knowledgebase]()
 * [Get status of an operation]()
 
-### Add the dependencies and main method
+### Add the dependencies
 
 From the project directory: 
 
-1. Open the Program.cs file in your preferred editor or IDE. 
+1. From the project directory, open the **Program.cs** file in your preferred editor or IDE. Add the following `using` directives:
 1. Add the following using directives.
 
+[!code-csharp[Using statements](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Dependencies)]
 
+### Add resource key to authenticate to service
+
+1. Create a variable for your resource's Azure key as an environment variable. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
+
+```csharp
+[!code-csharp[Authorization to resource key](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
+```
+
+1. If your key is not in the `westus` region, change the location for the **Endpoint** variable. 
 
 ### Authenticate the client
 
