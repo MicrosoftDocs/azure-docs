@@ -157,7 +157,7 @@ Ensure provisioned throughput can handle workload. Increase RU budget for impact
 ## Try upgrading to the latest SDK version
 To determine the latest SDK see [SDK Download and release notes](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) article.
 
-## Recommended Documents
+## Recommended documents
 Refer to documents below on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
 * [Get SQL query execution metrics using .NET SDK](https://docs.microsoft.com/azure/cosmos-db/profile-sql-api-query)
