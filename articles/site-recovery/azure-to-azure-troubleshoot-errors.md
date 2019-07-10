@@ -170,7 +170,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
       - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
 
 > [!NOTE]
-> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.micorsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article](https://aka.ms/lboutboundrulescli).
+> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.microsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article](https://aka.ms/lboutboundrulescli).
 
 ### Issue 3: Site Recovery configuration failed (151197)
 - **Possible cause** </br>
@@ -198,7 +198,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 
 
 ### Fix the problem
-To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## Disk not found in the machine (error code 150039)
 
@@ -230,7 +230,8 @@ You can either choose to  protect the disks or ignore the warning to make the re
 
 
 ## Remove the virtual machine from the vault completed with information  (error code 150225)
-At the time of protecting the virtual machine, Azure Site Recovery creates some links on the source virtual machine. When you remove the protection or disable replication, Azure Site Recovery remove these links as a part of cleanup job. In case the virtual machine has a resource lock then the job gets completed with the information. It tells that the virtual machine has been removed from the Recovery services vault but some of the stale links couldn't be cleaned up from the source machine. </br>
+At the time of protecting the virtual machine, Azure Site Recovery creates some links on the source virtual machine. When you remove the protection or disable replication, Azure Site Recovery remove these links as a part of cleanup job. In case the virtual machine has a resource lock then the job gets completed with the information. It tells that the virtual machine has been removed from the Recovery services vault but some of the stale links couldn't be cleaned up from the source machine.
+
 You can ignore this warning if you never intend to protect this virtual machine again in future. However, if you have to protect this virtual machine later then you should clean up the links as mentioned in the steps below. 
 
 **If you don't do the clean up then:**
@@ -247,7 +248,7 @@ You can ignore this warning if you never intend to protect this virtual machine 
 >
 
 1. Remove the lock from the VM or VM resource group. For example: Below VM name "MoveDemo" has the resource lock that needs to be deleted.
- ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)</br>
+ ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
 2. Download script [Remove stale Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
 3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
 4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
@@ -269,10 +270,13 @@ The stale configuration could be left on an Azure VM in the following cases:
 >[!NOTE]
 >
 >Azure Site Recovery doesn't delete source virtual machine or impact it in any way while performing below steps.
->
-1. Remove the lock from the VM or VM resource group, if there are any.</br>
+
+
+1. Remove the lock from the VM or VM resource group, if there are any.
+
 *For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
- ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)</br>
+ ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+
 2. Download script [Remove stale Azure Site Recovery configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
 3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
 4. Provide the subscription ID, VM Resource Group and VM name as a parameter 
@@ -281,7 +285,8 @@ The stale configuration could be left on an Azure VM in the following cases:
 ## Unable to see the Azure VM or Resource group  for selection in "enable replication"
 
  **Cause 1:  Resource group and source Virtual machine are in different location** <br>
-Azure Site Recovery currently mandates that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine or resource group during the time of protection. </br>
+Azure Site Recovery currently mandates that source region resource group and virtual machines should be in same location. If that is not the case then you would not be able to find the virtual machine or resource group during the time of protection. 
+
 **As a workaround**, you can Enable replication from the VM instead of the Recovery services vault. Go to Source VM > Properties > Disaster Recovery and Enable the replication.
 
 **Cause 2: Resource group is not part of selected subscription** <br>
@@ -303,9 +308,12 @@ If you don't see the VM you want to enable for replication, it might be because 
 >Azure Site Recovery doesn't delete source virtual machine or impact it in any way while performing below steps.
 
 
-1. Remove the lock from the VM or VM resource group, if there are any.</br>
+1. Remove the lock from the VM or VM resource group, if there are any.
+
 *For example:* Below VM name "MoveDemo" has the resource lock that needs to be deleted.
- ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)</br>
+
+ ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+
 2. Download script [Remove stale 
 3.  configuration](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)
 3. Execute the script *Cleanup-stale-asr-config-Azure-VM.ps1* 
@@ -351,7 +359,7 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
-151025<br></br>**Message**: Site recovery extension failed to install | - 'COM+ System Application' service disabled.</br></br>- 'Volume Shadow Copy' service is disabled.| Set 'COM+ System Application' and 'Volume Shadow Copy' services to automatic or manual start up mode.
+151025<br></br>**Message**: Site Recovery extension failed to install | - 'COM+ System Application' service disabled.</br></br>- 'Volume Shadow Copy' service is disabled.| Set 'COM+ System Application' and 'Volume Shadow Copy' services to automatic or manual start up mode.
 
 ### Fix the problem
 
