@@ -19,10 +19,8 @@ Get started with the QnA Maker client library for .NET. Follow these steps to in
 Use the QnA Maker client library for .NET to:
 
 * Create a knowledge base 
-* Update a knowledge base
+* Manage a knowledge base
 * Publish a knowledge base
-* Download a knowledge base
-* Delete a knowledge base
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
@@ -92,34 +90,30 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 The QnA Maker client is a [QnAMakerClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) object that authenticates to Azure using [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), which contains your key.
 
-Once the client is created, use the [Knowledgebase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerClient_Knowledgebase) property to access the following methods:
+Once the client is created, use the [Knowledgebase](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerClient_Knowledgebase) property create, manage, and publish your knowledgebase. 
 
-* [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.createasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_CreateAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_CreateKbDTO_System_Threading_CancellationToken_) - create a knowledgebase
-* [DeleteAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.deleteasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_DeleteAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_System_String_System_Threading_CancellationToken_) - delete a knowledgebase
-* [DownloadAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.downloadasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_DownloadAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_System_String_System_String_System_Threading_CancellationToken_) - download a knowledgebase
-* [PublishAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.publishasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_PublishAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_System_String_System_Threading_CancellationToken_) - publish knowledgebase to endpoint
-* [UpdateAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.updateasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_KnowledgebaseExtensions_UpdateAsync_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_IKnowledgebase_System_String_Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_UpdateKbOperationDTO_System_Threading_CancellationToken_) - update knowledgebase 
+Manage your knowledge base by sending a JSON object. For immediate operations, a method usually returns a JSON object indicating status. For long-running operations, the response is the operation ID. Call the [client.Operations.GetDetailsAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.operationsextensions.getdetailsasync?view=azure-dotnet) method with the operation ID to determine the [status of the request](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.operationstatetype?view=azure-dotnet). 
 
-
+ 
 ## Code examples
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 These code snippets show you how to do the following with the QnA Maker client library for .NET:
 
-* [Authenticate the client](#authenticate-the-client)
-* [link to example task 1]()
-* [link to example task 2]()
-* [link to example task 3]()
+* [Create a knowledgebase]()
+* [Update a knowledgebase]()
+* [Download a knowledgebase]()
+* [Publish a knowledgebase]()
+* [Delete a knowledgebase]()
+* [Get status of an operation]()
 
-<!--
-    change the environment key variable to something descriptive for your service.
-    For example: TEXT_ANALYTICS_KEY
--->
+### Add the dependencies and main method
+
+From the project directory: 
+
+1. Open the Program.cs file in your preferred editor or IDE. 
+1. Add the following using directives.
+
+
 
 ### Authenticate the client
 
