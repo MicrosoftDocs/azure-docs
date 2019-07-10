@@ -59,7 +59,7 @@ An Azure IoT Edge device:
 
   | Operating system | AMD64 | ARM32v7 | ARM64 |
   | ---------------- | ----- | ----- | ---- |
-  | Raspbian-stretch | No | Yes | Yes |  
+  | Raspbian-stretch | No | Yes | No |  
   | Ubuntu Server 16.04 | Yes | No | Yes |
   | Ubuntu Server 18.04 | Yes | No | Yes |
   | Windows 10 IoT Enterprise, build 17763 | Yes | No | No |
