@@ -48,7 +48,9 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 
 ### Versioning
 
-The Instance Metadata Service is versioned.
+The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
+
+You can see the newest versions listed in this [availability table](#service-availability).
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -199,7 +201,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 {
   "compute": {
     "azEnvironment": "AzurePublicCloud",
-    "customData": "TXkgY3VzdG9tIGRhdGEu",
+    "customData": "",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -279,7 +281,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 {
   "compute": {
     "azEnvironment": "AzurePublicCloud",
-    "customData": "TXkgY3VzdG9tIGRhdGEu",
+    "customData": "",
     "location": "centralus",
     "name": "negasonic",
     "offer": "lampstack",
@@ -366,7 +368,7 @@ provider | Provider of the VM | 2018-10-01
 publicKeys | [Collection of Public Keys](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 publisher | Publisher of the VM image | 2017-04-02
 resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
-resourceId | The fully qualified ID of the resource | 2019-03-11
+resourceId | The [fully qualified](https://docs.microsoft.com/en-us/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 sku | Specific SKU for the VM image | 2017-04-02
 subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
@@ -406,7 +408,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 
 ```
 
-Api-version is a mandatory field. Refer to the service availability section for supported API versions.
+Api-version is a mandatory field. Refer to the [service availability section](#service-availability) for supported API versions.
 Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
 
  **Response**
@@ -420,7 +422,7 @@ Nonce is an optional 10-digit string provided. Nonce can be used to track the re
 }
 ```
 
-> The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+> The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 
 #### Retrieving attested metadata in Windows Virtual Machine
 
@@ -452,7 +454,7 @@ Nonce is an optional 10-digit string provided. Nonce can be used to track the re
 }
 ```
 
-> The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+> The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, nonce, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Market place images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 
 
 ## Example scenarios for usage  
