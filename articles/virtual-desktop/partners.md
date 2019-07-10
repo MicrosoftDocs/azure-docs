@@ -6,28 +6,12 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 07/10/2019
 ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
 
 Listed in alphabetical order.
-
-## Lakeside Software
-
-Lakeside Software is a Windows Virtual Desktop value-added services provider that equips IT teams with software for monitoring performance and assessing Azure migration readiness of user workloads. With this software, IT gains clearer visibility into application usage and resource consumption to streamline the migration process. Lakeside Software collects data at every workspace to create a comprehensive report on user environments, enabling quick troubleshooting and optimization of assets.
-
-Lakeside Software’s digital experience monitoring solution, SysTrack, can help provide a great user experience by tracking performance and identifying ideal workloads for migration. SysTrack works to extend the value of Windows Virtual Desktop through right-sizing assessments and continuous monitoring of user environments.
-
-[Go to partner website.](https://www.lakesidesoftware.com/assessments/wvd)
-
-## Nerdio
-
-Nerdio is an Azure IT automation platform that makes it easy to deploy and manage Windows Virtual Desktop. Nerdio provides the knowledge and technology to deploy, price, package, manage, and optimize customers’ Azure deployments—with Windows Virtual Desktop front-and-center.
-
-Nerdio extends the value of Windows Virtual Desktop by making it easy to provision Azure resources and streamline deployment. With Nerdio for Azure, IT can automatically deploy and manage a complete Azure environment, including Windows Virtual Desktop, in under two hours.
-
-[Go to partner website.](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)
 
 ## Active Cypher
 
@@ -45,6 +29,22 @@ CloudJumper’s software, Cloud Workspace Management Suite extends the value of 
 
 [Go to partner website.](https://cloudjumper.com/wvd/)
 
+## ControlUp
+
+ControlUp is a Windows Virtual Desktop value-added services provider that equips IT with tools to manage and control Windows Virtual Desktop deployments. With ControlUp, one easy-to-use console provides real-time monitoring, troubleshooting, and automation capabilities for Windows Virtual Desktop.
+
+When used with Windows Virtual Desktop, ControlUp provides additional capabilities to optimize user experience. From a single console, IT gains visibility into user environments to effectively monitor and troubleshoot performance issues. An intuitive dashboard provides insights and analytics for Windows Virtual Desktop deployments, as well as options for automated reporting enriched with community benchmarks.
+
+[Go to partner website.](https://www.controlup.com/solutions/ms_wvd)
+
+## Lakeside Software
+
+Lakeside Software is a Windows Virtual Desktop value-added services provider that equips IT teams with software for monitoring performance and assessing Azure migration readiness of user workloads. With this software, IT gains clearer visibility into application usage and resource consumption to streamline the migration process. Lakeside Software collects data at every workspace to create a comprehensive report on user environments, enabling quick troubleshooting and optimization of assets.
+
+Lakeside Software’s digital experience monitoring solution, SysTrack, can help provide a great user experience by tracking performance and identifying ideal workloads for migration. SysTrack works to extend the value of Windows Virtual Desktop through right-sizing assessments and continuous monitoring of user environments.
+
+[Go to partner website.](https://www.lakesidesoftware.com/assessments/wvd)
+
 ## Liquidware
 
 Liquidware is a Windows Virtual Desktop value-added services provider that delivers software that manages and optimizes Windows Virtual Desktop deployment. The Liquidware Essentials suite provides application delivery through layering, user environment management, and key user experience visibility and diagnostics. With solutions for assessing migration readiness and analyzing usage metrics, Liquidware provides a seamless virtual desktop experience for end users.
@@ -53,6 +53,14 @@ Liquidware Essentials extends the value of Windows Virtual Desktop by efficientl
 
 [Go to partner website.](https://www.liquidware.com/solutions/solutions-platform/microsoft)
 
+## Nerdio
+
+Nerdio is an Azure IT automation platform that makes it easy to deploy and manage Windows Virtual Desktop. Nerdio provides the knowledge and technology to deploy, price, package, manage, and optimize customers’ Azure deployments—with Windows Virtual Desktop front-and-center.
+
+Nerdio extends the value of Windows Virtual Desktop by making it easy to provision Azure resources and streamline deployment. With Nerdio for Azure, IT can automatically deploy and manage a complete Azure environment, including Windows Virtual Desktop, in under two hours.
+
+[Go to partner website.](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/)
+
 ## ThinPrint
 
 ThinPrint is a Windows Virtual Desktop value-added services provider that delivers simple and secure cloud printing from Windows Virtual Desktop. With its services and software, existing print infrastructure can be utilized to print documents from the cloud. ThinPrint enables connection to both local and network printers, making it easy for users to print while at the office or working remotely.
@@ -60,14 +68,6 @@ ThinPrint is a Windows Virtual Desktop value-added services provider that delive
 ThinPrint’s ezeep solution extends the value of Windows Virtual Desktop by enabling the connection to existing enterprise print infrastructure. ezeep gives users control over printing in the enterprise no matter where they are. Using ezeep, users can bridge the gap between Windows Virtual Desktop and printing hardware.
 
 [Go to partner website.](http://www.ezeep.com/wvd-printing)
-
-## ControlUp
-
-ControlUp is a Windows Virtual Desktop value-added services provider that equips IT with tools to manage and control Windows Virtual Desktop deployments. With ControlUp, one easy-to-use console provides real-time monitoring, troubleshooting, and automation capabilities for Windows Virtual Desktop.
-
-When used with Windows Virtual Desktop, ControlUp provides additional capabilities to optimize user experience. From a single console, IT gains visibility into user environments to effectively monitor and troubleshoot performance issues. An intuitive dashboard provides insights and analytics for Windows Virtual Desktop deployments, as well as options for automated reporting enriched with community benchmarks.
-
-[Go to partner website.](https://www.controlup.com/solutions/ms_wvd)
 
 ## Workspot
 
