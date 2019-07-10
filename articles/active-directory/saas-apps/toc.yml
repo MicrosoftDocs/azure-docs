@@ -545,6 +545,8 @@
         href: huddle-tutorial.md
       - name: Humanity
         href: shiftplanning-tutorial.md
+      - name: Hype
+        href: hype-tutorial.md
       - name: IBM Kenexa Survey Enterprise
         href: kenexasurvey-tutorial.md
       - name: IBM OpenPages
@@ -649,6 +651,8 @@
         href: joinme-tutorial.md
       - name: Jostle
         href: jostle-tutorial.md
+      - name: Kallidus
+        href: kallidus-tutorial.md
       - name: Kanbanize
         href: kanbanize-tutorial.md
       - name: Kantega SSO for Bamboo
@@ -1297,6 +1301,8 @@
         href: vxmaintain-tutorial.md
     - name: W - Z
       items:
+      - name: Wandera
+        href: wandera-tutorial.md
       - name: Way We Do
         href: waywedo-tutorial.md
       - name: Wdesk
