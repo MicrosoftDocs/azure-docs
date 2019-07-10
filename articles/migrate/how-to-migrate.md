@@ -17,7 +17,7 @@ This article describes how to add migration tools in [Azure Migrate](migrate-ove
 
 Azure Migrate provides a hub of tools for assessment and migration to Azure. It includes native tools, tools provided by other Azure services, and third-party independent software vendor (ISV) offerings.
 
-If you want to add an migration tool and haven't yet set up an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
+If you want to add a migration tool and haven't yet set up an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
 
 
 
