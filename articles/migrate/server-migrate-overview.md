@@ -23,7 +23,7 @@ Although agentless replication is easier from a deployment perspective, it curre
 
 Limitations are as follows:
 
-- **Simulaneous replication**: A maximum of 50 VMs can be simultaneously replicated from a vCenter Server.<br/> If you have more than 50 VMs for migration, create multiple batches of VMs.<br/> Replicating more at a single time will impact performance.
+- **Simultaneous replication**: A maximum of 50 VMs can be simultaneously replicated from a vCenter Server.<br/> If you have more than 50 VMs for migration, create multiple batches of VMs.<br/> Replicating more at a single time will impact performance.
 - **VM disks**: A VM that you want to migrate must have 60 or less disks.
 - **VM operating systems**: In general, Azure Migrate can migrate any Windows Server or Linux operating system, but it might require changes on VMs so that they can run in Azure. Azure Migrate makes the changes automatically for these operating systems:
     - Red Hat Enterprise Linux 6.5+, 7.0+
@@ -48,14 +48,14 @@ After reviewing the limitations, understanding the steps involved in deploying e
 
 **Task** | **Details** |**Agentless** | **Agent-based**
 --- | --- | --- | ---
-**1. Prepare VMware servers and VMs for migration** | Configure a number of settings on VMware servers and VMs. | Required | Required
-**2. Add the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
-**3. Deploy the Azure Migrate appliance** | Set up a lightweight appliance on a VMware VM for VM discovery and assessment. | Required | Not required.
-**4. Install the Mobility service on VMs** | Install the Mobility service on each VM you want to replicate | Not required | Required
-**5. Deploy the Azure Migrate Server Migration replication appliance** | Set up an appliance on a VMware VM to discover VMs, and bridge between the Mobility service running on VMs and Azure Migrate Server Migration | Not required | Required
-**6. Replicate VMs**. Enable VM replication. | Configure replication settings and select VMs to replicate | Required | Required
-**7. Run a test migration** | Run a test migration to make sure everything's working as expected. | Required | Required
-**7. Run a full migration** | Migrate the VMs. | Required | Required
+**Prepare VMware servers and VMs for migration** | Configure a number of settings on VMware servers and VMs. | Required | Required
+**Add the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
+**Deploy the Azure Migrate appliance** | Set up a lightweight appliance on a VMware VM for VM discovery and assessment. | Required | Not required.
+**Install the Mobility service on VMs** | Install the Mobility service on each VM you want to replicate | Not required | Required
+**Deploy the Azure Migrate Server Migration replication appliance** | Set up an appliance on a VMware VM to discover VMs, and bridge between the Mobility service running on VMs and Azure Migrate Server Migration | Not required | Required
+**Replicate VMs**. Enable VM replication. | Configure replication settings and select VMs to replicate | Required | Required
+**Run a test migration** | Run a test migration to make sure everything's working as expected. | Required | Required
+**Run a full migration** | Migrate the VMs. | Required | Required
 
 
 
