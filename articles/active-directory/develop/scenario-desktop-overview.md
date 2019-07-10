@@ -42,7 +42,11 @@ If you haven't already, create your first application by following the .NET desk
 
 You write a desktop application, and you want to sign in users to your application and call web APIs such as the Microsoft Graph, other Microsoft APIs, or your own web API. You have several possibilities:
 
-- If your desktop application supports graphical controls, for instance if it's a Windows.Form application or a WPF application, you can use the interactive token acquisition.
+- You can use the interactive token acquisition:
+
+  - If your desktop application supports graphical controls, for instance if it's a Windows.Form application or a WPF application.
+  - Of if it's a .NET Core application and you agree to have the authentication interaction with Azure AD happen in the system browser
+
 - For Windows hosted applications, it's also possible for applications running on computers joined to a Windows domain or AAD joined to acquire a token silently by using Integrated Windows Authentication.
 - Finally, and although it's not recommended, you can use Username/Password in public client applications. It's still needed in some scenarios (like DevOps), but beware that using it will impose constraints on your application. For instance, it can't sign in user who needs to perform multi-factor authentication (Conditional Access). Also your application won't benefit from single sign-on (SSO).
 
