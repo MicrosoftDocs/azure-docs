@@ -101,7 +101,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
            .UseStartup<Startup>();
 ```
 
-Feature flag values are expected to change over time. By default, the feature manager refreshes feature flag values every 30 seconds. The following code shows how to change the polling interval to 5 seconds in the `options.UseFeatureFlags()` call:
+Feature flag values are expected to change over time. By default, the feature manager refreshes feature flag values every 30 seconds. The following code shows how to change the polling interval to 5 minutes in the `options.UseFeatureFlags()` call:
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
