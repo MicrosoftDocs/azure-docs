@@ -14,6 +14,8 @@ Allow one of many name patterns to be used for resources. Specify the allowed na
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
+You can use ? for letters, # for numbers and * as wildcard
+
 ## Sample template
 
 [!code-json[main](../../../../policy-templates/samples/TextPatterns/allow-multiple-name-patterns/azurepolicy.json "allow multiple name patterns")]
