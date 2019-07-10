@@ -20,13 +20,13 @@ Azure Migrate currently supports a number of geographies in which an Azure Migra
 **Geography** | **Metadata storage location**
 Azure Government | US Gov Virginia
 Asia | Southeast Asia or East Asia
-Europe | Soutb Europe or West Europe
+Europe | South Europe or West Europe
 United Kingdom | UK South or UK West
 United States | Central US or West US 2
 
 ### How is Azure Migrate different from Azure Site Recovery?
 
-Azure Migrate provides tools that helps you to discover, assess, and migrate machines and workloads to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) is a disaster recovery solution. Both services share some components.
+Azure Migrate provides tools that help you to discover, assess, and migrate machines and workloads to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) is a disaster recovery solution. Both services share some components.
 
 ## Azure Migrate appliance (VMware/physical servers)
 
@@ -50,7 +50,7 @@ You need to exclude the following folders from scanning on the appliance:
 - %ProgramFiles%\ProfilerService  
 - Azure Migrate Web Application. Exclude all sub-folders.
 - %SystemDrive%\inetpub\wwwroot
-- The local cache for database and log files. The Azure migrate service needs read/write access to this folder.
+- The local cache for database and log files. The Azure Migrate service needs read/write access to this folder.
   - %SystemDrive%\Profiler
 
 ### What data is collected by Azure Migrate?
@@ -113,12 +113,11 @@ Yes, a single Azure Migrate appliance can be used to discover multiple vCenter S
 Currently there is no integration. The .OVA template in Site Recovery is used to set up a Site Recovery configuration server for VMware VM/physical server replication. The .OVA used by Azure Migrate is used to discover VMware VMs managed by a vCenter server, for the purposes of assessment and migration.
 
 ### I changed my machine size. Can I rerun an assessment?
-
 The Azure Migrate appliance continuously collects information about the on-premises environment. However, an assessment is a point-in-time snapshot of on-premises VMs. If you change the settings on a VM you want to assess, use the 'Recalculate' option to update the assessment with the latest changes.
 
 ### How can I discover a multi-tenant environment in Azure Migrate?
 
-For VMware, if you have an environment that is shared across tenants, and you don't want to discover the VMs of one tenant in another tenant's subscription, create vCenter Server credentials that have access only to those VMs that you want to discover. Then use the credentials when kicking off discovery in the Azure Migrate appliance.
+For VMware, if you have an environment that is shared across tenants, and you don't want to discover the VMs of one tenant in another tenant's subscription, create vCenter Server credentials with access only to those VMs that you want to discover. Then use the credentials when kicking off discovery in the Azure Migrate appliance.
 
 For Hyper-V, the discovery uses Hyper-V host credentials, if the VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
 
@@ -160,7 +159,7 @@ Azure Migrate currently doesn't support cost estimation for [Enterprise Agreemen
 - For example, if an on-premises VM has 4 cores and 8 GB memory with 50% CPU utilization and 50% memory utilization, as on-premises sizing recommends an Azure VM SKU with 4 cores and 8GB memory. Performance-based sizing, however, recommends a VM SKU of 2 cores and 4 GB, because the utilization percentage is considered.
 - Similarly, disk sizing depends on two assessment properties - sizing criterion and storage type.
 = If the sizing criterion is performance-based and storage type is automatic, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard or Premium).
-- If the sizing criterion is performance-based and the storage type is premium, a premium disk is recommendedth, The premium disk SKU in is selected based on the size of the on-premises disk. The same logic is used to do disk sizing when the sizing criterion is as on-premises sizing, and the storage type is standard or premium.
+- If the sizing criterion is performance-based and the storage type is premium, a premium disk is recommended. The premium disk SKU is selected based on the size of the on-premises disk. The same logic is used to do disk sizing when the sizing criterion is as on-premises sizing, and the storage type is standard or premium.
 
 ### What impact does performance history and percentile utilization have on the size recommendations?
 
@@ -169,7 +168,7 @@ These properties are only applicable for performance-based sizing.
 - Azure Migrate collects performance history of on-premises machines, and uses it to recommend the VM size and disk type in Azure.
 - The appliance continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds. The appliance rolls up the 20-second samples, and creates a single data point for every 15 minutes. To create the single data point, the appliance selects the peak value from all the 20-second samples, and sends it to Azure.
 - When you create an assessment in Azure (based on the performance duration and performance history percentile value), Azure Migrate calculates the effective utilization value, and uses it for sizing.
-- For example, if you set the performance duration to be  one day, and the percentile value to 95 percentile, Azure Migrate uses the 15 minute sample points sent by collector for the last day, sorts them in ascending orde,  and picks the 95th percentile value as the effective utilization.
+- For example, if you set the performance duration to be  one day, and the percentile value to 95 percentile, Azure Migrate uses the 15 minute sample points sent by collector for the last day, sorts them in ascending order, and picks the 95th percentile value as the effective utilization.
 - The 95th percentile value ensures that you are ignoring any outliers which could occur if you use the 99th percentile. If you want to pick the peak usage for the period and do not want to miss any outliers, you should select the 99th percentile.
 
 ### What is dependency visualization?
@@ -195,7 +194,7 @@ You don't need these agents unless you're using dependency visualization.
 
 ### Can I use an existing workspace for dependency visualization?
 
-Yes, you can attach an existing workspace to the migration projecta, nd leverage it for dependency visualization. [Learn more](concepts-dependency-visualization.md#how-does-it-work).
+Yes, you can attach an existing workspace to the migration project, and leverage it for dependency visualization. [Learn more](concepts-dependency-visualization.md#how-does-it-work).
 
 ### Can I export the dependency visualization report?
 
@@ -208,7 +207,7 @@ MMA, leverage [this script](https://gallery.technet.microsoft.com/scriptcenter/I
 
 In addition to scripts, you can use deployment tools like System Center Configuration Manager, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) etc. to deploy the agents.
 
-### What operating systemsare  supported by MMA?
+### What operating systems are supported by MMA?
 
 - [Review](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) the list of Windows operating systems supported by MMA.
 - [Review]https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) the list of Linux operating systems supported by MMA.
@@ -219,7 +218,7 @@ In addition to scripts, you can use deployment tools like System Center Configur
 [Review](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems) the list of Linux operating systems supported by the Dependency agent.
 
 ### Can I visualize dependencies in Azure Migrate for more than an hour?
-No, you can visualize dependencies for up to an hour. You can go back to a particular date in the historyor,  up to the last month, but the maximum duration for visualization is an hour. For example, you can use the time duration in the dependency map to view dependencies for yesterday, but can only view it for a one-hour window. However, you can use Azure Monitor logs to [query dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
+No, you can visualize dependencies for up to an hour. You can go back to a particular date in the history, up to the last month, but the maximum duration for visualization is an hour. For example, you can use the time duration in the dependency map to view dependencies for yesterday, but can only view it for a one-hour window. However, you can use Azure Monitor logs to [query dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
 ### Is dependency visualization supported for groups with more than ten VMs?
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) with up to ten VMs. If you have a group with more than ten VMs, we recommend you to split the group in to smaller groups, and then visualize the dependencies.
@@ -228,6 +227,6 @@ You can [visualize dependencies for groups](https://docs.microsoft.com/azure/mig
 
 ### How is Azure Migrate: Server Migration different from Azure Site Recovery?
 
-Azure Migrate: Server Migration leverages ite Recovery's replication engine for agent-based migration of servers to Azure.
+Azure Migrate: Server Migration leverages Site Recovery's replication engine for agent-based migration of servers to Azure.
 ## Next steps
 Read the [Azure Migrate overview](migrate-services-overview.md)
