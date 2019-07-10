@@ -47,8 +47,8 @@
     href: container-registry-storage.md
   - name: Content formats
     href: container-registry-image-formats.md
-  - name: Tagging and versioning images
-    href: container-registry-image-tagging-versioning.md
+  - name: Tag and version images
+    href: container-registry-image-tag-version.md
   - name: Geo-replication
     href: container-registry-geo-replication.md
   - name: Roles and permissions
