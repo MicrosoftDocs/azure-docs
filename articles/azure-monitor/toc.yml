@@ -472,7 +472,7 @@
               href: app/export-stream-analytics.md
         - name: Export data model
           href: app/export-data-model.md
-        - name: Troubleshoot
+      - name: Troubleshoot
         items:
         - name: No data for .NET
           href: app/asp-net-troubleshoot-no-data.md
