@@ -1,6 +1,6 @@
 ---
-title: "Azure Status Monitor v2 API Reference: Disable monitoring | Microsoft Docs"
-description: Status Monitor v2 API Reference Disable-ApplicationInsightsMonitoring. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
+title: "Azure Status Monitor v2 API reference: Disable monitoring | Microsoft Docs"
+description: Status Monitor v2 API reference. Disable-ApplicationInsightsMonitoring. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -15,20 +15,20 @@ ms.author: tilee
 ---
 # Status Monitor v2 API: Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-This document describes a cmdlet that's shipped as a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+This article describes a cmdlet that's a member of the [Az.ApplicationMonitor PowerShell module](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 > [!IMPORTANT]
 > Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Description
 
-Disable monitoring on the target machine.
-This cmdlet will remove the edits to the IIS applicationHost.config and remove registry keys.
+Disables monitoring on the target computer.
+This cmdlet will remove edits to the IIS applicationHost.config and remove registry keys.
 
 > [!IMPORTANT] 
-> This cmdlet requires a PowerShell Session with Administrator permissions.
+> This cmdlet requires a PowerShell session with Admin permissions.
 
 ## Examples
 
@@ -39,7 +39,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## Parameters 
 
 ### -Verbose
-**Common Parameter.** Use this switch to output detailed logs.
+**Common parameter.** Use this switch to display detailed logs.
 
 ## Output
 
@@ -71,4 +71,4 @@ Successfully disabled Application Insights Status Monitor
 ## Next steps
 
  Do more with Status Monitor v2:
- - Use our guide to [Troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+ - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.

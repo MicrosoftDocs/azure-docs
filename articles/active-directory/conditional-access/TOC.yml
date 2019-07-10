@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is conditional access?
+  - name: What is Conditional Access?
     href: overview.md
 - name: Quickstarts
   items:
@@ -19,6 +19,8 @@
 - name: Concepts
   expanded: false
   items:
+  - name: Adopting Conditional Access
+    href: howto-conditional-access-adoption-kit.md
   - name: Baseline protection policies
     href: concept-baseline-protection.md
   - name: Conditions
@@ -34,7 +36,7 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Plan your conditional access deployment
+  - name: Plan your Conditional Access deployment
     href: plan-conditional-access.md
   - name: Best practices
     href: best-practices.md

@@ -4,7 +4,7 @@ description: Learn how to use mdadm to configure RAID on Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 

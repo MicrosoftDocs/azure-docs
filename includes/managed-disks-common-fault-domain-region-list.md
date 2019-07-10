@@ -37,6 +37,8 @@ ms.author: cynthn
 |                     |                         |
 | Australia East      | 2                       |
 | Australia Southeast | 2                       |
+| Australia Central   | 2                       |
+| Australia Central 2 | 2                       |
 |                     |                         |
 | Brazil South        | 2                       |
 |                     |                         |

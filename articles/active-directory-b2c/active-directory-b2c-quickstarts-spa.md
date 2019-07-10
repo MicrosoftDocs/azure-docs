@@ -2,14 +2,14 @@
 title: Quickstart - Set up sign-in for a single-page app using Azure Active Directory B2C | Microsoft Docs
 description: Run a sample single-page application that uses Azure Active Directory B2C to provide account sign-in.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 10/24/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 

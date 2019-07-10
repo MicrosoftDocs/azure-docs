@@ -159,6 +159,8 @@
       href: iot-hub-devguide-glossary.md
   - name: Security
     items:
+    - name: Recommendations
+      href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
     - name: Security from the ground up
       href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
     - name: Security best practices
@@ -347,7 +349,7 @@
         href: iot-hub-visual-studio-cloud-device-messaging.md
       - name: Data Visualization in Power BI
         href: iot-hub-live-data-visualization-in-power-bi.md
-      - name: Data Visualization with Web Apps
+      - name: Data Visualization in a web app
         href: iot-hub-live-data-visualization-in-web-apps.md
       - name: Weather forecast using Azure Machine Learning
         href: iot-hub-weather-forecast-machine-learning.md
@@ -419,9 +421,9 @@
       href: /azure/azure-maps
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
-    - name: IoT Edge
+    - name: Azure IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
@@ -438,7 +440,7 @@
   - name: Azure IoT Samples for iOS Platform
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Azure Certified for IoT device catalog
-    href: https://catalog.azurazureiotsolutionseiotsuite.com/
+    href: https://catalog.azureiotsolutions.com/
   - name: Azure IoT Developer Center
     href: https://azure.microsoft.com/develop/iot/
   - name: Customer data requests

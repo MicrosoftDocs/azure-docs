@@ -2,14 +2,14 @@
 title: Configure tokens - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to configure the token lifetime and compatibility settings in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 

@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: astay;cephalin;kraigb
+ms.author: cephalin
+ms.reviewer: astay; kraigb
 ms.custom: mvc
 ms.custom: seodec18
 
@@ -63,7 +64,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard [ENV['<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
+In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard [ENV['\<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
@@ -139,7 +140,7 @@ However, this setting alone causes the Rails server to start in development mode
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
 ```
 
-### Set secret_key_base manually
+### <a name="set-secret_key_base-manually"></a> Set secret_key_base manually
 
 To use your own `secret_key_base` value instead of letting App Service generate one for you, set the `SECRET_KEY_BASE` [app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) with the value you want. For example:
 

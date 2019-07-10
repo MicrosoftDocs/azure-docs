@@ -86,6 +86,8 @@
     href: cal-s4h.md
   - name: SAP HANA infrastructure configurations and operations on Azure
     href: hana-vm-operations.md
+  - name: SAP HANA Azure virtual machine storage configurations
+    href: hana-vm-operations-storage.md
   - name: SAP HANA Availability in Azure Virtual Machines
     items:
     - name: SAP HANA on Azure Availability overview
@@ -166,6 +168,8 @@
         href: high-availability-guide-suse-netapp-files.md
       - name: HA on Red Hat Enterprise Linux for (A)SCS Instance
         href: high-availability-guide-rhel.md
+      - name: HA on Red Hat Enterprise Linux for (A)SCS Instance with Azure NetApp Files
+        href: high-availability-guide-rhel-netapp-files.md
     - name: Azure Infrastructure Preparation
       items:
       - name: Windows with Shared Disk for (A)SCS Instance
@@ -192,6 +196,8 @@
         href: high-availability-guide-suse-netapp-files.md
       - name: High availability for SAP NetWeaver on Red Hat Enterprise Linux
         href: high-availability-guide-rhel.md
+      - name: Red Hat Enterprise Linux with NFS for (A)SCS Instance with Azure NetApp Files
+        href: high-availability-guide-rhel-netapp-files.md
     - name: SAP Multi-SID
       items:
       - name: Windows with Shared Disk for (A)SCS Instance

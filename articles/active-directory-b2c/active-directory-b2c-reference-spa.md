@@ -2,20 +2,20 @@
 title: Single-page sign in using implicit flow - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to add single-page sign in using the OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
 # Single-page sign in using the OAuth 2.0 implicit flow in Azure Active Directory B2C
 
-Many modern applications have a single-page app front end that primarily is written in JavaScript. Often, the app is written by using a framework like AngularJS, Ember.js, or Durandal. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
+Many modern applications have a single-page app front end that primarily is written in JavaScript. Often, the app is written by using a framework like React, Angular or Vue.js. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
 
 - The security characteristics of these apps are different from traditional server-based web applications.
 - Many authorization servers and identity providers do not support cross-origin resource sharing (CORS) requests.

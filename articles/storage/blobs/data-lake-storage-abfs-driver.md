@@ -55,7 +55,7 @@ Details of all supported configuration entries are specified in the [Official Ha
 
 ### Hadoop documentation
 
-The ABFS driver is fully documented in the [Official Hadoop documentation](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+The ABFS driver is fully documented in the [Official Hadoop documentation](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-azure/src/site/markdown/abfs.md)
 
 ## Next steps
 

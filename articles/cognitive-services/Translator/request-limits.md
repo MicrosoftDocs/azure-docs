@@ -3,13 +3,13 @@ title: Request limits - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: This article lists request limits for the Translator Text API. Charges are incurred based on character count, not request frequency with a limit of 5,000 characters per request. Character limits are subscription based, with F0 limited to 2 million characters per hour.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Request limits for Translator Text
@@ -33,7 +33,11 @@ The following table lists array element and character limits for each operation 
 
 ## Character limits per hour
 
-Your character limit per hour is based on your Translator Text subscription tier. The hourly quota should be consumed evenly throughout the hour. If you reach or surpass these limits, or send too large of a portion of the quota in a short period of time, you'll likely receive an out of quota response. 
+Your character limit per hour is based on your Translator Text subscription tier. 
+
+The hourly quota should be consumed evenly throughout the hour. For example, at the F0 tier limit of 2 million characters per hour, characters should be consumed no faster than roughly 33,300 characters per minute sliding window (2 million characters divided by 60 minutes).
+
+If you reach or surpass these limits, or send too large of a portion of the quota in a short period of time, you'll likely receive an out of quota response. There are no limits on concurrent requests.
 
 | Tier | Character limit |
 |------|-----------------|

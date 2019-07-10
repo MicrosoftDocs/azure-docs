@@ -64,7 +64,7 @@ To start the Azure storage emulator, Select the **Start** button or press the **
 
 The following samples assume that you have used one of these two methods to get the storage connection string.  
 
-## Retrieve your connection string
+## Retrieve your storage account
 You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.  
 
 ```cpp

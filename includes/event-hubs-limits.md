@@ -27,6 +27,7 @@ The following table lists quotas and limits specific to [Azure Event Hubs](https
 | Maximum throughput units |Namespace |Exceeding the throughput unit limit causes your data to be throttled and generates a [server busy exception](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). To request a larger number of throughput units for a Standard tier, file a [support request](/azure/azure-supportability/how-to-create-azure-support-request). [Additional throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) are available in blocks of 20 on a committed purchase basis. |20 |
 | Number of authorization rules per namespace |Namespace|Subsequent requests for authorization rule creation are rejected.|12 |
 | Number of calls to the GetRuntimeInformation method | Entity | - | 50 per second | 
+| Number of virtual network (VNet) and IP Config rules | Entity | - | 128 | 
 
 ### Event Hubs Dedicated - quotas and limits
 The Event Hubs Dedicated offering is billed at a fixed monthly price, with a minimum of 4 hours of usage. The Dedicated tier offers all the features of the Standard plan, but with enterprise scale capacity and limits for customers with demanding workloads. 
@@ -35,11 +36,11 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | --- | ---|
 | Bandwidth |  20 CUs |
 | Namespaces | 50 per CU |
-| Event Hubs |  No limit on event hubs/topics |
+| Event Hubs |  1000 per namespace |
 | Ingress events | Included |
 | Message Size | 1 Million Bytes |
 | Partitions | 2000 per CU |
 | Consumer groups | No limit per CU, 1000 per event hub |
 | Brokered connections | 100 K included |
-| Message Retention | 90 days, 10 TB included per CU |
+| Message Retention | Up to 7 days (90 day retention coming soon), 10 TB included per CU |
 | Capture | Included |

@@ -102,6 +102,9 @@ public class ValuesController : ControllerBase
 
 ### Capture ILogger logs from Startup.cs and Program.cs in ASP.NET Core apps
 
+> [!NOTE]
+> In ASP.NET Core 3.0 and later, it is no longer possible to inject `ILogger` in Startup.cs and Program.cs. See https://github.com/aspnet/Announcements/issues/353 for more details.
+
 The new ApplicationInsightsLoggerProvider can capture logs from early in the application-startup pipeline. Although ApplicationInsightsLoggerProvider is automatically enabled in  Application Insights (starting with version 2.7.0-beta3), it doesn't have an instrumentation key set up until later in the pipeline. So, only logs from **Controller**/other classes will be captured. To capture every log starting with **Program.cs** and **Startup.cs** itself, you must explicitly enable an instrumentation key for ApplicationInsightsLoggerProvider. Also, *TelemetryConfiguration* is not fully set up when you log from **Program.cs** or **Startup.cs** itself. So those logs will have a minimum configuration that uses InMemoryChannel, no sampling, and no standard telemetry initializers or processors.
 
 The following examples demonstrate this capability with **Program.cs** and **Startup.cs**.

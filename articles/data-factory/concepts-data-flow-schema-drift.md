@@ -3,7 +3,6 @@ title: Azure Data Factory Mapping Data Flow Schema Drift
 description: Build resilient Data Flows in Azure Data Factory with Schema Drift
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
@@ -29,7 +28,7 @@ In order to protect against Schema Drift, it is important to have the facilities
 
 * When you've selected this option, all incoming fields will be read from your source on every Data Flow execution and will be passed through the entire flow to the Sink.
 
-* Make sure to use "Auto-Map" to map all new fields in the Sink Transformation so that all new fields get picked-up and landed in your destination:
+* Make sure to use "Auto-Map" to map all new fields in the Sink Transformation so that all new fields get picked-up and landed in your destination.
 
 <img src="media/data-flow/automap.png" width="400">
 

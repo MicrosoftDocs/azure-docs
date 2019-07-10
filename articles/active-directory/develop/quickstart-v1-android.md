@@ -43,7 +43,7 @@ To get started, you'll need an Azure AD tenant where you can create users and re
 
 ## Scenario: Sign in users and call the Microsoft Graph
 
-![Topology](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Shows the Azure AD and Android topology](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 You can use this app for all Azure AD accounts. It supports both single-tenant and multi-tenant scenarios (discussed in steps). It demonstrates how you can build apps to connect with enterprise users and access their Azure + O365 data through the Microsoft Graph. During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app. The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
 

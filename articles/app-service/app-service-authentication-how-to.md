@@ -15,7 +15,6 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-
 ---
 
 # Advanced usage of authentication and authorization in Azure App Service

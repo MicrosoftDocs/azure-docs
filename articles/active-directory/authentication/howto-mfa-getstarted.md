@@ -179,7 +179,7 @@ Get-MsolUser -All | Set-MfaState -State Enforced
 
 # Wrapper to disable MFA with the option to keep the MFA
 # methods (to avoid having to proof-up again later)
-function Disable-Mfa {
+function Disable-MFA {
 
     [CmdletBinding()]
     param(

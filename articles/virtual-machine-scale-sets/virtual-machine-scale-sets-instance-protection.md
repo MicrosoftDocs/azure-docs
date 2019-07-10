@@ -26,7 +26,7 @@ As your application processes traffic, there can be situations where you want sp
 This article describes how you can apply and use the different instance protection capabilities with scale set instances.
 
 > [!NOTE]
->Instance protection is currently in Public Preview. No opt-in procedure is needed to use the public preview functionality described below. Instance protection preview is only supported with API version 2019-03-01 and above.
+>Instance protection is currently in Public Preview. No opt-in procedure is needed to use the public preview functionality described below. Instance protection preview is only supported with API version 2019-03-01 and on scale sets using managed disks.
 
 ## Types of instance protection
 Scale sets provide two types of instance protection capabilities:

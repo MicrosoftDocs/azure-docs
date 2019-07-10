@@ -4,7 +4,7 @@ description: Throttling errors, retries and backoff in Azure Compute.
 services: virtual-machines
 documentationcenter: ''
 author: changov
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 

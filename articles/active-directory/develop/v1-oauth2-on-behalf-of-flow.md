@@ -35,7 +35,7 @@ The OAuth 2.0 On-Behalf-Of (OBO) flow enables an application that invokes a serv
 The OBO flow starts after the user has been authenticated on an application that uses the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application sends an access token (token A) to the middle-tier web API (API A) containing the user’s claims and consent to access API A. Next, API A makes an authenticated request to the downstream web API (API B).
 
 These steps constitute the On-Behalf-Of flow:
-![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![Shows the steps in the OAuth2.0 On-Behalf-Of flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. The client application makes a request to API A with the token A.
 1. API A authenticates to the Azure AD token issuance endpoint and requests a token to access API B.
@@ -210,7 +210,7 @@ The following example shows a success response to a request for an access token 
 
 ### Error response example
 
-The Azure AD token endpoint returns an error response when it tries to acquire an access token for a downstream API that is set with a conditional access policy (for example, multi-factor authentication). The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the conditional access policy.
+The Azure AD token endpoint returns an error response when it tries to acquire an access token for a downstream API that is set with a Conditional Access policy (for example, multi-factor authentication). The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
 ```
 {

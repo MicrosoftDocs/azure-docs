@@ -34,7 +34,7 @@ Running an existing application in a Windows container on a Service Fabric clust
 ## Prerequisites
 
 * A development computer running:
-  * Visual Studio 2015 or Visual Studio 2017.
+  * Visual Studio 2015 or Visual Studio 2019.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
   *  Docker for Windows. [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
 
@@ -480,7 +480,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Windows Server containers are not compatible across all versions of a host OS. For example:
  
 - Windows Server containers built using Windows Server version 1709 do not work on a host running Windows Server version 2016. 
-- Windows Server containers built using Windows Server 2016 work in hyperv isolation mode only on a host running Windows Server version 1709. 
+- Windows Server containers built using Windows Server 2016 work in Hyper-V isolation mode only on a host running Windows Server version 1709. 
 - With Windows Server containers built using Windows Server 2016, it might be necessary to ensure that the revision of the container OS and host OS are the same when running in process isolation mode on a host running Windows Server 2016.
  
 To learn more, see [Windows Container Version Compatibility](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).

@@ -1,19 +1,19 @@
 ---
-title: 'Quickstart: Ingest data from Logstash to Azure Data Explorer'
-description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Logstash'
+title: 'Ingest data from Logstash to Azure Data Explorer'
+description: 'In this article, you learn how to ingest (load) data into Azure Data Explorer from Logstash'
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/14/2019
+ms.topic: conceptual
+ms.date: 06/03/2019
 
 #Customer intent: As a DevOps engineer, I want to use Logstash to pipeline logs and ingest into Azure Data Explorer so that I can analyze them later.
 ---
 
-# Quickstart: Ingest data from Logstash to Azure Data Explorer
+# Ingest data from Logstash to Azure Data Explorer
 
-[Logstash](https://www.elastic.co/products/logstash) is an open source, server-side data processing pipeline that ingests data from many sources simultaneously, transforms the data, and then sends the data to your favorite "stash". In this quickstart, you'll send that data to Azure Data Explorer, which is a fast and highly scalable data exploration service for log and telemetry data. You'll initially create a table and data mapping in a test cluster,and then direct Logstash to send data into the table and validate the results.
+[Logstash](https://www.elastic.co/products/logstash) is an open source, server-side data processing pipeline that ingests data from many sources simultaneously, transforms the data, and then sends the data to your favorite "stash". In this article, you'll send that data to Azure Data Explorer, which is a fast and highly scalable data exploration service for log and telemetry data. You'll initially create a table and data mapping in a test cluster,and then direct Logstash to send data into the table and validate the results.
 
 ## Prerequisites
 
@@ -143,5 +143,4 @@ Run the following command in your database to clean up the `logs` table:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Write queries](write-queries.md)
+* [Write queries](write-queries.md)

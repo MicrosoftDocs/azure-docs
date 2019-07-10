@@ -12,9 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/11/2019
 ms.author: juliako
-
+#Customer intent: As a developer or a content provider, when delivering adaptive bitrate streaming content to devices, you often need to target specific device capabilities or available network bandwidth. Pre-filtering manifests with Dynamic Packager allows your clients to manipulate the streaming of your content without you needing to create multiple copies of the same media file. 
 ---
 
 # Pre-filtering manifests with Dynamic Packager
@@ -45,7 +45,7 @@ For the REST example, see [Upload, encode, and stream files with REST](stream-fi
 
 ### Monitor the bitrate of a video stream
 
-You can use the [Azure Media Player demo page](https://aka.ms/amp) to monitor the bitrate of a video stream. The demo page displays diagnostics info in the **Diagnostics** tab:
+You can use the [Azure Media Player demo page](https://ampdemo.azureedge.net/azuremediaplayer.html) to monitor the bitrate of a video stream. The demo page displays diagnostics info in the **Diagnostics** tab:
 
 ![Azure Media Player diagnostics][amp_diagnostics]
  

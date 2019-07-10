@@ -13,31 +13,31 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 05/31/2019
 ms.author: jowargo
 ---
 
-# Security model of Azure Notification Hubs
+# Notification Hubs Security
 
 ## Overview
 
-This topic describes the security model of Azure Notification Hubs. Because Notification Hubs are a Service Bus entity, they implement the same security model as Service Bus. For more information, see the [Service Bus Authentication](https://msdn.microsoft.com/library/azure/dn155925.aspx) topics.
+This topic describes the security model of Azure Notification Hubs.
 
 ## Shared Access Signature Security (SAS)
 
 Notification Hubs implements an entity-level security scheme called SAS (Shared Access Signature). This scheme enables messaging entities to declare up to 12 authorization rules in their description that grant rights on that entity.
 
-Each rule contains a name, a key value (shared secret), and a set of rights, as explained in the section “Security Claims.” When creating a Notification Hub, two rules are automatically created: one with Listen rights (that the client app uses) and one with all rights (that the app backend uses).
+Each rule contains a name, a key value (shared secret), and a set of rights, as explained in [Security Claims](#security-claims). When creating a Notification Hub, two rules are automatically created: one with **Listen** rights (that the client app uses) and one with **all** rights (that the app backend uses).
 
 When performing registration management from client apps, if the information sent via notifications is not sensitive (for example, weather updates), a common way to access a Notification Hub is to give the key value of the rule Listen-only access to the client app, and to give the key value of the rule full access to the app backend.
 
-It is not recommended that you embed the key value in Windows Store client apps. A way to avoid embedding the key value is to have the client app retrieve it from the app backend at startup.
+Apps should not embed the key value in Windows Store client apps, instead have the client app retrieve it from the app backend at startup.
 
-It is important to understand that the key with Listen access allows a client app to register for any tag. If your app must restrict registrations to specific tags to specific clients (for example, when tags represent user IDs), then your app backend must perform the registrations. For more information, see Registration Management. Note that in this way, the client app will not have direct access to Notification Hubs.
+The key with **Listen** access allows a client app to register for any tag. If your app must restrict registrations to specific tags to specific clients (for example, when tags represent user IDs), your app backend must perform the registrations. For more information, see [Registration Management](notification-hubs-push-notification-registration-management.md). Note that in this way, the client app will not have direct access to Notification Hubs.
 
 ## Security claims
 
-Similar to other entities, Notification Hub operations are allowed for three security claims: Listen, Send, and Manage.
+Similar to other entities, Notification Hub operations are allowed for three security claims: **Listen**, **Send**, and **Manage**.
 
 | Claim   | Description                                          | Operations allowed |
 | ------- | ---------------------------------------------------- | ------------------ |

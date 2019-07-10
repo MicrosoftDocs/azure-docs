@@ -3,7 +3,7 @@ title: Troubleshoot Azure Red Hat OpenShift | Microsoft Docs
 description: Troubleshoot and resolve common issues with Azure Red Hat OpenShift
 services: container-service
 author: jimzim
-ms.author: twhitney
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting

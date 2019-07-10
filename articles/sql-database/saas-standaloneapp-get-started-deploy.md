@@ -19,9 +19,9 @@ In this tutorial, you deploy and explore the Wingtip Tickets SaaS sample applica
 
 The standalone application or app-per-tenant pattern deploys an application instance for each tenant.  Each application is configured for a specific tenant and deployed in a separate Azure resource group. Multiple instances of the application are provisioned to provide a multi-tenant solution. This pattern is best suited to smaller numbers, of tenants where tenant isolation is a top priority. Azure has partner programs that allow resources to be deployed into a tenant’s subscription and managed by a service provider on the tenant’s behalf. 
 
-In this tutorial, you will deploy three standalone applications for three tenants into your Azure subscription.  You have full access to explore and work with the individual application components.
+In this tutorial, you'll deploy three standalone applications for three tenants into your Azure subscription.  You have full access to explore and work with the individual application components.
 
-The application source code and management scripts are available in the [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub repo. The application was created using Visual Studio 2015, and does not successfully open and compile in Visual Studio 2017 without updating.
+The application source code and management scripts are available in the [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub repo. The application was created using Visual Studio 2015, and doesn't successfully open and compile in Visual Studio 2019 without updating.
 
 
 In this tutorial you learn:
@@ -31,7 +31,7 @@ In this tutorial you learn:
 > * Where to get the application source code, and management scripts.
 > * About the servers and databases that make up the app.
 
-Additional tutorials will be released. They will allow you to explore a range of management scenarios based on this application pattern.   
+Additional tutorials will be released. They'll allow you to explore a range of management scenarios based on this application pattern.   
 
 ## Deploy the Wingtip Tickets SaaS Standalone Application
 
@@ -49,8 +49,8 @@ Deploy the app for the three provided tenants:
     > [!IMPORTANT]
     > Some authentication and server firewalls are intentionally unsecured for demonstration purposes. **Create a new resource group** for each application deployment.  Do not use an existing resource group. Do not use this application, or any resources it creates, for production. Delete all the resource groups when you are finished with the applications to stop related billing.
 
-    It is best to use only lowercase letters, numbers, and hyphens in your resource names.
-    * For **Resource group**, select Create new, and then provide a lowercase Name for the resource group. **wingtip-sa-\<venueName\>-\<user\>** is the recommended pattern.  For \<venueName\>, substitute the venue name with no spaces. For \<user\>, substitute the user value from below.  With this pattern, resource group names might be *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
+    It's best to use only lowercase letters, numbers, and hyphens in your resource names.
+    * For **Resource group**, select Create new, and then provide a lowercase Name for the resource group. **wingtip-sa-\<venueName\>-\<user\>** is the recommended pattern.  For \<venueName\>, replace the venue name with no spaces. For \<user\>, replace the user value from below.  With this pattern, resource group names might be *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*.
     * Select a **Location** from the drop-down list.
 
     * For **User** - We recommend a short user value, such as your initials plus a digit: for example, *af1*.
@@ -120,6 +120,6 @@ In this tutorial you learned:
 > * About the servers and databases that make up the app.
 > * How to delete sample resources to stop related billing.
 
-Next, try the [Provision and Catalog](saas-standaloneapp-provision-and-catalog.md) tutorial in which you will explore the use of a catalog of tenants that enables a range of cross-tenant scenarios such as schema management and tenant analytics.
+Next, try the [Provision and Catalog](saas-standaloneapp-provision-and-catalog.md) tutorial in which you'll explore the use of a catalog of tenants that enables a range of cross-tenant scenarios such as schema management and tenant analytics.
  
 

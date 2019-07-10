@@ -261,13 +261,13 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 4. Fill in **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
 
-5. Fill in the **Event Types** fields. Uncheck **Subscribe to all event types** and select **Device Connected** and **Device Disconnected** from the menu.
+5. Fill in the **Event Types** fields. In the dropdown list, select only **Device Connected** and **Device Disconnected** from the menu. Click anywhere else on the screen to close the list and save your selections.
 
    ![Set event types to look for](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. For **Endpoint Details**, select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
-   ![Select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![Select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. The form should now look similar to the following example:
 
@@ -297,11 +297,9 @@ Now that your event subscription is set up, let's test by connecting a device.
 
    ![ConnectionString for device](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
-HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
-
 ### Start Raspberry Pi simulator
 
-1. Let's use the Raspberry Pi web simulator to simulate device connection.
+Let's use the Raspberry Pi web simulator to simulate device connection.
 
 [Start Raspberry Pi simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 
@@ -335,7 +333,7 @@ Instead of using the [Azure portal](https://portal.azure.com), you can accomplis
 
 ## Clean up resources
 
-This tutorial used resources that incur charges on your Azure subscription. When you're done trying out the tutorial and testing your results, disable or delete resources that you don't want to keep.
+This tutorial used resources that incur charges on your Azure subscription. When you're finished trying out the tutorial and testing your results, disable or delete resources that you don't want to keep.
 
 If you don't want to lose the work on your logic app, disable it instead of deleting it.
 

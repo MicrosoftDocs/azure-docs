@@ -16,7 +16,7 @@ IoT solutions often unite several powerful services that include storage, analyt
 
 ## Route types  
 
-Azure Digital Twins offers two ways to integrate IoT events into other Azure services or business applications:
+Azure Digital Twins offers two ways to connect IoT events with other Azure services or business applications:
 
 * **Routing Azure Digital Twins events**: An object in the spatial graph that changes, telemetry data that's received, or a user-defined function that creates a notification based on predefined conditions can trigger Azure Digital Twins events. Users can send these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus topics](https://azure.microsoft.com/services/service-bus/), or [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) for further processing.
 
