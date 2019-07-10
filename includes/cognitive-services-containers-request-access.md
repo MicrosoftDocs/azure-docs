@@ -1,9 +1,15 @@
 ---
 author: IEvangelist
 ms.author: dapine
+<<<<<<< HEAD
 ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
+=======
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 7/5/2019
+>>>>>>> Added the other services to the fold.
 ---
 
 Fill out and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the container. The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team reviews it to make sure that you meet the criteria for access to the private container registry.

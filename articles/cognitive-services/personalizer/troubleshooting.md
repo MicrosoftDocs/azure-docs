@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting
+title: Troubleshooting - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Troubleshooting questions about Personalizer can be found in this article.
 author: edjez

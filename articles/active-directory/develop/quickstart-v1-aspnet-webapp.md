@@ -15,7 +15,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/21/2019
-ms.author: andret
+ms.author: ryanwi
 #Customer intent: As an application developer, I want to learn how to implement Microsoft sign-in with an ASP.NET solution with a browser-based app using the OpenID Connect standard.
 ms.collection: M365-identity-device-management
 ---

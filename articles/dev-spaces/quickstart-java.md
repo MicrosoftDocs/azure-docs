@@ -9,7 +9,7 @@ ms.date: 07/08/2019
 ms.topic: quickstart
 description: "Rapid Kubernetes development with containers, microservices, and Java on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Java, Helm, service mesh, service mesh routing, kubectl, k8s"
-manager: jeconnoc
+manager: gwallace
 ---
 # Quickstart: Develop with Java on Kubernetes using Azure Dev Spaces
 
