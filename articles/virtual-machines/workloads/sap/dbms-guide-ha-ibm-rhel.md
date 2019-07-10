@@ -55,7 +55,7 @@ ms.author: juergent
 
 
 
-# High availability of IBM Db2 LUW on Azure VMs on RedHat Enterprise Linux Server
+# High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server
 
 IBM Db2 for Linux, UNIX, and Windows (LUW) in [high availability and disaster recovery (HADR) configuration](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consists of one node that runs a primary database instance and at least one node that runs a secondary database instance. Changes to the primary database instance are replicated to a secondary database instance synchronously or asynchronously, depending on your configuration. 
 
@@ -152,9 +152,9 @@ Complete the planning process before you execute the deployment. Planning builds
 	
 For more information about Linux Pacemaker in Azure, see [Setting up Pacemaker on Red Hat Enterprise Linux in Azure][rhel-pcs-azr].
 
-## Deployment on RedHat Enterprise Linux
+## Deployment on Red Hat Enterprise Linux
 
-The resource agent for IBM Db2 LUW is included in RedHat Enterprise Linux Server HA Addon. For the setup that's described in this document, you should use RedHat Enterprise Linux for SAP. The Azure Marketplace contains an image for Red Hat Enterprise Linux 7.4 for SAP or higher that you can use to deploy new Azure virtual machines. Be aware of the various support or service models that are offered by RedHat through the Azure Marketplace when you choose a VM image in the Azure VM Marketplace.
+The resource agent for IBM Db2 LUW is included in Red Hat Enterprise Linux Server HA Addon. For the setup that's described in this document, you should use Red Hat Enterprise Linux for SAP. The Azure Marketplace contains an image for Red Hat Enterprise Linux 7.4 for SAP or higher that you can use to deploy new Azure virtual machines. Be aware of the various support or service models that are offered by Red Hat through the Azure Marketplace when you choose a VM image in the Azure VM Marketplace.
 
 ### Hosts: DNS updates
 Make a list of all host names, including virtual host names, and update your DNS servers to enable proper IP address to host-name resolution. If a DNS server doesn't exist or you can't update and create DNS entries, you need to use the local host files of the individual VMs that are participating in this scenario. If you're using host files entries, make sure that the entries are applied to all VMs in the SAP system environment. However, we recommend that you use your DNS that, ideally, extends into Azure
@@ -162,7 +162,7 @@ Make a list of all host names, including virtual host names, and update your DNS
 
 ### Manual deployment
 
-Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list of supported OS versions for Azure VMs and Db2 releases is available in SAP note [1928533]. The list of OS releases by individual Db2 release is available in the SAP Product Availability Matrix. We highly recommend a minimum of Red Hat Enterprise Linux 7.4 for SAP because of Azure-related performance improvements in this or later RedHat Enterprise Linux versions.
+Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list of supported OS versions for Azure VMs and Db2 releases is available in SAP note [1928533]. The list of OS releases by individual Db2 release is available in the SAP Product Availability Matrix. We highly recommend a minimum of Red Hat Enterprise Linux 7.4 for SAP because of Azure-related performance improvements in this or later Red Hat Enterprise Linux versions.
 
 1. Create or select a resource group.
 1. Create or select a virtual network and subnet.
@@ -198,8 +198,8 @@ You can reduce the number of guides displayed in the portal by setting the follo
 - My Database: "IBM Db2 for Linux, Unix, and Windows"
 - Additional filters for SAP NetWeaver versions, stack configuration, or operating system
 
-#### RedHat firewall rules
-RedHat Enterprise Linux has firewall enabled by default. 
+#### Red Hat firewall rules
+Red Hat Enterprise Linux has firewall enabled by default. 
 
 <pre><code>#Allow access to SWPM tool. Rule is not permanent.
 sudo firewall-cmd --add-port=4237/tcp</code></pre>
@@ -219,8 +219,9 @@ To set up the primary IBM Db2 LUW database instance:
 ### IBM Db2 HADR settings for Azure
 
    When you use an Azure Pacemaker fencing agent, set the following parameters:
-   >+ HADR peer window duration (seconds) (HADR_PEER_WINDOW) = 240  
-   >+ HADR timeout value (HADR_TIMEOUT) = 45
+
+   - HADR peer window duration (seconds) (HADR_PEER_WINDOW) = 240  
+   - HADR timeout value (HADR_TIMEOUT) = 45
 
 We recommend the preceding parameters based on initial failover/takeover testing. It is mandatory that you test for proper functionality of failover and takeover with these parameter settings. Because individual configurations can vary, the parameters might require adjustment. 
 
@@ -242,7 +243,7 @@ To set up the Standby database server by using the SAP homogeneous system copy p
 1. As a copy method, select **Homogeneous System** so that you can use backup to restore a backup on the standby server instance.
 1. When you reach the exit step to restore the database for homogeneous system copy, exit the installer. Restore the database from a backup of the primary host. All subsequent installation phases have already been executed on the primary database server.
 
-#### RedHat firewall rules for DB2 HADR
+#### Red Hat firewall rules for DB2 HADR
 Add firewall rules to allow traffic to DB2 and between DB2 for HADR to work:
 + Database communication port. If using partitions, add those ports too.
 + HADR port (value of DB2 parameter HADR_LOCAL_SVC)
@@ -543,7 +544,7 @@ We recommend configuring a common NFS share or GlusterFS, where logs are written
 You can use existing highly available NFS shares or GlusterFS for transports or a profile directory. For more information, see:
 
 - [GlusterFS on Azure VMs on Red Hat Enterprise Linux for SAP NetWeaver][glusterfs] 
-- [High availability for SAP NetWeaver on Azure VMs on RedHat Enterprise Linux  with Azure NetApp Files for SAP Applications][anf-rhel]
+- [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux  with Azure NetApp Files for SAP Applications][anf-rhel]
 - [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction) (to create NFS shares)
 
 ## Test the cluster setup
