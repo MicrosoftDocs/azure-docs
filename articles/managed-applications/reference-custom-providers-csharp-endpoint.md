@@ -1,5 +1,5 @@
 ---
-title: Custom provider C# RESTful endpoint reference
+title: Custom provider C# RESTful endpoint reference - Azure
 description: This article is a basic reference for a custom provider C# RESTful endpoint.
 services: managed-applications
 ms.service: managed-applications
