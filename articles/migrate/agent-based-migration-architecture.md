@@ -4,7 +4,7 @@ description: Provides an overview of agent-based VMware VM migration with Azure 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/10/2019
 ms.author: raynew
 ---
 
@@ -36,10 +36,10 @@ Azure Migrate Server Migration is a tool for migrating on-premises and public cl
 
 The table summarizes the components used for agent-based migration.
 
-**Component** | **Deployment** | **Details**
+**Component** | **Details** | **Installation**
 --- | --- | ---
-**Replication appliance** | The replication appliance (configuration server) is an on-premises machine that acts as a bridge between the on-premises environment, and the Azure Migrate Server Migration tool. The appliance discovers the on-premises VM inventory, so that Azure Server Migration can orchestrate replication and migration. The appliance has two components:<br/><br/> **Configuration server**: Connects to Azure Migrate Server Migration and coordinates replication.<br/> **Process server**: Handles data replication. It receives VM data, compresses and encrypts it, and sends to the Azure subscription. There, Server Migration writes the data to managed disks.<br/> By default the process server is installed together with the configuration server on the replication appliance.
-**Mobility service** | The Mobility service is an agent installed on each machine you want to replicate and migrate. It sends replication data from the machine to the process server. There are a number of different Mobility service agents available. Installation files for the Mobility service are located on the replication appliance. You download and install the agent you need, in accordance with the operating system and version of the machine you want to replicate.
+**Replication appliance** | The replication appliance (configuration server) is an on-premises machine that acts as a bridge between the on-premises environment, and the Azure Migrate Server Migration tool. The appliance discovers the on-premises VM inventory, so that Azure Server Migration can orchestrate replication and migration. The appliance has two components:<br/><br/> **Configuration server**: Connects to Azure Migrate Server Migration and coordinates replication.<br/> **Process server**: Handles data replication. It receives VM data, compresses and encrypts it, and sends to the Azure subscription. There, Server Migration writes the data to managed disks. | By default the process server is installed together with the configuration server on the replication appliance.
+**Mobility service** | The Mobility service is an agent installed on each machine you want to replicate and migrate. It sends replication data from the machine to the process server. There are a number of different Mobility service agents available. | Installation files for the Mobility service are located on the replication appliance. You download and install the agent you need, in accordance with the operating system and version of the machine you want to replicate.
 
 ### Mobility service installation
 
@@ -65,7 +65,7 @@ The Mobility service communicates with the replication appliance and replicated 
 1. When you enable replication for a VM, initial replication to Azure begins.
 2. During initial replication, the Mobility service reads data from the machine disks, and sends it to the process server.
 3. This data is used to seed a copy of the disk in your Azure subscription. 
-4. After initial replication finiishes, replication of delta changes to Azure begins. Replication is block-level, and near-continuous.
+4. After initial replication finishes, replication of delta changes to Azure begins. Replication is block-level, and near-continuous.
 4. The Mobility Service intercepts writes to VM disk memory, by integrating with the storage subsystem of the operating system. This method avoids disk I/O operations on the replicating machine for incremental replication. 
 5. Tracked changes for a machine are sent to the process server on port HTTPS 9443 inbound. This port can be modified. The process server compresses and encrypts it, and sends it to Azure. 
 
@@ -97,7 +97,7 @@ The values in this table can be used to figure out whether you need an additiona
 --- | --- | --- | --- | ---
 8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz) | 16 GB | 300 GB | 500 GB or less | < 100 machines 
 12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) | 18 GB | 600 GB | 501 GB to 1 TB	| 100-150 machines.
-16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 G1 TBB | 1 TB to 2 TB | 151-200 machines.
+16 vCPUs (2 sockets * 8 cores \@ 2.5 GHz) | 32 G1 |  1 TB | 1 TB to 2 TB | 151-200 machines.
 
 ### Scale-out process server sizing
 
