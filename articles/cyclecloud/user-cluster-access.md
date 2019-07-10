@@ -29,13 +29,13 @@ cyclecloud connect [node] -c [cluster] -u cyclecloud
 
 ## Built-In User Management
 
-CycleCloud comes with a built-in user management system that creates local user accounts on every VM. These local user accounts are created for each user with log in permissions to the cluster. Additionally, users with the node admin permission will have administrator (sudo) privileges on each VM in the cluster. These permissions may be granted through ownership of the cluster, by the user's role, or by explicit sharing. See [CycleCloud User Management](user-management.md) for more information on granting permissions to users through roles and sharing.
+CycleCloud comes with a built-in user management system that creates local user accounts on every VM. These local user accounts are created for each user with log in permissions to the cluster. Additionally, users with the node admin permission will have administrator (sudo) privileges on each VM in the cluster. These permissions may be granted through ownership of the cluster, by explicitly giving access per user, or by assigning a user to a global role. See [CycleCloud User Management](user-management.md) for more information on assigning roles to user accounts.
 
 The list of regular users and administrators that will be added to nodes is visible on the cluster page in the CycleCloud UI under `Users`. Selecting the `show` link will open a dialog with more information.
 
 ![Cluster Users Dialog](./images/cluster_users_dialog.png)
 
-This dialog shows each individual user as well as the status of user management on each individual node in the cluster. Any errors or warnings when configuring users (such as a UID conflict or a disallowed user name) will display in this dialog. Users are managed via the `jetpackd` daemon on each node, so it is possible to make changes to running clusters.
+This dialog shows each individual user as well as the status of user management on each individual node in the cluster. Any errors or warnings when configuring users (such as a UID conflict or a disallowed user name) will display in this dialog. Users are managed by a daemon process `jetpackd` running each node, which updates the user accounts regularly, so it is possible to make changes to running clusters.
 
 ### Logging in to Nodes
 
