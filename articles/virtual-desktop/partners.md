@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
 
-Listed in alphabetical order.
+This article lists the Windows Virtual Desktop's partners in alphabetical order.
 
 ## Active Cypher
 
@@ -69,7 +69,7 @@ Workspot extends the value of Windows Virtual Desktop by simplifying the provisi
 
 [Go to partner website.](https://www.workspot.com/wvd)
 
-##Next steps
+## Next steps
 
 - [Learn more about Windows Virtual Desktop](overview.md)
 - [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
