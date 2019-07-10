@@ -285,8 +285,8 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
-    - name: Resource limits
-      href: concepts-limits.md
+    - name: Service quotas
+      href: cosmosdb-service-quotas.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:

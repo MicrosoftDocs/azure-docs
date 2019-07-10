@@ -1,22 +1,22 @@
 ---
-title: Limits in Azure Cosmos DB
-description: This article describes limits in Azure Cosmos DB.
+title: Azure Cosmos DB Azure Cosmos DB service quotas
+description: Azure Cosmos DB service quotas and default limits on different resource types.
 author: arramac
 ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 07/10/2019
 ---
 
-# Limits in Azure Cosmos DB
+# Azure Cosmos DB service quotas
 
-This article provides an overview of the limits in the Azure Cosmos DB service.
+This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 
 ## Storage and throughput
 
-After you create an Azure Cosmos account under your subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items.md). You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database.
+After you create an Azure Cosmos account under your subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items.md). You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the quotas for storage and throughput per container/database.
 
-| Resource | Default limit |
+| Resource | Default quotas |
 | --- | --- |
 | Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) or contacting us via [Ask Cosmos DB](mailto:askcosmosdb@microsoft.com) |
 | Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) or contacting us via [Ask Cosmos DB](mailto:askcosmosdb@microsoft.com) |
@@ -37,7 +37,7 @@ A Cosmos container (or shared throughput database) must have a minimum throughpu
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). In summary, here are the minimum provisioned RU limits. 
 
-| Resource | Default limit |
+| Resource | Default quotas |
 | --- | --- |
 | Minimum  RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minimum  RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 400 |
@@ -47,9 +47,9 @@ Cosmos DB supports elastic scaling of throughput (RUs) per container or database
 
 ## Control plane operations
 
-You can [provision and manage your Azure Cosmos account](how-to-manage-database-account.md) using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. The following table lists the limits per subscription, account, and number of operations.
+You can [provision and manage your Azure Cosmos account](how-to-manage-database-account.md) using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. The following table lists the quotas per subscription, account, and number of operations.
 
-| Resource | Default limit |
+| Resource | Default quotas |
 | --- | --- |
 | Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) or contacting us via [Ask Cosmos DB](mailto:askcosmosdb@microsoft.com)|
 | Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) or contacting us via [Ask Cosmos DB](mailto:askcosmosdb@microsoft.com)|
@@ -61,9 +61,9 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 ## Per-container limits
 
-Depending on which API you use, an Azure Cosmos container can represent either a collection, a table, or graph. Containers support configurations for [unique key constraints](unique-keys.md), [stored procedures, triggers, and UDFs](stored-procedures-triggers-udfs.md), and [indexing policy](how-to-manage-indexing-policy.md). The following table lists the limits specific to configurations within a container. 
+Depending on which API you use, an Azure Cosmos container can represent either a collection, a table, or graph. Containers support configurations for [unique key constraints](unique-keys.md), [stored procedures, triggers, and UDFs](stored-procedures-triggers-udfs.md), and [indexing policy](how-to-manage-indexing-policy.md). The following table lists the quotas specific to configurations within a container. 
 
-| Resource | Default limit |
+| Resource | Default quotas |
 | --- | --- |
 | Maximum length of database or container name | 255 |
 | Maximum stored procedures per container | 100 <sup>*</sup>|
@@ -76,9 +76,9 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 
 ## Per-item limits
 
-Depending on which API you use, an Azure Cosmos item can represent either a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the limits per item in Cosmos DB. 
+Depending on which API you use, an Azure Cosmos item can represent either a document in a collection, a row in a table, or a node or edge in a graph. The following table shows the quotas per item in Cosmos DB. 
 
-| Resource | Default limit |
+| Resource | Default quotas |
 | --- | --- |
 | Maximum size of an item | 2 MB (UTF-8 length of JSON representation) |
 | Maximum length of partition key value | 2048 bytes |
@@ -96,7 +96,7 @@ There are no restrictions on the item payloads like number of properties and nes
 
 Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases.  
 
-| Resource | Default limit |
+| Resource | Default quotas |
 | --- | --- |
 | Maximum execution time for a single operation (like a stored procedure execution or a single query page retrieval)| 5 sec |
 | Maximum request size (stored procedure, CRUD)| 2 MB |
@@ -106,7 +106,7 @@ Once an operation like query reaches the execution timeout or response size limi
 
 Cosmos DB uses HMAC for authorization. You can use either a master key, or a [resource tokens](secure-access-to-data.md) for fine-grained access control to resources like containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
 
-| Resource | Default limit |
+| Resource | Default quotas|
 | --- | --- |
 | Maximum master token expiry time | 15 min  |
 | Minimum resource token expiry time | 10 min  |
@@ -119,7 +119,7 @@ Cosmos DB supports execution of triggers during writes. The service supports a m
 
 Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The following table describes restrictions in query statements, for example in terms of number of clauses or query length.
 
-| Resource | Default limit |
+| Resource | Default quotas |
 | --- | --- |
 | Maximum length of SQL query| 256 KB <sup>*</sup>|
 | Maximum JOINs per query| 5 <sup>*</sup>|
@@ -137,7 +137,7 @@ Cosmos DB supports the MongoDB wire protocol for applications written against Mo
 
 The following table lists the limits specific to MongoDB feature support. Other service limits mentioned for the SQL (core) API also apply to the MongoDB API.
 
-| Resource | Default limit |
+| Resource | Default quotas |
 | --- | --- |
 | Maximum MongoDB query memory size | 40 MB |
 | Maximum execution time for MongoDB operations| 30s |
@@ -146,7 +146,7 @@ The following table lists the limits specific to MongoDB feature support. Other 
 
 The following table lists the limits for the [Try Azure Cosmos DB for Free](https://azure.microsoft.com/try/cosmosdb/) trial.
 
-| Resource | Default limit |
+| Resource | Default quotas |
 | --- | --- |
 | Duration of the trial | 30 days (can be renewed any number of times) |
 | Maximum containers per subscription (SQL, Gremlin, Table API) | 1 |
