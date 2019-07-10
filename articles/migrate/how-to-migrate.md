@@ -23,7 +23,7 @@ If you want to add an migration tool and haven't yet set up an Azure Migrate pro
 
 ## Selecting an ISV tool
 
-If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for migration, you can start by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Deploy the tool, and follow the tool instructions to connect the tool workspace with Azure Migrate. 
+If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for migration, you can start by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Deploy the tool, and follow the tool instructions and documentation to connect the tool workspace with Azure Migrate. 
 
 ## Select a migration scenario
 
@@ -40,9 +40,7 @@ If you choose an [ISV tool](migrate-services-overview.md#isv-integration) for mi
 ## Select a server migration tool
 
 1. Click **Assess and Migrate Servers**.
-2. In **Azure Migrate - Servers**, if you haven't added migration tools yet, under **Migration tools**, select **Click here to add a migration tool**. If you've already added migration tools, in **Add more migration tools**, select **Click here**.
-
-    ![Migration tools](./media/how-to-migrate/migration-tool.png)
+2. In **Azure Migrate - Servers**, if you haven't added migration tools yet, under **Migration tools**, select **Click here to add a migration tool**. If you've already added migration tools, in **Add more migration tools**, select **Change**.
 
     > [!NOTE]
     > If you need to navigate to a different project, in **Azure Migrate - Servers**, next to **See details for a different migrate project**, click **Click here**.
