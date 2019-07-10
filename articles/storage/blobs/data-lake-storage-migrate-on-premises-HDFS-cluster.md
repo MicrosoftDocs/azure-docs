@@ -8,7 +8,7 @@ ms.service: storage
 ms.date: 06/11/2019
 ms.author: normesta
 ms.topic: article
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ---
 
 # Use Azure Data Box to migrate data from an on-premises HDFS store to Azure Storage

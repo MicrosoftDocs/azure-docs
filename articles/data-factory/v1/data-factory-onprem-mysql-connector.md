@@ -71,7 +71,7 @@ The following table provides description for JSON elements specific to MySQL lin
 | database |Name of the MySQL database. |Yes |
 | schema |Name of the schema in the database. |No |
 | authenticationType |Type of authentication used to connect to the MySQL database. Possible values are: `Basic`. |Yes |
-| username |Specify user name to connect to the MySQL database. |Yes |
+| userName |Specify user name to connect to the MySQL database. |Yes |
 | password |Specify password for the user account you specified. |Yes |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises MySQL database. |Yes |
 
