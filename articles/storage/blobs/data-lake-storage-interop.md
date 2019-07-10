@@ -1,6 +1,6 @@
 ---
 title: Blob interoperability | Microsoft Docs
-description: Some sort of description goes here.
+description: Use Blob APIs and applications that use Blob APIs with Data Lake Storage Gen2.
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -27,7 +27,7 @@ This can be hard to maintain for many reasons. For example, you have to move dat
 
 A true data lake enables you to access all types of data including unstructured, semi-structured, and structured data by using multiple data access methods. Blob and Data Lake Storage Gen2 interoperability fulfills this goal, and moves your account closer to a true data lake. It eliminates the need to maintain multiple forms of storage. You can have one central storage solution with multiple data access points to shared data sets so that tools and data applications can interact with data in their most natural way. Your data lake can benefit from the tools and frameworks that have been built for a wide variety of ecosystems.
 
-## How it works
+## How interoperability works
 
 Blob APIs and Data Lake Storage Gen2 APIs can interoperate on the same data in storage accounts that have a hierarchical namespace.  
 
@@ -39,17 +39,17 @@ Existing tools and applications that use the Blob API gain these benefits automa
 
 ## Features now available to Data Lake Storage Gen2
 
-Interoperability unlocks several features to accounts that have a hierarchical namespace. The following table describes them.
+Interoperability unlocks several features to accounts that have a hierarchical namespace. The following table describes which features are available in the current public preview.
 
 | Feature     | More information    |
 |--------|-----------|
-| **Diagnostic logs** | Use diagnostic logs to audit operations on your data and to detect and troubleshoot errors. Both Version 1.0 and Version 2.0 logs are supported. <br>see [Azure Storage analytics logging](../common/storage-analytics-logging.md)|
-| **SDKs** | Use Java, .NET, and Python SDKs to perform all of your management and data plane operations. Custom applications that target blob storage now work with storage accounts that have a hierarchical namespace. <br>See these articles:<br><li>[Use .NET with Azure Data Lake Storage Gen2](storage-dot-net-how-to-use-blobs.md)<li>[Use Java with Azure Data Lake Storage Gen2](storage-java-how-to-use-blobs.md) <li>[Use Python with Azure Data Lake Storage Gen2](storage-python-how-to-use-blobs.md)|
+| **Diagnostic logs** | Use diagnostic logs to audit operations on your data and to detect and troubleshoot errors. Both version 1.0 and version 2.0 logs are supported. <br><br>To learn more, see [Azure Storage analytics logging](../common/storage-analytics-logging.md)|
+| **SDKs** | Use Java, .NET, and Python SDKs to perform all of your management and data plane operations. Custom applications that target blob storage now work with storage accounts that have a hierarchical namespace. <br><br>To learn more, see any of these articles:<br><br><li>[Use .NET with Azure Data Lake Storage Gen2](storage-dot-net-how-to-use-blobs.md)<li>[Use Java with Azure Data Lake Storage Gen2](storage-java-how-to-use-blobs.md) <li>[Use Python with Azure Data Lake Storage Gen2](storage-python-how-to-use-blobs.md)|
 | **Powershell support** | Use Powershell cmdlets to interact with your data.<br>See [Use PowerShell with Azure Data Lake Storage Gen2](data-lake-storage-powershell.md)|
-| **Access tiers** | Use cool and archive access tiers to optimize for cost and performance. As data use declines, move it into the cool access tier to save costs without sacrificing performance. The cool access tier provides you with the same level of performance as the hot access tier, but at a lower cost in cases where data is accessed less often.  You can access that data for a slightly higher transaction cost, or move that data back into the hot access tier if your data becomes more frequently accessed. The Archive tier gives you a long term storage solution for your analytics data at a significantly reduced rate.  This way, you can store your analytics data until you need to use it.<br> See [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
-| **Lifecycle management policies** | Use lifecycle management policies to automatically transition data to different access tiers based on rules that you define. <br> See [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts)|
+| **Access tiers** | Use cool and archive access tiers to optimize for cost and performance. As data use declines, move it into the cool access tier to save costs without sacrificing performance. The cool access tier provides you with the same level of performance as the hot access tier, but at a lower cost in cases where data is accessed less often.  You can access that data for a slightly higher transaction cost, or move that data back into the hot access tier if your data becomes more frequently accessed. The Archive tier gives you a long term storage solution for your analytics data at a significantly reduced rate.  This way, you can store your analytics data until you need to use it.<br><br> To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
+| **Lifecycle management policies** | Use lifecycle management policies to automatically transition data to different access tiers based on rules that you define. <br><br> To learn more, see [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts)|
 | **Change notifications** | Put something here.|
-| **Azure service ecosystem** | Use these Azure services with accounts that have a hierarchical namespace: <br><li> Azure Stream Analytics<li>IOT Hub Capture<li>Event Hubs Capture<li>Data Box<li>Power BI|
+| **Azure service ecosystem** | Use these Azure services with accounts that have a hierarchical namespace: <br><br><li> Azure Stream Analytics<li>IOT Hub Capture<li>Event Hubs Capture<li>Data Box<li>Power BI|
 | **Partner Ecosystem** | Third party providers and partners that have existing Blob connectors can use those same connectors to work with accounts that have a hierarchical namespace. |
 
 ## Next steps
