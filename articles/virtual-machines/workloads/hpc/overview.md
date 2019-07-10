@@ -1,6 +1,6 @@
 ---
 title: High-performance computing on H-series VMs - Azure Virtual Machines | Microsoft Docs
-description:  
+description: Learn about the features and capabilities of H-series VMs optimized for HPC.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
