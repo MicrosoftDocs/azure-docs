@@ -1326,6 +1326,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/concepts-limits.md",
+      "redirect_url": "/azure/cosmos-db/cosmosdb-service-quotas",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/sql-api-python-application.md",
       "redirect_url": "/azure/cosmos-db/create-sql-api-python",
       "redirect_document_id": false
