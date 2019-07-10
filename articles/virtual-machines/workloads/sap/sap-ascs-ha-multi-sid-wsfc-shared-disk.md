@@ -4,7 +4,7 @@ description:  Multi-SID high availability for an SAP ASCS/SCS instance with Wind
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''

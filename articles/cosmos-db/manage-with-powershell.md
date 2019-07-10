@@ -3,7 +3,7 @@ title: Create and manage Azure Cosmos DB using PowerShell
 description: Use Azure Powershell manage your Azure Cosmos DB accounts, databases, containers, and throughput. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
 ms.custom: seodec18

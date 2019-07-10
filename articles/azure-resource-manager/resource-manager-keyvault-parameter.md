@@ -89,7 +89,7 @@ The following procedure shows how to create a role with the minimum permission, 
       ]
     }
     ```
-    Replace "00000000-0000-0000-0000-000000000000" with the subscription ID of the user who needs to deploy the templates.
+    Replace "00000000-0000-0000-0000-000000000000" with the subscription ID.
 
 2. Create the new role using the JSON file:
 

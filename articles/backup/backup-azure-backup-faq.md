@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/07/2019
 ms.author: dacurwin
 ---
 
@@ -46,37 +46,6 @@ No. A Recovery Services vault can only change storage options before any backups
 - For the agent used to backup up Azure file folders, read this [FAQ](backup-azure-file-folder-backup-faq.md).
 
 
-## VMware and Hyper-V backup
-
-### Can I back up VMware vCenter servers to Azure?
-Yes. You can use Azure Backup Server to back up VMware vCenter Server and ESXi hosts to Azure.
-
-- [Learn more](backup-mabs-protection-matrix.md) about supported versions.
-- [Follow these steps](backup-azure-backup-server-vmware.md) to back up a VMware server.
-
-### Do I need a separate license to recover an full on-premises VMware/Hyper-V cluster?
-You don't need separate licensing for VMware/Hyper-V protection.
-
-- If you're a System Center customer, use System Center Data Protection Manager (DPM) to protect VMware VMs.
-- If you aren't a System Center customer, you can use Azure Backup Server (pay-as-you-go) to protect VMware VMs.
-
-## DPM and Azure Backup Server backup
-
-### Which DPM versions are supported?
-Supported DPM versions are summarized in the [support matrix](backup-azure-dpm-introduction.md#prerequisites-and-limitations). We recommend that you install the latest DPM updates, and run the [latest version](https://aka.ms/azurebackup_agent) of the Azure Backup agent on the DPM server.
-
-### Can I register the server to multiple vaults?
-No. A DPM or Azure Backup server can be registered to only one vault.
-
-### Can I use Azure Backup Server to create a Bare Metal Recovery (BMR) backup for a physical server? <br/>
-Yes.
-
-### Can I use DPM to back up apps in Azure Stack?
-No. You can use Azure Backup to protect Azure Stack, Azure Backup doesn't support using DPM to back up apps in Azure Stack.
-
-### If I've installed Azure Backup agent to protect my files and folders, can I install System Center DPM to back up on-premises workloads to Azure?
-Yes. But you should set up DPM first, and then install the Azure Backup agent.  Installing components in this order ensures that the Azure Backup agent works with DPM. Installing the agent before installing DPM isn't advised or supported.
-
 ## General backup
 
 ### Are there limits on backup scheduling?
@@ -113,7 +82,7 @@ For Azure VM Linux backups, Azure Backup supports [the list of distributions end
 Sizes limits are as follows:
 
 OS/machine | Size limit of data source
---- | --- 
+--- | ---
 Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB

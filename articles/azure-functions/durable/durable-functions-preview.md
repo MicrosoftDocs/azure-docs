@@ -5,7 +5,7 @@ services: functions
 author: cgillum
 manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019

@@ -4,14 +4,145 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 6/6/2019
+ms.date: 7/9/2019
 ms.author: tomfitz
 ---
 
 # Move operation support for resources
-This article lists whether an Azure resource type supports the move operation. Although a resource type supports the move operation, there may be conditions that prevent the resource from being moved. For details about conditions that affect move operations, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+This article lists whether an Azure resource type supports the move operation. It also provides information about special conditions to consider when moving a resource.
 
-To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+Jump to a resource provider namespace:
+> [!div class="op_single_selector"]
+> - [Microsoft.AAD](#microsoftaad)
+> - [microsoft.aadiam](#microsoftaadiam)
+> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppService](#microsoftappservice)
+> - [Microsoft.Authorization](#microsoftauthorization)
+> - [Microsoft.Automation](#microsoftautomation)
+> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft.AzureStack](#microsoftazurestack)
+> - [Microsoft.Backup](#microsoftbackup)
+> - [Microsoft.Batch](#microsoftbatch)
+> - [Microsoft.BatchAI](#microsoftbatchai)
+> - [Microsoft.BingMaps](#microsoftbingmaps)
+> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
+> - [Microsoft.Blockchain](#microsoftblockchain)
+> - [Microsoft.Blueprint](#microsoftblueprint)
+> - [Microsoft.BotService](#microsoftbotservice)
+> - [Microsoft.Cache](#microsoftcache)
+> - [Microsoft.Cdn](#microsoftcdn)
+> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.Container](#microsoftcontainer)
+> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
+> - [Microsoft.ContainerService](#microsoftcontainerservice)
+> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
+> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft.CostManagement](#microsoftcostmanagement)
+> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
+> - [Microsoft.DataBox](#microsoftdatabox)
+> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft.Databricks](#microsoftdatabricks)
+> - [Microsoft.DataCatalog](#microsoftdatacatalog)
+> - [Microsoft.DataConnect](#microsoftdataconnect)
+> - [Microsoft.DataExchange](#microsoftdataexchange)
+> - [Microsoft.DataFactory](#microsoftdatafactory)
+> - [Microsoft.DataLake](#microsoftdatalake)
+> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [Microsoft.DataLakeStore](#microsoftdatalakestore)
+> - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft.DBforMySQL](#microsoftdbformysql)
+> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft.Devices](#microsoftdevices)
+> - [Microsoft.DevSpaces](#microsoftdevspaces)
+> - [Microsoft.DevTestLab](#microsoftdevtestlab)
+> - [microsoft.dns](#microsoftdns)
+> - [Microsoft.DocumentDB](#microsoftdocumentdb)
+> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft.EventGrid](#microsofteventgrid)
+> - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Genomics](#microsoftgenomics)
+> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft.HDInsight](#microsofthdinsight)
+> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft.HybridCompute](#microsofthybridcompute)
+> - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft.ImportExport](#microsoftimportexport)
+> - [microsoft.insights](#microsoftinsights)
+> - [Microsoft.IoTCentral](#microsoftiotcentral)
+> - [Microsoft.IoTSpaces](#microsoftiotspaces)
+> - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kusto](#microsoftkusto)
+> - [Microsoft.LabServices](#microsoftlabservices)
+> - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
+> - [Microsoft.LocationServices](#microsoftlocationservices)
+> - [Microsoft.Logic](#microsoftlogic)
+> - [Microsoft.MachineLearning](#microsoftmachinelearning)
+> - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
+> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
+> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
+> - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
+> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft.Maps](#microsoftmaps)
+> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft.Media](#microsoftmedia)
+> - [Microsoft.Migrate](#microsoftmigrate)
+> - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft.Portal](#microsoftportal)
+> - [Microsoft.PortalSdk](#microsoftportalsdk)
+> - [Microsoft.PowerBI](#microsoftpowerbi)
+> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
+> - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft.Scheduler](#microsoftscheduler)
+> - [Microsoft.Search](#microsoftsearch)
+> - [Microsoft.Security](#microsoftsecurity)
+> - [Microsoft.ServerManagement](#microsoftservermanagement)
+> - [Microsoft.ServiceBus](#microsoftservicebus)
+> - [Microsoft.ServiceFabric](#microsoftservicefabric)
+> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.Sql](#microsoftsql)
+> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft.SqlVM](#microsoftsqlvm)
+> - [Microsoft.Storage](#microsoftstorage)
+> - [Microsoft.StorageCache](#microsoftstoragecache)
+> - [Microsoft.StorageSync](#microsoftstoragesync)
+> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft.StorSimple](#microsoftstorsimple)
+> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [Microsoft.TerraformOSS](#microsoftterraformoss)
+> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft.Token](#microsofttoken)
+> - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
+> - [microsoft.visualstudio](#microsoftvisualstudio)
+> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.Web](#microsoftweb)
+> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
 
 ## Microsoft.AAD
 | Resource type | Resource group | Subscription |
@@ -50,6 +181,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | appidentities | No | No |
 | gateways | No | No |
 
+> [!IMPORTANT]
+> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
+
 ## Microsoft.Authorization
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -61,6 +195,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | automationaccounts | Yes | Yes |
 | automationaccounts/configurations | Yes | Yes |
 | automationaccounts/runbooks | Yes | Yes |
+
+> [!IMPORTANT]
+> Runbooks must exist in the same resource group as the Automation Account.
 
 ## Microsoft.AzureActiveDirectory
 | Resource type | Resource group | Subscription |
@@ -120,6 +257,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | ------------- | ----------- | ---------- |
 | redis | Yes | Yes |
 
+> [!IMPORTANT]
+> If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks move limitations](./move-limitations/virtual-network-move-limitations.md).
+
 ## Microsoft.Cdn
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -131,11 +271,17 @@ To get the same data as a file of comma-separated values, download [move-support
 | ------------- | ----------- | ---------- |
 | certificateorders | Yes | Yes |
 
+> [!IMPORTANT]
+> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
+
 ## Microsoft.ClassicCompute
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | domainnames | Yes | No |
 | virtualmachines | Yes | No |
+
+> [!IMPORTANT]
+> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
 
 ## Microsoft.ClassicNetwork
 | Resource type | Resource group | Subscription |
@@ -144,10 +290,16 @@ To get the same data as a file of comma-separated values, download [move-support
 | reservedips | No | No |
 | virtualnetworks | No | No |
 
+> [!IMPORTANT]
+> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
+
 ## Microsoft.ClassicStorage
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | storageaccounts | Yes | No |
+
+> [!IMPORTANT]
+> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
 
 ## Microsoft.CognitiveServices
 | Resource type | Resource group | Subscription |
@@ -173,6 +325,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | virtualmachines | Yes | Yes |
 | virtualmachines/extensions | Yes | Yes |
 | virtualmachinescalesets | Yes | Yes |
+
+> [!IMPORTANT]
+> See [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md).
 
 ## Microsoft.Container
 | Resource type | Resource group | Subscription |
@@ -385,6 +540,11 @@ To get the same data as a file of comma-separated values, download [move-support
 | ------------- | ----------- | ---------- |
 | clusters | Yes | Yes |
 
+> [!IMPORTANT]
+> You can move HDInsight clusters to a new subscription or resource group. However, you can't move across subscriptions the networking resources linked to the HDInsight cluster (such as the virtual network, NIC, or load balancer). In addition, you can't move to a new resource group a NIC that is attached to a virtual machine for the cluster.
+>
+> When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
+
 ## Microsoft.HealthcareApis
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -422,6 +582,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | webtests | Yes | Yes |
 | workbooks | Yes | Yes |
 
+> [!IMPORTANT]
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits).
+
 ## Microsoft.IoTCentral
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -439,6 +602,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | hsmpools | No | No |
 | vaults | Yes | Yes |
 
+> [!IMPORTANT]
+> Key Vaults used for disk encryption can't be moved to a resource group in the same subscription or across subscriptions.
+
 ## Microsoft.Kusto
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -447,7 +613,7 @@ To get the same data as a file of comma-separated values, download [move-support
 ## Microsoft.LabServices
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| labaccounts | Yes | Yes |
+| labaccounts | No | No |
 
 ## Microsoft.LocationBasedServices
 | Resource type | Resource group | Subscription |
@@ -561,7 +727,7 @@ To get the same data as a file of comma-separated values, download [move-support
 | expressrouteports | No | No |
 | frontdoors | No | No |
 | frontdoorwebapplicationfirewallpolicies | No | No |
-| loadbalancers | Yes | Yes |
+| loadbalancers | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 | localnetworkgateways | Yes | Yes |
 | natgateways | Yes | Yes |
 | networkintentpolicies | Yes | Yes |
@@ -577,7 +743,7 @@ To get the same data as a file of comma-separated values, download [move-support
 | privatednszones/virtualnetworklinks | Yes | Yes |
 | privateendpoints | No | No |
 | privatelinkservices | No | No |
-| publicipaddresses | Yes | Yes |
+| publicipaddresses | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 | publicipprefixes | Yes | Yes |
 | routefilters | No | No |
 | routetables | Yes | Yes |
@@ -593,6 +759,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | vpnsites | No | No |
 | webapplicationfirewallpolicies | Yes | Yes |
 
+> [!IMPORTANT]
+> See [Virtual Networks move guidance](./move-limitations/virtual-network-move-limitations.md).
+
 ## Microsoft.NotificationHubs
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -603,6 +772,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | workspaces | Yes | Yes |
+
+> [!IMPORTANT]
+> Make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## Microsoft.OperationsManagement
 | Resource type | Resource group | Subscription |
@@ -646,6 +818,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | ------------- | ----------- | ---------- |
 | vaults | Yes | Yes |
 
+> [!IMPORTANT]
+> See [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 ## Microsoft.Relay
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -666,6 +841,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | searchservices | Yes | Yes |
+
+> [!IMPORTANT]
+> You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
 
 ## Microsoft.Security
 | Resource type | Resource group | Subscription |
@@ -715,6 +893,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | ------------- | ----------- | ---------- |
 | siterecoveryvault | No | No |
 
+> [!IMPORTANT]
+> See [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 ## Microsoft.Solutions
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -734,6 +915,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | servers/databases | Yes | Yes |
 | servers/elasticpools | Yes | Yes |
 | virtualclusters | Yes | Yes |
+
+> [!IMPORTANT]
+> A database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
 
 ## Microsoft.SqlVirtualMachine
 | Resource type | Resource group | Subscription |
@@ -781,6 +965,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | ------------- | ----------- | ---------- |
 | streamingjobs | Yes | Yes |
 
+> [!IMPORTANT]
+> Stream Analytics jobs can't be moved when in running state.
+
 ## Microsoft.StreamAnalyticsExplorer
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -820,6 +1007,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | account/extension | Yes | Yes |
 | account/project | Yes | Yes |
 
+> [!IMPORTANT]
+> To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+
 ## Microsoft.VMwareCloudSimple
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -840,6 +1030,9 @@ To get the same data as a file of comma-separated values, download [move-support
 | sites/premieraddons | Yes | Yes |
 | sites/slots | Yes | Yes |
 
+> [!IMPORTANT]
+> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
+
 ## Microsoft.WindowsIoT
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -858,3 +1051,5 @@ Third-party services currently don't support the move operation.
 
 ## Next steps
 For commands to move resources, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+
+To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
