@@ -124,6 +124,56 @@ run = exp.submit(src)
 
 The metrics and artifacts from MLflow logging are kept in your workspace on the [Azure portal](https://portal.azure.com). To view them any time, navigate to your workspace and find the experiment by name.
 
+
+## Deploy models with MLflow
+
+To deploy a web service, first create a Docker image, and then deploy that Docker image on an inferencing compute.
+
+The `mlflow.azureml.build_image()` function builds a Docker image from saved PyTorch model in a framework-aware manner. It automatically creates the PyTorch-specific inferencing wrapper code and specififies package dependencies for you.
+
+### Create a docker image
+```
+run.get_file_names()
+```
+Then build a docker image using *runs:/<run.id>/model* as the model_uri path.
+
+Note that the image building can take several minutes.
+
+```python
+model_path = "model"
+
+azure_image, azure_model = mlflow.azureml.build_image(model_uri='runs:/{}/{}'.format(run.id, model_path),
+                                                      workspace=ws,
+                                                      model_name='pytorch_mnist',
+                                                      image_name='pytorch-mnist-img',
+                                                      synchronous=True)
+
+```
+
+Then, deploy the Docker image to Azure Container Instance: a serverless compute capable of running a single container. You can tag and add descriptions to help keep track of your web service.
+
+You can also use Azure Kubernetes Service which provides scalable endpoint suitable for production use.
+
+Note that the service deployment can take several minutes.
+
+```python
+from azureml.core.webservice import AciWebservice, Webservice
+
+# Configures deployment and adds tags ans descriptions for tracking
+aci_config = AciWebservice.deploy_configuration(cpu_cores=2, 
+                                                memory_gb=5, 
+                                                tags={"data": "MNIST",  "method" : "pytorch"}, 
+                                                description="Predict using webservice")
+
+
+# Deploy the image to Azure Container Instances (ACI) for real-time serving
+webservice = Webservice.deploy_from_image(
+    image=azure_image, workspace=ws, name="pytorch-mnist-1", deployment_config=aci_config)
+
+
+webservice.wait_for_deployment()
+```
+
 ## Clean up resources
 
 If you don't plan to use the logged metrics and artifacts in your workspace, the ability to delete them individually is currently unavailable. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
@@ -138,10 +188,10 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 1. Enter the resource group name. Then select **Delete**.
 
+
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrates concepts in this article.
+The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrate concepts in this article.
 
 ## Next steps
 
-* [How to deploy a model](how-to-deploy-and-where.md).
