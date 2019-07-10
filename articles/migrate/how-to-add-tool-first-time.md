@@ -17,7 +17,10 @@ Azure Migrate provides a central hub to track discovery, assessment and migratio
 
 ## Create a project and add a tool
 
-Set up a new Azure Migrate project in an Azure subscription, and add a tool. In a project you can track discovered assets, and orchestrate assessment and migration.
+Set up a new Azure Migrate project in an Azure subscription, and add a tool.
+
+- An Azure Migrate project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. 
+- In a project you can track discovered assets, and orchestrate assessment and migration.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
@@ -37,11 +40,12 @@ Set up a new Azure Migrate project in an Azure subscription, and add a tool. In 
 
     You can create an Azure Migrate project in any of these geographies.
 
-    **Geography** | **Region**
+    **Geography** | **Storage location region**
     --- | ---
-    Asia | Southeast Asia
-    Europe | North Europe or West Europe
-    United States | East US or West Central US
+    Asia | Southeast Asia or East Asia
+    Europe | South Europe or West Europe
+    United Kingdom | UK South or UK West
+    United States | Central US or West US 2
 
     The geography specified for the project is only used to store the metadata gathered from on-premises VMs. You can select any target region for the actual migration.
 
@@ -55,6 +59,15 @@ Set up a new Azure Migrate project in an Azure subscription, and add a tool. In 
 3. In **Review + add tools**, review the settings and click **Add tools**.
 
 After creating the project you can select additional tools for assessment and migration of servers and workloads, databases, and web apps.
+
+## Create additional projects
+
+In some circumstances, you might need to create additional Azure Migrate projects. For example if you have datacenters in different geographies, or you need to store metadata in a different geography. Create an additional project as follows:
+
+1. In the current Azure Migrate project, click **Servers** or **Databases**.
+2. In the top right-hand corner, click **Change** next to the current project name.
+3. In **Settings**, select **Click here to create a new project**.
+4. Create a new project and add a new tool as described in the previous procedure.
 
 ## Next steps
 
