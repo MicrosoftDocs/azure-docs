@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: QnA Maker client library for .NET | Microsoft Docs"
-description:
-Get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. 
+description: Get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -99,54 +98,41 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 ### Add the dependencies
 
-From the project directory: 
-
-1. From the project directory, open the **Program.cs** file in your preferred editor or IDE. Add the following `using` directives:
-1. Add the following using directives.
+From the project directory, open the **Program.cs** file in your preferred editor or IDE. Add the following `using` directives:
 
 [!code-csharp[Using statements](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Dependencies)]
 
-### Add resource key to authenticate to service
+### Authenticate the client
 
-1. Create a variable for your resource's Azure key as an environment variable. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
+In the `main` method, create a variable for your resource's Azure key pulled from an environment variable named `QNAMAKER_SUBSCRIPTION_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
+
+In a **Run** method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [QnAMakerClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) object.
+
+If your key is not in the `westus` region, change the location for the **Endpoint** variable. This location is found on the **Overview** page for your QnA Maker resource in the Azure portal.
 
 ```csharp
 [!code-csharp[Authorization to resource key](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
 ```
 
-1. If your key is not in the `westus` region, change the location for the **Endpoint** variable. 
-
-### Authenticate the client
-
-<!-- 
-    The authentication section (and its H3) is required and must be the first code example in the section if your library requires authentication for use.
--->
-
-> [!NOTE]
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your QnA Maker key, named `TBD_KEY`.
-
-
-In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
-
-```csharp
-
-```
-
-### Example task 1
+### Create a knowledgebase
 
 Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
 
-```csharp
 
-```
 
-### Example task 2
+### Update a knowledgebase
 
 Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
 
-```csharp
 
-```
+
+### Download a knowledgebase
+
+### Publish a knowledgebase
+
+### Delete a knowledgebase
+
+### Get status of an operation
 
 ## Run the application
 
@@ -165,9 +151,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Troubleshooting
 
-<!--
-    This section is optional. If you know of areas that people commonly run into trouble, help them resolve those issues in this section
--->
 
 ## Next steps
 
