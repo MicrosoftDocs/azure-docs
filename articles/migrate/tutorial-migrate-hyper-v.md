@@ -137,7 +137,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
         ![Select assessment](./media/tutorial-migrate-hyper-v/select-assessment.png)
 
-4. In **Virtual machines**, search for VMs as needed, and check each VM you want to migrate. Thenc, lick **Next: Target settings**.
+4. In **Virtual machines**, search for VMs as needed, and check each VM you want to migrate. Then, click **Next: Target settings**.
 
     ![Select VMs](./media/tutorial-migrate-hyper-v/select-vms.png)
 
@@ -146,7 +146,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 8. **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
 9. In **Azure Hybrid Benefit**:
 
-    - Select **No** if you don't want to apply Azure Hybrid Benefit. Thenc, lick **Next**.
+    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then, click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
     ![Target settings](./media/tutorial-migrate-hyper-v/target-settings.png)
