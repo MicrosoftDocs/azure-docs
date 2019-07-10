@@ -8,7 +8,7 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 
-# Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario. I want to visualize my data for additional insights
+# Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario. I also want to visualize my data for additional insights
 ---
 
 # Visualize data using the Azure Data Explorer connector for Power BI
