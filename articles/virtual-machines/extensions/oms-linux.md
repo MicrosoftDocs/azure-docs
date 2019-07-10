@@ -4,7 +4,7 @@ description: Deploy the Log Analytics agent on Linux virtual machine using a vir
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

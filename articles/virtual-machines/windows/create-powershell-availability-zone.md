@@ -4,7 +4,7 @@ description: Create a Windows virtual machine in an availability zone with Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 
