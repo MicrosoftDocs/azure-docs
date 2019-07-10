@@ -19,8 +19,6 @@
     items:
     - name: Getting started with custom providers
       href: tutorial-custom-providers-101.md
-    - name: Modeling custom actions and resources
-      href: tutorial-custom-providers-modeling.md
     - name: Setup Azure Functions
       href: tutorial-custom-providers-function-setup.md
     - name: Authoring a RESTful endpoint
