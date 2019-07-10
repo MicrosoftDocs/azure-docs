@@ -53,7 +53,9 @@ The Project Acoustics Unreal plugin requires additional behavior be exposed from
 ### Open the Unreal Project. 
 It will ask you to rebuild modules; click Yes.
 
-If opening the project fails on build failures, check that you've installed the Project Acoustics Wwise plugin to the same version of Wwise used in the Project Acoustics sample project.
+>If opening the project fails on build failures, check that you've installed the Project Acoustics Wwise plugin to the same version of Wwise used in the Project Acoustics sample project.
+
+>If not using [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, you will need to regenerate sound banks before audio will play in the sample project.
 
 ## Experiment with Project Acoustics design controls
 Listen to how the scene sounds by clicking the play button in the Unreal editor. On desktop, use W, A, S, D, and the mouse to move around. To see keyboard shortcuts for more controls, press **F1**. Here are some design activities to try:
