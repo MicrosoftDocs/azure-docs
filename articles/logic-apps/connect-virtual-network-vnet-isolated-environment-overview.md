@@ -97,7 +97,34 @@ label run in the global Logic Apps service.
 
 An ISE also provides increased limits for run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
 
-### Access to on-premises data sources
+<a name="ise-level"></a>
+
+## ISE levels
+
+When you create your ISE, you can select either Developer or Premium. Here are the differences between these levels:
+
+* **Developer**
+
+   Provides a lower-cost ISE that you can use for experimentation, development, and testing (not performance testing). This ISE is not meant for production use and doesn't include SLA support, options to add scale units, or redundancy during recycling, which means that you might experience delays or downtime.
+
+* **Premium**
+
+  Provides an ISE that offers production-level capabilities, performance, SLA support, options to add scale units, and redundancy during recycling plus 1 Standard integration account and 1 Enterprise connector.
+
+For pricing information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+<a name="endpoint-access"></a>
+
+## ISE endpoint access
+
+When you create your ISE, you can choose to use either external or internal access endpoints. These endpoints determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. These endpoints also affect access to inputs and outputs when viewing a logic app's run history.
+
+* **External**: Public access endpoints that permit calls from outside your virtual network
+* **Internal**: Private access endpoints that permit only calls from inside your virtual network
+
+<a name="on-premises"></a>
+
+## Access to on-premises data sources
 
 For on-premises systems that are connected to an Azure virtual network, 
 inject an ISE into that network so your logic apps can directly access 

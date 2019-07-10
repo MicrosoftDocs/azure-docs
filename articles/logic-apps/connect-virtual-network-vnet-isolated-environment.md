@@ -54,8 +54,8 @@ For more information about integration service environments, see
 If you don't have a virtual network, learn how to 
 [create an Azure virtual network](../virtual-network/quick-create-portal.md). 
 
-  * Your virtual network must have four *empty* subnets for deploying and 
-  creating resources in your ISE. You can create these subnets in advance, 
+  * Your virtual network must have four *empty* subnets for creating and 
+  deploying resources in your ISE. You can create these subnets in advance, 
   or you can wait until you create your ISE where you can create subnets 
   at the same time. Learn more about [subnet requirements](#create-subnet). 
   
@@ -101,8 +101,8 @@ These tables describe the ports in your virtual network that your ISE uses and w
 | Azure Active Directory | Outbound | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
 | Azure Storage dependency | Outbound | 80 & 443 | VirtualNetwork | Storage | |
 | Intersubnet communication | Inbound & Outbound | 80 & 443 | VirtualNetwork | VirtualNetwork | For communication between subnets |
-| Communication to Azure Logic Apps | Inbound | 443 | Internet  | VirtualNetwork | The IP address for the computer or service that calls any request trigger or webhook that exists in your logic app. Closing or blocking this port prevents HTTP calls to logic apps with request triggers.  |
-| Logic app run history | Inbound | 443 | Internet  | VirtualNetwork | The IP address for the computer from which you view the logic app's run history. Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
+| Communication to Azure Logic Apps | Inbound | 443 | External access: <br>Internet <p>Internal access: <br>VirtualNetwork | VirtualNetwork | The IP address for the computer or service that calls any request trigger or webhook that exists in your logic app. Closing or blocking this port prevents HTTP calls to logic apps with request triggers.  |
+| Logic app run history | Inbound | 443 | External access: <br>Internet <p>Internal access: <br>VirtualNetwork | VirtualNetwork | The IP address for the computer from which you view the logic app's run history. Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
 | Connection management | Outbound | 443 | VirtualNetwork  | Internet | |
 | Publish Diagnostic Logs & Metrics | Outbound | 443 | VirtualNetwork  | AzureMonitor | |
 | Communication from Azure Traffic Manager | Inbound | 443 | AzureTrafficManager | VirtualNetwork | |
@@ -146,16 +146,18 @@ and then choose **Review + create**, for example:
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
-   | **Additional capacity** | Yes | 0 to 10 | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](#add-capacity). |
+   | **SKU** | **Developer** or **Premium** | Yes | The ISE level to create. For more information, see [ISE levels](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). |
+   | **Additional capacity** | Premium: <br>Yes <p>Developer: <br>Not applicable | Premium: <br>0 to 10 <p>Developer: <br>Not applicable | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](#add-capacity). |
+   | **Access** | Yes | **External** or **Internal** | The type of access endpoints to use for your ISE. These endpoints determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. The endpoint type also affects access to inputs and outputs in logic app run history. For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**External**: Provides public endpoints that permit calls from outside your virtual network and access to inputs and outputs in run history. <p>**Internal**: Permits only calls from inside your virtual network. |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. |
-   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
+   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating and deploying resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
    |||||
 
    <a name="create-subnet"></a>
 
    **Create subnet**
 
-   To create resources in your environment, your ISE needs 
+   To create and deploy resources in your environment, your ISE needs 
    four *empty* subnets that aren't delegated to any service. 
    You *can't* change these subnet addresses after you create 
    your environment. Each subnet must meet these criteria:
