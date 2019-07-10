@@ -16,6 +16,7 @@ You can migrate VMware VMs to Azure using the Azure Migrate Server Migration too
 - Migration using agentless replication. Migrate VMs without needing to install anything on them.
 - Migration with an agent for replication. Install an agent on the VM for replication.
 
+
 Although agentless replication is easier from a deployment perspective, it currently has a number of limitations.
 
 ## Agentless migration limitations
@@ -51,10 +52,10 @@ After reviewing the limitations, understanding the steps involved in deploying e
 **2. Add the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
 **3. Deploy the Azure Migrate appliance** | Set up a lightweight appliance on a VMware VM for VM discovery and assessment. | Required | Not required.
 **4. Install the Mobility service on VMs** | Install the Mobility service on each VM you want to replicate | Not required | Required
-**5. Deploy the Azure Migrate Server Migration replication appliance**. Set up an appliance on a VMware VM to discover VMs, and bridge between the Mobility service running on VMs and Azure Migrate Server Migration | Not required | Required
-**6. Replicate VMs**. Enable VM replication. | Required | Required
-**7. Run a test migration**.| Run a test migration to make sure everything's working as expected. | Required | Required
-**7. Run a full migration**. Migrate the VMs. | Required | Required
+**5. Deploy the Azure Migrate Server Migration replication appliance** | Set up an appliance on a VMware VM to discover VMs, and bridge between the Mobility service running on VMs and Azure Migrate Server Migration | Not required | Required
+**6. Replicate VMs**. Enable VM replication. | Configure replication settings and select VMs to replicate | Required | Required
+**7. Run a test migration** | Run a test migration to make sure everything's working as expected. | Required | Required
+**7. Run a full migration** | Migrate the VMs. | Required | Required
 
 
 
