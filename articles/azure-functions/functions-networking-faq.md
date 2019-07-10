@@ -7,7 +7,8 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
-ms.author: alkarche, glenga
+ms.author: alkarche
+ms.reviewer: glenga
 
 ---
 # Frequently asked questions about networking in Azure Functions

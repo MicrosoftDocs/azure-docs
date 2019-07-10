@@ -1401,6 +1401,11 @@
       "redirect_document_id": false
     },
     {
+    "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-none.md",
+    "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-container-create-index-none",
+    "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-conflict-policy.md",
       "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
       "redirect_document_id": false
@@ -2826,6 +2831,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/key-vault/key-vault-versions.md",
+      "redirect_url": "/azure/key-vault",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
       "redirect_document_id": true
@@ -3397,7 +3407,7 @@
     },
     {
       "source_path": "articles/dotnet-sdk.md",
-      "redirect_url": "https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet",
+      "redirect_url": "https://docs.microsoft.com/azure/dotnet",
       "redirect_document_id": false
     },
     {
@@ -10497,7 +10507,7 @@
     },
     {
       "source_path": "articles/dotnet/index.md",
-      "redirect_url": "/dotnet/azure/",
+      "redirect_url": "https://docs.microsoft.com/azure/dotnet/",
       "redirect_document_id": false
     },
     {
@@ -22052,6 +22062,21 @@
     {
       "source_path": "articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md",
       "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alerts-extend.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-unified-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alerts-extend-tool.md",
+      "redirect_url": "/azure/azure-monitor/platform/alerts-unified-log",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/migrate-management-alerts.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log-alerts",
       "redirect_document_id": false
     },
     {
@@ -35290,8 +35315,8 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md",
-      "redirect_url": "/azure/azure-monitor/platform/alerts-activity-log-service-notifications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-alerts-classic.md",
@@ -35720,7 +35745,17 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-service-notifications.md",
-      "redirect_url": "/azure/azure-monitor/platform/service-notifications",
+      "redirect_url": "/azure/service-health/service-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/service-notifications.md",
+      "redirect_url": "/azure/service-health/service-notifications",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alerts-activity-log-service-notifications.md",
+      "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications",
       "redirect_document_id": true
     },
     {
@@ -37739,6 +37774,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Content-Moderator/content-moderator-helper-quickstart-dotnet.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription",
       "redirect_document_id": false
@@ -39654,6 +39694,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/howto-version-devicetemplate.md",
+      "redirect_url": "/azure/iot-central/howto-version-device-template",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
       "redirect_document_id": false
@@ -39831,6 +39876,11 @@
     {
       "source_path": "articles/azure-monitor/app/asp-net-core-no-visualstudio.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net-core",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/azure-monitor/app/proactive-low-utilization-cloud-resources.md",
+      "redirect_url": "/azure/azure-monitor/app/proactive-diagnostics",
       "redirect_document_id": false
     },
     {
@@ -40033,14 +40083,32 @@
       "redirect_url": "/azure/backup/backup-create-rs-vault",
       "redirect_document_id": true
     },
-    {
+    {	    
       "source_path": "articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instance.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/insights/container-overview.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
+      "redirect_document_id": false
+    },
+
+    {
       "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
+      "redirect_url": "/azure/articles/data-explorer/manage-cluster-vertical-scaling",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
+      "redirect_url": "/azure/articles/data-explorer/manage-cluster-horizontal-scaling",
       "redirect_document_id": false
     }
   ]

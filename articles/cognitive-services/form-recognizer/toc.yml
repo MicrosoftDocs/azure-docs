@@ -7,7 +7,7 @@
 - name: Quickstarts
   expaned: true
   items:
-  - name: Train model and extract data  
+  - name: Train custom model and extract data  
     items:
     - name: Using the REST API
       items:
@@ -15,6 +15,14 @@
         href: quickstarts/curl-train-extract.md
       - name: Python
         href: quickstarts/python-train-extract.md
+  - name: Use prebuilt receipts model
+    items:
+    - name: Using the REST API
+      items:
+      - name: cURL
+        href: quickstarts/curl-receipts.md
+      - name: Python
+        href: quickstarts/python-receipts.md
 - name: How-to guides
   items:
   - name: Build a training data set
@@ -27,6 +35,8 @@
     - name: Configure containers
       href: form-recognizer-container-configuration.md    
       displayName: docker, container, run, billing, apikey, logging
+    - name: Use container instances
+      href: deploy-form-recognizer-on-container-instances.md
 - name: Reference
   items:
   - name: Form Recognizer API

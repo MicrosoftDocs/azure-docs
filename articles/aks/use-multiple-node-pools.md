@@ -2,12 +2,12 @@
 title: Use multiple node pools in Azure Kubernetes Service (AKS)
 description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Preview - Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
@@ -74,12 +74,12 @@ The following limitations apply when you create and manage AKS clusters that sup
 * You can't delete the first node pool.
 * The HTTP application routing add-on can't be used.
 * You can't add/update/delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
-* The cluster autoscaler (currently in preview in AKS) can't be used.
 
 While this feature is in preview, the following additional limitations apply:
 
 * The AKS cluster can have a maximum of eight node pools.
 * The AKS cluster can have a maximum of 400 nodes across those eight node pools.
+* All node pools must reside in the same subnet
 
 ## Create an AKS cluster
 
