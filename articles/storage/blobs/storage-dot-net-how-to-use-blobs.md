@@ -226,23 +226,49 @@ public void DeleteDirectory(CloudBlobClient cloudBlobClient,
 
 ## Get the access permissions of a directory
 
-Get the access permissions of a directory by calling the [BlockBlobService.get_path_access_control](https://www.microsoft.com) method. Pass these items as parameters to the method:
+Get the access permissions of a directory by calling the [cloudBlobDirectory.FetchAccessControlsAsync](https://www.microsoft.com) method. 
 
-* The name of the container.
+This populates the [CloudBlobDirectory.PathProperties](https://www.microsoft.com) property with the access control list (ACL) of the directory. 
 
-* The path of the directory.
+You can use the [CloudBlobDirectory.PathProperties.ACL](https://www.microsoft.com) property to get the short form of ACL. 
 
-The following example returns a [PathProperties](https://www.microsoft.com) instance that contains the access control list (ACL) of the directory.
+You can also use the `Execute`, `Read`, and `Write` properties of the [CloudBlobDirectory.PathProperties.ACL.Permissions.Group](https://www.microsoft.com), [CloudBlobDirectory.PathProperties.ACL.Permissions.Other](https://www.microsoft.com), and [CloudBlobDirectory.PathProperties.ACL.Permissions.Owner](https://www.microsoft.com) properties to determine various permissions levels.
 
 This example gets the ACL of the `my-directory` directory and then prints the short form of ACL to the console.
 
-```python
-public virtual void FetchAccessControls(BlobRequestOption options = null, AccessCondition accessCondition = null, OperationContext operationContext = null, bool? upn = null)
+```cs
+public async Task GetDirectoryACLs(CloudBlobClient cloudBlobClient,
+    string containerName)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    if (cloudBlobContainer != null)
+    {
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.GetDirectoryReference("my-directory-2");
+
+        if (cloudBlobDirectory != null)
+        {
+            await cloudBlobDirectory.FetchAccessControlsAsync();
+
+            string ACLs = "";
+
+            foreach (PathAccessControlEntry entry in cloudBlobDirectory.PathProperties.ACL)
+            {
+                ACLs = ACLs + entry.ToString() + " ";
+            }
+
+            Console.WriteLine(ACLs);
+        }
+    }
+
+}
 ```
 
 The short form of an ACL might look something like the following:
 
-`user::rwx,group::r-x,other::---`
+`user::rwx group::r-x other::--`
 
 This string means that the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -252,21 +278,54 @@ This string means that the owning user has read, write, and execute permissions.
 > * [CloudBlobClient.GetContainerReference](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet) method.
 > * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
 > * [CloudBlobDirectory.FetchAccessControls](https://www.microsoft.com) method.
+> * [cloudBlobDirectory.PathProperties.ACL](https://www.microsoft.com) property.
 
 ## Set the access permissions of a directory
 
-Set the access permissions of a directory by calling the [BlockBlobService.set_directory_permissions](https://www.microsoft.com) method. Pass these items as parameters to the method:
-
-* The name of the container.
-
-* The path of the directory.
-
-* The short form of the desired ACL.
+Set the `Execute`, `Read`, and `Write` property for the owning user, owning group, or other users. Then, call the [CloudBlobDirectory.SetAcl](https://www.microsoft.com) method to commit the setting. 
 
 This example gives read access to all users.
 
-```python
-    public virtual void SetAcl(BlobRequestOptions options = null, AccessCondition accessCondition = null, OperationContext operationContext = null)
+```cs
+public async Task SetDirectoryACLs(CloudBlobClient cloudBlobClient,
+    string containerName)
+{
+    CloudBlobContainer cloudBlobContainer =
+        cloudBlobClient.GetContainerReference(containerName);
+
+    if (cloudBlobContainer != null)
+    {
+        CloudBlobDirectory cloudBlobDirectory =
+            cloudBlobContainer.GetDirectoryReference("my-directory");
+
+        if (cloudBlobDirectory != null)
+        {
+            await cloudBlobDirectory.FetchAccessControlsAsync();
+
+            foreach (PathAccessControlEntry entry in cloudBlobDirectory.PathProperties.ACL)
+            {
+                switch (entry.AccessControlType)
+                {
+                    case AccessControlType.Other:
+                        entry.Permissions.Read = true;
+                        break;
+
+                    case AccessControlType.Group:
+                        // set permissions for the owning group.
+                        break;
+
+                    case AccessControlType.User:
+                        // set permissions for the owning user.
+                        break;
+                }
+  
+            }
+
+            cloudBlobDirectory.SetAcl();
+        }
+    }
+
+}
 ```
 
 For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
