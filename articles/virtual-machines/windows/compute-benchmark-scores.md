@@ -4,7 +4,7 @@ description: Compare SPECint compute benchmark scores for Azure VMs running Wind
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 

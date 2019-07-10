@@ -4,7 +4,7 @@ description: Use Azure PowerShell to determine the publisher, offer, SKU, and ve
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
