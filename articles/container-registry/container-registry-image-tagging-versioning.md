@@ -6,7 +6,7 @@ author: stevelasker
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 07/10/2019
 ms.author: steve.lasker
 ---
 
@@ -19,7 +19,7 @@ When pushing deploying container images to a container registry and then deployi
 
 ## Stable tags
 
-**Recommendation**: Use stable tags to maintain base images for your container builds. Avoid deployments with stable tags, because those tags continue to receive updates and can introduce inconsistencies in production environments.
+**Recommendation**: Use stable tags to maintain **base images** for your container builds. Avoid deployments with stable tags, because those tags continue to receive updates and can introduce inconsistencies in production environments.
 
 *Stable tags* mean a developer, or a build system, can continue to pull a specific tag, which continues to get updates. Stable doesn’t mean the contents are frozen. Rather, stable implies the image should be stable for the intent of that version. To stay “stable”, it might be serviced to apply security patches or framework updates.
 
@@ -38,7 +38,7 @@ In this case, both the major and minor tags are continually being serviced. From
 
 ## Unique tags
 
-**Recommendation**: Use unique tags for deployments, especially in an environment that could scale on multiple nodes. You likely want deliberate deployments of a consistent version of components. If your container restarts or an orchestrator scales out more instances, your hosts won’t accidentally pull a newer version, inconsistent with the other nodes.
+**Recommendation**: Use unique tags for **deployments**, especially in an environment that could scale on multiple nodes. You likely want deliberate deployments of a consistent version of components. If your container restarts or an orchestrator scales out more instances, your hosts won’t accidentally pull a newer version, inconsistent with the other nodes.
 
 Unique tagging simply means that every image pushed to a registry has a unique tag. Tags are not reused. There are several patterns you can follow to generate unique tags, including:
 
