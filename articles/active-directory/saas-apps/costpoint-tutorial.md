@@ -75,15 +75,15 @@ To configure the integration of Costpoint into Azure AD, you need to add Costpoi
 
 ## Configure and test Azure AD single sign-on
 
-Configure and test Azure AD SSO with Costpoint using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Costpoint.
+Configure and test Azure AD SSO with Costpoint using a test user named **Britta Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Costpoint.
 
 To configure and test Azure AD SSO with Costpoint, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 1. **[Configure Costpoint](#configure-costpoint)** to configure the SAML SSO settings on application side.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
-1. **[Create Costpoint test user](#create-costpoint-test-user)** to have a counterpart of B.Simon in Costpoint that is linked to the Azure AD representation of user.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
+1. **[Create Costpoint test user](#create-costpoint-test-user)** to have a counterpart of Britta Simon in Costpoint that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 
@@ -131,20 +131,32 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+
+    ![The "Users and groups" and "All users" links](common/users.png)
+
 1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+
+    ![New user Button](common/new-user.png)
+
+1. In the User properties, perform the following steps.
+
+    ![The User dialog box](common/user-properties.png)
+
+    1. In the **Name** field enter **BrittaSimon**.
+  
+    1. In the **User name** field type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
+
+    1. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+
+    1. Click **Create**.
 
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Costpoint.
+In this section, you'll enable Britta Simon to use Azure single sign-on by granting access to Costpoint.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Costpoint**.
@@ -156,13 +168,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. In the **Users and groups** dialog, select **Britta Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Costpoint test user
 
-In this section, you create a user called B.Simon in Costpoint. Work with [Costpoint Client support team](https://www.deltek.com/about/contact-us) to add the users in the Costpoint platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user in Costpoint. Lets say user id is BSIMON and name Britta Simon. Work with [Costpoint Client support team](https://www.deltek.com/about/contact-us) to add the users in the Costpoint platform. Users must be created and activated before you use single sign-on. Once created, user's Authentication selection must list **Single Sign-on or Active Directory** as **Authentication method**, checked **SAML Single Sign-on** option and user name from Azure as **Active Directory or Certificate ID**.
+
+	![Costpoint User](./media/costpoint-tutorial/costpoint-user.png)
+
 
 ### Test SSO
 
