@@ -76,3 +76,8 @@ Workspot is a Windows Virtual Desktop value-added services provider that equips 
 Workspot extends the value of Windows Virtual Desktop by simplifying the provisioning process of cloud desktop infrastructure. With Workspot, resources can be easily scaled up and down to meet the needs of different users and uses cases. Workspot can optimize deployments for high-performance GPU workstations necessary for CAD and engineering users, as well as Windows applications and Windows 10 desktops for all business users.
 
 [Go to partner website.](https://www.workspot.com/wvd)
+
+##Next steps
+
+- [Learn more about Windows Virtual Desktop](overview.md)
+- [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
