@@ -10,7 +10,7 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/08/2019
+ms.date: 07/10/2019
 ms.author: kumud
 ---
 
@@ -45,24 +45,25 @@ IPv6 for VNet includes the following capabilities:
 - Dual stack (IPv4 and IPv6) virtual networks with dual stack subnets enable applications to connect with both IPv4 and IPv6 resources in their virtual network or - the Internet.
 - Protect your resources with IPv6 rules for Network Security Groups
 - Customize the routing of IPv6 traffic in your virtual network with User-Defined Routes- especially when leveraging Network Virtual Appliances to augment your application.
-- Both Basic and Standard IPv6 external support to create resilient, scalable applications that includes Azure DNS support for AAAA records for IPv6 public IPs. Standard IPv6 external Load Balancer includes:
-    - Optional IPv6 health probe to determine which backend pool instances are health and thus can receive new flows.  
+- Let Internet clients seamlessly access your dual stack application using their protocol of choice with Azure DNS support for IPv6 (AAAA) records. 
+- Standard IPv6 support to create resilient, scalable applications that includes Azure DNS support for AAAA records for IPv6 public IPs. Standard IPv6 external Load Balancer includes:
+    - Optional IPv6 health probe to determine which backend pool instances are health and thus can receive new flows.   .  
     - Optional outbound rules which provide full declarative control over outbound connectivity to scale and tune this ability to your specific needs.
     - Optional multiple front-end configurations which enable a single load balancer to use multiple IPv6 public IP addresses- the same frontend protocol and port can be reused across frontend addresses.
-- Provide IPv6 internet connectivity to individual VMs by associating an IPv6 public IP with a network adapter (NIC).  
+- Instance-level public IP provides IPv6 Internet connectivity directly to individual VMs.
 - Easily add IPv6 connectivity to existing IPv4-only deployments with upgrade-in-place.
 - Create dual stack applications that automatically scale to your load with virtual machine scale sets.
-- Portal support for the preview includes interactive create/edit/delete of dual stack (IPv4+IPv6) virtual networks and subnets, IPv6 network security group rules, IPv6 user defined routes, and IPv6 public IPs.  
+- Portal support for the preview includes interactive create/edit/delete of dual stack (IPv4+IPv6) virtual networks and subnets, IPv6 network security group rules, IPv6 User defined routes, and IPv6 public IPs.  
 
 ## Limitations
 The preview release of IPv6 for Azure virtual network has the following limitations:
 - IPv6 for Azure virtual network (Preview) is available in all global Azure regions, but only in Global Azure- not the government clouds.
-- Portal support for Standard Load Balancer components is view-only.  However, full support and documentation (with samples) is available for Standard Load Balancer deployments using Azure Powershell and Command Line Interface (CLI).   
+- Portal support for Standard Load Balancer components is view-only.  However full support and documentation (with samples) is available for Standard Load Balancer deployments using Azure Powershell and Command Line Interface (CLI).   
 - Network Watcher support for the preview is limited to NSG flow logs and network packet captures.
 - Virtual network peering (regionally or globally) is not supported in preview.
 - When using Standard IPv6 External Load Balancer, the following limits apply: 
-  - Outbound rules can reference multiple front-end public IPs but may not reference an IPv6 public prefix. IP public prefix supports only IPv4 prefixes.
-  - IPv6 load-balancing rules may noy use the *Floating IP* feature. Port reuse on backend instances is supported only with IPv4.
+  - Outbound rules can reference multiple front-end public IPs but may **not** reference an IPv6 public prefix. IP public prefix supports only IPv4 prefixes.
+  - IPv6 load-balancing rules may **not** use the *Floating IP* feature. Port reuse on backend instances is supported only with IPv4.
 
 
 ## Pricing
