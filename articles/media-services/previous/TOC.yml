@@ -254,7 +254,7 @@
     - name: Handle long-running operations
       href: media-services-dotnet-long-operations.md
     - name: Fragmented MP4 live ingest specification
-      href: media-services-fmp4-live-ingest-overview.md
+      href: ../media-services-fmp4-live-ingest-overview.md
     - name: Getting started
       href: media-services-azure-media-clipper-getting-started.md
     - name: Load videos
