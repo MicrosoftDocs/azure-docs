@@ -645,8 +645,6 @@
       items:
         - name: PowerShell
           href: ../blobs/data-lake-storage-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Azure CLI
-          href: ../blobs/data-lake-storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Storage Explorer
           href: ../blobs/data-lake-storage-explorer.md
     - name: Migrate data

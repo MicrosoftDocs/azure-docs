@@ -12,6 +12,8 @@ ms.author: normesta
 # Put title here
 Put content here.
 
+Make sure that you've set up your account already - link to setup topic for Powershell.
+
 ## Next steps
 
 Put next steps here.
