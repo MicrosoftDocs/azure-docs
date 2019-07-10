@@ -29,11 +29,13 @@ The overloads for these methods provide additional options for managing how cont
 
 By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `maxresults` parameter when calling one of the **ListContainerSegmented** methods.
 
-If your storage account contains more than 5000 containers, or if you have specified a value for `maxresults` such that the listing operation returns a subset of containers in the storage account, then Azure Storage returns a continuation token with the list of containers. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage. When the continuation token is null, then the set of results is complete. Your code should check the value of the continuation token and then call **ListContainersSegmented** or **ListContainersSegmentedAsync** again, passing in the continuation token to retrieve the next set of results.
+If your storage account contains more than 5000 containers, or if you have specified a value for `maxresults` such that the listing operation returns a subset of containers in the storage account, then Azure Storage returns a *continuation token* with the list of containers. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
+
+In your code, check the value of the continuation token to determine whether it is null. When the continuation token is null, then the set of results is complete. If the continuation token is not null, then call **ListContainersSegmented** or **ListContainersSegmentedAsync** again, passing in the continuation token to retrieve the next set of results, until the continuation token is null.
 
 ### Filter results with a prefix
 
-To filter the list of containers, specify a string for the `prefix` parameter. The prefix string can include one or more characters. Azure Storage returns the containers whose names start with that prefix.
+To filter the list of containers, specify a string for the `prefix` parameter. The prefix string can include one or more characters. Azure Storage then returns only the containers whose names start with that prefix.
 
 ### Return container metadata
 
@@ -56,9 +58,9 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
         do
         {
             // List containers beginning with the specified prefix, returning segments of 5 results each.
-            // Note that passing in null for the maxResults parameter returns the maximum number of results (up to 5000).
-            // Requesting the container's metadata as part of the listing operation populates the metadata,
-            // so it's not necessary to call FetchAttributes() to read the metadata.
+            // Passing null for the maxResults parameter returns the maximum number of results (up to 5000).
+            // Requesting the container's metadata with the listing operation populates the metadata,
+            // so it's not necessary to also call FetchAttributes() to read the metadata.
             resultSegment = await blobClient.ListContainersSegmentedAsync(
                 prefix, ContainerListingDetails.Metadata, 5, continuationToken, null, null);
 
