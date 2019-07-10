@@ -30,7 +30,7 @@ This topic discusses supported [Media Services Metrics](#media-services-metrics)
 
 Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic. For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Media Services supports the following metrics:
+Media Services supports monitoring metrics for the following resources:
 
 * Account
 * Streaming Endpoint
