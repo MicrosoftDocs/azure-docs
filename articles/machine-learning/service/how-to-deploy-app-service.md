@@ -27,9 +27,11 @@ With Azure Machine Learning service, you can create Docker images from trained m
 * __Scale out__ to multiple instances without having to redeploy.
 * __Two factor authentication__ for enhanced security.
 
+For more information on features provided by Azure App Service, see the [App Service overview](/azure/app-service/overview).
+
 ## Prerequisites
 
-* An Azure Machine Learning service workgroup. For more information, see the [Create a workspace](setup-create-workspace.md) article.
+* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](setup-create-workspace.md) article.
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
 * A Docker image created from the model. If you do not have an image, use the [Image classification: deploy model](tutorial-deploy-models-with-aml.md) to create one.
 
@@ -81,4 +83,4 @@ print(response.json())
 
 ## Next steps
 
-* For more information on configuring your Web App, see the [App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/) documentation.
+* For more information on configuring your Web App, see the [App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/) documentation.
