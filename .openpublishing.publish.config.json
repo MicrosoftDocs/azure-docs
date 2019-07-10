@@ -383,10 +383,6 @@
     "hd-insight-pdf": [
       "Publish",
       "PDF"
-    ],
-    "release-preview-sptoolkit": [
-      "Publish",
-      "PDF"
     ]
   },
   "need_generate_pdf_url_template": true,
