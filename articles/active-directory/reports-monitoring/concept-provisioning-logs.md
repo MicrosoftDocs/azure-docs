@@ -42,8 +42,9 @@ This topic gives you an overview of the provisioning report.
 * Global Administrators
 
 
-### What Azure AD license do you need to access sign-in activity?
-* Your tenant must have an Azure AD Premium license associated with it to see the all up sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. 
+### What Azure AD license do you need to access provisioning activities?
+
+Your tenant must have an Azure AD Premium license associated with it to see the all up provisioning activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. 
 
 ## Provisioning logs
 
@@ -53,15 +54,16 @@ The provisioning logs provide answers to the following questions:
 * How roles were imported from Amazon Web Services?
 * What users were unsuccessfully created in DropBox?
 
-You can access the provisioning logs by selecting **Provisioning Logs** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Note that it may take upto two hours for some sign-in records to show up in the portal.
+You can access the provisioning logs by selecting **Provisioning Logs** in the **Activity** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Note that it may take up to two hours for some provisioning records to show up in the portal.
 
 ![Sign-in activity](./media/concept-sign-ins/61.png "Sign-in activity")
 
 > [!IMPORTANT]
 Lore Ipsum
 
-A sign-ins log has a default list view that shows:
+A provisioning log has a default list view that shows:
 
+- This list needs to be updated
 - The sign-in date
 - The related user
 - The application the user has signed-in to
@@ -84,9 +86,9 @@ Select an item in the list view to get more detailed information.
 ![Sign-in activity](./media/concept-sign-ins/03.png "Sign-in activity")
 
 
-## Filter sign-in activities
+## Filter provisioning activities
 
-To narrow down the reported data to a level that works for you, you can filter the sign-ins data using the following default fields. Note that the values in the filters are dynamically populated based on your tenant. If, for example, you don't have any create events in your tenant, there won't be a filter option for create.
+To narrow down the reported data to a level that works for you, you can filter the provisioning data using the following default fields. Note that the values in the filters are dynamically populated based on your tenant. If, for example, you don't have any create events in your tenant, there won't be a filter option for create.
 
 - Action
 - Application
@@ -135,17 +137,21 @@ The **Steps** tab outlines the fours steps taken to provision a user. Note that 
 
 The 4 steps are import user, determine if user is in scope, match user between source and target, provision user (take action - this could be a create, update, delete, or disable)
 
-The **troubleshoot and recomendations** tab provides the error code and reason. This is only present if there is a failure. 
+The **troubleshoot and recomendations** tab provides the error code and reason. This is only available if there is a failure. 
 
 The **modified properties** shows the old value and new value. In cases where there is no old value the old value column will be blank. 
 
 The **summary** tab provides an overview of what happened and identifiers for the object in the source and target system. 
 
 ## What you should know
-- data stored for 30 days
-- Change ID - unique ID that can be used to identify the event and contact support
--Download  - Not yet supported but coming soon
--Log Analytics - Nt yet supported but coming soon
+
+- The Azure portal stores reported provisioning data for 30 days.
+
+- You can use the Change ID attribute as unique identifier. This is, for example, helpful when interacting with product support.
+
+- There is currently no option to download provisioning data.
+
+- There is currently no support for log analytics.
 
 
 ## Next steps
