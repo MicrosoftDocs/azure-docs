@@ -138,8 +138,16 @@
         href: quickstart-python-text-to-speech.md
         displayName: synthesize speech, speech synthesis, text-to-speech, tts, rest
   - name: Speech Devices SDK
-    href: speech-devices-sdk-android-quickstart.md
-    displayName: roobo, speech devices sdk
+    items:
+    - name: 'Android'
+      href: speech-devices-sdk-android-quickstart.md
+      displayName: roobo, speech devices sdk
+    - name: 'Linux'
+      href: speech-devices-sdk-linux-quickstart.md
+      displayName: Azure Kinect DK, speech devices sdk
+    - name: 'Windows'
+      href: speech-devices-sdk-windows-quickstart.md
+      displayName: Azure Kinect DK, speech devices sdk
 - name: Tutorials
   items:
   - name: Recognize speech intents with LUIS, C#

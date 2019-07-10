@@ -28,6 +28,22 @@ You can also use the Speech Devices SDK to build ambient devices that have your 
 
 The Speech Devices SDK facilitates a variety of voice-enabled scenarios, such as [Custom Voice-First Virtual Assistants](https://aka.ms/bots/speech/va), drive-thru ordering systems, [conversation transcription](conversation-transcription-service.md), and smart speakers. You can respond to users with text, speak back to them in a default or [custom voice](how-to-customize-voice-font.md), provide search results, [translate](speech-translation.md) to other languages, and more. We look forward to seeing what you build!
 
+## Get the Speech Devices SDK
+
+### Android
+
+For Android devices download the latest version of the [Android Speech Devices SDK](https://aka.ms/sdsdk-download-android).
+
+### Windows
+
+For Windows the sample application is provided as a cross-platform Java application. Download the latest version of the [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
+The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Windows. It runs on a 64-bit Java 8 runtime environment (JRE).
+
+### Linux
+
+For Linux the sample application is provided as a cross-platform Java application. Download the latest version of the [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
+The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). It runs on a 64-bit Java 8 runtime environment (JRE).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

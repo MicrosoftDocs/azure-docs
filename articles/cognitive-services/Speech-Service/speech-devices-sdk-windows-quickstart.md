@@ -21,7 +21,7 @@ The application is built with the Speech SDK package, and the Eclipse Java IDE (
 
 This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech Services resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
-The source code for the sample application is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
+The source code for the [sample application](https://aka.ms/sdsdk-download-JRE) is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ This quickstart requires:
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) only.
 * [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
-* Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download) for Java, and extract the .zip to your working directory.
+* Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE) for Java, and extract the .zip to your working directory.
    > [!NOTE]
    > The JRE-Sample-Release.zip file includes the JRE sample app and this quickstart assumes that the app is extracted to C:\SDSDK\JRE-Sample-Release
 
