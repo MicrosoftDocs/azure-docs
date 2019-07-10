@@ -6,16 +6,16 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 7/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
 
 # List blob containers with .NET
 
-When you list the containers in an Azure Storage account, you can specify a number of options to manage how results are returned from Blob storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).  
+When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. This article shows how to list containers using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).  
 
-## About container listing options
+## Understand container listing options
 
 To list containers in your storage account, call one of the following methods:
 
@@ -23,13 +23,13 @@ To list containers in your storage account, call one of the following methods:
 > - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
 > - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
 
-The overloads for these methods provide additional options for controlling how containers are returned by the listing operation. These options are described in the following sections.
+The overloads for these methods provide additional options for managing how containers are returned by the listing operation. These options are described in the following sections.
 
 ### Manage how many results are returned
 
-By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `maxresults` parameter.
+By default, a listing operation returns up to 5000 results at a time. To return a smaller set of results, provide a nonzero value for the `maxresults` parameter when calling one of the **ListContainerSegmented** methods.
 
-If your storage account contains more than 5000 containers, or if you have specified a value for `maxresults` such that the listing operation returns a subset of containers in the storage account, then Azure Storage returns a continuation token with the list of containers. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage. When the continuation token is null, then the set of results is complete.
+If your storage account contains more than 5000 containers, or if you have specified a value for `maxresults` such that the listing operation returns a subset of containers in the storage account, then Azure Storage returns a continuation token with the list of containers. A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage. When the continuation token is null, then the set of results is complete. Your code should check the value of the continuation token and then call **ListContainersSegmented** or **ListContainersSegmentedAsync** again, passing in the continuation token to retrieve the next set of results.
 
 ### Filter results with a prefix
 
@@ -37,11 +37,11 @@ To filter the list of containers, specify a string for the `prefix` parameter. T
 
 ### Return container metadata
 
-To return container metadata with the results, specify **Metadata** for the [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enumeration. Azure Storage includes metadata with each container returned, so you do not need to also call one of the **FetchAttributes** methods to retrieve the container metadata.
+To return container metadata with the results, specify the **Metadata** value for the [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enumeration. Azure Storage includes metadata with each container returned, so you do not need to also call one of the **FetchAttributes** methods to retrieve the container metadata.
 
-## List containers example
+## Example: List containers
 
-The following example lists the containers in a storage account that begin with a specified prefix. The example lists containers in increments of five results at a time, and uses the continuation token to get the next segment of results. The example also specifies that the listing operation should return container metadata with the results.
+The following example lists the containers in a storage account that begin with a specified prefix. The example lists containers in increments of 5 results at a time, and uses the continuation token to get the next segment of results. The example also specifies that the listing operation should return container metadata with the results.
 
 ```csharp
 private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
