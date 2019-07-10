@@ -57,7 +57,7 @@ In this section, you create Azure resources:
     az group create --name MyResourceGroup --location westus2
     ```
 
-2. Create an AKS cluster. Create the AKS cluster in a [region that supports Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+2. Create an AKS cluster. Create the AKS cluster in a [region that supports Dev Spaces](/dev-spaces/about#supported-regions-and-configurations).
 
     ```bash
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2

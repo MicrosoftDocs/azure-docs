@@ -64,7 +64,7 @@ An Azure AD Domain Services instance also creates the following additional netwo
 >
 
 ## User-defined routes
-Avoid making any changes to the route table, especially the 0.0.0.0 route, which can disrupt Azure AD Domain Services. A properly configured [network security group]() provides access control to inbound traffic.
+Avoid making any changes to the route table, especially the 0.0.0.0 route, which can disrupt Azure AD Domain Services. A properly configured [network security group](../virtual-network/security-overview.md) provides access control to inbound traffic.
 
 If you are required to use route tables, you must route inbound traffic from the IP addresses included in the respective Azure service tags to the Azure AD Domain Services subnet. You can download the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) a list of service tags and their associated IP address from the Microsoft Download Center. IP addresses can change without notice. Ensure you have processes to validate you have the latest IP addresses.
 

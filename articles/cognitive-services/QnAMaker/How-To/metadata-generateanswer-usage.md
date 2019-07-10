@@ -91,7 +91,7 @@ An example JSON body looks like:
 
 ## GenerateAnswer response properties
 
-The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful_query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
+The [response](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) is a JSON object including all the information you need to display the answer and the next turn in the conversation, if available.
 
 ```json
 {
