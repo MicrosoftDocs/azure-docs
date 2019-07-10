@@ -14,9 +14,9 @@ ms.date: 07/10/2019
 
 # Query data in Azure Monitor using Azure Data Explorer (Preview)
 
-The Azure Data Explorer proxy cluster (ADX Proxy) is an entity that enables you to perform cross product queries between Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs) in the [Azure Monitor](/azure/azure-monitor/) service. You can map Azure Monitor Log Analytics workspaces or Application Insights apps as a proxy cluster. You can then query the proxy cluster using Azure Data Explorer tools and refer to it in a cross cluster query. The article depicts how to connect to a proxy cluster, add a proxy cluster to Azure Data Explorer Web UI, and run queries against your AI apps or LA workspaces from Azure Data Explorer.
+The Azure Data Explorer proxy cluster (ADX Proxy) is an entity that enables you to perform cross product queries between Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs) in the [Azure Monitor](/azure/azure-monitor/) service. You can map Azure Monitor Log Analytics workspaces or Application Insights apps as a proxy cluster. You can then query the proxy cluster using Azure Data Explorer tools and refer to it in a cross cluster query. The article shows how to connect to a proxy cluster, add a proxy cluster to Azure Data Explorer Web UI, and run queries against your AI apps or LA workspaces from Azure Data Explorer.
 
-The Azure Data Explorer proxy flow is depicted below: 
+The Azure Data Explorer proxy flow: 
 
 ![ADX proxy flow](media/adx-proxy/adx-proxy-flow.png)
 
@@ -117,7 +117,7 @@ The following syntax options are available when calling the Application Insights
 
 ### Application Insights app and Log Analytics workspace names
 
-* If names contain special characters, they are replaced by URL encoding in the proxy cluster name. 
+* If names contain special characters, they're replaced by URL encoding in the proxy cluster name. 
 * If names include characters that don't meet [KQL identifier name rules](/azure/kusto/query/schema-entities/entity-names), the are replaced by the dash **-** character.
 
 ## Next steps
