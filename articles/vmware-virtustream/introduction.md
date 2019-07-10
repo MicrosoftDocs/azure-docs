@@ -38,7 +38,7 @@ For more information on networking and interconnectivity, see the Networking Con
 
 ## Access and security
 
-For enhanced security, AVS by Virtustream private clouds use vSphere role-based access control. vSphere SSO LDAP capabilities can be integrated with Azure Active Directory. For more information on identity and privileges, see the Access and Identity Concepts article <!-- [Access and identity options for AVS by Virtustream][identity-concepts-identity] -->.
+For enhanced security, AVS by Virtustream private clouds use vSphere role-based access control. vSphere SSO LDAP capabilities can be integrated with Azure Active Directory. For more information on identity and privileges, see the Access and Identity Concepts article<!-- [Access and identity options for AVS by Virtustream][identity-concepts-identity] -->.
 
 vSAN data-at-rest encryption is enabled by default and is used to provide vSAN datastore security. It's described in more detail in the Storage Concepts article<!-- [Storage Concepts][storage-concepts-storage] -->.
 
