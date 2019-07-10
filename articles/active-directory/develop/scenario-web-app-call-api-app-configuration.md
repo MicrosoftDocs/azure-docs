@@ -41,7 +41,7 @@ The libraries supporting the authorization code flow for Web Apps are:
 
 In ASP.NET Core, things happen in the `Startup.cs` file. You'll want to subscribe to the `OnAuthorizationCodeReceived` open ID connect event, and from this event, call MSAL.NET's method `AcquireTokenFromAuthorizationCode` which has the effect of storing in the token cache, the access token for the requested scopes, and a refresh token that will be used to refresh the access token when it's close to expiry, or to get a token on behalf of the same user, but for a different resource.
 
-The comments in the code below will help you understand some tricky aspects of weaving MSAL.NET and ASP.NET Core
+The comments in the code below will help you understand some tricky aspects of weaving MSAL.NET and ASP.NET Core. Full details are provided in the [ASP.NET Core Web app incremental tutorial, chapter 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -148,9 +148,7 @@ private void ConfigureAuth(IAppBuilder app)
   Scope = Globals.BasicSignInScopes, // a basic set of permissions for user sign in & profile access
   TokenValidationParameters = new TokenValidationParameters
   {
-  // We'll inject our own issuer validation logic below.
-  ValidateIssuer = false,
-  NameClaimType = "name",
+   NameClaimType = "name",
   },
   Notifications = new OpenIdConnectAuthenticationNotifications()
   {
