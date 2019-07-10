@@ -232,8 +232,6 @@ This populates the [CloudBlobDirectory.PathProperties](https://www.microsoft.com
 
 You can use the [CloudBlobDirectory.PathProperties.ACL](https://www.microsoft.com) property to get the short form of ACL. 
 
-You can also use the `Execute`, `Read`, and `Write` properties of the [CloudBlobDirectory.PathProperties.ACL.Permissions.Group](https://www.microsoft.com), [CloudBlobDirectory.PathProperties.ACL.Permissions.Other](https://www.microsoft.com), and [CloudBlobDirectory.PathProperties.ACL.Permissions.Owner](https://www.microsoft.com) properties to determine various permissions levels.
-
 This example gets the ACL of the `my-directory` directory and then prints the short form of ACL to the console.
 
 ```cs
