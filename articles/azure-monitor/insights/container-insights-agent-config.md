@@ -122,7 +122,7 @@ The output will show similar to the following with the annotation schema-version
 	                schema-versions=v1 
 ```
 
-## Review data usage
+## Review Prometheus data usage
 To identify what each metrics size is in bytes to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
 ```
