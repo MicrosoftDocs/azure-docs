@@ -46,9 +46,9 @@ For more details see [How to get SQL query execution metrics](https://docs.micro
 ## Tune Query Feed Options Parameters 
 Query performance can be tuned via the request's [Feed Options](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) Parameters. Try setting the below options:
 
-      * Set `MaxDegreeOfParallelism` to -1 first and then compare performance across different values. 
-      * Set `MaxBufferedItemCount` to -1 first and then compare performance across different values. 
-      * Set `MaxItemCount` to -1.
+  * Set `MaxDegreeOfParallelism` to -1 first and then compare performance across different values. 
+  * Set `MaxBufferedItemCount` to -1 first and then compare performance across different values. 
+  * Set `MaxItemCount` to -1.
 
 When comparing performance of different values, try values such as 2, 4, 8, 16, and others.
  
