@@ -58,7 +58,7 @@ It's often useful to build queries that start with an example or two and then mo
 | **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container CPU | 
 | **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container memory |
 
-The following example is a Prometheus kubelete metrics query:
+The following example is a Prometheus metrics query. The metrics collected are counts and in order to determine how many errors occurred within a specific time period, we have to subtract from the count. The dataset is partitioned by *partitionKey*, meaning for each unique set of *Name*, *HostName*, and *OperationType*, we run a subquery on that set that orders the logs by *TimeGenerated*, a process that makes it possible to find the previous *TimeGenerated* and the count recorded for that time, to determine a rate.
 
 ```
 let data = InsightsMetrics 
@@ -86,5 +86,10 @@ operationData
 | extend SuccessPercentage = iif(OperationCount == 0, 1.0, 1 - (ErrorCount / OperationCount))
 ```
 
+The output will show results similar to the following:
+
+![Log query results of data ingestion volume](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
+
 ## Next steps
+
 Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 

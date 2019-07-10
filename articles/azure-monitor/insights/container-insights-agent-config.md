@@ -126,9 +126,11 @@ The output will show similar to the following with the annotation schema-version
 To identify what each metrics size is in bytes to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
 ```
- InsightsMetrics
+InsightsMetrics
 | where TimeGenerated > startofday(ago(31d))
+| where Namespace contains "prometheus"
 | summarize Bytes = sum(_BilledSize) by Name
+| order by Bytes desc
 | render barchart
 ```
 
