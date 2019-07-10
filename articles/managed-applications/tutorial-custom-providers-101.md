@@ -14,16 +14,9 @@ Custom providers allow you to customize workflows on Azure. A custom provider is
 
 This tutorial is broken into the following steps:
 
-- Modeling custom actions and custom resources
 - Setup Azure Functions for Azure Custom Providers
 - Authoring a RESTful endpoint for custom providers
 - Creating and utilizing the custom provider
-
-## Modeling custom actions and custom resources
-
-This part of the tutorial will go into detail about how to think about custom providers. It will go over some of the requirements for custom actions and custom resources
-
-- [Modeling custom provider actions and resources](./tutorial-custom-providers-modeling.md)
 
 ## Setup Azure Functions for Azure Custom Providers
 
@@ -45,7 +38,11 @@ This part of the tutorial will go into detail about how to create a custom provi
 
 ## Next steps
 
-In this article, we learned about custom providers and how to build one. If you are looking for references or a quickstart, here are some useful links.
+In this article, we learned about custom providers and how to build one. To Proceed with the next step of the tutorial:
+
+- [Tutorial: Setup Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md)
+
+If you are looking for references or a quickstart, here are some useful links:
 
 - [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)

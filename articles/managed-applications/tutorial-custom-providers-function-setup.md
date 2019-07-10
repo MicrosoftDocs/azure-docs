@@ -21,12 +21,12 @@ This tutorial is broken into the following steps:
 
 This tutorial will build on the following tutorials:
 
-- [Modeling custom provider actions and resources](./tutorial-custom-providers-modeling.md)
 - [Creating your first Azure Function through the Azure portal](../azure-functions/functions-create-first-azure-function.md)
 
 ## Creating the Azure Function
 
-In this tutorial, we will be creating a simple service endpoint using an Azure Function, but a custom provider can use any public accessible `endpoint`. Azure Logic Apps, Azure API Management, and Azure Web Apps are some great alternatives.
+> [!NOTE]
+> In this tutorial, we will be creating a simple service endpoint using an Azure Function, but a custom provider can use any public accessible `endpoint`. Azure Logic Apps, Azure API Management, and Azure Web Apps are some great alternatives.
 
 To start this tutorial, you should follow the tutorial, [creating your first Azure Function in the Azure portal](../azure-functions/functions-create-first-azure-function.md). The tutorial will create a .NET core webhook function that can be modified in the Azure portal.
 
