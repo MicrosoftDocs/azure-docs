@@ -4,7 +4,7 @@ description: Learn how to open a port / create an endpoint to your Windows VM us
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e

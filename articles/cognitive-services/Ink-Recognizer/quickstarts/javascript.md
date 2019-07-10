@@ -1,5 +1,6 @@
 ---
 title: "Quickstart: Recognize digital ink with the Ink Recognizer REST API and Node.js"
+titleSuffix: Azure Cognitive Services
 description: Use the Ink Recognizer API to start recognizing digital ink strokes.
 services: cognitive-services
 author: aahill
@@ -149,6 +150,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
         xhttp.setRequestHeader("content-type", "application/json");
         xhttp.send(JSON.stringify(sampleJson));
         };
+        ```
 
 ## Run the application and view the response
 

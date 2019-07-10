@@ -89,7 +89,7 @@
       displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Add chit-chat 
       href: How-to/chit-chat-knowledge-base.md
-    - name: Add a secured Sharepoint file
+    - name: Add a secured SharePoint file
       href: How-To/add-sharepoint-datasources.md
       displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
   - name: Manage knowledge base
@@ -145,6 +145,13 @@
 - name: Reference
   items:
   - name: REST API Reference
+    items: 
+    - name: Authoring APIs
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+    - name: GenerateAnswer API
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer
+    - name: Train API
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train
     href: https://go.microsoft.com/fwlink/?linkid=2092179 
   - name: FAQ
     href: faqs.md

@@ -1,5 +1,5 @@
 ---
-title: Configure settings
+title: Configure settings - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
 services: cognitive-services
@@ -7,7 +7,7 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
 #Customer intent: 
@@ -31,7 +31,7 @@ Create a Personalizer resource for each feedback loop.
 1. Find your Personalizer resource. 
 1. In the **Resource management** section, select **Settings**.
 
-    Before leaving the Azure portal, copy one of your resource keys from the **Keys** page. You will need this to use the [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353).
+    Before leaving the Azure portal, copy one of your resource keys from the **Keys** page. You will need this to use the [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
 
 ### Configure reward settings for the feedback loop based on use case
 

@@ -45,16 +45,16 @@ For more information about registering an application with Azure AD, see [Integr
 Next, grant your application permissions to call Azure Storage APIs. This step enables your application to authorize requests to Azure Storage with Azure AD.
 
 1. On the **Overview** page for your registered application, select **View API Permissions**.
-1. In the **API permissions** section, select **Add a permission** and choose **APIs my organization uses**.
-1. Under the **APIs my organization uses** section, search for "Azure Storage", and select **Azure Storage** from the list of results to display the **Request API permissions** pane.
+1. In the **API permissions** section, select **Add a permission** and choose **Microsoft APIs**.
+1. Select **Azure Storage** from the list of results to display the **Request API permissions** pane.
+1. Under **What type of permissions does your application require?**, observe that the available permission type is **Delegated permissions**. This option is selected for you by default.
+1. In the **Select permissions** section of the **Request API permissions** pane, select the checkbox next to **user_impersonation**, then click  **Add permissions**.
 
     ![Screenshot showing permissions for storage](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. Under **What type of permissions does your application require?**, observe that the available permission type is **Delegated permissions**. This option is selected for you by default.
-1. In the **Select permissions** section of the **Request API permissions** pane, select the checkbox next to **user_impersonation**, then click  **Add permissions**.
-1. The **API permissions** pane now shows that your Azure AD application has access to both Microsoft Graph and the Azure Storage. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
+The **API permissions** pane now shows that your registered Azure AD application has access to both Microsoft Graph and the Azure Storage. Permissions are granted to Microsoft Graph automatically when you first register your app with Azure AD.
 
-    ![Screenshot showing register app permissions](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![Screenshot showing register app permissions](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## Create a client secret
 
@@ -117,7 +117,7 @@ Next, explicitly assign the **Storage Blob Data Contributor** role to the user a
 
 When your application accesses Azure Storage, it does so on the user's behalf, meaning that blob or queue resources are accessed using the permissions of the user who is logged in. To try this code example, you need a web application that prompts the user to sign in using an Azure AD identity. You can create your own, or use the sample application provided by Microsoft.
 
-A completed sample web application that acquires a token and uses it to create a blob in Azure Storage is available on [GitHub](http://aka.ms/aadstorage). Reviewing and running the completed sample may be helpful for understanding the code examples. For instructions about how to run the completed sample, see the section titled [View and run the completed sample](#view-and-run-the-completed-sample).
+A completed sample web application that acquires a token and uses it to create a blob in Azure Storage is available on [GitHub](https://aka.ms/aadstorage). Reviewing and running the completed sample may be helpful for understanding the code examples. For instructions about how to run the completed sample, see the section titled [View and run the completed sample](#view-and-run-the-completed-sample).
 
 #### Add references and using statements  
 
@@ -231,7 +231,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## View and run the completed sample
 
-To run the sample application, first clone or download it from [GitHub](http://aka.ms/aadstorage). Then update the application as described in the following sections.
+To run the sample application, first clone or download it from [GitHub](https://aka.ms/aadstorage). Then update the application as described in the following sections.
 
 ### Provide values in the settings file
 
