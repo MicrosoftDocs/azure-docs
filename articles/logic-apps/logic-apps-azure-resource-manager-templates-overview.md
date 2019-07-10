@@ -399,7 +399,7 @@ This syntax shows where you define parameters at both the template and workflow 
 
 ### Secure workflow definition parameters
 
-For a workflow definition parameter that handles sensitive information, passwords, access keys, or secrets at runtime, define or edit the parameter to use the `securestring` or `secureobject` parameter type. You can reference this parameter throughout and within your workflow definition. At the template's top-level, define a parameter that has the same type to handle this information at deployment.
+For a workflow definition parameter that handles sensitive information, passwords, access keys, or secrets at runtime, define or edit the parameter to use the `securestring` or `secureobject` parameter type. You can reference this parameter throughout and within your workflow definition. At the template's top level, define a parameter that has the same type to handle this information at deployment.
 
 To specify the value for the workflow definition parameter, reference the template parameter in the parameters section that's *inside* your logic app resource definition but still *outside* your workflow definition. Finally, to pass the value to your template parameter at deployment, store that value in [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) and reference that key vault in the [parameter file](#template-parameter-files) that's used by your template at deployment.
 
@@ -900,7 +900,7 @@ Here is an example that provides the account name and access key for an Azure Bl
 
 After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-scenarios.md). For more information, see [Authorize OAuth connections](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections).
 
-Some connections support using a Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) to authorize connections for a logic app that's [registered in Azure AD](../active-directory/develop/quickstart-register-app.md). For example, this Azure Data Lake connection resource definition shows how to reference the template parameters that handle the service principal's information and how the template defines these parameters:
+Some connections support using an Azure Active Directory (Azure AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md) to authorize connections for a logic app that's [registered in Azure AD](../active-directory/develop/quickstart-register-app.md). For example, this Azure Data Lake connection resource definition shows how to reference the template parameters that handle the service principal's information and how the template defines these parameters:
 
 **Connection resource definition**
 
@@ -928,15 +928,15 @@ Some connections support using a Azure Active Directory (Azure AD) [service prin
 
 | Attribute | Description |
 |-----------|-------------|
-| **token:clientId** | The application or client ID associated with your service principal |
-| **token:clientSecret** | The key value associated with your service principal |
-| **token:TenantId** | The directory ID for your Azure AD tenant |
-| **token:grantType** | The requested grant type, which must be `client_credentials`. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
+| `token:clientId` | The application or client ID associated with your service principal |
+| `token:clientSecret` | The key value associated with your service principal |
+| `token:TenantId` | The directory ID for your Azure AD tenant |
+| `token:grantType` | The requested grant type, which must be `client_credentials`. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
 |||
 
 **Template parameter definitions**
 
-The template's top-level `parameters` section defines these parameters for the Data Lake connection:
+The template's top-level `parameters` section defines these parameters for the example connection:
 
 ```json
 {
