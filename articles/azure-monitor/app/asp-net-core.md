@@ -172,7 +172,7 @@ If your project doesn't include `_Layout.cshtml`, you can still add [client-side
 You can customize the Application Insights SDK for ASP.NET Core to change the default configuration. Users of the Application Insights ASP.NET SDK might be familiar with changing configuration by using `ApplicationInsights.config` or by modifying `TelemetryConfiguration.Active`. You change configuration differently for ASP.NET Core. Add the ASP.NET Core SDK to the application and configure it by using ASP.NET Core built-in [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). Make almost all configuration changes in the `ConfigureServices()` method of your `Startup.cs` class, unless you're directed otherwise. The following sections offer more information.
 
 > [!NOTE]
-> In ASP.NET Core applications, changing configuration by modifying `TelemetryConfiguration.Active` isn't recommended.
+> In ASP.NET Core applications, changing configuration by modifying `TelemetryConfiguration.Active` isn't supported.
 
 ### Using ApplicationInsightsServiceOptions
 
@@ -309,6 +309,23 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
+### Disable telemetry dynamically
+
+If you want to disable telemetry conditionally and dynamically, you may resolve `TelemetryConfiguration` instance with ASP.NET Core dependency injection container anywhere in your code and set `DisableTelemetry` flag on it.
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+    }
+
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
+    {
+        configuration.DisableTelemetry = true;
+        ...
+    }
+```
+
 ## Frequently asked questions
 
 ### How can I track telemetry that's not automatically collected?
@@ -403,3 +420,4 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [Configure a snapshot collection](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
 * Use [availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to check your app constantly from around the world.
+* [Dependency Injection in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/fundamentals/dependency-injection)
