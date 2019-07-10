@@ -55,7 +55,7 @@ You should also review [account quotas and limitations](limits-quotas-constraint
 
 ### Streaming Endpoint
 
-Currently, the following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are emitted by Azure:
+The following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are supported:
 
 |Metric name|Display name|Description|
 |---|---|---|

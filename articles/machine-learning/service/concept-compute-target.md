@@ -1,14 +1,14 @@
 ---
-title: Compute targets
+title: 'Compute targets: where to train and deploy models'
 titleSuffix: Azure Machine Learning service
-description: A compute target lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource.
+description: Define where you want to train or deploy your model with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 05/30/2019
+ms.date: 07/10/2019
 # As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -29,17 +29,22 @@ Azure Machine Learning service has varying support across different compute reso
 
 [!INCLUDE [aml-compute-target-train](../../../includes/aml-compute-target-train.md)]
 
+Learn more about [setting up and using a compute target for model training](how-to-set-up-training-targets.md).
 
-## <a name="deploy"></a>Deployment compute targets
+## <a name="deploy"></a>Deployment targets
 
 The following compute resources can be used to host your model deployment.
 
 [!INCLUDE [aml-compute-target-deploy](../../../includes/aml-compute-target-deploy.md)]
 
+Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
+
 <a name="amlcompute"></a>
 ## Azure Machine Learning compute (managed)
 
-A managed compute resource is created and managed by Azure Machine Learning service. This type of compute is optimized for machine learning workloads.  You can use Azure Machine Learning (managed) Compute for training and batch inferencing.  With this compute resource, you have:
+A managed compute resource is created and managed by Azure Machine Learning service. This compute is optimized for machine learning workloads. Azure Machine Learning Compute is the only managed compute as of May 30, 2019. Additional managed compute resources may be added in the future.
+
+You can use Azure Machine Learning Compute for training and for batch inferencing (Preview).  With this compute resource, you have:
 
 * Single- or multi-node cluster
 * Autoscales each time you submit a run 
@@ -54,5 +59,6 @@ An unmanaged compute target is *not* managed by Azure Machine Learning service. 
 
 ## Next steps
 
-* [Set up compute targets for model training](how-to-set-up-training-targets.md)
-* [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md)
+Learn how to:
+* [Set up a compute target to train your model](how-to-set-up-training-targets.md)
+* [Deploy your model to a compute target](how-to-deploy-and-where.md)
