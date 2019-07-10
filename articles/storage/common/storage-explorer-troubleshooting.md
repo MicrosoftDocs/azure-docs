@@ -54,7 +54,7 @@ If you don’t have a role granting any management layer permissions, Storage Ex
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-We don't yet have an RBAC-related solution at this time. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
+We don't yet have an RBAC-related solution at this time. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
 ## Error: Self-Signed Certificate in Certificate Chain (and similar errors)
 
