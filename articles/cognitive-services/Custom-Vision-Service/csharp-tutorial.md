@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: anroth
 ---
 # Quickstart: Create an image classification project with the Custom Vision .NET SDK
@@ -22,7 +22,7 @@ This article provides information and sample code to help you get started using 
 
 ## Get the Custom Vision SDK and sample code
 
-To write a .NET app that uses Custom Vision, you'll need the Custom Vision NuGet packages. These are included in the sample project you will download, but you can access them individually here.
+To write a .NET app that uses Custom Vision, you'll need the Custom Vision NuGet packages. These packages are included in the sample project you will download, but you can access them individually here.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -39,7 +39,7 @@ Open the _Program.cs_ file and inspect the code. Insert your subscription keys i
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
 
-The Endpoint parameter should point to the region where the Azure resource group containing the Custom Vision resources was created in. For this example we assume the South Central US region and use:
+The Endpoint parameter should point to the region where the Azure resource group containing the Custom Vision resources was created in. For this example, we assume the South Central US region and use:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
@@ -115,7 +115,7 @@ foreach (var c in result.Predictions)
 
 As the application runs, it should open a console window and write the following output:
 
-```
+```console
 Creating new project:
         Uploading images
         Training

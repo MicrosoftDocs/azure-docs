@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 06/28/2019
 ms.author: magoedte
 ---
 
@@ -37,10 +37,10 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 - West Central US
 - West US 2<sup>1</sup>
 - East US
-- Canada Central<sup>1</sup>
-- UK South<sup>1</sup>
+- Canada Central
+- UK South
 - West Europe
-- Southeast Asia<sup>1</sup>
+- Southeast Asia
 
 <sup>1</sup> This region doesn't currently support the Health feature of Azure Monitor for VMs.
 
@@ -81,10 +81,14 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
 |Ubuntu 14.04, 16.04, 18.04 | X | X | X |
 |CentOS Linux 6, 7 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 11, 12 | X | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available directly from the left pane of the Azure VM.
+
+>[!NOTE]
+>The Health feature of Azure Monitor for VMs does not support [nested virtualization](../../virtual-machines/windows/nested-virtualization.md) in an Azure VM.
+>
 
 >[!NOTE]
 >In the Linux operating system:
@@ -118,16 +122,10 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 
 | OS version | Kernel version |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
-
-#### SUSE Linux 11 Enterprise Server
-
-| OS version | Kernel version
-|:--|:--|
-|11 SP4 | 3.0.* |
 
 #### SUSE Linux 12 Enterprise Server
 
@@ -135,6 +133,8 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 |:--|:--|
 |12 SP2 | 4.4.* |
 |12 SP3 | 4.4.* |
+|12 SP4 | 4.4.* |
+|12 SP4 | Azure-Tuned Kernel |
 
 ### The Microsoft Dependency agent
 

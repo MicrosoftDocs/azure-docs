@@ -120,13 +120,11 @@ If an error message appears. Complete the following steps:
 
 1. Copy and paste the specifics into the **What does the error look like?** box.
 
-    ![Get resolution guidance](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Use the "What does the error look like" box to get resolution guidance](media/configure-single-sign-on-portal/error-guidance.png)
 
-2. Select **Get resolution guidance**. The root cause and resolution guidance appear.  In this example, the user wasn't assigned to the application.
-
-3. Read the resolution guidance and then, if possible, fix the issue.
-
-4. Run the test again until it completes successfully.
+1. Select **Get resolution guidance**. The root cause and resolution guidance appear.  In this example, the user wasn't assigned to the application.
+1. Read the resolution guidance and then, if possible, fix the issue.
+1. Run the test again until it completes successfully.
 
 ## Next steps
 

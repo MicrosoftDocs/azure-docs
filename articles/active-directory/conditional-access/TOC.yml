@@ -19,6 +19,8 @@
 - name: Concepts
   expanded: false
   items:
+  - name: Adopting Conditional Access
+    href: howto-conditional-access-adoption-kit.md
   - name: Baseline protection policies
     href: concept-baseline-protection.md
   - name: Conditions

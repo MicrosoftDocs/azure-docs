@@ -3,18 +3,21 @@ title: "Quickstart: Get list of supported languages, Node.js - Translator Text A
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with Node.js.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to get a list of supported languages with Node.js
 
 In this quickstart, you'll learn how to make a GET request that returns a list of supported languages using Node.js and the Translator Text REST API.
+
+>[!TIP]
+> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
 
 ## Prerequisites
 
@@ -58,6 +61,8 @@ let options = {
     json: true,
 };
 ```
+
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## Make the request and print the response
 
@@ -178,8 +183,10 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## Next steps
 
+Take a look at the API reference to understand everything you can do with the Translator Text API.
+
 > [!div class="nextstepaction"]
-> [Explore Node.js examples on GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 

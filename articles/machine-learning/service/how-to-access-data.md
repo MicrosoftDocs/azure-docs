@@ -62,7 +62,7 @@ If you have existing Azure Storage, you can register it as a datastore on your w
 
 ####  Storage guidance
 
-We recommend blob storage and blob datastores. Both standard and premium storage are available for blobs. If cost isn't an issue, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, if you train against a large data set.
+We recommend blob storage and blob datastores. Both standard and premium storage are available for blobs. Although more expensive, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, particlularly if you train against a large data set. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) for storage account cost information.
 
 >[!NOTE]
 > Azure Machine Learning service supports other types of datastores,   which may be useful for specific scenarios. For example, if you need to train using data stored in a database, you might use the AzureSQLDatabaseDatastore or AzurePostgreSqlDatastore. See [this table](#matrix) for the available datastore types.

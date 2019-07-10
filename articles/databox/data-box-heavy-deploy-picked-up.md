@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to return Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
 
-# Tutorial: Return Azure Data Box Heavy and verify data upload to Azure (preview)
+# Tutorial: Return Azure Data Box Heavy and verify data upload to Azure
 
 
 This tutorial describes how to return Azure Data Box Heavy and verify the data uploaded to Azure.
@@ -40,11 +40,11 @@ Before you begin, make sure:
 ## Ship Data Box Heavy back
 
 1. Ensure that the device is powered off and all the cables are removed. Spool and securely place the 4 power cords in the tray that you can access from the back of the device.
-2. If the device is shipping in US or Europe, the shipping carrier is FedEx.
+2. The device ships LTL freight via FedEx in the US and DHL in the EU
 
-    1. Call the local number for your shipping carrier to schedule the pickup.
-    2. Reach out to [Data Box Operations](mailto:DataBoxOps@microsoft.com) to inform regarding the pickup and to get the return shipping label.
-    3. Ensure that the shipping label is displayed on the clear screen at the front of the device.
+    1. Reach out to [Data Box Operations](mailto:DataBoxOps@microsoft.com) to inform regarding the pickup and to get the return shipping label.
+    2. Call the local number for your shipping carrier to schedule the pickup.
+    3. Ensure that the shipping label is displayed prominently on the exterior of the shipment.
     4. Make sure that the old shipping labels from the previous shipment are removed from the device.
 3. Once the Data Box Heavy is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 

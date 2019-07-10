@@ -87,6 +87,9 @@ An installation can contain the following properties. For a complete listing of 
 
 Registrations and installations must contain a valid PNS handle for each device/channel. Because PNS handles can only be obtained in a client app on the device, one pattern is to register directly on that device with the client app. On the other hand, security considerations and business logic related to tags might require you to manage device registration in the app back-end.
 
+> [!NOTE]
+> The Installations API does not support the Baidu service (although the Registrations API does). 
+
 ### Templates
 
 If you want to use [Templates](notification-hubs-templates-cross-platform-push-messages.md), the device installation also holds all templates associated with that device in a JSON format (see sample above). The template names help target different templates for the same device.

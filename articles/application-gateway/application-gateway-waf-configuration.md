@@ -30,16 +30,16 @@ WAF also offers a configurable knob to turn the request body inspection on or of
 
 WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. Once an attribute is added to the WAF exclusion list, it isn't considered by any configured and active WAF rule. Exclusion lists are global in scope.
 
-The following attributes can be added to exclusion lists:
+The following attributes can be added to exclusion lists. The values of your chosen field aren't evaluated against WAF rules. The exclusion lists remove inspection of the field's value.
 
 * Request Headers
 * Request Cookies
-* Request attribute name (args)
+* Request attribute name (args) can be added as an exclusion element, such as:
 
-   * Form multi-part data
-   * XML
-   * JSON
-   * URL query args
+   * Form field name
+   * XML entity
+   * JSON entity
+   * URL query string args
 
 You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The exclusion is always on a header field, never on its value. Exclusion rules are global in scope, and apply to all pages and all rules.
 
