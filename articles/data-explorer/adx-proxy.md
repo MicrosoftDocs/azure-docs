@@ -1,20 +1,20 @@
 ---
-title: 'Azure Data Explorer proxy for cross-product queries'
-description: 'In this topic, create an Azure Data Explorer (ADX) proxy for cross product queries with Application Insights and Log Analytics in Azure Monitor'
+title: 'Query data in Azure Monitor using Azure Data Explorer (Preview)'
+description: 'In this topic, query data in Azure Monitor by creating an Azure Data Explorer proxy for cross product queries with Application Insights and Log Analytics'
 services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 07/10/2019
 
-#Customer intent: I want to use create an Azure Data Explorer (ADX) proxy for cross product queries with Log Analytics and Application Insights 
+#Customer intent: I want to query data in Azure Monitor using Azure Data Explorer by creating an Azure Data Explorer (ADX) proxy for cross product queries with Log Analytics and Application Insights 
 ---
 
-# Azure Data Explorer proxy for cross product queries (Preview)
+# Query data in Azure Monitor using Azure Data Explorer (Preview)
 
-The Azure Data Explorer (ADX) proxy enables you to perform cross product queries between Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs) in the [Azure Monitor](/azure/azure-monitor/) service. The Azure Data Explorer proxy allows you to define an Azure Monitor logs and Application Insights cluster as a virtual cluster. You can then query the cluster using Azure Data Explorer tools and connect to it as a virtual cluster in a cross cluster query. The article depicts how to connect to the proxy, add a proxy cluster to Azure Data Explorer Web UI Explorer, and run queries again your AI and LA clusters from the Azure Data Explorer proxy. 
+The Azure Data Explorer proxy cluster (ADX Proxy) is an entity that enables you to perform cross product queries between Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs) in the [Azure Monitor](/azure/azure-monitor/) service. You can map Azure Monitor Log Analytics workspaces or Application Insights apps as a proxy cluster. You can then query the proxy cluster using Azure Data Explorer tools and refer to it in a cross cluster query. The article depicts how to connect to a proxy cluster, add a proxy cluster to Azure Data Explorer Web UI, and run queries against your AI apps or LA workspaces from Azure Data Explorer.
 
 The Azure Data Explorer proxy flow is depicted below: 
 
@@ -52,7 +52,7 @@ The Azure Data Explorer proxy flow is depicted below:
 You can use Kusto Explorer, ADX web Explorer, Jupyter Kqlmagic, or REST API to query the proxy clusters. 
 
 > [!TIP]
-> * Database names in Azure Data Explorer are case-sensitive. 
+> * Database name should have the same name as the resource specified in the proxy cluster. Names are case sensitive.
 > * In cross cluster queries, make sure that the [naming of apps and workspaces](#application-insights-app-and-log-analytics-workspace-names) is correct.
 
 ### Query against the native Azure Data Explorer cluster 
