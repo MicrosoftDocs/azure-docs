@@ -177,7 +177,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > [!div class="nextstepaction"]
 >[Tutorial: Create and answer a KB](../tutorials/create-publish-query-in-portal.md)
 
-* [What is the QnA Maker API?](../overview.md)
+* [What is the QnA Maker API?](../Overview/overview.md)
 * [Edit a knowledge base](../how-to/edit-knowledge-base.md)
-* [Get usage analytics](../how-to/get-analytics-knowledge-base)
+* [Get usage analytics](../how-to/get-analytics-knowledge-base.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs).
