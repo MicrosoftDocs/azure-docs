@@ -36,6 +36,14 @@ This article shows two scenarios to create network access rules to limit access 
 
 * If you don't already have a container registry, create one (Premium SKU required) and push a sample image such as `hello-world` from Docker Hub. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry. 
 
+* If you want to restrict registry access using a virtual network in a different Azure subscription, you need to register the resource provider for Azure Container Registry in that subscription. For example:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of virtual network>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
+
 ## About network rules for a container registry
 
 An Azure container registry by default accepts connections over the internet from hosts on any network. With a virtual network, you can allow only Azure resources such as an AKS cluster or Azure VM to securely access the registry, without crossing a network boundary. You can also configure network firewall rules to whitelist specific public internet IP address ranges. 
