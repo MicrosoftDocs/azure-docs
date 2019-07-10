@@ -12,14 +12,12 @@ ms.author: normesta
 ---
 # Blob and Azure Data Lake Storage Gen2 interoperability
 
-Blob APIs are now interoperable with Data Lake Storage Gen2. This means that you can use BLOB and Data Lake Storage Gen2 APIs to interoperate on the same data, and you can point existing tools and applications that use Blob APIs to accounts that have a hierarchical namespace enabled on them. 
-
-Interoperability also unlocks Blob storage features such as diagnostic logs to accounts that have a hierarchical namespace. This article describes interoperability, and the Blob features that it makes available.
+Blob APIs and Data Lake Storage Gen2 APIs can interoperate on the same data. This means that existing applications which use Blob APIs can work with accounts that have a hierarchical namespace. This also makes Blob storage features, such as diagnostic logs, available to accounts that have a hierarchical namespace. 
 
 > [!NOTE]
 > Blob and Azure Data Lake Storage Gen2 interoperability is currently in public preview and is available only in the **West US 2** and **West Central US** regions.
 
-## Separate storage accounts are cumbersome 
+## The cost of maintaining separate storage solutions 
 
 Until now, you've had to use different storage accounts to store data in the cloud. For example, you might use object storage to backup and archive data, and analytics storage to process and analyze it. 
 
@@ -27,9 +25,7 @@ This can be hard to maintain for many reasons. For example, you have to move dat
 
 ## A single storage solution for every scenario
 
-A true data lake enables you to use multiple data access methods on all types of data including unstructured, semi-structured, and structured data. Blob and Data Lake Storage Gen2 interoperability fulfills this goal and moves your account closer to a true data lake. 
-
-Blob and Data Lake Storage Gen2 interoperability eliminates the need to maintain multiple forms of storage. Now, you can have one central storage solution with multiple data access points to shared data sets so that tools and data applications can interact with data in their most natural way. Interoperability enables your data lake to benefit from the tools and frameworks that have been built for a wide variety of ecosystems.
+A true data lake enables you to access all types of data including unstructured, semi-structured, and structured data by using multiple data access methods. Blob and Data Lake Storage Gen2 interoperability fulfills this goal, and moves your account closer to a true data lake. It eliminates the need to maintain multiple forms of storage. You can have one central storage solution with multiple data access points to shared data sets so that tools and data applications can interact with data in their most natural way. Your data lake can benefit from the tools and frameworks that have been built for a wide variety of ecosystems.
 
 ## How it works
 
