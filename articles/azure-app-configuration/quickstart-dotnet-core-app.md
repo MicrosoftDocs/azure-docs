@@ -58,7 +58,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009140001-368
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
 2. Run the following command to restore packages for your project:
 
