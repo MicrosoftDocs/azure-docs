@@ -3,7 +3,7 @@ title: Create and test an Azure IoT Plug and Play device | Microsoft Docs
 description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/21/2019
+ms.date: 07/10/2019
 ms.topic: Tutorial
 ms.custom: mvc
 ms.service: iot-pnp
@@ -213,7 +213,7 @@ You now have the three files that make up your device capability model:
 
 > [!NOTE]
 > Bug bash: Skip this section - currently it's not possible to use the extension to generate code from local files.
-> Use pre-prepared code instead of generating the code. You can view the pre-prepared code at [https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview/digitaltwin_client/samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview/digitaltwin_client/samples).
+> Use pre-prepared code instead of generating the code. You can view the pre-prepared code at [https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples](https://github.com/Azure/azure-iot-sdk-c-pnp/tree/public-preview-utopia/digitaltwin_client/samples).
 
 You can use the **Azure IoT Workbench extension for VS Code** to generate skeleton C code from your model. To generate the code in VS Code:
 
