@@ -88,30 +88,30 @@ The easiest way to connect your ASP.NET Core application to App Configuration is
 
 1. Open *Program.cs* file and add the following code.
 
-```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+   ```csharp
+   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-           .ConfigureAppConfiguration((hostingContext, config) => {
-               var settings = config.Build();
-               config.AddAzureAppConfiguration(options => {
-                   options.Connect(settings["ConnectionStrings:AppConfig"])
-                          .UseFeatureFlags();
-                });
-           })
-           .UseStartup<Startup>();
-```
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+       WebHost.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((hostingContext, config) => {
+                  var settings = config.Build();
+                  config.AddAzureAppConfiguration(options => {
+                      options.Connect(settings["ConnectionStrings:AppConfig"])
+                             .UseFeatureFlags();
+                   });
+              })
+              .UseStartup<Startup>();
+   ```
 
 2. Open *Startup.cs* and update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
 
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-{
-    app.UseAzureAppConfiguration();
-    app.UseMvc();
-}
-```
+   ```csharp
+   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   {
+       app.UseAzureAppConfiguration();
+       app.UseMvc();
+   }
+   ```
 
 Feature flag values are expected to change over time. By default, the feature flag values are cached for a period of 30 seconds, so a refresh operation triggered when the middleware receives a request would not update the value until the cached value expires. The following code shows how to change the cache expiration time or polling interval to 5 minutes in the `options.UseFeatureFlags()` call.
 
