@@ -82,7 +82,7 @@ The following table lists the definitions for common parameters and entities use
 | `offerId`                | A unique string identifier for each offer (for example: "offer1").  |
 | `planId`                 | A unique string identifier for each plan/SKU (for example: "silver"). |
 | `operationId`            | The GUID identifier for a particular operation.  |
-|  `action`                | The action being performed on a resource, either `subscribe`, `unsubscribe`, `suspend`,  `reinstate`, or `changePlan`, `changeQuantity`, `transfer`.  |
+|  `action`                | The action being performed on a resource, either `unsubscribe`, `suspend`,  `reinstate`, or `changePlan`, `changeQuantity`, `transfer`.  |
 |   |   |
 
 Globally unique identifiers ([GUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier)) are 128-bit (32-hexadecimal) numbers that are typically automatically generated. 
@@ -806,7 +806,6 @@ The publisher must implement a webhook in this SaaS service to proactively notif
 }
 ```
 Where the action can be one of the following: 
-- `subscribe` (when the resource has been activated)
 - `unsubscribe` (when the resource has been deleted)
 - `changePlan` (when the change plan operation has completed)
 - `changeQuantity` (when the change quantity operation has completed)

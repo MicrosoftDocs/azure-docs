@@ -4,7 +4,7 @@ description: In this article, you learn how to use the Azure CLI to create a sha
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: axayjo
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

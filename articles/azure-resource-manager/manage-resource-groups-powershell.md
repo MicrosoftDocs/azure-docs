@@ -85,7 +85,7 @@ This feature is also known as *Rollback on error*. For more information, see [Re
 
 ## Move to another resource group or subscription
 
-You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](./resource-group-move-resources.md#move-resources).
+You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](./resource-group-move-resources.md).
 
 ## Lock resource groups
 

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 07/08/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. In the **Basic SAML Configuration** pane, if you have a service provider metadata file and you want to configure in **IDP-initiated** mode, perform the following steps:
+1. In the **Basic SAML Configuration** pane, if you have a service provider metadata file and you want to configure in **IDP-initiated** mode, perform the following steps:
 
 	1. Select **Upload metadata file**.
 
@@ -86,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	   > [!Note]
 	   > If the **Identifier** and **Reply URL** values do not get populated automatically, then fill in the values manually. The **Identifier** and the **Reply URL** are the same and value is in the following pattern: `https://<your-domain>.monday.com/saml/saml_callback`
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<your-domain>.monday.com`
@@ -98,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![The User attributes pane](common/edit-attribute.png)
 
-6. In addition to above, monday.com application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, monday.com application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
     | Name | Source Attribute|
 	| ---------------| --------------- |
@@ -107,10 +107,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | LastName | user.surname |
 
     a. Click **Add new claim** to open the **Manage user claims** dialog.
-
-    ![image](./media/mondaycom-tutorial/attribute01.png)
-
-    ![image](common/new-attribute-details.png)
 
     b. In the **Name** textbox, type the attribute name shown for that row.
 
@@ -134,17 +130,25 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure monday.com
 
-1. In a different web browser window, sign in to monday.com as an Administrator.
+1. To automate the configuration within monday.com, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Go to the **Profile** on the top right corner of page and click on **Admin**.
+	![My apps extension](common/install-myappssecure-extension.png)
 
-	 ![monday.com configuration](./media/mondaycom-tutorial/configuration01.png)
+1. After adding extension to the browser, click on **Setup monday.com** which will direct you to the monday.com application. From there, provide the admin credentials to sign into monday.com. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-3. Select **Security** and make sure to click on **Open** next to SAML.
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup monday.com manually, open a new web browser window and sign in to monday.com as an administrator and perform the following steps:
+
+1. Go to the **Profile** on the top right corner of page and click on **Admin**.
+
+	![monday.com configuration](./media/mondaycom-tutorial/configuration01.png)
+
+1. Select **Security** and make sure to click on **Open** next to SAML.
 
     ![monday.com configuration](./media/mondaycom-tutorial/configuration02.png)
 
-4. Fill in the details below from your IDP.
+1. Fill in the details below from your IDP.
 
     ![monday.com configuration](./media/mondaycom-tutorial/configuration03.png)
 
