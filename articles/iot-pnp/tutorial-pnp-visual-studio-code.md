@@ -255,7 +255,7 @@ Before you run the code to test your plug and play device with an Azure IoT hub,
 1. Clone the Azure IoT C SDK:
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c-pnp.git --recursive -b public-preview
+    git clone https://github.com/Azure/azure-iot-sdk-c-pnp.git --recursive -b public-preview-utopia
     ```
 
     This command downloads the SDK to folder called **azure-iot-sdk-c-pnp** on your local machine.
