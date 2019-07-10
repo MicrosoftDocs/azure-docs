@@ -41,7 +41,7 @@ In addition to Azure Migrate Server Assessment and Server Migration, Azure Migra
 [Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess
 [Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess & migrate
-[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf | Migrate
+[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate
 
 ## Selecting an ISV tool
 
