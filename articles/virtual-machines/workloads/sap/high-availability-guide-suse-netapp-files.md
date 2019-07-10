@@ -967,6 +967,9 @@ The following tests are a copy of the test cases in the [best practices guides o
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
+   # Remove migration constraints
+   anftstsapcl1:~ # crm resource clear rsc_sap_QAS_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
    </code></pre>
 
    Resource state after the test:
