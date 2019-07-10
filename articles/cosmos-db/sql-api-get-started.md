@@ -150,7 +150,7 @@ Congratulations! You have successfully connected to an Azure Cosmos DB account.
 ## Step 4: Create a database
 A database can be created by using either the [**CreateDatabaseIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) or [**CreateDatabaseAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) function of the ``CosmosClient`` class. A database is the logical container of items partitioned across containers.
 
-1. Copy and paste the **CreateDatabaseAsync** method below your **GetStartedDemoAsync** method. **CreateDatabaseAsync**  will create a new database with id ``FamilyDatabase`` if it does not already exist, with the id specified from the ``databaseId`` field. 
+1. Copy and paste the **CreateDatabaseAsync** method below your **GetStartedDemoAsync** method. **CreateDatabaseAsync**  will create a new database with ID ``FamilyDatabase`` if it does not already exist, with the ID specified from the ``databaseId`` field. 
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateDatabaseAsync&highlight=7)]
 
@@ -258,7 +258,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 
 A container can be created by using either the [**CreateContainerIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) or [**CreateContainerAsync**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabase) function in the **CosmosDatabase** class. A container consists of items (JSON documents if SQL API) and associated server-side application logic in JavaScript, for example, stored procedures, user-defined functions, and triggers.
 
-1. Copy and paste the **CreateContainerAsync** method below your **CreateDatabaseAsync** method. **CreateContainerAsync**  will create a new container with id ``FamilyContainer`` if it does not already exist, with the id specified from the ``containerId`` field partitioned by ``LastName`` property.
+1. Copy and paste the **CreateContainerAsync** method below your **CreateDatabaseAsync** method. **CreateContainerAsync**  will create a new container with ID ``FamilyContainer`` if it does not already exist, with the ID specified from the ``containerId`` field partitioned by ``LastName`` property.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateContainerAsync&highlight=9)]
 
@@ -294,7 +294,7 @@ First, let's create a **Family** class that will represent objects stored within
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
 
 1. Navigate back to **Program.cs** and add the **AddItemsToContainerAsync** method under your **CreateContainerAsync** method.
-The code checks to make sure an item with the same id does not already exist before creating it. We will insert two items, one each for the Andersen Family and the Wakefield Family.
+The code checks to make sure an item with the same ID does not already exist before creating it. We will insert two items, one each for the Andersen Family and the Wakefield Family.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
 

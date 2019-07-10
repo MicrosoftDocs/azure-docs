@@ -69,9 +69,9 @@ The directory contains a `pom.xml` for the project and a `src` folder containing
     </dependency>
 
 ## <a id="Connect"></a>Step 3: Connect to an Azure Cosmos DB account
-Next, head back to the [Azure Portal](https://portal.azure.com) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection.
+Next, head back to the [Azure portal](https://portal.azure.com) to retrieve your endpoint and primary master key. The Azure Cosmos DB endpoint and primary key are necessary for your application to understand where to connect to, and for Azure Cosmos DB to trust your application's connection.
 
-In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI from the portal and paste it into `https://FILLME.documents.azure.com` in the Program.java file. Then copy the PRIMARY KEY from the portal and paste it into `FILLME`.
+In the Azure portal, navigate to your Azure Cosmos DB account, and then click **Keys**. Copy the URI from the portal and paste it into `https://FILLME.documents.azure.com` in the Program.java file. Then copy the PRIMARY KEY from the portal and paste it into `FILLME`.
 
     this.client = new DocumentClient(
         "https://FILLME.documents.azure.com",
@@ -79,7 +79,7 @@ In the Azure Portal, navigate to your Azure Cosmos DB account, and then click **
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Screenshot of the Azure Portal used by the NoSQL tutorial to create a Java console application. Shows an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
+![Screenshot of the Azure portal used by the NoSQL tutorial to create a Java console application. Shows an Azure Cosmos DB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the Azure Cosmos DB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
 ## Step 4: Create a database
 Your Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) can be created by using the [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
