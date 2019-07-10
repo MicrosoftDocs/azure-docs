@@ -26,7 +26,8 @@ Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplate
 ## Prerequisites
 
 - A Pay-As-You-Go application
-- A Microsoft personal or work or school account to sign into Flow ([learn more about Microsoft Flow plans](https://aka.ms/microsoftflowplans))
+- A Microsoft personal or work or school account to use Microsoft Flow ([learn more about Microsoft Flow plans](https://aka.ms/microsoftflowplans))
+- A work or school account to use the Azure IoT Central connector
 
 ## Trigger a workflow
 
@@ -40,7 +41,12 @@ This section shows you how to trigger a mobile notification in the Flow mobile a
 
     ![Available Microsoft Flow templates](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. You will be prompted to sign into the connectors in the template you chose. Once the connectors are signed in, you will land in designer to build your workflow. The workflow has an IoT Central trigger that has your Application and Rule already filled in.
+1. You will be prompted to sign into the connectors in the template you chose. 
+
+    > [!NOTE]
+    > To use the Azure IoT Central connector, you must sign in using an Azure Active Directory account (work or school account). A personal account such as abc@outlook.com or abc@live.com are not supported by the Azure IoT Central connector.
+
+    Once you have signed into the connectors, you will land in designer to build your workflow. The workflow has an IoT Central trigger that has your Application and Rule already filled in.
 
 1. You can customize the workflow by customizing the information passed to the action and adding new actions. In this example, the action is **Notifications - Send me a mobile notification**. You can include *Dynamic content* from your IoT Central rule, passing along important information such as device name and timestamp to your notification.
 
