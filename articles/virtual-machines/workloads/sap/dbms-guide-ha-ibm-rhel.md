@@ -123,7 +123,7 @@ To deploy an IBM Db2 configuration, you need to follow these steps:
   + Deploy the VMs.
   + Update RHEL Linux and configure file systems.
   + Install and configure Pacemaker.
-  + Setup [glusterfs cluster][glusterfs] or [Azure Netapp Files][anf-rhel]
+  + Setup [glusterfs cluster][glusterfs] or [Azure NetApp Files][anf-rhel]
   + Install [ASCS/ERS on a separate cluster][ascs-ha-rhel].
   + Install IBM Db2 database with Distributed/High Availability option (SWPM).
   + Install and create a secondary database node and instance, and configure HADR.
@@ -214,7 +214,7 @@ To set up the primary IBM Db2 LUW database instance:
 
 > [!IMPORTANT] 
 > Write down the "Database Communication port" that's set during installation. It must be the same port number for both database instances.
->![SAP SWPM Port Definition](./media/dbms-guide-ha-ibm/hadr-swpm-db2-port.png)
+>![SAP SWPM Port Definition](./media/dbms-guide-ha-ibm-rhel/hadr-swpm-db2-port.png)
 
 ### IBM Db2 HADR settings for Azure
 
@@ -233,7 +233,7 @@ We recommend the preceding parameters based on initial failover/takeover testing
 >+ Do not select **IBM Db2 pureScale**.
 >+ Do not select **Install IBM Tivoli System Automation for Multiplatforms**.
 >+ Do not select **Generate cluster configuration files**.
->![SAP SWPM - DB2 HA options](./media/dbms-guide-ha-ibm/swpm-db2ha-opt.png)
+>![SAP SWPM - DB2 HA options](./media/dbms-guide-ha-ibm-rhel/swpm-db2ha-opt.png)
 
 
 To set up the Standby database server by using the SAP homogeneous system copy procedure, execute these steps:
@@ -243,8 +243,8 @@ To set up the Standby database server by using the SAP homogeneous system copy p
 1. When you reach the exit step to restore the database for homogeneous system copy, exit the installer. Restore the database from a backup of the primary host. All subsequent installation phases have already been executed on the primary database server.
 
 #### RedHat firewall rules for DB2 HADR
-Add firewall rules to allow trafic to DB2 and between DB2 for HADR to work:
-+ Database communication port. If using partitions add those ports too.
+Add firewall rules to allow traffic to DB2 and between DB2 for HADR to work:
++ Database communication port. If using partitions, add those ports too.
 + HADR port (value of DB2 parameter HADR_LOCAL_SVC)
 + Azure probe port
 <pre><code>sudo firewall-cmd --add-port=&lt;port&gt;/tcp --permanent
@@ -548,7 +548,7 @@ You can use existing highly available NFS shares or GlusterFS for transports or 
 
 ## Test the cluster setup
 
-This section describes how you can test your Db2 HADR setup. Every test assumes IBM Db2 primary is running on the *az-idb01* virtual machine. User with sudo privliges or root (not recommended) must be used.
+This section describes how you can test your Db2 HADR setup. Every test assumes IBM Db2 primary is running on the *az-idb01* virtual machine. User with sudo privileges or root (not recommended) must be used.
 
 The initial status for all test cases is explained here: (crm_mon -r  or pcs status)
 
@@ -618,7 +618,7 @@ The original status in an SAP system is documented in Transaction DBACOCKPIT > C
 
 ![DBACockpit - Post Migration](./media/dbms-guide-ha-ibm-rhel/hadr-sap-mgr-post-rhel.png)
 
-Resource migration with "pcs resource move" creates location constraints. Location constraints in this case is preventing running IBM Db2 instance on az-idb01. If location constraints are not deleted, the resource cannot fail back.
+Resource migration with "pcs resource move" creates location constraints. Location constraints in this case are preventing running IBM Db2 instance on az-idb01. If location constraints are not deleted, the resource cannot fail back.
 
 Remove the location constrain and standby node will be started on az-idb01.
 <pre><code>sudo pcs resource clear Db2_HADR_<b>ID2</b>-master</code></pre>
@@ -830,7 +830,7 @@ rsc_st_azure    (stonith:fence_azure_arm):      Started az-idb02
      nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb02 </code></pre>
 
 
-In the event of a kernel panic, the failed node will be restared by fencing agent. After the failed node is back online, you can must start pacemaker cluster by
+In the event of a kernel panic, the failed node will be restared by fencing agent. After the failed node is back online, you must start pacemaker cluster by
 <pre><code>sudo pcs cluster start</code></pre> it starts the Db2 instance into the secondary role.
 
 <pre><code>2 nodes configured
