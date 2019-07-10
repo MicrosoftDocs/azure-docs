@@ -55,8 +55,7 @@ To edit assessment properties after creating an assessment, do the following:
 
 1. In the Azure Migrate project, click **Servers**.
 2. In **Azure Migrate: Server Assessment**, click the assessments count.
-3. In Assessment, click the relevant assessment > **Edit properties**.
-4. Assessments** page of the migration project, select the assessment, and click **Edit properties**.
+3. In **Assessment**, click the relevant assessment > **Edit properties**.
 5. Customize the assessment properties in accordance with the table above.
 6. Click **Save** to update the assessment.
 
