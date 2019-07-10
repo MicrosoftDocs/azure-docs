@@ -224,6 +224,8 @@
     - name: Where and how to deploy
       displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
+    - name: Azure Kubernetes Service
+      href: how-to-deploy-azure-kubernetes-service.md
     - name: GPUs
       href: how-to-deploy-inferencing-gpus.md
     - name: FPGAs
