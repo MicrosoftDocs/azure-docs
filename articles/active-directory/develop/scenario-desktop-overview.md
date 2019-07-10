@@ -50,8 +50,7 @@ You write a desktop application, and you want to sign in users to your applicati
 
   ![Desktop application](media/scenarios/desktop-app.svg)
 
-- If you're writing a portable command-line tool - probably a .NET Core application running on Linux or Mac - you won't be able to use either the interactive authentication (as .NET Core doesn't provide a [Web browser](https://aka.ms/msal-net-uses-web-browser)),
-  or Integrated Windows Authentication. The best option in that case is to use device code flow. This flow is also used for applications without a browser, such as  IoT applications
+- If you're writing a portable command-line tool - probably a .NET Core application running on Linux or Mac - and if you accept that the authentication be delegated to the system browser, you will be able to use interactive authentication. (.NET Core doesn't provide yet a [Web browser](https://aka.ms/msal-net-uses-web-browser) and therefore the authentication happens in the system browser), Otherwise, the best option in that case is to use device code flow. This flow is also used for applications without a browser, such as  IoT applications
 
   ![Browserless application](media/scenarios/device-code-flow-app.svg)
 
