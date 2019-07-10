@@ -143,12 +143,12 @@ To **dynamically stop and start** the collection and transmission of telemetry f
 It is not recommended to use `TelemetryConfiguration.Active` singleton on console or ASP.NET Core applications.
 if you created `TelemetryConfiguration` instance yourself - set `DisableTelemetry` to `true`.
 
-For ASP.NET Core applications you may access `TelemetryConfiguration` instance using [ASP.NET Core dependency injection](../../aspnet/fundamentals/dependency-injection). Please find more details in [ApplicationInsights for ASP.NET Core applications](../../azure-monitor/app/asp-net-core) article.
+For ASP.NET Core applications you may access `TelemetryConfiguration` instance using [ASP.NET Core dependency injection](../../aspnet/fundamentals/dependency-injection.md). Please find more details in [ApplicationInsights for ASP.NET Core applications](../../azure-monitor/app/asp-net-core.md) article.
 
 ## Disable selected standard collectors
 You can disable standard collectors (for example, performance counters, HTTP requests, or dependencies)
 
-* **ASP.NET applications** - Delete or comment out the relevant lines in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config)
+* **ASP.NET applications** - Delete or comment out the relevant lines in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
 * **ASP.NET Core applicaitons** - Follow telemetry modules configuration options in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## View system performance counters
