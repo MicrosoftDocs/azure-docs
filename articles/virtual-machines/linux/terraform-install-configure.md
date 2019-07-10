@@ -4,7 +4,7 @@ description: Learn how to install and configure Terraform to create Azure resour
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: jeconnoc
+manager: gwallace
 editor: na
 tags: azure-resource-manager
 

@@ -11,7 +11,8 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/10/2018
-ms.author: routlaw, glenga
+ms.author: routlaw
+ms.reviewer: glenga
 ms.custom: mvc, devcenter
 ---
 

@@ -4,7 +4,7 @@ description: Change the operating system disk used by an Azure virtual machine u
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

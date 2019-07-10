@@ -4,7 +4,7 @@ description: Overview of Azure support for generation 2 VMs
 services: virtual-machines-linux
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

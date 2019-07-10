@@ -3,7 +3,7 @@ title: Boot diagnostics for VMs in Azure | Microsoft Doc
 description: Overview of the two debugging features for virtual machines in Azure
 services: virtual-machines
 author: Deland-Han
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
