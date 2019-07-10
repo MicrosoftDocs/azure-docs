@@ -116,7 +116,7 @@ The output will show similar to the following with the annotation schema-version
 	                schema-versions=v1 
 ```
 
-## Proactively monitor Prometheus data usage 
+## Review Prometheus data usage 
 To identify what each metrics size is in bytes in order to determine if the volume received and retained in your workspace is cost-efficient, the following query is provided. 
 
 ```
