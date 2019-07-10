@@ -16,6 +16,9 @@ ms.author: swmachan
 
 In this quickstart, you'll learn how to make a GET request that returns a list of supported languages using Go and the Translator Text REST API.
 
+>[!TIP]
+> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
+
 ## Prerequisites
 
 This quickstart requires:
@@ -103,7 +106,7 @@ if err != nil {
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## Handle and print the response
 
@@ -222,10 +225,10 @@ A successful response is returned in JSON as shown in the following example:
 
 ## Next steps
 
-Explore Go packages for Cognitive Services APIs from the [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) on GitHub.
+Take a look at the API reference to understand everything you can do with the Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explore Go packages on GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 

@@ -4,7 +4,7 @@ description: Learn how to set up MPI for HPC on Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
