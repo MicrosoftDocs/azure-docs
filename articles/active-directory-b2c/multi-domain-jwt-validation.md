@@ -71,7 +71,10 @@ https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 In this section, you update the sample code to enable support for both well-known URIs.
 
 1. Open the **B2C-WebAPI-DotNet.sln** solution in Visual Studio
-1. In the **TaskService** project, open the `TaskService\App_Start\`**`Startup.Auth.cs`** file in your editor ()
+1. In the **TaskService** project, open the `TaskService\App_Start\`**`Startup.Auth.cs`** file in your editor
+1. Add the following `using` directive to the top of the file:
+
+    `using System.Collections.Generic;`
 1. Add the `ValidIssuers` property to the `TokenValidationParameters` definition and specify both URIs you recorded in the previous section:
 
     ```csharp
@@ -89,7 +92,7 @@ In this section, you update the sample code to enable support for both well-know
 
 ## Run the code
 
-With both URIs specified in the web API project, you can test whether the web application can successfully retrieve tokens from both issuers. Build and run the solution using different `ida:AadInstance` values in the **Web.config** file of TaskWebApp (`TaskWebApp\Web.config`) to perform the test.
+With both URIs specified in the web API project, you can test whether the web application can successfully retrieve tokens from both issuers. Build and run the solution using different `ida:AadInstance` values in the `TaskWebApp\`**`Web.config`** file of TaskWebApp to perform the test.
 
 For example, run the application first with the current value found in Web.config:
 
