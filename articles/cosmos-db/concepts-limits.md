@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Azure Cosmos DB service quotas
+title: Azure Cosmos DB service quotas
 description: Azure Cosmos DB service quotas and default limits on different resource types.
 author: arramac
 ms.author: arramac
