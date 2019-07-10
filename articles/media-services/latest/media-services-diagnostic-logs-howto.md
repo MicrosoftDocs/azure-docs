@@ -1,6 +1,6 @@
 ---
 title: Monitor Media Services diagnostic logs via Azure Monitor | Microsoft Docs
-description: This article shows how to rout and view diagnostic logs via Azure Monitor.
+description: This article shows how to route and view diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -21,14 +21,14 @@ ms.author: juliako
 
 [Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For detailed description of this feature and to see why you would want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
-This article shows you how to rout data to the storage account and then view the data. 
+This article shows you how to route data to the storage account and then view the data. 
 
 ## Prerequisites
 
-- [Create a Media Services account](create-account-cli-how-to.md)
-- Review  [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
+- [Create a Media Services account](create-account-cli-how-to.md).
+- Review  [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
-## Route data to the storage account using portal
+## Route data to the storage account using the portal
 
 1. Log in to the Azure portal at https://portal.azure.com.
 1. Navigate to your Media Services account in and click **Diagnostic Settings** under **Monitor**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor. 
@@ -50,7 +50,7 @@ This article shows you how to rout data to the storage account and then view the
 
 Monitoring data from your resource is now flowing into the storage account.
 
-## Route data to the storage account using CLI
+## Route data to the storage account using the CLI
 
 To enable storage of diagnostic logs in a Storage Account, you would run the following `az monitor diagnostic-settings` CLI command: 
 
@@ -80,7 +80,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## View data in the storage account using portal
+## View data in the storage account using the portal
 
 If you have followed the preceding steps, data has begun flowing to your storage account.
 
