@@ -23,7 +23,7 @@ The Azure Data Explorer proxy flow is depicted below:
 ## Prerequisites
 
 > [!NOTE]
-> The ADX Proxy is now in **Private Preview**. To enable this feature, contact the [ADXProxy](mailto:adxproxy@microsoft.com) team.
+> The ADX Proxy is in preview mode. To enable this feature, contact the [ADXProxy](mailto:adxproxy@microsoft.com) team.
 
 ## Connect to the proxy
 
