@@ -186,7 +186,7 @@ except ComputeTargetException:
     databricks_compute.wait_for_completion(True)
 ```
 
-For more detailed example, see [example notebook](https://aka.ms/pl-databricks) on GitHub.
+For a more detailed example, see an [example notebook](https://aka.ms/pl-databricks) on GitHub.
 
 ### <a id="adla"></a>Azure Data Lake Analytics
 
@@ -233,7 +233,7 @@ except ComputeTargetException:
     adla_compute.wait_for_completion(True)
 ```
 
-For more detailed example, see [example notebook](https://aka.ms/pl-adla) on GitHub.
+For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) on GitHub.
 
 > [!TIP]
 > Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) to copy the data before training.
