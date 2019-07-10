@@ -178,7 +178,6 @@ In this section, you create a user in Costpoint. Lets say user id is BSIMON and 
 
 	![Costpoint User](./media/costpoint-tutorial/costpoint-user.png)
 
-
 ### Test SSO
 
 When you select the Costpoint tile in the Access Panel, you should be automatically signed in to the Costpoint for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
