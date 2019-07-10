@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 ---
 # Integrate your app with an Azure Virtual Network
-This document describes the Azure App Service virtual network integration feature and how to set it up with apps in the [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Networks][VNETOverview] (VNets) allow you to place many of your Azure resources in a non-internet routeable network.  
+This document describes the Azure App Service virtual network integration feature and how to set it up with apps in the [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure Virtual Networks][VNETOverview] (VNets) allow you to place many of your Azure resources in a non-internet routable network.  
 
 The Azure App Service has two variations. 
 
@@ -29,7 +29,7 @@ This document goes through the two VNet Integration features, which is for use i
 There are two forms to the VNet Integration feature
 
 1. One version enables integration with VNets in the same region. This form of the feature requires a subnet in a VNet in the same region. This feature is still in preview but is supported for Windows app production workloads with some caveats noted below.
-2. The other version enables integration with VNets in other regions or with Classic VNets. This version of the feature requires deployment of a Virtual Network Gateway into your VNet. This is the point-to-site VPN based feature and is only supported with Windows apps.
+2. The other version enables integration with VNets in other regions or with Classic VNets. This version of the feature requires deployment of a Virtual Network Gateway into your VNet. This is the point-to-site VPN-based feature and is only supported with Windows apps.
 
 An app can only use one form of the VNet Integration feature at a time. The question then is which feature should you use. You can use either for many things. The clear differentiators though are:
 
@@ -80,7 +80,7 @@ This feature is in preview but, it is supported for Windows app production workl
 * You cannot delete a VNet with an integrated app. You must remove the integration first 
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet. 
 
-One address is used for each App Service plan instance. If you scaled your app to 5 instances, that is 5 addresses used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accomodate whatever scale your app may reach. A /27 with 32 addresses is the recommended size as that would accommodate an Premium App Service plan that is scaled to 20 instances.
+One address is used for each App Service plan instance. If you scaled your app to 5 instances, that is 5 addresses used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accommodate whatever scale your app may reach. A /27 with 32 addresses is the recommended size as that would accommodate a Premium App Service plan that is scaled to 20 instances.
 
 The feature is in preview also for Linux. To use the VNet Integration feature with a Resource Manager VNet in the same region:
 
@@ -114,7 +114,7 @@ Apps in the App Service are hosted on worker roles. The Basic and higher pricing
 
 ![VNet Integration](media/web-sites-integrate-with-vnet/vnet-integration.png)
 
-When VNet Integration is enabled, your app will still make outbound calls to the internet through the same channels as normal. The outbound addresses that are listed in the app properties portal are still the addresses used by your app. What changes for your app are that calls to service endpoint secured services or RFC 1918 addresses goes into your VNet. 
+When VNet Integration is enabled, your app will still make outbound calls to the internet through the same channels as normal. The outbound addresses that are listed in the app properties portal are still the addresses used by your app. What changes for your app are, calls to service endpoint secured services or RFC 1918 addresses goes into your VNet. 
 
 The feature only supports one virtual interface per worker.  One virtual interface per worker means one regional VNet Integration per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration but if you need an app to connect to an additional VNet, you will need to create another App Service plan. The virtual interface used is not a resource that customers have direct access to.
 
@@ -204,7 +204,7 @@ To reach the ASP VNet Integration UI, open your ASP UI and select **Networking**
 
 The ASP VNet Integration UI will show you all of the VNets that are used by the apps in your ASP. To see details on each VNet, click on the VNet you are interested in. There are two actions you can perform here.
 
-* **Sync network**. The sync network operation is only for the gateway dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, you need to perform a **Sync network** operation. This operation will restart any apps using this VNet.
+* **Sync network**. The sync network operation is only for the gateway-dependent VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your VNet, you need to perform a **Sync network** operation. This operation will restart any apps using this VNet.
 * **Add routes** Adding routes will drive outbound traffic into your VNet.
 
 **Routing** 
