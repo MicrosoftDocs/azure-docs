@@ -134,7 +134,7 @@ Hyper-V Virtual Network Adapter | Bytes Sent/Second | Calculation for VM size
 - Memory utilization is (Current Pressure * Guest Visible Physical Memory) / 100.
 - Disk and network utilization values are collected from the listed Hyper-V performance counters.
 
-# Collected metadata-Hyper-V
+## Collected metadata-Hyper-V
 
 Here's the full list of Hyper-V VM metadata that the appliance collects and sends to Azure.
 
