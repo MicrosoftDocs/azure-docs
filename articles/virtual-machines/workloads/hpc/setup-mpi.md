@@ -122,7 +122,7 @@ Process pinning works correctly for 15, 30 and 60 PPN by default.
 
 ## OSU MPI Benchmarks
 
-[Download OSU MPI Benchmarks][http://mvapich.cse.ohio-state.edu/benchmarks/](http://mvapich.cse.ohio-state.edu/benchmarks/) and untar.
+[Download OSU MPI Benchmarks](http://mvapich.cse.ohio-state.edu/benchmarks/) and untar.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
