@@ -47,7 +47,7 @@ sections:
   items:
   - type: paragraph
     text: |
-      You can use the Speech SDK to add the following capabilities (and more) to your apps&colon; 
+      You can use the Speech SDK (<a href="releasenotes.md">release notes</a>) to add the following capabilities (and more) to your apps&colon; 
       <div class="row"><div class="column"><ul>
       <li><b><a href="speech-to-text.md">speech-to-text</a></b> (speech-recognition/SR)</li>
       <li><b><a href="speech-devices-sdk-create-kws.md">custom wake-word</a></b> (keyword-spotter/KWS)</li>
@@ -83,6 +83,8 @@ sections:
       - image:
           src: media/index/logo_objc.jpg
       - image:
+          src: media/index/logo_swift.jpg          
+      - image:
           src: media/index/logo_nodejs.svg
       - image:
           src: media/index/logo_js.svg
@@ -99,6 +101,7 @@ sections:
         - href: quickstart-java-jre
         - href: quickstart-python
         - href:
+        - href:
         - href: quickstart-js-node
         - href:
       - title: Windows 10 (x86)
@@ -110,6 +113,7 @@ sections:
         - href: quickstart-csharp-unity
         - href:
         - href: quickstart-python
+        - href:
         - href:
         - href: quickstart-js-node
         - href:
@@ -125,6 +129,7 @@ sections:
         - href:
         - href:
         - href:
+        - href:
       - title: Linux (x64)
         values:
         - href:
@@ -135,6 +140,7 @@ sections:
         - href: quickstart-java-jre
         - href: quickstart-python
         - href:
+        - href:
         - href: quickstart-js-node
         - href:
       - title: Linux (x86)
@@ -142,6 +148,7 @@ sections:
         - href:
         - href:
         - href: quickstart-cpp-linux
+        - href:
         - href:
         - href:
         - href:
@@ -161,6 +168,7 @@ sections:
         - href:
         - href:
         - href:
+        - href:
       - title: Android (x86/x64)
         values:
         - href:
@@ -169,6 +177,7 @@ sections:
         - href:
         - href: quickstart-csharp-unity
         - href: quickstart-java-android
+        - href:
         - href:
         - href:
         - href:
@@ -183,6 +192,7 @@ sections:
         - href:
         - href:
         - href: quickstart-objectivec-ios
+        - href: quickstart-swift-ios
         - href:
         - href:
       - title: macOS (x64)
@@ -195,6 +205,7 @@ sections:
         - href: quickstart-java-jre
         - href: quickstart-python
         - href: quickstart-objective-c-macos
+        - href: quickstart-swift-macos
         - href: quickstart-js-node
         - href:
       - title: Devices SDK (ARM32)
@@ -205,6 +216,7 @@ sections:
         - href:
         - href:
         - href: speech-devices-sdk
+        - href:
         - href:
         - href:
         - href:
@@ -220,9 +232,11 @@ sections:
         - href:
         - href:
         - href:
+        - href:
         - href: quickstart-js-browser
       - title: REST
         values:
+        - href:
         - href:
         - href:
         - href:

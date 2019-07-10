@@ -204,7 +204,7 @@ Pass either **template-file** or **template-uri** (but not both).
 
 For example:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- az mesh deployment create --https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az mesh deployment create --https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### Show a Secret
 Returns the description of the secret (but not the value).

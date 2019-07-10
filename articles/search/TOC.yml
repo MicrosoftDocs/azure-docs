@@ -35,10 +35,14 @@
       href: tutorial-csharp-type-ahead-and-suggestions.md
     - name: 4 - Add facets
       href: tutorial-csharp-facets.md
+    - name: 5 - Add results ordering
+      href: tutorial-csharp-orders.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
   - name: Index Azure JSON blobs
     href: search-semi-structured-data.md
+  - name: Index multiple Azure data sources 
+    href: tutorial-multiple-data-sources.md
   - name: Enrich with AI (cognitive search)
     items:
     - name: C#
@@ -191,6 +195,8 @@
       href: search-indexer-field-mappings.md
     - name: Connect to SQL Server VMs
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+    - name: Monitor indexers
+      href: search-howto-monitor-indexers.md
     - name: Troubleshoot common issues
       href: search-indexer-troubleshooting.md
   - name: Enrich with AI

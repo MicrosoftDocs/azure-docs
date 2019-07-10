@@ -256,10 +256,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Get User
 
-###### Request
+###### <a name="request-1"></a>Request
 *GET /Users/5d48a0a8e9f04aa38008* 
 
-###### Response
+###### <a name="response-1"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -287,10 +287,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 ```
 #### Get User by query
 
-##### Request
+##### <a name="request-2"></a>Request
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
-##### Response
+##### <a name="response-2"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -326,10 +326,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Get User by query - Zero results
 
-##### Request
+##### <a name="request-3"></a>Request
 *GET /Users?filter=userName eq "non-existent user"*
 
-##### Response
+##### <a name="response-3"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -344,7 +344,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Update User [Multi-valued properties]
 
-##### Request
+##### <a name="request-4"></a>Request
 *PATCH /Users/6764549bef60420686bc HTTP/1.1*
 ```json
 {
@@ -364,7 +364,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-4"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -393,7 +393,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Update User [Single-valued properties]
 
-##### Request
+##### <a name="request-5"></a>Request
 *PATCH /Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
 {
@@ -406,7 +406,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-5"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -436,10 +436,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Delete User
 
-##### Request
+##### <a name="request-6"></a>Request
 *DELETE /Users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### Response
+##### <a name="response-6"></a>Response
 *HTTP/1.1 204 No Content*
 
 ### Group Operations
@@ -451,7 +451,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Create Group
 
-##### Request
+##### <a name="request-7"></a>Request
 *POST /Groups HTTP/1.1*
 ```json
 {
@@ -465,7 +465,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-7"></a>Response
 *HTTP/1.1 201 Created*
 ```json
 {
@@ -485,10 +485,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Get Group
 
-##### Request
+##### <a name="request-8"></a>Request
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
-##### Response
+##### <a name="response-8"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -506,10 +506,10 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 
 #### Get Group by displayName
 
-##### Request
+##### <a name="request-9"></a>Request
 *GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
 
-##### Response
+##### <a name="response-9"></a>Response
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -533,7 +533,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 ```
 #### Update Group [Non-member attributes]
 
-##### Request
+##### <a name="request-10"></a>Request
 *PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
@@ -546,12 +546,12 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-10"></a>Response
 *HTTP/1.1 204 No Content*
 
 ### Update Group [Add Members]
 
-##### Request
+##### <a name="request-11"></a>Request
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -567,12 +567,12 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-11"></a>Response
 *HTTP/1.1 204 No Content*
 
 #### Update Group [Remove Members]
 
-##### Request
+##### <a name="request-12"></a>Request
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -588,15 +588,15 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 }
 ```
 
-##### Response
+##### <a name="response-12"></a>Response
 *HTTP/1.1 204 No Content*
 
 #### Delete Group
 
-##### Request
+##### <a name="request-13"></a>Request
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### Response
+##### <a name="response-13"></a>Response
 *HTTP/1.1 204 No Content*
 
 

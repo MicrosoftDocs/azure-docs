@@ -4,7 +4,7 @@ description: Learn how to troubleshoot Windows virtual machine issues in Azure b
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-windows

@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -87,6 +87,9 @@ The following table summarizes the high availability capability of various accou
 |Regional outage – data loss    |   Data loss      |  Data loss       |   Data loss <br/><br/> When using bounded staleness consistency with multi master and more than one region, data loss is limited to the bounded staleness configured on your account. <br/><br/> Data loss during regional outage can be avoided by configuring strong consistency with multiple regions. This option comes with tradeoffs that impact availability and performance.      |
 |Regional outage –availability  |  Availability loss       |  Availability loss       |  No availability loss  |
 |Throughput    |  X RU/s provisioned throughput      |  X RU/s provisioned throughput       |  2X RU/s provisioned throughput <br/><br/> This configuration mode requires twice the amount of throughput when compared to a single region with Availability Zones because there are two regions.   |
+
+> [!NOTE] 
+> To enable Availability Zone support, the Azure Cosmos DB account must have multi-master/multi-region writes enabled. 
 
 You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. Currently, you can only enable zone redundancy by using Azure portal, PowerShell and Azure Resource Manager templates. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following powershell snippet enables zone redundancy for the "Southeast Asia" region:
 

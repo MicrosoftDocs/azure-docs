@@ -75,9 +75,9 @@ bus_service.create_topic('mytopic', topic_options)
 Subscriptions to topics are also created with the **ServiceBusService** object. Subscriptions are named and can have an optional filter that restricts the set of messages delivered to the subscription's virtual queue.
 
 > [!NOTE]
-> Subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
+> By default, subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
 > 
-> 
+> You can have the subscriptions automatically deleted by setting the [auto_delete_on_idle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### Create a subscription with the default (MatchAll) filter
 
@@ -176,7 +176,7 @@ In the event that the application crashes after processing the message but befor
 
 ## Delete topics and subscriptions
 
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][Azure portal] or programmatically. The following example shows how to delete the topic named `mytopic`:
+Topics and subscriptions are persistent unless the [auto_delete_on_idle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) is set. They can be deleted either through the [Azure portal][Azure portal] or programmatically. The following example shows how to delete the topic named `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
