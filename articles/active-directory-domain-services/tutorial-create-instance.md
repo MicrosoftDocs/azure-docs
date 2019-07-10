@@ -28,14 +28,14 @@ In this tutorial, you learn how to:
 > * Add administrative users to domain management
 > * Enable password hash synchronization
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 To complete this tutorial, you need the following resources and privileges:
 
 * An active Azure subscription.
-    * If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+    * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
@@ -198,16 +198,6 @@ To change the password for a cloud-only user, the user must complete the followi
 1. Select **Submit**.
 
 It takes a few minutes after you've changed your password for the new password to be usable in Azure AD DS. After about 20 minutes, you can use the new password to sign in to computers joined to the managed domain.
-
-## Clean up resources
-
-You can only have one Azure AD DS instance per tenant. If you're not going to continue to use this Azure AD DS instance, delete the resource group using the following steps:
-
-1. From the left-hand menu, select **Resource groups**
-1. Choose your resource group, such as *myResourceGroup*.
-1. In the resource group window, select **Delete resource group**, enter the resource group name to confirm, then select **Delete**.
-
-If you used an existing virtual network and subnet, you can instead individually delete the resources for *Azure AD Domain Services* and the network interfaces, load balancer, public IP address, and network security group with the naming prefix *aadds-*.
 
 ## Next steps
 
