@@ -29,8 +29,6 @@ Using Azure Resource Manager to manage your services is a highly privileged acti
 
 Once this policy is enabled in a tenant, all users logging into Azure management resources will be challenged with multi-factor authentication. If the user is not registered for MFA, the user will be required to register using the Microsoft Authenticator App in order to proceed.
 
-![Require MFA for Azure Resource Manager](./media/howto-baseline-protect-azure/baseline-policy-require-mfa-for-service-management.png)
-
 To perform interactive sign-in using [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), use the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```PowerShell

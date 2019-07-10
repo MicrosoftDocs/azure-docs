@@ -98,7 +98,7 @@ Output is returned immediately. You can stream the results to an application tha
 
 The following example shows the response for the document collection in this article.
 
-```
+```json
 {
     "documents": [
         {
@@ -125,6 +125,133 @@ The following example shows the response for the document collection in this art
     "errors": []
 }
 ```
+
+## Sentiment analysis V3 public preview
+
+The [next version of Sentiment Analysis](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) is now available for Public Preview, providing significant improvements in the accuracy and detail of the API's text categorization and scoring. 
+
+> [!NOTE]
+> * The sentiment analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
+> * At this time, Sentiment analysis V3: 
+>    * Currently only supports the English language.  
+>    * Is available in the following regions: `Central US`, `Central Canada`, ` East Asia` 
+
+|Feature |Description  |
+|---------|---------|
+|Improved accuracy     | Significant improvement in detecting positive, neutral, negative, and mixed sentiment in text documents over previous versions.           |
+|Document and Sentence-level Sentiment Score     | Detect the sentiment of both a document and its individual sentences. If the document includes multiple sentences, each sentence is also assigned a sentiment score.         |
+|Sentiment category and score     | The API now returns sentiment categories (`positive`, `negative`, `neutral` and `mixed`) for text, in addition to a sentiment score.        |
+| Improved output | Sentiment analysis now returns information for both an entire text document, and its individual sentences. |
+
+### Sentiment labeling
+
+Sentiment analysis V3 can return scores and labels (`positive`, `negative`, and `neutral`) at a sentence and document level. At the document level the `mixed` sentiment label (not score) can also be returned. The sentiment of the document is determined by aggregating its sentences' scores.
+
+| Sentence sentiment                                                        | Returned document label |
+|---------------------------------------------------------------------------|----------------|
+| At least one positive sentence and the rest of the sentences are neutral. | `positive`     |
+| At least one negative sentence and the rest of the sentences are neutral.  | `negative`     |
+| At least one negative sentence and at least one positive sentence.         | `mixed`        |
+| All sentences are neutral.                                                 | `neutral`      |
+
+### Sentiment analysis V3 example request
+
+The following JSON is an example of a request made to the new version of sentiment analysis. Note that the request formatting is the same as the previous version:
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Hello world. This is some input text that I love."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    }
+  ]
+}
+```
+
+### Sentiment analysis V3 example response
+
+While the request format is the same as the previous version, the response format has changed. The following JSON is an example response from the new version of the API:
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.98570585250854492,
+                "neutral": 0.0001625834556762,
+                "negative": 0.0141316400840878
+            },
+            "sentences": [
+                {
+                    "sentiment": "neutral",
+                    "sentenceScores": {
+                        "positive": 0.0785155147314072,
+                        "neutral": 0.89702343940734863,
+                        "negative": 0.0244610067456961
+                    },
+                    "offset": 0,
+                    "length": 12
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.98570585250854492,
+                        "neutral": 0.0001625834556762,
+                        "negative": 0.0141316400840878
+                    },
+                    "offset": 13,
+                    "length": 36
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "sentiment": "positive",
+            "documentScores": {
+                "positive": 0.89198976755142212,
+                "neutral": 0.103382371366024,
+                "negative": 0.0046278294175863
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.78401315212249756,
+                        "neutral": 0.2067587077617645,
+                        "negative": 0.0092281140387058
+                    },
+                    "offset": 0,
+                    "length": 30
+                },
+                {
+                    "sentiment": "positive",
+                    "sentenceScores": {
+                        "positive": 0.99996638298034668,
+                        "neutral": 0.0000060341349126,
+                        "negative": 0.0000275444017461
+                    },
+                    "offset": 31,
+                    "length": 13
+                }
+            ]
+        }
+    ],
+    "errors": []
+}
+```
+
+### Example C# code
+
+You can find an example C# application that calls this version of sentiment analysis on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
 ## Summary
 

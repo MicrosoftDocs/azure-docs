@@ -42,15 +42,15 @@ To locally develop and test Python functions, you must work in a Python 3.6 envi
 ### Bash:
 
 ```bash
-python3.6 -m venv .env
-source .env/bin/activate
+python3.6 -m venv .venv
+source .venv/bin/activate
 ```
 
 ### PowerShell or a Windows command prompt:
 
 ```powershell
-py -3.6 -m venv .env
-.env\scripts\activate
+py -3.6 -m venv .venv
+.venv\scripts\activate
 ```
 
 The remaining commands are run inside the virtual environment.

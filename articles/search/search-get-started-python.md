@@ -17,11 +17,11 @@ ms.custom: seodec2018
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Build a Jupyter notebook that creates, loads, and queries an Azure Search index using Python and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build a notebook step by step, starting from scratch. Alternatively, you could run a finished notebook. To download a copy, go to the[azure-aearch-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter notebook that creates, loads, and queries an Azure Search index using Python and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build a notebook step by step, starting from scratch. Alternatively, you could run a finished notebook. To download a copy, go to the[azure-search-python-samples repo](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -41,7 +41,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 

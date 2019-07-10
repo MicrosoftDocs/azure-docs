@@ -89,7 +89,7 @@ This image demonstrates the camera's field-of-view as seen from the front at a d
 ![Camera FOV Front](./media/resources/hardware-specs-media/fov-front.png)
 
 > [!NOTE]
-> When depth is in NFOV mode, the RGB camera has better pixel overlap in 4:3 than 19:9 resolutions.
+> When depth is in NFOV mode, the RGB camera has better pixel overlap in 4:3 than 16:9 resolutions.
 
 ## Motion sensor (IMU)
 
@@ -97,7 +97,7 @@ The embedded Inertial Measurement Unit (IMU) is an LSM6DSMUS and includes both a
 
 ## Microphone array
 
-Azure Kinect DK embeds a high-quality, seven microphone circular array that identifies as a standard USB audio class 2.0 device. The performance specifications are:
+Azure Kinect DK embeds a high-quality, seven microphone circular array that identifies as a standard USB audio class 2.0 device. All 7 channels can be accessed. The performance specifications are:
 
 - Sensitivity: -22 dBFS (94 dB SPL, 1 kHz)
 - Signal to noise ratio > 65 dB

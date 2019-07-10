@@ -35,7 +35,7 @@ Microsoft identity platform supports the [resource owner password credential (RO
 
 The following diagram shows the ROPC flow.
 
-![ROPC flow](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![Diagram showing the resource owner password credential flow](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## Authorization request
 
@@ -43,7 +43,7 @@ The ROPC flow is a single request&mdash;it sends the client identification and u
 
 > [!TIP]
 > Try executing this request in Postman!
-> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```

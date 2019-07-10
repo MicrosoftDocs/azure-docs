@@ -153,6 +153,8 @@ foreach (TransliterationResult o in deserializedOutput)
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
 ## Put it all together
 
 The last step is to call `TransliterateTextRequest()` in the `Main` function. In this sample, we're transliterating from Japanese to latin script. Locate `static void Main(string[] args)` and replace it with this code:
@@ -173,8 +175,6 @@ static async Task Main(string[] args)
 ```
 
 You'll notice that in `Main`, you're declaring `subscriptionKey`, `host`, `route`, and the script to transliterate `textToTransliterate`.
-
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
 
 ## Run the sample app
 
@@ -209,10 +209,10 @@ Make sure to remove any confidential information from your sample app's source c
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including translation and language identification, as well as other sample Translator Text projects on GitHub.
+Take a look at the API reference to understand everything you can do with the Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explore C# examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 

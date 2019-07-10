@@ -148,4 +148,4 @@ After you complete the quickstart, you may want to delete the cluster. With HDIn
 In this quickstart, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Hive queries. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Apache Hive on HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extract, transform, and load data using Interactive Query on HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

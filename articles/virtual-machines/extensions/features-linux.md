@@ -4,7 +4,7 @@ description: Learn what extensions are available for Azure virtual machines, gro
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 

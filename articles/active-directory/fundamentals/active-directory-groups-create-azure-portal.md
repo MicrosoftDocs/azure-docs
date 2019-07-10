@@ -39,7 +39,7 @@ You can create a basic group and add your members at the same time.
         
        - **Office 365**. Provides collaboration opportunities by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. For more info about Office 365 Groups, see [Learn about Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-   - **Group name (required).** Add a name for the group, something that you'll remember and that makes sense.
+   - **Group name (required).** Add a name for the group, something that you'll remember and that makes sense. A check will be performed to determine if the name is already used for another group. If the name is already in use, to avoid duplicate naming, you'll be asked to modify the name of your group.
 
    - **Group description.** Add an optional description to your group.
 

@@ -47,8 +47,6 @@ Augmented security rules simplify security definition for virtual networks, allo
 ## Service tags
 
 A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation. You cannot create your own service tag, nor specify which IP addresses are included within a tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change. You can use service tags in place of specific IP addresses when creating security rules. 
- 
-You can download and integrate with an on premises firewall the list of service tags with prefix details on the following weekly publications for Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
 
 The following service tags are available for use in [network security groups rules](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules). Service tags with asterisk at the end (i.e. AzureCloud*) can also be used in [Azure Firewall network rules](https://docs.microsoft.com/azure/firewall/service-tags). 
 
@@ -87,7 +85,7 @@ This tag denotes the address prefixes of the management traffic for APIM dedicat
 This tag denotes the address prefixes of the Logic Apps connectors for probe/backend connections. If you specify *AzureConnectors* for the value, traffic is allowed or denied to AzureConnectors. If you only want to allow access to AzureConnectors in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureConnectors.[region name]. This tag is recommended for inbound security rule. 
 * **GatewayManager** (Resource Manager only): 
 This tag denotes the address prefixes of the management traffic for VPN/App Gateways dedicated deployments. If you specify *GatewayManager* for the value, traffic is allowed or denied to GatewayManager. This tag is recommended for inbound security rule. 
-* **AzureDataLake** (Resource Manager only): 
+* **AzureDataLake*** (Resource Manager only): 
 This tag denotes the address prefixes of the Azure Data Lake service. If you specify *AzureDataLake* for the value, traffic is allowed or denied to AzureDataLake. This tag is recommended for outbound security rule. 
 * **AzureActiveDirectory*** (Resource Manager only): 
 This tag denotes the address prefixes of the AzureActiveDirectory service. If you specify *AzureActiveDirectory* for the value, traffic is allowed or denied to AzureActiveDirectory. This tag is recommended for outbound security rule.
@@ -99,18 +97,36 @@ This tag denotes the address prefixes of the ServiceFabric service. If you speci
 This tag denotes the address prefixes of the AzureMachineLearning service. If you specify *AzureMachineLearning* for the value, traffic is allowed or denied to AzureMachineLearning. This tag is recommended for outbound security rule. 
 * **BatchNodeManagement*** (Resource Manager only): 
 This tag denotes the address prefixes of the management traffic for Azure Batch dedicated deployments. If you specify *BatchNodeManagement* for the value, traffic is allowed or denied from the Batch service to compute nodes. This tag is recommended for inbound/outbound security rule. 
-* **AzureBackup***(Resource Manager only):
+* **AzureBackup*** (Resource Manager only):
 This tag denotes the address prefixes of the AzureBackup service. If you specify *AzureBackup* for the value, traffic is allowed or denied to AzureBackup. This tag has dependency on the **Storage** and **AzureActiveDirectory** tag.This tag is recommended for outbound security rule. 
-* **AzureActiveDirectoryDomainServices***(Resource Manager only):
-	This tag denotes the address prefixes of  the management traffic for Azure Active Directory Domain Services dedicated deployments. If you specify *AzureActiveDirectoryDomainServices* for the value, traffic is allowed or denied to AzureActiveDirectoryDomainServices. This tag is recommended for inbound/outbound security rule.  
-* **SqlManagement ***(Resource Manager only):
+* **AzureActiveDirectoryDomainServices*** (Resource Manager only):
+This tag denotes the address prefixes of  the management traffic for Azure Active Directory Domain Services dedicated deployments. If you specify *AzureActiveDirectoryDomainServices* for the value, traffic is allowed or denied to AzureActiveDirectoryDomainServices. This tag is recommended for inbound/outbound security rule.  
+* **SqlManagement*** (Resource Manager only):
 This tag denotes the address prefixes of the management traffic for SQL dedicated deployments. If you specify *SqlManagement* for the value, traffic is allowed or denied to SqlManagement. This tag is recommended for inbound/outbound security rule. 
+* **CognitiveServicesManagement** (Resource Manager only):
+This tag denotes the address prefixes of traffic for Cognitive Services. If you specify *CognitiveServicesManagement* for the value, traffic is allowed or denied to CognitiveServicesManagement. This tag is recommended for outbound security rule.  
+* **Dynamics365ForMarketingEmail** (Resource Manager only):
+This tag denotes the address prefixes of the marketing email service of Dynamics 365. If you specify *Dynamics365ForMarketingEmail* for the value, traffic is allowed or denied to Dynamics365ForMarketingEmail. If you only want to allow access to Dynamics365ForMarketingEmail in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format Dynamics365ForMarketingEmail.[region name].
+* **AzurePlatformDNS** (Resource Manager only):
+This tag denotes DNS which is a basic infrastructure service. If you specify *AzurePlatformDNS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for DNS. Please take caution in using this tag. Testing is recommended before using this tag. 
+* **AzurePlatformIMDS** (Resource Manager only):
+This tag denotes IMDS which is a basic infrastructure service. If you specify *AzurePlatformIMDS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for IMDS. Please take caution in using this tag. Testing is recommended before using this tag. 
+* **AzurePlatformLKM** (Resource Manager only):
+This tag denotes Windows licensing or key management service. If you specify *AzurePlatformLKM* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for licensing. Please take caution in using this tag. Testing is recommended before using this tag. 
 
 > [!NOTE]
 > Service tags of Azure services denotes the address prefixes from the specific cloud being used. 
 
 > [!NOTE]
 > If you implement a [virtual network service endpoint](virtual-network-service-endpoints-overview.md) for a service, such as Azure Storage or Azure SQL Database, Azure adds a [route](virtual-networks-udr-overview.md#optional-default-routes) to a virtual network subnet for the service. The address prefixes in the route are the same address prefixes, or CIDR ranges, as the corresponding service tag.
+
+### Service tags in on-premises  
+You can download and integrate with an on-premises firewall the list of service tags with prefix details on the following weekly publications for Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
+
+You can also programmatically retrieve this information using the **Service Tag Discovery API** (Public Preview) - [REST](https://aka.ms/discoveryapi_rest), [Azure PowerShell](https://aka.ms/discoveryapi_powershell), and [Azure CLI](https://aka.ms/discoveryapi_cli). 
+
+> [!NOTE]
+> Following weekly publications (old version) for Azure [Public](https://www.microsoft.com/en-us/download/details.aspx?id=41653), [China](https://www.microsoft.com/en-us/download/details.aspx?id=42064), and [Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770) clouds will be deprecated by June 30, 2020. Please start using the updated publications as described above. 
 
 ## Default security rules
 

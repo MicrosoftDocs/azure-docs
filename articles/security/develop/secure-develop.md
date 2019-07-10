@@ -130,7 +130,7 @@ alphanumeric and special characters).
 
 You can use an identity framework to create and enforce password
 policies. Azure AD B2C helps you with password management by providing
-[built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy),
+[built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow),
 [self-service password reset](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr), and more.
 
 To defend against attacks on default accounts, verify that all keys and
@@ -227,7 +227,7 @@ application. Microsoft offers an attack surface analysis tool called
 [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including
 [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project),
 [Arachni](http://arachni-scanner.com/),
-[Skipfish](http://code.google.com/p/skipfish/), and
+[Skipfish](https://code.google.com/p/skipfish/), and
 [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your
 app and map the parts of the application that are accessible over the
 web. You can also search the Azure Marketplace for similar [developer

@@ -4,7 +4,7 @@ description: Learn how to run workloads on Azure virtual machines.
 services: virtual-machines
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

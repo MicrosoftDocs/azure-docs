@@ -6,6 +6,7 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2019
+ms.custom: fasttrack-edit
 ---
 # Limits in Azure Database for PostgreSQL - Single Server
 The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [pricing tiers](concepts-pricing-tiers.md) article.
@@ -42,6 +43,9 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 
 ### Server version upgrades
 - Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
+
+> Note that prior to PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) considered a _major version_ upgrade to be an increase in the first _or_ second number (for example, 9.5 to 9.6 was considered a _major_ version upgrade).
+> As of version 10, only a change in the first number is considered a major version upgrade (for example, 10.0 to 10.1 is a _minor_ version upgrade, and 10 to 11 is a _major_ version upgrade).
 
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.

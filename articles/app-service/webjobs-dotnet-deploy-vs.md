@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-
+ms.author: glenga
+ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ---
 
 # Develop and deploy WebJobs using Visual Studio - Azure App Service

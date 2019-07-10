@@ -17,6 +17,9 @@ In this quickstart, you'll learn how to detect the language of provided text usi
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
+>[!TIP]
+> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
+
 ## Prerequisites
 
 This quickstart requires:
@@ -83,13 +86,12 @@ let options = {
     json: true,
 };
 ```
-
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
-
-### Authentication
-
 The easiest way to authenticate a request is to pass in your subscription key as an
-`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your subscription key for an access token, and pass the access token along as an `Authorization` header to validate your request. For more information, see [Authentication](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+`Ocp-Apim-Subscription-Key` header, which is what we use in this sample. As an alternative, you can exchange your subscription key for an access token, and pass the access token along as an `Authorization` header to validate your request.
+
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request headers.
+
+For more information, see [Authentication](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## Make the request and print the response
 
@@ -149,8 +151,10 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## Next steps
 
+Take a look at the API reference to understand everything you can do with the Translator Text API.
+
 > [!div class="nextstepaction"]
-> [Explore Node.js examples on GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 

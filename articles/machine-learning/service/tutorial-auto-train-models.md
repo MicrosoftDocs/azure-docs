@@ -1125,6 +1125,8 @@ print(y_predict[:10])
 Create a scatter plot to visualize the predicted cost values compared to the actual cost values. The following code uses the `distance` feature as the x-axis and trip `cost` as the y-axis. To compare the variance of predicted cost at each trip distance value, the first 100 predicted and actual cost values are created as separate series. Examining the plot shows that the distance/cost relationship is nearly linear, and the predicted cost values are in most cases very close to the actual cost values for the same trip distance.
 
 ```python
+%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(14, 10))

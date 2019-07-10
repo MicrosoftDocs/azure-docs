@@ -14,7 +14,7 @@ ms.custom: seodec2018
 
 # Quickstart: Create an Azure Search index in Postman using REST APIs
 > [!div class="op_single_selector"]
-> * [Postman](search-fiddler.md)
+> * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
@@ -41,7 +41,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -245,15 +245,15 @@ REST clients are invaluable for impromptu exploration, but now that you know how
 + [Quickstart: Create an index (REST) using PowerShell](search-create-index-rest-api.md)
 
 <!--Image References-->
-[1]: ./media/search-fiddler/fiddler-url.png
-[2]: ./media/search-fiddler/AzureSearch_Fiddler2_PostDocs.png
-[3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
-[4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
-[5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
-[6]: ./media/search-fiddler/postman-url.png
-[7]: ./media/search-fiddler/fiddler-request.png
-[8]: ./media/search-fiddler/postman-request.png
-[9]: ./media/search-fiddler/fiddler-docs.png
-[10]: ./media/search-fiddler/postman-docs.png
-[11]: ./media/search-fiddler/postman-query.png
-[12]: ./media/search-fiddler/postman-system-query.png
+[1]: ./media/search-get-started-postman/fiddler-url.png
+[2]: ./media/search-get-started-postman/AzureSearch_Fiddler2_PostDocs.png
+[3]: ./media/search-get-started-postman/AzureSearch_Fiddler3_Query.png
+[4]: ./media/search-get-started-postman/AzureSearch_Fiddler4_QueryResults.png
+[5]: ./media/search-get-started-postman/AzureSearch_Fiddler5_QueryStats.png
+[6]: ./media/search-get-started-postman/postman-url.png
+[7]: ./media/search-get-started-postman/fiddler-request.png
+[8]: ./media/search-get-started-postman/postman-request.png
+[9]: ./media/search-get-started-postman/fiddler-docs.png
+[10]: ./media/search-get-started-postman/postman-docs.png
+[11]: ./media/search-get-started-postman/postman-query.png
+[12]: ./media/search-get-started-postman/postman-system-query.png

@@ -35,7 +35,7 @@ The first step to perform an access review is to find and open the access review
 
 1. Look for an email from Microsoft that asks you to review access. Here is an example email to review the access for a group.
 
-    ![Review access email](./media/perform-access-review/access-review-email.png)
+    ![Example email from Microsoft to review access to a group](./media/perform-access-review/access-review-email.png)
 
 1. Click the **Start review** link to open the access review.
 
@@ -43,7 +43,7 @@ If you don't have the email, you can find your pending access reviews by followi
 
 1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![MyApps portal](./media/perform-access-review/myapps-access-panel.png)
+    ![MyApps portal listing apps you have permissions to](./media/perform-access-review/myapps-access-panel.png)
 
 1. In the upper-right corner of the page, click the user symbol, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
 
@@ -51,7 +51,7 @@ If you don't have the email, you can find your pending access reviews by followi
 
     If the tile isn't visible, there are no access reviews to perform for that organization and no action is needed at this time.
 
-    ![Access reviews list](./media/perform-access-review/access-reviews-list.png)
+    ![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list.png)
 
 1. Click the **Begin review** link for the access review you want to perform.
 
@@ -61,7 +61,7 @@ Once you have opened the access review, you see the names of users who need to b
 
 If the request is to review your own access, the page will look different. For more information, see [Review access for yourself to groups or applications](review-your-access.md).
 
-![Perform access review](./media/perform-access-review/perform-access-review.png)
+![Open access review listing the users who need to be reviewed](./media/perform-access-review/perform-access-review.png)
 
 There are two ways that you can approve or deny access:
 
@@ -76,7 +76,7 @@ There are two ways that you can approve or deny access:
 
 1. Click **Approve** or **Deny**. If you are unsure, you can click **Don't know**. Doing so will result in the user maintaining their access, but the selection will be reflected in the audit logs.
 
-    ![Perform access review](./media/perform-access-review/approve-deny.png)
+    ![Action window that includes Approve, Deny, and Don't know options](./media/perform-access-review/approve-deny.png)
 
 1. If necessary, enter a reason in the **Reason** box.
 
@@ -97,11 +97,11 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 1. In the blue bar at the bottom of the page, click **Accept recommendations**.
 
-    ![Accept recommendations](./media/perform-access-review/accept-recommendations.png)
+    ![Open access review listing showing the Accept recommendations button](./media/perform-access-review/accept-recommendations.png)
 
     You see a summary of the recommended actions.
 
-    ![Accept recommendations summary](./media/perform-access-review/accept-recommendations-summary.png)
+    ![Window that displays a summary of the recommended actions](./media/perform-access-review/accept-recommendations-summary.png)
 
 1. Click **Ok** to accept the recommendations.
 
