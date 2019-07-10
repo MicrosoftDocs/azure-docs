@@ -35,7 +35,7 @@ Azure Migrate Server Migration is a tool for migrating on-premises workloads, an
 **Replication provider** | The Microsoft Azure Site Recovery provider is installed on Hyper-V hosts, and registered with Azure Migration Server Migration. | The provider orchestrates replication for Hyper-V VMs.
 **Recovery Services agent** | The Microsoft Azure Recovery Service agent handles data replication. It works with the provider to replicate data from Hyper-V VMs to Azure.<br/> The replicated data is uploaded to a storage account in your Azure subscription. The Server Migration tool the processes the replicated data, and applies it to replica disks in the subscription. The replica disks are used to create the Azure VMs when you migrate.
 
-- The components are installed by a single setup file, downloaded from Azure Migrate Server Migration in the portal.
+- Components are installed by a single setup file, downloaded from Azure Migrate Server Migration in the portal.
 - The provider and appliance use outbound HTTPS port 443 connections to communicate with Azure Migrate Server Migration.
 - Communications from the provider and agent are secure and encrypted.
 
