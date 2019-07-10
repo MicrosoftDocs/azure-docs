@@ -277,7 +277,7 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
-    - name: Resource limits
+    - name: Service quotas
       href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true

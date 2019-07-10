@@ -365,7 +365,7 @@ To renew the certificate, do the following:
 
 ## <a name="limiting-run-as-account-permissions"></a>Limiting Run As account permissions
 
-To control targeting of automation against resources in Azure, you can run the [	Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) script in the PowerShell gallery to change your existing Run As Account service principal to create and use a custom role definition. This role will have permissions to all resources except [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
+To control targeting of automation against resources in Azure, you can run the [Update-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug8) script in the PowerShell gallery to change your existing Run As Account service principal to create and use a custom role definition. This role will have permissions to all resources except [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
 
 > [!IMPORTANT]
 > After running the `Update-AutomationRunAsAccountRoleAssignments.ps1` script, runbooks that access KeyVault through the use of RunAs accounts will no longer work. You should review runbooks in your account for calls to Azure KeyVault.

@@ -4,7 +4,7 @@ description: Use Azure Powershell manage your Azure Cosmos DB accounts, database
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 07/09/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ---
@@ -30,6 +30,7 @@ The following sections demonstrate how to manage the Azure Cosmos account, inclu
 
 * [Create an Azure Cosmos account](#create-account)
 * [Update an Azure Cosmos account](#update-account)
+* [List all Azure Cosmos accounts in a subscription](#list-accounts)
 * [Get an Azure Cosmos account](#get-account)
 * [Delete an Azure Cosmos account](#delete-account)
 * [Update tags for an Azure Cosmos account](#update-tags)
@@ -77,7 +78,17 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 * `$consistencyPolicy` The default consistency level of the Azure Cosmos account. For more information, see [Consistency Levels in Azure Cosmos DB](consistency-levels.md).
 * `$CosmosDBProperties` The property values passed to the Cosmos DB Azure Resource Manager Provider to provision the account.
 
-Azure Cosmos accounts can be configured with IP Firewall as well as Virtual Network service end points. For information on how to configure the IP Firewall for Azure Cosmos DB, see [Configure IP Firewall](how-to-configure-firewall.md).  For more information on how to enable service endpoints for Azure Cosmos DB, see [Configure access from virtual Networks](how-to-configure-vnet-service-endpoint.md) .
+Azure Cosmos accounts can be configured with IP Firewall as well as Virtual Network service end points. For information on how to configure the IP Firewall for Azure Cosmos DB, see [Configure IP Firewall](how-to-configure-firewall.md).  For more information on how to enable service endpoints for Azure Cosmos DB, see [Configure access from virtual Networks](how-to-configure-vnet-service-endpoint.md).
+
+### <a id="list-accounts"></a> List all Azure Cosmos accounts in a subscription
+
+This command allows you to list all Azure Cosmos account in a subscription.
+
+```azurepowershell-interactive
+# List Azure Cosmos Accounts
+
+Get-AzResource -ResourceType Microsoft.DocumentDb/databaseAccounts | ft
+```
 
 ### <a id="get-account"></a> Get the properties of an Azure Cosmos account
 
@@ -224,7 +235,7 @@ For multi-region database accounts, you can change the order in which a Cosmos a
 For the example below, assume the account has a current failover priority of westus=0 and eastus=1 and flip the regions.
 
 > [!CAUTION]
-> This operation will trigger a manual failover for an Azure Cosmos account.
+> Changing `locationName` for `failoverPriority=0` will trigger a manual failover for an Azure Cosmos account. Any other priority changes will not trigger a failover.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -249,7 +260,7 @@ The following sections demonstrate how to manage the Azure Cosmos database, incl
 * [Create an Azure Cosmos database](#create-db)
 * [Create an Azure Cosmos database with shared throughput](#create-db-ru)
 * [Get the throughput of an Azure Cosmos database](#get-db-ru)
-* [List all Azure Cosmos databases in an account](#get-all-db)
+* [List all Azure Cosmos databases in an account](#list-db)
 * [Get a single Azure Cosmos database](#get-db)
 * [Delete an Azure Cosmos database](#delete-db)
 
@@ -304,7 +315,7 @@ Get-AzResource -ResourceType $databaseThroughputResourceType `
     -Name $databaseThroughputResourceName  | Select-Object Properties
 ```
 
-### <a id="get-all-db"></a>Get all Azure Cosmos databases in an account
+### <a id="list-db"></a>Get all Azure Cosmos databases in an account
 
 ```azurepowershell-interactive
 # Get all databases in an Azure Cosmos account
@@ -348,13 +359,14 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
 The following sections demonstrate how to manage the Azure Cosmos container, including:
 
 * [Create an Azure Cosmos container](#create-container)
+* [Create an Azure Cosmos container with a large partition key](#create-container-big-pk)
 * [Get the throughput of an Azure Cosmos container](#get-container-ru)
 * [Create an Azure Cosmos container with shared throughput](#create-container-ru)
 * [Create an Azure Cosmos container with custom indexing](#create-container-custom-index)
 * [Create an Azure Cosmos container with indexing turned off](#create-container-no-index)
 * [Create an Azure Cosmos container with unique key and TTL](#create-container-unique-key-ttl)
 * [Create an Azure Cosmos container with conflict resolution](#create-container-lww)
-* [List all Azure Cosmos containers in a database](#list-all-container)
+* [List all Azure Cosmos containers in a database](#list-containers)
 * [Get a single Azure Cosmos container in a database](#get-container)
 * [Delete an Azure Cosmos container](#delete-container)
 
@@ -374,6 +386,33 @@ $ContainerProperties = @{
         "partitionKey"=@{
             "paths"=@("/myPartitionKey");
             "kind"="Hash"
+        }
+    };
+    "options"=@{ "Throughput"="400" }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $resourceName -PropertyObject $ContainerProperties
+```
+
+### <a id="create-container-big-pk"></a>Create an Azure Cosmos container with a large partition key size
+
+```azurepowershell-interactive
+# Create an Azure Cosmos container with a large partition key value (version = 2)
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+$ContainerProperties = @{
+    "resource"=@{
+        "id"=$containerName;
+        "partitionKey"=@{
+            "paths"=@("/myPartitionKey");
+            "kind"="Hash";
+            "version" = 2
         }
     };
     "options"=@{ "Throughput"="400" }
@@ -564,7 +603,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
     -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
-### <a id="list-all-container"></a>List all Azure Cosmos containers in a database
+### <a id="list-containers"></a>List all Azure Cosmos containers in a database
 
 ```azurepowershell-interactive
 # List all Azure Cosmos containers in a database
