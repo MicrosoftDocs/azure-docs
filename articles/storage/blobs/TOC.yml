@@ -294,11 +294,11 @@
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
-      - name: Create or delete a container
+      - name: Create or delete a container (.NET)
         href: storage-blob-container-create.md
-      - name: List containers in a storage account
+      - name: List containers (.NET)
         href: storage-blob-containers-list.md
-      - name: Manage properties and metadata
+      - name: Manage properties & metadata (.NET)
         href: storage-blob-container-properties-metadata.md
     - name: Secure blob data
       items:
