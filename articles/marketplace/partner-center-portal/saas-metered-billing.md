@@ -67,15 +67,15 @@ Billing dimensions are shared across all plans for an offer.  Some attributes ap
 
 The attributes which define the dimension itself are shared across all plans for an offer.  Before you publish the offer, a change made to these attributes from the context of any plan will affect the dimension definition across all plans.  Once you publish the offer, these attributes will no longer be editable.  These attributes are:
 
-* identifier
-* name
-* unit of measure
+* Identifier
+* Name
+* Unit of measure
 
 The other attributes of a dimension are specific to each plan and can have different values from plan to plan.  Before you publish the plan you can edit these values and only this plan will be affected.  Once you publish the plan, these attributes will no longer be editable.  These attributes are:
 
-* price per unit
-* included quantity for monthly customers 
-* included quantity for annual customers 
+* Price per unit
+* Included quantity for monthly customers 
+* Included quantity for annual customers 
 
 Dimensions also have two special concepts, “enabled” and “infinite”:
 
