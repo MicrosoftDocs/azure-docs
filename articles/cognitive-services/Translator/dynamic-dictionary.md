@@ -20,6 +20,10 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 <mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
 
+**Requirement:**
+
+The `From` and `To` languages must be different. Make sure you include the `From` attribute in the API instead of auto-detecting. 
+
 **Example: en-de:**
 
 Source input: The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.
