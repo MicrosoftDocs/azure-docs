@@ -100,7 +100,7 @@ Application Gateway supports the following cipher suites from which you can choo
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 > [!NOTE]
-> SSL cipher suites used for the connection are also based on the type of the certificate being used. In client to application gateway connections, the cipher suites used are based on the type of server certificate with application gateway listener and in application gateway to backend pool connection, the cipher suites used are based on the type of server certificate with the backend pool servers.
+> SSL cipher suites used for the connection are also based on the type of the certificate being used. In client to application gateway connections, the cipher suites used are based on the type of server certificates on the application gateway listener. In application gateway to backend pool connections, the cipher suites used are based on the type of server certificates on the backend pool servers.
 
 ## Next steps
 
