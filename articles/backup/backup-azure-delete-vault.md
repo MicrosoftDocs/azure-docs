@@ -209,7 +209,7 @@ This option to delete the Recovery Services vault is only recommended when all t
 
 - From the **Essentials** pane in the vault menu, verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If there are backup items, then perform the steps in [Delete backup data and backup items](#delete-backup-data-and-backup-items).
 - Retry [deleting the vault from portal](#delete-the-recovery-services-vault).
-- If all the dependencies are removed and you are still getting the *Vault deletion error* then use ARMClient tool
+- If all the dependencies are removed and you are still getting the *Vault deletion error* then use ARMClient tool to perform the steps given below:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
