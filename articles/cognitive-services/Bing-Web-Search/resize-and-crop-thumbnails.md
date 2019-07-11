@@ -36,8 +36,6 @@ And you want to decrease its size, set the `w` parameter to a new value (for exa
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=336`
 
-If you specify both parameters without maintaining the aspect ratio, Bing will add white padding to the image’s border
-
 If you specify only the height or width of a thumbnail, the image's original aspect ratio will be maintained. If you specify both parameters, and the aspect ratio isn't maintained, Bing will add white padding to the border of the image.
 
 For example, if you resize a 480x359 image to 200x200 without cropping, the full width will contain the image but the height will contain 25 pixels of white padding at the top and bottom of the image. If the image was 359x480, the left and right borders would contain white padding. If you crop the image, white padding is not added.  
