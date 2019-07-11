@@ -71,7 +71,7 @@ The instance size flexibility setting determines which services get the reserved
 Whether the setting is on or off, reservation discounts automatically apply to any matching VM usage when the *ConsumedService* is `Microsoft.Compute`. So, check your usage data for the *ConsumedService* value. Some examples include:
 
 - Virtual machines
-- VM Scale Sets
+- Virtual machine scale sets
 - Container service
 - Azure Batch deployments (in user subscriptions mode)
 - Azure Kubernetes Service (AKS)
