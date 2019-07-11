@@ -58,7 +58,7 @@ Managed Instance guarantee 99.99% availability even in the critical scenarios, s
 
 If you need to compare the performance of your workload on Managed Instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison. 
 
-Performance baseline is a set of parameters such as average/max CPU usage, average/max disk IO latency, throughput, IOPS, average/max page life expectency, average max size of tempdb. You would like to have similar or even better parameters after migration, so it is important to measure and record the baseline values for these parameters. In addition to system parameters, you would need to select a set of the representative queries or the most important queries in your workload and measure min/average/max duration, CPU usage for the selected queries. These values would enable you to compare performance of workload runnign on Managed Instance to the original values on your source SQL Server.
+Performance baseline is a set of parameters such as average/max CPU usage, average/max disk IO latency, throughput, IOPS, average/max page life expectancy, average max size of tempdb. You would like to have similar or even better parameters after migration, so it is important to measure and record the baseline values for these parameters. In addition to system parameters, you would need to select a set of the representative queries or the most important queries in your workload and measure min/average/max duration, CPU usage for the selected queries. These values would enable you to compare performance of workload running on Managed Instance to the original values on your source SQL Server.
 
 Some of the parameters that you would need to measure on your SQL Server instance are: 
 - [Monitor CPU usage on your SQL Server instance](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) and record the average and peak CPU usage.
@@ -75,9 +75,9 @@ As an outcome of this activity you should have documented average and peak value
 
 Managed instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [new purchasing model](sql-database-service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This new model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
 - Based on the baseline CPU usage you can provision a Managed Instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where Managed Instance is installed](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
-- Based on the baseline memory usage choose [the service tier that has matching memory](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). the amount of memory cannot be direclty choosen so you woudl need to select the Managed Instance with the amount of vCores that has matching memory (for example 5.1 GB/vCore in Gen5). 
-- Based on the baseline IO latency of the file subsystem choose between General Purpose (latency grater than 3-5ms) and Business Critical service tiers (latency less than 3 ms).
-- Based on baseline throughpu
+- Based on the baseline memory usage choose [the service tier that has matching memory](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly chosen so you would need to select the Managed Instance with the amount of vCores that has matching memory (for example 5.1 GB/vCore in Gen5). 
+- Based on the baseline IO latency of the file subsystem choose between General Purpose (latency greater than 5ms) and Business Critical service tiers (latency less than 3 ms).
+- Based on baseline throughput pre-allocate the size of data or log files to get expected IO performance.
 
 You can choose compute and storage resources at deployment time and then change it afterwards without introducing downtime for your application using the [Azure portal](sql-database-scale-resources.md):
 
@@ -172,6 +172,13 @@ The outcome of the performance comparison might be:
 Make the change of the parameters or upgrade service tiers to converge to the optimal configuration until you get the workload performance that fits your needs.
 
 ### Monitor performance
+
+Managed Instance provides a lot of advanced tools for monitoring and troubleshooting, and you should use them to monitor performance on your instance. Some of the parameters that your would need to monitor are:
+- CPU usage on the instance to determine does the number of vCores that you provisioned is the right match for your workload.
+- Page-life expectancy on your Managed Instance to determine [do you need additional memory](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Wait statistics like `INSTANCE_LOG_GOVERNOR` or `PAGEIOLATCH` that will tell do you have storage IO issues, especially on General Purpose tier where you might need to pre-allocate files to get better IO performance.
+
+## Leverage advanced PaaS features
 
 Once you are on a fully managed platform and you have verified that workload performances are matching you SQL Server workload performance, take advantages that are provided automatically as part of the SQL Database service. 
 
