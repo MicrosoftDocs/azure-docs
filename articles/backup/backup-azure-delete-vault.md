@@ -240,10 +240,6 @@ For more information on ARMClient command, refer this [document](https://github.
 3. In the Azure portal, verify that the vault is deleted.
 
 
-## What if I stop the backup process but retain the data?
-
-If you stop the backup process by retaining the data, you must delete the backup data as described in the [Delete backup data and backup items](#delete-backup-data-and-backup-items) and then [delete the Recovery Services vault](#delete-the-recovery-services-vault).
-
 ## Next steps
 
 [Learn about](backup-azure-recovery-services-vault-overview.md) Recovery Services vaults.<br/>
