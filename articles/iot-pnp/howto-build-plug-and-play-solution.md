@@ -3,7 +3,7 @@ title: Build an IoT solution for Plug and Play devices | Microsoft Docs
 description: As a solution developer, learn about how you can build an IoT Solution for Plug and Play devices.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/12/2019
+ms.date: 07/12/2019
 ms.topic: Tutorial
 ms.custom: mvc
 ms.service: iot-pnp
@@ -11,76 +11,87 @@ services: iot-pnp
 manager: philmea
 ---
 
-
 # Build an IoT solution for Plug and Play devices
 
-This article describes how, as a solution developer, you can build an IoT Solution for Plug and Play devices.
+This article describes how, as a solution developer, you can build an IoT solution for Plug and Play devices.
 
-## Before you begin
+## Prerequisites
 
-Before getting started:
+Before you start:
 
-1. Acquire a Plug and Play (PnP) device that's pre-configured to connect to your device provisioning service instance or IoT Hub.
-1. Alternately you can use a simulated version of a sample device. Learn more [here](link).
+- Either, acquire a Plug and Play device that's pre-configured to connect to your device provisioning service instance or IoT Hub.
+- Or, use a simulated version of a sample device.
 
-Broadly speaking there are two categories of IoT solutions: purpose built solutions that'll work with a known set of PnP devices and model driven solutions that are built to work with any PnP device.
+There are two broad categories of IoT solution: purpose-built solutions that work with a known set of Plug and Play devices, and model-driven solutions that work with any Plug and Play device.
 
-This article will show you how you can built both types of solutions and provide sample applications that you can use to get started.
+This how-to article shows you how to build both types of solution. The article also provides sample applications you can use to get started.
 
-## Plug and Play capability discovery
+## Capability discovery
 
-To build solutions for PnP devices it's important to understand what happens when PnP devices connect to the IoT Hub.
+When a Plug and Play device first connects to your IoT hub, it  sends a _discovery_ telemetry message. This message includes the IDs of the interfaces the device implements. For your solution to work with the device, it must resolve those IDs and retrieve the definitions for each interface.
 
-When a PnP device connects to the IoT Hub for the very first time, it'll broadcast it's ids for the interfaces it implements in a special discovery telemetry message. For a solution to understand how to work with that PnP device, it needs to resolve those ids and get full definitions for each interface.
+Here are the steps a Plug and Play device takes when it uses the Device Provisioning Service (DPS) to connect to a hub:
 
-Here are the steps a PnP device takes when connecting either through the Device Provisioning Service:
-
-1. When the device is turned on, it connects to the global end-point for the Device Provisioning Service (DPS) and authenticates itself using one of the allowed methods.
-1. DPS then authenticates the device, looks up the rule that'll tell it the hub to which the device should be assigned and register the device with that hub.
+1. When the device is turned on, it connects to the global end point for the DPS and authenticates using one of the allowed methods.
+1. DPS then authenticates the device and looks up the rule that tells it which IoT hub to assign the device to. DPS then registers the device with that hub.
 1. DPS returns an IoT Hub connection string to the device.
-1. The device will then send a discovery telemetry message to the IoT Hub. The discovery telemetry message will contain the ids of the interfaces implemented by the device.
-1. The Plug and Play device is now ready to use with a solution written against that hub and starts working as designed.
+1. The device then sends a discovery telemetry message to your IoT Hub. The discovery telemetry message contains the IDs of the interfaces the device implements.
+1. The Plug and Play device is now ready to work with a solution that uses your IoT hub.
 
-If the device connects directly to an IoT Hub it just connects using the connection string embedded in it's device code and starts with step 4.
+If the device connects directly to your IoT hub, it connects using a connection string that's embedded in the device code. The device then sends a discovery telemetry message to your IoT Hub.
 
-See the [ModelInformation](link) interface to learn more about the discovery telemetry message.
+See the [ModelInformation](overview-iot-plug-and-play.md) interface to learn more about the discovery telemetry message.
 
+## Purpose-built IoT solutions
 
-## Build a purpose built IoT Solution that'll work with a known set of PnP devices
+A purpose-built IoT solution works with a known set of Plug and Play devices.
 
-If the capability model and interfaces for devices that'll connect to your solution are known ahead of time, do the following to prepare your solution for devices that'll connect: 
+If you have the capability model and interfaces for the devices that will connect to your solution ahead of time, use the following steps to prepare your solution:
 
-1. Store JSON files for those interfaces in a location of your choice in Azure that'll allow you to efficiently read data.
-1. Write logic in your IoT solution to handle each device type. See this [sample IoT application](link) to learn more.
-1. Then, you can subscribe to the notifications for the IoT Hub against which your solution will work.
+1. Store the interface JSON files in Azure in a location where your solution can read them.
+1. Write logic in your IoT solution to handle each device type. For more information, see this [sample IoT application](overview-iot-plug-and-play.md).
+1. Then, subscribe to notifications from the IoT hub your solution uses.
 
-When you recieve a notification for a new device connecting, follow these steps:
-1. Read the discovery telemetry message to retrieve ids for the capability model and interfaces implemented by the device that connected.
-1. Compare the id of the capability model against the ids of the capability models you've stored ahead of time.
+When you receive a notification for a new device connection, follow these steps:
+
+1. Read the discovery telemetry message to retrieve the IDs of the capability model and interfaces implemented by the device.
+1. Compare the ID of the capability model against the IDs of the capability models you stored ahead of time.
 1. Now you know what type of device has connected. Use the logic you wrote earlier to enable users to interact with the device appropriately.
 
+## Model-driven solutions
 
-## Build a model driven IoT Solution capable of working with any PnP device
+A model-driven IoT solution can work with any Plug and Play device.
+Building a model driven IoT Solution is more complex, but the benefit is that your solution works with any devices added in the future.
 
-Building a model driven IoT Solution is a little more complicated but the benefit is that you'll only need to write a solution once for any devices that'll get added in the future.
+To build a model-driven IoT solution, you need to build logic against the Plug and Play interface primitives: telemetry, properties, and commands. Your IoT solution's logic represent a device by combining multiple telemetry, property, and command capabilities.
 
-To build a true model driven IoT Solution, you need to build logic against the primitive PnP capabilities: telemetry, properties and commands. Essentially the core of your IoT solution will be that logic and a way to represnt a device by combining multiple telemetry, property and command capabilities.
+Your solution must also subscribe to notifications from the IoT hub it uses.
 
-You will also need to subscribe to the notifications for the IoT Hub against which your solution will work.
+When your solution receives a notification for a new device connection, follow these steps:
 
-When you recieve a notification for a new device connecting, follow these steps:
-1. Read the discovery telemetry message to retrieve ids for the capability model and interfaces implemented by the device that connected.
-1. Now for each id you'll need to find the full JSON file to find the capabilities of the device.
-1. First, check to see if an interface with each id is present in any caches you've built for storing the JSON files retrieved earlier by your solution.
-1. Then, check if an interface with that id is present in the Global model repository. Learn more about the [Global model repository](link).
-<Code sample>
-1. If the interface isn't present in the Global model repository, you can then try looking it up in any Private model repositories known to your solution. You'll need users to provide connection strings for private model repositories to enable this. Learn more about [Private model repositories(link).
-<Code sample>
-1. If you don't find the all the interfaces in either the Global model repository or the Private model repository, it's a good bet that they're not available on the cloud. In this case you can check to see if the device implements the [ModelDefinition](link) interface. The ModelDefinition interface provides a way to retrieve JSON files for interfaces through a command you can invoke on the device.
-<Code sample>
-1. If you were able to find JSON files for each interface implemented by the device, you will be able to enumerate the capabilities of the device that connected in terms of its telemetry, properties and commands. Use the logic you wrote earlier to enable users to interact with the device appropriately.
+1. Read the discovery telemetry message to retrieve the IDs of the capability model and interfaces implemented by the device.
+1. For each ID, read the full JSON file to find the device's capabilities.
+1. Check to see if each interface is present in any caches you've built for storing the JSON files retrieved earlier by your solution.
+1. Then, check if an interface with that ID is present in the global model repository. For more information, see [Global model repository](overview-iot-plug-and-play.md).
 
+    ```c
+    Code sample
+    ```
+
+1. If the interface isn't present in the global model repository, try looking for it in any private model repositories known to your solution. You need a connection string to access a private model repository. For more information, see [Private model repository](overview-iot-plug-and-play.md).
+
+    ```c
+    Code sample
+    ```
+
+1. If you can't find all the interfaces in either the global model repository, or in a private model repository, you can check if the device can provide the interface definition. A device can implement the standard [ModelDefinition](overview-iot-plug-and-play.md) interface to publish information about how to retrieve interface files with a command.
+
+    ```c
+    Code sample
+    ```
+
+1. If you found JSON files for each interface implemented by the device, you can enumerate the capabilities of the device. Use the logic you wrote earlier to enable users to interact with the device.
 
 ## Next steps
 
-Now that you've built an IoT solution for Plug and Play devices, learn more about how the rest of the [Azure IoT Platform](link) to leverage other great capabilities for your solution.
+Now that you've built an IoT solution for Plug and Play devices, learn more about how the rest of the [Azure IoT Platform](overview-iot-plug-and-play.md) to leverage other great capabilities for your solution.
