@@ -62,7 +62,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
    > [!NOTE]
    > For the Application Gateway v2 SKU, you can only choose **Public** frontend IP configuration. Private frontend IP configuration is currently not enabled for this v2 SKU.
 
-2. Choose **Create new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name. 
+2. Choose **Create new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
      ![Create new application gateway: frontends](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
@@ -116,7 +116,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 ### Review + create tab
 
-Review the settings on the **Review + create** tab, and then select **OK** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.
+Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.
 
 ## Add backend targets
 
