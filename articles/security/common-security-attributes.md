@@ -17,14 +17,14 @@ This article collects the common security attributes for selected Azure services
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## [API Management](./api-management/api-management-security-attributes.md)
+## [API Management](../api-management/api-management-security-attributes.md)
 
 ### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes (service-side encryption only) | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Sensitive data such as certificates, keys, and secret-named values are encrypted with service-managed, per service instance keys. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | [Express Route](../expressroute/index.yml) and VNet encryption is provided by [Azure networking](../virtual-network/index.yml). |
 | Encryption key handling (CMK, BYOK, etc.)| No | All encryption keys are per service instance and are service managed. |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Management plane calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) over TLS. A valid JSON web token (JWT) is required.  Data plane calls can be secured with TLS and one of supported authentication mechanisms (for example, client certificate or JWT).
@@ -75,15 +75,15 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Ticketbleed (CVE-2016-9244) | Ticketbleed is vulnerability in the implementation of the TLS SessionTicket extension found in some F5 products. It allows the leakage ("bleeding") of up to 31 bytes of data from uninitialized memory. This is caused by the TLS stack padding a Session ID, passed from the client, with data to make it 32 bits long. |
 
 
-## [App Service](./app-service/app-service-security-attributes.md)
+## [App Service](../app-service/app-service-security-attributes.md)
 
 ## Preventative
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
 | Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. See [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).<br><br>Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.<br><br>Locally attached disks can optionally be used as temporary storage by websites (D:\local and %TMP%). Locally attached disks are not encrypted at rest. |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| Yes | Customers can configure web sites to require and use HTTPS for inbound traffic. See the blog post [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
-| Encryption key handling (CMK, BYOK, etc.)| Yes | Customers can choose to store application secrets in Key Vault and retrieve them at runtime. See [Use Key Vault references for App Service and Azure Functions (preview)](app-service-key-vault-references.md).|
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | Customers can configure web sites to require and use HTTPS for inbound traffic. See the blog post [How to make an Azure App Service HTTPS only](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
+| Encryption key handling (CMK, BYOK, etc.)| Yes | Customers can choose to store application secrets in Key Vault and retrieve them at runtime. See [Use Key Vault references for App Service and Azure Functions (preview)](../app-service/app-service-key-vault-references.md).|
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Management calls to configure App Service occur via [Azure Resource Manager](../azure-resource-manager/index.yml) calls over HTTPS. |
 
@@ -91,22 +91,22 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support| Yes | Currently available in preview for App Service. See [Azure App Service Access Restrictions](app-service-ip-restrictions.md). |
-| VNet injection support| Yes | App Service Environments are private implementations of App Service dedicated to a single customer injected into a customer's virtual network. See [Introduction to the App Service Environments](environment/intro.md). |
-| Network Isolation and Firewalling support| Yes | For the public multi-tenant variation of App Service, customers can configure network ACLs (IP Restrictions) to lock down allowed inbound traffic.  See [Azure App Service Access Restrictions](app-service-ip-restrictions.md).  App Service Environments are deployed directly into virtual networks and hence can be secured with NSGs. |
-| Forced tunneling support| Yes | App Service Environments can be deployed into a customer's virtual network where forced tunneling is configured. Customers need to follow the directions in [Configure your App Service Environment with forced tunneling](environment/forced-tunnel-support.md). |
+| Service endpoint support| Yes | Currently available in preview for App Service. See [Azure App Service Access Restrictions](../app-service/app-service-ip-restrictions.md). |
+| VNet injection support| Yes | App Service Environments are private implementations of App Service dedicated to a single customer injected into a customer's virtual network. See [Introduction to the App Service Environments](../app-service/environment/intro.md). |
+| Network Isolation and Firewalling support| Yes | For the public multi-tenant variation of App Service, customers can configure network ACLs (IP Restrictions) to lock down allowed inbound traffic.  See [Azure App Service Access Restrictions](../app-service/app-service-ip-restrictions.md).  App Service Environments are deployed directly into virtual networks and hence can be secured with NSGs. |
+| Forced tunneling support| Yes | App Service Environments can be deployed into a customer's virtual network where forced tunneling is configured. Customers need to follow the directions in [Configure your App Service Environment with forced tunneling](../app-service/environment/forced-tunnel-support.md). |
 
 ### Detection
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | App Service integrates with Application Insights for languages that support Application Insights (Full .NET Framework, .NET Core, Java and Node.JS).  See [Monitor Azure App Service performance](../azure-monitor/app/azure-web-apps.md). App Service also sends application metrics into Azure Monitor. See [Monitor apps in Azure App Service](web-sites-monitor.md). |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | App Service integrates with Application Insights for languages that support Application Insights (Full .NET Framework, .NET Core, Java and Node.JS).  See [Monitor Azure App Service performance](../azure-monitor/app/azure-web-apps.md). App Service also sends application metrics into Azure Monitor. See [Monitor apps in Azure App Service](../app-service/web-sites-monitor.md). |
 
 ### Identity and access management
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.yml) as well as other OAuth compatible identity providers; see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md). For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles. |
+| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.yml) as well as other OAuth compatible identity providers; see [Authentication and authorization in Azure App Service](../app-service/overview-authentication-authorization.md). For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles. |
 | Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles.  |
 
 
@@ -125,14 +125,14 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 
 
-## [Azure Resource Manager](./azure-resource-manager/azure-resource-manager-security-attributes.md)
+## [Azure Resource Manager](../azure-resource-manager/azure-resource-manager-security-attributes.md)
 
 ## Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes |  |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | HTTPS/TLS. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes |  |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | HTTPS/TLS. |
 | Encryption key handling (CMK, BYOK, etc.)| N/A | Azure Resource Manager stores no customer content, only control data. |
 | Column level encryption (Azure Data Services)| Yes | |
 | API calls encrypted| Yes | |
@@ -164,7 +164,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](resource-group-audit.md). |
+| Control and management plane logging and audit| Yes | Activity logs expose all write operations (PUT, POST, DELETE) performed on your resources; see [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md). |
 | Data plane logging and audit| N/A | |
 
 ### Configuration management
@@ -174,14 +174,14 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Configuration management support (versioning of configuration, etc.)| Yes |  |
 
 
-## [Azure Backup](./backup/backup-security-attributes.md)
+## [Azure Backup](../backup/backup-security-attributes.md)
 
 ## Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | Using storage service encryption for storage accounts. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| No | Using HTTPS. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)| Yes | Using storage service encryption for storage accounts. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | No | Using HTTPS. |
 | Encryption key handling (CMK, BYOK, etc.)| No |  |
 | Column level encryption (Azure Data Services)| No |  |
 | API calls encrypted| Yes |  |
@@ -222,16 +222,16 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes|  |
 
-## [Cosmos DB](./cosmos-db/cosmos-db-security-attributes.md)
+## [Cosmos DB](../cosmos-db/cosmos-db-security-attributes.md)
 
 ## Preventative
 
 | Security attribute | Yes/no | Notes |
 |---|---|--|
-| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | All Cosmos DB databases and backups are encrypted by default; see [Data encryption in Azure Cosmos DB](database-encryption-at-rest.md). Server-side encryption with customer-managed keys is not supported. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | All Cosmos DB databases and backups are encrypted by default; see [Data encryption in Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md). Server-side encryption with customer-managed keys is not supported. |
 | Encryption in Transit (such as ExpressRoute encryption, in Vnet encryption, and VNet-VNet encryption )| Yes | All Azure Cosmos DB data is encrypted at transit. |
 | Encryption Key Handling (CMK, BYOK, etc.)| No |  |
-| Column Level Encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](table-introduction.md). |
+| Column Level Encryption (Azure Data Services)| Yes | Only in the Tables API Premium. Not all APIs support this feature. See [Introduction to Azure Cosmos DB: Table API](../cosmos-db/table-introduction.md). |
 | API calls encrypted| Yes | All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2 connections, but this is not yet enforced. If customers turn off lower level TLS on their end, they can ensure to connect to Cosmos DB.  |
 
 ### Network segmentation
@@ -239,8 +239,8 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Security attribute | Yes/no | Notes |
 |---|---|--|
 | Service Endpoint support| Yes |  |
-| vNET Injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](vnet-service-endpoint.md). |
-| Network Isolation and Firewalling support| Yes | With firewall support, you can configure your Azure Cosmos account to allow access only from an approved set of IP addresses, a range of IP addresses and/or cloud services. See [Configure IP firewall in Azure Cosmos DB](how-to-configure-firewall.md).|
+| vNET Injection support| Yes | With VNet service endpoint, you can configure an Azure Cosmos DB account to allow access only from a specific subnet of a virtual network (VNet). You can also combine VNet access with firewall rules.  See [Access Azure Cosmos DB from virtual networks](../cosmos-db/vnet-service-endpoint.md). |
+| Network Isolation and Firewalling support| Yes | With firewall support, you can configure your Azure Cosmos account to allow access only from an approved set of IP addresses, a range of IP addresses and/or cloud services. See [Configure IP firewall in Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md).|
 | Support for forced tunneling | Yes | Can be configured at the client side on the VNET where the virtual machines are located.   |
 
 ### Detection
@@ -255,7 +255,6 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 |---|---|--|
 | Authentication| Yes | Yes at the Database Account Level; at the data plane level, Cosmos DB uses resource tokens and key access. |
 | Authorization| Yes | Supported at the Azure Cosmos account with Master keys (primary and secondary) and Resource tokens. You can get read/write or read only access to data with master keys. Resource tokens allow limited time access to resources such as documents and containers. |
-
 
 ### Audit trail
 
@@ -274,17 +273,17 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security attribute | Yes/no | Notes|
 |---|---|--|
-| Cross Origin Resource Sharing (CORS) | Yes | See [Configure Cross-Origin Resource Sharing (CORS)](how-to-configure-cross-origin-resource-sharing.md). |
+| Cross Origin Resource Sharing (CORS) | Yes | See [Configure Cross-Origin Resource Sharing (CORS)](../cosmos-db/how-to-configure-cross-origin-resource-sharing.md). |
 
 
-## [Event Hubs](./event-hubs/event-hubs-security-attributes.md)
+## [Event Hubs](../event-hubs/event-hubs-security-attributes.md)
 
 ## Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  Yes | |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) |  Yes | |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | |
 | Encryption key handling (CMK, BYOK, etc.)| No |  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes |  |
@@ -326,14 +325,14 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Configuration management support (versioning of configuration, etc.)| Yes | |
 
 
-## [ExpressRoute](./expressroute/expressroute-security-attributes.md)
+## [ExpressRoute](../expressroute/expressroute-security-attributes.md)
 
 ## Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  N/A | ExpressRoute does not store customer data. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| No | |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) |  N/A | ExpressRoute does not store customer data. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | No | |
 | Encryption key handling (CMK, BYOK, etc.)| N/A |  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
@@ -351,7 +350,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [ExpressRoute monitoring, metrics, and alerts](expressroute-monitoring-metrics-alerts.md).|
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [ExpressRoute monitoring, metrics, and alerts](../expressroute/expressroute-monitoring-metrics-alerts.md).|
 
 ### Identity and access management
 
@@ -375,14 +374,14 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Configuration management support (versioning of configuration, etc.)| Yes | Via the Network Resource Provider (NRP). |
 
 
-## [Key Vault](./key-vault/key-vault-security-attributes.md)
+## [Key Vault](../key-vault/key-vault-security-attributes.md)
 
 ## Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | All objects are encrypted. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | All communication is via encrypted API calls |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | All objects are encrypted. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | All communication is via encrypted API calls |
 | Encryption key handling (CMK, BYOK, etc.)| Yes | The customer controls all keys in their Key Vault. When hardware security module (HSM) backed keys are specified, a FIPS Level 2 HSM protects the key, certificate, or secret. |
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Using HTTPS. |
@@ -423,7 +422,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Control/Management plane access controls | Yes | Azure Resource Manager Role-Based Access Control (RBAC) |
 | Data plane access controls (At every service level) | Yes | Key Vault Access Policy |
 
-## [Load Balancer](./load-balancer/load-balancer-security-attributes.md)
+## [Load Balancer](../load-balancer/load-balancer-security-attributes.md)
 
 ## Preventative
 
@@ -448,7 +447,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Azure Monitor logs for public Basic Load Balancer](../load-balancer/load-balancer-monitor-log.md). |
 
 ### Identity and access management
 
@@ -461,7 +460,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Control and management plane logging and audit| Yes | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
+| Control and management plane logging and audit| Yes | See [Azure Monitor logs for public Basic Load Balancer](../load-balancer/load-balancer-monitor-log.md). |
 | Data plane logging and audit | N/A |  |
 
 ### Configuration management
@@ -470,14 +469,14 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| N/A |  | 
 
-## [Service Bus Messaging](./service-bus-messaging/service-bus-messaging-security-attributes.md)
+## [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-security-attributes.md)
 
 ## Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Supports standard HTTPS/TLS mechanism. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) |  Yes for server-side encryption-at-rest by default. | Customer managed keys and BYOK are not yet supported. Client side encryption is the client's responsibility |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | Supports standard HTTPS/TLS mechanism. |
 | Encryption key handling (CMK, BYOK, etc.)| No |   |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | API calls are made through [Azure Resource Manager](../azure-resource-manager/index.yml) and HTTPS. |
@@ -486,7 +485,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support| Yes (Premium tier only) | VNet service endpoints are supported for [Service Bus Premium tier](service-bus-premium-messaging.md) only. |
+| Service endpoint support| Yes (Premium tier only) | VNet service endpoints are supported for [Service Bus Premium tier](../service-bus-messaging/service-bus-premium-messaging.md) only. |
 | VNet injection support| No | |
 | Network isolation and firewalling support| Yes (Premium tier only) |  |
 | Forced tunneling support| No |  |
@@ -495,21 +494,21 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Supported via [Azure Monitor and Alerts](service-bus-metrics-azure-monitor.md). |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | Supported via [Azure Monitor and Alerts](../service-bus-messaging/service-bus-metrics-azure-monitor.md). |
 
 ### Identity and access management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](service-bus-managed-service-identity.md); see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md).|
-| Authorization| Yes | Supports authorization via [RBAC](service-bus-role-based-access-control.md) (Preview) and SAS token; see [Service Bus authentication and authorization](service-bus-authentication-and-authorization.md). |
+| Authentication| Yes | Managed through [Azure Active Directory Managed Service Identity](../service-bus-messaging/service-bus-managed-service-identity.md); see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md).|
+| Authorization| Yes | Supports authorization via [RBAC](../service-bus-messaging/service-bus-role-based-access-control.md) (Preview) and SAS token; see [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md). |
 
 
 ### Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control and management plane logging and audit| Yes | Operations logs are available; see [Service Bus diagnostic logs](service-bus-diagnostic-logs.md).  |
+| Control and management plane logging and audit| Yes | Operations logs are available; see [Service Bus diagnostic logs](../service-bus-messaging/service-bus-diagnostic-logs.md).  |
 | Data plane logging and audit| No |  |
 
 ### Configuration management
@@ -519,14 +518,14 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 | Configuration management support (versioning of configuration, etc.)| Yes | Supports resource provider versioning through the [Azure Resource Manager API](/rest/api/resources/).|
 
 
-## [Service Bus Relay](./service-bus-relay/service-bus-relay-security-attributes.md)
+## [Service Bus Relay](../service-bus-relay/service-bus-relay-security-attributes.md)
 
 ## Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  N/A | Relay is a web socket and does not persist data. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Service requires TLS. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) |  N/A | Relay is a web socket and does not persist data. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | Service requires TLS. |
 | Encryption key handling (CMK, BYOK, etc.)| No | Uses Microsoft TLS certs only.  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | HTTPS. |
@@ -565,15 +564,14 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml).|
 
-## [Service Fabric](./service-fabric/service-fabric-security-attributes.md)
+## [Service Fabric](../service-fabric/service-fabric-security-attributes.md)
 
 ## Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes |  |
-| Encryption key handling (CMK, BYOK, etc.)| Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | The customer owns the cluster and the virtual machine scale set on which the cluster is built. Azure disk encryption can be enabled on the virtual machine scale set. |
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes | Service Fabric API calls are made through Azure Resource Manager. A valid JSON web token (JWT) is required. |
 
@@ -612,34 +610,34 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 |---|---|--|
 | Configuration management support (versioning of configuration, etc.)| Yes | |
 
-## [SQL Database](./sql-database/sql-database-security-attributes.md)
+## [SQL Database](../sql-database/sql-database-security-attributes.md)
 
-SQL Database includes both [single database](sql-database-single-index.yml) and [managed instance](sql-database-managed-instance.md). The following entries apply to both offerings except where otherwise noted.
+SQL Database includes both [single database](../sql-database/sql-database-single-index.yml) and [managed instance](../sql-database/sql-database-managed-instance.md). The following entries apply to both offerings except where otherwise noted.
 
 ### Preventative
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features, such as client side or Always Encrypted</ul>| Yes | Called "encryption-in-use," as described in the article [Always Encrypted](sql-database-always-encrypted.md). Server-side encryption uses [transparent data encryption](transparent-data-encryption-azure-sql.md).|
-| Encryption in transit:<ul><li>Azure ExpressRoute encryption</li><li>Encryption in a virtual network</li><li>Encryption between virtual networks</ul>| Yes | Using HTTPS. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes | Called "encryption-in-use," as described in the article [Always Encrypted](../sql-database/sql-database-always-encrypted.md). Server-side encryption uses [transparent data encryption](../sql-database/transparent-data-encryption-azure-sql.md).|
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | Using HTTPS. |
 | Encryption-key handling, such as CMK or BYOK| Yes | Both service-managed and customer-managed key handling are offered. The latter is offered through [Azure Key Vault](../key-vault/index.yml). |
-| Column-level encryption provided by Azure data services| Yes | Through [Always Encrypted](sql-database-always-encrypted.md). |
+| Column-level encryption provided by Azure data services| Yes | Through [Always Encrypted](../sql-database/sql-database-always-encrypted.md). |
 | Encrypted API calls| Yes | Using HTTPS/SSL. |
 
 ### Network segmentation
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
-| Service endpoint support| Yes | Applies to [single database](sql-database-single-index.yml) only. |
-| Azure Virtual Network injection support| Yes | Applies to [managed instance](sql-database-managed-instance.md) only. |
-| Network isolation and firewall support| Yes | Firewall at both database level and server level. Network isolation is for [managed instance](sql-database-managed-instance.md) only. |
-| Forced tunneling support| Yes | [Managed instance](sql-database-managed-instance.md) via an [ExpressRoute](../expressroute/index.yml) VPN. |
+| Service endpoint support| Yes | Applies to [single database](../sql-database/sql-database-single-index.yml) only. |
+| Azure Virtual Network injection support| Yes | Applies to [managed instance](../sql-database/sql-database-managed-instance.md) only. |
+| Network isolation and firewall support| Yes | Firewall at both database level and server level. Network isolation is for [managed instance](../sql-database/sql-database-managed-instance.md) only. |
+| Forced tunneling support| Yes | [Managed instance](../sql-database/sql-database-managed-instance.md) via an [ExpressRoute](../expressroute/index.yml) VPN. |
 
 ### Detection
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support, such as Log Analytics or Application Insights| Yes | SecureSphere, the SIEM solution from Imperva, is also supported through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL auditing](sql-database-auditing.md). |
+| Azure monitoring support, such as Log Analytics or Application Insights| Yes | SecureSphere, the SIEM solution from Imperva, is also supported through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL auditing](../sql-database/sql-database-auditing.md). |
 
 ### Identity and access management
 
@@ -653,7 +651,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
 | Control-plane and management-plane logging and audit| Yes | Yes for some events only |
-| Data-plane logging and audit | Yes | Via [SQL audit](sql-database-auditing.md) |
+| Data-plane logging and audit | Yes | Via [SQL audit](../sql-database/sql-database-auditing.md) |
 
 ### Configuration management
 
@@ -665,20 +663,20 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md). |
-| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](sql-database-data-discovery-and-classification.md). |
-| Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](sql-database-threat-detection-overview.md). |
+| Preventative: vulnerability assessment | Yes | See [SQL Vulnerability Assessment service helps you identify database vulnerabilities](../sql-database/sql-vulnerability-assessment.md). |
+| Preventative: data discovery and classification  | Yes | See [Azure SQL Database and SQL Data Warehouse data discovery & classification](../sql-database/sql-database-data-discovery-and-classification.md). |
+| Detection: threat detection | Yes | See [Advanced Threat Protection for Azure SQL Database](../sql-database/sql-database-threat-detection-overview.md). |
 
 
-## [Storage](./storage/common/storage-security-attributes.md)
+## [Storage](../storage/common/storage-security-attributes.md)
 
 ## Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes |  |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Support standard HTTPS/TLS mechanisms.  Users can also encrypt data before it is transmitted to the service. |
-| Encryption key handling (CMK, BYOK, etc.)| Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features) | Yes |  |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption ) | Yes | Support standard HTTPS/TLS mechanisms.  Users can also encrypt data before it is transmitted to the service. |
+| Encryption key handling (CMK, BYOK, etc.)| Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Column level encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes |  |
 
@@ -794,7 +792,7 @@ SQL Database includes both [single database](sql-database-single-index.yml) and 
 
 | Security attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Azure Monitor Diagnostics Logs/alert](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor Metrics/alert](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | See [Azure Monitor Diagnostics Logs/alert](../vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor Metrics/alert](../vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 
 ### Identity and access management
 
