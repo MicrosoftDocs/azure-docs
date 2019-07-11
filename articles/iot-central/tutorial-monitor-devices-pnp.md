@@ -3,7 +3,7 @@ title: Monitor your devices in Azure IoT Central | Microsoft Docs
 description: As an operator, use your Azure IoT Central application to monitor your devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/09/2019
+ms.date: 07/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -34,19 +34,19 @@ Before you begin, the builder should complete the three builder tutorials to cre
 
 ## Receive a notification
 
-Azure IoT Central sends notifications about devices as email messages. The builder added a rule to send a notification when the temperature in a connected air conditioner device exceeded a threshold. Check the emails sent to the account the builder chose to receive notifications.
+Azure IoT Central sends notifications about devices as email messages. The builder added a rule to send a notification when the temperature in a connected environmental sensor device exceeded a threshold. Check the emails sent to the account the builder chose to receive notifications.
 
 Open the email message you received at the end of the [Configure rules and actions for your device](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. In the email, choose **Click here to open your device**:
 
 ![Alert notification email](media/tutorial-monitor-devices-pnp/email.png)
 
-The **Device** page for the **Connected Air Conditioner-1** simulated device you created in the previous tutorials opens in your browser:
+The **Device** page for the environmental sensor simulated device you created in the previous tutorials opens in your browser:
 
 ![Device that triggered the notification email message](media/tutorial-monitor-devices-pnp/sourcedevice.png)
 
 ## Investigate an issue
 
-As an operator, you can view information about the device on the **Measurements**, **Settings**, **Properties**, **Rules**, and **Dashboard** pages. The builder customized the **Dashboard** to display important information about a connected air conditioner device.
+As an operator, you can view information about the device on the **Dashboard**, **Environmental Sensor properties**, and **Commands** pages. The builder customized the **Dashboard** and **Environmental Sensor properties** pages to display important information about a connected environmental sensor device.
 
 Choose the **Dashboard** view to see information about the device.
 
@@ -56,13 +56,13 @@ The chart on the dashboard shows a plot of the device temperature. You can also 
 
 ## Remediate an issue
 
-To change the target temperature of the device, use the **Settings** page:
+To make a change to the device, use the **Environmental Sensor properties** page:
 
-1. Choose **Settings**. Change **Set Temperature** to 75. Choose **Update** to send the new target temperature to the device. When the device confirms the settings change, the status of the setting changes to **synced**:
+1. Choose **Environmental Sensor properties**. Change **Brightness Level** to 10. Choose **Save** to update the device. When the device confirms the settings change, the status of the property changes to **synced**:
 
     ![Update settings](media/tutorial-monitor-devices-pnp/change-settings.png)
 
-2. Choose **Dashboard** and verify the new setting value:
+2. Choose **Dashboard** and verify the new property value:
 
     ![Updated device dashboard](media/tutorial-monitor-devices-pnp/new-settings.png)
 
