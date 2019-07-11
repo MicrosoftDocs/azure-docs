@@ -2,12 +2,12 @@
 title: 'Networking Partners: Azure Networking | Microsoft Docs'
 description: This article provides a list of MSP Networking partners
 services: networking
-author: cherylmc
+author: skishen525
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: cherylmc
+ms.author: sukishen
 ---
 
 # About Azure Networking MSP partners

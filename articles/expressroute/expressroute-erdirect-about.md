@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/06/2019
+ms.date: 07/10/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -56,6 +56,22 @@ ExpressRoute Direct supports massive data ingestion scenarios into Azure storage
 | --- | --- |
 | **Subscribed Bandwidth**: 200 Gbps | **Subscribed Bandwidth**: 20 Gbps |
 | <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+
+## Technical Requirements
+
+* Microsoft Enterprise Edge Router (MSEE) Interfaces:
+    * Dual 10 or 100 Gigabit Ethernet ports only across router pair
+    * Single Mode LR Fiber connectivity
+    * IPv4 and IPv6
+    * IP MTU 1500 bytes
+
+* Switch/Router Layer 2/Layer 3 Connectivity:
+    * Must support 1 802.1Q (Dot1Q) tag or two Tag 802.1Q (QinQ) tag encapsulation
+    * Ethertype = 0x8100
+    * Must add the outer VLAN tag (STAG) based on the VLAN ID specified by Microsoft - *applicable only on QinQ*
+    * Must support multiple BGP sessions (VLANs) per port and device
+    * IPv4 and IPv6 connectivity. *For IPv6 no additional sub-interface will be created. IPv6 address will be added to existing sub-interface*. 
+    * Optional: [Bidirectional Forwarding Detection (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) support, which is configured by default on all Private Peerings on ExpressRoute circuits
 
 ## VLAN Tagging
 
