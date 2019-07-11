@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to build a predictive analytics solution in the Azure Machine Learning service visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
 
 author: peterclu
-ms.author: peterclu
+ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/06/2019
+ms.date: 07/11/2019
 ---
 
 # Tutorial: Deploy a machine learning model with the visual interface
@@ -29,9 +29,7 @@ Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md)
 
 ## Prepare for deployment
 
-To give others a chance to use the predictive model developed in this tutorial, you can deploy it as an Azure web service.
-
-So far, you've been experimenting with training your model. Now, it's time to generate new predictions based on user input.
+To give others a chance to use the predictive model developed in this tutorial, you can deploy it as an Azure web service. So far, you've been experimenting with training your model. Now, it's time to generate new predictions based on user input.
 
 Preparation for deployment is a two-step process:  
 
@@ -42,39 +40,36 @@ You may want to make a copy of the experiment first by selecting **Save As** at 
 
 ### Convert the training experiment to a predictive experiment
 
-To get this model ready for deployment, convert this training experiment to a predictive experiment. This typically involves three steps:
 
-1. Save the model you've trained and replace your training modules
-1. Trim the experiment to remove modules that were only needed for training
-1. Define where the web service will accept input data and where it generates the output
 
-You could do these steps manually or you could select **Set Up Web Service** at the bottom of the experiment canvas to have them done automatically.
+1. Select **Create Predictive Experiment** at the bottom of the experiment canvas to convert the training experiment automatically.
 
-![Animated gif showing the automatic conversion of a training experiment to a predictive experiment](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
+    ![Animated gif showing the automatic conversion of a training experiment to a predictive experiment](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
-When you select **Set Up Web Service**, several things happen:
+    When you select **Create Predictive Experiment**, several things happen:
+    
+    * The trained model is stored as a **Trained Model** module in the module palette. You can find it under **Trained Models**.
+    * Modules that were used for training are removed; specifically:
+      * Train Model
+      * Split Data
+      * Evaluate Model
+    * The saved trained model is added back into the experiment.
+    * **Web service input** and **Web service output** modules are added. These modules identify where the user data will enter the model, and where data is returned.
 
-* The trained model is converted to a single **Trained Model** module. It's stored in the module palette to the left of the experiment canvas. You can find it under **Trained Models**.
-* Modules that were used for training are removed; specifically:
-  * Train Model
-  * Split Data
-  * Evaluate Model
-* The saved trained model is added back into the experiment
-* **Web service input** and **Web service output** modules are added. These modules identify where the user's data will enter the model, and where data is returned.
+    The experiment is saved in two parts under the new tabs at the top of the experiment canvas.
 
-You can see that the experiment is saved in two parts under the new tabs at the top of the experiment canvas. The original training experiment is under the tab **Training experiment**, and the newly created predictive experiment is under **Predictive experiment**. The predictive experiment is the one you'll deploy as a web service.
+    Your experiment should now look like this:  
 
-Your experiment should now look like this:  
+    ![Screenshot showing the expected configuration of the experiment after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-![Screenshot showing the expected configuration of the experiment after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+1. **Run** the experiment.
 
-Run the experiment one last time (select **Run**). Choose the compute target you want the experiment to run on in the popup dialog. To verify the model is still working, select the output of the Score Model module and select **View Results**. You can see the original data is displayed, along with the predicted price ("Scored Labels").
+1. Select the output of the **Score Model** module and select **View Results** to verify the model is still working. You can see the original data is displayed, along with the predicted price ("Scored Labels").
 
 ## Deploy the web service
 
-To deploy a New web service derived from your experiment:
-
 1. Select **Deploy Web Service** below the canvas.
+
 1. Select the **Compute Target** that you'd like to run your web service.
 
     Currently, the visual interface only supports deployment to Azure Kubernetes Service (AKS) compute targets. You can choose from available AKS compute targets in your machine learning service workspace or configure a new AKS environment using the steps in the dialogue that appears.
@@ -107,12 +102,6 @@ You can test a web service in the web service tab in the visual interface.
 
 ## Manage the web service
 
-Once you've deployed your web service, you can manage it from the **Web Services** tab in the visual interface.
-
-You can delete a web service by selecting **Delete** in the web service detail page.
-
-   ![Screenshot showing the location of the Delete web service button at the bottom of the window](./media/ui-tutorial-automobile-price-deploy/web-service-delete.png)
-
 ## Consume the web service
 
 In the previous steps of this tutorial, you deployed an automobile prediction model as an Azure web service. Now users can send data to it and receive results via REST API.
@@ -127,7 +116,7 @@ Navigate to the **API Doc** tab, to find more API details.
 
   ![Screenshot showing additional API details that users can find in the API Doc tab](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
 
-## Manage models and deployments in Azure Machine Learning service workspace
+## Manage models and deployments
 
 The models and web service deployments you create in the visual interface can be managed from the Azure Machine Learning service workspace.
 
