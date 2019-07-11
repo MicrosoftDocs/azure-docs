@@ -44,4 +44,5 @@ If the application hasn't been added to your Azure AD tenant, see [Add a gallery
 
 ## Next steps
 
+- [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
 - [Configure automatic user account provisioning](configure-automatic-user-provisioning-portal.md)

@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Configure SAML-based single sign-on to non-gallery applications
 
-When you [add a gallery app](add-a-gallery-app.md) or a [non-gallery web app](add-a-non-gallery-app.md) to your Azure AD Enterprise Applications, one of the single sign-on options available to you is [SAML-based single sign-on](what-is-single-sign-on.md#saml-based-single-sign-on). Choose SAML whenever possible for applications that authenticate using one of the SAML protocols. With SAML single sign-on, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. You can map users to specific application roles based on rules you define in your SAML claims. This article describes how to configure SAML-based single sign-on for a non-gallery app. 
+When you [add a gallery app](add-gallery-app.md) or a [non-gallery web app](add-non-gallery-app.md) to your Azure AD Enterprise Applications, one of the single sign-on options available to you is [SAML-based single sign-on](what-is-single-sign-on.md#saml-sso). Choose SAML whenever possible for applications that authenticate using one of the SAML protocols. With SAML single sign-on, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. You can map users to specific application roles based on rules you define in your SAML claims. This article describes how to configure SAML-based single sign-on for a non-gallery app. 
 
 > [!NOTE]
 > Adding a gallery app? Find step-by-step setup instructions in the [list of SaaS app tutorials](../saas-apps/tutorial-list.md)

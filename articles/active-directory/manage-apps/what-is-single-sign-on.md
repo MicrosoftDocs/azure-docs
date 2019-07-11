@@ -93,7 +93,7 @@ Password-based single sign-on is supported for any cloud-based application that 
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
-To configure an cloud application for password-based single sign-on, see [Configure password single sign-on](configure-password-single-sign-on.md).
+To configure an cloud application for password-based single sign-on, see [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
 
 To configure an on-premises application for single sign-on through Application Proxy, see [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -183,7 +183,7 @@ For more information, see [Azure Active Directory editions](../fundamentals/acti
 ## Related articles
 * [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Configuring SAML-based single sign-on](configure-single-sign-on-portal.md)
-* [Configuring password-based single sign on](configure-password-single-sign-on.md)
+* [Configuring password-based single sign on](configure-password-single-sign-on-non-gallery-applications.md)
 * [Configuring linked sign-on](configure-linked-sign-on.md)
 * [Introduction to Managing Access to applications](what-is-access-management.md)
 * Download link: [Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan).

@@ -89,5 +89,5 @@ This article describes how to add a non-gallery application to **Enterprise Appl
 Now that you've added the application to your Azure AD organization, [choose a single sign-on method](what-is-single-sign-on.md#choosing-a-single-sign-on-method) you want to use and refer to the appropriate article below:
 
 - [Configure SAML-based single sign-on](configure-single-sign-on-portal.md)
-- [Configure password single sign-on](configure-password-single-sign-on.md)
+- [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md)
 - [Configure linked sign-on](configure-linked-sign-on.md)
