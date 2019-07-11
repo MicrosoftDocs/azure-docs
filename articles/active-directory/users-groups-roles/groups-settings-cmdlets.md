@@ -74,7 +74,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
    ```
 6. You can read the values using:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```  
 ## Update settings at the directory level
@@ -82,7 +82,7 @@ To update the value for UsageGuideLinesUrl in the setting template, simply edit 
 
 To remove the value of UsageGuideLinesUrl, edit the URL to be an empty string using Step 4 above:
 
- ```powershell
+   ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
 Then perform Step 5 to set the new value.
@@ -108,7 +108,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 
 ## Example: Configure Guest policy for groups at the directory level
 1. Get all the setting templates:
-  ```powershell
+   ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
 2. To set guest policy for groups at the directory level, you need Group.Unified template
@@ -131,7 +131,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
    ```
 6. You can read the values using:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```   
 
@@ -139,9 +139,9 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 
 If you know the name of the setting you want to retrieve, you can use the below cmdlet to retrieve the current settings value. In this example, we're retrieving the value for a setting named "UsageGuidelinesUrl." 
 
-  ```powershell
-  (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
-  ```
+   ```powershell
+   (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+   ```
 These steps read settings at directory level, which apply to all Office groups in the directory.
 
 1. Read all existing directory settings:
@@ -184,11 +184,11 @@ These steps read settings at directory level, which apply to all Office groups i
 
 ## Remove settings at the directory level
 This step removes settings at directory level, which apply to all Office groups in the directory.
-  ```powershell
-  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
-  ```
+   ```powershell
+   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
+   ```
 
-## Update settings for a specific group
+## Create settings for a specific group
 
 1. Search for the settings template named "Groups.Unified.Guest"
    ```powershell
@@ -215,13 +215,49 @@ This step removes settings at directory level, which apply to all Office groups 
    ```powershell
    $SettingCopy["AllowToAddGuests"]=$False
    ```
-5. Create the new setting for the required group in the directory:
+5. Get the ID of the group you want to apply this setting to:
    ```powershell
-   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $SettingCopy
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-6. To verify the settings, run this command:
+6. Create the new setting for the required group in the directory:
    ```powershell
-   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups | fl Values
+   New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
+   ```
+7. To verify the settings, run this command:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
+   ```
+
+## Update settings for a specific group
+1. Get the ID of the group whose setting you want to update:
+   ```powershell
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
+   ```
+2. Retrieve the setting of the group:
+   ```powershell
+   $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+3. Update the setting of the group as you need, e.g.
+   ```powershell
+   $Setting["AllowToAddGuests"] = $True
+   ```
+4. Then get the ID of the setting for this specific group:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+   You will get a response similar to this:
+   ```powershell
+   Id                                   DisplayName            TemplateId                             Values
+   --                                   -----------            -----------                            ----------
+   2dbee4ca-c3b6-4f0d-9610-d15569639e1a Group.Unified.Guest    08d542b9-071f-4e16-94b0-74abb372e3d9   {class SettingValue {...
+   ```
+5. Then you can set the new value for this setting:
+   ```powershell
+   Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
+   ```
+6. You can read the value of the setting to make sure it has been updated correctly:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
 ## Cmdlet syntax reference

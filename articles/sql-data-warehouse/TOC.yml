@@ -127,6 +127,14 @@
       href: sql-data-warehouse-overview-develop.md
     - name: Best practices
       href: sql-data-warehouse-best-practices-development.md
+    - name: Materialized view
+      items:
+      - name: Create materialized view as select (Transact-SQL)
+        href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+      - name: Alter materialized view as select (Transact-SQL)
+        href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+    - name: Result set caching
+      href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
     - name: Tables
       items:
       - name: Overview
@@ -215,7 +223,7 @@
     items:
     - name: Configure Azure AD auth
       href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Conditional access
+    - name: Conditional Access
       href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Virtual network rules by PowerShell
       href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json

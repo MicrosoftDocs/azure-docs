@@ -49,10 +49,18 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extension.
 * [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
-* The Azure IoT SDK for C. 
+* Install the Azure IoT C SDK for Windows x64 through vcpkg:
 
+   ```powershell
+   git clone https://github.com/Microsoft/vcpkg
+   cd vcpkg
+   .\bootstrap-vcpkg.bat
+   .\vcpkg install azure-iot-sdk-c:x64-windows
+   .\vcpkg --triplet x64-windows integrate install
+   ```
+   
 > [!TIP]
-> If you are using Visual Studio 2017 (version 15.7 or higher), please download and install [Azure IoT Edge Tools (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
+> If you are using Visual Studio 2017 (version 15.7 or higher), please download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
 
 ## Create a module project
 
@@ -102,6 +110,7 @@ The deployment manifest shares the credentials for your container registry with 
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
 4. Save the deployment.template.json file. 
 

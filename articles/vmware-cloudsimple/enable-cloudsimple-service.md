@@ -1,4 +1,4 @@
---- 
+---
 title: Enable Azure VMware Solution by CloudSimple service
 description: Describes how to enable the CloudSimple service on an Azure subscription and then register the CLoudSimple resource provider
 author: sharaths-cs
@@ -12,22 +12,7 @@ manager: dikamath
 
 # Register the Microsoft.VMwareCloudSimple resource provider on your Azure subscription
 
-The CloudSimple service allows you to consume Azure VMware Solution by CloudSimple. To use the CloudSimple service, it must first be enabled on your Azure subscription. You can then register the Microsoft.VMwareCloudSimple service as your resource provider.
-
-## Enable the CloudSimple service
-
-To enable the CloudSimple service on your Azure subscription, open a support request with [Microsoft support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Select the following options when you submit the request.
-
-* Issue type: **Technical**
-* Subscription: **Your subscription ID**
-* Service type: **VMware Solution by CloudSimple**
-* Problem type: **Dedicated Nodes quota**
-* Problem subtype: **Increase quota of dedicated nodes**
-* Subject: **Enable CloudSimple service**
-
-You can also contact your Microsoft account representative at [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com). Provide your Azure subscription ID in the email.  
-
-After the CloudSimple service is enabled for your subscription, you can enable the resource provider on the subscription.
+The CloudSimple service allows you to consume Azure VMware Solution by CloudSimple. You can register the Microsoft.VMwareCloudSimple service as your resource provider.
 
 ## Register the resource provider
 

@@ -188,7 +188,7 @@ Some applications, like Office 2010 or earlier and Apple Mail before iOS 11, don
 Modern authentication is supported for the Microsoft Office 2013 clients and later. Office 2013 clients including Outlook, support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client.
 
 >[!NOTE]
->App passwords do not work with conditional access based multi-factor authentication policies and modern authentication.
+>App passwords do not work with Conditional Access based multi-factor authentication policies and modern authentication.
 
 ### Considerations about app passwords
 
@@ -256,7 +256,7 @@ Users can also create app passwords after registration. For more information and
 The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by administrators of a managed or federated tenant. The feature bypasses two-step verification for users who sign in from the company intranet. The feature is available with the full version of Azure Multi-Factor Authentication, and not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 > [!NOTE]
-> MFA trusted IPs and conditional access named locations only work with IPV4 addresses.
+> MFA trusted IPs and Conditional Access named locations only work with IPV4 addresses.
 
 If your organization deploys the NPS extension to provide MFA to on-premises applications note the source IP address will always appear to be the NPS server the authentication attempt flows through.
 
@@ -277,20 +277,20 @@ When the Trusted IPs feature is enabled, two-step verification is *not* required
 
 Regardless of whether the Trusted IPs feature is enabled, two-step verification is required for browser flows. App passwords are required for older rich client applications.
 
-### Enable named locations by using conditional access
+### Enable named locations by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
 3. Select **New location**.
 4. Enter a name for the location.
 5. Select **Mark as trusted location**.
 6. Enter the IP Range in CIDR notation like **192.168.1.1/24**.
 7. Select **Create**.
 
-### Enable the Trusted IPs feature by using conditional access
+### Enable the Trusted IPs feature by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
 4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
 
@@ -364,7 +364,7 @@ The remember Multi-Factor Authentication feature sets a persistent cookie on the
 
 The **Don't ask again for X days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last two-step verification occurred within the specified number of days.
 
-The feature reduces the number of authentications on web apps, which normally prompt every time. The feature increases the number of authentications for modern authentication clients that normally prompt every 90 days. May also increase the number of authentications when combined with conditional access policies.
+The feature reduces the number of authentications on web apps, which normally prompt every time. The feature increases the number of authentications for modern authentication clients that normally prompt every 90 days. May also increase the number of authentications when combined with Conditional Access policies.
 
 >[!IMPORTANT]
 >The **remember Multi-Factor Authentication** feature is not compatible with the **keep me signed in** feature of AD FS, when users perform two-step verification for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.

@@ -20,13 +20,13 @@ You can host function apps in a couple of ways:
 
 * There's a set of plan options that run on a multitenant infrastructure, with various levels of virtual network connectivity and scaling options:
     * The [Consumption plan](functions-scale.md#consumption-plan), which scales dynamically in response to load and offers minimal network isolation options.
-    * The [Premium plan](functions-scale.md#premium-plan-public-preview), which also scales dynamically, while offering more comprehensive network isolation.
+    * The [Premium plan](functions-scale.md#premium-plan), which also scales dynamically, while offering more comprehensive network isolation.
     * The Azure [App Service plan](functions-scale.md#app-service-plan), which operates at a fixed scale and offers similar network isolation to the Premium plan.
 * You can run functions in an [App Service Environment](../app-service/environment/intro.md). This method deploys your function into your virtual network and offers full network control and isolation.
 
 ## Matrix of networking features
 
-|                |[Consumption plan](functions-scale.md#consumption-plan)|[Premium plan (preview)](functions-scale.md#premium-plan-public-preview)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
+|                |[Consumption plan](functions-scale.md#consumption-plan)|[Premium plan (preview)](functions-scale.md#premium-plan)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inbound IP restrictions](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Outbound IP Restrictions](#private-site-access)|❌No| ❌No|❌No|✅Yes|
@@ -87,7 +87,7 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 ## Private site access
 
 Private site access refers to making your app accessible only from a private network such as from within an Azure virtual network. 
-* Private site access is available in the Premium and App Service plan when **Service Endpoints** are configured.For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+* Private site access is available in the Premium and App Service plan when **Service Endpoints** are configured. For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
     * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with VNET integration configured.
 * Private site access is available only with an App Service Environment configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 

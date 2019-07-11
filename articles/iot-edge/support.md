@@ -4,7 +4,7 @@ description: Learn which operating systems can run the Azure IoT Edge daemon and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 05/06/2019
+ms.date: 06/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -56,14 +56,15 @@ Generally available
 | Ubuntu Server 16.04 | Yes | No |
 | Ubuntu Server 18.04 | Yes | No |
 | Windows 10 IoT Enterprise, build 17763 | Yes | No |
+| Windows Server 2019, build 17763 | Yes | No |
+| Windows Server IoT 2019, build 17763 | Yes | No |
 
 Public preview
 
 | Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core, build 17763 | Yes | No |
-| Windows Server 2019, build 17763 | Yes | No |
-| Windows Server IoT 2019, build 17763 | Yes | No |
+
 
 The Windows operating systems listed above are the requirements for devices that run Windows containers on Windows. This configuration is the only supported configuration for production. The Azure IoT Edge installation packages for Windows allow the use of Linux containers on Windows; however, this configuration is for development and testing only. Use of Linux containers on Windows is not a supported configuration for production. Any version of Windows 10 build 14393 or newer and Windows Server 2016 or newer can be used for this development scenario.
 

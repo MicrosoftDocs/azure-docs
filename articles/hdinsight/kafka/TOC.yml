@@ -7,23 +7,23 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an Apache Kafka cluster - Portal
+  - name: Create Apache Kafka cluster - Portal
     href: apache-kafka-get-started.md
-  - name: Create an Apache Kafka cluster - PowerShell
+  - name: Create Apache Kafka cluster - PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Create an Apache Kafka cluster - Resource Manager Template
+  - name: Create Apache Kafka cluster - Template
     displayName: resource manager template, arm template, resource manager group
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutorials
   items:
-  - name: Use Apache Spark structured streaming
-    href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-  - name: Write/read from Apache Kafka with Apache Storm
-    href: ../hdinsight-apache-storm-with-kafka.md
   - name: Use Apache Kafka Producer and Consumer API
     href: apache-kafka-producer-consumer-api.md
   - name: Develop app with Apache Kafka Streams API
     href: apache-kafka-streams-api.md
+  - name: Use Apache Spark structured streaming
+    href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+  - name: Write/read from Apache Kafka with Apache Storm
+    href: ../hdinsight-apache-storm-with-kafka.md
 - name: Concepts
   items:
   - name: Capacity planning

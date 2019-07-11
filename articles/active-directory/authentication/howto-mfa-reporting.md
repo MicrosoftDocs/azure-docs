@@ -56,7 +56,7 @@ This data is available through the [Azure portal](https://portal.azure.com) and 
 
 The sign-in activity reports for MFA give you access to the following information:
 
-**MFA required:** Whether MFA is required for the sign-in or not. MFA can be required due to per-user MFA, conditional access, or other reasons. Possible values are **Yes** or **No**.
+**MFA required:** Whether MFA is required for the sign-in or not. MFA can be required due to per-user MFA, Conditional Access, or other reasons. Possible values are **Yes** or **No**.
 
 **MFA Result:** More information on whether MFA was satisfied or denied:
 
@@ -112,7 +112,7 @@ The sign-in activity reports for MFA give you access to the following informatio
 
 **MFA authentication detail:** Scrubbed version of the phone number, for example: +X XXXXXXXX64.
 
-**Conditional Access** Find information about conditional access policies that affected the sign-in attempt including:
+**Conditional Access** Find information about Conditional Access policies that affected the sign-in attempt including:
 
 - Policy name
 - Grant controls
@@ -185,5 +185,6 @@ The following table may be used to troubleshoot multi-factor authentication usin
 
 ## Next steps
 
+* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
 * [For Users](../user-help/multi-factor-authentication-end-user.md)
 * [Where to deploy](concept-mfa-whichversion.md)

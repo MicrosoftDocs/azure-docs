@@ -35,3 +35,5 @@ The number of training images per project and tags per project are expected to i
 |[Other API calls](https://go.microsoft.com/fwlink/?linkid=865446) (Transactions Per Second)|10|10|
 |Max image size (training image upload) |6 MB|6 MB|
 |Max image size (prediction)|4 MB|4 MB|
+|Max regions per object detection training image|200|200|
+|Max tags per classification image|30|30|

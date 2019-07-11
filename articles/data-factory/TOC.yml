@@ -486,6 +486,8 @@
       href: control-flow-expression-language-functions.md
     - name: System variables
       href: control-flow-system-variables.md
+    - name: Data flow parameters
+      href: parameters-data-flow.md
   - name: Security
     items:
     - name: Data movement security considerations
@@ -516,7 +518,7 @@
     items:
     - name: Azure integration runtime
       href: create-azure-integration-runtime.md
-    - name: Self hosted integration runtime
+    - name: Self-hosted integration runtime
       href: create-self-hosted-integration-runtime.md
     - name: Azure-SSIS integration runtime
       href: create-azure-ssis-integration-runtime.md
@@ -568,6 +570,12 @@
       href: solution-template-delta-copy-with-control-table.md
     - name: Transform data with Databricks
       href: solution-template-databricks-notebook.md
+  - name: Troubleshooting guide
+    items:
+    - name: Activity troubleshooting
+      href: data-factory-troubleshoot-guide.md
+    - name: Troubleshooting Package Execution in Azure-SSIS IR
+      href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Reference
   items:
   - name: .NET

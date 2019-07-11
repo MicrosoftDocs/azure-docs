@@ -19,6 +19,6 @@ This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Clou
 | Click the **Cloud Shell** button on the menu in the upper right of the Azure portal. | [![Cloud Shell in the portal](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
-**Running PowerShell locally**
+**Run Azure PowerShell locally**
 
-You can also install and run the Azure PowerShell cmdlets locally on your computer. PowerShell cmdlets are updated frequently. If you are not running the latest version, the values specified in the instructions may fail. To find the version of PowerShell that you are running locally, use the `Get-Module -ListAvailable Az` cmdlet. To install or update, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+You can also install and run the Azure PowerShell cmdlets locally on your computer. PowerShell cmdlets are updated frequently. If you are not running the latest version, the values specified in the instructions may fail. To find the installed versions of PowerShell on your system, use the `Get-Module -ListAvailable Az` cmdlet. To install or update, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
