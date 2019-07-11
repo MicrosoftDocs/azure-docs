@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
-ms.author: jaredr80
+ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
 
