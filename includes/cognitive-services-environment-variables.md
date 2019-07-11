@@ -8,9 +8,9 @@ ms.author: aahi
 
 ## Configure an environment variable for authentication
 
-Applications need to authenticate access to the Cognitive Services they use. To authenticate, we recommend creating an environment variable to store a key in your Azure Resources. 
+Applications need to authenticate access to the Cognitive Services they use. To authenticate, we recommend creating an environment variable to store the keys for your Azure Resources. 
 
-After you have your key, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `your-key` with your Anomaly Detector access key:
+After you have your key, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `your-key` with one of the keys for your resource.
 
 * Windows
 
