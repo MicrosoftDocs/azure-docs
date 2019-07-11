@@ -44,7 +44,7 @@ This article contains security recommendations for virtual machines in Azure. Im
 
 | Recommendation | Comments |
 |-|----|
-| Centralize VM authentication | You can centralize the authentication of your Windows and Linux virtual machines using [Azure AD authentication](../../active-directory/develop/authentication-scenarios). |
+| Centralize VM authentication | You can centralize the authentication of your Windows and Linux virtual machines using [Azure AD authentication](../../active-directory/develop/authentication-scenarios.md). |
 | Use multi-factor authentication  | Azure Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for users. It requires a second form of authentication for more information, see [How it works: Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)|
 
 ## Data security
