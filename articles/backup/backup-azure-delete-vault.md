@@ -17,9 +17,11 @@ This article describes how to delete an [Azure Backup](backup-overview.md) Recov
 ## Before you start
 
 Before you start, it is important to understand that you cannot delete a Recovery Services vault that has dependencies such as backed-up data, protected servers or backup management servers associated with the vault.
-Vault containing backed-up data cannot be deleted (i.e. even if you have stopped protection but retained the backed-up data).
+Vault containing backed-up data cannot be deleted (that is, even if you have stopped protection but retained the backed-up data).
 
-Deleting a vault with dependencies will display *Vault deletion error: Vault cannot be deleted as there are existing resources within the vault*.
+If you delete a vault that contains dependencies, then it will will display the following error
+
+![delete vault error](./media/backup-azure-delete-vault/error.png)
 
 To gracefully delete a vault
 - Stop protection and delete backed-up data
@@ -27,13 +29,13 @@ To gracefully delete a vault
 - Delete the vault
 
 
-## Deleting backup items and delete the vault
+## Delete backed-up data and backup items
 
-Remove all the dependencies before the Recovery Services vault is deleted.
+Before you proceed further, read the **[Before you start](#before-you-start)** section, to understand the dependencies and vault deletion process.
 
 ### For Protected items in Cloud
 
-To delete the backup items perform the below:
+To delete the backup items, perform the below:
 
 1. From portal > Recovery Services vault > Backup Items choose the protected items in cloud.
 
@@ -58,7 +60,7 @@ To delete the backup items perform the below:
 
 ### For MARS agent
 
-To stop protection and delete backup data perform steps in the order listed below:
+To stop protection and delete backup data, perform steps in the order listed below:
 
 - [Step 1: Delete backup items from MARS Management console](#step-1-delete-backup-items-from-mars-management-console)
 - [Step 2: From portal remove Azure Backup agent](#step-1-delete-backup-items-from-mars-management-console)
@@ -79,7 +81,7 @@ If you are unable to perform this step due to unavailability of the server then 
 - You are prompted to enter a Security Pin. To generate the PIN, perform the below steps:
   - Sign in to the Azure portal.
   - Browse to **Recovery Services vault** > **Settings** > **Properties**.
-  - Under **Security PIN**, click **Generate**. Copy this PIN.(This PIN is valid for only five minutes)
+  - Under **Security PIN**, click **Generate**. Copy this PIN.(This PIN, is valid for only five minutes)
 - In the Management Console (client app) paste the PIN and click **Ok**.
 
   ![Security Pin](./media/backup-azure-delete-vault/security-pin.png)
@@ -128,7 +130,7 @@ Ensure [Step 1](#step-1-delete-backup-items-from-mars-management-console) is com
 
 ### For MABS agent
 
-To stop protection and delete backup data perform steps in the order listed below:
+To stop protection and delete backup data, perform steps in the order listed below:
 
 - [Step 1: Delete backup items from MABS Management console](#step-1-delete-backup-items-from-mabs-management-console)
 - [Step 2: From portal remove Azure Backup management servers](#step-2-from-portal-remove-azure-backup-agent)
@@ -192,7 +194,7 @@ Ensure [Step 1](#step-1-delete-backup-items-from-mabs-management-console) is com
 6. Click **Refresh** on the **Backup Items** menu, to check if the Backup item is removed.
 
 
-### Delete the vault after removing dependencies
+## Delete the Recovery Services vault
 
 1. When all dependencies have been removed, scroll to the **Essentials** pane in the vault menu.
 2. Verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, remove them.
