@@ -48,20 +48,11 @@ The software requirements include the information on the supported operating sys
 
 Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used to copy data but the copy speeds are impacted.
 
-## Port requirements
+### Port requirements
 
 The following table lists the ports that need to be opened in your firewall to allow for SMB or NFS traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Data Box device sends data externally, beyond the deployment: for example, outbound to the Internet.
 
-| Port no.|	In or out |	Port scope|	Required|	Notes |   |
-|--------|-----|-----|-----------|----------|-----------|
-| TCP 80 (HTTP)|In|LAN|Yes|This is the intended port for HTTP traffic.  |
-| TCP 8080 (HTTP-Proxy)|In|LAN|Yes|This is an alternative port for HTTP. |
-| TCP 443 (HTTPS)|In|LAN|Yes|This is the intended port for HTTPS traffic.  |
-| TCP 5020 (HTTPS)|In|LAN|In some cases<br>See notes|This port is required only if connecting to Data Box Blob Storage REST APIs. If not connecting to REST APIs, the port automatically redirects to the local web UI of the device.  |
-| TCP 8443 (HTTPS-Alt)|In|LAN|Yes|This is an alternative port for HTTPS and is used when connecting to local web UI for device management. |
-| TCP 445 (SMB)|Out/In|LAN|In some cases<br>See notes|This port is required only if you are connecting via SMB. |
-| TCP 2049 (NFS)|Out/In|LAN|In some cases<br>See notes|This port is required only if you are connecting via NFS. |
-| TCP 111 (NFS)|Out/In|LAN|In some cases<br>See notes|This port is used for rpcbind/port mapping and required only if you are connecting via NFS.  |
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
 
 ## Next steps
