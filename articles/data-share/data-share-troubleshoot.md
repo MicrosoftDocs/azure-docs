@@ -50,7 +50,7 @@ If you receive any of the above errors when creating a new data share or receivi
 1. Navigate to Storage account in Azure portal
 1. Select **Access control (IAM)**
 1. Click **Add**
-1. Add yourself in as the Storage Blob Data Owner
+1. Add yourself in as owner.
 
 ## Next steps
 
