@@ -275,6 +275,9 @@ Access Tokens are short-lived and must be refreshed after they expire to continu
 
 Refresh tokens do not have specified lifetimes. Typically, the lifetimes of refresh tokens are relatively long. However, in some cases, refresh tokens expire, are revoked, or lack sufficient privileges for the desired action. Your application needs to expect and handle errors returned by the token issuance endpoint correctly.
 
+[!NOTE] Access token lifetimes can be found here : https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes#configurable-token-lifetime-properties
+The default for access tokens is 1 hour and the default for refresh tokens is 90 days. These lifetimes can be changed by configuring the token lifetimes accordingly. 
+
 When you receive a response with a refresh token error, discard the current refresh token and request a new authorization code or access token. In particular, when using a refresh token in the Authorization Code Grant flow, if you receive a response with the `interaction_required` or `invalid_grant` error codes, discard the refresh token and request a new authorization code.
 
 A sample request to the **tenant-specific** endpoint (you can also use the **common** endpoint) to get a new access token using a refresh token looks like this:
