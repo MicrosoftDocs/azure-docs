@@ -39,6 +39,12 @@ For deterministic behavior, set the event time to live and max delivery attempts
 
 By default, Event Grid expires all events that aren't delivered within 24 hours. You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
 
+## Delayed Delivery
+
+As an endpoint has experiences delivery failures, Event Grid will begin to delay the delivery and retry of events to that endpoint. For example, if the first ten events published to an endpoint fail, Event Grid will assume that the endpoint is experiencing issues and will delay all subsequent retries *and new* deliveries for some time - in some cases up to several hours.
+
+The functional purpose of delayed delivery is to protect unhealthy endpoints as well as the Event Grid system. Without back-off and delay of delivery to unhealthy endpoints, Event Grid's retry policy and volume capabilities can easily overwhelm a system.
+
 ## Dead-letter events
 
 When Event Grid can't deliver an event, it can send the undelivered event to a storage account. This process is known as dead-lettering. By default, Event Grid doesn't turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the event subscription. You pull events from this storage account to resolve deliveries.

@@ -100,7 +100,7 @@ You trigger an event for the Blob storage by uploading a file. The file doesn't 
 1. You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app and notice that a blob created event was received. 
 
    ```json
-   {
+   [{
     "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
     "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
     "eventType": "Microsoft.Storage.BlobCreated",
@@ -122,7 +122,7 @@ You trigger an event for the Blob storage by uploading a file. The file doesn't 
     },
     "dataVersion": "",
     "metadataVersion": "1"
-   }
+   }]
    ```
 
 ## Clean up resources
