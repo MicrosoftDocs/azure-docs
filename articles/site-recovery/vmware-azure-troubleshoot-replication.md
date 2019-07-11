@@ -128,6 +128,34 @@ To resolve the issue, use the following steps to verify the service status:
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
 
+## Error ID 78144 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
+
+Some of the most common issues are listed below
+
+#### Cause 1: Known issue in SQL server 2008/2008 R2 
+**How to fix** : There is a known issue with SQL server 2008/2008 R2. Please refer this KB article [Azure Site Recovery Agent or other non-component VSS backup fails for a server hosting SQL Server 2008 R2](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### Cause 2: Azure Site Recovery jobs fail on servers hosting any version of SQL Server instances with AUTO_CLOSE DBs 
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+
+#### Cause 3: Known issue in SQL Server 2016 and 2017
+**How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+
+### More causes due to VSS related issues:
+
+To troubleshoot further, Check the files on the source machine to get the exact error code for failure:
+	
+	C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+How to locate the errors in the file?
+Search for the string "vacpError"  by opening the vacp.log file in an editor
+		
+	Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+In the above example **2147754994** is the error code that tells you about the failure as shown below
+
 
 
 ## Next steps
