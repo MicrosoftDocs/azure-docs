@@ -49,9 +49,10 @@ When you subscribe to the Standard tier in Azure Security Center, Advanced Threa
     ![Select subscription](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
 1. Click **Pricing tier**.
-1. From the **Storage accounts** row, click **Enabled** or **Disabled** for Storage accounts resources, and click **Save**.
+1. In the **Select pricing tier by resource type** section, in the **Storage accounts** row, click **Enabled** or **Disabled**.
 
     ![Enable ATP in Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
+1. , Click **Save**.
 
 ### Using Azure Resource Manager templates
 
