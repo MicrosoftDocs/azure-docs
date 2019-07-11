@@ -238,7 +238,7 @@ For more information on ARMClient command, refer this [document](https://github.
 
 ## What if I stop the backup process but retain the data?
 
-If you stop the backup process by retaining the data, you must delete the backup data as described in the previous [sections](#remove-vault-items-and-delete-the-vault) and then delete the Recovery Services vault.
+If you stop the backup process by retaining the data, you must delete the backup data as described in the [Delete backed-up data and backup items](#delete-backed-up-data-and-backup-items) and then delete the Recovery Services vault.
 
 ## Next steps
 
