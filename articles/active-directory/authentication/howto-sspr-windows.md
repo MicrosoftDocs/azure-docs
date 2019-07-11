@@ -17,14 +17,14 @@ ms.collection: M365-identity-device-management
 ---
 # How to: Enable password reset from the Windows login screen
 
-For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset their password at the Windows login screen. Staff no longer have to find a device with a web browser to access the [SSPR portal](https://aka.ms/sspr).
+For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset their password at the Windows login screen. Users no longer have to find a device with a web browser to access the [SSPR portal](https://aka.ms/sspr).
 
 ![Example Windows 7 and 10 login screens with SSPR link shown](./media/howto-sspr-windows/windows-reset-password.png)
 
 ## General prerequisites
 
 - An administrator must enable Azure AD self-service password reset from the Azure portal.
-- **Staff must register for SSPR before using this feature**
+- **Users must register for SSPR before using this feature**
 - Network proxy requirements
    - Windows 10 devices 
        - Port 443 to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com`
