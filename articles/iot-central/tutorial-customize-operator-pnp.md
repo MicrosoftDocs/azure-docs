@@ -9,8 +9,6 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 
-# TODO: Move some of the visualization content from the first tutorial to here - first tutorial should just show telemetry on a dashboard - here we add a form and customize the dashboard...
-# Need to talk about forms for Editing and Dashboards for visualizing
 ---
 
 # Tutorial: Customize the Azure IoT Central operator's view (Plug and Play)
@@ -64,6 +62,8 @@ To create form to view and edit environmental sensor properties:
 1. Enter the form name **Environmental Sensor properties**.
 
 1. Drag the **Customer name** and **Last service dater** cloud properties on to the existing section on the form.
+
+1. Select the **Brightness Level** and **Device State**  device properties. Then select **Add Section**. Edit the title of the section to be **Sensor properties**. Select **Apply**.
 
 1. Select the **Battery remaining**, **Device model**, **Firmware version**, **Manufacturer**, and **Serial number** device properties. Then select **Add Section**. Edit the title of the section to be **Device properties**. Select **Apply**.
 
