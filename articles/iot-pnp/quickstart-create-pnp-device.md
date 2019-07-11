@@ -35,93 +35,23 @@ Install the Azure IoT Device Workbench extension from a .vsix file. Use the foll
 
     ![Install Azure IoT Device Workbench extension](media/quickstart-create-pnp-device/install-vsix.png)
 
-### Install the digital twin explorer
+### Install the Azure IoT explorer
 
-Download and install the digital twin explorer tool from the [latest release]().
+Download and install the Azure IoT explorer from the [latest release](https://github.com/Azure/azure-iot-explorer/releases).
 
 ### Azure IoT Hub
 
-Create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](../iot-hub/quickstart-send-telemetry-node.md#create-an-iot-hub) to create one.
+1. Create a device identity in an Azure IoT Hub. If you don't have one, follow instructions [here](../iot-hub/quickstart-send-telemetry-node.md#create-an-iot-hub) to create one. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+1. Retrieve your hub connection string and make a note of it. This will be used later in this article.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Author your model
 
-## Create your model
+In this quickstart, we are going to use existing sample device capability model and associated interfaces. Please download the device capability model and interface samples [here](). For detailed instructions on how to create your own new interfaces and device capability model in Visual Studio code, please go [here](https://review.docs.microsoft.com/en-us/azure/iot-pnp/tutorial-pnp-visual-studio-code?branch=pr-en-us-79370).
 
-### Create new Plug and Play Interface
-
-To create a new interface in VS Code:
-
-1. Use **Ctrl+Shift+P** to open the command palette, enter **Azure IoT Plug and Play**, and then select **Create Interface**:
-    ![Create a PnP interface](media/quickstart-create-pnp-device/create-interface.png)
-
-1. Enter **DeviceInformation.interface.json** as the name of your interface file. A default interface file is created.
-
-1. Copy the contents from the file [here]() into the file you created.
-  
-1. Make the value of the `@id` property unique, for example:
-
-```json
-"@id": "http://yourdomain.com/environmentalsensor/1.0.1"
-```
-
-### Create new Plug and Play Device Capability Model
-
-To create a new plug and play DCM in VS Code:
-
-1. Use **Ctrl+Shift+P** to open the command palette, enter **Azure IoT Plug and Play**, and select **Create Capability Model**.
-
-1. Enter **EnvironmentalSensorX4000** as the name of your interface file.
-
-1. Update the JSON file with the following content:
-
-    ```json
-    {
-      "@id": "http://yourdomain.com/EnvironmentalSensorX4000/1.0.0",
-      "@type": "CapabilityModel",
-      "displayName": "myCapabilityModel",
-      "implements": [
-        "http://yourdomain.com/environmentalsensor/1.0.1",
-        "http://azureiot.com/interfaces/deviceInformation/1.0.0",
-        "http://azureiot.com/interfaces/deviceDiscovery/1.0.0",
-        "http://azureiot.com/interfaces/modelDefinitionDiscovery/1.0.0",
-        "http://azureiot.com/interfaces/azureSDKInformation/1.0.0"
-      ],
-      "@context": "http://azureiot.com/v0/contexts/CapabilityModel.json"
-    }
-    ```
-
-1. Replace http://yourdomain.com/environmentalsensor/1.0.1 with the interface ID you created in the previous section.
-
-### Open the model repository
-
-To open the model repository in VS Code:
-
-1. Use **Ctrl+Shift+P** to open the command palette, enter **Azure IoT Plug and Play**, and select **Open Model Repository**:
-
-   ![Open the model repository](media/quickstart-create-pnp-device/open-model-repo.png)
-
-1. Don't enter a connection string.
-
-The model repository opens in VS Code UI:
-
-![The model repository in VS Code](media/quickstart-create-pnp-device/model-repo-ui.png)
-
-### Submit your interface to the model repository
-
-To submit your interface file to the model repository in VS Code:
-
-1. Use **Ctrl+Shift+P** to open the command palette, enter **Azure IoT Plug and Play**, and select **Submit file to Model Repository**:
-   ![Submit an interface to the model repository](media/quickstart-create-pnp-device/submit.png)
-
-1. Select the interface and DCM files you created:
-   ![Select files to submit](media/quickstart-create-pnp-device/submit-file.png)
-
-1. In the plug and play model repository UI, select **Refresh** to see the files you submitted files:
-   ![Files in the model repository](media/quickstart-create-pnp-device/model-repo-ui-submitted.png)
 
 ## Implement the device code
 
-Now you have a device capability model in the repository, you can generate the device code that implements the model.
+Now you have a device capability model, you can generate the device code that implements the model.
 
 ### Generate the C code stub
 
@@ -158,16 +88,19 @@ Implement the stubbed functions in VS Code:
 
 ## Validate the code
 
-Use the digital twin explorer tool to validate the code:
+Use the Azure IoT explorer to validate the code:
 
-1. Open the application and connect with your IoT Hub connection string on the landing page.
-1. Find the device you're using in your hub, and select it to view the details.
-1. Select the **Telemetry** page under **interfaceX** to view the telemetry data being sent by the device.
-1. Select the **Properties** page under **interfaceX** to view the reported properties from the device.
-1. Select the **Writable Properties** page under **interfaceX**. Under property **X**, update the value to be **Y**.
-1. Select **Device Twin**, confirm the change you just made in property **X**.
-1. Select the **Command** page under **interfaceX**. Select command **X** and select **Submit**.
-1. Go to the device to verify that the command executed as expected.
+1. Open Azure IoT explorer, you will land on a connect page. 
+1. Provide your IoT Hub connection string and click **Connect**.
+1. After connect, you will land on a device overview page. Find the device identity you're using earlier, and select it to view more details.
+1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the plug and play primitives - properties, commands and telemetry.
+1. Select the **Telemetry** to view the telemetry data being sent by the device.
+1. Select the **Properties(non-writable)** to view the non-writable properties.
+1. Select the **Properties(writable)** to view the writable properties. 
+1. Expand property **name**, update with a new name and click **update writable property** button. You will see the status of the update under **Status** column. Once the update is done, the new name will show up under the **Reported Property** column.
+1. Select the **Command** page to view all the commands. 
+1. Expand command **blink** and give a new blink time interval. Click **Send Command** button.
+1. Go to the simulated device to verify that the command executed as expected.
 
 ## Next steps
 
