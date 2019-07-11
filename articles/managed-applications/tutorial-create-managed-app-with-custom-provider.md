@@ -33,13 +33,33 @@ To complete this tutorial, you need to know:
 * [View definition artifact](concepts-view-definition.md) capabilities
 * [Azure Custom Provider](custom-providers-overview.md) capabilities
 
-## Authoring user interface definition file
+## User interface definition
 
 In this tutorial, you create a managed application and its managed resource group will contain custom provider instance, storage account, and function. The Azure Function used in this example implements an API that handles custom provider operations for actions and resources. Azure Storage Account is used as basic storage for your custom provider resources.
 
-The user interface definition for creating a managed application instance includes `funcname` and `storagename` input elements. Storage account name and function name must be globally unique. By default function files will be deployed from [sample function package](https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip), but you can change it by adding an input element for a package link in *createUIDefinition.json*:
+The user interface definition for creating a managed application instance includes `funcname` and `storagename` input elements. Storage account name and function name must be globally unique. By default function files will be deployed from [sample function package](https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/), but you can change it by adding an input element for a package link in *createUIDefinition.json*:
 
 ```json
+{
+  "name": "funcname",
+  "type": "Microsoft.Common.TextBox",
+  "label": "Name of the function to be created",
+  "toolTip": "Name of the function to be created",
+  "visible": true,
+  "constraints": {
+    "required": true
+  }
+},
+{
+  "name": "storagename",
+  "type": "Microsoft.Common.TextBox",
+  "label": "Name of the storage to be created",
+  "toolTip": "Name of the storage to be created",
+  "visible": true,
+  "constraints": {
+    "required": true
+  }
+},
 {
   "name": "zipFileBlobUri",
   "type": "Microsoft.Common.TextBox",
@@ -53,70 +73,18 @@ The user interface definition for creating a managed application instance includ
 and output in *createUIDefinition.json*:
 
 ```json
+  "funcname": "[steps('applicationSettings').funcname]",
+  "storageName": "[steps('applicationSettings').storagename]",
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-<br>
-<details>
-<summary>Show <i>createUiDefinition.json</i> file</summary>
+The complete *createUIDefinition.json* sample can be found at [Reference: User interface elements artifacts](reference-createuidefinition-artifact.md).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-  "handler": "Microsoft.Azure.CreateUIDef",
-  "version": "0.1.2-preview",
-  "parameters": {
-    "basics": [
-      {}
-    ],
-    "steps": [
-      {
-        "name": "applicationSettings",
-        "label": "Application Settings",
-        "subLabel": {
-          "preValidation": "Configure your application settings",
-          "postValidation": "Done"
-        },
-        "bladeTitle": "Application Settings",
-        "elements": [
-          {
-            "name": "funcname",
-            "type": "Microsoft.Common.TextBox",
-            "label": "Name of the function to be created",
-            "toolTip": "Name of the function to be created",
-            "visible": true,
-            "constraints": {
-              "required": true
-            }
-          },
-          {
-            "name": "storagename",
-            "type": "Microsoft.Common.TextBox",
-            "label": "Name of the storage to be created",
-            "toolTip": "Name of the storage to be created",
-            "visible": true,
-            "constraints": {
-              "required": true
-            }
-          }
-        ]
-      }
-    ],
-    "outputs": {
-      "funcname": "[steps('applicationSettings').funcname]",
-      "storageName": "[steps('applicationSettings').storagename]"
-    }
-  }
-}
-```
-
-</details>
-
-## Authoring deployment template with custom provider
+## Template with custom provider
 
 To create a managed application instance with custom provider, you need to define custom provider resource with name **public** and type **Microsoft.CustomProviders/resourceProviders** in your **mainTemplate.json**. In that resource, you define the resource types and actions for your service. To deploy Azure Function and Azure Storage Account instances define resources of type `Microsoft.Web/sites` and `Microsoft.Storage/storageAccounts` respectively.
 
-In this tutorial, you create one `users` resource type, `ping` custom action, and `users/contextAction` custom action that will be performed in a context of a `users` custom resource. For each resource type and action provide an endpoint pointing to the function with name provided in [createUIDefinition.json](#authoring-user-interface-definition-file). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
+In this tutorial, you create one `users` resource type, `ping` custom action, and `users/contextAction` custom action that will be performed in a context of a `users` custom resource. For each resource type and action provide an endpoint pointing to the function with name provided in [createUIDefinition.json](#user-interface-definition). Specify the **routingType** as `Proxy,Cache` for resource types and `Proxy` for actions:
 
 ```json
 {
@@ -151,180 +119,9 @@ In this tutorial, you create one `users` resource type, `ping` custom action, an
 }
 ```
 
-<br>
-<details>
-<summary>Show full <i>mainTemplate.json</i> file</summary>
+The complete *mainTemplate.json* sample can be found at [Reference: Deployment template artifact](reference-maintemplate-artifact.md).
 
-```json
-{
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string",
-      "defaultValue": "eastus",
-      "allowedValues": [
-        "australiaeast",
-        "eastus",
-        "westeurope"
-      ],
-      "metadata": {
-        "description": "Location for the resources."
-      }
-    },
-    "funcname": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Azure Function that hosts the code. Must be globally unique"
-      },
-      "defaultValue": ""
-    },
-    "storageName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the storage account that hosts the function. Must be globally unique. The field can contain only lowercase letters and numbers. Name must be between 3 and 24 characters"
-      },
-      "defaultValue": ""
-    },
-    "zipFileBlobUri": {
-      "type": "string",
-      "defaultValue": "https://raw.githubusercontent.com/raosuhas/azure-quickstart-templates/master/201-managed-application-with-customprovider/artifacts/functionzip/functionpackage.zip",
-      "metadata": {
-        "description": "The Uri to the uploaded function zip file"
-      }
-    }
-  },
-  "variables": {
-    "customrpApiversion": "2018-09-01-preview",
-    "customProviderName": "public",
-    "serverFarmName": "functionPlan"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2016-09-01",
-      "name": "[variables('serverFarmName')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Y1",
-        "tier": "Dynamic",
-        "size": "Y1",
-        "family": "Y",
-        "capacity": 0
-      },
-      "kind": "functionapp",
-      "properties": {
-        "name": "[variables('serverFarmName')]",
-        "perSiteScaling": false,
-        "reserved": false,
-        "targetWorkerCount": 0,
-        "targetWorkerSizeId": 0
-      }
-    },
-    {
-      "type": "Microsoft.Web/sites",
-      "kind": "functionapp",
-      "name": "[parameters('funcname')]",
-      "apiVersion": "2018-02-01",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
-        "[resourceId('Microsoft.Web/serverfarms', variables('serverFarmName'))]"
-      ],
-      "identity": {
-        "type": "SystemAssigned"
-      },
-      "properties": {
-        "name": "[parameters('funcname')]",
-        "siteConfig": {
-          "appSettings": [
-            {
-              "name": "AzureWebJobsDashboard",
-              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2015-05-01-preview').key1)]"
-            },
-            {
-              "name": "AzureWebJobsStorage",
-              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2015-05-01-preview').key1)]"
-            },
-            {
-              "name": "FUNCTIONS_EXTENSION_VERSION",
-              "value": "~2"
-            },
-            {
-              "name": "AzureWebJobsSecretStorageType",
-              "value": "Files"
-            },
-            {
-              "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2015-05-01-preview').key1)]"
-            },
-            {
-              "name": "WEBSITE_CONTENTSHARE",
-              "value": "[concat(toLower(parameters('funcname')), 'b86e')]"
-            },
-            {
-              "name": "WEBSITE_NODE_DEFAULT_VERSION",
-              "value": "6.5.0"
-            },
-            {
-              "name": "WEBSITE_RUN_FROM_PACKAGE",
-              "value": "[parameters('zipFileBlobUri')]"
-            }
-          ]
-        },
-        "clientAffinityEnabled": false,
-        "reserved": false,
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('serverFarmName'))]"
-      }
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('storageName')]",
-      "apiVersion": "2018-02-01",
-      "kind": "StorageV2",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard_LRS"
-      }
-    },
-    {
-      "apiVersion": "[variables('customrpApiversion')]",
-      "type": "Microsoft.CustomProviders/resourceProviders",
-      "name": "[variables('customProviderName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "actions": [
-          {
-            "name": "ping",
-            "routingType": "Proxy",
-            "endpoint": "[listSecrets(resourceId('Microsoft.Web/sites/functions', parameters('funcname'), 'HttpTrigger1'), '2018-02-01').trigger_url]"
-          },
-          {
-            "name": "users/contextAction",
-            "routingType": "Proxy",
-            "endpoint": "[listSecrets(resourceId('Microsoft.Web/sites/functions', parameters('funcname'), 'HttpTrigger1'), '2018-02-01').trigger_url]"
-          }
-        ],
-        "resourceTypes": [
-          {
-            "name": "users",
-            "routingType": "Proxy,Cache",
-            "endpoint": "[listSecrets(resourceId('Microsoft.Web/sites/functions', parameters('funcname'), 'HttpTrigger1'), '2018-02-01').trigger_url]"
-          }
-        ]
-      },
-      "dependsOn": [
-        "[concat('Microsoft.Web/sites/',parameters('funcname'))]"
-      ]
-    }
-  ],
-  "outputs": {}
-}
-```
-
-</details>
-
-## Authoring view definition artifact
+## View definition artifact
 
 To define user interface that includes custom actions and custom resources in your managed application, you need to author **viewDefinition.json** artifact. For more information about view definition artifact, see [View definition artifact in Azure Managed Applications](concepts-view-definition.md).
 
@@ -333,13 +130,10 @@ In this tutorial, you define:
 * *Users* page that represents a custom resource type `users`.
 * Custom resource action `users/contextAction` in *Users* page that will be performed in a context of custom resource of type `users`.
 
-<br>
-<details>
-<summary>Show <i>viewDefinition.json</i> file</summary>
+The following example shows view configuration for an "Overview" page:
 
 ```json
 {
-  "views": [{
     "kind": "Overview",
     "properties": {
       "header": "Welcome to your Demo Azure Managed Application",
@@ -350,43 +144,19 @@ In this tutorial, you define:
           "icon": "LaunchCurrent"
       }]
     }
-  },
-  {
+  }
+```
+
+The example below includes "Users" resources page configuration with custom resource action:
+
+```json
+{
     "kind": "CustomResources",
     "properties": {
       "displayName": "Users",
       "version": "1.0.0.0",
       "resourceType": "users",
       "createUIDefinition": {
-        "parameters": {
-          "steps": [{
-            "name": "add",
-            "label": "Add user",
-            "elements": [{
-              "name": "name",
-              "label": "User's Full Name",
-              "type": "Microsoft.Common.TextBox",
-              "defaultValue": "",
-              "toolTip": "Provide a full user name.",
-              "constraints": { "required": true }
-            },
-            {
-              "name": "location",
-              "label": "User's Location",
-              "type": "Microsoft.Common.TextBox",
-              "defaultValue": "",
-              "toolTip": "Provide a Location.",
-              "constraints": { "required": true }
-            }]
-          }],
-          "outputs": {
-            "name": "[steps('add').name]",
-            "properties": {
-              "FullName": "[steps('add').name]",
-              "Location": "[steps('add').location]"
-            }
-          }
-        }
       },
       "commands": [{
         "displayName": "Custom Context Action",
@@ -398,13 +168,12 @@ In this tutorial, you define:
         { "key": "properties.Location", "displayName": "Location", "optional": true }
       ]
     }
-  }]
-}
+  }
 ```
 
-</details>
+The complete *viewDefinition.json* sample can be found at [Reference: View definition artifact](reference-viewdefinition-artifact.md).
 
-## Deploy a managed application definition
+## Managed application definition
 
 Package the following managed application artifacts to zip archive and upload it to storage:
 
@@ -501,7 +270,7 @@ az managedapp definition create \
 
 ---
 
-## Deploying an instance of managed application
+## Managed application instance
 
 When managed application definition is deployed, run the script below or follow the steps in Azure portal to deploy your managed application instance with custom provider:
 
@@ -552,7 +321,7 @@ az managedapp create \
 
 ---
 
-## Performing custom actions and create custom resources
+## Custom actions and resources
 
 After the service catalog application instance has been deployed, you have two new resource groups. First resource group `applicationGroup` contains an instance of the managed application, second resource group `managedResourceGroup` holds the resources for the managed application, including **custom provider**.
 
@@ -560,17 +329,14 @@ After the service catalog application instance has been deployed, you have two n
 
 You can go to managed application instance and perform **custom action** in "Overview" page, create **users** custom resource in "Users" page and run **custom context action** on custom resource.
 
-<br>
-<details>
-<summary>Show details</summary>
-
+* Go to "Overview" page and click "Ping Action" button:
 ![Perform custom action](./media/managed-application-with-custom-providers/perform-custom-action.png)
 
+* Go to "Users" page and click "Add" button. Provide inputs for creating a resource and submit the form:
 ![Create custom resource](./media/managed-application-with-custom-providers/create-custom-resource.png)
 
+* Go to "Users" page, select a "users" resource and click "Custom Context Action":
 ![Create custom resource](./media/managed-application-with-custom-providers/perform-custom-resource-action.png)
-
-</details>
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 

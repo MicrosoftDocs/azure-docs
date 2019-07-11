@@ -73,6 +73,14 @@
       href: custom-providers-proxy-resource-endpoint-reference.md
     - name: Custom resource cache reference
       href: custom-providers-proxy-cache-resource-endpoint-reference.md
+  - name: Application artifacts
+    items:
+    - name: User interface elements
+      href: reference-createuidefinition-artifact.md
+    - name: Deployment template
+      href: reference-maintemplate-artifact.md
+    - name: View definition
+      href: reference-viewdefinition-artifact.md
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell
