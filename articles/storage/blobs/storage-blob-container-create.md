@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 06/01/2019
+ms.date: 07/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
