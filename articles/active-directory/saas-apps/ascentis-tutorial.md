@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2019
+ms.date: 07/11/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using any one of the following pattern:
 
 	| |
 	|--|
