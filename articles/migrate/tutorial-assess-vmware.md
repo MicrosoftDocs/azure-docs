@@ -5,23 +5,23 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 07/11/2019
 ms.author: raynew
 ---
 
-# Assess VMware VMs with Azure Migrate Server Assessment
+# Assess VMware VMs with Azure Migrate: Server Assessment
 
-This article shows you how to assess on-premises VMware VMs, using the Azure Migrate Server Assessment.
+This article shows you how to assess on-premises VMware VMs, using the Azure Migrate: Server Assessment tool.
 
-[Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
+[Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
 
 
 
 This tutorial is the second in a series that demonstrates how to assess and migrate VMware VMs to Azure. In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Set up a Azure Migrate project.
-> * Set up a Azure Migrate appliance that runs on-premises to assess VMs.
-> * Start continuous discovery of on-premises VMs. The appliance sends metadata and performance data for discovered VMs to Azure.
+> * Set up an Azure Migrate project.
+> * Set up an Azure Migrate appliance that runs on-premises to assess VMs.
+> * Start continuous discovery of on-premises VMs. The appliance sends configuration and performance data for discovered VMs to Azure.
 > * Group discovered VMs, and assess the VM group.
 > * Review the assessment.
 
@@ -35,9 +35,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- [Complete](tutorial-prepare-hyper-v.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
+- [Complete](tutorial-prepare-vmware.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
-    - [Set up Azure permissions](tutorial-prepare-vmware.md#prepare-azure) for Azure Migrate. 
+    - [Set up Azure permissions](tutorial-prepare-vmware.md#prepare-azure) for Azure Migrate.
     - [Prepare VMware](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) for assessment. VMware settings should be verified, and you should have permissions to create a VMware VM with an OVA template. You should also have an account set up for VM discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
 
 
@@ -47,22 +47,19 @@ Set up a new Azure Migrate project as follows.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
-
-    ![Set up Azure Migrate](./media/tutorial-assess-vmware/azure-migrate.png)
-
 3. In **Overview**, under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
 
     ![Discover and assess servers](./media/tutorial-assess-vmware/assess-migrate.png)
 
 4. In **Getting started**, click **Add tools**.
-5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one. Remember that a new group requires [permissions to work with the Azure Migrate service](tutorial-prepare-vmware.md#assign-role-assignment-permissions).
-6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, and the United States are supported.
+5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
+6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, UK and the United States are supported.
 
     - The project geography is used only to store the metadata gathered from on-premises VMs.
     - You can select any target region when you run a migration.
 
     ![Create an Azure Migrate project](./media/tutorial-assess-vmware/migrate-project.png)
-    
+
 
 7. Click **Next**.
 8. In **Select assessment tool**, select **Azure Migrate: Server Assessment** > **Next**.
@@ -76,12 +73,12 @@ Set up a new Azure Migrate project as follows.
 
 ## Set up the appliance VM
 
-Azure Migrate Server Assessment runs a lightweight VMware VM appliance.
+Azure Migrate: Server Assessment runs a lightweight VMware VM appliance.
 
 - This appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate Server Assessment.
 - To set up the appliance you:
     - Download an OVA template file, and import it to vCenter Server.
-    - Create the appliance, and check that it can connect to Azure Migrate Server Assessment. 
+    - Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
     - Configure the appliance for the first time, and register it with the Azure Migrate project.
 
 ### Download the OVA template
@@ -101,11 +98,12 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For appliance version 1.0.0.5, the generated hash should match these settings. 
+3. For version 1.19.06.27, the generated hash should match these values. 
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | ddfdf21c64af02a222ed517ce300c977
+  MD5 | 605d208ac5f4173383f616913441144e
+  SHA256 | 447d16bd55f20f945164a1189381ef6e98475b573d6d1c694f3e5c172cfc30d4
 
 
 ### Create the appliance VM
@@ -133,7 +131,7 @@ Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matr
 
 ### Configure the appliance
 
-Set up the appliance for the first time.
+Set up the appliance using the following steps.
 
 1. In the vSphere Client console, right-click the VM > **Open Console**.
 2. Provide the language, time zone, and password for the appliance.
@@ -146,27 +144,27 @@ Set up the appliance for the first time.
         - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
         - Specify credentials if the proxy needs authentication.
         - Only HTTP proxy is supported.
-    - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for discovery to work properly.
-    - **Install updates**: Azure Migrate checks that the latest appliance updates are installed.
-    - **Install VDDK**: Azure Migrate checks that the VMWare vSphere Virtual Disk Development Kit (VDDK) is installed.
-        - Azure Migrates uses the VDDK to replicate machines during migration to Azure.
+    - **Time sync**:The time on the appliance should be in sync with internet time for discovery to work properly.
+    - **Install updates**: The appliance ensures that the latest updates are installed.
+    - **Install VDDK**: The appliance checks that VMWare vSphere Virtual Disk Development Kit (VDDK) is installed.
+        - Azure Migrate: Server Migration uses the VDDK to replicate machines during migration to Azure.
         - Download VDDK 6.7 from VMware, and extract the downloaded zip contents to the specified location on the appliance.
 
 ### Register the appliance with Azure Migrate
 
 1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials. 
+2. On the new tab, sign in using your Azure credentials.
     - Sign in with your username and password.
     - Sign in with a PIN isn't supported.
 3. After successfully signing in, go back to the web app.
-2. Select the subscription in which the Azure Migrate project was created. Then select the project.
+2. Select the subscription in which the Azure Migrate project was created, then select the project.
 3. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
 4. Click **Register**.
 
 
 ## Start continuous discovery
 
-Now, connect from the appliance to vCenter Server, and start VM discovery. 
+Now, connect from the appliance to vCenter Server, and start VM discovery.
 
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
 2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
@@ -174,7 +172,7 @@ Now, connect from the appliance to vCenter Server, and start VM discovery.
 4. After the connection is established, click **Save and start discovery**.
 
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the portal. T
+This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the portal.
 
 ### Verify VMs in the portal
 
@@ -185,7 +183,7 @@ After discovery, you can verify that the VMs appear in the Azure portal.
 
 ## Set up an assessment
 
-There are two types of assessments you can run using Azure Migrate Server Assessment.
+There are two types of assessments you can create using Azure Migrate: Server Assessment.
 
 **Assessment** | **Details** | **Data**
 --- | --- | ---
@@ -198,7 +196,7 @@ There are two types of assessments you can run using Azure Migrate Server Assess
 Run an assessment as follows:
 
 1. Review the [best practices](best-practices-assessment.md) for creating assessments.
-2. In **Servers** > **Azure Migrate: Server Assessment**, click **Assess**.
+2. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Assess**.
 
     ![Assess](./media/tutorial-assess-vmware/assess.png)
 
@@ -213,7 +211,7 @@ Run an assessment as follows:
 
     ![Create an assessment](./media/tutorial-assess-vmware/assessment-create.png)
 
-6. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment**.
+6. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
 7. Click **Export assessment**, to download it as an Excel file.
 
 
@@ -254,13 +252,13 @@ This view shows the estimated compute and storage cost of running VMs in Azure.
 
     - Cost estimates are based on the size recommendations for a machine, and its disks and properties.
     - Estimated monthly costs for compute and storage are shown.
-    - The cost estimation is for running the on-premises VMs as IaaS VMs. Azure Migrate Server Assessment doesn't consider PaaS or SaaS costs. 
+    - The cost estimation is for running the on-premises VMs as IaaS VMs. Azure Migrate Server Assessment doesn't consider PaaS or SaaS costs.
 
 2. You can review monthly storage cost estimates. This view shows aggregated storage costs for the assessed group, split over different types of storage disks.
 3. You can drill down to see details for specific VMs.
 
 
-### Review confidence rating 
+### Review confidence rating
 
 When you run performance-based assessments, a confidence rating is assigned to the assessment.
 
@@ -280,22 +278,18 @@ Confidence ratings for an assessment are as follows.
 61%-80% | 4 Star
 81%-100% | 5 Star
 
-[Learn more](best-practices-assessment.md#best-practices-for-confidence-ratings) about best practices for confidence ratings. 
+[Learn more](best-practices-assessment.md#best-practices-for-confidence-ratings) about best practices for confidence ratings.
 
 
 ## Next steps
 
 In this tutorial, you:
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Set up an Azure Migrate appliance
 > * Created and reviewed an assessment
 
 Continue to the third tutorial in the series, to learn how to migrate VMware VMs to Azure with Azure Migrate Server Migration.
 
-> [!div class="nextstepaction"] 
-> [Migrate VMware VMs](./tutorial-migrate-vmware.md) 
-
-
-
-
+> [!div class="nextstepaction"]
+> [Migrate VMware VMs](./tutorial-migrate-vmware.md)
