@@ -29,9 +29,9 @@ Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md)
 
 ## Prepare for deployment
 
-Before you deploy your experiment as a web service, you first have to convert the *training experiment* that you've created into a *predictive experiment*.
+Before you deploy your experiment as a web service, you first have to convert your *training experiment* into a *predictive experiment*.
 
-1. Select **Create Predictive Experiment** at the bottom of the experiment canvas to convert the training experiment automatically.
+1. Select **Create Predictive Experiment*** at the bottom of the experiment canvas.
 
     ![Animated gif showing the automatic conversion of a training experiment to a predictive experiment](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
@@ -45,17 +45,15 @@ Before you deploy your experiment as a web service, you first have to convert th
     * The saved trained model is added back into the experiment.
     * **Web service input** and **Web service output** modules are added. These modules identify where the user data will enter the model, and where data is returned.
 
-    The experiment is saved in two parts under the new tabs at the top of the experiment canvas.
-
-    Your experiment should now look like this:  
-
-    ![Screenshot showing the expected configuration of the experiment after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
-
-    User input data enters your web service through the **Web service input** module. The input is then scored in the  **Score Model** module. The way you've set up the predictive experiment, the model expects data in the same format as the original automobile price dataset. Finally, the results are returned to the user through the **Web service output** module.
+    The **training experiment** is still saved under the new tabs at the top of the experiment canvas.
 
 1. **Run** the experiment.
 
 1. Select the output of the **Score Model** module and select **View Results** to verify the model is still working. You can see the original data is displayed, along with the predicted price ("Scored Labels").
+
+Your experiment should now look like this:  
+
+![Screenshot showing the expected configuration of the experiment after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
 ## Deploy the web service
 
