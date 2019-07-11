@@ -206,12 +206,12 @@ For details about the Data Factory classes used in the code, see the [AzureDataL
 
 2. Make sure you grant at least **Reader** role to the user or service principal on the data lake account. Here is how to make it:
 
-    1. Go to Azure Portal -> your Data Lake Store account
+    1. Go to the Azure portal -> your Data Lake Store account
     2. Click **Access control (IAM)** on the blade of the Data Lake Store
     3. Click **Add role assignment**
     4. Set **Role** as **Reader**, and select the user or the service principal you use for copy to grant access
 
-3. If you don't want to grant **Reader** role to the user or service principal, alternative is to [explicitly specify an execution location](data-factory-data-movement-activities.md#global) in copy activitywith the location of your Data Lake Store. Example:
+3. If you don't want to grant **Reader** role to the user or service principal, alternative is to [explicitly specify an execution location](data-factory-data-movement-activities.md#global) in copy activity with the location of your Data Lake Store. Example:
 
     ```json
     {
