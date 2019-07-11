@@ -77,7 +77,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [App Service](../app-service/app-service-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
@@ -127,7 +127,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Resource Manager](../azure-resource-manager/azure-resource-manager-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -176,7 +176,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Azure Backup](../backup/backup-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -224,7 +224,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Cosmos DB](../cosmos-db/cosmos-db-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security attribute | Yes/no | Notes |
 |---|---|--|
@@ -278,7 +278,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Event Hubs](../event-hubs/event-hubs-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -327,7 +327,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [ExpressRoute](../expressroute/expressroute-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -376,7 +376,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Key Vault](../key-vault/key-vault-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -424,7 +424,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Load Balancer](../load-balancer/load-balancer-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security attribute | Yes/No | Notes |
 |---|---|--|
@@ -471,7 +471,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -520,7 +520,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Service Bus Relay](../service-bus-relay/service-bus-relay-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -566,7 +566,7 @@ This section documents common vulnerabilities, which do not affect Azure API Man
 
 ## [Service Fabric](../service-fabric/service-fabric-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
@@ -670,7 +670,7 @@ SQL Database includes both [single database](../sql-database/sql-database-single
 
 ## [Storage](../storage/common/storage-security-attributes.md)
 
-## Preventative
+### Preventative
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
