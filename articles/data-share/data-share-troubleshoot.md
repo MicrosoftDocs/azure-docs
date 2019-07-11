@@ -30,6 +30,8 @@ The above error is a known issue with the service and is currently being address
 
 You'll need to have the [Azure Contributor RBAC role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) to complete these steps. 
 
+If you still are unable to see a data share invitation, contact your data provider and ensure that they have sent the invitation to your Azure login e-mail address and *not* your e-mail alias. 
+
 > [!IMPORTANT]
 > If you have already accepted an Azure Data Share invitation and exited the service prior to configuring storage, follow the instructions detailed in the [configure a dataset mapping](how-to-configure-mapping.md) how-to guide to learn how to finish configuring your received data share and start receiving data. 
 

@@ -81,11 +81,11 @@ Here are some considerations you should take into account for wildcard applicati
 
 For wildcard applications, the **Internal URL** must be formatted as `http(s)://*.<domain>`.
 
-![For internal URL, use the format http(s)://*.<domain>](./media/application-proxy-wildcard/22.png)
+![For internal URL, use the format http(s)://*.\<domain>](./media/application-proxy-wildcard/22.png)
 
 When you configure an **External URL**, you must use the following format: `https://*.<custom domain>`
 
-![For external URL, use the format https://*.<custom domain>](./media/application-proxy-wildcard/21.png)
+![For external URL, use the format https://*.\<custom domain>](./media/application-proxy-wildcard/21.png)
 
 Other positions of the wildcard, multiple wildcards, or other regex strings are not supported and are causing errors.
 
@@ -94,7 +94,7 @@ Other positions of the wildcard, multiple wildcards, or other regex strings are 
 You can exclude an application from the wildcard application by
 
 - Publishing the exception application as regular application
-- Enabling the wildcard only for specific applications through your DNS settings  
+- Enabling the wildcard only for specific applications through your DNS settings
 
 Publishing an application as regular application is the preferred method to exclude an application from a wildcard. You should publish the excluded applications before the wildcard applications to ensure that your exceptions are enforced from the beginning. The most specific application will always take precedence – an application published as `budgets.finance.adventure-works.com` takes precedence over the application `*.finance.adventure-works.com`, which in turn takes precedence over the application `*.adventure-works.com`.
 
