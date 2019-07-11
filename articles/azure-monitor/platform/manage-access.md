@@ -77,7 +77,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ## Manage accounts and users
 
-The permissions applied to the workspace for a particular user are defined by their access mode and the [access control mode](design-logs-deployment.md#access-control-mode) of the workspace. **Workspace permissions** are applied when a user accesses any workspace using **workspace-context** in [workspace-context mode](design-logs-deployment.md#access-mode). **Resource permissions** are applied when a user accesses a workspace with **Use resource or workspace permissions** [access control mode](design-logs-deployment.md#access-control-mode) using [resource-context mode](designing-workspace.md#access-mode).
+The permissions applied to the workspace for a particular user are defined by their access mode and the [access control mode](design-logs-deployment.md#access-control-mode) of the workspace. **Workspace permissions** are applied when a user accesses any workspace using **workspace-context** in [workspace-context mode](design-logs-deployment.md#access-mode). **Resource permissions** are applied when a user accesses a workspace with **Use resource or workspace permissions** [access control mode](design-logs-deployment.md#access-control-mode) using [resource-context mode](design-logs-deployment.md#access-mode).
 
 ### Workspace permissions
 

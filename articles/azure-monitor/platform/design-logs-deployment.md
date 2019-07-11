@@ -123,7 +123,7 @@ This is the default setting for all workspaces created after March 2019.
 
 ## Recommendations
 
-![Resource-context design example](./media/designing-workspace/workspace-design-resource-context-01.png)
+![Resource-context design example](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 
 This scenario covers a single workspace design in your IT organizations subscription that is not constrained by data sovereignty or regulatory compliance, or needs to map to the regions your resources are deployed within. It allows your organizations security and IT admin teams the ability to leverage the improved integration with Azure access management and more secure access control.
 
