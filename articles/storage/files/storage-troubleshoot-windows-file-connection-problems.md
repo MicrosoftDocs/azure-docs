@@ -164,11 +164,11 @@ This issue typically occurs if the file or directory has an open handle.
 
 ### Solution
 
-If the SMB clients have closed all open handles and the issue continues to occur, perform the following steps:
+If the SMB clients have closed all open handles and the issue continues to occur, perform the following:
 
-Use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles.
+- Use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles.
 
-Use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet to close open handles. 
+- Use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet to close open handles. 
 
 > [!Note]  
 > The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
