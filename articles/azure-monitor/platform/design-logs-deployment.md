@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2019
+ms.date: 07/12/2019
 ms.author: magoedte
 ---
 
@@ -42,7 +42,7 @@ Identifying the number of workspaces you need is influenced by one or more of th
 IT organizations today are modeled following either a centralized, decentralized, or an in-between hybrid of both structures. As a result, the following workspace deployment models have been commonly used to map to one of these organizational structures:
 
 * Centralized: All logs are stored in a central workspace and administered by a single team. In this scenario, it is easy to manage, search across resources, and cross-correlate logs. The workspace can grow significantly depending on the amount of data collected from multiple resources in your subscription, with additional administrative overhead to maintain access control to different users.
-* Decentralized: Log data is either stored within a resource group or stored centrally, but segregated per resource. In this scenario, the repository can be kept secure, and access control is consistent with resource access, but it's difficult to cross-correlate logs. Users who need a broad view of many resources cannot analyze the data in a meaningful way.
+* Decentralized: Each team has their own workspace created in a resource group that they own and manage, and log data is segregated per resource. In this scenario, the workspace can be kept secure and access control is consistent with resource access, but it's difficult to cross-correlate logs. Users who need a broad view of many resources cannot analyze the data in a meaningful way.
 * Hybrid: Security audit compliance requirements further complicate this scenario because many organizations implement both deployment models in parallel. This commonly results in a complex, expensive, and hard-to-maintain configuration with gaps in logs coverage.
 
 While the centralized workspace design comes with minor trade-offs compared to the other deployment models, the resource-context access mode alleviates the need to configure scoped permissions to particular tables in the workspace.  
@@ -137,7 +137,7 @@ While planning your migration to this model, consider the following:
 * Validate that your application teams have been granted proper access to their resources.
 * Configure the workspace to enable resource-only permissions.
 * Remove application teams permission to read and query the workspace.
-* Enable and configure any monitoring solutions, Insights such as Azure Monitor for containers and/or Azure Monitor for VMs, your Automation account(s), and management solutions such as Update Management, Start/Stop VMs, etc., that were deployed in the original workspace. 
+* Enable and configure any monitoring solutions, Insights such as Azure Monitor for containers and/or Azure Monitor for VMs, your Automation account(s), and management solutions such as Update Management, Start/Stop VMs, etc., that were deployed in the original workspace.
 
 Once you have deployed your workspace architecture, you should enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). This can provide a built-in definition that would automatically apply to all Azure resources. For example, you could set a policy to ensure that all your Azure resources in a particular region send all their diagnostic logs to a particular workspace.
 
