@@ -29,7 +29,7 @@ If you want to use a preconfigured integration, see:
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUV]
 
 ## Configure a custom notification by using the Service Health webhook payload
-To set up your own custom webhook integration, you need to parse the JSON payload that's sent via Service Health notifications.
+To set up your own custom webhook integration, you need to parse the JSON payload that's sent via Service Health notification.
 
 See [an example](../azure-monitor/platform/activity-log-alerts-webhook.md) `ServiceHealth` webhook payload.
 
@@ -43,7 +43,7 @@ You can confirm that it's a service health alert by looking at `context.eventSou
 - **data.context.activityLog.properties.impactedServices**
 - **data.context.activityLog.properties.trackingId**
 
-## Create a direct link to the Service Health dashboard for an incident
+## Create a link to the Service Health dashboard for an incident
 You can create a direct link to your Service Health dashboard on a desktop or mobile device by generating a specialized URL. Use the *trackingId* and the first three and last three digits of your *subscriptionId* in this format:
 
 https<i></i>://app.azure.com/h/*&lt;trackingId&gt;*/*&lt;first three and last three digits of subscriptionId&gt;*
@@ -58,7 +58,7 @@ From lowest to highest severity, the **level** property in the payload can be *I
 ## Parse the impacted services to determine the incident scope
 Service Health alerts can inform you about issues across multiple regions and services. To get  complete details, you need to parse the value of `impactedServices`.
 
-The content inside is an escaped [JSON](https://json.org/) string that, when unescaped, contains another JSON object that can be parsed regularly. For example:
+The content that's inside is an escaped [JSON](https://json.org/) string that, when unescaped, contains another JSON object that can be parsed regularly. For example:
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}
