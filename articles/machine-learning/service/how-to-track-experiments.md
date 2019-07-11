@@ -193,26 +193,26 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 3. Configure a user-managed local environment.
 
    ```python
-    from azureml.core import Environment
+   from azureml.core import Environment
     
-    # Editing a run configuration property on-fly.
-    user_managed_env = Environment("user-managed-env")
+   # Editing a run configuration property on-fly.
+   user_managed_env = Environment("user-managed-env")
     
-    user_managed_env.python.user_managed_dependencies = True
+   user_managed_env.python.user_managed_dependencies = True
     
-    # You can choose a specific Python environment by pointing to a Python path 
-    #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
+   # You can choose a specific Python environment by pointing to a Python path 
+   #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
    ```
 
 4. Submit the ```train.py``` script to run in the user-managed environment. This whole script folder is submitted for training, including the ```mylib.py``` file.
 
    ```python
-    from azureml.core import ScriptRunConfig
+   from azureml.core import ScriptRunConfig
     
-    exp = Experiment(workspace=ws, name="train-on-local")
-    src = ScriptRunConfig(source_directory='./', script='train.py')
-    src.run_config.environment = user_managed_env
-    run = exp.submit(src)
+   exp = Experiment(workspace=ws, name="train-on-local")
+   src = ScriptRunConfig(source_directory='./', script='train.py')
+   src.run_config.environment = user_managed_env
+   run = exp.submit(src)
    ```
 
 ## Manage a run
