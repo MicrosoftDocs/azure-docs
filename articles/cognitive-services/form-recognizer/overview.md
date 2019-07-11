@@ -31,9 +31,17 @@ Form Recognizer also includes a model for reading sales receipts. This model ext
 
 Form Recognizer is available as a REST API. You can create, train, and score a custom model or access the pre-built model by invoking these APIs. If you want, you can train and run custom models in a local Docker container.
 
-## Input requirements (custom model)
+## Input requirements
+### custom model
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### Pre-built Receipt 
+* Format must be JPEG, PNG, BMP, PDF (text or scanned) or TIFF.
+*	File size must be less than 20 MB.
+*	Image dimensions must be at least 50 x 50 pixels and at most 10000 x 10000 pixels. 
+*	PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
+*	For PDF and TIFF, only the first 200 pages are processed (Free tier only the first 2 pages are processed)
 
 ## Request access
 
