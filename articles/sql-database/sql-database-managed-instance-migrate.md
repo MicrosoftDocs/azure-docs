@@ -11,21 +11,25 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/11/2019
+ms.date: 11/07/2019
 ---
 # SQL Server instance migration to Azure SQL Database managed instance
 
 In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Database managed instance](sql-database-managed-instance.md). For information on migrating to a single database or elastic pool, see [Migrate to a single or pooled database](sql-database-cloud-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
+> [!NOTE]
+> If you want to quickly start and try Managed Instance, you might want to go to [Quick-start guide](/sql-database-managed-instance-quickstart-guide.md) instead of this page. 
+
 At a high level, the database migration process looks like:
 
 ![migration process](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Assess managed instance compatibility](#assess-managed-instance-compatibility)
-- [Choose app connectivity option](sql-database-managed-instance-connect-app.md)
-- [Deploy to an optimally sized managed instance](#deploy-to-an-optimally-sized-managed-instance)
-- [Select migration method and migrate](#select-migration-method-and-migrate)
-- [Monitor applications](#monitor-applications)
+- [Assess managed instance compatibility](#assess-managed-instance-compatibility) where you should ensure that there are no blocking issues that can prevent your migrations.
+  - This step also includes creation of [performance baseline](#create-performance-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want o deploy properly sized Managed Instance and verify that performances after migration are not affected.
+- [Choose app connectivity options](sql-database-managed-instance-connect-app.md)
+- [Deploy to an optimally sized managed instance](#deploy-to-an-optimally-sized-managed-instance) where you will choose technical characteristics (number of vCores, amount of memory) and performance tier (Business Critical, General Purpose) of your Managed Instance.
+- [Select migration method and migrate](#select-migration-method-and-migrate) where you migrate your databases using offline migration (native backup/restore, database importe/export) or online migraton (Data Migration Service, Transactional Replication).
+- [Monitor applications](#monitor-applications) to ensure that you have expected performance.
 
 > [!NOTE]
 > To migrate an individual database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-single-database-migrate.md).
