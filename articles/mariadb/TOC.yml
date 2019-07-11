@@ -49,7 +49,7 @@
       href: concepts-firewall-rules.md
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
-    - name: VNet
+    - name: Virtual Network
       href: concepts-data-access-security-vnet.md
     - name: Connectivity architecture
       href: concepts-connectivity-architecture.md
