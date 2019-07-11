@@ -1,0 +1,52 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Data Share Preview documentation
+metadata:
+  title: Azure Data Share Preview documentation - Tutorials, how-to guides
+  description: Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations.
+  author: joannapea
+  ms.author: joanpo
+  ms.service: data-share
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+abstract:
+  description: <p>Azure Data Share Preview is a safe and secure service for sharing data with third-party organizations. Select the datasets that you want to share, add recipients, and start sharing data with the ability to govern, monitor, and control your data sharing relationships. </p><p>Learn how to use Azure Data Share through our tutorials and how-to guides.</p>
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/azure-friday.png
+      width: 250  
+    title: Azure Data Share on Azure Friday
+    href: https://channel9.msdn.com/Shows/Azure-Friday/Share-data-simply-and-securely-using-Azure-Data-Share/player?format=ny
+    width: 250
+
+sections:
+- title: How-to guides
+  items:
+  - type: paragraph
+    text: 'Learn how to monitor your data share, configure dataset mappings, add recipients and more with one of the following how-to guides:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/data-share/media/index/portal.svg
+      text: Monitor Azure Data Share
+      href: /azure/data-share/how-to-monitor
+    - image: 
+        src: /azure/data-share/media/index/portal.svg
+      text: Configure a dataset mapping
+      href: /azure/data-share/how-to-configure-mapping
+    - image: 
+        src: /azure/data-share/media/index/portal.svg
+      text: Troubleshoot Azure Data Share
+      href: /azure/data-share/data-share-troubleshoot
+- title: Step-by-Step tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to start sharing your data using Azure Data Share'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="share-your-data">Share your data using Azure Data Share</a> 
+    - html: <a href="subscribe-to-data-share">Accept and receive data using Azure Data Share</a>
