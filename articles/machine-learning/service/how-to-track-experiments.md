@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 07/11/2019
 
 ms.custom: seodec18
 ---
@@ -51,9 +51,7 @@ Before adding logging and submitting an experiment, you must set up the workspac
    from azureml.core import Experiment, Run, Workspace
    import azureml.core
   
-   ws = Workspace(workspace_name = <<workspace_name>>,
-               subscription_id = <<subscription_id>>,
-               resource_group = <<resource_group>>)
+   ws = Workspace.from_config()
    ```
   
 ## Option 1: Use start_logging
@@ -89,34 +87,36 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
 2. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
 
    ```python
-   # Get an experiment object from Azure Machine Learning
-   experiment = Experiment(workspace = ws, name = "train-within-notebook")
-  
-   # Create a run object in the experiment
-   run = experiment.start_logging()# Log the algorithm parameter alpha to the run
-   run.log('alpha', 0.03)
-
-   # Create, fit, and test the scikit-learn Ridge regression model
-   regression_model = Ridge(alpha=0.03)
-   regression_model.fit(data['train']['X'], data['train']['y'])
-   preds = regression_model.predict(data['test']['X'])
-
-   # Output the Mean Squared Error to the notebook and to the run
-   print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-   run.log('mse', mean_squared_error(data['test']['y'], preds))
-
-   # Save the model to the outputs directory for capture
-   joblib.dump(value=regression_model, filename='outputs/model.pkl')
-
-   # Take a snapshot of the directory containing this notebook
-   run.take_snapshot('./')
-
-   # Complete the run
-   run.complete()
-  
+    # Get an experiment object from Azure Machine Learning
+    experiment = Experiment(workspace=ws, name="train-within-notebook")
+    
+    # Create a run object in the experiment
+    run =  experiment.start_logging()
+    # Log the algorithm parameter alpha to the run
+    run.log('alpha', 0.03)
+    
+    # Create, fit, and test the scikit-learn Ridge regression model
+    regression_model = Ridge(alpha=0.03)
+    regression_model.fit(data['train']['X'], data['train']['y'])
+    preds = regression_model.predict(data['test']['X'])
+    
+    # Output the Mean Squared Error to the notebook and to the run
+    print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
+    run.log('mse', mean_squared_error(data['test']['y'], preds))
+    
+    # Save the model to the outputs directory for capture
+    model_file_name = 'outputs/model.pkl'
+    
+    joblib.dump(value = regression_model, filename = model_file_name)
+    
+    # upload the model file explicitly into artifacts 
+    run.upload_file(name = model_file_name, path_or_stream = model_file_name)
+    
+    # Complete the run
+    run.complete()
    ```
 
-The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
+    The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
 
 ## Option 2: Use ScriptRunConfig
 
@@ -193,25 +193,26 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 3. Configure a user-managed local environment.
 
    ```python
-   from azureml.core.runconfig import RunConfiguration
-
-   # Editing a run configuration property on-fly.
-   run_config_user_managed = RunConfiguration()
-
-   run_config_user_managed.environment.python.user_managed_dependencies = True
-
-   # You can choose a specific Python environment by pointing to a Python path 
-   #run_config.environment.python.interpreter_path = '/home/user/miniconda3/envs/sdk2/bin/python'
+    from azureml.core import Environment
+    
+    # Editing a run configuration property on-fly.
+    user_managed_env = Environment("user-managed-env")
+    
+    user_managed_env.python.user_managed_dependencies = True
+    
+    # You can choose a specific Python environment by pointing to a Python path 
+    #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
    ```
 
 4. Submit the ```train.py``` script to run in the user-managed environment. This whole script folder is submitted for training, including the ```mylib.py``` file.
 
    ```python
-   from azureml.core import ScriptRunConfig
-  
-   experiment = Experiment(workspace=ws, name="train-on-local")
-   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
-   run = experiment.submit(src)
+    from azureml.core import ScriptRunConfig
+    
+    exp = Experiment(workspace=ws, name="train-on-local")
+    src = ScriptRunConfig(source_directory='./', script='train.py')
+    src.run_config.environment = user_managed_env
+    run = exp.submit(src)
    ```
 
 ## Manage a run
@@ -260,7 +261,7 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
 <a name="view-the-experiment-in-the-web-portal"></a>
 ## View the experiment in the Azure portal
 
-When an experiment has finished running, you can browse to the recorded experiment run record. You can do access the history in two ways:
+When an experiment has finished running, you can browse to the recorded experiment run record. You can access the history in two ways:
 
 * Get the URL to the run directly ```print(run.get_portal_url())```
 * View the run details by submitting the name of the run (in this case, ```run```). This way points you to the experiment name, ID, type, status, details page, a link to the Azure portal, and a link to documentation.
