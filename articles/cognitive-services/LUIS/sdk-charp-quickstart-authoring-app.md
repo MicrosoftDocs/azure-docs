@@ -22,7 +22,7 @@ Use the Language Understanding (LUIS) client library for .NET to:
 * Add features such as a phrase list
 * Train and publish app
 
-[Reference documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [Authoring Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
+[Reference documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Library source code](https://github.com/Azure/cognitive-services-dotnet-sdk-samples/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [Authoring Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
 
 ## Prerequisites
 
@@ -79,77 +79,85 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 ## Object model
 
-The Language Understanding (LUIS) authoring client is a [LUISClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.LUISclient?view=azure-dotnet) object that authenticates to Azure using [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.XXX.apikeyserviceclientcredentials), which contains your key.
+The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
 
-Once the client is created, use the [Knowledge base](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.XXX.knowledgebase?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_LUIS_LUISClient_Knowledgebase) property create, manage, and publish your knowledge base. 
+Once the client is created, use this client to access functionality:
 
-Manage your knowledge base by sending a JSON object. For immediate operations, a method usually returns a JSON object indicating status. For long-running operations, the response is the operation ID. Call the [client.Operations.GetDetailsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.operationsextensions.getdetailsasync?view=azure-dotnet) method with the operation ID to determine the [status of the request](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.models.operationstatetype?view=azure-dotnet). 
+* Apps - [create](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet), [delete](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet), [publish](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.publishasync?view=azure-dotnet)
+* Example utterances - [add by batch](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.batchasync?view=azure-dotnet), [delete by ID](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.deleteasync?view=azure-dotnet) 
+* Features - manage [phrase lists](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.featuresextensions.addphraselistasync?view=azure-dotnet) 
+* Model - manage [intents](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet) and entities
+* Pattern - manage [patterns](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.patternextensions?view=azure-dotnet)
+* Train - [train](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions.trainversionasync?view=azure-dotnet) the app and poll for [training status](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions.getstatusasync?view=azure-dotnet)
+* [Versions](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.versionsextensions?view=azure-dotnet) - manage with clone, export, and delete
 
- 
+
 ## Code examples
 
 These code snippets show you how to do the following with the Language Understanding (LUIS) client library for .NET:
 
-* [Create a knowledge base](#create-a-knowledge-base)
-* [Update a knowledge base](#update-a-knowledge-base)
-* [Download a knowledge base](#download-a-knowledge-base)
-* [Publish a knowledge base](#publish-a-knowledge-base)
-* [Delete a knowledge base](#delete-a-knowledge-base)
-* [Get status of an operation](#get-status-of-an-operation)
+* [Create an app]()
+* [Add entities]()
+* [Add intents]()
+* [Add example utterances]()
+* [Train the app]()
+* [Publish the app]()
 
 ## Add the dependencies
 
 From the project directory, open the **Program.cs** file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
-[!code-csharp[Using statements](~/samples-LUIS-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Dependencies)]
+[!code-csharp[Using statements](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Dependencies)]
 
 ## Authenticate the client
 
-In the **main** method, create a variable for your resource's Azure key pulled from an environment variable named `LUIS_SUBSCRIPTION_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
+1. Create variables to manage your authoring key pulled from an environment variable named `LUIS_AUTHORING_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
 
-Next, create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.LUISclient?view=azure-dotnet) object.
+1. Create variables to hold your authoring region and endpoint. The region of your authoring key depends on where you are authoring. The [three authoring regions](luis-reference-regions) are:
 
-If your key is not in the `westus` region, as this sample code shows, change the location for the **Endpoint** variable. This location is found on the **Overview** page for your Language Understanding (LUIS) resource in the Azure portal.
+* Australia - `australiaeast`
+* Europe - `westeurope`
+* U.S. and other regions - `westus` (Default)
 
-[!code-csharp[Authorization to resource key](~/samples-LUIS-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
+[!code-csharp[Authorization to resource key](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Variables)]
 
-## Create a knowledge base
+1. Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISAuthoringClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet) object.
 
-A knowledge base stores question and answer pairs for the [CreateKbDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.models.createkbdto?view=azure-dotnet) object from three sources:
+[!code-csharp[Create LUIS client object](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Authoring-CreateClient)]
 
-* For **editorial content**, use the [QnADTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.models.qnadto?view=azure-dotnet) object.
-* For **files**, use the [FileDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.models.filedto?view=azure-dotnet) object. 
-* For **URLs**, use a list of strings.
+## Create a LUIS app
 
-Call the [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.knowledgebaseextensions.createasync?view=azure-dotnet) method then pass the returned operation ID to the [MonitorOperation](#get-status-of-an-operation) method to poll for status. 
+Create a LUIS app to contain the natural language processing (NLP) model holding intents, entities, and example utterances. 
 
-The final line of the following code returns the knowledge base ID from the response from MonitorOoperation. 
+Create a [ApplicationCreateObject](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.applicationcreateobject?view=azure-dotnet). The name and language culture are required properties. 
 
-[!code-csharp[Create a knowledge base](~/samples-LUIS-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=CreateKB&highlight=29,30)]
+Call the [Apps.AddAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet) method. The response is the appId. 
 
-## Update a knowledge base
+[!code-csharp[Create a LUIS app](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authoring-CreateApplication)]
 
-You can update a knowledge base by passing in the knowledge base ID and an [UpdatekbOperationDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.models.updatekboperationdto?view=azure-dotnet) containing [add](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.models.updatekboperationdtoadd?view=azure-dotnet), [update](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.models.updatekboperationdtoupdate?view=azure-dotnet), and [delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.models.updatekboperationdtodelete?view=azure-dotnet) DTO objects to the [UpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.knowledgebaseextensions.updateasync?view=azure-dotnet) method. Use the [MonitorOperation](#get-status-of-an-operation) method to determine if the update succeeded.
+## Create entities and add to the app
 
-[!code-csharp[Update a knowledge base](~/samples-LUIS-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=UpdateKB&highlight=4,13)]
+One of the two main objects in a LUIS app is the entity. The entity defines information inside a user utterance that provides information necessary to fullfil the user's intention. There are several types of [prebuilt](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addprebuiltasync?view=azure-dotnet) and custom entities, each with their own data transformation object (DTO) models.  
+
+[!code-csharp[Create entities and add to app](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authoring-CreateApplication)]
 
 ## Download a knowledge base
 
 Use the [DownloadAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.knowledgebaseextensions.downloadasync?view=azure-dotnet) method to download the database as a list of [QnADocumentsDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.models.qnadocumentsdto?view=azure-dotnet). This is _not_ equivalent to the Language Understanding (LUIS) portal's export from the **Settings** page because the result of this method is not a TSV file.
 
-[!code-csharp[Download a knowledge base](~/samples-LUIS-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=DownloadKB&highlight=2)]
+[!code-csharp[Download a knowledge base](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=DownloadKB&highlight=2)]
 
 ## Publish a knowledge base
 
 Publish the knowledge base using the [PublishAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.knowledgebaseextensions.publishasync?view=azure-dotnet) method. This takes the current saved and trained model, referenced by the knowledge base ID, and publishes that at an endpoint. 
 
-[!code-csharp[Publish a knowledge base](~/samples-LUIS-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=PublishKB&highlight=2)]
+[!code-csharp[Publish a knowledge base](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=PublishKB&highlight=2)]
 
 ## Delete a knowledge base
 
 Delete the knowledge base using the [DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.LUIS.knowledgebaseextensions.deleteasync?view=azure-dotnet) method with a parameter of the knowledge base ID. 
 
-[!code-csharp[Delete a knowledge base](~/samples-LUIS-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=DeleteKB&highlight=2)]
+[!code-csharp[Delete a knowledge base](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=DeleteKB&highlight=2)]
 
 ## Get status of an operation
 
@@ -157,7 +165,7 @@ Some methods, such as create and update, can take enough time that instead of wa
 
 The _loop_ and _Task.Delay_ in the following code block are used to simulate retry logic. These should be replaced with your own retry logic. 
 
-[!code-csharp[Monitor an operation](~/samples-LUIS-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=MonitorOperation&highlight=10)]
+[!code-csharp[Monitor an operation](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=MonitorOperation&highlight=10)]
 
 ## Run the application
 
