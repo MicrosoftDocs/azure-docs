@@ -9,8 +9,6 @@
     items:
     - name: .NET
       href: create-sql-api-dotnet.md
-    - name: .NET Preview
-      href: create-sql-api-dotnet-preview.md
     - name: Java
       href: create-sql-api-java.md
     - name: Node.js

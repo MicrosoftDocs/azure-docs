@@ -468,4 +468,4 @@ That's it, build it, and you're on your way!
 * Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 * To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
-[cosmos-db-create-account]: create-sql-api-dotnet-preview.md#create-account
+[cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account

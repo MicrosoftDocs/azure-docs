@@ -1,19 +1,18 @@
 ---
-title: Build a .NET web app with Azure Cosmos DB using the SQL API 
-description: In this quickstart, you use the Azure portal and a .NET web app to create and manage SQL API account resources in Azure Cosmos DB.
+title: Build a .NET console app to manage Azure Cosmos DB SQL API resources
+description: Learn how to build a .NET console app to manage Azure Cosmos DB SQL API account resources.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/06/2019
+ms.date: 07/012/2019
 ---
-# Quickstart: Build a .NET web app using SQL API account in Azure Cosmos DB
+# Quickstart: Build a .NET console app to manage Azure Cosmos DB SQL API resources
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
