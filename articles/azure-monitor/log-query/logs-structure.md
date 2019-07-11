@@ -41,7 +41,7 @@ union withsource = table *
 See documentation for each data source for details of the tables they create. Examples include articles for [agent data sources](../platform/agent-data-sources.md), [diagnostic logs](../platform/diagnostic-logs-schema.md), and [monitoring solutions](../insights/solutions-inventory.md).
 
 ### Workspace permissions
-See [Workspace permissions and scope](../platform/manage-access.md#workspace-permissions-and-scope) for details on providing access to the data in a workspace. In addition to granting access to the workspace itself, you can limit access to individual tables using [Table Level RBAC](../platform/manage-access.md#table-level-rbac).
+See [Workspace permissions and scope](../platform/manage-access.md#manage-accounts-and-users) for details on providing access to the data in a workspace. In addition to granting access to the workspace itself, you can limit access to individual tables using [Table Level RBAC](../platform/manage-access.md#table-level-rbac).
 
 ## Application Insights application
 When you create an application in Application Insights, a corresponding application is automatically created in Azure Monitor Logs. No configuration is required to collect data, and the application will automatically write monitoring data such as page views, requests, and exceptions.
