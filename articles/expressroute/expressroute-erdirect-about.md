@@ -63,10 +63,10 @@ ExpressRoute Direct supports massive data ingestion scenarios into Azure storage
     * Dual 10 or 100 Gigabit Ethernet ports only across router pair
     * Single Mode LR Fiber connectivity
     * IPv4 and IPv6
-    * IP MTU 1500 byte
+    * IP MTU 1500 bytes
 
 * Switch/Router Layer 2/Layer 3 Connectivity:
-    * Must support 1 802.1Q (Dot1Q) tag or 2 Tag 802.1Q (QinQ) tag encapsulation
+    * Must support 1 802.1Q (Dot1Q) tag or two Tag 802.1Q (QinQ) tag encapsulation
     * Ethertype = 0x8100
     * Must add the outer VLAN tag (STAG) based on the VLAN ID specified by Microsoft - *applicable only on QinQ*
     * Must support multiple BGP sessions (VLANs) per port and device
