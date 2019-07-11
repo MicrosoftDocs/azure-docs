@@ -25,9 +25,9 @@
     href: how-to-configure-mapping.md
   - name: Troubleshoot 
     href: data-share-troubleshoot.md
-  - name: Add datasets to an existing data share
+  - name: Add datasets
     href: how-to-add-datasets-to-share.md
-  - name: Add recipients to an existing data share
+  - name: Add recipients
     href: how-to-add-recipients-to-share.md
   - name: Delete an invitation
     href: how-to-delete-invitation.md

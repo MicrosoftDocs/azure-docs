@@ -17,7 +17,7 @@ For information on how to add datasets as you create a share, see the [Share dat
 
 ## Navigate to a sent data share
 
-In the Azure Data Share service, navigate to your sent share and select the **Datasets** tab. Click **+ Add Datasets** button to add more datasets.
+In Azure Data Share Preview, navigate to your sent share and select the **Datasets** tab. Click **+ Add Datasets** button to add more datasets.
 
 ![Add Datasets](./media/how-to/how-to-add-datasets-to-share/add-datasets.png)
 

@@ -43,11 +43,11 @@ sections:
       href: /azure/data-share/data-share-troubleshoot
     - image: 
         src: /azure/data-share/media/index/portal.svg
-      text: Add datasets to an existing data share
+      text: Add datasets
       href: /azure/data-share/how-to-add-datasets-to-share
     - image: 
         src: /azure/data-share/media/index/portal.svg
-      text: Add recipients to an existing data share
+      text: Add recipients
       href: /azure/data-share/how-to-add-recipients-to-share
     - image: 
         src: /azure/data-share/media/index/portal.svg

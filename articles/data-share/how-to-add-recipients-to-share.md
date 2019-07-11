@@ -16,7 +16,7 @@ For information on how to add recipients as you create a share, see the [Share d
 
 ## Navigate to a sent data share
 
-In the Azure Data Share service, navigate to your sent share and select the **Invitations** tab. Listed here are all of the recipients of invitations to this data share. To add a new one, click **Add Recipient**.
+In Azure Data Share Preview, navigate to your sent share and select the **Invitations** tab. Listed here are all of the recipients of invitations to this data share. To add a new one, click **Add Recipient**.
 
 ![Add Recipient](./media/how-to/how-to-add-recipients-to-share/add-recipient.png)
 

@@ -14,7 +14,7 @@ This article explains how to delete an invitation to a recipient before they acc
 
 ## Navigate to a sent data share
 
-In the Azure Data Share service, navigate to your sent share and select the **Invitations** tab. Listed here are all of the recipients of invitations to this data share. Click the boxes next to the recipients whose invitations you would like to delete and then click **Delete**.
+In Azure Data Share Preview, navigate to your sent share and select the **Invitations** tab. Listed here are all of the recipients of invitations to this data share. Click the boxes next to the recipients whose invitations you would like to delete and then click **Delete**.
 
 ![Delete Invitation](./media/how-to/how-to-delete-invitation/delete-invitation.png)
 
