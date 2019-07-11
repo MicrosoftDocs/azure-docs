@@ -200,7 +200,7 @@ If hotfix is installed, the following output is displayed:
 > Windows Server 2012 R2 images in Azure Marketplace have hotfix KB3114025 installed by default, starting in December 2015.
 
 <a id="shareismissing"></a>
-## No folder with a drive letter in **My Computer**
+## No folder with a drive letter in "My Computer" or "This PC"
 
 If you map an Azure file share as an administrator by using net use, the share appears to be missing.
 
