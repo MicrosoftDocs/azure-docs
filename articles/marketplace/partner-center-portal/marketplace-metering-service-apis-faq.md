@@ -13,7 +13,7 @@ ms.date: 07/11/2019
 
 ## Emit usage events
 
-Once an Azure user subscribes to a SaaS service, you will track consumption. If the consumption exceeds the dimension limits set for the base/annual terms, you will emit usage events to Microsoft.
+Once an Azure user subscribes to a SaaS service that includes metered billing, your SaaS service will track consumption for each billing dimension being used by the customer. If the consumption exceeds the included quantities set for the term selected by the customer, your service will emit usage events to Microsoft.
 
 ![Emit usage events](media/isv-emits-usage-event.png)
 
