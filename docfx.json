@@ -373,7 +373,8 @@
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
-        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph"
+        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
+        "articles/lighthouse/**/*.md": "Azure Lighthouse"
       },
       "featureFlags": {
         "articles/**/*.md": [
