@@ -4,7 +4,7 @@ description: Provides tips for creating assessments with Azure Migrate Server As
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 07/10/2019
 ms.author: raynew
 ---
 
@@ -12,7 +12,7 @@ ms.author: raynew
 
 [Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
-This article summarizes best practices when creating assessments using the Azure Migrate Server Assessment tool. [Learn more] about [Azure Migrate Server Assessment](migrate-architecture.md#assessment-with-azure-migrate-server-assessment).
+This article summarizes best practices when creating assessments using the Azure Migrate Server Assessment tool. 
 
 ## About assessments
 
