@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/11/2019
 ms.author: raynew
 ---
 # Delete a Recovery Services vault
@@ -23,7 +23,7 @@ If you delete a vault that contains dependencies, then it will will display the 
 
 ![delete vault error](./media/backup-azure-delete-vault/error.png)
 
-To gracefully delete a vault
+To gracefully delete a vault:
 - Stop protection and delete backed-up data
 - Delete the protected servers or backup management servers
 - Delete the vault
@@ -31,7 +31,7 @@ To gracefully delete a vault
 
 ## Delete backed-up data and backup items
 
-Before you proceed further, read the **[Before you start](#before-you-start)** section, to understand the dependencies and vault deletion process.
+Before you proceed further, read the **[Before you start](#before-you-start)** to understand the dependencies and vault deletion process.
 
 ### For Protected items in Cloud
 
@@ -238,7 +238,7 @@ For more information on ARMClient command, refer this [document](https://github.
 
 ## What if I stop the backup process but retain the data?
 
-If you stop the backup process by retaining the data, you must delete the backup data as described in the [Delete backed-up data and backup items](#delete-backed-up-data-and-backup-items) and then delete the Recovery Services vault.
+If you stop the backup process by retaining the data, you must delete the backup data as described in the [Delete backed-up data and backup items](#delete-backed-up-data-and-backup-items) and then [delete the Recovery Services vault](#delete-the-recovery-services-vault).
 
 ## Next steps
 
