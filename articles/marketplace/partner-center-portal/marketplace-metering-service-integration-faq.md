@@ -82,7 +82,7 @@ Once an Azure user subscribes to a SaaS service, you will track consumption. If 
 
 ![Emit usage events](media/isv-emits-usage-event.png)
 
-See the [SaaS metering service APIs](??) for information on the API contract for emitting usage events.
+See the [SaaS metering service APIs](./marketplace-metering-service-apis.md) for information on the API contract for emitting usage events.
 
 ### How often is it expected to emit usage?
 
@@ -100,4 +100,4 @@ Only one usage event is accepted for the hour interval. The hour interval starts
 
 ## Next steps
 
-- See [Marketplace metering service APIs](??) for more information.
+- See [Marketplace metering service APIs](./marketplace-metering-service-apis.md) for more information.

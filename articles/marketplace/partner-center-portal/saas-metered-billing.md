@@ -1,5 +1,5 @@
 ---
-title: Metered billing using the marketplace metering service | Commercial marketplace program
+title: Metered billing using the Marketplace metering service | Commercial marketplace program
 description: This documentation is a guide for ISVs publishing SaaS offers with flexible billing models. 
 author: qianw211 
 manager: evansma
@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ---
 
-# Metered billing using the marketplace metering service
+# Metered billing using the Marketplace metering service
 
-With the marketplace metering service, you can create software-as-a-service (SaaS) offers in the commercial marketplace program that are charged according to non-standard units.  Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed.  Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the marketplace metering service API of billable events as they occur.  
+With the Marketplace metering service, you can create software-as-a-service (SaaS) offers in the commercial marketplace program that are charged according to non-standard units.  Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed.  Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the Marketplace metering service API of billable events as they occur.  
 
 ## Prerequisites for metered billing
 
@@ -20,7 +20,7 @@ In order for a SaaS offer to use metered billing, it must:
 * Meet all of the offer requirements for a [sell through Microsoft offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft) as outlined in [Create a SaaS offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer).
 * Integrate with the [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) for customers to provision and connect to your offer.  
 * Be configured for the **flat rate** pricing model for charging customers for your service.  Dimensions are an optional extension to the flat rate pricing model. 
-* Integrate with the [Marketplace metering service APIs](??) to inform Microsoft of billable events.
+* Integrate with the [Marketplace metering service APIs](./marketplace-metering-service-apis.md) to inform Microsoft of billable events.
 
 >[!Note]
 >Marketplace metering service is available only to the flat rate billing model, and does not apply to the per user billing model.
@@ -35,7 +35,7 @@ When it comes to defining the offer along with its pricing models, it is importa
 * Within each plan configured for a flat rate billing model, at least one recurring fee (which can be $0) is included:
     * Recurring **monthly** fee: flat monthly fee that is pre-paid on a monthly recurrence when user purchases the plan.
     * Recurring **annual** fee: flat annual fee that is pre-paid on an annual recurrence when user purchases the plan.
-* In addition to the recurring fees, the plan can also include optional dimensions used to charge customers for usage not included in the flat rate.   Each dimension represents a billable unit that your service will communicate to Microsoft using the [Marketplace metering service API](??).
+* In addition to the recurring fees, the plan can also include optional dimensions used to charge customers for usage not included in the flat rate.   Each dimension represents a billable unit that your service will communicate to Microsoft using the [Marketplace metering service API](./marketplace-metering-service-apis.md).
 
 ## Sample offer
 
@@ -50,7 +50,7 @@ As an example, Contoso is a publisher with a SaaS service called Contoso Notific
     * Beyond the 50000 emails, pay $0.5 for every 100 emails
     * Beyond the 10000 texts, pay $0.01 for every text
 
-An Azure customer subscribing to CNS service will be able to send the included quantity of text and emails per month based on the plan selected.  When customers consume more than the included quantity, they do not have to change plans or do anything different.  Contoso will measure the overage beyond the included quantity and start emitting usage events to Microsoft for additional usage using the [Marketplace metering service API](??).  Microsoft in turn will charge the customer for the additional usage as specified by the publisher.
+An Azure customer subscribing to CNS service will be able to send the included quantity of text and emails per month based on the plan selected.  When customers consume more than the included quantity, they do not have to change plans or do anything different.  Contoso will measure the overage beyond the included quantity and start emitting usage events to Microsoft for additional usage using the [Marketplace metering service API](./marketplace-metering-service-apis.md).  Microsoft in turn will charge the customer for the additional usage as specified by the publisher.
 
 ## Billing dimensions
 
@@ -95,7 +95,7 @@ Metered billing using the marketplace metering service is not compatible with of
 
 ### Locking behavior
 
-Because a dimension used with the marketplace metering service represents an understanding of how a customer will be paying for the service, all of the details for a dimension are no longer editable once you publish it.  It’s important that you have your dimensions fully defined for a plan before you publish.
+Because a dimension used with the Marketplace metering service represents an understanding of how a customer will be paying for the service, all of the details for a dimension are no longer editable once you publish it.  It’s important that you have your dimensions fully defined for a plan before you publish.
   
 Once an offer is published with a dimension, the offer-level details for that dimension can no longer be changed:
 
@@ -116,4 +116,4 @@ The maximum number of dimensions that can be configured for a single offer is 18
 
 ## Next steps
 
-- See [Marketplace metering service APIs](??) for more information.
+- See [Marketplace metering service APIs](./marketplace-metering-service-apis.md) for more information.

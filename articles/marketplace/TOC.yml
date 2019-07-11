@@ -466,6 +466,8 @@
         href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
       - name: SaaS Fulfillment APIs v1 (deprecated)
         href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+    - name: Marketplace metering service APIs
+      href: ./partner-center-portal/marketplace-metering-service-apis.md        
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
