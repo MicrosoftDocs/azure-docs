@@ -9,7 +9,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/20/2019
+ms.date: 07/09/2019
 
 ---
 # Quickstart: Create an Azure Search index in C# using the .NET SDK
@@ -34,7 +34,7 @@ The following services, tools, and data are used in this quickstart.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-+ A sample index and documents are provided in this article, as well as in the [Visual Studio solution](https://github.com/Azure-Samples/azure-search-dotnet-samples/quickstart) for this quickstart.
++ A sample index and documents are provided in this article, as well as in the [Visual Studio solution](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) for this quickstart.
 
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
@@ -545,13 +545,11 @@ The [`DocumentsSearchResult`](https://docs.microsoft.com/dotnet/api/microsoft.az
 
 ## Clean up
 
-When you're done with an index and want to delete it, call the `Indexes.Delete` method on your `SearchServiceClient`.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-```csharp
-serviceClient.Indexes.Delete("hotels");
-```
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are also finished with the search service, you can delete resources from Azure portal.
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

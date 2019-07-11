@@ -93,7 +93,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [Generate a new client secret]()
     
-    > [!div renderon="portal"]
+    > [!div class="sxs-lookup" renderon="portal"]
     > > [!NOTE]
     > > This quickstart supports Enter_the_Supported_Account_Info_Here.
     

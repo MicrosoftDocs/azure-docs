@@ -205,10 +205,20 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |West Europe     |LRS|No         |
 |West US 2     |LRS, ZRS|No         |
 
+To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 
 ### Steps to onboard
 
-To enroll your subscription to the larger file shares preview, run the following PowerShell commands:
+To enroll your subscription to the larger file shares preview, you need to use Azure PowerShell. You can either use [Azure Cloud Shell](https://shell.azure.com/) or install the [Azure PowerShell module locally](https://docs.microsoft.com/en-us/powershell/azure/install-Az-ps?view=azps-2.4.0) to run the following PowerShell commands:
+
+First, make sure the subscription you want to enroll in the preview is selected:
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+Then, enroll in the preview using the following commands:
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
@@ -222,7 +232,7 @@ To verify your registration status, you can run the following command:
 Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 ```
 
-It may take up to 15 minutes for your status to update to "registered" however, you should be able to use the feature despite that.
+It may take up to 15 minutes for your status to update to **registered**. Once your status is **registered**, you should be able to use the feature.
 
 ### Use larger file shares
 
