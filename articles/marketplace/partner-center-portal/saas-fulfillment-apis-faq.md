@@ -1,5 +1,5 @@
 ---
-title: Marketplace metering service integration - FAQ | Commercial marketplace program
+title: SaaS fulfillment APIs - FAQ | Commercial marketplace program
 description: Discovery and purchase experiences by the customers of a SaaS offer in the Azure Marketplace. 
 author: qianw211 
 manager: evansma
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 ---
 
-# Marketplace metering service integration - FAQ
+# SaaS fulfillment APIs - FAQ
 
 ## Discovery experience
 
@@ -75,28 +75,6 @@ The sequence below captures the flow when an Azure customer unsubscribes to the 
 The sequence below captures the flow when Azure user unsubscribes in Microsoft's storefront:
 
 ![Customer unsubscribes in Microsoft's storefront](media/saas-metering-service-integration-flow-e.png)
-
-## Emit usage events
-
-Once an Azure user subscribes to a SaaS service, you will track consumption. If the consumption exceeds the dimension limits set for the base/annual terms, you will emit usage events to Microsoft.
-
-![Emit usage events](media/isv-emits-usage-event.png)
-
-See the [SaaS metering service APIs](./marketplace-metering-service-apis.md) for information on the API contract for emitting usage events.
-
-### How often is it expected to emit usage?
-
-You are expected to emit usage every hour, only if there is usage in the previous hour.
-
-### What is the maximum delay between the time an event occurs, and the time a usage event is emitted to Microsoft?
-
-Ideally, usage event is emitted every hour for events that occurred in the past hour. However, delays are expected. The maximum delay allowed is 24 hours, after which usage events will not be accepted.
-
-For example, if a usage event occurs at 1 PM on a day, you have until 1 PM on the next day to emit a usage event associated with this event. This means in the case of the system emitting usage has a down time, it can recover and then send the usage event for the hour interval in which the usage happened, without loss of fidelity.
-
-### What happens when you send more than one usage event on the same hour?
-
-Only one usage event is accepted for the hour interval. The hour interval starts at minute 0 and ends at minute 59.  If more than one usage event is emitted for the same hour interval, any subsequent usage events are dropped as duplicates.
 
 ## Next steps
 

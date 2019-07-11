@@ -126,7 +126,7 @@ Follow the steps below to submit your support ticket:
 
 1. Go to the [support page](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). The first few dropdown menus are automatically filled out for you. For Marketplace support, identify the product family as **Cloud and Online Services**, the product as **Marketplace Publisher**.  Do not change the pre-populated dropdown menu selections.
 2. Under “Select the product version”, select **Live offer management**.
-3. Under “Select a category that best describe the issue”, choose SaaS apps.
+3. Under “Select a category that best describe the issue”, choose **SaaS apps**.
 4. Under “Select a problem that best describes the issue”, select **metered billing**.
 5. By selecting the **Next** button, you will be directed to the **Issue details** page, where you can enter more details on your issue.
 
