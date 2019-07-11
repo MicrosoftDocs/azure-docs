@@ -26,13 +26,9 @@ You must have already set up a capacity pool.
 A subnet must be delegated to Azure NetApp Files.  
 [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## Create an SMB volume
+## Requirements for Active Directory connections
 
-You need to create Active Directory connections before creating an SMB volume. 
-
-### Requirements for Active Directory connections
-
- The requirements for Active Directory connections are as follows: 
+ You need to create Active Directory connections before creating an SMB volume. The requirements for Active Directory connections are as follows: 
 
 * The admin account you use must be able to create machine accounts in the organizational unit (OU) path that you will specify.  
 
@@ -59,7 +55,7 @@ You need to create Active Directory connections before creating an SMB volume.
     |    Secure LDAP        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
 
-### Create an Active Directory connection
+## Create an Active Directory connection
 
 1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
 
@@ -92,7 +88,7 @@ You need to create Active Directory connections before creating an SMB volume.
 
     ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
-### Add an SMB volume
+## Add an SMB volume
 
 1. Click the **Volumes** blade from the Capacity Pools blade. 
 
