@@ -231,7 +231,7 @@ When you use the **ScriptRunConfig** method to submit runs, you can watch the pr
    RunDetails(run).show()
    ```
 
-   ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/widgets.png)
+   ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/run-details-widget.png)
 
 2. **[For automated machine learning runs]** To access the charts from a previous run. Replace `<<experiment_name>>` with the appropriate experiment name:
 
@@ -268,7 +268,7 @@ When an experiment has finished running, you can browse to the recorded experime
 
 The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images, and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
-  ![Run details in the Azure portal](./media/how-to-track-experiments/run-details-page-web.png)
+  ![Run details in the Azure portal](./media/how-to-track-experiments/run-details-page.png)
 
 You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
