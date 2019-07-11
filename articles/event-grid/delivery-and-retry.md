@@ -41,7 +41,7 @@ By default, Event Grid expires all events that aren't delivered within 24 hours.
 
 ## Delayed Delivery
 
-As an endpoint has experiences delivery failures, Event Grid will begin to delay the delivery and retry of events to that endpoint. For example, if the first ten events published to an endpoint fail, Event Grid will assume that the endpoint is experiencing issues and will delay all subsequent retries *and new* deliveries for some time - in some cases up to several hours.
+As an endpoint experiences delivery failures, Event Grid will begin to delay the delivery and retry of events to that endpoint. For example, if the first ten events published to an endpoint fail, Event Grid will assume that the endpoint is experiencing issues and will delay all subsequent retries *and new* deliveries for some time - in some cases up to several hours.
 
 The functional purpose of delayed delivery is to protect unhealthy endpoints as well as the Event Grid system. Without back-off and delay of delivery to unhealthy endpoints, Event Grid's retry policy and volume capabilities can easily overwhelm a system.
 
@@ -76,9 +76,9 @@ Event Grid considers **only** the following HTTP response codes as successful de
 
 ### Failure codes
 
-All other codes not in the above set (200-204) are considered failures and will be retried. Some have specific retry policies tied to them outlined below, all others follow the standard exponential back-off model. Its important to keep in mind that due to the highly parallelized nature of Event Grid's architecture, the retry behavior is non-deterministic. 
+All other codes not in the above set (200-204) are considered failures and will be retried. Some have specific retry policies tied to them outlined below, all others follow the standard exponential back-off model. It's important to keep in mind that due to the highly parallelized nature of Event Grid's architecture, the retry behavior is non-deterministic. 
 
-| Status Code | Retry behavior |
+| Status code | Retry behavior |
 | ------------|----------------|
 | 400 Bad Request | Retry after 5 minutes or more (Deadletter immediately if deadletter setup) |
 | 401 Unauthorized | Retry after 5 minutes or more |
