@@ -1,7 +1,7 @@
 ---
-title:
+title: "Tutorial: Setup environment and workspace."
 titleSuffix: Azure Machine Learning service
-description:
+description: In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 07/20/2019
 
 # Tutorial: Setup environment and workspace
 
-In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. **Part two** builds on this to train a machine learning model and deploy it as a platform-agnostic web-service.
+In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-quickstart-train-model.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure Portal and the SDK.
 
 In this tutorial, you:
 
@@ -79,7 +79,7 @@ After your VM is running, use the **Notebook VMs** section to launch the Jupyter
     > [!TIP]
     > This folder is located on the [storage container](concept-workspace.md#resources) in your workspace rather than on the notebook VM itself.  You can delete the notebook VM and still keep all your work.  When you create a new notebook VM later, it will load  this same folder.
 
-1. Open the `samples-*` subdirectory, then open `tutorials/tutorial-quickstart-train-deploy.ipynb` to run **part two** of the tutorial.
+1. Open the `samples-*` subdirectory, then open `tutorials/tutorial-quickstart-train-model.ipynb` to run **part two** of the tutorial.
 
 ### <a name="server"></a>Use your own local environment
 
@@ -140,7 +140,7 @@ Use these instructions to install and use the SDK from your local computer. Befo
 
 #### Get workspace credentials
 
-The most secure method of attaching your workspace subscription information to the SDK code is to use a JSON file. Use the following steps to get the file, which is necessary for **part two** of this tutorial series.
+The most secure method of attaching your workspace subscription information to the SDK code is to use a JSON file containing your authentication properties. Use the following steps to get the file, which is necessary for **part two** of this tutorial series.
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).
 1. On the **Overview** (default) tab, click **Download config.json** at the top of the page.
@@ -160,7 +160,7 @@ The most secure method of attaching your workspace subscription information to t
     jupyter notebook
     ```
 
-1. In the Jupyter file tree, navigate to the cloned repository, and open the file `tutorials/tutorial-quickstart-train-deploy.ipynb`.
+1. In the Jupyter file tree, navigate to the cloned repository, and open the file `tutorials/tutorial-quickstart-train-model.ipynb`.
 
 ## Clean up resources
 
@@ -193,7 +193,7 @@ In this tutorial, you completed these tasks:
 * Created an Azure Machine Learning service workspace.
 * Chose a development environment and setup SDK packages.
 
-Continue with **part 2** of this tutorial to train and deploy a simple machine learning model.
+Continue with **part 2** of this tutorial to train a simple machine learning model.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Train and deploy your first model]()
+> [Tutorial: Train your first model](tutorial-quickstart-train-model.md)
