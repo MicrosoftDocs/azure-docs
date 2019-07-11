@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/11/2019
 ms.author: magoedte
 ---
 
@@ -35,6 +35,7 @@ You can use [Azure Resource Manager templates](../../azure-resource-manager/reso
 This article provides template samples that illustrate some of the configuration that you can perform with templates.
 
 ## API versions
+
 The following table lists the API version for the resources used in this example.
 
 | Resource | Resource type | API version |
@@ -45,7 +46,8 @@ The following table lists the API version for the resources used in this example
 | Solution    | solutions     | 2015-11-01-preview |
 
 ## Create a Log Analytics workspace
-The following example creates a workspace using a template from  your local machine. The  JSON template is configured to only require the name and location of the new workspace (using the default values for the other workspace parameters such as pricing tier and retention).  
+
+The following example creates a workspace using a template from  your local machine. The JSON template is configured to only require the name and location of the new workspace (using the default values for the other workspace parameters such as pricing tier and retention).  
 
 ### Create and deploy template
 
@@ -110,7 +112,8 @@ The following example creates a workspace using a template from  your local mach
        ]
     }
     ```
-2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
+
+2. Edit the template to meet your requirements. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
 4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace, specifying the workspace name and location as part of the command.
 
@@ -130,6 +133,7 @@ The following example creates a workspace using a template from  your local mach
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/template-workspace-configuration/template-output-01.png)
 
 ## Configure a Log Analytics workspace
+
 The following template sample illustrates how to:
 
 1. Add solutions to the workspace
@@ -527,6 +531,7 @@ The following template sample illustrates how to:
 
 ```
 ### Deploying the sample template
+
 To deploy the sample template:
 
 1. Save the attached sample in a file, for example `azuredeploy.json` 
@@ -534,17 +539,20 @@ To deploy the sample template:
 3. Use PowerShell or the command line to deploy the template
 
 #### PowerShell
+
 ```powershell
 New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### Command line
+
 ```cmd
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
 ## Example Resource Manager templates
+
 The Azure quickstart template gallery includes several templates for Log Analytics, including:
 
 * [Deploy a virtual machine running Windows with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
@@ -554,5 +562,7 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 * [Add an existing storage account to Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## Next steps
+
 * [Deploy Windows agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-windows.md).
+
 * [Deploy Linux agent to Azure VMs using Resource Manager template](../../virtual-machines/extensions/oms-linux.md).
