@@ -21,8 +21,8 @@ Azure Monitor stores log data in a Log Analytics workspace, which is essentially
 
 This article explains how to manage access to logs and to administer the workspaces that contain them, including:
 
-1. Demonstrating how to grant access to users who need access to a specific monitoring solution.
-1. Demonstrating How to grant access to users who need access to log data from specific resources.
+1. Describes how to grant access to users who need access to a specific monitoring solution.
+1. Describes how to grant access to users who need access to log data from specific resources.
 
 ## Define access control mode in Azure portal
 
@@ -167,7 +167,7 @@ You should perform assignments at the resource level (workspace) to assure accur
 
 ### Resource permissions
 
-When users query logs from a workspace using resource-centric access, they'll have the following permissions on the resource:
+When users query logs from a workspace using resource-context access, they'll have the following permissions on the resource:
 
 | Permission | Description |
 | ---------- | ----------- |
@@ -182,7 +182,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
 **Table level RBAC** allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users.
 
-You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant or deny access to specific [tables](../log-query/logs-structure.md) in the workspace. These roles are applied to workspaces with either workspace-centric or resource-centric [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
+You implement table access control with [Azure custom roles](../../role-based-access-control/custom-roles.md) to either grant or deny access to specific [tables](../log-query/logs-structure.md) in the workspace. These roles are applied to workspaces with either workspace-context or resource-context [access control modes](design-logs-deployment.md#access-control-mode) regardless of the user's [access mode](design-logs-deployment.md#access-mode).
 
 Create a [custom role](../../role-based-access-control/custom-roles.md) with the following actions to define access to table access control.
 
@@ -225,8 +225,8 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
 ### Considerations
 
 * If a user is granted global read permission with the standard Reader or Contributor roles that include the _\*/read_ action, it will override the per-table access control and give them access to all log data.
-* If a user is granted per-table access but no other permissions, they would be able to access log data from the API but not from the Azure portal. To provide access to the Azure portal, use Log Analytics Reader as its base role.
-* Administrators for the subscription will have access to all data types regardless of any other permission settings.
+* If a user is granted per-table access but no other permissions, they would be able to access log data from the API but not from the Azure portal. To provide access from the Azure portal, use Log Analytics Reader as its base role.
+* Administrators of the subscription will have access to all data types regardless of any other permission settings.
 * Workspace owners are treated like any other user for per-table access control.
 * You should assign roles to security groups instead of individual users to reduce the number of assignments. This will also help you use existing group management tools to configure and verify access.
 
