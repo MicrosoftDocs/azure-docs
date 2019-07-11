@@ -98,7 +98,7 @@ Alerts on Mongo Failed Requests metrics must be split into multiple alerts becau
 
 ### Classic compute metrics
 
-All alerts on classic compute metrics are not migrated using the migration tool as classic compute resources are not yet supported with new alerts. Classic alert rules for these resources must be migrated manually once support for these resource types is added.
+Any alerts on classic compute metrics will not be migrated using the migration tool as classic compute resources are not yet supported with new alerts. Support for new alerts on these resource types will be added in future. Once that is available, customers must recreate new equivalent alert rules based on their classic alert rules before June 2020.
 
 ### Classic alert rules on deprecated metrics
 
