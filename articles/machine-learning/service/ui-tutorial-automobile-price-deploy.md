@@ -25,7 +25,7 @@ To give others a chance to use the predictive model developed in [part one of th
 
 ## Prerequisites
 
-Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md).
+Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md) to learn how to train and score a machine learning model in the visual interface.
 
 ## Prepare for deployment
 
@@ -85,11 +85,13 @@ You can test and manage your visual interface web services by navigating to the 
 
     ![Screenshot showing the web service testing page](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Input testing data or use the autofilled sample data and select **Test**. The test request is submitted to the web service and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
+1. Input testing data or use the autofilled sample data and select **Test**.
+
+    The test request is submitted to the web service and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
 
 ## Consume the web service
 
-In the previous steps of this tutorial, you deployed an automobile prediction model as an Azure web service. Now users can send data to it and receive results via REST API.
+Users can now send API requests to your Azure web service and receive results to predict the price of their new automobiles.
 
 **Request/Response** - The user sends one or more rows of automobile data to the service by using an HTTP protocol. The service responds with one or more sets of results.
 
@@ -103,7 +105,7 @@ Navigate to the **API Doc** tab, to find more API details.
 
 ## Manage models and deployments
 
-The models and web service deployments you create in the visual interface can be managed from the Azure Machine Learning service workspace.
+The models and web service deployments you create in the visual interface can also be managed from the Azure Machine Learning service workspace.
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
 
