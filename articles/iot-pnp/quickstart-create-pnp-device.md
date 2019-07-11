@@ -45,7 +45,7 @@ Download and install the Azure IoT explorer tool from the [latest release](https
 
 You also need an Azure IoT hub with at least one registered device in your Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. You can [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md) or [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md.)
+1. You can [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md) or [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md).
 1. Create a device identity in an Azure IoT Hub. If you don't have one, follow these instructions to [register a device](../iot-hub/quickstart-send-telemetry-node.md#create-an-iot-hub).
 1. Retrieve your hub connection string and make a note of it. You use this connection string later in this quickstart.
 
