@@ -38,7 +38,7 @@ Use the Language Understanding (LUIS) client library for .NET to:
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource of type **Cognitive Services** using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. 
 -->
 
-Get your [authoring key](luis-how-to-account-settings), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
+Get your [authoring key](luis-how-to-account-settings.md), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
 
 ### Create a new C# application
 
@@ -114,7 +114,7 @@ From the project directory, open the **Program.cs** file in your preferred edito
 
 1. Create variables to manage your authoring key pulled from an environment variable named `LUIS_AUTHORING_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
 
-1. Create variables to hold your authoring region and endpoint. The region of your authoring key depends on where you are authoring. The [three authoring regions](luis-reference-regions) are:
+1. Create variables to hold your authoring region and endpoint. The region of your authoring key depends on where you are authoring. The [three authoring regions](luis-reference-regions.md) are:
 
 * Australia - `australiaeast`
 * Europe - `westeurope`
