@@ -116,7 +116,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 ### Review + create tab
 
-Review the settings on the **Review + create** tab, and then select **OK** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.
+Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.
 
 ## Add backend targets
 
