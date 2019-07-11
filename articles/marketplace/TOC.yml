@@ -454,6 +454,9 @@
       href: ./partner-center-portal/create-new-saas-offer.md
     - name: SaaS metered billing
       href: ./partner-center-portal/saas-metered-billing.md
+      items:
+      - name: Marketplace metering service integration - FAQ
+        href: ./partner-center-portal/marketplace-metering-service-integration-faq.md
     - name: SaaS Fulfillment APIs
       href: ./partner-center-portal/pc-saas-fulfillment-apis.md
       items:
