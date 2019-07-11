@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/10/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -32,7 +32,7 @@ ms.custom: seodec18
 
 ## Prerequisites
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.3 or higher</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.6 or higher</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 
 ## Download the sample
@@ -61,7 +61,7 @@ bundle exec rails server
 
 Using your web browser, navigate to `http://localhost:3000` to test the app locally.
 
-![Hello World configured](./media/quickstart-ruby/hello-world-configured.png)
+![Hello World configured](./media/quickstart-ruby/hello-world-updated.png)
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
@@ -87,44 +87,39 @@ Here is what your new web app should look like:
 
 ## Deploy your application
 
-Run the following commands to deploy the local application to your Azure website:
+Run the following commands to deploy the local application to your Azure web app:
 
 ```bash
 git remote add azure <Git deployment URL from above>
-git add -A
-git commit -m "Initial deployment commit"
 git push azure master
 ```
 
 Confirm that the remote deployment operations report success. The commands produce output similar to the following text:
 
 ```bash
-remote: Using sass-rails 5.0.6
-remote: Updating files in vendor/cache
-remote: Bundle gems are installed into ./vendor/bundle
-remote: Updating files in vendor/cache
-remote: ~site/repository
+remote: Using turbolinks 5.2.0
+remote: Using uglifier 4.1.20
+remote: Using web-console 3.7.0
+remote: Bundle complete! 18 Gemfile dependencies, 78 gems now installed.
+remote: Bundled gems are installed into `/tmp/bundle`
+remote: Zipping up bundle contents
+remote: .......
+remote: ~/site/repository
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
-  579ccb....2ca5f31  master -> master
-myuser@ubuntu1234:~workspace/<app name>$
+remote: App container will begin restart within 10 seconds.
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
+   a6e73a2..ae34be9  master -> master
 ```
 
-Once the deployment has completed, restart your web app for the deployment to take effect by using the [`az webapp restart`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-restart) command, as shown here:
-
-```azurecli-interactive
-az webapp restart --name <app name> --resource-group myResourceGroup
-```
-
-Navigate to your site and verify the results.
+Once the deployment has completed, wait about 10 seconds for the web app to restart, and then navigate to the web app and verify the results.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
-![updated web app](./media/quickstart-ruby/hello-world-updated.png)
+![updated web app](./media/quickstart-ruby/hello-world-configured.png)
 
 > [!NOTE]
 > While the app is restarting, attempting to browse the site results in an HTTP status code `Error 503 Server unavailable`. It may take a few minutes to fully restart.
