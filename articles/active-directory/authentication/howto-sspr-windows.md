@@ -42,11 +42,11 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
 
 ### Windows 10 specific prerequisites
 
-- You must running at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
+- Run at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
     - Azure AD joined
     - Hybrid Azure AD joined
 - Hybrid Azure AD joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials.
-- If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
+- If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this step can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - The following settings are known to interfere with the ability to use and reset passwords on Windows 10 devices
     - If Ctrl+Alt+Del is required by policy in versions of Windows 10 before v1809, **Reset password** will not work.
     - If lock screen notifications are turned off, **Reset password** will not work.
@@ -99,7 +99,7 @@ The Azure AD audit log will include information about the IP address and ClientT
 
 ![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called “defaultuser1” is created. This account is used to keep the password reset process secure. The account itself has a randomly generated password, doesn’t show up for device sign-in, and will automatically be removed after the user resets their password. Multiple “defaultuser” profiles may exist but can be safely ignored.
+When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. This account is used to keep the password reset process secure. The account itself has a randomly generated password, doesn’t show up for device sign-in, and will automatically be removed after the user resets their password. Multiple `defaultuser` profiles may exist but can be safely ignored.
 
 ## Windows 7, 8, and 8.1 password reset
 
