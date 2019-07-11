@@ -373,20 +373,12 @@
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
-        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph"
+        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
+        "articles/lighthouse/**/*.md": "Azure Lighthouse"
       },
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"
-        ],
-        "articles/active-directory-b2c/**/*.md": [
-          "show_star_rating"
-        ],
-        "articles/active-directory-domain-services/**/*.md": [
-          "show_star_rating"
-        ],
-        "articles/active-directory/**/*.md": [
-          "show_star_rating"
         ]
       },
       "learn_banner_products": {
