@@ -80,7 +80,7 @@ Save the mainTemplate.json file.
 
 ## Defining your create experience using CreateUiDefinition.json
 
-As a publisher, you define your create experience using the **createUiDefinition.json** file which generates the interface for users creating managed applications. You define how users provide input for each parameter using [controls] (https://docs.microsoft.com/en-us/azure/managed-applications/create-uidefinition-elements) including drop-downs, text boxes, and password boxes.
+As a publisher, you define your create experience using the **createUiDefinition.json** file which generates the interface for users creating managed applications. You define how users provide input for each parameter using [control elements] (https://docs.microsoft.com/en-us/azure/managed-applications/create-uidefinition-elements) including drop-downs, text boxes, and password boxes.
 
 Create a file named **createUiDefinition.json** (This name is case-sensitive)
 
