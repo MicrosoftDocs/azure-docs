@@ -4,7 +4,7 @@ description: Learn to configure Azure Function bindings
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
 ms.devlang: multiple

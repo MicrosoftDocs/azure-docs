@@ -2,12 +2,12 @@
 title: Dynamically create a Files volume for multiple pods in Azure Kubernetes Service (AKS)
 description: Learn how to dynamically create a persistent volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.author: iainfou
+ms.date: 07/08/2019
+ms.author: mlearned
 
 #Customer intent: As a developer, I want to learn how to dynamically create and attach storage using Azure Files to pods in AKS.
 ---
@@ -26,7 +26,7 @@ You also need the Azure CLI version 2.0.59 or later installed and configured. Ru
 
 ## Create a storage class
 
-A storage class is used to define how an Azure file share is created. A storage account is automatically created in the *_MC* resource group for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] for *skuName*:
+A storage class is used to define how an Azure file share is created. A storage account is automatically created in the [node resource group][node-resource-group] for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] for *skuName*:
 
 * *Standard_LRS* - standard locally redundant storage (LRS)
 * *Standard_GRS* - standard geo-redundant storage (GRS)
@@ -262,3 +262,4 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

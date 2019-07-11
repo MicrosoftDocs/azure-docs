@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -132,7 +132,7 @@ On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a cli
 
 #### Chrome support
 
-For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). This extension is required when a Conditional Access policy requires device specific details.
 
 To automatically deploy this extension to Chrome browsers, create the following registry key:
 

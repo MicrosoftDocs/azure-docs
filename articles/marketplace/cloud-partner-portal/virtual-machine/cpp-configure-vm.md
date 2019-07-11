@@ -61,7 +61,7 @@ Windows OS disks are generalized with the [sysprep tool](https://docs.microsoft.
 > [!WARNING]
 >  Because updates may run automatically, once you run sysprep, you should to turn off the VM until it is deployed.  This shutdown will avoid subsequent updates from making instance-specific changes to the VHD OS or installed services.
 
-For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### Linux
 

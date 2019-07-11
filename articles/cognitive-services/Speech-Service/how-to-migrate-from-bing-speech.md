@@ -67,7 +67,7 @@ The Speech Services WebSockets protocols are also compatible with those used by 
 
 If you're using a Bing Speech client library for a specific programming language, migrating to the [Speech SDK](speech-sdk.md) requires changes to your application, because the API is different. The Speech SDK can make your code simpler, while also giving you access to new features.
 
-Currently, the Speech SDK supports C# (Windows 10, UWP, .NET Standard), Java (Android and custom devices), Objective C (iOS), C++ (Windows and Linux), and JavaScript. APIs on all platforms are similar, easing multi-platform development.
+Currently, the Speech SDK supports C# ([details here](https://aka.ms/csspeech)), Java (Android and custom devices), Objective C (iOS), C++ (Windows and Linux), and JavaScript. APIs on all platforms are similar, easing multi-platform development.
 
 The Speech Services don't offer a global endpoint. Determine if your application functions efficiently when it uses a single regional endpoint for all of its traffic. If not, use geolocation to determine the most efficient endpoint. You need a separate Speech Services subscription in each region you use.
 
