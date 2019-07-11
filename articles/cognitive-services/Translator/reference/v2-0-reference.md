@@ -799,6 +799,6 @@ Response content type: application/xml
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate to Translator Text API v3 ](../migrate-to-v3.md)
+> [Migrate to Translator Text API v3](../migrate-to-v3.md)
 
 
