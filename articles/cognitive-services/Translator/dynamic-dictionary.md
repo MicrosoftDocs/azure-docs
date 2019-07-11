@@ -20,9 +20,10 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 <mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
 
-**Requirement:**
+**Requirements:**
 
-The `From` and `To` languages must be different. Make sure you include the `From` attribute in the API instead of auto-detecting. 
+* The `From` and `To` languages must be different. 
+* You must include the `From` parameter in your API translation request instead of using the auto-detect feature. 
 
 **Example: en-de:**
 
