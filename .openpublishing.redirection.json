@@ -1401,9 +1401,9 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-none.md",
-    "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-container-create-index-none",
-    "redirect_document_id": false
+      "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-none.md",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-container-create-index-none",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-conflict-policy.md",
@@ -16530,6 +16530,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/concepts-collector.md",
+      "redirect_url": "migrate-appliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/concepts-collector-upgrade.md",
+      "redirect_url": "migrate-appliance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-architecture.md",
+      "redirect_url": "agent-based-migration-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-overview.md",
+      "redirect_url": "migrate-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/tutorial-assessment-vmware.md",
+      "redirect_url": "tutorial-prepare-vmware",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/how-to-get-migration-tool.md",
+      "redirect_url": "migrate-services-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/how-to-scale-assessment.md",
+      "redirect_url": "scale-hyper-v-assessment",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/contoso-migration-infrastructure.md",
       "redirect_url": "contoso-migration-overview",
       "redirect_document_id": false
@@ -28040,11 +28075,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/media-services/media-services-specifications-ms-sstr-ammendment-hevc.md",
-      "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-manage-user-queries.md",
       "redirect_url": "/azure/sql-data-warehouse/cheat-sheet",
       "redirect_document_id": false
@@ -29380,11 +29410,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/media-services/media-services-fmp4-live-ingest-overview.md",
-      "redirect_url": "/azure/media-services/previous/media-services-fmp4-live-ingest-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/media-services/media-services-frequently-asked-questions.md",
       "redirect_url": "/azure/media-services/previous/media-services-frequently-asked-questions",
       "redirect_document_id": false
@@ -29857,16 +29882,6 @@
     {
       "source_path": "articles/media-services/media-services-set-up-computer.md",
       "redirect_url": "/azure/media-services/previous/media-services-set-up-computer",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/media-services-specifications-live-timed-metadata.md",
-      "redirect_url": "/azure/media-services/previous/media-services-specifications-live-timed-metadata",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/media-services/media-services-specifications-ms-sstr-amendment-hevc.md",
-      "redirect_url": "/azure/media-services/previous/media-services-specifications-ms-sstr-amendment-hevc",
       "redirect_document_id": false
     },
     {
@@ -30413,17 +30428,17 @@
       "source_path": "articles/networking/index.md",
       "redirect_url": "/azure/networking/networking-overview",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/notification-hubs/configure-android-device-messaging.md",
       "redirect_url": "/azure//notification-hubs/configure-google-firebase-cloud-messaging",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
       "redirect_url": "/azure//notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/security/blueprints/index.md",
       "redirect_url": "/azure/security/index",
@@ -39899,7 +39914,7 @@
       "redirect_url": "/azure/azure-monitor/app/asp-net-core",
       "redirect_document_id": false
     },
-	{
+    {
       "source_path": "articles/azure-monitor/app/proactive-low-utilization-cloud-resources.md",
       "redirect_url": "/azure/azure-monitor/app/proactive-diagnostics",
       "redirect_document_id": false
@@ -40104,7 +40119,7 @@
       "redirect_url": "/azure/backup/backup-create-rs-vault",
       "redirect_document_id": true
     },
-    {	    
+    {
       "source_path": "articles/cognitive-services/text-analytics/how-tos/text-analytics-how-to-use-container-instance.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/how-tos/use-language-detection-on-aks",
       "redirect_document_id": false
@@ -40130,6 +40145,22 @@
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
       "redirect_url": "/azure/articles/data-explorer/manage-cluster-horizontal-scaling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-specifications-live-timed-metadata.md",
+      "redirect_url": "/azure/media-services/media-services-specifications-live-timed-metadata",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-specifications-ms-sstr-amendment-hevc.md",
+      "redirect_url": "/azure/media-services/media-services-specifications-ms-sstr-amendment-hevc",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
+      "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
       "redirect_document_id": false
     }
   ]

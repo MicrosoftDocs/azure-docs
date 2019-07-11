@@ -67,7 +67,7 @@
     - name: Query data in Azure Data Lake
       href: data-lake-query-data.md  
     - name: Query data in Azure Monitor
-      href: adx-proxy.md  
+      href: query-monitor-data.md  
     - name: Python
       href: python-query-data.md
     - name: Time Series Analysis and Machine Learning
