@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/24/2018
-ms.author: deborahc
+ms.author: dech
 
 ---
 # Azure Cosmos DB Node.js examples
