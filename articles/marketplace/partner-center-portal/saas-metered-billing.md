@@ -1,5 +1,5 @@
 ---
-title: Metered billing using the Marketplace metering service | Commercial marketplace program
+title: Metered billing using the marketplace metering service | Commercial marketplace program
 description: This documentation is a guide for ISVs publishing SaaS offers with flexible billing models. 
 author: qianw211 
 manager: evansma
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ---
 
-# Metered billing using the Marketplace metering service
+# Metered billing using the marketplace metering service
 
 With the Marketplace metering service, you can create software-as-a-service (SaaS) offers in the commercial marketplace program that are charged according to non-standard units.  Before publishing this offer, you define the billing dimensions such as bandwidth, tickets, or emails processed.  Customers then pay according to their consumption of these dimensions, with your system informing Microsoft via the Marketplace metering service API of billable events as they occur.  
 
