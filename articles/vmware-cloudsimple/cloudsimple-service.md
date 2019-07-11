@@ -1,9 +1,9 @@
---- 
+---
 title: VMware Solution by CloudSimple service 
 description: Describes the overview of CloudSimple service and concepts. 
 author: sharaths-cs 
 ms.author: b-shsury 
-ms.date: 4/24/19 
+ms.date: 04/24/2019 
 ms.topic: article 
 ms.service: vmware 
 ms.reviewer: cynthn 
@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # CloudSimple service overview
 
-With the CloudSimple service, you can use Azure VMware Solution by CloudSimple. After you create the service, you can purchase nodes, reserve nodes, and create private clouds. You create the CloudSimple service in each Azure region where the CloudSimple service is available. The service defines the edge network of Azure VMware Solution by CloudSimple. The edge network supports services that include VPN, Azure ExpressRoute, and internet connectivity to your private clouds.
+With the CloudSimple service, you can use Azure VMware Solution by CloudSimple. After you create the service, you can provision nodes, reserve nodes, and create private clouds. You create the CloudSimple service in each Azure region where the CloudSimple service is available. The service defines the edge network of Azure VMware Solution by CloudSimple. The edge network supports services that include VPN, Azure ExpressRoute, and internet connectivity to your private clouds.
 
 ## Gateway subnet
 

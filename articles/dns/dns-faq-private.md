@@ -83,6 +83,13 @@ The following default limits apply when you use Azure Private DNS.
 
 Yes, and private zones that are already created via APIs, PowerShell, the CLI, and SDKs are visible on the Azure portal.
 
+## Why don’t my existing private DNS zones show up in new portal experience?
+
+As part of Preview Refresh release we shipped a new resource model for private DNS zones. Your existing private DNS zones will need to be migrated to new resource model before these can show up in the new portal experience. See below for instructions on how to migrate to new resource model.
+
+## How do I migrate my existing private DNS zones to the new model?
+We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features will not be developed on top of this model. In future we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
+
 ## Next steps
 
 - [Learn more about Azure Private DNS](private-dns-overview.md)

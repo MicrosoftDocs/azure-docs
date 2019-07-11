@@ -168,7 +168,7 @@ return "Hello Azure!"
 
 Save your changes and exit the editor. Use the command `^S` to save and `^Q` to exit.
 
-Redeploy the app using the [`az webapp up`](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) command. Substitute the name of your app for `<app-name>`, and specify a location for `<location-name>` (using one of the values shown from the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command).
+Redeploy the app using the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command. Substitute the name of your app for `<app-name>`, and specify a location for `<location-name>` (using one of the values shown from the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>

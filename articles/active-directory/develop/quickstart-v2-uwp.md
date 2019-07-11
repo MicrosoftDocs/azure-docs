@@ -57,7 +57,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 > 1. Under the **Redirect URI** section, select **Add URI**.  Type **urn:ietf:wg:oauth:2.0:oob**.
 > 1. Select **Save**.
 
-> [!div renderon="portal" class="sxs-lookup alert alert-info"]
+> [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
 > For the code sample for this quickstart to work, you need to add a redirect URI as **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -79,6 +79,9 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.    
 
 > [!div renderon="docs"]
 > Where:

@@ -72,8 +72,16 @@
         href: how-tos/text-analytics-how-to-install-containers.md
       - name: Configure containers
         href: text-analytics-resource-container-config.md
-      - name: How to run on Azure Kubernetes Service
-        href: How-tos/text-analytics-how-to-use-container-instance.md
+      - name: Use container instances
+        items:
+          - name: Sentiment analysis
+            href: how-tos/deploy-sentiment-analysis-on-container-instances.md
+      - name: Use kubernetes service (AKS)
+        items:
+          - name: Language detection
+            href: how-tos/use-language-detection-on-aks.md
+          - name: Sentiment analysis
+            href: how-tos/use-sentiment-analysis-on-aks.md
    - name: Use the Text Analytics Connected Service
      href: vs-text-connected-service.md
 - name: Reference

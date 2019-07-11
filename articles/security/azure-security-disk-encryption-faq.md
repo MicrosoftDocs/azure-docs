@@ -25,46 +25,13 @@ Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerS
 
 There's no charge for encrypting VM disks with Azure Disk Encryption but there are charges associated with the use of Azure Key Vault. For more information on Azure Key Vault costs, see the [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) page.
 
-
-## Which virtual machine tiers does Azure Disk Encryption support?
-
-Azure Disk Encryption is available on standard tier VMs including [A, D, DS, E, G, GS, and F](https://azure.microsoft.com/pricing/details/virtual-machines/) series IaaS VMs. It's also available for VMs with premium storage. It isn't available on basic tier VMs.
-
-## <a name="bkmk_LinuxOSSupport"></a> What Linux distributions does Azure Disk Encryption support?
-
-Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux distributions](../virtual-machines/linux/endorsed-distros.md), which is itself a subset of all Linux server possible distributions.
-
- ![Venn Diagram of Linux server distributions that support Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
-
-Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption and, of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
-
-| Linux distribution | Version | Volume type supported for encryption|
-| --- | --- |--- |
-| Ubuntu | 18.04| OS and data disk |
-| Ubuntu | 16.04| OS and data disk |
-| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
-| RHEL | 7.6 | OS and data disk (see note below) |
-| RHEL | 7.5 | OS and data disk (see note below) |
-| RHEL | 7.4 | OS and data disk (see note below) |
-| RHEL | 7.3 | OS and data disk (see note below) |
-| RHEL | 7.2 | OS and data disk (see note below) |
-| RHEL | 6.8 | Data disk (see note below) |
-| RHEL | 6.7 | Data disk (see note below) |
-| CentOS | 7.5 | OS and data disk |
-| CentOS | 7.4 | OS and data disk |
-| CentOS | 7.3 | OS and data disk |
-| CentOS | 7.2n | OS and data disk |
-| CentOS | 6.8 | Data disk |
-| openSUSE | 42.3 | Data disk |
-| SLES | 12-SP4 | Data disk |
-| SLES | 12-SP3 | Data disk |
-
-> [!NOTE]
-> The new ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. See [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) for more information.
-
 ## How can I start using Azure Disk Encryption?
 
 To get started, read the [Azure Disk Encryption overview](azure-security-disk-encryption-overview.md).
+
+## What VM sizes and operating systems support Azure Disk Encryption?
+
+The [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites.md) article lists the [VM sizes](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes) and [VM operating systems](azure-security-disk-encryption-prerequisites.md#supported-operating-systems) that support Azure Disk Encryption.
 
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 

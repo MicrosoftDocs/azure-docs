@@ -82,12 +82,10 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 ## Connect to an App Configuration store
 
-1. Add references to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` and `Microsoft.FeatureManagement` NuGet packages by running the following commands:
+1. Add reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
     ```
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
-
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-008560001-910
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
     ```
 
 1. Run the following command to restore packages for your project:
@@ -147,6 +145,16 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     }
     ```
 
+1. Update the `Configure` method to add a middleware to allow the feature flag values to be refreshed at a recurring interval while the ASP.NET Core web app continues to receive requests.
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
+        app.UseMvc();
+    }
+    ```
+
 1. Add a *MyFeatureFlags.cs* file:
 
     ```csharp
@@ -163,7 +171,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
     ```csharp
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
+    using Microsoft.FeatureManagement.Mvc;
 
     namespace TestFeatureFlags.Controllers
     {
@@ -176,7 +185,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
                 _featureManager = featureManager;
             }
 
-            [Feature(MyFeatureFlags.Beta)]
+            [FeatureGate(MyFeatureFlags.Beta)]
             public IActionResult Index()
             {
                 return View();

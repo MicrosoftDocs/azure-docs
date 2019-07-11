@@ -5,7 +5,7 @@ services: virtual-desktop
 author: v-hevem
 
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: v-hevem
 ---

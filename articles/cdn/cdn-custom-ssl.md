@@ -8,12 +8,12 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/12/2019
+ms.date: 06/17/2019
 ms.author: magattus
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -186,10 +186,10 @@ Automatic validation typically takes a few hours. If you don’t see your domain
 
 ### Custom domain is not mapped to your CDN endpoint
 
-If the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, follow the rest of the instructions in this step.
-
 >[!NOTE]
->Email validation of custom domain ownership is currently unavailable for **Azure CDN from Akamai** profiles. This feature is currently in our backlog. 
+>Email validation of custom domain ownership is currently unavailable for **Azure CDN from Akamai** profiles. If you are using **Azure CDN from Akamai**, your custom domain must be mapped to your cdn enpoint with a CNAME record as stated above.  This feature is currently in our backlog. 
+
+If the CNAME record entry contains the cdnverify subdomain, follow the rest of the instructions in this step.
 
 After you submit a request to enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
 

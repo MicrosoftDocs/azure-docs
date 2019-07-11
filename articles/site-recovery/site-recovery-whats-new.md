@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 06/18/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
@@ -13,6 +13,61 @@ ms.author: raynew
 The [Azure Site Recovery](site-recovery-overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated on a regular basis.
 
 If you have suggestions for Site Recovery features, we'd love to [hear your feedback](https://feedback.azure.com/forums/256299-site-recovery).
+
+
+## Updates (June 2019)
+
+### Update rollup 37
+
+[Update rollup 37](https://support.microsoft.com/help/4508614/) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+
+### VMware/physical server disaster recovery
+
+Features added this month are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**GPT partitions** | From Update Rollup 37 onwards (Mobility service version 9.25.5241.1), up to five GPT partitions are supported in UEFI. Prior to this update, four were supported.
+
+
+
+## Updates (May 2019)
+
+### Update rollup 36
+
+[Update rollup 36](https://support.microsoft.com/help/4503156) provides the following updates.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup)
+**Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
+
+### Azure VM disaster recovery
+
+Features added this month are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Replicate added disks** | Enable replication for data disks added to an Azure VM that's already enabled for disaster recovery. [Learn more](azure-to-azure-enable-replication-added-disk.md).
+**Automatic updates** | When configuring automatic updates for the Mobility service extension that runs on Azure VMs enabled for disaster recovery, you can now select an existing automation account to use, instead of using the default account created by Site Recovery. [Learn more](azure-to-azure-autoupdate.md).
+
+
+### VMware/physical server disaster recovery
+
+Features added this month are summarized in the table.
+
+**Feature** | **Details**
+--- | ---
+**Process server monitoring** | For disaster recovery of on-premises VMware VMs and physical servers, monitor and troubleshoot process server issues with improved server health reporting and alerts. [Learn more](vmware-physical-azure-monitor-process-server.md). 
+
+
+
 
 
 ## Updates (March 2019)
@@ -26,8 +81,9 @@ If you have suggestions for Site Recovery features, we'd love to [hear your feed
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup)
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup)
 
-#### VMware/physical server disaster recovery
-New features added in the update.
+### VMware/physical server disaster recovery
+
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -57,8 +113,8 @@ New features added in the update.
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
 
-#### Azure VM disaster recovery 
-New features added in the update.
+### Azure VM disaster recovery 
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -67,8 +123,8 @@ New features added in the update.
 **Storage Spaces Direct** | You can set up disaster recovery for apps running on Azure VM apps by using [Storage Spaces Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) for high availability.  Using Storage Spaces Direct (S2D) together with Site Recovery provides comprehensive protection of Azure VM workloads. S2D lets you host a guest cluster in Azure. This is especially useful when a VM hosts a critical application, such as SAP ASCS layer, SQL Server, or scale-out file server.
 
 
-#### VMware/physical server disaster recovery
-New features added in the update.
+### VMware/physical server disaster recovery
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -77,6 +133,7 @@ New features added in the update.
 
 
 ## Updates (January 2019)
+
 
 ### Accelerated networking (Azure VMs)
 
@@ -93,16 +150,19 @@ Accelerated networking enable single root I/O virtualization (SR-IOV) to a VM, i
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-#### Azure VM disaster recovery
+### Azure VM disaster recovery
 
-New features added in the update.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support was added for RedHat Workstation 6/7, and new kernel versions for Ubuntu, Debian, and SUSE.
 **Storage Spaces Direct** | Site Recovery supports Azure VMs using Storage Spaces Direct (S2D).
 
-#### VMware VMs/physical servers replication 
+### VMware VMs/physical servers disaster recovery
+
+Features added this month are summarized in the table.
+ 
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support was added for Redhat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10/7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
@@ -117,9 +177,8 @@ New features added in the update.
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-#### VMware VMs/physical servers replication 
-New features added in the update.
-
+### VMware VMs/physical servers replication 
+Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support was added for Oracle Linux 6.8 and 6.9/7.0, and for the UEK5 kernel.
@@ -129,8 +188,8 @@ New features added in the update.
 **Failover** | Improved failover time for VMware VMs where storvsc and vsbus aren't boot drivers.
 **UEFI support** | Azure VMs don't support boot type UEFI. You can now migrate on-premises physical servers with UEFI to Azure with Site Recovery. Site Recovery migrates the server by converting the boot type to BIOS before migration. Site Recovery previously supported this conversion for VMs only. Support is available for physical servers running Windows Server 2012 or later.
 
-#### Azure VM disaster recovery
-New features added in the update.
+### Azure VM disaster recovery
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -170,8 +229,8 @@ Disaster Recovery of Azure VMs incurs VM licensing costs, and network and storag
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-#### Azure VM disaster recovery
-New features added in the update.
+### Azure VM disaster recovery
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -202,8 +261,8 @@ New features added in the update.
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-#### Azure VMs disaster recovery 
-New features added in the update.
+### Azure VMs disaster recovery 
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -211,8 +270,8 @@ New features added in the update.
 **Cloud support** | Supported disaster recovery for Azure VMs in the Germany cloud.
 **Cross-subscription disaster recovery** | Support for replicating Azure VMs in one region to another region in a different subscription, within the same Azure Active Directory tenant. [Learn more](https://aka.ms/cross-sub-blog).
 
-#### VMware VM/physical server disaster recovery 
-New features added in the update.
+### VMware VM/physical server disaster recovery 
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
@@ -231,17 +290,17 @@ New features added in the update.
 **Providers and agents** | An update to Site Recovery agents and providers (as detailed in the rollup).
 **Issue fixes/improvements** | A number of fixes and improvements (as detailed in the rollup).
 
-#### Azure VMs disaster recovery 
+### Azure VMs disaster recovery 
 
-New features added in the update.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support added for Red Hat Enterprise Linux 7.5.
 
-#### VMware VM/physical server disaster recovery 
+### VMware VM/physical server disaster recovery 
 
-New features added in the update.
+Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---

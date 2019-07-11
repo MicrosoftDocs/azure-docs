@@ -18,16 +18,24 @@ This article shows you how to train and register a TensorFlow model using Azure 
 
 TensorFlow is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, Azure Machine Learning service can help you build production-ready models.
 
 ## Prerequisites
 
-- An Azure subscription. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
-- [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
-- [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
-- [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
+Run this code on either of these environments:
 
-You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+ - Azure Machine Learning Notebook VM - no downloads or installation necessary
+
+     - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
+ 
+ - Your own Jupyter Notebook server
+
+     - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
+    - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
+    - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
+     
+    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
 
@@ -277,7 +285,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## Next steps
 
-In this article, you trained and registered a TensorFlow model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a TensorFlow model. To learn how to deploy a model to a GPU-enabled cluster, continue on to our GPU model deployment article.
 
-> [!div class="nextstepaction"]
-> [How and where to deploy models](how-to-deploy-and-where.md)
+[How to deploy for inferencing with GPUs](how-to-deploy-inferencing-gpus.md)
+[How to monitor with Tensorboard](how-to-monitor-tensorboard.md)

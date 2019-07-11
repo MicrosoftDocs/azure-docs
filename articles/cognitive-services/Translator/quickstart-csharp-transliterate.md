@@ -3,13 +3,13 @@ title: "Quickstart: Convert text script, C# - Translator Text"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using .NET Core and the Translator Text REST API. In this sample, Japanese is transliterated to use the Latin alphabet.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/13/2019
-ms.author: erhopf
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to transliterate text using C#
@@ -153,6 +153,8 @@ foreach (TransliterationResult o in deserializedOutput)
 }
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
 ## Put it all together
 
 The last step is to call `TransliterateTextRequest()` in the `Main` function. In this sample, we're transliterating from Japanese to latin script. Locate `static void Main(string[] args)` and replace it with this code:
@@ -207,10 +209,10 @@ Make sure to remove any confidential information from your sample app's source c
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including translation and language identification, as well as other sample Translator Text projects on GitHub.
+Take a look at the API reference to understand everything you can do with the Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explore C# examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 

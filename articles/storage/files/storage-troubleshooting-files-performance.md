@@ -1,6 +1,6 @@
 ---
 title: Azure Files performance troubleshooting guide
-description: Known performance issues with Azure premium file shares (preview) and associated workarounds.
+description: Known performance issues with Azure file shares and associated workarounds.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -13,13 +13,13 @@ ms.subservice: files
 
 # Troubleshoot Azure Files performance issues
 
-This article lists some common problems related to premium Azure file shares (preview). It provides potential causes and workarounds when these problems are encountered.
+This article lists some common problems related to Azure file shares. It provides potential causes and workarounds when these problems are encountered.
 
 ## High latency, low throughput, and general performance issues
 
 ### Cause 1: Share experiencing throttling
 
-The default quota on a share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
+The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information on provision and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
 
 To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
 
@@ -35,7 +35,7 @@ To confirm if your share is being throttled, you can leverage Azure Metrics in t
 
 1. Select **Transactions** as the metric.
 
-1. Add a filter for **ResponseType** and check to see if any requests have a response code of **SuccessWithThrottling**.
+1. Add a filter for **ResponseType** and check to see if any requests have a response code of **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
 
 ![Metrics options for premium fileshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -68,11 +68,11 @@ If the application being used by the customer is single-threaded, this can resul
 
 ### Cause
 
-The client VM could be located in a different region than the premium file share.
+The client VM could be located in a different region than the file share.
 
 ### Solution
 
-- Run the application from a VM that is located in the same region as the premium file share.
+- Run the application from a VM that is located in the same region as the file share.
 
 ## Client unable to achieve maximum throughput supported by the network
 
@@ -117,6 +117,10 @@ IO depth greater than one is not supported on CentOS/RHEL.
 
 - Upgrade to CentOS 8 / RHEL 8.
 - Change to Ubuntu.
+
+## Slow file copying to and from Azure Files in Linux
+
+If you are experiencing slow file copying to and from Azure Files, take a look at the [Slow file copying to and from Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) section in the Linux troubleshooting guide.
 
 ## Jittery/saw-tooth pattern for IOPS
 

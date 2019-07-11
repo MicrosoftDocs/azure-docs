@@ -26,8 +26,7 @@ For specific pricing information, see [Azure Logic Apps Pricing](https://azure.m
 For new logic apps that run in the public or "global" 
 Azure Logic Apps service, you pay only for what you use. 
 These logic apps use a consumption-based plan and pricing model. 
-In your logic app definition, each step is an action. For example, 
-actions include:
+In your logic app definition, each step is an action. For example, actions include:
 
 * Triggers, which are special actions. 
 All logic apps require a trigger as the first step.
@@ -66,13 +65,8 @@ For specific pricing information, see
 
 ## Connectors
 
-Azure Logic Apps connectors help your logic app access apps, 
-services, and systems in the cloud or on premises by providing 
-[triggers](#triggers), [actions](#actions), or both. Connectors 
-are classified as either Standard or Enterprise. For an overview 
-about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). 
-The following sections provide more information about how billing 
-for triggers and actions work.
+Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing 
+[triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](https://docs.microsoft.com/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
 
 <a name="triggers"></a>
 

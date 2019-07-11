@@ -55,6 +55,12 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Setting a query can allow you to filter rows right at the source before they even arrive for Data Flow for processing, which can make the initial data acquisition faster.
 * If you use a query, you can add optional query hints for your Azure SQL DB, i.e. READ UNCOMMITTED
 
+### Set isolation level on Source transformation settings for SQL datasets
+
+* Read uncommitted will provide faster query results on Source transformation
+
+![Isolation level](media/data-flow/isolationlevel.png "Isolation Level")
+
 ### Set sink batch size
 
 ![Sink](media/data-flow/sink4.png "Sink")
@@ -116,7 +122,18 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Keep this in mind when choosing this popular option. You can run out of cluster node resources if you are combining many large source files into a single output file partition.
 * To avoid exhausting compute node resources, you can keep the default or explicit partitioning scheme in ADF, which optimizes for performance, and then add a subsequent Copy Activity in the pipeline that merges all of the PART files from the output folder to a new single file. Essentially, this technique separates the action of transformation from file merging and achieves the same result as setting "output to single file".
 
+### Looping through file lists
+
+In most instances, Data Flows in ADF will execute better from a pipeline that allows the Data Flow Source transformation to iterate over multiple files. In other words, it is preferred to use wildcards or file lists inside of your Source in Data Flow that to iterate over a large list of files using ForEach in the pipeline, calling an Execute Data Flow on each iteration. The Data Flow process will execute faster by allowing the looping to occur inside the Data Flow.
+
+For example, if I have a list of data files from July 2019 that I wish to process in a folder in Blob Storage, it would be more performant to call an Execute Data Flow activity one time from your pipeline and use a wildcard in your Source like this:
+
+```DateFiles/*_201907*.txt```
+
+This will perform better than a Lookup against the Blob Store in a pipeline that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
+
 ## Next steps
+
 See the other Data Flow articles related to performance:
 
 - [Data Flow Optimize Tab](concepts-data-flow-optimize-tab.md)

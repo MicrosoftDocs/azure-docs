@@ -240,7 +240,7 @@ As mentioned above, the IoT Edge runtime uses routes configured in the *deployme
 3. Next add a route for messages from the rulClassifier module into the turbofanRouter module:
 
    ```json
-   "classifierToRouter": "FROM /messages/modules/classifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
+   "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
    ```
 
 #### Outputs
@@ -250,7 +250,7 @@ Add four additional routes to the $edgeHub route parameter, to handle outputs fr
 1. Program.cs defines the method SendMessageToClassifier(), which uses the module client to send a message to the RUL classifier using the route:
 
    ```json
-   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/classifier/inputs/amlInput\")"
+   "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"
    ```
 
 2. SendRulMessageToIotHub() uses the module client to send just the RUL data for the device to the IoT Hub via the route:
@@ -382,7 +382,7 @@ To add the directory to the module’s container, we will modify the Dockerfiles
 2. Modify the file so that is looks like the following example:
 
    ```dockerfile
-   FROM ubuntu:xenial  
+   FROM ubuntu:xenial
 
    WORKDIR /app
 

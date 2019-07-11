@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -66,7 +66,8 @@ The following core requirements must be met in order to configure and implement 
 
 * **Public certificate**: If you are using custom domain names, you must procure a public certificate issued by a non-Microsoft trusted certificate authority. Depending on your organizational requirements, getting a certificate can take some time and we recommend beginning the process as early as possible. Azure Application Proxy supports standard, [wildcard](application-proxy-wildcard.md), or SAN-based certificates.
 
-* **Domain requirements**: Single sign-on to your published applications using Kerberos Constrained Delegation (KCD) requires that a connector host is domain-joined to the same AD domain as the applications being publishing. For detailed information on the topic, see [KCD for single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) with Application Proxy. The connector service runs in the context of the local system and should not be configured to use a custom identity.
+* **Domain requirements**: Single sign-on to your published applications using Kerberos Constrained Delegation (KCD) requires that the server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains.
+For detailed information on the topic, see [KCD for single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) with Application Proxy. The connector service runs in the context of the local system and should not be configured to use a custom identity.
 
 * **DNS records for URLs**
 
