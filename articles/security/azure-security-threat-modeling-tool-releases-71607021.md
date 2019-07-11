@@ -24,13 +24,13 @@ Version 7.1.60702.1 of the Microsoft Threat Modeling Tool (TMT) was released on 
 
 - Accessibility improvements
 - Bug fixes
-- Inclusion of an open source community provided stencil set
+- Inclusion of an open-source community provided stencil set
 
 ## Feature changes
 
-### A new medical devices stencil set provided by the open source community is available
+### A new medical devices stencil set provided by the open-source community is available
 
-A stencil set for modeling medical devices has been contributed by the open source community. After updating, the new stencil set will appear in the template selection drop down menu. For information about contributing stencils or content to templates please review the information on the project's [GitHub page](https://github.com/Microsoft/threat-modeling-templates).
+A stencil set for modeling medical devices has been contributed by the open-source community. After updating, the new stencil set will appear in the template selection drop down menu. For information about contributing stencils or content to templates, review the information on the project's [GitHub page](https://github.com/Microsoft/threat-modeling-templates).
 
 ![Model Validation Option](./media/azure-security-threat-modeling-tool-releases-71607021/tmt_template_selection.png)
 
