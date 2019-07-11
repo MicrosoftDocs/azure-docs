@@ -717,7 +717,7 @@ SQL Database includes both [single database](../sql-database/sql-database-single
 
 ## Virtual Machines and Virtual Machine Scale Sets
 
-[Linux VMs](../virtual-machines/windows/virtual-machines-windows-security-attributes.md)) | [Windows VMs](../virtual-machines/windows/virtual-machines-windows-security-attributes.md) | [VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-security-attributes.md)
+[Linux VMs](../virtual-machines/windows/virtual-machines-windows-security-attributes.md) | [Windows VMs](../virtual-machines/windows/virtual-machines-windows-security-attributes.md) | [Virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-security-attributes.md)
 
 
 ### Preventative
