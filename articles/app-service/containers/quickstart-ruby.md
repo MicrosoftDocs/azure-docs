@@ -75,7 +75,7 @@ Using your web browser, navigate to `http://localhost:3000` to test the app loca
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-Browse to the site to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
+Browse to the app to see your newly created web app with built-in image. Replace _&lt;app name>_ with your web app name.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -122,7 +122,7 @@ http://<app-name>.azurewebsites.net
 ![updated web app](./media/quickstart-ruby/hello-world-configured.png)
 
 > [!NOTE]
-> While the app is restarting, attempting to browse the site results in an HTTP status code `Error 503 Server unavailable`. It may take a few minutes to fully restart.
+> While the app is restarting, you may observe the HTTP status code `Error 503 Server unavailable` in the browser, or the `Hey, Ruby developers!` default page. It may take a few minutes for the app to fully restart.
 >
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
