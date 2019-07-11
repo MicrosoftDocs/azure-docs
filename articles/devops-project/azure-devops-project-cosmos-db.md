@@ -6,7 +6,7 @@ ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 07/11/2019
 author: mlearned
 monikerRange: 'vsts'
 ---
@@ -46,13 +46,13 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. In the search box, type **DevOps Projects**, and then click **Add**.
 
-   ![DevOps Projects](_img/azure-devops-project-cosmosdb/devops-project.png)
+   ![DevOps Projects](_img/azure-devops-project-cosmos-db/devops-project.png)
 
 1. Select **Node.js** as the runtime, and then select **Next**. Under **Choose an application framework**, select **Express.js**.
 
 1. Enable the section **Add a database** for **Cosmos DB** and click on **Next**.
 
-    ![Add Database](_img/azure-devops-project-cosmosdb/add-database.png)
+    ![Add Database](_img/azure-devops-project-cosmos-db/add-database.png)
 
     Cosmos DB supports various application frameworks like **Express.js**, **Sample Node.js app**, and **Sail.js**. In this tutorial, lets consider **Express.js**.
 
@@ -82,11 +82,11 @@ DevOps Projects automatically configures Cosmos DB, which you can explore and cu
 
 1. Go to the DevOps Projects dashboard.
 
-    ![DevOps Projects Dashboard](_img/azure-devops-project-cosmosdb/devops-project-dashboard.png)
+    ![DevOps Projects Dashboard](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
 
 1. At the right, select the Cosmos DB. A pane opens for the Cosmos DB. From this view you can perform various actions such as operations monitoring and searching logs.
 
-    ![Function App](_img/azure-devops-project-cosmosdb/cosmosdb.png)
+    ![Function App](_img/azure-devops-project-cosmos-db/cosmos-db.png)
 
 ## Examine the CI pipeline
 
@@ -96,7 +96,7 @@ DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps o
 
 1. Click on the hyperlink under **Build**. A browser tab displays the build pipeline for your new project.
 
-    ![Build](_img/azure-devops-project-cosmosdb/build.png)
+    ![Build](_img/azure-devops-project-cosmos-db/build.png)
 
 1. Select **Edit**. In this pane, you can examine the various tasks for your build pipeline. The build performs various tasks, such as fetching source code from the Git repo, building the application, running unit tests, and publishing outputs that are used for deployments.
 
@@ -132,6 +132,7 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 
 ## Commit code changes and execute CI/CD
 
+> [!NOTE]
 > Note: The following procedure tests the CI/CD pipeline by making a simple text change.
 
 You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your Azure App Service. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
