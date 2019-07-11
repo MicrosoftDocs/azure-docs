@@ -138,7 +138,7 @@ This method deletes a directory named `my-sub-directory` from the `my-directory`
 > * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
 > * [BlockBlobService.service.delete_directory](https://www.microsoft.com) method.
 
-## Get the access permissions of a directory
+## Get the access control list (ACL) for a directory
 
 Get the access permissions of a directory by calling the [BlockBlobService.get_path_access_control](https://www.microsoft.com) method. Pass these items as parameters to the method:
 
@@ -168,7 +168,7 @@ This string means that the owning user has read, write, and execute permissions.
 > * [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) class
 > * [get_path_access_control](https://www.microsoft.com) method.
 
-## Set the access permissions of a directory
+## Set the ACL for a directory
 
 Set the access permissions of a directory by calling the [BlockBlobService.set_directory_permissions](https://www.microsoft.com) method. Pass these items as parameters to the method:
 

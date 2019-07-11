@@ -17,7 +17,7 @@ This guide shows you how to use Java to interact with objects, manage directorie
 To use the snippets presented in this article, you'll need to create a storage account, and then enable the hierarchical namespace feature on that account. See [Create a storage account](data-lake-storage-quickstart-create-account.md).
 
 > [!NOTE]
-> The snippets featured in this article use terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*. This article refers to other articles that contain snippets for common tasks. Because those articles apply to all blob storage accounts regardless of whether hierarchical namespaces have been enabled, they'll use the terms *container* and *blob*. To avoid confusion, this article does the same.
+> The content featured in this article uses terms such as *blobs* and *containers* instead of *files* and *file systems*. That's because Azure Data Lake Storage Gen2 is built on blob storage, and in blob storage a *file* is persisted as a *blob*, and a *file system* is persisted as a *container*. 
 
 ## Set up your development environment
 
@@ -70,7 +70,45 @@ You can use the same set of APIs to interact with your data objects regardless o
 
 The rest of this article presents snippets that help you perform tasks related only to accounts that have a hierarchical namespace. 
 
-## Add directory to a container
+## Create a container and setup objects
+
+To create a blob container, create an instance of a [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) class by calling the [ServiceURL.createContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l.createcontainerurl?view=azure-java-preview) method.
+
+Then, call the [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) method.
+
+```java
+static ContainerURL createContainer(String containerName, String accountName,
+String accountKey) throws IOException, InvalidKeyException {
+  
+        SharedKeyCredentials creds = new SharedKeyCredentials(accountName, accountKey);
+
+        final ServiceURL serviceURL = new ServiceURL
+            (new URL("https://" + accountName + ".blob.core.windows.net"), 
+            StorageURL.createPipeline(creds, new PipelineOptions()));
+
+        ContainerURL containerURL = serviceURL.createContainerURL(containerName);
+
+        ContainerCreateResponse response = containerURL.create(null, null, null).blockingGet();
+
+        System.out.println("Container Create Response was " + response.statusCode());
+
+        return containerURL;
+}
+```
+
+### APIs featured in this snippet
+
+> [!div class="checklist"]
+> * [ServiceURL.createContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l.createcontainerurl?view=azure-java-preview)
+> * [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview)
+
+## Perform common blob tasks 
+
+You can use the same set of APIs to interact with your data objects regardless of whether the account has a hierarchical namespace. To find snippets that help you perform common tasks such as creating a container (file system), uploading and downloading blobs (files), and deleting blobs and containers, see [Quickstart: Upload, download, and list blobs by using the Java Storage SDK V10](storage-quickstart-blobs-java.md).
+
+The rest of this article presents snippets that help you perform tasks related only to accounts that have a hierarchical namespace. 
+
+## Add directory to a file system (container)
 
 Intro text here
 
@@ -102,7 +140,7 @@ Snippet here
 > * [Type](url) method.
 > * [Type](url) method.
 
-## Delete a directory from a container
+## Delete a directory from a file system (container
 
 Intro text here
 
@@ -118,7 +156,7 @@ Snippet here
 > * [Type](url) method.
 > * [Type](url) method.
 
-## Get the ACL for a directory
+## Get the access control list (ACL) for a directory
 
 Intro text here
 

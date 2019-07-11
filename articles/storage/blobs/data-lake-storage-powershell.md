@@ -11,7 +11,7 @@ ms.author: normesta
 
 # Use PowerShell with Azure Data Lake Storage Gen2
 
-This guide shows you how to use PowerShell to interact with objects, manage directories, and set directory-level access permissions (access-control lists) in storage accounts that have a hierarchical namespace. 
+This guide shows you how to use PowerShell to interact with objects, manage directories, and set access permissions (access control lists) for files and directories in storage accounts that have a hierarchical namespace. 
 
 To use the examples presented in this article, you'll need to create a storage account, and then enable the hierarchical namespace feature on that account. See [Create a storage account](data-lake-storage-quickstart-create-account.md).
 
@@ -90,7 +90,7 @@ $directory = "my-directory"
 Remove-AzStorageBlobDirectory -Context $ctx -Container $containerName -Path $directory 
 ```
 
-## Get the access permissions of a directory
+## Upload a file (blob) to a directory
 
 Do blah by using the blah.
 
@@ -99,18 +99,85 @@ This example does blah.
 ```powershell
 $containerName = "mycontainer"
 $directory = "my-directory"
-$dir2 = Get-AzStorageBlob -Context $ctx -Name $containerName -Blob "my-directory/" -FetchPermission
+Set-AzStorageBlobContent -Context $ctx -File $localSrcFile -Container $containerName -Blob "$($directory)/text1.txt" -Force 
 ```
 
-## Set the access permissions of a directory
+## List the files (blobs) in a directory
 
 Do blah by using the blah.
 
 This example does blah.
 
 ```powershell
-Example goes here.
+$containerName = "mycontainer"
+Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory 
 ```
+
+## Get a file (blob) from a directory
+
+Do blah by using the blah.
+
+This example does blah.
+
+```powershell
+$containerName = "mycontainer"
+$blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory -BlobRelativePath myTextFile.txt
+$blob
+```
+
+## Get the access control list (ACL) of a directory
+
+Do blah by using the blah.
+
+This example does blah.
+
+```powershell
+$containerName = "mycontainer"
+$dir = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory -FetchPermission
+$dir
+```
+## Get the ACL of a file (blob)
+
+Do blah by using the blah.
+
+This example does blah.
+
+```powershell
+$containerName = "mycontainer"
+$blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory  -BlobRelativePath myTextFile.txt -FetchPermission
+$blob
+```
+
+## Set the ACL of a directory
+
+Do blah by using the blah.
+
+This example does blah.
+
+```powershell
+$containerName = "mycontainer"
+$directory = "my-directory"
+$acl = New-AzStorageBlobPathACL -AccessControlType user -Permission rw- -DefaultScope
+$acl = New-AzStorageBlobPathACL -AccessControlType group -Permission rw- -InputObject $acl 
+$acl = New-AzStorageBlobPathACL -AccessControlType other -Permission "-wx" -InputObject $acl
+$dir1 = Set-AzStorageBlobDirectory -Context $ctx -Container $containerName -Path $directory -ACL $acl
+$directory.CloudBlobDirectory
+$blob.ICloudBlob.PathProperties
+```
+## Set the ACL of a file (blob)
+
+Do blah by using the blah.
+
+This example does blah.
+
+```powershell
+$containerName = "mycontainer"
+$directory = "my-directory"
+$acl = New-AzStorageBlobPathACL -AccessControlType user -Permission r-x 
+$acl = New-AzStorageBlobPathACL -AccessControlType group -Permission rwx -InputObject $acl 
+$acl = New-AzStorageBlobPathACL -AccessControlType other -Permission "-w-" -InputObject $acl
+$blob = Set-AzStorageBlob -Context $ctx -Container $containerName -Path text.txt -ACL $acl
+$blob.ICloudBlob.PathProperties
 
 ## Perform common tasks with your files (blobs)
 

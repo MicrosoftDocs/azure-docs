@@ -224,7 +224,7 @@ public void DeleteDirectory(CloudBlobClient cloudBlobClient,
 > * [CloudBlobContainer.GetDirectoryReference](https://www.microsoft.com) method.
 > * [CloudBlobDirectory.Delete](https://www.microsoft.com) method.
 
-## Get the access permissions of a directory
+## Get the access control list (ACL) for a directory
 
 Get the access permissions of a directory by calling the [cloudBlobDirectory.FetchAccessControlsAsync](https://www.microsoft.com) method. 
 
@@ -278,7 +278,7 @@ This string means that the owning user has read, write, and execute permissions.
 > * [CloudBlobDirectory.FetchAccessControls](https://www.microsoft.com) method.
 > * [cloudBlobDirectory.PathProperties.ACL](https://www.microsoft.com) property.
 
-## Set the access permissions of a directory
+## Set the ACL for a directory
 
 Set the `Execute`, `Read`, and `Write` property for the owning user, owning group, or other users. Then, call the [CloudBlobDirectory.SetAcl](https://www.microsoft.com) method to commit the setting. 
 
