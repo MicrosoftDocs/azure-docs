@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/01/2019
+ ms.date: 07/08/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -27,7 +27,7 @@ Key differences between persistent and ephemeral OS disks:
 
 |                             | Persistent OS Disk                          | Ephemeral OS Disk                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Size limit for OS disk      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), and [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
+| Size limit for OS disk      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller. For the **cache size in GiB**, see [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), and [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
 | VM sizes supported          | All                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Disk type support           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
 | Region support              | All regions                                                                                  | All regions                              |
