@@ -30,16 +30,6 @@ Azure SQL Database provides the following deployment options for an Azure SQL da
 - [Managed instance](sql-database-managed-instance.md) is a fully-managed instance of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) containing a set of databases that can be used together. It is a perfect choice for easy migration of on-premises SQL Server databases to Azure cloud and for applications that need to leverage powerful database features that SQL Server Database Engine provides.
 - [Elastic pool](sql-database-elastic-pool.md) is a collection of [Single databases](sql-database-single-database.md) with a shared set of resources such as CPU or memory. Single databases can be moved into and out of an elastic pool.
 
- For information about new capabilities as they are announced, see:
-
-- **[Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases)**:
-
-  A place to find out what’s new and what’s coming next.
-
-- **[Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)**:
-
-  A place where SQL Server product team members blog about SQL Database news and features.
-
 > [!IMPORTANT]
 > To understand the feature differences between SQL Database and SQL Server, as well as the differences between different Azure SQL Database deployment options, see [SQL features](sql-database-features.md).
 
@@ -47,6 +37,7 @@ SQL Database delivers predictable performance with multiple resource types, serv
 
 ## Scalable performance and pools
 
+All flavors of SQL Database enables you to define the amount of resources that will be assigned. 
 - With single databases, each database is isolated from each other and portable, each with its own guaranteed amount of compute, memory, and storage resources. SQL Database provides different compute, memory, and storage resources for different needs - and the ability to dynamically [scale single database resources](sql-database-single-database-scale.md) up and down. The [hyperscale service tier](sql-database-service-tier-hyperscale.md) for single database enables you to scale to 100 TB, with fast backup and restore capabilities.
 - With elastic pools, you can create new databases or move single databases into a resource pool to maximize the use of resources and save money - and the ability to dynamically [scale elastic pool resources](sql-database-elastic-pool-scale.md) up and down.
 - With managed instances, each managed instance is isolated from other instances with guaranteed resources. Within a managed instance, the instance databases share a set of resources - and the ability to dynamically [scale managed instance resources](sql-database-managed-instance-resource-limits.md) up and down.
@@ -58,11 +49,8 @@ Dynamic scalability is different from autoscale. Autoscale is when a service sca
 ### Purchasing models, service tiers, compute sizes, and storage amounts
 
 SQL Database offers two purchasing models:
-
-- The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, IO resources in three service tiers to support lightweight to heavyweight database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. For more information about the Azure Hybrid Benefit, see [Frequently asked questions](#sql-database-frequently-asked-questions-faq).
-
-  
+- The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, IO resources in three service tiers to support lightweight to heavyweight database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
 
 ### Elastic pools to maximize resource utilization
 
@@ -81,7 +69,7 @@ Scripts can help with monitoring and scaling elastic pools. For an example, see 
 
 You can blend single databases with elastic pools and change the service tiers of single databases and elastic pools quickly and easily to adapt to your situation. With the power and reach of Azure, you can mix-and-match other Azure services with SQL Database to meet your unique app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
 
-### Extensive monitoring and alerting capabilities
+## Extensive monitoring and alerting capabilities
 
 You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 
@@ -253,3 +241,8 @@ SQL Database customers will have the following rights associated with Azure Hybr
 - For a set of Azure CLI and PowerShell samples, see:
   - [Azure CLI samples for SQL Database](sql-database-cli-samples.md)
   - [Azure PowerShell samples for SQL Database](sql-database-powershell-samples.md)
+
+ - For information about new capabilities as they are announced, see 
+   - **[Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases)** - A place to find out what’s new and what’s coming next.
+  - **[Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)** -  A place where SQL Server product team members blog about SQL Database news and features.
+
