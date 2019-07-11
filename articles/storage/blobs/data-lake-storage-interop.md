@@ -12,7 +12,7 @@ ms.author: normesta
 ---
 # Blob and Azure Data Lake Storage Gen2 interoperability
 
-Blob APIs and Data Lake Storage Gen2 APIs can interoperate on the same data. This also means that tools and applications that call Blob APIs, as well as Blob storage features, such as diagnostic logs, can work with accounts that have a hierarchical namespace.
+Blob APIs and Data Lake Storage Gen2 APIs can interoperate on the same data. This means that tools and applications that call Blob APIs, as well as Blob storage features, such as diagnostic logs, can work with accounts that have a hierarchical namespace.
 
 > [!NOTE]
 > Blob and Azure Data Lake Storage Gen2 interoperability is currently in public preview and is available only in the **West US 2** and **West Central US** regions.
