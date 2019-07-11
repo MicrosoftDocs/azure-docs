@@ -364,7 +364,7 @@ In parameters, you create a value that indicates which configuration values to u
 You retrieve the current settings with:
 
 ```json
-"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
+"[variables('environmentSettings').[parameters('environmentName')].instanceSize]"
 ```
 
 ### Variable example templates
