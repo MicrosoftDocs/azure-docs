@@ -41,7 +41,7 @@ The **B2C** category in audit logs contains the following types of activities:
 
 ## Example activity
 The example below shows the data captured when a user signs in with an external identity provider:
-    ![Audit Logs - Example](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+    ![Example of Audit Log Activity Details page in Azure portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 The activity details panel contains the following relevant information:
 
@@ -58,17 +58,17 @@ The activity details panel contains the following relevant information:
 ## Accessing audit logs through the Azure Portal
 1. Go to the [Azure portal](https://portal.azure.com). Make sure you are in your B2C directory.
 2. Click on **Azure Active Directory** in the favorites bar on the left
-    
-    ![Audit Logs - AAD button](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![Azure Active Directory button highlighted in left-hand portal menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. Under **Activity**, click on **Audit Logs**
 
-    ![Audit Logs - Logs section](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Audit Logs button highlighted in Activity section of menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. In the **Category** dropbox, select **B2C**
 3. Click on **Apply**
 
-    ![Audit Logs - Category](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Category and Apply button highlighted in Audit Log filter](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 You will see a list of activities logged over the last seven days.
 - Use the **Activity Resource Type** dropdown to filter by the activity types outlined above
