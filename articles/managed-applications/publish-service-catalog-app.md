@@ -78,64 +78,28 @@ Add the following JSON to your file. It defines the parameters for creating a st
 
 Save the mainTemplate.json file.
 
-## Create the user interface definition
+## Defining your create experience using CreateUiDefinition.json
 
-The Azure portal uses the **createUiDefinition.json** file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
+As a publisher, you define your create experience using the **createUiDefinition.json** file which generates the interface for users creating managed applications. You define how users provide input for each parameter using [controls] (https://docs.microsoft.com/en-us/azure/managed-applications/create-uidefinition-elements) including drop-downs, text boxes, and password boxes.
 
-Create a file named **createUiDefinition.json**. The name is case-sensitive.
+Create a file named **createUiDefinition.json** (This name is case-sensitive)
 
-Add the following JSON to the file.
+Add the following starter JSON to the file and save it
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Compute.MultiVm",
-    "version": "0.1.2-preview",
-    "parameters": {
-        "basics": [
-            {}
-        ],
-        "steps": [
-            {
-                "name": "storageConfig",
-                "label": "Storage settings",
-                "subLabel": {
-                    "preValidation": "Configure the infrastructure settings",
-                    "postValidation": "Done"
-                },
-                "bladeTitle": "Storage settings",
-                "elements": [
-                    {
-                        "name": "storageAccounts",
-                        "type": "Microsoft.Storage.MultiStorageAccountCombo",
-                        "label": {
-                            "prefix": "Storage account name prefix",
-                            "type": "Storage account type"
-                        },
-                        "defaultValue": {
-                            "type": "Standard_LRS"
-                        },
-                        "constraints": {
-                            "allowedTypes": [
-                                "Premium_LRS",
-                                "Standard_LRS",
-                                "Standard_GRS"
-                            ]
-                        }
-                    }
-                ]
-            }
-        ],
-        "outputs": {
-            "storageAccountNamePrefix": "[steps('storageConfig').storageAccounts.prefix]",
-            "storageAccountType": "[steps('storageConfig').storageAccounts.type]",
-            "location": "[location()]"
-        }
-    }
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+   "handler": "Microsoft.Azure.CreateUIDef",
+   "version": "0.1.2-preview",
+   "parameters": {
+      "basics": [ ],
+      "steps": [ ],
+      "outputs": { }
+   }
 }
 ```
 
-Save the createUiDefinition.json file.
+To learn more, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
 
 ## Package the files
 
