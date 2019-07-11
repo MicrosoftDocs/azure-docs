@@ -22,7 +22,7 @@
   - name: Use .NET SDK
     items: 
     - name: Create app
-      href: sdk-charp-quickstart-authoring-app.md
+      href: sdk-csharp-quickstart-authoring-app.md
     - name: Query prediction endpoint
       href: sdk-csharp-quickstart-query-prediction-endpoint.md
   - name: Use REST APIs
