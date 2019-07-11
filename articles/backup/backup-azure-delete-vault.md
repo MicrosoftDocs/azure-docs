@@ -76,7 +76,7 @@ Remove all the dependencies before the Recovery Services vault is deleted. To de
 
 ### For Protected items in Cloud
 
-To delete the backup items from Backup Infrastructure for Azure Files, SQL in Azure VM and Azure Virtual Machine is given below:
+To delete the backup items for Azure Files, SQL in Azure VM and Azure Virtual Machine perform the below:
 
 1. From portal > Recovery Services vault > Backup Items choose the protected items in cloud.
 
@@ -94,13 +94,18 @@ To delete the backup items from Backup Infrastructure for Azure Files, SQL in Az
 
      ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-
 5. Check the **Notification** ![delete backup data](./media/backup-azure-delete-vault/messages.png). After the completion, the service displays the message: **Stopping backup and deleting backup data for "*Backup Item*"**. **Successfully completed the operation**.
 6. Click **Refresh** on the **Backup Items** menu, to check if the Backup item is removed.
 
       ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
 
 ### For MARS agent
+
+To stop protection and delete backup data perform steps in the order listed below:
+
+- [Step 1: Delete backup items from MARS Management console](#step-1-delete-backup-items-from-mars-management-console)
+- [Step 2: From portal remove Azure Backup agent](#step-1-delete-backup-items-from-mars-management-console)
+
 
 #### Step 1: Delete backup items from MARS Management console
 
@@ -128,7 +133,7 @@ Now that you have deleted the backup items from on-premises, complete the next s
 
 #### Step 2: From portal remove Azure Backup agent
 
-Before removing the Azure backup recovery point, make sure to perform the steps listed in [Deleting backup items from management console](#step-1-delete-backup-items-from-mars-management-console).
+Ensure [Step 1](#step-1-delete-backup-items-from-mars-management-console) is completed before proceeding further:
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
 2. Click **Protected Servers** to view the infrastructure servers.
@@ -156,13 +161,18 @@ Before removing the Azure backup recovery point, make sure to perform the steps 
 >
 >![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
 >
-> If you are unable to perform the steps to delete backups from the management console, for example, due to unavailability of the server with the management console, contact Microsoft support.
+>If you are unable to perform [Step 1](#step-1-delete-backup-items-from-mars-management-console) due to unavailability of the server then contact Microsoft support.
 
 7. Check the **Notification** ![delete backup data](./media/backup-azure-delete-vault/messages.png). After the completion, the service displays the message: **Stopping backup and deleting backup data for "*Backup Item*"**. **Successfully completed the operation**.
 8. Click **Refresh** on the **Backup Items** menu, to check if the Backup item is removed.
 
 
 ### For MABS agent
+
+To stop protection and delete backup data perform steps in the order listed below:
+
+- [Step 1: Delete backup items from MABS Management console](#step-1-delete-backup-items-from-mabs-management-console)
+- [Step 2: From portal remove Azure Backup management servers](#step-2-from-portal-remove-azure-backup-agent)
 
 #### Step 1: Delete backup items from MABS Management console
 
@@ -198,7 +208,7 @@ Now that you have deleted the backup items from on-premises, complete the next s
 
 #### Step 2: From portal remove Azure Backup management servers
 
-Before removing the Azure backup management server, make sure to perform the steps listed in [Deleting backup items from management console](step-1-delete-backup-items-from-mabs-management-console).
+Ensure [Step 1](#step-1-delete-backup-items-from-mabs-management-console) is completed before proceeding further:
 
 1. In the vault dashboard menu, click **Backup Infrastructure**.
 2. Click **Backup Management Servers** to view servers.
@@ -215,7 +225,7 @@ Before removing the Azure backup management server, make sure to perform the ste
 >
 >![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
 >
-> If you are unable to perform the steps to delete backups from the management console, for example, due to unavailability of the server with the management console, contact Microsoft support.
+> If you are unable to perform [Step 1](#step-1-delete-backup-items-from-mabs-management-console) due to unavailability of the server then contact Microsoft support.
 
 5. Check the **Notification** ![delete backup data](./media/backup-azure-delete-vault/messages.png). After the completion, the service displays the message: **Stopping backup and deleting backup data for "*Backup Item*"**. **Successfully completed the operation**.
 6. Click **Refresh** on the **Backup Items** menu, to check if the Backup item is removed.
@@ -234,7 +244,7 @@ Before removing the Azure backup management server, make sure to perform the ste
 
 ## What if I stop the backup process but retain the data?
 
-If you stop the backup process but accidentally retain the data, you must delete the backup data as described in the previous sections.
+If you stop the backup process by retaining the data, you must delete the backup data as described in the previous [sections](#remove-vault-items-and-delete-the-vault) and then delete the Recover Services vault.
 
 ## Next steps
 
