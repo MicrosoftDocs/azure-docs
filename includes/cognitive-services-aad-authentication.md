@@ -3,13 +3,13 @@ author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/30/2019
+ms.date: 07/11/2019
 ---
 
 ## Authenticate with Azure Active Directory
 
 > [!IMPORTANT]
-> Currently, Azure Speech Services and Microsoft Translator Text APIs **do not** support authentication using AAD.
+> Currently, **only** the Computer Vision API, Face API, and LUIS support authentication using Azure Active Directory (AAD).
 
 In the previous sections, we showed you how to authenticate against Azure Cognitive Services using either a single-service or multi-service subscription key. While these keys provide a quick and easy path to start development, they fall short in more complex scenarios that require role-based access controls. Let's take a look at what's required to authenticate using Azure Active Directory (AAD).
 
