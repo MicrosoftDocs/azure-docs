@@ -175,8 +175,8 @@ Make the change of the parameters or upgrade service tiers to converge to the op
 
 Managed Instance provides a lot of advanced tools for monitoring and troubleshooting, and you should use them to monitor performance on your instance. Some of the parameters that your would need to monitor are:
 - CPU usage on the instance to determine does the number of vCores that you provisioned is the right match for your workload.
-- Page-life expectancy on your to determine [do you need additional memory](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Wait statistics like `INSTANCE_LOG_GOVERNOR` or `PAGEIOLATCH` that will tell your do you have IO issues, especially on General Purpose tier where you might need to pre-allocate files to get better IO performance.
+- Page-life expectancy on your Managed Instance to determine [do you need additional memory](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Wait statistics like `INSTANCE_LOG_GOVERNOR` or `PAGEIOLATCH` that will tell do you have storage IO issues, especially on General Purpose tier where you might need to pre-allocate files to get better IO performance.
 
 ## Leverage advanced PaaS features
 
