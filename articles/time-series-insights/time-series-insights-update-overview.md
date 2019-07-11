@@ -91,5 +91,5 @@ Learn about use cases:
 > [Azure Time Series Insights Preview use cases](./time-series-insights-update-use-cases.md)
 
 <!-- Images -->
-[1]: media/v2-update-overview/overview_one.png
-[2]: media/v2-update-overview/overview_two.png
+[1]: media/v2-update-overview/overview-one.png
+[2]: media/v2-update-overview/overview-two.png

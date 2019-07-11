@@ -48,7 +48,7 @@ The Project Acoustics runtime plugins can currently be deployed to the following
   * For Xbox binaries and support, contact us via the Sign Up form below
 
 ## Contact us
-* [Project Acoustics forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Project Acoustics discussion and issue reporting](https://github.com/microsoft/ProjectAcoustics/issues)
 * [Sign up to receive updates on Project Acoustics](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## Next steps

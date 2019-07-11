@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Train and register PyTorch models at scale with Azure Machine Learning service
 
-This article shows you how to train and register a PyTorch model using Azure Machine Learning service. It's based on  [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) that builds a deep neural network (DNN) classifier for images of ants and bees.
+This article shows you how to train and register a PyTorch model using Azure Machine Learning service. It's based on  [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) that builds a deep neural network (DNN) classifier for images of chickens and turkeys.
 
 [PyTorch](https://pytorch.org/) is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
@@ -70,19 +70,19 @@ ws = Workspace.from_config()
 
 ### Create an experiment
 
-Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "pytorch-hymenoptera".
+Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "pytorch-birds".
 
 ```Python
-project_folder = './pytorch-hymenoptera'
+project_folder = './pytorch-birds'
 os.makedirs(project_folder, exist_ok=True)
 
-experiment_name = 'pytorch-hymenoptera'
+experiment_name = 'pytorch-birds'
 experiment = Experiment(ws, name=experiment_name)
 ```
 
 ### Get the data
 
-The dataset consists of about 120 training images each for ants and bees, with 75 validation images for each class. Hymenoptera is the order of insects that includes ants and bees. Download and extract the dataset as part of our training script `pytorch_train.py`.
+The dataset consists of about 120 training images each for turkeys and chickens, with 100 validation images for each class. We will download and extract the dataset as part of our training script `pytorch_train.py`. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html).
 
 ### Prepare training scripts
 

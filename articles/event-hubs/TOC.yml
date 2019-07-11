@@ -63,14 +63,16 @@
     href: event-hubs-availability-and-consistency.md
   - name: Scalability
     href: event-hubs-scalability.md
+  - name: Geo-disaster recovery
+    items:
+    - name: Geo-disaster recovery and Geo-replication
+      href: event-hubs-geo-dr.md  
   - name: Security
     items:
     - name: Managed identity for Azure resources
       href: event-hubs-managed-service-identity.md
     - name: Role-Based Access Control (preview)
       href: event-hubs-role-based-access-control.md
-    - name: Geo-disaster recovery and Geo-replication
-      href: event-hubs-geo-dr.md
     - name: Authentication and security model overview
       href: event-hubs-authentication-and-security-model-overview.md
     - name: Security Attributes
@@ -90,6 +92,10 @@
       href: event-hubs-programming-guide.md
     - name: Receive events using Event Processor Host 
       href: event-hubs-event-processor-host.md
+  - name: Process data
+    items:
+    - name: Process data using Azure Stream Analytics 
+      href: process-data-azure-stream-analytics.md
   - name: Use client libraries
     items:
     - name: .NET Framework

@@ -4,8 +4,8 @@ description: This article provides information on troubleshooting Desired State 
 services: automation
 ms.service: automation
 ms.subservice: 
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
@@ -166,12 +166,12 @@ This error typically occurs when the node is assigned a node configuration name 
 When applying a configuration in Linux, a failure occurs containing the error:
 
 ```error
-This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [*resource*]*name* and SourceInfo is *::nnn::n::resource*. ErrorMessage is A general error occurred, not covered by a more specific error code..
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
 ```
 
 #### Cause
 
-Customers have identified that if the /tmp location is set to noexec, DSC resouces that need to execute files in that location will fail.
+Customers have identified that if the /tmp location is set to noexec, the current version of DSC will fail to apply configurations.
 
 #### Resolution
 

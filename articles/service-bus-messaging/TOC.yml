@@ -19,6 +19,8 @@
         href: service-bus-quickstart-powershell.md
       - name: Azure CLI
         href: service-bus-quickstart-cli.md
+      - name: Azure Resource Manager template
+        href: service-bus-resource-manager-namespace-queue.md
     - name: Send and receive messages
       items:      
       - name: .NET
@@ -40,7 +42,11 @@
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions 
-      href: service-bus-quickstart-topics-subscriptions-portal.md
+      items:
+      - name: Azure portal
+        href: service-bus-quickstart-topics-subscriptions-portal.md
+      - name: Azure Resource Manager template
+        href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
       items: 
       - name: .NET
@@ -187,10 +193,6 @@
       items:
       - name: Create a namespace
         href: service-bus-resource-manager-namespace.md
-      - name: Create a namespace and a queue
-        href: service-bus-resource-manager-namespace-queue.md
-      - name: Create a namespace with topic and subscription
-        href: service-bus-resource-manager-namespace-topic.md
       - name: Create an authorization rule for namespace and queue
         href: service-bus-resource-manager-namespace-auth-rule.md
       - name: Create a namespace with topic, subscription, and rule

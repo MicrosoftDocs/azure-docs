@@ -37,7 +37,7 @@ This article describes how to create one or more access reviews for privileged A
 
 1. Under Manage, click **Access reviews**.
 
-    ![Azure AD roles - Access reviews](./media/pim-how-to-start-security-review/access-reviews.png)
+    ![Azure AD roles - Access reviews list showing the status of all reviews](./media/pim-how-to-start-security-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -47,7 +47,7 @@ This article describes how to create one or more access reviews for privileged A
 
 Once you have specified the settings for an access review, click **Start**. The access review will appear in your list with an indicator of its status.
 
-![Access reviews list](./media/pim-how-to-start-security-review/access-reviews-list.png)
+![Access reviews list showing the status of started reviews](./media/pim-how-to-start-security-review/access-reviews-list.png)
 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to Azure AD roles](pim-how-to-perform-security-review.md).
 
@@ -55,7 +55,7 @@ By default, Azure AD sends an email to reviewers shortly after the review starts
 
 You can track the progress as the reviewers complete their reviews on the **Overview** page of the access review. No access rights are changed in the directory until the [review is completed](pim-how-to-complete-review.md).
 
-![Access reviews progress](./media/pim-how-to-start-security-review/access-review-overview.png)
+![Access reviews overview page showing the details of the review](./media/pim-how-to-start-security-review/access-review-overview.png)
 
 If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of Azure AD roles](pim-how-to-complete-review.md) to see and apply the results.  
 
