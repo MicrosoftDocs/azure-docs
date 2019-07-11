@@ -16,6 +16,21 @@ ms.subservice: common
 
 Each time you access data in your storage account, your client makes a request over HTTP/HTTPS to Azure Storage. Every request to a secure resource must be authorized, so that the service ensures that the client has the permissions required to access the data. Azure Storage offers these options for authorizing access to secure resources:
 
+
+
+
+|Auth method  |SAS  |AAD  |Shared Key  |Pub  |
+|---------|---------|---------|---------|---------|
+|Azure Files (Customer AD)     |         |         |         |         |
+|Azure Files (SMB)     |No         |Yes through Domain Service         |Yes         |No         |
+|Azure Files (REST)     |Yes         |         |         |No         |
+|Azure Blobs     |Yes         |Yes         |Yes         |Yes         |
+|Azure Queues     |Yes         |Yes         |Yes         |Yes         |
+|Azure Tables     |Yes         |         |Yes         |No         |
+|Row7     |         |         |         |         |
+|Row8     |         |         |         |         |
+
+
 - **Azure Active Directory (Azure AD) integration** for blobs, files, and queues. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to resources in a storage account. 
 
     For more information regarding Azure AD integration for blobs and queues, see [Authenticating requests to Azure Storage using Azure Active Directory](storage-auth-aad.md).
