@@ -46,6 +46,6 @@
     href: azure-devops-project-service-fabric.md
     maintainContext: true
   - name: 6- Deploy to Azure Cosmos DB
-    href: azure-devops-project-cosmosdb.md
+    href: azure-devops-project-cosmos-db.md
     maintainContext: true
     
