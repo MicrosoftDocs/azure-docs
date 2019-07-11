@@ -128,7 +128,8 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 
 ## Commit code changes and execute CI/CD
 
-> Note: The following procedure tests the CI/CD pipeline by making a simple text change.
+> [!NOTE]
+> The following procedure tests the CI/CD pipeline by making a simple text change.
 
 You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your Azure Function. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
 
