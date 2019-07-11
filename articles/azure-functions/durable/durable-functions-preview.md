@@ -142,18 +142,18 @@ public class Counter
 }
 ```
 
-The class-based model is similar to the programming model popularized by [Orleans](https://www.microsoft.com/en-us/research/project/orleans-virtual-actors/). In this model, an entity type is defined as a .NET class. Each method of the class is an operation that can be invoked by an external client. Unlike Orleans, however, .NET interfaces are optional. The previous *Counter* example did not use an interface, but it can still be invoked via other functions or via HTTP API calls.
+The class-based model is similar to the programming model popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). In this model, an entity type is defined as a .NET class. Each method of the class is an operation that can be invoked by an external client. Unlike Orleans, however, .NET interfaces are optional. The previous *Counter* example did not use an interface, but it can still be invoked via other functions or via HTTP API calls.
 
 Entity *instances* are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of:
 
-1. an **entity name**: a name that identifies the type of the entity (for example, "Counter")
-2. an **entity key**: a string that uniquely identifies the entity among all other entities of the same name (for example, a GUID)
+* An **entity name**: a name that identifies the type of the entity (for example, "Counter").
+* An **entity key**: a string that uniquely identifies the entity among all other entities of the same name (for example, a GUID).
 
 For example, a *counter* entity function might be used for keeping score in an online game. Each instance of the game will have a unique entity ID, such as `@Counter@Game1`, `@Counter@Game2`, and so on.
 
 ### Comparison with virtual actors
 
-The design of Durable Entities is heavily influenced by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you are already familiar with actors, then the concepts behind durable entities should be familiar to you. In particular, durable entities are similar to [virtual actors](https://research.microsoft.com/en-us/projects/orleans/) in many ways:
+The design of Durable Entities is heavily influenced by the [actor model](https://en.wikipedia.org/wiki/Actor_model). If you are already familiar with actors, then the concepts behind durable entities should be familiar to you. In particular, durable entities are similar to [virtual actors](https://research.microsoft.com/projects/orleans/) in many ways:
 
 * Durable entities are addressable via an *entity ID*.
 * Durable entity operations execute serially, one at a time, to prevent race conditions.
