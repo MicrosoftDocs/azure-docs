@@ -202,11 +202,6 @@ The important parts of the code are as follows:
 1. When you start the debugger, a terminal opens showing output from Azure Functions, including a summary of the available endpoints. Your URL might be different if you used a name other than "HttpExample":
 
     ```output
-    Hosting environment: Production
-    Content root path: d:\Examples\Python\AzureFunctions
-    Now listening on: http://0.0.0.0:7071
-    Application started. Press Ctrl+C to shut down.
-
     Http Functions:
 
             HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
