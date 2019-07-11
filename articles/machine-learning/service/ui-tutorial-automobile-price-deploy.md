@@ -14,7 +14,7 @@ ms.date: 07/11/2019
 
 # Tutorial: Deploy a machine learning model with the visual interface
 
-In this tutorial, you take an extended look at developing a predictive solution in the Azure Machine Learning service visual interface. This tutorial is **part two of a two-part tutorial series**. In [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you trained, scored, and evaluated a model to predict car prices. In this part of the tutorial, you:
+To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as an Azure web service. So far, you've been experimenting with training your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
 
 > [!div class="checklist"]
 > * Prepare a model for deployment
@@ -29,18 +29,7 @@ Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md)
 
 ## Prepare for deployment
 
-To give others a chance to use the predictive model developed in this tutorial, you can deploy it as an Azure web service. So far, you've been experimenting with training your model. Now, it's time to generate new predictions based on user input.
-
-Preparation for deployment is a two-step process:  
-
-1. Convert the *training experiment* that you've created into a *predictive experiment*
-1. Deploy the predictive experiment as a web service
-
-You may want to make a copy of the experiment first by selecting **Save As** at the bottom of the experiment canvas.
-
-### Convert the training experiment to a predictive experiment
-
-
+Before you deploy your experiment as a web service, you first have to convert the *training experiment* that you've created into a *predictive experiment*.
 
 1. Select **Create Predictive Experiment** at the bottom of the experiment canvas to convert the training experiment automatically.
 
@@ -62,6 +51,8 @@ You may want to make a copy of the experiment first by selecting **Save As** at 
 
     ![Screenshot showing the expected configuration of the experiment after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
+    User input data enters your web service through the **Web service input** module. The input is then scored in the  **Score Model** module. The way you've set up the predictive experiment, the model expects data in the same format as the original automobile price dataset. Finally, the results are returned to the user through the **Web service output** module.
+
 1. **Run** the experiment.
 
 1. Select the output of the **Score Model** module and select **View Results** to verify the model is still working. You can see the original data is displayed, along with the predicted price ("Scored Labels").
@@ -82,9 +73,7 @@ You may want to make a copy of the experiment first by selecting **Save As** at 
 
 ## Test the web service
 
-User input data enters your deployed model through the **Web service input** module. The input is then scored in the  **Score Model** module. The way you've set up the predictive experiment, the model expects data in the same format as the original automobile price dataset. Finally, the results are returned to the user through the **Web service output** module.
-
-You can test a web service in the web service tab in the visual interface.
+You can test and manage your visual interface web services by navigating to the **Web Services** tab.
 
 1. Go to the web service section. You'll see the web service you deployed with the name **Tutorial - Predict Automobile Price[Predictive Exp]**.
 
@@ -98,9 +87,7 @@ You can test a web service in the web service tab in the visual interface.
 
     ![Screenshot showing the web service testing page](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Input testing data or use the autofilled sample data and select **Test** at the bottom. The test request is submitted to the web service and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
-
-## Manage the web service
+1. Input testing data or use the autofilled sample data and select **Test**. The test request is submitted to the web service and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
 
 ## Consume the web service
 
@@ -140,7 +127,7 @@ The models and web service deployments you create in the visual interface can be
 
 ## Next steps
 
-In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, check out the sample experiments.
+In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, see out our other sample experiments.
 
 > [!div class="nextstepaction"]
 > [Credit risk classification sample](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
