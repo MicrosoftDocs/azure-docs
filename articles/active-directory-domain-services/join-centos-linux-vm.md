@@ -133,7 +133,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 
 
 ## Troubleshooting domain join
-Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-joining-a-domain) article.
+Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-domain-join-issues) article.
 
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](create-instance.md)
