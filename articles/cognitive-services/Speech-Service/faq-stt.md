@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
 ---
 
@@ -65,7 +65,7 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 **A**: You can scale up your model in increments of 20 concurrent requests.
 
-Contact us if you require a higher scale.
+Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) if you require a higher scale.
 
 **Q: Can I download my model and run it locally?**
 

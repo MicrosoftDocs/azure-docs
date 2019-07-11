@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Troubleshooting Service Principa
 description: Troubleshooting Service Principal configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager:
 editor:
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Troubleshoot invalid Service Principal configuration for your managed domain

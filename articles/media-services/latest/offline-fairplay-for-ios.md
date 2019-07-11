@@ -37,6 +37,9 @@ Besides protecting content for online streaming over various streaming protocols
 
 This article covers FairPlay Streaming (FPS) offline-mode support that targets devices running iOS 10 or later. This feature isn't supported for other Apple platforms, such as watchOS, tvOS, or Safari on macOS.
 
+> [!NOTE]
+> Offline DRM is only billed for making a single request for a license when you download the content. Any errors are not billed.
+
 ## Prerequisites
 
 Before you implement offline DRM for FairPlay on an iOS 10+ device:

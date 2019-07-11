@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/31/2019
+ms.date: 07/08/2019
 
 ms.custom: seoapril2019
 ---
@@ -35,7 +35,9 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## <a id="registermodel"></a> Register your model
 
-Register your machine learning models in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
+A registered model logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
 
 ### Register a model from an Experiment Run
 
@@ -44,11 +46,18 @@ Register your machine learning models in your Azure Machine Learning workspace. 
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
+
+  > [!TIP]
+  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+
 + **Using the CLI**
+
   ```azurecli-interactive
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
 
 + **Using VS Code**
 
@@ -73,14 +82,22 @@ You can register an externally created model by providing a **local path** to th
                          description = "MNIST image classification CNN from ONNX Model Zoo",)
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+
 + **Using the CLI**
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
+  > [!TIP]
+  > To include multiple files in the model registration, set `-p` to the directory that contains the files.
+
 **Time estimate**: Approximately 10 seconds.
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+
+For more information on working with models trained outside Azure Machine Learning service, see [How to deploy an existing model](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
@@ -106,12 +123,14 @@ The script contains two functions that load and run the model:
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
 #### What is get_model_path?
-When you register a model, you provide a model name used for managing the model in the registry. You use this name in the get_model_path API which returns the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory which contains those files.
 
-When you register a model, you give it a name which corresponds to where the model is placed, either locally or during service deployment.
+When you register a model, you provide a model name used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) to retrieve the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory that contains those files.
 
-The below example will return a path to a single file called 'sklearn_mnist_model.pkl' (which was registered with the name 'sklearn_mnist')
-```
+When you register a model, you give it a name, which corresponds to where the model is placed, either locally or during service deployment.
+
+The below example will return a path to a single file called `sklearn_mnist_model.pkl` (which was registered with the name `sklearn_mnist`):
+
+```python
 model_path = Model.get_model_path('sklearn_mnist')
 ``` 
 
@@ -238,13 +257,49 @@ For more example scripts, see the following examples:
 
 ### 2. Define your InferenceConfig
 
-The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration:
+The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration. This configuration specifies the runtime, the entry script, and (optionally) the conda environment file:
 
 ```python
-inference_config = InferenceConfig(source_directory="C:/abc",
-                                   runtime= "python",
+inference_config = InferenceConfig(runtime= "python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
+```
+
+For more information, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class reference.
+
+For information on using a custom Docker image with inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
+
+### CLI example of InferenceConfig
+
+The following JSON document is an example inference configuration for use with the machine learning CLI:
+
+```JSON
+{
+   "entryScript": "x/y/score.py",
+   "runtime": "python",
+   "condaFile": "env/myenv.yml",
+   "sourceDirectory":"C:/abc",
+}
+```
+
+The following entities are valid in this file:
+
+* __entryScript__: Path to local file that contains the code to run for the image.
+* __runtime__: Which runtime to use for the image. Current supported runtimes are 'spark-py' and 'python'.
+* __condaFile__ (optional): Path to local file containing a conda environment definition to use for the image.
+* __extraDockerFileSteps__ (optional): Path to local file containing additional Docker steps to run when setting up image.
+* __sourceDirectory__ (optional): Path to folders that contains all files to create the image.
+* __enableGpu__ (optional): Whether or not to enable GPU support in the image. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Defaults to False.
+* __baseImage__ (optional): A custom image to be used as base image. If no base image is given, then the base image will be used based off of given runtime parameter.
+* __baseImageRegistry__ (optional): Image registry that contains the base image.
+* __cudaVersion__ (optional): Version of CUDA to install for images that need GPU support. The GPU image must be used on Microsoft Azure Services such as Azure Container Instances, Azure Machine Learning Compute, Azure Virtual Machines, and Azure Kubernetes Service. Supported versions are 9.0, 9.1, and 10.0. If 'enable_gpu' is set, defaults to '9.1'.
+
+These entities map to the parameters for the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class.
+
+Thee following command demonstrates how to deploy a model using the CLI:
+
+```azurecli-interactive
+az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
 
 In this example, the configuration contains the following items:
@@ -253,8 +308,6 @@ In this example, the configuration contains the following items:
 * That this model requires Python
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to inference
-
-For information on InferenceConfig functionality, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class reference.
 
 For information on using a custom Docker image with inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
@@ -275,15 +328,9 @@ The following table provides an example of creating a deployment configuration f
 The following sections demonstrate how to create the deployment configuration, and then use it to deploy the web service.
 
 ### Optional: Profile your model
-Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements.
-You can do this via the SDK or CLI.
+Prior to deploying your model as a service, you can profile it to determine optimal CPU and memory requirements using either the SDK or CLI.  Model profiling results are emitted as a `Run` object. The full details of [the Model Profile schema can be found in the API documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
 
-For more information, you can check out our SDK documentation here: 
-https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
-
-Model profiling results are emitted as a Run object.
-Specifics on the Model Profile schema can be found here:
-https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py
+Learn more on [how to profile your model using the SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 
 ## Deploy to target
 
@@ -302,9 +349,27 @@ To deploy locally, you need to have **Docker installed** on your local machine.
 
 + **Using the CLI**
 
+    To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model:
+
   ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    The entries in the `deploymentconfig.json` document map to the parameters for [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
+
+    | JSON entity | Method parameter | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | The compute target. For local, the value must be `local`. |
+    | `port` | `port` | The local port on which to expose the service's HTTP endpoint. |
+
+    The following JSON is an example deployment configuration for use with the CLI:
+
+    ```json
+    {
+        "computeType": "local",
+        "port": 32267
+    }
+    ```
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
@@ -325,10 +390,44 @@ To see quota and region availability for ACI, see the [Quotas and region availab
 
 + **Using the CLI**
 
-  ```azurecli-interactive
-  az ml model deploy -m sklearn_mnist:1 -n aciservice -ic inferenceconfig.json -dc deploymentconfig.json
-  ```
+    To deploy using the CLI, use the following command. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
+    ```azurecli-interactive
+    az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+    ```
+
+    The entries in the `deploymentconfig.json` document map to the parameters for [AciWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciservicedeploymentconfiguration?view=azure-ml-py). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
+
+    | JSON entity | Method parameter | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | The compute target. For ACI, the value must be `ACI`. |
+    | `containerResourceRequirements` | NA | Contains configuration elements for the CPU and memory allocated for the container. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
+    | `location` | `location` | The Azure region to deploy this Webservice to. If not specified the Workspace location will be used. More details on available regions can be found here: [ACI Regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
+    | `authEnabled` | `auth_enabled` | Whether or not to enable auth for this Webservice. Defaults to False |
+    | `sslEnabled` | `ssl_enabled` | Whether or not to enable SSL for this Webservice. Defaults to False. |
+    | `appInsightsEnabled` | `enable_app_insights` | Whether or not to enable AppInsights for this Webservice. Defaults to False |
+    | `sslCertificate` | `ssl_cert_pem_file` | The cert file needed if SSL is enabled |
+    | `sslKey` | `ssl_key_pem_file` | The key file needed if SSL is enabled |
+    | `cname` | `ssl_cname` | The cname for if SSL is enabled |
+    | `dnsNameLabel` | `dns_name_label` | The dns name label for the scoring endpoint. If not specified a unique dns name label will be generated for the scoring endpoint. |
+
+    The following JSON is an example deployment configuration for use with the CLI:
+
+    ```json
+    {
+        "computeType": "aci",
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        },
+        "authEnabled": true,
+        "sslEnabled": false,
+        "appInsightsEnabled": false
+    }
+    ```
 
 + **Using VS Code**
 
@@ -360,9 +459,71 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
 
 + **Using the CLI**
 
+    To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
+
   ```azurecli-interactive
-  az ml model deploy -ct myaks -m mymodel:1 -n aksservice -ic inferenceconfig.json -dc deploymentconfig.json
+  az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
   ```
+
+    The entries in the `deploymentconfig.json` document map to the parameters for [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). The following table describes the mapping between the entities in the JSON document and the parameters for the method:
+
+    | JSON entity | Method parameter | Description |
+    | ----- | ----- | ----- |
+    | `computeType` | NA | The compute target. For AKS, the value must be `aks`. |
+    | `autoScaler` | NA | Contains configuration elements for autoscale. See the autoscaler table. |
+    | &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Whether or not to enable autoscaling for the web service. If `numReplicas` = `0`, `True`; otherwise, `False`. |
+    | &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | The minimum number of containers to use when autoscaling this web service. Default, `1`. |
+    | &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | The maximum number of containers to use when autoscaling this web service. Default, `10`. |
+    | &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | How often the autoscaler attempts to scale this web service. Default, `1`. |
+    | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service. Default, `70`. |
+    | `dataCollection` | NA | Contains configuration elements for data collection. |
+    | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Whether or not to enable model data collection for the web service. Default, `False`. |
+    | `authEnabled` | `auth_enabled` | Whether or not to enable authentication for the web service. Default, `True`. |
+    | `containerResourceRequirements` | NA | Contains configuration elements for the CPU and memory allocated for the container. |
+    | &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
+    | &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
+    | `appInsightsEnabled` | `enable_app_insights` | Whether or not to enable Application Insights logging for the web service. Default, `False`. |
+    | `scoringTimeoutMs` | `scoring_timeout_ms` | A timeout to enforce for scoring calls to the web service. Default, `60000`. |
+    | `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | The maximum concurrent requests per node for this web service. Default, `1`. |
+    | `maxQueueWaitMs` | `max_request_wait_time` | The maximum time a request will stay in thee queue (in milliseconds) before a 503 error is returned. Default, `500`. |
+    | `numReplicas` | `num_replicas` | The number of containers to allocate for this web service. No default value. If this parameter is not set, the autoscaler is enabled by default. |
+    | `keys` | NA | Contains configuration elements for keys. |
+    | &emsp;&emsp;`primaryKey` | `primary_key` | A primary auth key to use for this Webservice |
+    | &emsp;&emsp;`secondaryKey` | `secondary_key` | A secondary auth key to use for this Webservice |
+    | `gpuCores` | `gpu_cores` | The number of GPU cores to allocate for this Webservice. Default is 1. |
+    | `livenessProbeRequirements` | NA | Contains configuration elements for liveness probe requirements. |
+    | &emsp;&emsp;`periodSeconds` | `period_seconds` | How often (in seconds) to perform the liveness probe. Default to 10 seconds. Minimum value is 1. |
+    | &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Number of seconds after the container has started before liveness probes are initiated. Defaults to 310 |
+    | &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Number of seconds after which the liveness probe times out. Defaults to 2 seconds. Minimum value is 1 |
+    | &emsp;&emsp;`successThreshold` | `success_threshold` | Minimum consecutive successes for the liveness probe to be considered successful after having failed. Defaults to 1. Minimum value is 1. |
+    | &emsp;&emsp;`failureThreshold` | `failure_threshold` | When a Pod starts and the liveness probe fails, Kubernetes will try failureThreshold times before giving up. Defaults to 3. Minimum value is 1. |
+    | `namespace` | `namespace` | The Kubernetes namespace that the webservice is deployed into. Up to 63 lowercase alphanumeric ('a'-'z', '0'-'9') and hyphen ('-') characters. The first and last characters cannot be hyphens. |
+
+    The following JSON is an example deployment configuration for use with the CLI:
+
+    ```json
+    {
+        "computeType": "aks",
+        "autoScaler":
+        {
+            "autoscaleEnabled": true,
+            "minReplicas": 1,
+            "maxReplicas": 3,
+            "refreshPeriodInSeconds": 1,
+            "targetUtilization": 70
+        },
+        "dataCollection":
+        {
+            "storageEnabled": true
+        },
+        "authEnabled": true,
+        "containerResourceRequirements":
+        {
+            "cpu": 0.5,
+            "memoryInGB": 1.0
+        }
+    }
+    ```
 
 + **Using VS Code**
 
@@ -371,7 +532,7 @@ If you already have an AKS cluster attached, you can deploy to it. If you haven'
 Learn more about AKS deployment and autoscale in the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice) reference.
 
 #### Create a new AKS cluster<a id="create-attach-aks"></a>
-**Time estimate:** Approximately 5 minutes.
+**Time estimate**: Approximately 20 minutes.
 
 Creating or attaching an AKS cluster is a one time process for your workspace. You can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
 
@@ -410,10 +571,11 @@ For more information on the `cluster_purpose` parameter, see the [AksCompute.Clu
 
 > [!IMPORTANT]
 > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
-
-**Time estimate**: Approximately 20 minutes.
+>
+> The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure portal. You can only change the node count, not the VM size of the cluster.
 
 #### Attach an existing AKS cluster
+**Time estimate:** Approximately 5 minutes.
 
 If you already have AKS cluster in your Azure subscription, and it is version 1.12.##, you can use it to deploy your image.
 
@@ -511,6 +673,34 @@ service.update(models = [new_model])
 print(service.state)
 print(service.get_logs())
 ```
+
+## Continuous model deployment 
+
+You can continuously deploy models using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). By using the Machine Learning extension for Azure DevOps, you can trigger a deployment pipeline when a new machine learning model is registered in Azure Machine Learning service workspace. 
+
+1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform/any cloud possible. Azure Pipelines [differs from ML pipelines](concept-ml-pipelines.md#compare). 
+
+1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+
+1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+
+1. Use __service Connections__ to set up a service principal connection to your Azure Machine Learning service workspace to access all your artifacts. Go to project settings, click on service connections, and select Azure Resource Manager.
+
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+
+1. Define AzureMLWorkspace as the __scope level__ and fill in the subsequent parameters.
+
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
+
+1. Next, to continuously deploy your machine learning model using the Azure Pipelines, under pipelines select __release__. Add a new artifact, select AzureML Model artifact and the service connection that was created in the earlier step. Select the model and version to trigger a deployment. 
+
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+
+1. Enable the model trigger on your model artifact. By turning on the trigger, every time the specified version (i.e the newest version) of that model is register in your workspace, an Azure DevOps release pipeline is triggered. 
+
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+For sample projects and examples, check out [the MLOps repository](https://github.com/Microsoft/MLOps)
 
 ## Clean up resources
 To delete a deployed web service, use `service.delete()`.

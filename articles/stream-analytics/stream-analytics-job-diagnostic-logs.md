@@ -7,11 +7,13 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 06/21/2019
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
 
 Occasionally, an Azure Stream Analytics job unexpectedly stops processing. It's important to be able to troubleshoot this kind of event. Failures can be caused by an unexpected query result, by connectivity to devices, or by an unexpected service outage. The diagnostics logs in Stream Analytics can help you identify the cause of issues when they occur and reduce recovery time.
+
+It is highly recommended to enable diagnostic logs for all production jobs.
 
 ## Log types
 
@@ -56,7 +58,7 @@ Turning on diagnostic logs and sending them to Azure Monitor logs is highly reco
 
     ![Blade navigation to diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Create a **Name** in **Diagnostic settings** and check the box next to **Send to Log Analytics**. Then add an existing or create a new **Log analytics workspace**. Check the boxes for **Execution** and **Authoring** under **LOG**, and **AllMetrics** under **METRIC**. Click **Save**.
+2.  Create a **Name** in **Diagnostic settings** and check the box next to **Send to Log Analytics**. Then add an existing or create a new **Log analytics workspace**. Check the boxes for **Execution** and **Authoring** under **LOG**, and **AllMetrics** under **METRIC**. Click **Save**. It is recommended to use a Log Analytics workspace in the same Azure region as your Stream Analytics job to prevent additional costs.
 
     ![Settings for diagnostics logs](./media/stream-analytics-job-diagnostic-logs/diagnostic-settings.png)
 
@@ -107,7 +109,7 @@ Execution logs have information about events that happened during Stream Analyti
 
 ### Data errors
 
-Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events.
+Any error that occurs while the job is processing data is in this category of logs. These logs most often are created during data read, serialization, and write operations. These logs do not include connectivity errors. Connectivity errors are treated as generic events. You can learn more about the cause of various different [input and output data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
 Name | Description
 ------- | -------
@@ -142,5 +144,5 @@ Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identif
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
 * [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Stream Analytics data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors)

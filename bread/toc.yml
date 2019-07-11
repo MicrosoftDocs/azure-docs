@@ -336,6 +336,18 @@
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
+    - name: Form Recognizer
+      tocHref: /azure/cognitive-services/form-recognizer/
+      topicHref: /azure/cognitive-services/form-recognizer/
+    - name: Ink Recognizer
+      tocHref: /azure/cognitive-services/Ink-Recognizer/
+      topicHref: /azure/cognitive-services/Ink-Recognizer/
+    - name: Personalizer
+      tocHref: /azure/cognitive-services/personalizer/
+      topicHref: /azure/cognitive-services/personalizer/
+    - name: Immersive Reader
+      tocHref: /azure/cognitive-services/immersive-reader/
+      topicHref: /azure/cognitive-services/immersive-reader/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -497,6 +509,9 @@
   - name: Key Vault
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/
+  - name: Azure Kinect DK
+    tocHref: /azure/kinect-dk/
+    topicHref: /azure/kinect-dk/
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/    
