@@ -31,7 +31,7 @@ The main focus of this article is on the profile of SCIM 2.0 that Azure AD imple
 > [!IMPORTANT]
 > The behavior of the Azure AD SCIM implementation was last updated on December 18, 2018. For information on what changed, see [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md).
 
-![Shows provisioning from Azure AD to an app or identity store][0]
+![Shows provisioning from Azure AD to an app or identity store][0]<br/>
 *Figure 1: Provisioning from Azure Active Directory to an application or identity store that implements SCIM*
 
 This article is split into four sections:
@@ -61,13 +61,13 @@ Applications that support the SCIM profile described in this article can be conn
 1. Select **+ New application** > **All** > **Non-gallery application**.
 1. Enter a name for your application, and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
 
-   ![Screenshot shows the Azure AD application gallery][1]
+   ![Screenshot shows the Azure AD application gallery][1]<br/>
    *Figure 2: Azure AD application gallery*
 
 1. In the app management screen, select **Provisioning** in the left panel.
 1. In the **Provisioning Mode** menu, select **Automatic**.
 
-   ![Example: An app's Provisioning page in the Azure portal][2]
+   ![Example: An app's Provisioning page in the Azure portal][2]<br/>
    *Figure 3: Configuring provisioning in the Azure portal*
 
 1. In the **Tenant URL** field, enter the URL of the application's SCIM endpoint. Example: https://api.contoso.com/scim/v2/
@@ -124,7 +124,7 @@ Follow these general guidelines when implementing a SCIM endpoint to ensure comp
 
 The following illustration shows the messages that Azure Active Directory sends to a SCIM service to manage the lifecycle of a user in your application's identity store.  
 
-![Shows the user provisioning and de-provisioning sequence][4]
+![Shows the user provisioning and de-provisioning sequence][4]<br/>
 *Figure 4: User provisioning and de-provisioning sequence*
 
 ### Group provisioning and de-provisioning
@@ -134,7 +134,7 @@ Group provisioning and de-provisioning are optional. When implemented and enable
 * Requests to retrieve groups specify that the members attribute is to be excluded from any resource provided in response to the request.  
 * Requests to determine whether a reference attribute has a certain value are requests about the members attribute.  
 
-![Shows the group provisioning and de-provisioning sequence][5]
+![Shows the group provisioning and de-provisioning sequence][5]<br/>
 *Figure 5: Group provisioning and de-provisioning sequence*
 
 ### SCIM protocol requests and responses
