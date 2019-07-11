@@ -96,7 +96,7 @@ Use a different index for the rule that you are trying to set.
 
 ***Error {action} {resourceTypeName}***
 
-This error is displayed when other error handling has failed to handle the error while performing an action on a resource.   It includes text ‘Error’. The `{action}` can be any of (`getting`, `creating`, `updating`, or `deleting`).  The `{resourceTypeName}` is the `resourceTypeName` (for example, `netAppAccount`, `capacityPool`, `volume`. etc.).
+This error is displayed when other error handling has failed to handle the error while performing an action on a resource.   It includes text ‘Error’. The `{action}` can be any of (`getting`, `creating`, `updating`, or `deleting`).  The `{resourceTypeName}` is the `resourceTypeName` (for example, `netAppAccount`, `capacityPool`, `volume`, and so on).
 
 * Cause:   
 This error is an unhandled exception where the cause is not known.
