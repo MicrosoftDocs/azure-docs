@@ -41,7 +41,7 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 1. To add a scope for the rule that specifies the telemetry values that trigger the rule, select **+ Condition**.
 
-1. To add a action that runs when the rule is triggered, select **+ Action**.
+1. To add an action that runs when the rule is triggered, select **+ Action**.
 
 1. Select **Save** to save your rule definition.
 
