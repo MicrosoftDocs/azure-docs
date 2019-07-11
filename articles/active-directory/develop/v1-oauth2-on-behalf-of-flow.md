@@ -80,7 +80,7 @@ Register both the middle-tier service and the client application in Azure AD.
 1. Select **Register** to create the application.
 1. Configure permissions for your application. In **API permissions**, select **Add a permission** and then **My APIs**.
 1. Type the name of the middle-tier service in the text field.
-1. Choose **Select Permissions** and then select **Access <service name>**.
+1. Choose **Select Permissions** and then select **Access \<service name>**.
 
 ### Configure known client applications
 
@@ -193,7 +193,7 @@ A success response is a JSON OAuth 2.0 response with the following parameters:
 
 The following example shows a success response to a request for an access token for the https://graph.windows.net web API.
 
-```
+```json
 {
     "token_type":"Bearer",
     "scope":"User.Read",
@@ -212,7 +212,7 @@ The following example shows a success response to a request for an access token 
 
 The Azure AD token endpoint returns an error response when it tries to acquire an access token for a downstream API that is set with a Conditional Access policy (for example, multi-factor authentication). The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
-```
+```json
 {
     "error":"interaction_required",
     "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
