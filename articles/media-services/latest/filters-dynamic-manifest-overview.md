@@ -19,7 +19,7 @@ ms.author: juliako
 
 # Pre-filtering manifests by using Dynamic Packager
 
-When delivering adaptive bitrate streaming content to devices, you often need to publish multiple versions of a manifest to target specific device capabilities or available network bandwidth. The [Dynamic Packager](dynamic-packaging-overview.md) allows you to  specify filters which can filter out specific codecs, resolutions, bitrates, and audio track combinations on-the-fly removing the need to create multiple copies. You simply need to publish a new URL with a specific set of filters configured to your target devices (iOS, Android, SmartTV, or browsers) and the network capabilities (high-bandwidth, mobile, or low-bandwidth scenarios). In this case, clients can manipulate the streaming of your content through the query string (by specifying available [Asset filters or Account filters](filters-concept.md)) and use filters to stream specific sections of a stream.
+When you're delivering adaptive bitrate streaming content to devices, you often need to publish multiple versions of a manifest to target specific device capabilities or available network bandwidth. The [Dynamic Packager](dynamic-packaging-overview.md) allows you to  specify filters which can filter out specific codecs, resolutions, bitrates, and audio track combinations on-the-fly removing the need to create multiple copies. You simply need to publish a new URL with a specific set of filters configured to your target devices (iOS, Android, SmartTV, or browsers) and the network capabilities (high-bandwidth, mobile, or low-bandwidth scenarios). In this case, clients can manipulate the streaming of your content through the query string (by specifying available [Asset filters or Account filters](filters-concept.md)) and use filters to stream specific sections of a stream.
 
 Some delivery scenarios require that you make sure a customer is unable to access specific tracks. For example, you may not want to publish a manifest that contains HD tracks to a specific subscriber tier. Or, you may want to remove specific adaptive bitrate (ABR) tracks to reduce cost of delivery to a specific device that would not benefit from the additional tracks. In this case you could associate a list of pre-created filters with your [Streaming Locator](streaming-locators-concept.md) on creation. In this case, clients cannot manipulate how the content is streamed, it is defined by the **Streaming Locator**.
 
@@ -33,7 +33,7 @@ This ability to specify different filters on your stream, provides a powerful **
 
 ##  Overview of manifests
 
-Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. See the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#delivery-protocols). 
+Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. See the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#delivery-protocols). 
 
 ### Get and examine manifest files
 
@@ -76,13 +76,13 @@ The top of the following diagram shows the HLS manifest for the asset with no fi
 ## Removing language tracks
 Your assets might include multiple audio languages such as English, Spanish, French, etc. Usually, the Player SDK managers default audio track selection and available audio tracks per user selection.
 
-It is challenging to develop such Player SDKs, it requires different implementations across device-specific player-frameworks. Also, on some platforms, Player APIs are limited and do not include audio selection feature where users cannot select or change the default audio track. With asset filters, you can control the behavior by creating filters that only include desired audio languages.
+Developing such Player SDKs is challenging, because it requires different implementations across device-specific player frameworks. Also, on some platforms, Player APIs are limited and do not include the audio selection feature where users cannot select or change the default audio track. With asset filters, you can control the behavior by creating filters that only include desired audio languages.
 
 ![Filtering of language tracks][language_filter]
 
 ## Trimming the start of an asset
 
-In most live streaming events, operators run some tests before the actual event. For example, they might include a slate like this before the start of the event: "Program will begin momentarily". 
+In most live streaming events, operators run some tests before the actual event. For example, they might include a slate like this before the start of the event: "Program will begin momentarily." 
 
 If the program is archiving, the test and slate data are also archived and included in the presentation. However, this information should not be shown to the clients. With Dynamic Manifest, you can create a start time filter and remove the unwanted data from the manifest.
 
@@ -104,7 +104,7 @@ Here's the filtered asset:
 
 ## Adjusting Presentation Window (DVR)
 
-Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or they may want to provide different DVR windows for different devices. For example, most of the mobile devices don't handle large DVR windows (you can have a 2-minute DVR window for mobile devices and one hour for desktop clients).
+Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes and 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or they may want to provide different DVR windows for different devices. For example, most of the mobile devices don't handle large DVR windows (you can have a 2-minute DVR window for mobile devices and 1 hour for desktop clients).
 
 ![DVR window][dvr_filter]
 
@@ -126,14 +126,14 @@ You can combine multiple filtering rules in a single filter. As an example you c
 
 You can also combine multiple filters in a single URL. The following scenario demonstrates why you might want to combine filters:
 
-1. You need to filter your video qualities for mobile devices such as Android or iPad (in order to limit video qualities). To remove the unwanted qualities, you'll create an account filter suitable for the device profiles. You can use account filters for all your assets under the same media services account without any further association.
+1. You need to filter your video qualities for mobile devices such as Android or iPad (in order to limit video qualities). To remove the unwanted qualities, you'll create an account filter suitable for the device profiles. You can use account filters for all your assets under the same Media Services account without any further association.
 1. You also want to trim the start and end time of an asset. To achieve this, you'll create an asset filter and set the start/end time. 
 1. You want to combine both of these filters. Without combination, you would need to add quality filtering to the trimming filter, which would make filter usage more difficult.
 
 
 To combine filters, you need to set the filter names to the manifest/playlist URL in semicolon-delimited format. Let’s assume you have a filter named *MyMobileDevice* that filters qualities, and you have another named *MyStartTime* to set a specific start time. You can combine up to three filters. 
 
-For more information, see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
+For more information, see [this blog post](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## Considerations and limitations
 
