@@ -17,30 +17,18 @@ ms.date: 04/08/2019
 
 # What is Azure SQL Database service
 
-SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database delivers dynamically scalable performance within two different purchasing models: a vCore-based purchasing model and a DTU-based purchasing model. SQL Database also provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
+Azure SQL Database is a general-purpose relational database managed service that enables you to create highly-available and high-performance data storage layer for the applications and solutions in Microsoft Azure cloud. SQL Database can be the right choice for a variety of modern cloud applications because it enables you to use powerful functionalities for processing both relational data and [non-relational structures](sql-database-multi-model-features.md) such as graphs, JSON, spatial, and XML. It is based on the latest stable version of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) and enables you to use rich set of advanced query processing features such as [high performance in-memory technologies](sql-database-in-memory.md) and [Intelligent query processing](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). With Microsoft's cloud-first strategy, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. This approach provides you with the newest SQL Server capabilities with no overhead for patching or upgrading - and with these new features tested across millions of databases. SQL Database enables you to easily define and scale performance within two different purchasing models: a [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a [DTU-based purchasing model](sql-database-service-tiers-dtu.md). SQL Database is fully-managed service that has built-in high-availablility, backups, and other common maintenance operations. Microsoft handles all patching and updating of the SQL and OS code seamlessly and abstracts away all management of the underlying infrastructure.
 
 > [!NOTE]
 > For a glossary of terms in Azure SQL Database, see [SQL Database terms glossary](sql-database-glossary-terms.md)
 
 Azure SQL Database provides the following deployment options for an Azure SQL database:
 
-- As a [single database](sql-database-single-database.md) with its own set of resources managed via a SQL Database server. A single database is similar to a [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) in SQL Server.
-- An [elastic pool](sql-database-elastic-pool.md), which is a collection of databases with a shared set of resources managed via a SQL Database server. Single databases can be moved into and out of an elastic pool.
-- [Managed instance](sql-database-managed-instance.md), which is a collection of system and user databases with a shared set of resources. A managed instance is similar to an instance of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation).
-
-The following illustration shows these deployment options:
-
 ![deployment-options](./media/sql-database-technical-overview/deployment-options.png)
 
-SQL Database shares its code base with the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). With Microsoft's cloud-first strategy, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. This approach provides you with the newest SQL Server capabilities with no overhead for patching or upgrading - and with these new features tested across millions of databases. For information about new capabilities as they are announced, see:
-
-- **[Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases)**:
-
-  A place to find out what’s new and what’s coming next.
-
-- **[Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)**:
-
-  A place where SQL Server product team members blog about SQL Database news and features.
+- [Single database](sql-database-single-database.md) represents fully-managed isolated database that is perfect choice for the modern cloud applications and microservices that need a single reliable data source. A single database is similar to a [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) in [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- [Managed instance](sql-database-managed-instance.md) is a fully-managed instance of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) containing a set of databases that can be used together. It is a perfect choice for easy migration of on-premises SQL Server databases to Azure cloud and for applications that need to leverage powerful database features that SQL Server Database Engine provides.
+- [Elastic pool](sql-database-elastic-pool.md) is a collection of [Single databases](sql-database-single-database.md) with a shared set of resources such as CPU or memory. Single databases can be moved into and out of an elastic pool.
 
 > [!IMPORTANT]
 > To understand the feature differences between SQL Database and SQL Server, as well as the differences between different Azure SQL Database deployment options, see [SQL features](sql-database-features.md).
@@ -49,6 +37,7 @@ SQL Database delivers predictable performance with multiple resource types, serv
 
 ## Scalable performance and pools
 
+All flavors of SQL Database enables you to define the amount of resources that will be assigned. 
 - With single databases, each database is isolated from each other and portable, each with its own guaranteed amount of compute, memory, and storage resources. SQL Database provides different compute, memory, and storage resources for different needs - and the ability to dynamically [scale single database resources](sql-database-single-database-scale.md) up and down. The [hyperscale service tier](sql-database-service-tier-hyperscale.md) for single database enables you to scale to 100 TB, with fast backup and restore capabilities.
 - With elastic pools, you can create new databases or move single databases into a resource pool to maximize the use of resources and save money - and the ability to dynamically [scale elastic pool resources](sql-database-elastic-pool-scale.md) up and down.
 - With managed instances, each managed instance is isolated from other instances with guaranteed resources. Within a managed instance, the instance databases share a set of resources - and the ability to dynamically [scale managed instance resources](sql-database-managed-instance-resource-limits.md) up and down.
@@ -60,11 +49,8 @@ Dynamic scalability is different from autoscale. Autoscale is when a service sca
 ### Purchasing models, service tiers, compute sizes, and storage amounts
 
 SQL Database offers two purchasing models:
-
-- The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, IO resources in three service tiers to support lightweight to heavyweight database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. For more information about the Azure Hybrid Benefit, see [Frequently asked questions](#sql-database-frequently-asked-questions-faq).
-
-  
+- The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, IO resources in three service tiers to support lightweight to heavyweight database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
 
 ### Elastic pools to maximize resource utilization
 
@@ -83,7 +69,7 @@ Scripts can help with monitoring and scaling elastic pools. For an example, see 
 
 You can blend single databases with elastic pools and change the service tiers of single databases and elastic pools quickly and easily to adapt to your situation. With the power and reach of Azure, you can mix-and-match other Azure services with SQL Database to meet your unique app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
 
-### Extensive monitoring and alerting capabilities
+## Extensive monitoring and alerting capabilities
 
 You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 
@@ -255,3 +241,8 @@ SQL Database customers will have the following rights associated with Azure Hybr
 - For a set of Azure CLI and PowerShell samples, see:
   - [Azure CLI samples for SQL Database](sql-database-cli-samples.md)
   - [Azure PowerShell samples for SQL Database](sql-database-powershell-samples.md)
+
+ - For information about new capabilities as they are announced, see 
+   - **[Azure Roadmap for SQL Database](https://azure.microsoft.com/roadmap/?category=databases)** - A place to find out what’s new and what’s coming next.
+  - **[Azure SQL Database blog](https://azure.microsoft.com/blog/topics/database)** -  A place where SQL Server product team members blog about SQL Database news and features.
+

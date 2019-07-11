@@ -249,6 +249,7 @@ Azure File Sync is available only in the following regions:
 | East Asia | Hong Kong SAR |
 | East US | Virginia |
 | East US2 | Virginia |
+| France Central | Paris |
 | Korea Central| Seoul |
 | Korea South| Busan |
 | Japan East | Tokyo, Saitama |
@@ -290,6 +291,7 @@ To support the failover integration between geo-redundant storage and Azure File
 | East Asia           | Southeast Asia     |
 | East US             | West US            |
 | East US 2           | Central US         |
+| France Central      | France South       |
 | Japan East          | Japan West         |
 | Japan West          | Japan East         |
 | Korea Central       | Korea South        |
