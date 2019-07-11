@@ -15,12 +15,45 @@ ms.subservice: common
 
 The Azurite version 3 open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
 
+Azurite is the future storage emulator platform. Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md). Azurite will continue to be updated to support the latest versions of Azure Storage APIs.
+
 There are several different ways to install and run Azurite on your local system:
 
+  1. [Install and run the Azurite Visual Studio Code extension](#install-and-run-the-azurite-visual-studio-code-extension)
   1. [Install and run Azurite by using NPM](#install-and-run-azurite-by-using-npm)
   1. [Install and run the Azurite Docker image](#install-and-run-the-azurite-docker-image)
-  1. [Install and run the Azurite Visual Studio Code extension](#install-and-run-the-azurite-visual-studio-code-extension)
   1. [Clone, build, and run Azurite from the GitHub repository](#clone-build-and-run-azurite-from-the-github-repository)
+
+## Install and run the Azurite Visual Studio Code extension
+
+Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurite* in the **EXTENSIONS:MARKETPLACE**.
+
+![Visual Studio Code extensions marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
+
+Alternatively, navigate to [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
+
+You can quickly start or close Azurite by clicking on **Azurite Blob Service** in the VS Code status bar or issuing the following commands in the VS Code command palette. To open the command palette, press **F1** in VS Code.
+
+The extension supports the following Visual Studio Code commands:
+
+   * **Azurite: Start** - Start all Azurite services
+   * **Azurite: Close** - Close all Azurite services
+   * **Azurite: Clean** - Reset all Azurite services persistency data
+   * **Azurite: Start** - Blob Start blob service
+   * **Azurite: Close** - Blob Close blob service
+   * **Azurite: Clean** - Blob Clean blob service
+
+To configure Azurite within Visual Studio Code, select the extensions pane and right-click on **Azurite**. Select **Configure Extension Settings**.
+
+![Azurite configure extension settings](media/storage-use-azurite/azurite-configure-extension-settings.png)
+
+The following settings are supported:
+
+   * **Azurite: Blob Host** - The Blob service listening endpoint. The default setting is 127.0.0.1.
+   * **Azurite: Blob Port** - The Blob service listening port. The default port is 10000.
+   * **Azurite: Debug** - Output the debug log to the Azurite channel. The default value is **false**.
+   * **Azurite: Location** - The workspace location path. The default is the Visual Studio Code working folder.
+   * **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
 
 ## Install and run Azurite by using NPM
 
@@ -71,37 +104,6 @@ docker run -p 8888:8888
 
 See [Command-line options](#command-line-options) for more information about configuring Azurite at start-up.
 
-## Install and run the Azurite Visual Studio Code extension
-
-Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurite* in the **EXTENSIONS:MARKETPLACE**.
-
-![Visual Studio Code extensions marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
-
-Alternatively, navigate to [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
-
-You can quickly start or close Azurite by clicking on **Azurite Blob Service** in the VS Code status bar or issuing the following commands.
-
-The extension supports the following Visual Studio Code commands:
-
-   * **Azurite: Start** - Start all Azurite services
-   * **Azurite: Close** - Close all Azurite services
-   * **Azurite: Clean** - Reset all Azurite services persistency data
-   * **Azurite: Start** - Blob Start blob service
-   * **Azurite: Close** - Blob Close blob service
-   * **Azurite: Clean** - Blob Clean blob service
-
-To configure Azurite within Visual Studio Code, select the extensions pane and right-click on **Azurite**. Select **Configure Extension Settings**.
-
-![Azurite configure extension settings](media/storage-use-azurite/azurite-configure-extension-settings.png)
-
-The following settings are supported:
-
-   * **Azurite: Blob Host** - Blob service listening endpoint, by default 127.0.0.1
-   * **Azurite: Blob Port** - Blob service listening port, by default 10000
-   * **Azurite: Debug** - Output debug log into Azurite channel, by default false
-   * **Azurite: Location** - Workspace location path, by default existing Visual Studio Code working folder
-   * **Azurite: Silent** - Silent mode to disable access log in Visual Studio channel, by default false
-
 ## Clone, build, and run Azurite from the GitHub repository
 
 This installation method requires that you have [Git](https://git-scm.com/) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
@@ -122,7 +124,10 @@ After installing and building Azurite, see [Run Azurite from a command-line](#ru
 
 ## Run Azurite from a command-line
 
-To get started immediately, create a directory called **c:\azurite**, then launch Azurite by issuing the following command:
+> [!NOTE]
+> Azurite cannot be run from the command line if you only installed the Visual Studio Code extension. Instead, use the VS Code command palette. For more information, see [Install and run the Azurite Visual Studio Code extension](#install-and-run-the-azurite-visual-studio-code-extension).
+
+To get started immediately with the command-line, create a directory called **c:\azurite**, then launch Azurite by issuing the following command:
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
@@ -151,17 +156,20 @@ Accept requests on the local machine only:
 azurite --blobHost 127.0.0.1
 ```
 
-Allow remote requests (may be unsafe):
+Allow remote requests:
 
 ```console
 azurite --blobHost 0.0.0.0
 ```
 
+> [!CAUTION]
+> Allowing remote requests may make your system vulnerable to external attacks.
+
 ### Listening port configuration
 
 **Optional** By default, Azurite will listen for the Blob service on port 10000. Use the **--blobPort** switch to specify the listening port that you require.
 
-> [!WARNING]
+> [!NOTE]
 > After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
 
 Customize the Blob service listening port:
@@ -176,8 +184,7 @@ Let the system auto select an available port:
 azurite --blobPort 0
 ```
 
-> [!NOTE]
-> The port in use is displayed during Azurite startup.
+The port in use is displayed during Azurite startup.
 
 ### Workspace path
 
@@ -191,8 +198,6 @@ azurite --location c:\azurite
 azurite -l c:\azurite
 ```
 
-The **-l** switch is a shortcut for **--location**.
-
 ### Access log
 
 **Optional** By default, the access log is displayed in the console window. Disable the display of the access log by using the **--silent** switch.
@@ -204,8 +209,6 @@ azurite --silent
 ```console
 azurite -s
 ```
-
-The **-s** switch is a shortcut for **--silent**.
 
 ### Debug log
 
@@ -219,15 +222,13 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
-The **-d** switch is a shortcut for **--debug**.
+## Authorization for tools and SDKs
 
-## Authentication for tools and SDKs
+Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports authorization with Shared Key and shared access signatures (SAS). Azurite also supports anonymous access to public containers.
 
-Connect to Azurite from Azure Storage SDKs or tools, like [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), by using any authentication strategy. Authentication is required. Azurite supports SharedKey, account Shared Access Signature (SAS), Service SAS, and Public Container Access authentications.
+### Well-known storage account and key
 
-### Default Storage Account
-
-Azurite provides support for a General Storage Account v2 and associated features by default.
+You can use the following account name and key with Azurite. This is the same well-known account and key used by the legacy Azure storage emulator.
 
 * Account name: `devstoreaccount1`
 * Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
@@ -237,14 +238,6 @@ Azurite provides support for a General Storage Account v2 and associated feature
 
 ### Connection string
 
-Typically, you can pass the following connection strings to SDKs or tools. Using the Blob service as an example, the full connection string is:
-
-```
-"DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;" +
-"AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;" +
-"BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;"
-```
-
 The easiest way to connect to Azurite from your application is to configure a connection string in your application's configuration file that references the shortcut *UseDevelopmentStorage=true*. Here's an example of a connection string in an *app.config* file:
 
 ```xml
@@ -253,6 +246,8 @@ The easiest way to connect to Azurite from your application is to configure a co
 </appSettings>
 ```
 
+For more information, see [Configure Azure Storage connection strings](storage-configure-connection-string.md).
+
 ### Storage Explorer
 
 In Azure Storage Explorer, connect to Azurite by clicking the **Add Account** icon, then select **Attach to a local emulator** and click **Connect**.
@@ -260,13 +255,6 @@ In Azure Storage Explorer, connect to Azurite by clicking the **Add Account** ic
 ## Differences between Azurite and Azure Storage
 
 There are functional differences between a local instance of Azurite and an Azure Storage account in the cloud.
-
-### Storage accounts
-
-Azurite supports the following default account as a General Storage Account v2.
-
-* Account name: `devstoreaccount1`
-* Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 ### Endpoint and connection URL
 
@@ -294,7 +282,7 @@ Azurite is not a scalable storage service and does not support a large number of
 
 ### Error handling
 
-We've tried to align Azurite with Azure Storage error handling logic, but there are differences. For example, error messages may be different, while error status codes align.
+Azurite is aligned with Azure Storage error handling logic, but there are differences. For example, error messages may be different, while error status codes align.
 
 ### RA-GRS
 
@@ -306,14 +294,7 @@ Azurite supports read-access geo-redundant replication (RA-GRS). For storage res
 
 Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub project](https://github.com/Azure/Azurite/projects) page or [GitHub issues](https://github.com/Azure/Azurite/issues) for milestones and work items we're tracking for upcoming features and bug fixes. Detailed work items are also tracked in GitHub.
 
-See the [Contribution](https://github.com/Azure/Azurite/blob/master/CONTRIBUTION.md) file for ways to participate. You can also open GitHub issues voting for any missing features in Azurite.
-
-Most contributions require you to agree to a Contributor License Agreement (CLA). A CLA declares that you have the right to, and actually do, grant us the rights to use your contribution. For details, see [Microsoft Contributor License Agreement](https://cla.microsoft.com).
-
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA. The bot will add a label or comment to the pull request. Follow the instructions provided by the bot. You'll only need to provide a CLA once across all our repos.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with additional questions or comments.
-
 ## Next steps
 
-* [Azure Storage samples using .NET](../storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
+* [Use the Azure storage emulator for development and testing](storage-use-emulator.md) documents the legacy Azure storage emulator, which is being superseded by Azurite.
+* [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure STorage connection string.
