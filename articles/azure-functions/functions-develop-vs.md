@@ -15,17 +15,17 @@ ms.author: glenga
 
 # Develop Azure Functions using Visual Studio  
 
-Azure Functions Tools is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
+Visual Studio lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
-The Azure Functions Tools provides the following benefits: 
+Visual Studio provides the following benefits when develop your functions: 
 
 * Edit, build, and run functions on your local development computer. 
-* Publish your Azure Functions project directly to Azure. 
-* Use WebJobs attributes to declare function bindings directly in the C# code instead of maintaining a separate function.json for binding definitions.
+* Publish your Azure Functions project directly to Azure, and create Azure resources as needed. 
+* Use C# attributes to declare function bindings directly in the C# code.
 * Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
 * Code your functions in C# while having all of the benefits of Visual Studio development. 
 
-This article provides details about how to use the Azure Functions Tools for Visual Studio 2019 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
+This article provides details about how to use Visual Studio 2019 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
