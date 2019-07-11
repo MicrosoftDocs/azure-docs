@@ -18,23 +18,23 @@ This article will mention security solutions at different system layers which yo
 
 ## Layered security model
 
-The following table summarizes the major system security areas and the security solutions available to you in each part.
+The following table summarizes the major system security areas and the security solutions that are available to you in each.
 
 | Security area | Solution available |
 |---|---|
 | Data Access Security | Configure [access control lists ACLs](../../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen1 and Gen2  |
-| Data Access Security | Enable the ["Secure transfer required"](../../storage/common/storage-require-secure-transfer.md) property on storage accounts. |
-| Data Access Security | Configure [Azure Storage firewalls](../../storage/common/storage-network-security.md) and virtual networks |
-| Data Access Security | Ensure [TLS encryption](../../storage/common/storage-security-tls.md) is enabled for data in transit. |
-| Data Access Security | Configure [customer-managed keys](../../storage/common/storage-encryption-keys-portal.md) for Azure Storage encryption |
+|  | Enable the ["Secure transfer required"](../../storage/common/storage-require-secure-transfer.md) property on storage accounts. |
+|  | Configure [Azure Storage firewalls](../../storage/common/storage-network-security.md) and virtual networks |
+|  | Ensure [TLS encryption](../../storage/common/storage-security-tls.md) is enabled for data in transit. |
+|  | Configure [customer-managed keys](../../storage/common/storage-encryption-keys-portal.md) for Azure Storage encryption |
 | Application and middleware security | Integrate with AAD-DS and [Configure Authentication](apache-domain-joined-configure-using-azure-adds.md) |
-| Application and middleware security | Configure [Apache Ranger Authorization](apache-domain-joined-run-hive.md) policies |
-| Application and middleware security | Use [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+|  | Configure [Apache Ranger Authorization](apache-domain-joined-run-hive.md) policies |
+|  | Use [Azure Monitor logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) |
 | Operating system security | Create clusters with most recent secure base image |
-| Operating system security | Ensure [OS Patching](../hdinsight-os-patching.md) on regular intervals |
+|  | Ensure [OS Patching](../hdinsight-os-patching.md) on regular intervals |
 | Network security | Configure a [virtual network](../hdinsight-extend-hadoop-virtual-network.md) |
-| Network security | Configure [Inbound network security group (NSG) rules](../hdinsight-extend-hadoop-virtual-network.md#networktraffic) |
-| Network security | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall (preview) |
+|  | Configure [Inbound network security group (NSG) rules](../hdinsight-extend-hadoop-virtual-network.md#networktraffic) |
+|  | Configure [Outbound traffic restriction](../hdinsight-restrict-outbound-traffic.md) with Firewall (preview) |
 
 ## Next steps
 
