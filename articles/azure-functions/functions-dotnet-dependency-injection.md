@@ -4,7 +4,7 @@ description: Learn how to use dependency injection for registering and using ser
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, serverless architecture
 
 ms.service: azure-functions

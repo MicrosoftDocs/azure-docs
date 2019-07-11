@@ -37,7 +37,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 ## Enable agent-based monitoring .NET
 
 > [!NOTE]
-> the combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+> The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
 
 1. **Select Application Insights** in the Azure control panel for your app service.

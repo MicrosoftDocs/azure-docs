@@ -170,7 +170,7 @@ rates.
 You can pin this table to a shared dashboard by clicking **Pin** in the
 upper-right corner. If you do not have any writable shared dashboards, you can
 see how to create one here: [Create and share dashboards in the Azure
-portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-a-dashboard-and-manage-access-control).
+portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### Azure Monitor alerts
 

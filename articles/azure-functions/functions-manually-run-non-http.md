@@ -4,7 +4,7 @@ description: Use an HTTP request to run a non-HTTP triggered Azure Functions
 services: functions
 keywords: 
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
 ms.topic: tutorial

@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/09/2019
 ---
 # Create and configure Enterprise Security Package clusters in Azure HDInsight
 
 The Enterprise Security Package for Azure HDInsight gives you access to Active Directory-based authentication, multi-user support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations, which adhere to strict corporate security policies, to process sensitive data securely.
 
-The goal of this guide is correctly configured the necessary resources so that on-premises users can sign in to an ESP enabled HDInsight cluster. This article walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. The steps will cover creating a Windows IaaS VM with Active Directory & Domain Name Services (DNS) enabled. This server will act as a replacement for your **actual** on-premises environment and will enable you to proceed through the setup and configuration steps so that you can repeat them later in your own environment. This guide will also help you create a hybrid identity environment using password hash sync with Azure Active Directory.
+The goal of this guide is to correctly configure the necessary resources so that on-premises users can sign in to an ESP enabled HDInsight cluster. This article walks through the steps needed to create an Enterprise Security Package enabled Azure HDInsight Cluster. The steps will cover creating a Windows IaaS VM with Active Directory & Domain Name Services (DNS) enabled. This server will act as a replacement for your **actual** on-premises environment and will enable you to proceed through the setup and configuration steps so that you can repeat them later in your own environment. This guide will also help you create a hybrid identity environment using password hash sync with Azure Active Directory.
 
 This guide is meant to complement [Use Enterprise Security Package in HDInsight](apache-domain-joined-architecture.md)
 
@@ -305,7 +305,7 @@ click **Next**.
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Priority | <Desired Number> |
+        | Priority | \<Desired Number\> |
         | Name | Port_LDAP_636 |
 
     ![inbound security rule](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)

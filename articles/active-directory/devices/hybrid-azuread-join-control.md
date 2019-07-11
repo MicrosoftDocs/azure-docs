@@ -5,9 +5,9 @@ description: Learn how to do a controlled validation of hybrid Azure AD join bef
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: article
+ms.topic: conceptual
+ms.date: 06/28/2019
 
-ms.date: 05/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba

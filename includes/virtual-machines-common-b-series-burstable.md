@@ -14,7 +14,7 @@ The B-series VM family allows you to choose which VM size provides you the neces
 
 The B-series VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, proof of concepts,  small databases and development build environments. These workloads typically have burstable performance requirements. The B-series provides you with the ability to purchase a VM size with baseline performance and the VM instance builds up credits when it is using less than its baseline. When the VM has accumulated credit, the VM can burst above the baseline using up to 100% of the vCPU when your application requires higher CPU performance.
 
-The B-series comes in the following six VM sizes:
+The B-series comes in the following VM sizes:
 
 | Size             | vCPU  | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked / hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS / MBps | Max uncached disk throughput: IOPS / MBps | Max NICs |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
@@ -104,7 +104,7 @@ If I take the 120 credits I earned off-peak and subtract the 96 credits I used f
 
 (Base CPU perf of VM - CPU Usage) / 100 = Credits bank or use per minute
 
-e.g in above instance your baeline is 20% and and if you use 10% of the CPU you are accumalting (20%-10%)/100 = 0.1 credit per minute.
+e.g in above instance your baseline is 20% and if you use 10% of the CPU you are accumulating (20%-10%)/100 = 0.1 credit per minute.
 
 ### Q: Does the B-Series support Premium Storage data disks?
 **A**: Yes, all B-Series sizes support Premium Storage data disks.   
