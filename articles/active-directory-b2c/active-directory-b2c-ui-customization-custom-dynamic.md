@@ -302,7 +302,7 @@ Modify the HomeController `unified` method to accept the campaignId parameter. T
 
 5. Add the _campaignId_ query string parameter to the URI. For example, add `&campaignId=hawaii`, as shown in following image:
 
-    ![URI with campaignId query string paramenter highlighted](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
+    ![URI with campaignId query string parameter highlighted](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-campaignId-param.png)
 
 6. Select **Enter** to display the Hawaii background image.
 
