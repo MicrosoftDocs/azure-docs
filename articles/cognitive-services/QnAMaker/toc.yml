@@ -56,7 +56,7 @@
   - name: Using SDKs
     items: 
     - name: C#
-      href: ./Quickstarts/create-and-publish-kb-csharp-sdk.md
+      href: ./Quickstarts/create-publish-kb-csharp-sdk.md
 - name: Tutorials
   items: 
   - name: Create and answer from KB
