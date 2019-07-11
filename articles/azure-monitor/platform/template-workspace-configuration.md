@@ -45,18 +45,7 @@ The following table lists the API version for the resources used in this example
 | Solution    | solutions     | 2015-11-01-preview |
 
 ## Create a Log Analytics workspace
-The following example creates a workspace using a template from  your local machine. The  JSON template is configured to only prompt you for the name of the workspace, and specifies a default value for the other parameters that would likely be used as a standard configuration in your environment.  
-
-The following parameters set a default value:
-
-* Location - defaults to East US
-* SKU - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
-
-> [!NOTE]
->If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.  
->If you might have some subscriptions in the [pre-April 2018 pricing model](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), you can specify 
->the **Standalone** pricing tier, and this will succeed for both subscription in the pre-April 2018 pricing model and for subscriptions in the new pricing. For workspaces in subscriptions 
->that have adopted the new proicing model, the pricing tier will be set to **PerGB2018**. 
+The following example creates a workspace using a template from  your local machine. The  JSON template is configured to only require the name and location of the new workspace (using the default values for the other workspace parameters such as pricing tier and retention).  
 
 ### Create and deploy template
 
@@ -69,33 +58,42 @@ The following parameters set a default value:
     "parameters": {
         "workspaceName": {
             "type": "String",
-			"metadata": {
+            "metadata": {
               "description": "Specifies the name of the workspace."
             }
         },
         "location": {
             "type": "String",
-			"allowedValues": [
-			  "eastus",
-			  "westus"
-			],
-			"defaultValue": "eastus",
-			"metadata": {
-			  "description": "Specifies the location in which to create the workspace."
-			}
-        },
-        "sku": {
-            "type": "String",
-			"allowedValues": [
-              "Standalone",
-              "PerNode",
-		      "PerGB2018"
+            "allowedValues": [
+              "australiacentral", 
+              "australiaeast", 
+              "australiasoutheast", 
+              "brazilsouth",
+              "canadacentral", 
+              "centralindia", 
+              "centralus", 
+              "eastasia", 
+              "eastus", 
+              "eastus2", 
+              "francecentral", 
+              "japaneast", 
+              "koreacentral", 
+              "northcentralus", 
+              "northeurope", 
+              "southafricanorth", 
+              "southcentralus", 
+              "southeastasia", 
+              "uksouth", 
+              "ukwest", 
+              "westcentralus", 
+              "westeurope", 
+              "westus", 
+              "westus2" 
             ],
-			"defaultValue": "PerGB2018",
-	        "metadata": {
-            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
-		}
-          }
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
+        }
     },
     "resources": [
         {
@@ -104,9 +102,6 @@ The following parameters set a default value:
             "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
-                "sku": {
-                    "Name": "[parameters('sku')]"
-                },
                 "features": {
                     "searchVersion": 1
                 }
@@ -117,19 +112,19 @@ The following parameters set a default value:
     ```
 2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
-4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace.
+4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace, specifying the workspace name and location as part of the command.
 
    * For PowerShell use the following commands from the folder containing the template:
    
         ```powershell
-        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json -workspaceName <workspace-name> -location <location>
         ```
 
    * For command line, use the following commands from the folder containing the template:
 
         ```cmd
         azure config mode arm
-        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
         ```
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:<br><br> ![Example result when deployment is complete](./media/template-workspace-configuration/template-output-01.png)
@@ -158,19 +153,21 @@ The following template sample illustrates how to:
         "description": "Workspace name"
       }
     },
-    "serviceTier": {
+    "pricingTier": {
       "type": "string",
       "allowedValues": [
+        "PerGB2018",
         "Free",
         "Standalone",
         "PerNode",
-        "PerGB2018"
+        "Standard",
+        "Premium"
       ],
       "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
-    }
-      },
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
     "dataRetention": {
       "type": "int",
       "defaultValue": 30,
@@ -180,21 +177,44 @@ The following template sample illustrates how to:
         "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
       }
     },
-	{
-	"immediatePurgeDataOn30Days": {
-	  "type": "bool",
-	  "metadata": {
-	    "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
-	  }
-	},
+    {
+    "immediatePurgeDataOn30Days": {
+      "type": "bool",
+      "metadata": {
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
+      }
+    },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "Australia Southeast"
-      ]
+        "australiacentral", 
+        "australiaeast", 
+        "australiasoutheast", 
+        "brazilsouth",
+        "canadacentral", 
+        "centralindia", 
+        "centralus", 
+        "eastasia", 
+        "eastus", 
+        "eastus2", 
+        "francecentral", 
+        "japaneast", 
+        "koreacentral", 
+        "northcentralus", 
+        "northeurope", 
+        "southafricanorth", 
+        "southcentralus", 
+        "southeastasia", 
+        "uksouth", 
+        "ukwest", 
+        "westcentralus", 
+        "westeurope", 
+        "westus", 
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Specifies the location in which to create the workspace."
+      }
     },
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
@@ -232,7 +252,10 @@ The following template sample illustrates how to:
       "location": "[parameters('location')]",
       "properties": {
         "sku": {
-          "Name": "[parameters('serviceTier')]"
+          "name": "[parameters('pricingTier')]"
+          "features": {
+            "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
+          }
         },
     "retentionInDays": "[parameters('dataRetention')]"
       },
@@ -490,6 +513,10 @@ The following template sample illustrates how to:
     "retentionInDays": {
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
+    },
+    "immediatePurgeDataOn30Days": {  
+      "type": "bool",
+      "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
     },
     "portalUrl": {
       "type": "string",
