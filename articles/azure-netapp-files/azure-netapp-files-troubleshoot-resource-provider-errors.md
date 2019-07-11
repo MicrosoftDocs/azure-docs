@@ -265,7 +265,7 @@ This error occurs when you are trying to create a Volume and there are both the 
 * Cause:   
 Both the CIFS (SMB) and NFS protocol types are used in the volume properties.
 * Solution:   
-Remove one of the protocol type
+Remove one of the protocol type.
 * Workaround:   
 Leave the protocol type property empty or null.
 
@@ -625,7 +625,7 @@ This error occurs when you try to create an SMB volume, but no Active Directory 
 * Cause:   
 You are trying to create an SMB volume, but no Active Directory configuration has been added to the account. 
 * Solution:   
-Add an Active Directory configuration to the account before you create an SMB volume
+Add an Active Directory configuration to the account before you create an SMB volume.
 
 ***Could not query DNS server. Verify that the network configuration is correct and that DNS servers are available.***
 
