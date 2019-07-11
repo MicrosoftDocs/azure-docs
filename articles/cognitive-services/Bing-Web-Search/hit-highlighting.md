@@ -15,17 +15,38 @@ ms.author: scottwhi
 
 # Using decoration markers to highlight text
 
-Bing supports hit highlighting which marks query terms (or other terms that Bing finds relevant) in the display strings of some of the answers. For example, a webpage's `name`, `displayUrl`, and `snippet` fields may mark the query terms.
+Several of the Bing Search APIs support optional decoration markers that label search terms and other text features that appear in search results. These markers are inserted into the answers returned by the API, and can be used to highlight terms, phone numbers, addresses, and more. 
 
-By default, Bing doesn't include highlighting markers in display strings. To include the markers, include the `textDecorations` query parameter in your request and set it to **true**. Bing marks the query terms using the E000 and E001 Unicode characters to mark the beginning and end of the term. For example, if the query term is Sailing Dinghy and either term exists in the field, the term is enclosed in hit highlighting characters as shown in the following example:  
+By default, Bing doesn't include highlighting markers in display strings. To enable the markers, include the `textDecorations` query parameter in your request and set it to `true`. 
+
+## Hit highlighting  
+
+Bing supports hit highlighting, which marks query terms (or other terms that Bing finds relevant) in the display strings of some answers. For example, a webpage result's `name`, `displayUrl`, and `snippet` fields might contain marked query terms.
+
+The search query `Sailing Dinghy` was used in the example below. Bing inserted the `E000` and `E001` Unicode characters to mark the beginning and end of the query term. Because relevant terms exist in the result's fields, they're enclosed in hit highlighting characters:
   
 ![Hit Highlighting](./media/cognitive-services-bing-web-api/bing-hit-highlighting.png) 
 
-Before displaying the string in your user interface, you would replace the Unicode characters with characters that are appropriate for your display format. For example, if you're displaying the text as HTML, you might highlight the query term by replacing E000 with <b\> and E001 with </b\>. If you don't want to apply formatting, remove the markers from the string. 
+Before displaying the result in your user interface, replace the Unicode characters with ones that are appropriate for your display format.
 
-Bing provides the option of using Unicode characters or HTML tags as markers. To specify which markers to use, include the `textFormat` query parameter. To mark the content with Unicode characters, set `textFormat` to Raw (the default), and to mark the content with HTML tags, set `textFormat` to HTML. 
-  
-If `textDecorations` is **true**, Bing may include the following markers in display strings of answers. If there is no HTML equivalent, the HTML table cell is empty.
+## Marker formatting
+
+Bing provides the option of using either Unicode characters or HTML tags as markers. To specify which markers to use, include the [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) query parameter: 
+
+| Value             | Marker                       |
+|-------------------|------------------------------|
+| `textFormat=Raw`  | Unicode characters (default) |
+| `textFormat=HTML` | HTML characters              |
+
+## Additional text decorations
+
+Bing can return several different text decorations. For example, a `Computation` answer can contain subscript markers for the query term `log(2)` in the `expression` field.
+
+![computation markers](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
+
+If the request did not request decorations, the `expression` field would contain `log10(2)`. 
+
+If `textDecorations` is `true`, Bing may include the following markers in the display strings of answers. If there is no equivalent HTML tag, the table cell is empty.
 
 |Unicode|HTML|Description
 |-|-|-
@@ -52,9 +73,7 @@ If `textDecorations` is **true**, Bing may include the following markers in disp
 |U+E018|\<sup>|Marks the beginning of superscript content
 |U+E019|\</sup>|Marks the end of superscript content
 
-The following example shows a `Computation` answer that contains subscript markers for a log(2) query term. The `expression` field contains the markers only if `textDecoration` is **true**.
+## Next steps
 
-![computation markers](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
-
-If the request did not request decorations, the expression would be log10(2). 
-  
+* [What is the Bing Web Search API?](overview.md) 
+* [Resize and crop thumbnails](resize-and-crop-thumbnails.md)
