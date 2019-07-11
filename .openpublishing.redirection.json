@@ -7325,15 +7325,15 @@
       "redirect_url": "/azure/active-directory/saas-apps/cisco-spark-tutorial",
       "redirect_document_id": true
     },
+	{
+      "source_path": "articles/active-directory/active-directory-saas-cisco-spark-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/active-directory/active-directory-saas-cisco-webex-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/cisco-webex-tutorial",
       "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/saas-apps/cisco-webex-provisioning-tutorial.md",
-      "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-ciscocloud-tutorial.md",

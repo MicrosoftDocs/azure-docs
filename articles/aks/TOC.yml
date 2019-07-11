@@ -126,6 +126,8 @@
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler (preview)
       href: cluster-autoscaler.md
+    - name: Use Availability Zones (preview)
+      href: availability-zones.md
     - name: Use multiple node pools (preview)
       href: use-multiple-node-pools.md
     - name: Deploy AKS with Terraform
