@@ -2,7 +2,7 @@
 title: 'Python Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
 description: Explains how to create an index, load data, and run queries using Python, Jupyter Notebooks, and the Azure Search REST API.
 
-ms.date: 06/20/2019
+ms.date: 07/09/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -290,26 +290,13 @@ This step shows you how to query an index using the [Search Documents REST API](
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## Clean up 
+## Clean up
 
-You should delete the index if you no longer need it. A free service is limited to three indexes. You should delete any indexes you are not actively using to make room for other tutorials.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
-The easiest way to delete objects is through the portal, but since this is a Python quickstart, the following syntax yields the same result:
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
-
-You can verify index deletion by requesting a list of existing indexes. If hotels-quickstart is gone, then you know your request succeeded.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

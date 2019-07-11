@@ -9,12 +9,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 07/10/2019
 ms.author: wellsi
 ---
 
 # Release notes of Cognitive Services Speech Devices SDK
 The following sections list changes in the most recent releases.
+
+## Speech Devices SDK 1.6.0:
+
+*	Support [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) on Windows and Linux with common [sample application](https://aka.ms/sdsdk-download)
+*	Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.6.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
 
 ## Speech Devices SDK 1.5.1:
 

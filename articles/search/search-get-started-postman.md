@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/16/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -23,15 +23,15 @@ ms.custom: seodec2018
 
 One of the easiest ways to explore the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice) is using Postman or another web testing tool to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin and then [sign up for Azure Search](search-create-service-portal.md).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 The following services and tools are used in this quickstart. 
 
-+ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Search.
 
-+ [Postman desktop app](https://www.getpostman.com/) or [Telerik Fiddler](https://www.telerik.com/fiddler) is used for sending requests to Azure Search.
++ [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ## Get a key and URL
 
@@ -235,7 +235,11 @@ For more information about this API, see [Get Index Statistics REST API](https:/
 
 ## Clean up
 
-If you no longer need the search service, the fastest way to release services is by deleting the resource group containing the Azure Search service. Deleting the resource group permanently deletes everything in it, including the services and any stored content. In the portal, the resource group name is on the Overview page of each service.
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 
