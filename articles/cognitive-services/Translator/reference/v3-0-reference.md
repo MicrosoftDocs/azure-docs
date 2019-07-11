@@ -3,14 +3,14 @@ title: Translator Text API V3.0 Reference
 titlesuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Text API V3.0.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
+ms.author: swmachan
 ---
 
 # Translator Text API v3.0
@@ -27,20 +27,20 @@ Version 3 of the Translator Text API provides a modern JSON-based Web API. It im
 
 ## Base URLs
 
-Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 6 [Azure regions](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 6 [Azure geographies](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **Americas:** West US 2 and West Central US 
 * **Asia Pacific:** Southeast Asia and Korea South
 * **Europe:** North Europe and West Europe
 
-Requests to the Microsoft Translator Text API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the region.
+Requests to the Microsoft Translator Text API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
 
-To force the request to be handled by a specific datacenter, change the Global endpoint in the API request to the desired regional endpoint:
+To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired regional endpoint:
 
-|Description|Region|Base URL|
+|Description|Azure Geography|Base URL|
 |:--|:--|:--|
-|Azure|Global|	api.cognitive.microsofttranslator.com|
-|Azure|North America|	api-nam.cognitive.microsofttranslator.com|
+|Azure|Global (non-regional)|	api.cognitive.microsofttranslator.com|
+|Azure|United States|	api-nam.cognitive.microsofttranslator.com|
 |Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
 

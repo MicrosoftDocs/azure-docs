@@ -46,10 +46,8 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 * Support for streams.
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned.
 
-### <a name="2.5.0"/>2.5.0
+### <a name="2.4.1"/>2.4.1
 
-* Allow write requests to fallback to a different region if the original one fails
-* Add session retry policy for write request
 * Fixes tracing race condition for queries which caused empty pages
 
 ### <a name="2.4.0"/>2.4.0
@@ -230,7 +228,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.1.0"/>1.1.0
 
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](how-to-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregates.md).
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.0.0"/>1.0.0
@@ -253,7 +251,7 @@ If you have questions related to this SDK, post to [StackOverflow](https://stack
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [2.5.0](#2.5.0) |June  18, 2019 |--- |
+| [2.4.1](#2.4.1) |June  20, 2019 |--- |
 | [2.4.0](#2.4.0) |May  05, 2019 |--- |
 | [2.3.0](#2.3.0) |April  04, 2019 |--- |
 | [2.2.3](#2.2.3) |March  11, 2019 |--- |

@@ -27,26 +27,26 @@ You can copy data from Azure SQL Database Managed Instance to any supported sink
 Specifically, this Azure SQL Database Managed Instance connector supports:
 
 - Copying data by using SQL authentication.
-- As a source, retrieving data by using a SQL query or stored procedure.
+- As a source, retrieving data by using a SQL query or a stored procedure.
 - As a sink, appending data to a destination table or invoking a stored procedure with custom logic during copy.
 
 >[!NOTE]
->Azure SQL Database Managed Instance **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current)** is not supported by this connector now. To work around, you can use [generic ODBC connector](connector-odbc.md) and SQL Server ODBC driver via Self-hosted Integration Runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) with ODBC driver download and connection string configurations.
+>Azure SQL Database Managed Instance [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-mi-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-mi-current) with ODBC driver download and connection string configurations.
 
 >[!NOTE]
->Service principal and managed identity authentications are currently not supported by this connector and on the plan to enable soon after. For now, to workaround, you can choose Azure SQL Database connector and manully specify the server of your managed instance.
+>Service principal and managed identity authentications currently aren't supported by this connector. To work around, choose an Azure SQL Database connector and manually specify the server of your managed instance.
 
 ## Prerequisites
 
-To access Azure SQL Database Managed Instance **[public endpoint](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)**, you can use ADF managed Azure IR. Make sure you not only enable the public endpoint, but also allow public endpoint traffic on the network security group to make ADF being able to connect to your database, by following [this guidance](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
+To access the Azure SQL Database Managed Instance [public endpoint](../sql-database/sql-database-managed-instance-public-endpoint-securely.md), you can use an Azure Data Factory managed Azure integration runtime. Make sure that you enable the public endpoint and also allow public endpoint traffic on the network security group so that Azure Data Factory can connect to your database. For more information, see [this guidance](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
-To access Azure SQL Database Managed Instance **private endpoint**, set up a [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) that can access the database. If you provision the self-hosted integration runtime in the same virtual network as your managed instance, make sure that your integration runtime machine is in a different subnet than your managed instance. If you provision your self-hosted integration runtime in a different virtual network than your managed instance, you can use either a virtual network peering or virtual network to virtual network connection. For more information, see [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+To access the Azure SQL Database Managed Instance private endpoint, set up a [self-hosted integration runtime](create-self-hosted-integration-runtime.md) that can access the database. If you provision the self-hosted integration runtime in the same virtual network as your managed instance, make sure that your integration runtime machine is in a different subnet than your managed instance. If you provision your self-hosted integration runtime in a different virtual network than your managed instance, you can use either a virtual network peering or a virtual network to virtual network connection. For more information, see [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to the Azure SQL Database Managed Instance connector.
+The following sections provide details about properties that are used to define Azure Data Factory entities specific to the Azure SQL Database Managed Instance connector.
 
 ## Linked service properties
 
@@ -54,12 +54,13 @@ The following properties are supported for the Azure SQL Database Managed Instan
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **SqlServer**. | Yes. |
-| connectionString |This property specifies the connectionString information that's needed to connect to the managed instance by using SQL authentication. For more information, see the following examples. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes. |
-| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your managed instance has public endpoint and allow ADF to access). If not specified, it uses the default Azure Integration Runtime. |Yes. |
+| type | The type property must be set to **SqlServer**. | Yes |
+| connectionString |This property specifies the **connectionString** information that's needed to connect to the managed instance by using SQL authentication. For more information, see the following examples. <br/>Mark this field as **SecureString** to store it securely in Azure Data Factory. You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows Azure Data Factory to access it. If not specified, the default Azure integration runtime is used. |Yes |
 
 **Example 1: Use SQL authentication**
-Default port is 1433. If you are using SQL Managed Instance with public endpoint, explicitly specify port 3342.
+
+The default port is 1433. If you're using Azure SQL Database Managed Instance with a public endpoint, explicitly specify port 3342.
 
 ```json
 {
@@ -80,8 +81,9 @@ Default port is 1433. If you are using SQL Managed Instance with public endpoint
 }
 ```
 
-**Example 2: Use SQL authentication with password in Azure Key Vault**
-Default port is 1433. If you are using SQL Managed Instance with public endpoint, explicitly specify port 3342.
+**Example 2: Use SQL authentication with a password in Azure Key Vault**
+
+The default port is 1433. If you're using Azure SQL Database Managed Instance with a public endpoint, explicitly specify port 3342.
 
 ```json
 {
@@ -118,8 +120,8 @@ To copy data to and from Azure SQL Database Managed Instance, the following prop
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to **SqlServerTable**. | Yes. |
-| tableName |This property is the name of the table or view in the database instance that the linked service refers to. | No for source. Yes for sink. |
+| type | The type property of the dataset must be set to **SqlServerTable**. | Yes |
+| tableName |This property is the name of the table or view in the database instance that the linked service refers to. | No for source, Yes for sink |
 
 **Example**
 
@@ -151,12 +153,12 @@ To copy data from Azure SQL Database Managed Instance, set the source type in th
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to **SqlSource**. | Yes. |
-| sqlReaderQuery |This property uses the custom SQL query to read data. An example is `select * from MyTable`. |No. |
-| sqlReaderStoredProcedureName |This property is the name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. |No. |
-| storedProcedureParameters |These parameters are for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of the parameters must match the names and casing of the stored procedure parameters. |No. |
+| type | The type property of the copy activity source must be set to **SqlSource**. | Yes |
+| sqlReaderQuery |This property uses the custom SQL query to read data. An example is `select * from MyTable`. |No |
+| sqlReaderStoredProcedureName |This property is the name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. |No |
+| storedProcedureParameters |These parameters are for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of the parameters must match the names and casing of the stored procedure parameters. |No |
 
-Note the following points:
+**Note the following points:**
 
 - If **sqlReaderQuery** is specified for **SqlSource**, the copy activity runs this query against the managed instance source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either the **sqlReaderQuery** or **sqlReaderStoredProcedureName** property, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query `select column1, column2 from mytable` runs against the managed instance. If the dataset definition doesn't have "structure," all columns are selected from the table.
@@ -251,21 +253,21 @@ GO
 ### Azure SQL Database Managed Instance as a sink
 
 > [!TIP]
-> Learn more on the supported write behaviors, configurations and best practice from [Best practice for loading data into Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
+> Learn more about the supported write behaviors, configurations, and best practices from [Best practice for loading data into Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
 
 To copy data to Azure SQL Database Managed Instance, set the sink type in the copy activity to **SqlSink**. The following properties are supported in the copy activity sink section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity sink must be set to **SqlSink**. | Yes. |
-| writeBatchSize |Number of rows to inserts into the SQL table **per batch**.<br/>Allowed values are integers for the number of rows. By default, Data Factory dynamically determine the appropriate batch size based on the row size.  |No |
-| writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the time span. An example is “00:30:00,” which is 30 minutes. |No. |
-| preCopyScript |This property specifies a SQL query for the copy activity to execute before writing data into the managed instance. It's invoked only once per copy run. You can use this property to clean up preloaded data. |No. |
-| sqlWriterStoredProcedureName |This name is for the stored procedure that defines how to apply source data into the target table. <br/>This stored procedure is *invoked per batch*. To do an operation that runs only once and has nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. |No. |
-| storedProcedureParameters |These parameters are used for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of the parameters must match the names and casing of the stored procedure parameters. |No. |
-| sqlWriterTableType |This property specifies a table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No. |
+| type | The type property of the copy activity sink must be set to **SqlSink**. | Yes |
+| writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size.  |No |
+| writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is “00:30:00,” which is 30 minutes. |No |
+| preCopyScript |This property specifies a SQL query for the copy activity to run before writing data into the managed instance. It's invoked only once per copy run. You can use this property to clean up preloaded data. |No |
+| sqlWriterStoredProcedureName |This name is for the stored procedure that defines how to apply source data into the target table. <br/>This stored procedure is *invoked per batch*. To do an operation that runs only once and has nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. |No |
+| storedProcedureParameters |These parameters are used for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of the parameters must match the names and casing of the stored procedure parameters. |No |
+| sqlWriterTableType |This property specifies a table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
 
-**Example 1: append data**
+**Example 1: Append data**
 
 ```json
 "activities":[
@@ -297,9 +299,9 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 ]
 ```
 
-**Example 2: invoke a stored procedure during copy**
+**Example 2: Invoke a stored procedure during copy**
 
-Learn more details from [Invoke a stored procedure from a SQL sink](#invoking-stored-procedure-for-sql-sink).
+Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -338,31 +340,31 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoking-st
 
 ## Best practice for loading data into Azure SQL Database Managed Instance
 
-When you copy data into Azure SQL Database Managed Instance, you may require different write behavior:
+When you copy data into Azure SQL Database Managed Instance, you might require different write behavior:
 
-- **[Append](#append-data)**: my source data only has new records;
-- **[Upsert](#upsert-data)**: my source data has both inserts and updates;
-- **[Overwrite](#overwrite-entire-table)**: I want to reload entire dimension table each time;
-- **[Write with custom logic](#write-data-with-custom-logic)**: I need extra processing before the final insertion into the destination table.
+- [Append](#append-data): My source data has only new records.
+- [Upsert](#upsert-data): My source data has both inserts and updates.
+- [Overwrite](#overwrite-the-entire-table): I want to reload the entire dimension table each time.
+- [Write with custom logic](#write-data-with-custom-logic): I need extra processing before the final insertion into the destination table. 
 
-Refer to the respectively sections on how to configure in ADF and the best practices.
+See the respective sections for how to configure in Azure Data Factory and best practices.
 
 ### Append data
 
-This is the default behavior of this Azure SQL Database Managed Instance sink connector, and ADF do **bulk insert** to write to your table efficiently. You can simply configure the source and sink accordingly in Copy activity.
+Appending data is the default behavior of this Azure SQL Database Managed Instance sink connector. Azure Data Factory does a bulk insert to write to your table efficiently. You can configure the source and sink accordingly in the copy activity.
 
 ### Upsert data
 
-**Option I** (suggested especially when you have large data to copy): the **most performant approach** to do upsert is the following: 
+**Option 1:** When you have a large amount of data to copy, use the following approach to do an upsert: 
 
-- Firstly, leverage a [temporary table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) to bulk load all records using Copy activity. As operations against temporary tables are not logged, you can load millions of records in seconds.
-- Execute a Stored Procedure activity in ADF to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) (or INSERT/UPDATE) statement, and use the temp table as source to perform all updates or inserts as a single transaction, reducing the amount of roundtrips and log operations. At the end of the Stored Procedure activity , temp table can be truncated to be ready for the next upsert cycle. 
+- First, use a [temporary table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=sql-server-2017#temporary-tables) to bulk load all records by using the copy activity. Because operations against temporary tables aren't logged, you can load millions of records in seconds.
+- Run a stored procedure activity in Azure Data Factory to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) or INSERT/UPDATE statement. Use the temp table as the source to perform all updates or inserts as a single transaction. In this way, the number of round trips and log operations is reduced. At the end of the stored procedure activity, the temp table can be truncated to be ready for the next upsert cycle.
 
-As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity** on success. The former copies data from your source store into an temporary table, say "**##UpsertTempTable**" as table name in dataset, then the latter invokes a Stored Procedure to merge source data from the temp table into target table, and clean up temp table.
+As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into a temporary table, for example, **##UpsertTempTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the temp table into the target table and clean up the temp table.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-In your database, define a Stored Procedure with MERGE logic, like the following, which is pointed to from the above Stored Procedure activity. Assuming target **Marketing** table with three columns: **ProfileID**, **State**, and **Category**, and do the upsert based on the **ProfileID** column.
+In your database, define a stored procedure with MERGE logic, like the following example, which is pointed to from the previous stored procedure activity. Assume that the target is the **Marketing** table with three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column.
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -381,28 +383,31 @@ BEGIN
 END
 ```
 
-**Option II:** alternatively, you can choose to [Invoke stored procedure within Copy activity](#invoking-stored-procedure-for-sql-sink), while note this approach is executed for each row in the source table instead of leveraging bulk insert as the default approach in Copy activity, thus it doesn't fit for large scale upsert.
+**Option 2:** You also can choose to [invoke a stored procedure within a copy activity](#invoke-a-stored-procedure-from-a-sql-sink). This approach runs each row in the source table instead of using bulk insert as the default approach in the copy activity, which isn't appropriate for large-scale upsert.
 
-### Overwrite entire table
+### Overwrite the entire table
 
-You can configure **preCopyScript** property in Copy activity sink, in which case for each Copy activity run, ADF executes the script first, then run the copy to insert the data. For example, to overwrite the entire table with the latest data, you can specify a script to first delete all records before bulk-loading the new data from the source.
+You can configure the **preCopyScript** property in a copy activity sink. In this case, for each copy activity that runs, Azure Data Factory runs the script first. Then it runs the copy to insert the data. For example, to overwrite the entire table with the latest data, specify a script to first delete all the records before you bulk load the new data from the source.
 
 ### Write data with custom logic
 
-Similar as described in [Upsert data](#upsert-data) section, when you need to apply extra processing before the final insertion of source data into the destination table, you can a) for large scale, load to a temporary table then invoke a stored procedure, or b) invoking a stored procedure during copy.
+The steps to write data with custom logic are similar to those described in the [Upsert data](#upsert-data) section. When you need to apply extra processing before the final insertion of source data into the destination table, for large scale, you can do one of two things: 
 
-## <a name="invoking-stored-procedure-for-sql-sink"></a> Invoke a stored procedure from a SQL sink
+- Load to a temporary table and then invoke a stored procedure.
+- Invoke a stored procedure during copy.
 
-When you copy data into Azure SQL Database Managed Instance, you can also configure and invoke a user-specified stored procedure with additional parameters.
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
+
+When you copy data into Azure SQL Database Managed Instance, you also can configure and invoke a user-specified stored procedure with additional parameters.
 
 > [!TIP]
-> Invoking stored procedure processes the data row-by-row instead of bulk operation, which is not suggested for large scale copy. Learn more from [Best practice for loading data into Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
+> Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
 
-You can use a stored procedure when built-in copy mechanisms don't serve the purpose, e.g. apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are merge columns, look up additional values, and insertion into more than one table.
+You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert data into more than one table.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
+The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assume that the input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
 
-**Output dataset:** the "tableName" should be the same table type parameter name in your stored procedure (see below stored procedure script).
+**Output dataset:** The "tableName" is the same table type parameter name in your stored procedure, as shown in the following stored procedure script:
 
 ```json
 {
@@ -421,7 +426,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 }
 ```
 
-Define the **SQL sink** section in copy activity as follows.
+Define the **SQL sink** section in the copy activity as follows:
 
 ```json
 "sink": {
@@ -436,7 +441,7 @@ Define the **SQL sink** section in copy activity as follows.
 }
 ```
 
-In your database, define the stored procedure with the same name as the **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure should be the same as the **tableName** defined in the dataset.
+In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -453,7 +458,7 @@ BEGIN
 END
 ```
 
-In your database, define the table type with the same name as sqlWriterTableType. The schema of the table type is the same as the schema returned by your input data.
+In your database, define the table type with the same name as **sqlWriterTableType**. The schema of the table type is the same as the schema returned by your input data.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(

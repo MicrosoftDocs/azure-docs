@@ -97,6 +97,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
+    ```
 
 1. Create a `BufferedReader` and read the response from the API. Print it to the console.
     

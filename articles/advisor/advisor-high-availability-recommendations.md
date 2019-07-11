@@ -91,6 +91,9 @@ Azure Advisor will identify Azure Cosmos DB accounts that are using old versions
 
 Azure Advisor will identify Azure Cosmos DB accounts that are using old versions of the  Cosmos DB Spark connector and recommend upgrading to the latest version from Maven for the latest fixes, performance improvements, and new feature capabilities. [Learn more about Cosmos DB Spark connector](https://aka.ms/cosmosdb/spark-connector)
 
+## Enable virtual machine replication
+Virtual machines that do not have replication enabled to another region are not resilient to regional outages. Replicating virtual machines reduces any adverse business impact during the time of an Azure region outage. Advisor will detect VMs that do not have replication enabled and recommend enabling replication so that in the event of an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+
 ## How to access High Availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).

@@ -49,7 +49,10 @@ compares differences between an ISE and the global Logic Apps service.
 > [!NOTE]
 > Logic apps, built-in triggers, built-in actions, and connectors that run in 
 > your ISE use a pricing plan different from the consumption-based pricing plan. 
-> For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
+> For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md). 
+> Your ISE also has increased limits on run duration, storage retention, throughput, 
+> HTTP request and response timeouts, message sizes, and custom connector requests. 
+> For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
@@ -92,6 +95,8 @@ label run in the global Logic Apps service.
 
   ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
+An ISE also provides increased limits for run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
+
 ### Access to on-premises data sources
 
 For on-premises systems that are connected to an Azure virtual network, 
@@ -99,9 +104,7 @@ inject an ISE into that network so your logic apps can directly access
 those systems by using any of these items:
 
 * ISE-version connector for that system, for example, SQL Server
-  
 * HTTP action
-  
 * Custom connector
 
   * If you have custom connectors that require the on-premises 

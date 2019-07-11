@@ -50,11 +50,13 @@ This sample creates a test file in the *Documents* folder. The sample program up
 
 First, install the dependencies by running `pip install`:
 
+```python
     pip install azure-storage-blob
+```
 
 Next, run the sample. You’ll see messages similar to the following output:
   
-```
+```output
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
 Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt

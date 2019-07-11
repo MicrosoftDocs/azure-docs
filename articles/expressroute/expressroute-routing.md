@@ -206,6 +206,7 @@ All routes advertised from Microsoft will be tagged with the appropriate communi
 > 
 > 
 
+### Service to BGP community value
 In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
 
 | **Service** | **BGP community value** |

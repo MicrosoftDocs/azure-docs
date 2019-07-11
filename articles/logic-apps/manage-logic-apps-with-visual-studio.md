@@ -1,5 +1,5 @@
 ---
-title: Manage logic apps with Visual Studio - Azure Logic Apps
+title: Manage logic apps by using Visual Studio - Azure Logic Apps
 description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps

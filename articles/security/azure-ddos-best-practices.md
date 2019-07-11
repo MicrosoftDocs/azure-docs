@@ -226,6 +226,8 @@ Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any
 
 - An actor has threatened to launch a DDoS attack against your resources.
 
+- If you need to whitelist an IP or IP range from Azure DDoS Protection Standard. A common scenario is to whitelist IP if the traffic is routed from an external cloud WAF to Azure. 
+
 For attacks that have a critical business impact, create a severity-A [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ### Post-attack steps

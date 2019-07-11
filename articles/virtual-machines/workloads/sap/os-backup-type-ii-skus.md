@@ -4,7 +4,7 @@ description: Perform Operatign system backup and restore for SAP HANA on Azure (
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux

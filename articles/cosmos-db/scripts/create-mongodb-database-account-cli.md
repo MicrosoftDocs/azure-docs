@@ -6,7 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 10/26/2018
+ms.date: 7/2/2019
 ms.reviewer: sngun
 ---
 
@@ -17,6 +17,8 @@ This sample CLI script creates a Cosmos account with Azure Cosmos DB's API for M
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
+[!NOTE] To learn more about database and container naming conventions, see, [Work with databases, containers, and items in Azure Cosmos DB](../databases-containers-items.md).
 
 ## Sample script
 

@@ -3,18 +3,21 @@ title: "Quickstart: Get list of supported languages, Java - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to get a list of supported languages using Java
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
+
+>[!TIP]
+> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java).
 
 ## Prerequisites
 
@@ -98,6 +101,8 @@ Add these lines to the `GetLanguages` class:
 ```java
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
+
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## Create a client and build a request
 
@@ -257,10 +262,10 @@ A successful response is returned in JSON as shown in the following example:
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including translation and transliteration, as well as other sample Translator Text projects on GitHub.
+Take a look at the API reference to understand everything you can do with the Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explore Java examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 
