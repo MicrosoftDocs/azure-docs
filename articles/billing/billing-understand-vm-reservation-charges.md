@@ -60,11 +60,11 @@ When you buy a Reserved VM Instance, if you select **Optimized for**: **instance
 
 A reservation discount applies only to the VM usage where the `ServiceType` value in `AdditionalInfo` matches the reservation that's purchased. Reservation discount application ignores the meter used for VMs and only evaluates `ServiceType`. Know which service type that you purchased the VM for. You can exchange a non-premium storage VM reservation for a premium storage reservation, or in the opposite manner.
 
-### Services that get VM reservation discounts
+## Services that get VM reservation discounts
 
 Your VM reservations can apply to VM usage emitted from multiple services - not just for your VM deployments. Resources that get reservation discounts change depending on the instance size flexibility setting.
 
-#### Instance size flexibility setting
+### Instance size flexibility setting
 
 The instance size flexibility setting determines which services get the reserved instance discounts.
 
