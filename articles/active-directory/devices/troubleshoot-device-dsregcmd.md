@@ -33,11 +33,10 @@ This section lists the device join state parameters. The table below lists the c
 > [!NOTE]
 > Workplace Join state is displayed in the "User State" section
 
-
-**AzureAdJoined:** - Set to “YES” if the device is Joined to Azure AD. “NO” otherwise.
-**EnterpriseJoined:** - Set to “YES” if the device is Joined to an On-Prem DRS. A device cannot be both EnterpriseJoined and AzureAdJoined.
-**DomainJoined:** - Set to “YES” if the device is joined to a domain (AD).
-**DomainName:** - Set to the name of the domain if the device is joined to a domain.
+- **AzureAdJoined:** - Set to “YES” if the device is Joined to Azure AD. “NO” otherwise.
+- **EnterpriseJoined:** - Set to “YES” if the device is Joined to an On-Prem DRS. A device cannot be both EnterpriseJoined and AzureAdJoined.
+- **DomainJoined:** - Set to “YES” if the device is joined to a domain (AD).
+- **DomainName:** - Set to the name of the domain if the device is joined to a domain.
 
 ### Sample device state output
 
@@ -56,12 +55,12 @@ This section lists the device join state parameters. The table below lists the c
 
 Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists device identifying details stored in the cloud.
 
-**DeviceId:** - Unique ID of the device in the Azure AD tenant
-**Thumbprint:** - Thumbprint of the device certificate 
-**DeviceCertificateValidity:** - Validity of the device certificate
-**KeyContainerId:** -	ContainerId of the device private key associated with the device certificate
-**KeyProvider:** - KeyProvider (Hardware/Software) used to store the device private key.
-**TpmProtected:** - “YES” if the device private key is stored in a Hardware TPM.
+- **DeviceId:** - Unique ID of the device in the Azure AD tenant
+- **Thumbprint:** - Thumbprint of the device certificate 
+- **DeviceCertificateValidity:** - Validity of the device certificate
+- **KeyContainerId:** -	ContainerId of the device private key associated with the device certificate
+- **KeyProvider:** - KeyProvider (Hardware/Software) used to store the device private key.
+- **TpmProtected:** - “YES” if the device private key is stored in a Hardware TPM.
 
 ### Sample device details output
 
@@ -124,15 +123,15 @@ This section lists the status of various attributes for the user currently logge
 > [!NOTE]
 > The command must run in a user context to retrieve valid status.
 
-**NgcSet:** - Set to “YES” if a Windows Hello key is set for the current logged on user.
-**NgcKeyId:** - ID of the Windows Hello key if one is set for the current logged on user.
-**CanReset:** - Denotes if the Windows Hello key can be reset by the user. 
-**Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error. 
-**WorkplaceJoined:** - Set to “YES” if Azure AD registered accounts have been added to the device in the current NTUSER context.
-**WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run in admin context. 
-**WamDefaultAuthority:** - Set to “organizations” for Azure AD.
-**WamDefaultId:** - Always “https://login.microsoft.com” for Azure AD.
-**WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount. 
+- **NgcSet:** - Set to “YES” if a Windows Hello key is set for the current logged on user.
+- **NgcKeyId:** - ID of the Windows Hello key if one is set for the current logged on user.
+- **CanReset:** - Denotes if the Windows Hello key can be reset by the user. 
+- **Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error. 
+- **WorkplaceJoined:** - Set to “YES” if Azure AD registered accounts have been added to the device in the current NTUSER context.
+- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run in admin context. 
+- **WamDefaultAuthority:** - Set to “organizations” for Azure AD.
+- **WamDefaultId:** - Always “https://login.microsoft.com” for Azure AD.
+- **WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount. 
 
 ### Sample user state output
 
@@ -160,14 +159,14 @@ This section can be ignored for Azure AD registered devices.
 > [!NOTE]
 > The command must run in a user context to retrieve valid status.
 
-**AzureAdPrt:** - Set to “YES” if a PRT is present on the device for the logged-on user.
-**AzureAdPrtUpdateTime:** - Set to the time in UTC when the PRT was last updated.
-**AzureAdPrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
-**AzureAdPrtAuthority:** - Azure AD authority URL
-**EnterprisePrt:** - Set to “YES” if the device has PRT from on-Prem ADFS. For hybrid Azure AD joined devices the device could have PRT from both Azure AD and On-prem AD simultaneously. On-prem joined devices will only have an Enterprise PRT.
-**EnterprisePrtUpdateTime:** - Set to the time in UTC when the Enterprise PRT was last updated.
-**EnterprisePrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
-**EnterprisePrtAuthority:** - ADFS authority URL
+- **AzureAdPrt:** - Set to “YES” if a PRT is present on the device for the logged-on user.
+- **AzureAdPrtUpdateTime:** - Set to the time in UTC when the PRT was last updated.
+- **AzureAdPrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
+- **AzureAdPrtAuthority:** - Azure AD authority URL
+- **EnterprisePrt:** - Set to “YES” if the device has PRT from on-Prem ADFS. For hybrid Azure AD joined devices the device could have PRT from both Azure AD and On-prem AD simultaneously. On-prem joined devices will only have an Enterprise PRT.
+- **EnterprisePrtUpdateTime:** - Set to the time in UTC when the Enterprise PRT was last updated.
+- **EnterprisePrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
+- **EnterprisePrtAuthority:** - ADFS authority URL
 
 ### Sample SSO state output
 
@@ -196,24 +195,25 @@ This section is displayed only if the device is domain joined and is unable to h
 
 This section performs various tests to help diagnose join failures. This section also includes the details of the previous (?). This information includes the error phase, the error code, the server request ID, server response http status, server response error message.
 
-**User Context:** - The context in which the diagnostics are run. Possible values: SYSTEM, UN-ELEVATED User, ELEVATED User. 
+- **User Context:** - The context in which the diagnostics are run. Possible values: SYSTEM, UN-ELEVATED User, ELEVATED User. 
 
->**NOTE:** Since the actual join is performed in SYSTEM context, running the diagnostics in SYSTEM context is closest to the actual join scenario. To run diagnostics in SYSTEM context, the dsregcmd /status command must be run from an elevated command prompt.
+   > [!NOTE]
+   > Since the actual join is performed in SYSTEM context, running the diagnostics in SYSTEM context is closest to the actual join scenario. To run diagnostics in SYSTEM context, the dsregcmd /status command must be run from an elevated command prompt.
 
-**Client Time:** - The system time in UTC.
-**AD Connectivity Test:** - Test performs a connectivity test to the domain controller. Error in this test will likely result in Join errors in pre-check phase.
-**AD Configuration Test:** - Test reads and verifies whether the SCP object is configured properly in the on-prem AD forest. Errors in this test would likely result in Join errors in the discover phase with the error code 0x801c001d.
-**DRS Discovery Test:** - Test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in Join errors in the discover phase.
-**DRS Connectivity Test:** - Test performs basic connectivity test to the DRS endpoint.
-**Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with a registry key.
-**Fallback to Sync-Join:** - Set to “Enabled” if the registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
-**Previous Registration:** - Time the previous Join attempt occurred. Only failed Join attempts are logged.
-**Error Phase:** - The stage of the join in which it was aborted. Possible values are pre-check, discover, auth, join.
-**Client ErrorCode:** - Client error code returned (HRESULT).
-**Server ErrorCode:** - Server error code if a request was sent to the server and server responded back with an error code. 
-**Server Message:** - Server message returned along with the error code.
-**Https Status:** - Http status returned by the server.
-**Request ID:** - The client requestId sent to the server. Useful to correlate with server-side logs.
+- **Client Time:** - The system time in UTC.
+- **AD Connectivity Test:** - Test performs a connectivity test to the domain controller. Error in this test will likely result in Join errors in pre-check phase.
+- **AD Configuration Test:** - Test reads and verifies whether the SCP object is configured properly in the on-prem AD forest. Errors in this test would likely result in Join errors in the discover phase with the error code 0x801c001d.
+- **DRS Discovery Test:** - Test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in Join errors in the discover phase.
+- **DRS Connectivity Test:** - Test performs basic connectivity test to the DRS endpoint.
+- **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with a registry key.
+- **Fallback to Sync-Join:** - Set to “Enabled” if the registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
+- **Previous Registration:** - Time the previous Join attempt occurred. Only failed Join attempts are logged.
+- **Error Phase:** - The stage of the join in which it was aborted. Possible values are pre-check, discover, auth, join.
+- **Client ErrorCode:** - Client error code returned (HRESULT).
+- **Server ErrorCode:** - Server error code if a request was sent to the server and server responded back with an error code. 
+- **Server Message:** - Server message returned along with the error code.
+- **Https Status:** - Http status returned by the server.
+- **Request ID:** - The client requestId sent to the server. Useful to correlate with server-side logs.
 
 ### Sample pre-join diagnostics output
 
@@ -274,8 +274,8 @@ The following example shows diagnostics tests are passing but the registration a
 
 This section displays the output of sanity checks performed on a device joined to the cloud.
 
-**AadRecoveryEnabled:** - If “YES”, the keys stored in the device are not usable and the device is marked for recovery. The next sign in will trigger the recovery flow and re-register the device.
-**KeySignTest:** - If “PASSED” the device keys are in good health. If KeySignTest fails, the device will usually be marked for recovery. The next sign in will trigger the recovery flow and re-register the device. For hybrid Azure AD joined devices the recovery is silent. While Azure AD joined or Azure AD registered, devices will prompt for user authentication to recover and re-register the device if necessary. **The KeySignTest requires elevated privileges.**
+- **AadRecoveryEnabled:** - If “YES”, the keys stored in the device are not usable and the device is marked for recovery. The next sign in will trigger the recovery flow and re-register the device.
+- **KeySignTest:** - If “PASSED” the device keys are in good health. If KeySignTest fails, the device will usually be marked for recovery. The next sign in will trigger the recovery flow and re-register the device. For hybrid Azure AD joined devices the recovery is silent. While Azure AD joined or Azure AD registered, devices will prompt for user authentication to recover and re-register the device if necessary. **The KeySignTest requires elevated privileges.**
 
 #### Sample post-join diagnostics output
 

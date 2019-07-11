@@ -130,7 +130,7 @@ The 'Error Phase' field denotes the phase of the join failure while 'Client Erro
 
 Use Event Viewer logs to locate the phase and error code for the join failures.
 
-1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**.
+1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
 2. Look for events with the following eventIDs 304, 305, 307.
 
 ![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/1.png)
@@ -205,7 +205,7 @@ Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join statu
 
 Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
-1. Open “User Device Registration” Admin logs (Enabled by default) in event viewer. Located under “Applications and Services Log” > “Microsoft” > “Windows” > “User Device Registration”
+1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
 2. Look for events with the following eventIDs 201
 
 ![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/5.png)
@@ -253,7 +253,7 @@ Reasons for failure:
 
 Use Event Viewer logs to locate the error code, suberror code, server error code, and server error message.
 
-1. Open “User Device Registration” Admin logs (Enabled by default) in event viewer. Located under “Applications and Services Log” > “Microsoft” > “Windows” > “User Device Registration”
+1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
 2. Look for events with the following eventID 305
 
 ![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/3.png)
@@ -328,12 +328,10 @@ Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of 
 
 Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
-1. Open “User Device Registration” Admin logs (Enabled by default) in event viewer. Located under “Applications and Services Log” > “Microsoft” > “Windows” > “User Device Registration”
+1. Open the **User Device Registration** event logs in event viewer. Located under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**
 2. Look for events with the following eventIDs 204
 
 ![Failure Log Event](./media/troubleshoot-hybrid-join-windows-current/4.png)
-
-**Common Join error codes:**
 
 ##### HTTP errors returned from DRS server
 
@@ -374,15 +372,13 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
    - Reason: The connection with the server was terminated abnormally.
    - Resolution: Retry after sometime or try joining from an alternate stable network location.
 
-**Common Server error responses:**
-
-Federated Join server Errors
+##### Federated join server Errors
 
 | Server error code | Server error message | Possible reasons | Resolution |
 | --- | --- | --- | --- |
 | DirectoryError | Your request is throttled temporarily. Please try after 300 seconds. | Expected error. Possibly due to making multiple registration requests in quick succession. | Retry join after the cooldown period |
 
-Sync join server Errors
+##### Sync join server Errors
 
 | Server error code | Server error message | Possible reasons | Resolution |
 | --- | --- | --- | --- |
