@@ -26,7 +26,7 @@ ms.custom: seodec18
 > [!NOTE]
 > The Ruby development stack only supports Ruby on Rails at this time. If you want to use a different platform, such as Sinatra, or if you want to use an [unsupported Ruby version](app-service-linux-intro.md), you need to [run it in a custom container](quickstart-docker-go.md).
 
-![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
+![Hello-world](./media/quickstart-ruby/hello-world-configured.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window, change to the `hello-world` directory, and use the `rails server` command to start the server.
 
-The first step is to install the required gems. There's a `Gemfile` included in the sample so you don't need to specify the gems to install. We'll use bundler for this:
+The first step is to install the required gems. There's a `Gemfile` included in the sample, so just run the following command:
 
 ```bash
 bundle install
