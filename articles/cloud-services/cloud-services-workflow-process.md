@@ -1,6 +1,6 @@
 ---
 title: Workflow of Windows Azure VM Architecture | Microsoft Docs
-description: This article provides overview of the workflow processes when you deploy a service. 
+description: This article provides overview of the workflow processes when you deploy a service.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -18,8 +18,9 @@ ms.date: 04/08/2019
 ms.author: kwill
 
 ---
-#    Workflow of Windows Azure classic VM Architecture 
-This article provides an overview of the workflow processes that occur when you deploy or update an Azure resource such as a virtual machine. 
+# Workflow of Windows Azure classic VM Architecture
+
+This article provides an overview of the workflow processes that occur when you deploy or update an Azure resource such as a virtual machine.
 
 > [!NOTE]
 >Azure has two different deployment models for creating and working with resources: Resource Manager and classic. This article covers using the classic deployment model.
@@ -29,7 +30,7 @@ The following diagram presents the architecture of Azure resources.
 ![Azure workflow](./media/cloud-services-workflow-process/workflow.jpg)
 
 ## Workflow basics
-   
+
 **A**. RDFE / FFE is the communication path from the user to the fabric. RDFE (RedDog Front End) is the publicly exposed API that is the front end to the Management Portal and the Service Management API such as Visual Studio, Azure MMC, and so on.  All requests from the user go through RDFE. FFE (Fabric Front End) is the layer that translates requests from RDFE into fabric commands. All requests from RDFE go through the FFE to reach the fabric controllers.
 
 **B**. The fabric controller is responsible for maintaining and monitoring all the resources in the data center. It communicates with fabric host agents on the fabric OS sending information such as the Guest OS version, service package, service configuration, and service state.
@@ -57,7 +58,7 @@ The following diagram presents the architecture of Azure resources.
 3. Setting up the AppPool for the configured role in the service model
 4. Setting up IIS logging to point to the DiagnosticStore LocalStorage folder
 5. Configuring permissions and ACLs
-6. The website resides in %roleroot%:\sitesroot\0, and the apppool points to this location to run IIS. 
+6. The website resides in %roleroot%:\sitesroot\0, and the apppool points to this location to run IIS.
 
 **G**. Startup tasks are defined by the role model and started by WaHostBootstrapper. Startup tasks can be configured to run in the background asynchronously, and the host bootstrapper will start the startup task and then continue on to other startup tasks. Startup tasks can also be configured to run in Simple (default) mode in which the host bootstrapper will wait for the startup task to finish running and return a success (0) exit code before continuing to the next startup task.
 
@@ -80,7 +81,7 @@ The following diagram presents the architecture of Azure resources.
 5. WindowsAzureGuestAgent sets up the guest OS (firewall, ACLs, LocalStorage, and so on), copies a new XML configuration file to c:\Config, and then starts the WaHostBootstrapper process.
 6. For Full IIS web roles, WaHostBootstrapper starts IISConfigurator and tells it to delete any existing AppPools for the web role from IIS.
 7. WaHostBootstrapper reads the **Startup** tasks from E:\RoleModel.xml and begins executing startup tasks. WaHostBootstrapper waits until all Simple startup tasks have finished and returned a “success” message.
-8. For Full IIS web roles, WaHostBootstrapper tells IISConfigurator to configure the IIS AppPool and points the site to `E:\Sitesroot\<index>`, where `<index>` is a 0 based index into the number of <Sites> elements defined for the service.
+8. For Full IIS web roles, WaHostBootstrapper tells IISConfigurator to configure the IIS AppPool and points the site to `E:\Sitesroot\<index>`, where `<index>` is a 0 based index into the number of `<Sites>` elements defined for the service.
 9. WaHostBootstrapper will start the host process depending on the role type:
     1. **Worker Role**: WaWorkerHost.exe is started. WaHostBootstrapper executes the OnStart() method.After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation (if InputEndpoints are defined). WaHostBootsrapper then goes into a loop of checking the role status.
     1. **SDK 1.2 HWC Web Role**: WaWebHost is started. WaHostBootstrapper executes the OnStart() method. After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation. WaWebHost issues a warmup request (GET /do.rd_runtime_init). All web requests are sent to WaWebHost.exe. WaHostBootsrapper then goes into a loop of checking the role status.
@@ -91,35 +92,43 @@ The following diagram presents the architecture of Azure resources.
 
 **WindowsAzureGuestAgent**
 
-- C:\Logs\AppAgentRuntime.Log.  
+- C:\Logs\AppAgentRuntime.Log.
 This log contains changes to the service including starts, stops, and new configurations. If the service does not change, you can expect to see large gaps of time in this log file.
-- C:\Logs\WaAppAgent.Log.  
+- C:\Logs\WaAppAgent.Log.
 This log contains status updates and heartbeat notifications and is updated every 2-3 seconds.  This log contains a historic view of the status of the instance and will tell you when the instance was not in the Ready state.
- 
+
 **WaHostBootstrapper**
 
+```
 C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log
- 
+```
+
 **WaWebHost**
 
+```
 C:\Resources\Directory\<guid>.<role>\WaWebHost.log
- 
+```
+
 **WaIISHost**
 
+```
 C:\Resources\Directory\<deploymentID>.<role>\WaIISHost.log
- 
+```
+
 **IISConfigurator**
 
+```
 C:\Resources\Directory\<deploymentID>.<role>\IISConfigurator.log
- 
+```
+
 **IIS logs**
 
+```
 C:\Resources\Directory\<guid>.<role>.DiagnosticStore\LogFiles\W3SVC1
- 
+```
+
 **Windows Event logs**
 
+```
 D:\Windows\System32\Winevt\Logs
- 
-
-
-
+```
