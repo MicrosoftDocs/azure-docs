@@ -19,7 +19,7 @@ A partition is an ordered sequence of events that is held in an event hub. As ne
 
 Event Hubs retains data for a configured retention time that applies across all partitions in the event hub. Events expire on a time basis; you cannot explicitly delete them. Because partitions are independent and contain their own sequence of data, they often grow at different rates.
 
-![Event Hubs](./media/event-hubs-partitions/multiple_partitions.png)
+![Event Hubs](./media/event-hubs-partitions/multiple-partitions.png)
 
 The number of partitions is specified at creation and must be between 2 and 32. The partition count is not changeable, so you should consider long-term scale when setting partition count. Partitions are a data organization mechanism that relates to the downstream parallelism required in consuming applications. The number of partitions in an event hub directly relates to the number of concurrent readers you expect to have. You can increase the number of partitions beyond 32 by contacting the Event Hubs team.
 
