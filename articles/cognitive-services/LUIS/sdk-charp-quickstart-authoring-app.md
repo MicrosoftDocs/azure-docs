@@ -19,22 +19,25 @@ Use the Language Understanding (LUIS) client library for .NET to:
 
 * Create an app
 * Add intents, entities, and example utterances
+* Add features such as a phrase list
 * Train and publish app
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.XXX?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/XXX) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.XXX/) | [C# Samples](https://github.com/Azure-Samples/XXX)
+[Reference documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [Authoring Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 ## Setting up
 
-### Create a Language Understanding (LUIS) Azure resource
+### Get your Language Understanding (LUIS) authoring key
 
+<!--
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource of type **Cognitive Services** using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. 
+-->
 
-After getting a key from your resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_SUBSCRIPTION_KEY`.
+Get your [authoring key](luis-how-to-account-settings), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
 
 ### Create a new C# application
 
