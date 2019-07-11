@@ -126,7 +126,9 @@ Here is the list of string functions that can utilize the index:
     ```
 
     The second query will be more performant as it does not require performing transformations on each of the values in order to compare the values to "JOE".
-   
+
+For more system function details see [System Functions](https://docs.microsoft.com/azure/cosmos-db/sql-query-system-functions) article.
+
 ## Check Indexing policy
 To verify that the current [Indexing Policy](https://docs.microsoft.com/azure/cosmos-db/indexing-policies) is optimal:
 
