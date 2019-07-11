@@ -47,7 +47,7 @@ After Security Center agent is installed on your computer, follow these steps fr
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 1. Copy an executable to a convenient location and rename it to **./asc_alerttest_662jfi039n**, for example:
 
-    ```cp /bin/echo ./asc_alerttest_662jfi039n ```
+    ```cp /bin/echo ./asc_alerttest_662jfi039n```
 
 1. Open the command prompt and execute this file:
 

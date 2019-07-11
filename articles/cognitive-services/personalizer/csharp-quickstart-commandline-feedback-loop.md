@@ -1,5 +1,5 @@
 ---
-title: Feedback loop - Personalizer
+title: "Quickstart: Create a feedback loop - Personalizer"
 titleSuffix: Azure Cognitive Services
 description: Personalize content in this C# quickstart with the Personalizer service.
 services: cognitive-services
@@ -7,7 +7,7 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: quickstart
 ms.date: 06/11/2019
 ms.author: edjez
 #Customer intent: 

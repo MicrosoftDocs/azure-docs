@@ -4,7 +4,7 @@ description: Learn how to use shared image galleries to share VM images across y
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: axayjo
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

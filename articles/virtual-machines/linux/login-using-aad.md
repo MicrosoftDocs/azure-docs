@@ -4,7 +4,7 @@ description: In this howto, you learn how to create and configure a Linux VM to 
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.assetid:
