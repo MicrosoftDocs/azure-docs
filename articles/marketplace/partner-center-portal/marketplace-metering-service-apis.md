@@ -118,11 +118,13 @@ The batch usage event API allows you to emit usage events for more than one purc
 **POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Query parameters:*
+
 |            |     |
 | ---------- | -------------------- |
 | `ApiVersion` | The version of the operation to use for this request. |
 
 *Request headers:*
+
 | Content-type       | `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated, and provided in the response headers. |
@@ -185,6 +187,7 @@ OK
 }
 ```
 Description of status code referenced in `BatchUsageEvent` API response:
+
 | Status code  | Description |
 | ---------- | -------------------- |
 | `Accepted` | Accepted code. |
