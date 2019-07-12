@@ -10,6 +10,8 @@
     items:
     - name: Build a classifier
       href: getting-started-build-a-classifier.md
+    - name: Build an object detector
+      href: getting-started-build-a-detector.md
   - name: Using the .NET SDK
     items:
     - name: Image classification
