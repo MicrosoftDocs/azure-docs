@@ -132,7 +132,7 @@ run = exp.submit(src)
 
 ### MLflow with Azure Databricks runs
 
-To run your Mlflow experiments with Azure Databricks you need to first create an [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). 
+To run your Mlflow experiments with Azure Databricks, you need to first create an [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). 
 In your cluster, be sure to install the *azureml-mlflow* library from PyPi, to ensure that your cluster has access to the necessary functions and classes.
 
 #### Install libraries
@@ -145,7 +145,7 @@ In the **Package** field, type azureml-mlflow and then click install. Repeat thi
 
  ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/install-libraries.png)
 
-#### Notebook and workspace set up
+#### Notebook and workspace set-up
 
 Once your cluster is set up, import your experiment notebook, open it and attach your cluster to it.
 
@@ -191,7 +191,7 @@ mlflow.log_metric("epoch_loss", loss.item())
 
 ## View metrics and artifacts in your workspace
 
-The metrics and artifacts from MLflow logging are kept in your workspace. To view them any time, navigate to your workspace and find the experiment by name on the [Azure portal](https://portal.azure.com) or by running the below code. 
+The metrics and artifacts from MLflow logging are kept in your workspace. To view them anytime, navigate to your workspace and find the experiment by name on the [Azure portal](https://portal.azure.com) or by running the below code. 
 
 ```python
 run.get_metrics()
@@ -205,7 +205,7 @@ Deploying your MLflow experiments as an Azure Machine Learning web service allow
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram-deploy.png)
 
 ### Log your model
-Before we can deploy, be sure that that your model is saved so you can reference it and its path location for deployment. In your training script, there should be code similar to the following [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) method, that saves your model to the specified outputs directory. 
+Before we can deploy, be sure that your model is saved so you can reference it and its path location for deployment. In your training script, there should be code similar to the following [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) method, that saves your model to the specified outputs directory. 
 
 ```python
 # change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 
@@ -236,7 +236,7 @@ model_save_path = "model"
 
 The `mlflow.azureml.build_image()` function builds a Docker image from the saved model in a framework-aware manner. It automatically creates the framework-specific inferencing wrapper code and specifies package dependencies for you. Specify the model path, your workspace, run ID and other parameters.
 
-In the following code, we build a docker image using *runs:/<run.id>/model* as the model_uri path for an Scikit-learn experiment.
+In the following code, we build a docker image using *runs:/<run.id>/model* as the model_uri path for a Scikit-learn experiment.
 
 ```python
 import mlflow.azureml
