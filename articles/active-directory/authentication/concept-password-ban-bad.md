@@ -83,6 +83,8 @@ Azure AD password protection is designed to efficiently block all known weak pas
 
 Although the Microsoft global banned list is small in comparison to some third-party bulk lists, its security effects are amplified by the fact that it is sourced from real-world security telemetry on actual password spray attacks, plus the fact that the Microsoft password validation algorithm uses smart fuzzy-matching techniques. The end result is that it will efficiently detect and block millions of the most common weak passwords from being used in your enterprise. Customers who choose to add organization-specific terms to the custom banned password list also benefit from the same algorithm.
 
+Additional information on password-based security issues may be reviewed at [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+
 ## On-premises hybrid scenarios
 
 Protecting cloud-only accounts is helpful but many organizations maintain hybrid scenarios including on-premises Windows Server Active Directory. It is possible to install Azure AD password protection for Windows Server Active Directory agents on-premises to extend the banned password lists to your existing infrastructure. Now users and administrators who change, set, or reset passwords on-premises are required to comply with the same password policy as cloud-only users.
