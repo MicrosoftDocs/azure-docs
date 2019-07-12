@@ -3,7 +3,7 @@ title: Add a real device to an Azure IoT Central application | Microsoft Docs
 description: As an operator, add a real device to your Azure IoT Central application.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 04/23/2019
+ms.date: 07/14/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -43,35 +43,25 @@ Install [Node.js](https://nodejs.org/) version 8.0.0 or later on your developmen
 
 ## Add a real device
 
-To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
+To add a real device to your application, you use the **Environmental Sensor** device definition you created in the [Define a new device type](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
 
-1. To add a new device as an operator choose **Device Explorer** in the left navigation menu:
+1. To add a new device as an operator choose **Device Explorer** in the left navigation menu. The **Device Explorer** shows the **Environmental Sensor** device definition and the simulated device you created in a previous tutorial.
 
-   ![Device explorer page showing connected air conditioner](media/tutorial-add-device-pnp/explorer.png)
+1. To start connecting a real environmental sensor device, select **+ New**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Then select **Create**:
 
-   The **Device Explorer** shows the **Connected Air Conditioner** device template and a simulated device. When you create a device template, IoT Central automatically creates a simulated device.
-
-2. To start connecting a real connected air conditioner device, select **+**, then **Real**:
-
-   ![Start adding a new, real connected air conditioner device](media/tutorial-add-device-pnp/newreal.png)
-
-3. Enter the Device ID (should be lower case) or use the suggested Device ID. You can also enter the name for your new device and choose **Create**.
-
-   ![Rename the device](media/tutorial-add-device-pnp/rename.png)
+    ![Create the device](media/tutorial-add-device-pnp/createreal.png)
 
 ## Configure a real device
 
-The real device is created from the **Connected Air Conditioner** device template. You can use **Settings** to configure your device and set property values to record information about your device.
+The real device is created from the **Environmental Sensor** device definition. You can use **Environmental Sensor properties** page to update writeable device properties and cloud properties.
 
-1. On the **Settings** page, notice that the **Set Temperature** setting status is **no update**. It stays in this state until the real device connects to the application and acknowledges that it has acted on the setting.
+1. On the **Environmental Sensor properties** page for your real device, update the **Customer name** and **Last service date** cloud properties.
 
-    ![Settings show syncing](media/tutorial-add-device-pnp/settingssyncing.png)
+1. On the **Environmental Sensor properties** page for your real device, update the writeable **Brightness Level** device property. IoT Central sends writeable device properties to the device when it connects. Select **Save**:
 
-2. On the **Properties** page for your new, real device, both location of service and last service date are editable properties. The serial number and firmware version fields are empty until the device is connected to the application. These read-only values are sent from the device and can't be edited.
+    ![Set device and cloud properties](media/tutorial-add-device-pnp/setproperties.png)
 
-    ![Device Properties for real device](media/tutorial-add-device-pnp/setproperties1.png)
-
-3. You can view the **Measurements**, **Rules**, and **Dashboard** pages for your real device.
+1. You can also view the **Dashboard**, **Commands** pages for your real device.
 
 ## Generate connection string
 
@@ -82,10 +72,10 @@ A device developer needs to embed the *connection string* for your real device i
 The example code in this article is written in [Node.js](https://nodejs.org/) and shows enough code to:
 
 * Connect as a device to your Azure IoT Central application.
-* Send temperature telemetry as a connected air conditioner device.
+* Send temperature telemetry as an environmental sensor device.
 * Send device properties to your Azure IoT Central application.
-* Respond to an operator who uses the **Set Temperature** setting.
-* Handle the Echo command from your Azure IoT Central application.
+* Receive writeable device properties.
+* Handle commands called from your Azure IoT Central application.
 
 The articles listed in the [Next Steps](#next-steps) section include more complete samples and show other programming languages. For more information about how devices connect to Azure IoT Central, see the [Device connectivity](concepts-connectivity.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
@@ -93,13 +83,11 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
 ### Get the device connection information
 
-1. The connection string for a device instance in your application is generated from device information provided by the IoT Central.
+The connection string for a device instance in your application is generated from device information provided by the IoT Central:
 
-   On the device screen for your real connected air conditioner, choose **Connect**.
+1. On the device screen for your real environmental sensor, choose **Connect**.
 
-   ![Device page showing view connection information link](media/tutorial-add-device-pnp/connectionlink.png)
-
-1. On the Device Connection page, make a note of the **Scope ID**, **Device ID** and **Primary Key** values. You use these values in the next step.
+1. On the Device Connection page, make a note of the **Scope ID**, **Device ID, and **Primary Key** values. You use these values in a following step:
 
    ![Connection details](media/tutorial-add-device-pnp/device-connect.png)
 
@@ -109,9 +97,9 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
 ### Prepare the Node.js project
 
-1. Create a folder called `connectedairconditioner` on your development machine.
+1. Create a folder called `environmentalsensor` on your development machine.
 
-1. In your command-line environment, navigate to the `connectedairconditioner` folder you created.
+1. In your command-line environment, navigate to the `environmentalsensor` folder you created.
 
 1. To initialize your Node.js project, run the following command accepting all the defaults:
 
@@ -125,9 +113,9 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. Using a text editor, create a file called **ConnectedAirConditioner.js** in the `connectedairconditioner` folder.
+1. Using a text editor, create a file called **EnvironmentalSensor.js** in the `environmentalsensor` folder.
 
-1. Add the following `require` statements at the start of the **ConnectedAirConditioner.js** file:
+1. Add the following `require` statements at the start of the **EnvironmentalSensor.js** file:
 
     ```javascript
     'use strict';
@@ -141,7 +129,6 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
     ```javascript
     var connectionString = '{your device connection string}';
-    var targetTemperature = 0;
     var client = clientFromConnectionString(connectionString);
     ```
 
@@ -160,13 +147,17 @@ In the previous section, you created a skeleton Node.js project for an applicati
 * Receive settings from your Azure IoT Central application.
 * Handle the Echo command from your Azure IoT Central application.
 
-1. To send temperature telemetry to your Azure IoT Central application, add the following code to the **ConnectedAirConditioner.js** file:
+1. To send temperature telemetry to your Azure IoT Central application, add the following code to the **EnvironmentalSensor.js** file:
 
     ```javascript
-    // Send device telemetry.
+    // Send device measurements.
     function sendTelemetry() {
-      var temperature = targetTemperature + (Math.random() * 15);
-      var data = JSON.stringify({ temperature: temperature });
+      var temperature = 40 + (Math.random() * 15);
+      var humidity= 70 + (Math.random() * 10);
+      var data = JSON.stringify({
+        temp: temperature,
+        humid: humidity
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -174,61 +165,52 @@ In the previous section, you created a skeleton Node.js project for an applicati
     }
     ```
 
-    The name of the field in the JSON you send must match the name of the field you specified for temperature telemetry in your device template. In this example, the name of the field is **temperature**.
+    The name of the field in the JSON you send must match the name of the field in your device definition. In this example, the name of the field is **temp**.
 
-1. To send the device properties such as **firmwareVersion** and **serialNumber**,  add the following definition:
+1. To send the device properties such as the firmware version and serial number, add the following definition:
 
     ```javascript
-    // Send device properties
-    function sendDeviceProperties(twin) {
-      var properties = {
-        firmwareVersion: "9.75",
-        serialNumber: "10001"
-      };
-      twin.properties.reported.update(properties, (errorMessage) => 
-      console.log(` * Sent device properties ` + (errorMessage ? `Error: ${errorMessage.toString()}` : `(success)`)));
+    // Send device reported properties.
+    function sendDeviceProperties(twin, properties) {
+      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties: ${JSON.stringify(properties)}; ` +
+        (err ? `error: ${err.toString()}` : `status: success`)));
     }
     ```
 
-1. To define the settings your device supports, such as **setTemperature**, add the following definition:
+1. To define the **brightness** writeable property your device supports, add the following definition:
 
     ```javascript
-    // Add any settings your device supports
-    // mapped to a function that is called when the setting is changed.
-    var settings = {
-      'setTemperature': (newValue, callback) => {
-        // Simulate the temperature setting taking two steps.
-        setTimeout(() => {
-          targetTemperature = targetTemperature + (newValue - targetTemperature) / 2;
-          callback(targetTemperature, 'pending');
+    // Add any writeable properties your device supports,
+    // mapped to a function that is called when the property is changed.
+    var properties = {
+      'brightness': (newValue, callback) => {
+          // Simulate it taking 5 seconds to set the brightness.
           setTimeout(() => {
-            targetTemperature = newValue;
-            callback(targetTemperature, 'completed');
+            callback(newValue, 'completed');
           }, 5000);
-        }, 5000);
       }
     };
     ```
 
-1. To handle settings sent from Azure IoT Central, add the following function that locates and executes the appropriate device code:
+1. To handle writeable property updates sent from Azure IoT Central, add the following function that locates and executes the appropriate device code:
 
     ```javascript
-    // Handle settings changes that come from Azure IoT Central via the device twin.
-    function handleSettings(twin) {
+    // Handle property changes that come from Azure IoT Central via the device twin.
+    function handleWriteableProperties(twin) {
       twin.on('properties.desired', function (desiredChange) {
-        for (let setting in desiredChange) {
-          if (settings[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting].value}`);
-            settings[setting](desiredChange[setting].value, (newValue, status, message) => {
+        for (let property in desiredChange) {
+          if (properties[property]) {
+            console.log(`Received property: ${property}: ${desiredChange[property].value}`);
+            properties[property](desiredChange[property].value, (newValue, status, message) => {
               var patch = {
-                [setting]: {
+                [property]: {
                   value: newValue,
                   status: status,
                   desiredVersion: desiredChange.$version,
                   message: message
                 }
               }
-              twin.properties.reported.update(patch, (err) => console.log(`Sent setting update for ${setting}; ` +
+              twin.properties.reported.update(patch, (err) => console.log(`Sent property update for ${property}; ` +
                 (err ? `error: ${err.toString()}` : `status: success`)));
             });
           }
@@ -239,19 +221,30 @@ In the previous section, you created a skeleton Node.js project for an applicati
 
     This function:
 
-    * Watches for Azure IoT Central sending a desired property.
-    * Locates the appropriate function to call to handle the setting change.
-    * Sends an acknowledgement back to your Azure IoT Central application.
+    * Watches for Azure IoT Central sending a writeable property update.
+    * Locates the appropriate function to call to handle the property change.
+    * Sends an acknowledgment back to your Azure IoT Central application.
 
-1. To respond to a command such as **echo**  from your Azure IoT Central application, add the following definition:
+1. To respond to a command such as **blink** from your Azure IoT Central application, add the following definitions:
 
     ```javascript
-    // Respond to the echo command
-    function onCommandEcho(request, response) {
-      // Display console info
-      console.log(' * Echo command received');
-      // Respond
-      response.send(10, 'Success', function (errorMessage) {});
+    // Handle blink command
+    function onBlink(request, response) {
+      console.log('LED Blink!');
+      console.log('LED Blink!');
+      response.send(200, 'Success', function (errorMessage) {});
+    }
+
+    // Handle TurnOn command
+    function onTurnOn(request, response) {
+      console.log('Turning LED on...');
+      response.send(200, 'Success', function (errorMessage) {});
+    }
+
+    // Handle TurnOff command
+    function onTurnOff(request, response) {
+      console.log('Turning LED off...');
+      response.send(200, 'Success', function (errorMessage) {});
     }
     ```
 
@@ -264,24 +257,41 @@ In the previous section, you created a skeleton Node.js project for an applicati
         console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
       } else {
         console.log('Device successfully connected to Azure IoT Central');
+
+        // Create handlers for commands
+        client.onDeviceMethod('blink', onBlink);
+        client.onDeviceMethod('turnon', onTurnOn);
+        client.onDeviceMethod('turnoff', onTurnOff);
+
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
-        // Setup device command callbacks
-        client.onDeviceMethod('echo', onCommandEcho);
+
         // Get device twin from Azure IoT Central.
         client.getTwin((err, twin) => {
           if (err) {
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
-            // Send device properties once on device start up
-            sendDeviceProperties(twin);
-            // Apply device settings and handle changes to device settings.
-            handleSettings(twin);
+            // Send device properties once on device start up.
+            var properties = {
+              //serial number, battery remaining
+              fwVersion: '10.75.2',
+              manufacturer: 'Contoso Devices Inc.',
+              model: 'ES-001',
+              serialNumber: '9001-876-123',
+              serialNumber: '123-ABC',
+              batteryRemaining: 78,
+              state: true
+            };
+            sendDeviceProperties(twin, properties);
+
+            // Handle changes to writeable device properties.
+            handleWriteableProperties(twin);
           }
         });
       }
     };
 
+    // Start the device (connect it to Azure IoT Central).
     client.open(connectCallback);
     ```
 
@@ -289,10 +299,9 @@ In the previous section, you created a skeleton Node.js project for an applicati
 
 ## Configure client code
 
-<!-- Add the connection string to the sample code, build, and run -->
 To configure your client code to connect to your Azure IoT Central application, you need to add the connection string for your real device that you noted earlier in this tutorial.
 
-1. In the **ConnectedAirConditioner.js** file, find the following line of code:
+1. In the **EnvironmentalSensor.js** file, find the following line of code:
 
     ```javascript
     var connectionString = '{your device connection string}';
@@ -300,39 +309,35 @@ To configure your client code to connect to your Azure IoT Central application, 
 
 1. Replace `{your device connection string}` with the connection string of your real device. You copied the connection string you generated in a previous step.
 
-1. Save the changes to the **ConnectedAirConditioner.js** file.
+1. Save the changes to the **EnvironmentalSensor.js** file.
 
 1. To run the sample, enter the following command in your command-line environment:
 
     ```cmd/sh
-    node ConnectedAirConditioner.js
+    node EnvironmentalSensor.js
     ```
 
     > [!NOTE]
-    > Make sure you are in the `connectedairconditioner` folder when you run this command.
+    > Make sure you are in the `environmentalsensor` folder when you run this command.
 
 1. The application prints output to the console:
 
    ![Client application output](media/tutorial-add-device-pnp/output.png)
 
-1. After about 30 seconds, you see the telemetry on the device **Measurements** page:
+1. After about 30 seconds, you see the telemetry on the device **Dashboard** page:
 
    ![Real ~~telemetry](media/tutorial-add-device-pnp/realtelemetry.png)
 
-1. On the **Settings** page, you can see the setting is now synchronized. When the device first connected, it received the setting value and acknowledged the change:
+1. On the **Environmental Sensor properties** page, you can see the properties are now synchronized. When the device first connected, it received the property value and acknowledged the change:
 
-   ![Setting synchronized](media/tutorial-add-device-pnp/settingsynced.png)
+   ![Property synchronized](media/tutorial-add-device-pnp/settingsynced.png)
 
-1. On the **Settings** page, set the device temperature to **95** and choose **Update device**. Your sample application receives and processes this change:
+1. On the **Environmental Sensor properties** page, set the brightness to **3** and select **Save**. Your sample application receives and processes this change:
 
-   ![Receive and process setting](media/tutorial-add-device-pnp/receivesetting.png)
+   ![Receive and process writeable property](media/tutorial-add-device-pnp/receivesetting.png)
 
    > [!NOTE]
-   > There are two "setting update" messages. One when the `pending` status is sent and one when the `completed` status is sent.
-
-1. On the **Measurements** page you can see that the device is sending higher temperature values:
-
-    ![Temperature telemetry is now higher](media/tutorial-add-device-pnp/highertemperature.png)
+   > There are two "property update" messages. One when the `pending` status is sent and one when the `completed` status is sent.
 
 ## Next steps
 
