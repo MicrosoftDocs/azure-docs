@@ -1,6 +1,6 @@
   - name: Application Management Documentation
     href: index.yml
-  - name: Managing apps in Azure AD
+  - name: Application management
     items:
      - name: Overview
        expanded: true
@@ -181,7 +181,21 @@
              href: access-panel-extension-problem-installing.md
            - name: Error using self-service app access
              href: access-panel-troubleshoot-self-service-access.md
-  - name: Provisioning users
+     - name: Resources
+       items:
+        - name: Azure feedback forum
+          href: https://feedback.azure.com/forums/169401-azure-active-directory
+        - name: MSDN forum
+          href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+        - name: Pricing
+          href: https://azure.microsoft.com/pricing/details/active-directory
+        - name: Service updates
+          href: https://azure.microsoft.com/updates/?product=active-directory
+        - name: Stack Overflow
+          href: https://stackoverflow.com/questions/tagged/azure-active-directory
+        - name: Videos
+          href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+  - name: Automatic user provisioning
     items:
      - name: Overview
        expanded: true
@@ -236,7 +250,21 @@
            href: application-provisioning-config-problem-no-users-provisioned.md
          - name: Wrong users provisioned - gallery app
            href: application-provisioning-config-problem-wrong-users-provisioned.md
-  - name: Publishing on-premises apps with Application proxy
+     - name: Resources
+       items:
+        - name: Azure feedback forum
+          href: https://feedback.azure.com/forums/169401-azure-active-directory
+        - name: MSDN forum
+          href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+        - name: Pricing
+          href: https://azure.microsoft.com/pricing/details/active-directory
+        - name: Service updates
+          href: https://azure.microsoft.com/updates/?product=active-directory
+        - name: Stack Overflow
+          href: https://stackoverflow.com/questions/tagged/azure-active-directory
+        - name: Videos
+          href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+  - name: Application proxy for on-premises apps
     items:
      - name: Overview
        expanded: true
@@ -359,23 +387,17 @@
        items:
        - name: Application Proxy version history
          href: application-proxy-release-version-history.md
-  - name: Resources
-    items:
-     - name: Azure AD deployment plans
-       href: /azure/active-directory/fundamentals/active-directory-deployment-plans?context=azure/active-directory/manage-apps/context/manage-apps-context
-     - name: Azure feedback forum
-       href: https://feedback.azure.com/forums/169401-azure-active-directory
-     - name: Azure Roadmap
-       href: https://azure.microsoft.com/roadmap/?category=security-identity
-     - name: MSDN forum
-       href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
-     - name: Pricing
-       href: https://azure.microsoft.com/pricing/details/active-directory
-     - name: Pricing calculator
-       href: https://azure.microsoft.com/pricing/calculator
-     - name: Service updates
-       href: https://azure.microsoft.com/updates/?product=active-directory
-     - name: Stack Overflow
-       href: https://stackoverflow.com/questions/tagged/azure-active-directory
-     - name: Videos
-       href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+     - name: Resources
+       items:
+        - name: Azure feedback forum
+          href: https://feedback.azure.com/forums/169401-azure-active-directory
+        - name: MSDN forum
+          href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+        - name: Pricing
+          href: https://azure.microsoft.com/pricing/details/active-directory
+        - name: Service updates
+          href: https://azure.microsoft.com/updates/?product=active-directory
+        - name: Stack Overflow
+          href: https://stackoverflow.com/questions/tagged/azure-active-directory
+        - name: Videos
+          href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
