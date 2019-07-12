@@ -99,16 +99,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
    </code></pre>
 
-> [!IMPORTANT]
-> We recommend the following versions of Azure Fence agent for customers to benefit from the faster failover time, if a resource stop fails or the cluster nodes cannot communicate which each other anymore:
-> RHEL 7.6: fence-agents-4.2.1-11.el7_6.8 or later
-> RHEL 7.5: fence-agents-4.0.11-86.el7_5.8 or later
-> RHEL 7.4: fence-agents-4.0.11-66.el7_4.12 or later
-> For more information see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)
+   > [!IMPORTANT]
+   > We recommend the following versions of Azure Fence agent for customers to benefit from the faster failover time, if a resource stop fails or the cluster nodes cannot communicate which each other anymore:
+   > RHEL 7.6: fence-agents-4.2.1-11.el7_6.8 or later  
+   > RHEL 7.5: fence-agents-4.0.11-86.el7_5.8 or later  
+   > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12 or later  
+   > For more information see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)
 
-   Check the version of the Azure fence agent and if necessary update it
-   <pre><code>
-    # Check the version of the Azure Python SDK
+   Check the version of the Azure fence agent and if necessary update it to a version as stated above.
+   <pre><code># Check the version of the Azure Python SDK
     sudo yum info fence-agents-azure-arm
    </code></pre>
 
