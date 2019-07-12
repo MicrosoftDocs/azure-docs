@@ -21,7 +21,4 @@ In Azure Data Share Preview, navigate to your sent share and select the **Share 
 Check the boxes next to the recipients whose share subscriptions you would like to delete and then click **Revoke**. The consumer will no longer get updates to their data.
 
 ## Next steps
-To learn about how to monitor your data shares, continue to the next how-to guide.
-
-> [!div class="nextstepaction"]
-> [How to monitor](how-to-monitor.md)
+Learn more about how to [monitor your data shares](how-to-monitor.md).

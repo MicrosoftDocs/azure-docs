@@ -19,7 +19,4 @@ In Azure Data Share Preview, navigate to your sent share and select the **Invita
 ![Delete Invitation](./media/how-to/how-to-delete-invitation/delete-invitation.png)
 
 ## Next steps
-To learn about how to revoke a share subscription, continue to the next how-to guide.
-
-> [!div class="nextstepaction"]
-> [Revoke a Share Subscription](how-to-revoke-share-subscription.md)
+Learn more about how to [revoke a share subscription](how-to-revoke-share-subscription.md).
