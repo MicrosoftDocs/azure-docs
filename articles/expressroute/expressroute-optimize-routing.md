@@ -6,7 +6,7 @@ author: charwen
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
 
