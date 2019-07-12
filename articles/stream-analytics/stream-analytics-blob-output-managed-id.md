@@ -1,0 +1,237 @@
+---
+title: Azure Stream Analytics: Using Managed Identity authentication for egress to Azure Blob storage (preview)
+description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Data Lake Storage Gen1 output.
+author: sacedarb
+ms.author: sacedarb
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/08/2019
+ms.custom: seodec18
+---
+
+# Azure Stream Analytics: Using Managed Identity authentication for egress to Azure Blob storage (preview)
+
+We are excited to announce that [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Azure Blob storage is now available for Azure Stream Analytics as a preview. This allows for Stream Analytics jobs to directly be given access to a storage account instead of using a connection string. In addition to improving security, this feature also enables you to write data to a storage account in a Virtual Network (VNET) within Azure.
+
+This article shows you two ways to enable Managed Identity for a Stream Analytics job that outputs to Azure Blob storage; through the Azure Portal and through an Azure Resource Managed (ARM) deployment.
+
+## Creating the Stream Analytics job using the Azure portal
+
+1. Start by creating a new Stream Analytics job or by opening an existing job in the Azure portal. From the menu bar located on the left side of the screen, select **Managed Identity** located under **Configure**. Ensure that "Use System-assigned Managed Identity" is selected and then click the **Save** button on the bottom of the screen.
+
+   ![Configure Stream Analytics managed identity](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+
+2. In the output properties window of the Azure Blob storage output sink, click the Authentication mode drop-down and select **Managed Identity**. For information regarding the other output properties, see [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md#blob-storage). When you are finished, click **Save**.
+
+   ![Configure Azure Blob storage output](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
+   
+3. Now that the job is created, see [Give the Stream Analytics job access to your storage account](#give-the-stream-analytics-job-access-to-your-storage-account) section.
+
+## Azure Resource Manager (ARM) deployment
+
+Using Azure Resource Manager (ARM) allows for you to fully automate the deployment of your Stream Analytics job. You can deploy ARM templates using either Azure PowerShell or the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
+
+
+1. You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your ARM template:
+
+    ```json
+    "Identity": {
+      "Type": "SystemAssigned",
+    },
+    ```
+
+   This property tells ARM to create and manage the identity for your Stream Analytics job. Below is an example ARM template that deploys a Stream Analytics job with Managed Identity enabled and a Blob output sink that uses Managed Identity:
+   
+    ```json
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+            {
+                "apiVersion": "2017-04-01-preview",
+                "name": "MyStreamingJob",
+                "location": "[resourceGroup().location]",
+                "type": "Microsoft.StreamAnalytics/StreamingJobs",
+                "identity": {
+                    "type": "systemAssigned"
+                },
+                "properties": {
+                    "sku": {
+                        "name": "standard"
+                    },
+                    "outputs":[
+                        {
+                            "name":"output",
+                            "properties":{
+                                "serialization": {
+                                    "type": "JSON",
+                                    "properties": {
+                                        "encoding": "UTF8"
+                                    }
+                                },
+                                "datasource":{
+                                    "type":"Microsoft.Storage/Blob",
+                                    "properties":{
+                                        "storageAccounts": [
+                                            { "accountName": "MyStorageAccount" }
+                                        ],
+                                        "container": "test",
+                                        "pathPattern": "segment1/{date}/segment2/{time}",
+                                        "dateFormat": "yyyy/MM/dd",
+                                        "timeFormat": "HH",
+                                        "authenticationMode": "Msi"
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    ```
+    
+    The above job can be deployed to the Resource group **ExampleGroup** using the below Azure CLI command:
+
+    ```azurecli
+    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    ```
+
+2. After the job is created, you can use ARM to retrieve the job's full definition. 
+
+    ```azurecli
+    az resource show --ids /subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.StreamAnalytics/StreamingJobs/{RESOURCE_NAME}
+    ```
+    
+    The above command will return a response like the below:
+  
+    ```json
+    {
+        "id": "/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.StreamAnalytics/streamingjobs/{RESOURCE_NAME}",
+        "identity": {
+            "principalId": "{PRINCIPAL_ID}",
+            "tenantId": "{TENANT_ID}",
+            "type": "SystemAssigned",
+            "userAssignedIdentities": null
+        },
+        "kind": null,
+        "location": "West US",
+        "managedBy": null,
+        "name": "{RESOURCE_NAME}",
+        "plan": null,
+        "properties": {
+            "compatibilityLevel": "1.0",
+            "createdDate": "2019-07-12T03:11:30.39Z",
+            "dataLocale": "en-US",
+            "eventsLateArrivalMaxDelayInSeconds": 5,
+            "jobId": "{JOB_ID}",
+            "jobState": "Created",
+            "jobStorageAccount": null,
+            "jobType": "Cloud",
+            "outputErrorPolicy": "Stop",
+            "package": null,
+            "provisioningState": "Succeeded",
+            "sku": {
+                "name": "Standard"
+            }
+        },
+        "resourceGroup": "{RESOURCE_GROUP}",
+        "sku": null,
+        "tags": null,
+        "type": "Microsoft.StreamAnalytics/streamingjobs"
+    }
+    ```
+
+   Take note of the **principalId** from the job's definition. This identifies your job's Managed Identity within Azure Active Directory and will be used in the next step to grant the Stream Analytics job access to the storage account.
+
+3. Now that the job is created, see [Give the Stream Analytics job access to your storage account](#give-the-stream-analytics-job-access-to-your-storage-account) section.
+
+
+## Give the Stream Analytics job access to your storage account
+
+There are two levels of access you can choose to give your Stream Analytics job:
+
+1. **Container level access:** this gives the job access to a specific existing container.
+2. **Account level access:** this gives the job general access to the storage account, including the ability to create new containers.
+
+Unless you need the job to create containers on your behalf, you should choose **Container level access** since this option will grant the job the minimum level of access required. Both options are explained below when using either the Azure Portal or the command-line.
+
+### Granting access via the Azure Portal
+
+#### Container level access
+
+1. Navigate to the container's configuration pane within your storage account.
+ 
+2. Select **Access Control (IAM)** on the left-hand side.
+
+3. Under the "Add a role assignment" section click **Add**.
+
+4. In the role assignment pane:
+
+    1. Set the **Role** to "Storage Blob Data Contributor"
+    2. Ensure the **Assign access to** dropdown is set to "Azure AD user, group, or service principal".
+    3. Type the name of your Stream Analytics job in the search field.
+    4. Select your Stream Analytics job and click **Save**.
+    
+![Grant container access](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-container-access-portal.png)
+    
+#### Account level access
+
+1. Navigate to your storage account.
+ 
+2. Select **Access Control (IAM)** on the left-hand side.
+
+3. Under the "Add a role assignment" section click **Add**.
+
+4. In the role assignment pane:
+
+    1. Set the **Role** to "Storage Blob Data Contributor"
+    2. Ensure the **Assign access to** dropdown is set to "Azure AD user, group, or service principal".
+    3. Type the name of your Stream Analytics job in the search field.
+    4. Select your Stream Analytics job and click **Save**.
+    
+![Grant account access](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-account-access-portal.png)
+
+### Granting access via the command-line
+
+#### Container level access
+
+To give access to a specific container, run the following command using the Azure CLI:
+
+   ```azure-cli
+   az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
+   ```
+
+#### Account level access
+
+To give access to the entire account, run the following command using the Azure CLI:
+
+   ```azure-cli
+   az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
+   ```
+   
+## VNET access
+
+When configuring your storage account's **Firewalls and virtual networks**, you can optionally allow in network traffic from other trusted Microsoft services. When Stream Analytics authenticates using Managed Identity, it provides proof that the request is originating from a trusted service. Below are instructions to enable this VNET access exception.
+
+1.	Navigate to the “Firewalls and virtual networks” pane within the storage account’s configuration pane.
+2.	Ensure the “Allow trusted Microsoft services to access this storage account” option is enabled.
+3.	If you enabled it, click **Save**.
+
+![Enable VNET access](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+
+## Limitations
+This feature doesn’t support the following:
+
+1. Classic Azure Storage accounts will not work with this feature.
+
+2. Azure accounts without Azure Active Directory (AAD) will not work with this feature.
+
+3. **Multi-tenant access**: The Service principal created for a given Stream Analytics job will reside on the Azure Active Directory tenant on which the job was created, and cannot be used against a resource that resides on a different Azure Active Directory tenant. Therefore, you can only use MSI on ADLS Gen 1 resources that are within the same Azure Active Directory tenant as your Azure Stream Analytics job. 
+
+4. **[User Assigned Identity](../active-directory/managed-identities-azure-resources/overview.md)**: is not supported. This means the user is not able to enter their own service principal to be used by their Stream Analytics job. The service principal is generated by Azure Stream Analytics.
+
+## Next steps
+
+* [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md#blob-storage)
+* [Azure Stream Analytics custom blob output partitioning](./stream-analytics-custom-path-patterns-blob-storage-output.md)
