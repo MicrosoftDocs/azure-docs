@@ -1440,6 +1440,8 @@
         href: figma-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
+      - name: Fuze
+        href: fuze-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
