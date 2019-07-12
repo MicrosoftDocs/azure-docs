@@ -10,7 +10,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/15/2019
 ms.author: bwren
 ---
 
@@ -43,6 +43,14 @@ exceptions
 | sort by timestamp asc 
 ```
 
+## \_TimeReceived
+The **\_TimeReceived** property contain the date and time that the data for the record was received by the Azure Monitor ingestion point. Used with **TimeGenerated**, this can help you determine the time between the record being collected and actually being created. This can be useful for identifying issues with delays in data arriving from your data source.
+
+```Kusto
+Event
+| 
+``` 
+
 ## Type and itemType
 The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) properties hold the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple table, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
 
@@ -53,7 +61,10 @@ The following query returns the count of records by type collected over the past
 search * 
 | where TimeGenerated > ago(1h)
 | summarize count() by Type
+
 ```
+## \_ItemId
+The **\_ItemId** property holds a unique identifier for the record.
 
 ## \_ResourceId
 The **\_ResourceId** property holds a unique identifier for the resource that the record is associated with. This gives you a standard property to use to scope your query to only records from a particular resource, or to join related data across multiple tables.
