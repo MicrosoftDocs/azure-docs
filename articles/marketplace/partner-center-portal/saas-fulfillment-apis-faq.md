@@ -21,7 +21,7 @@ Once a user is interested in a specific SaaS service, the user can subscribe to 
 
 ### What does it mean for an Azure user to subscribe to a SaaS offer in Azure Marketplace?
 
-It means that a user can view the terms of use and privacy statement associated with the SaaS service, and agree to pay for it as per the billing terms set by you, the publisher of the SaaS offer, on Microsoft's paper. Users can use their existing payment profile in Azure to pay for the SaaS service consumption.
+It means that a user can view the terms of use and privacy statement associated with the SaaS service, and agree to pay for it as per the billing terms set by you, the publisher of the SaaS offer, on Microsoft's invoice. Users can use their existing payment profile in Azure to pay for the SaaS service consumption.
 
 This is beneficial for a lot of reasons. Customers can now discover and subscribe in one place using Microsoft Cloud Platform as a trusted source, without having to vet every ISV software it intends to use. Also, customers can use their existing payment profile without having to explicitly pay each ISV software independently.
 
@@ -43,7 +43,7 @@ See the [SaaS fulfillment API](https://docs.microsoft.com/azure/marketplace/part
 
 ### How do you know the SaaS offer to which the user subscribes in Azure?
 
-The response includes the offer and plan information associated with the SaaS subscription.
+The response to the `Resolve` API includes the offer and plan information associated with the SaaS subscription.
 
 ### How can the Azure user change the plan associated with this Azure subscription?
 
