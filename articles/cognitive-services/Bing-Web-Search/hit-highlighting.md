@@ -15,11 +15,11 @@ ms.author: scottwhi
 
 # Using decoration markers to highlight text
 
-Several of the Bing Search APIs support optional decoration markers that label search terms and other text features that appear in search results. These markers are inserted into the answers returned by the API, and can be used to highlight terms, phone numbers, addresses, and more. 
+The Bing [Web Search](overview.md), [News Search](../bing-news-search/search-the-web.md), and [Custom Search](../bing-custom-search/overview.md) APIs support hit highlighting, which are optional decoration markers that label search terms and other text features that appear in search results. These markers are inserted into the answers returned by the API, and can be used to highlight terms, phone numbers, addresses, and more. 
 
 By default, Bing doesn't include highlighting markers in display strings. To enable the markers, include the `textDecorations` query parameter in your request and set it to `true`. 
 
-## Hit highlighting  
+## Hit highlighting on query terms 
 
 Bing supports hit highlighting, which marks query terms (or other terms that Bing finds relevant) in the display strings of some answers. For example, a webpage result's `name`, `displayUrl`, and `snippet` fields might contain marked query terms.
 
@@ -44,7 +44,7 @@ Bing can return several different text decorations. For example, a `Computation`
 
 ![computation markers](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
 
-If the request did not request decorations, the `expression` field would contain `log10(2)`. 
+If the request did not specify decorations, the `expression` field would contain `log10(2)`. 
 
 If `textDecorations` is `true`, Bing may include the following markers in the display strings of answers. If there is no equivalent HTML tag, the table cell is empty.
 
