@@ -24,6 +24,8 @@ In this tutorial, you'll learn how to:
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Permission to add role assignment to the storage account, which is present in the *Microsoft.Authorization/role assignments/write* permission. This permission exists in the owner role. 
+* Your recipients Azure login e-mail address (using their e-mail alias won't work).
 
 ## Sign in to the Azure portal
 

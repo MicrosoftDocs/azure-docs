@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -95,7 +95,7 @@ The tenant/global admin can grant permissions as follows:
 
 #### Assign Application Developer role 
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
 ## Prepare for Hyper-V assessment
