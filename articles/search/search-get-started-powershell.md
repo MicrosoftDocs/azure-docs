@@ -2,7 +2,7 @@
 title: 'PowerShell Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
 description: Explains how to create an index, load data, and run queries using PowerShell's Invoke-RestMethod and the Azure Search REST API.
 
-ms.date: 07/09/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -21,7 +21,7 @@ ms.custom: seodec2018
 > * [Portal](search-create-index-portal.md)
 > 
 
-This article walks you through the process of creating, loading, and querying an Azure Search index using PowerShell and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you could run a finished script. To download a copy, go to the [azure-search-powershell-samples](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) repo.
+This article walks you through the process of creating, loading, and querying an Azure Search index using PowerShell and the [Azure Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to run PowerShell commands interactively. Alternatively, you can [download and run a Powershell script](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) that performs the same operations.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -59,7 +59,7 @@ All requests require an api-key on every request sent to your service. Having a 
 2. Create a **$url** object that specifies the service's indexes collection. Replace the service name (YOUR-SEARCH-SERVICE-NAME) with a valid search service.
 
     ```powershell
-    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06"
+    $url = "https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name"
     ```
 
 3. Run **Invoke-RestMethod** to send a GET request to the service and verify the connection. Add **ConvertTo-Json** so that you can view the responses sent back from the service.
