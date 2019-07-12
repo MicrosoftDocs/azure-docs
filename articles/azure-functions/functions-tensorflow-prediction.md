@@ -13,7 +13,9 @@ ms.author: antchu
 ms.custom: mvc
 ---
 
-In this tutorial, you will learn how Azure Functions allows you to import a TensorFlow model and use it to make predictions. You will create a serverless HTTP API endpoint in Python that takes an input image and predicts if the image contains a dog or a cat. You will also learn how to consume the serverless API from a web application.
+# Make Predictions with TensorFlow and Azure Functions
+
+In this tutorial, you'll learn how Azure Functions allows you to import a TensorFlow model and use it to make predictions. You'll create a serverless HTTP API endpoint in Python that takes an input image and predicts if the image contains a dog or a cat. You'll also learn how to consume the serverless API from a web application.
 
 ## Prerequisites 
 
@@ -27,7 +29,7 @@ You may use any editor of your choice. Visual Studio Code with the Python and Az
 
 ## Clone the tutorial repository
 
-Open a terminal and clone the repository using Git. Alternatively, you can navigate to the GitHub repository and download it as a zip file.
+Open a terminal and clone the repository using Git. If you do not have Git, you can navigate to the GitHub repository and download it as a zip file.
 
 ```bash
 git clone <repo-url>
@@ -36,7 +38,7 @@ cd <repo-dir>
 
 The repository contains a few folders.
 
-- **start** - you will be creating your function app here
+- **start** - you'll be creating your function app here
 - **end** - the finished function app
 - **resources** - TensorFlow model and helper libraries
 - **web** - a frontend website that calls the function app
@@ -57,7 +59,7 @@ python3.6 -m venv .env
 source .env/bin/activate
 ```
 
-Open the **start** folder in an editor and examine the files that were created. The files are required but you will not modify them in this tutorial.
+Open the **start** folder in an editor and examine the files that were created. The files are required but you won't modify them in this tutorial.
 
 - **local.settings.json** - application settings used for local development
 - **host.json** - settings for the Azure Functions host and extensions
@@ -86,13 +88,13 @@ In the terminal with the Python virtual environment activated, start the functio
 func start
 ```
 
-Open a browser and navigate to `http://localhost:7071/api/classify?name=Azure`. The function should return *Hello Azure!*.
+Open a browser and navigate to `http://localhost:7071/api/classify?name=Azure`. The function should return *Hello Azure!*
 
 Type `Ctrl-C` to stop the function app.
 
 ## Import a TensorFlow model
 
-For this tutorial, you will use a TensorFlow model that was built with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the instructions in the repository.
+For this tutorial, you'll use a TensorFlow model that was built with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the instructions in the repository.
 
 Copy the models from **resources/models** into the **classify** folder.
 
@@ -118,7 +120,7 @@ cp ../resources/predict.py classify
 
 ### Install dependencies
 
-The helper library has some dependencies that need to be installed. In the terminal with the virual environment activated, run these commands in the function app root that contains **requirements.txt**.
+The helper library has some dependencies that need to be installed. In the terminal with the virtual environment activated, run these commands in the function app root that contains **requirements.txt**.
 
 ```bash
 pip install tensorflow
@@ -129,7 +131,7 @@ pip freeze > requirements.txt
 
 ### Caching the model in global variables
 
-In the editor, open **predict.py** and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is run and save to global variables. The loading from disk is skipped on subsequent executions of the `_initialize` function. This caches the model in memory and speeds up subsequent predictions.
+In the editor, open **predict.py** and look at the `_initialize` function near the top of the file. Notice that the TensorFlow model is loaded from disk the first time the function is run and save to global variables. The loading from disk is skipped on subsequent executions of the `_initialize` function. Caching the model in memory with this technique speeds up later predictions.
 
 ## Update function to run prediction
 
