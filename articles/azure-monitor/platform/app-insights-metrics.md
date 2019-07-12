@@ -85,7 +85,7 @@ availabilityResults
 
 ## Browser metrics
 
-The browser metrics are collected by the Application Insights SDK from the real end-user browsers. They provide great insights into your users' experience with your web app. Browser metrics are typically not sampled, which means that they provide higher precision of the usage numbers comparing to server-side metrics that might be skewed by sampling.
+Browser metrics are collected by the Application Insights JavaScript SDK from real end-user browsers. They provide great insights into your users' experience with your web app. Browser metrics are typically not sampled, which means that they provide higher precision of the usage numbers compared to server-side metrics which might be skewed by sampling.
 
 > [!NOTE]
 > To collect browser metrics, your application must be instrumented with the [Application Insights JavaScript SDK snippet](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages).
