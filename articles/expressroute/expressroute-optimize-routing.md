@@ -14,7 +14,7 @@ ms.custom: seodec18
 # Optimize ExpressRoute Routing
 When you have multiple ExpressRoute circuits, you have more than one path to connect to Microsoft. As a result, suboptimal routing may happen - that is, your traffic may take a longer path to reach Microsoft, and Microsoft to your network. The longer the network path, the higher the latency. Latency has direct impact on application performance and user experience. This article will illustrate this problem and explain how to optimize routing using the standard routing technologies.
 
-## Path Selection of Microsoft and Public peerings
+## Path Selection on Microsoft and Public peerings
 It's important to ensure that when utilizing Microsoft or Public peering that traffic flows over the desired path if you have one or more ExpressRoute circuits, as well as paths to the Internet via an Internet Exchange (IX) or Internet Service Provider (ISP). BGP utilizes a best path selection algorithm based on a number of factors including longest prefix match (LPM). To ensure that traffic destined for Azure via Microsoft or Public peering traverses the ExpressRoute path, customers must implement the *Local Preference* attribute to ensure that the path is always preferred on ExpressRoute. 
 
 > [!NOTE]
