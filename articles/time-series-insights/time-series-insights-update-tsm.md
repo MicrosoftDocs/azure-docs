@@ -69,7 +69,7 @@ These components are combined to specify a Time Series Model and to organize you
 
 [![Time Series Model overview](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
-Time Series Models can be created and managed through the [Time Series Insights Preview](time-series-insights-update-how-to-tsm.md) interface.
+Time Series Models can be created and managed through the [Time Series Insights Preview](time-series-insights-update-how-to-tsm.md) interface. Time Series Model settings can be managed through the [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## Time Series Model instances
 
