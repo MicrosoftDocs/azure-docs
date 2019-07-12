@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-The following services and tools are used in this quickstart. 
+The following services and tools are required for this quickstart. 
 
 + [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Search.
 
