@@ -18,7 +18,7 @@ ms.author: dapine
 
     [View the container home page to verify that it's running](../media/how-tos/container-instance/swagger-docs-on-container.png).
 
-1. Select the **Service API Description** link to navigate to the container's swagger page.
+1. Select the **Service API Description** link to go to the container's swagger page.
 
 1. Choose any of the **POST** APIs and select **Try it out**.  The parameters are displayed, including this example input:
 
@@ -88,4 +88,4 @@ ms.author: dapine
     }
     ```
 
-We can now correlate the document `id` of the response payload's JSON data to the original request payload document `id`. We see a score of more than `.98`, indicating a very positive sentiment.
+We can now correlate the document `id` of the response payload's JSON data to the original request payload document `id`. We see a score of more than `.98`, indicating a strongly positive sentiment.
