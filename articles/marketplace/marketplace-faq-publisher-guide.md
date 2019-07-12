@@ -44,7 +44,7 @@ Azure Marketplace offers SaaS applications, Virtual Machines, Solution Templates
 
 **How do I get started in Azure Marketplace?**
 
-You can find a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, by visiting [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps). Azure Marketplace can also be accessed through the [Azure Management Portal](https://portal.azure.com/) when you [**create a resource**](https://portal.azure.com/#create/hub).
+You can find a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, by visiting [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps). Azure Marketplace can also be accessed through the [Azure portal] when you [**create a resource**](https://portal.azure.com/#create/hub).
 
 **What are the key benefits of Azure Marketplace?**
 
@@ -55,17 +55,17 @@ With Azure Marketplace, customers can discover technical applications built for 
 Azure Marketplace offers can be purchased through:
 
 * [The web-based storefront](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [The Azure Management portal](https://portal.azure.com/) 
+* [The Azure portal][Azure portal]
 * [The Azure Command Line Interface (CLI)](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
 >Prepaid credits and other forms of monetary commitment cannot be used to pay for software license fees, but can be used to pay associated Azure usage charges. Exceptions are listed in [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
-**Can I choose which Microsoft Azure region(s) to deploy my Azure Marketplace purchase?**
+**Can I choose which Azure region(s) to deploy my Azure Marketplace purchase?**
 
 The customer has the option of deploying to any Azure data center region they enable. We recommend selecting the data center locations closest to your services to optimize performance and control budget.
 
-**If I accidentally delete an Azure Marketplace purchase, can I "undo" the action?**
+**If I accidentally delete an Azure Marketplace purchase, can I *undo* the action?**
 
 No, deletions are final. If a subscription is accidentally deleted, it can be repurchased. Any unused functionality or prepaid services are lost.
 
@@ -79,11 +79,11 @@ Dependencies are not automatically managed for Azure Marketplace offerings. Care
 
 **Can I buy Azure Marketplace solutions from an Azure Cloud Solution Provider?**
 
-If the publisher has configured their offering to be available through the CSP channel, Cloud Solution Provider partners have the option of reselling the solution.
+If the publisher has configured their offering to be available through the Cloud Solution Provider (CSP) channel, Cloud Solution Provider partners have the option of reselling the solution.
 
 **What countries/regions are supported for purchasing applications and services sold/provisioned through the Azure Marketplace?**
 
-Azure Marketplace is available to Microsoft Azure customers in the countries/regions listed in the [participation policies](/legal/marketplace/participation-policy).
+Azure Marketplace is available to Azure customers in the countries/regions listed in the [participation policies](/legal/marketplace/participation-policy).
 
 **What currencies are supported by Azure Marketplace?**
 
@@ -97,7 +97,7 @@ To migrate an Azure subscription, including Azure Marketplace VMs and services, 
 
 **I want to migrate an Azure Marketplace Virtual Machine (VM) subscription to my Enterprise Agreement. Is this currently supported?**
 
-To migrate an Azure Marketplace Virtual Machine (VM) subscription to an Enterprise Agreement, stop or cancel any prior subscription before the migration. Once the migration of your Azure account and associated subscriptions are complete, you can repurchase the Azure Marketplace VM or service.  The resulting usage fees are billed quarterly under your Enterprise Agreement.
+To migrate an Azure Marketplace Virtual Machine (VM) subscription to an Enterprise Agreement, stop or cancel any prior subscription before the migration. Once the migration of your Azure account and associated subscriptions is complete, you can repurchase the Azure Marketplace VM or service.  The resulting usage fees are billed quarterly under your Enterprise Agreement.
 
 ### Pricing and payment
 
@@ -107,7 +107,7 @@ Pricing varies based on product types and publisher specifications. Software lic
 
 *Unbundled:*
 
-*BYOL Model:* Bring-your-own-license. When obtaining a software license directly from the publisher or a reseller, there are no additional software-related charges or fees.
++ *Bring-your-own-license (BYOL) model*: When obtaining a software license directly from the publisher or a reseller, there are no additional software-related charges or fees.
 
 *Bundled:*
 
@@ -115,38 +115,38 @@ Azure subscription is included with the publisher's Independent Software Vendors
 
 *Charged:*
 
-*Free:* Free SKU. No charges are applied for software license fees or usage of the offering.
++ *Free:* Free SKU. No charges are applied for software license fees or usage of the offering.
 
-*Free Software Trial:* An offer that is free for a limited period. There is no charge for the publisher's software license fees for use during the trial period. Upon expiration, it automatically converts to a paid offer based on standard rates issued by the publisher.
++ *Free software trial:* An offer that is free for a limited period. There is no charge for the publisher's software license fees for use during the trial period. Upon expiration, it automatically converts to a paid offer based on standard rates issued by the publisher.
 
-*Usage-Based:* Rates are charged or billed based on the extent usage of the offering. For Virtual Machines Images, it is charged on an hourly fee. For Developer services and APIs, it is charged per unit of measurement as defined by the offering.
++ *Usage-Based:* Rates are charged or billed based on the extent usage of the offering. For Virtual Machines Images, it is charged on an hourly fee. For Developer services and APIs, it is charged per unit of measurement as defined by the offering.
 
-*Flat fee:* SaaS subscriptions can be priced as a flat fee that is billed monthly or annually. This can also include additional billing dimensions that charge according to consumption (for example, bandwidth, emails, tickets). 
++ *Flat fee:* SaaS subscriptions can be priced as a flat fee that is billed monthly or annually. This can also include additional billing dimensions that charge according to consumption (for example, bandwidth, emails, or tickets). 
 
-*Per-user:* SaaS subscriptions can be priced on a per-user basis that is billed monthly or annually. 
++ *Per-user:* SaaS subscriptions can be priced on a per-user basis that is billed monthly or annually. 
 
-Offer specific pricing details can be found on the solution details page on [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) or within the [Microsoft Azure Management portal](https://portal.azure.com/).
+Offer-specific pricing details can be found on the solution details page on [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) or within the [Azure portal].
 
 > [!Note]
 > Except for monthly fees, Azure usage charges are applicable to all pricing models unless otherwise stated.
 
 **How should I provide my software license key for BYOL marketplace solutions and what role does Azure Marketplace play?**
 
-Acquisition and enforcement of license credentials for BYOL solutions are the responsibility of the publisher. For Virtual Machine offers, the acquisition of the license key typically occurs in the publisher's application after the application has started. When using a Virtual Machine offer deployed via an Azure Application Solution Template, the ARM template can be configured to prompt the user for a range of inputs including license credentials.
+Acquisition and enforcement of license credentials for BYOL solutions are the responsibility of the publisher. For Virtual Machine offers, the acquisition of the license key typically occurs in the publisher's application after the application has started. When using a Virtual Machine offer deployed via an Azure Application Solution Template, the Resource Manager template can be configured to prompt the user for a range of inputs including license credentials.
 
 These are the most common options per offer type:
 
 *Virtual Machine Offer:*
 
-*Option 1:* The acquisition of the license key typically occurs in the publisher's application after the application has started.
++ *Option 1:* The acquisition of the license key typically occurs in the publisher's application after the application has started.
 
-*Option 2:* The license key is entered by the end user (via command line / web interface provided by the offer) after the deployment of the VM offer in the selected subscription. The license can be a key and/or file, as determined by the publisher.
++ *Option 2:* The license key is entered by the end user (via command line / web interface provided by the offer) after the deployment of the VM offer in the selected subscription. The license can be a key and/or file, as determined by the publisher.
 
 *Azure Apps (Solution Template and Managed Apps):*
 
-*Option 1:* The ARM template can be configured to prompt you for a range of inputs including license credentials. This can be done as a license file (File upload) or a key (textbox input), before the deployment of the offer, in the end-user subscription.
++ *Option 1:* The Resource Manager template can be configured to prompt you for a range of inputs including license credentials. This can be done as a license file (File upload) or a key (textbox input), before the deployment of the offer, in the end-user subscription.
 
-*Option 2:* You can enter the license key via command line / web interface provided by the offer.  It is done  after the deployment of the Azure Apps offer in the selected subscription. The license can be a key and/or file, as determined by the publisher.
++ *Option 2:* You can enter the license key via command line / web interface provided by the offer.  It is done  after the deployment of the Azure Apps offer in the selected subscription. The license can be a key and/or file, as determined by the publisher.
 
 **What kinds of trials are supported?**
 
@@ -166,7 +166,7 @@ Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may t
 
 **Can I apply Azure subscription credits or monetary commitment funds in my account towards Azure Marketplace offers?**
 
-Specific Azure Marketplace offers can use Azure subscription credits or monetary commitment funds. See [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) for a complete list of products participating in this program. These offers do not include BYOL or BYOS options. All other Azure Marketplace offers cannot use Azure subscription credits or monetary commitment: such as the free one-month trial credit, monthly MSDN credits, credits from Azure promos, monetary commitment balances, and any other free credits provided from Azure.
+Specific Azure Marketplace offers can use Azure subscription credits or monetary commitment funds. See [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) for a complete list of products participating in this program. These offers do not include BYOL or BYOS options. All other Azure Marketplace offers cannot use Azure subscription credits or monetary commitment: such as the free one-month trial credit, monthly MSDN credits, credits from Azure promotions, monetary commitment balances, and any other free credits provided from Azure.
 
 **Do Volume License discounts apply to Azure Marketplace purchases?**
 
@@ -174,15 +174,15 @@ No. The publisher that owns solutions in Azure Marketplace can set pricing.  Sta
 
 **How do I pay for these subscriptions? Do my Azure Marketplace purchases appear on the Azure bill, or is there another bill?**
 
-MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (i.e. web-direct) customers are charged against the same credit card that is on file for their Azure subscription profile. If you do not have a credit card on file, then you cannot purchase from the Azure Marketplace. In this case, you received a special waiver to have your Azure charges invoiced to you instead.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (such as web-direct) customers are charged against the same credit card that is on file for their Azure subscription profile. If you do not have a credit card on file, then you cannot purchase from the Azure Marketplace. In this case, you received a special waiver to have your Azure charges invoiced to you instead.
 
 Enterprise Agreement (EA) customers are charged against their EA. Specific Azure Marketplace offers listed here are first deducted from any available monetary commitment, then billed as an overage on a single quarterly invoice. EA indirect, education, and government customers are billed by their Licensing Solution Provider (LSP).
 
 **Where can I view my Azure Marketplace subscription details and billing information?**
 
-MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (web direct) customers can view Marketplace purchase details in the Invoices tab of the Cost Management + Billing section of the Azure management portal.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (web direct) customers can view Marketplace purchase details in the Invoices tab of the Cost Management + Billing section of the [Azure portal].
 
-Enterprise Agreement (EA) customers can view Marketplace purchase details in the Invoices tab of the Cost Management + Billing section of the Azure management portal.
+Enterprise Agreement (EA) customers can view Marketplace purchase details in the Invoices tab of the Cost Management + Billing section of the [Azure portal].
 
 Cloud Solution Provider (CSP) partners can view Marketplace purchase details for each customer in Partner Center within the Order History tab after selecting a company in the Customers view.
 
@@ -202,17 +202,17 @@ Although most Microsoft subscriptions can be easily converted to an Enterprise A
 
 To migrate other services purchased from the Azure Marketplace to an EA subscription, first cancel the applications from within the existing MOSP subscription, and repurchase those applications within the EA subscription. By doing so, you can submit a credit request for a refund during the potential month of overlapping coverage between the Marketplace service subscriptions - create a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-**What is the difference between "price", "software price", and "total price" in the cost structure for Virtual Machine offers in the Azure Marketplace?**
+**What is the difference between *price*, *software price*, and *total price* in the cost structure for Virtual Machine offers in the Azure Marketplace?**
 
-"Price" refers to the cost of the Azure Virtual Machine to run the software. "Software price" refers to the cost of the Marketplace publisher's software running on an Azure Virtual Machine. "Total price" refers to the combined total cost of the Azure Virtual Machine and the Marketplace publisher's software running on an Azure Virtual Machine.
+*Price* refers to the cost of the Azure Virtual Machine to run the software. *Software price* refers to the cost of the Marketplace publisher's software running on an Azure Virtual Machine. *Total price* refers to the combined total cost of the Azure Virtual Machine and the Marketplace publisher's software running on an Azure Virtual Machine.
 
 **Can I apply Azure subscription credits or monetary funds on my account towards Azure products and services required to run Azure Marketplace offers?**
 
-Yes. Azure subscription credits or monetary commitment funds on the account can be used toward Azure products and Azure Marketplace offers. For example, Azure monetary commitment funds can be applied towards the "price" component of a Virtual Machine offer in the Azure Marketplace. However, Azure subscription credits and monetary commitment funds can only be applied towards certain Marketplace publishers' software ("software price") running on an Azure Virtual Machine.
+Yes. Azure subscription credits or monetary commitment funds on the account can be used toward Azure products and Azure Marketplace offers. For example, Azure monetary commitment funds can be applied towards the *price* component of a Virtual Machine offer in the Azure Marketplace. However, Azure subscription credits and monetary commitment funds can only be applied towards certain Marketplace publishers' software (*software price*) running on an Azure Virtual Machine.
 
 **How do I find out how much of my Azure Marketplace purchase I have used?**
 
-An estimated usage information can be found in the [Microsoft Azure management portal](https://portal.azure.com/). Such estimated usage information may not include recent activities, and may be based on projections derived from past consumption. During the public preview, this capability may not be available for all purchases and may vary based on product type.
+An estimated usage information can be found in the [Azure portal]. Such estimated usage information may not include recent activities, and may be based on projections derived from past consumption. During the public preview, this capability may not be available for all purchases and may vary based on product type.
 
 ### Customer support
 
@@ -236,7 +236,7 @@ Contact the publisher provider for all technical product support. Publisher cont
 
 **If I am not satisfied, can I return a purchase?**
 
-Purchases made from [Azure Marketplace](https://azuremarketplace.microsoft.com/) cannot be returned but can be canceled/deleted. Consumption based offers are billed according to usage, so when it stops, charges stop as well. Subscriptions are canceled and will not be billed past the current billing period. If a subscription is canceled shortly after purchase (24 hours for monthly and 14 days for annual), a full refund is provided.
+Purchases made from [Azure Marketplace](https://azuremarketplace.microsoft.com/) cannot be returned but can be canceled/deleted. Consumption-based offers are billed according to usage, so when it stops, charges stop as well. Subscriptions are canceled and will not be billed past the current billing period. If a subscription is canceled shortly after purchase (24 hours for monthly and 14 days for annual), a full refund is provided.
 
 Customers must directly contact the publisher for any technical issues relating to their Marketplace service or purchase. Publisher contact information and/or a link to the support website can be found on their solution details page on Azure Marketplace.
 
@@ -278,7 +278,7 @@ Yes, an MPN is required to publish in Azure Marketplace. Visit [Microsoft Partne
 
 **What is the criterion to publish a solution in Azure Marketplace?**
 
-To publish in Azure Marketplace, partners must demonstrate that their application runs on or extends Azure. Publishers are required to provide customers with a [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/), [privacy policy](https://privacy.microsoft.com/privacystatement), phone and online support. Various workloads have additional requirements. Review the [Azure Marketplace Participation Policies](./marketplace-participation-policy.md) and [Publisher Guide](marketplace-publishers-guide.md) for further guidance.
+To publish in Azure Marketplace, partners must demonstrate that their application runs on or extends Azure. Publishers are required to provide customers with a [Service Level Agreement](https://azure.microsoft.com/support/legal/sla/), [privacy policy](https://privacy.microsoft.com/privacystatement), and phone and online support. Various workloads have additional requirements. Review the [Azure Marketplace Participation Policies](./marketplace-participation-policy.md) and [Publisher Guide](marketplace-publishers-guide.md) for further guidance.
 
 **Is there a fee to publish in Azure Marketplace?**
 
@@ -330,17 +330,18 @@ Publishers based in the following countries/regions can currently sell in the Az
 
 **How do I delete a listing from the Azure Marketplace?**
 
-Virtual Machine & Azure Apps:
+*Virtual Machine & Azure Apps:*
 
 1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 1. Select the offer from the **All Offers** tab.
-1. In the pane on the left side of the screen, select the SKUs tab.
+1. In the pane on the left side of the screen, select the **SKUs** tab.
 1. Select the SKU for deletion and click the **delete** button for that SKU.
 1. [Republish](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) the offer to Azure Marketplace.
 
 For more information, see [Deleting an offer](./cloud-partner-portal/manage-offers/cpp-delete-offer.md).
 
-Web Apps (SaaS apps, Add-ons) & Consulting Services:
+*Web Apps (SaaS apps, Add-ons) & Consulting Services:*
+
 1. In the Cloud Partner Portal, select the question mark icon and then click **Support**.
 1. Go to <https://go.microsoft.com/fwlink/?linkid=844975>.
 1. On the support page, select the offer type.
@@ -348,15 +349,17 @@ Web Apps (SaaS apps, Add-ons) & Consulting Services:
 1. Create an incident ticket.
 1. Submit.
 
-O365 Apps
-1.	Sign in to <https://sellerdashboard.microsoft.com> with Dev Account.
-1.	Withdraw add-in.
+*O365 Apps:*
+
+1.	Sign in to <https://sellerdashboard.microsoft.com> with your Dev Account.
+1.	Withdraw the add-in.
 
     > [!NOTE]
     > Apps disappear from an existing listing after 90 days.
 
-Power BI Apps
-* Contact: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+*Power BI Apps:*
+
+Contact: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
 
 ### Benefits and Go-To-Market (GTM) Resources
 
@@ -368,7 +371,7 @@ Visit [Microsoft GTM Services](https://partner.microsoft.com/reach-customers/gtm
 
 **Where are Azure Marketplace solutions promoted within Microsoft web properties?**
 
-Azure Marketplace solutions are available in the Microsoft [Microsoft Azure management portal](https://portal.azure.com/), and [Azure Marketplace website](https://azuremarketplace.microsoft.com/marketplace/). Cloud Developers and IT Pros using Azure have exposure to partner solutions every time they sign in. A subset of partner solutions is also showcased and rotated on the [Azure Marketplace homepage](https://azuremarketplace.microsoft.com/marketplace) and [Azure solutions page](https://azure.microsoft.com/solutions/).
+Azure Marketplace solutions are available in the Microsoft [Azure portal], and [Azure Marketplace website](https://azuremarketplace.microsoft.com/marketplace/). Cloud Developers and IT Pros using Azure have exposure to partner solutions every time they sign in. A subset of partner solutions is also showcased and rotated on the [Azure Marketplace homepage](https://azuremarketplace.microsoft.com/marketplace) and [Azure solutions page](https://azure.microsoft.com/solutions/).
 
 ### Billing and payments
 
@@ -404,15 +407,15 @@ Visit the [Azure Marketplace Publisher Guide](marketplace-publishers-guide.md) f
 
 **How do I define my geographic availability to enable selling in different countries/regions?**
 
-1.  In the Cloud Partner Portal, navigate to the SKU to which you want to add new countries/regions.  Within the "SKU Details" navigate to "Country/Region availability" and click "Select regions."
+1.  In the Cloud Partner Portal, navigate to the SKU to which you want to add new countries/regions.  Within the **SKU Details**, navigate to **Country/Region availability** and click **Select regions**.
 
     ![Select regions](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 
-1.  A list will pop up with all available countries/regions to sell to.  Click the checkbox next to each country/region you want to make this SKU available. Click "OK".
+1.  A list will pop up with all available countries/regions to sell to.  Click the checkbox next to each country/region you want to make this SKU available. Click **OK**.
 
     ![Select country/region list](media/marketplace-publishers-guide/FAQ-select-countries.png)
 
-1.  Finally for the changes to be applied to your live offer, click "Publish."  
+1.  Finally for the changes to be applied to your live offer, click **Publish**.  
 
     > [!Note]
     > It takes 24 hours for the changes to take effect.
@@ -442,3 +445,5 @@ A Free Tier subscription offering is perpetually free.  A Free Software Trial (T
 Visit the [Azure Marketplace and AppSource Publisher guide](/azure/marketplace/marketplace-publishers-guide) page.
 
 ---
+
+[Azure portal]: https://portal.azure.com
