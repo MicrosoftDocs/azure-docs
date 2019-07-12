@@ -39,13 +39,7 @@ Azure AD B2C uses standards-based authentication protocols, including OpenID Con
 
 ![Diagram of third-party identities federating to Azure AD B2C](media/active-directory-b2c-overview/scenario_singlesignon.png)
 
-## Scenarios enabled using the Identity Experience Framework
-
-The power of Azure AD B2C lies in the Identity Experience Framework (IEF). This framework is an extremely powerful orchestration engine which can be used to build almost any authentication, user registration, or profile editing experience that you can imagine. The Identity Experience Framework gives you the ability to construct user journeys out of any combination of steps such as: federation with other identity providers, first party and 3rd party MFA challenges, collecting user input, and integration with external systems using REST API communication.
-
-Each of these user journeys is defined by a policy, and you can build as many or as few policies as you need to enable the best user experience for your business. Let's take a look at some examples of the interesting and valuable scenarios, which can be achieved using the power of the Identity Experience Framework and custom policies in Azure AD B2C.
-
-### Integration with external user stores
+## Integrate with external user stores
 
 One common B2C see scenario involves integration with an external system, which stores user profile or PII data (personally identifying information). Potential reasons for using this pattern include the need for specific data residency requirements, such as regional or on premises data storage.
 
@@ -53,21 +47,23 @@ One common B2C see scenario involves integration with an external system, which 
 
 Another reason to follow this patter is when Azure AD B2C handles authentication, but delegates to an external CRM membership or customer loyalty database, which serves as the source of truth for customer data. Azure AD B2C can facilitate collecting the information from the user during registration, or profile editing, then handing it off to the other system. Then during authentication, Azure AD B2C can retrieve the data from the external system, and if needed included as a part of the authentication token response, which is sent the application.
 
-### Progressive profiling
-
-![A visual depiction of progressive profiling](media/active-directory-b2c-overview/scenario_progressive.png)
+## Progressive profiling
 
 Other high value user journey orchestrations include progressive profiling, allowing the user to quickly complete their first transaction by collecting a minimal amount of information, then gradually collecting more profile data on subsequent logins.
 
-### Third-party identity verification and proofing
+![A visual depiction of progressive profiling](media/active-directory-b2c-overview/scenario_progressive.png)
 
-![A diagram showing the user flow for third-party identity proofing](media/active-directory-b2c-overview/scenario_idproofing.png)
+## Third-party identity verification and proofing
 
 Another valuable use of the Identity Experience Framework is to facilitate identity verification and proofing by collecting user data and passing it to a third party system to perform validation, trust scoring, or approval for user account creation.
 
-## Provide access to customers, partners, and employees
+![A diagram showing the user flow for third-party identity proofing](media/active-directory-b2c-overview/scenario_idproofing.png)
 
-Let's take a look at how Azure AD B2C works with an actual website. [Woodgrove Groceries](https://aka.ms/ciamdemo) is a 21st century online grocery store. They sell their groceries to individual consumers and to business customers, who may be buying groceries on behalf of their company, or business that they manage. They offer a few different login options depending on the type of relationship that a user has with the grocery store. **Individual customers** can sign-up or sign-in with individual accounts, **Business customers** can sign-in with an enterprise credential. **Partners** and suppliers are individuals who supply the grocery store with products to sell.
+## An example implementation: Woodgrove Groceries
+
+Let's take a look at how Azure AD B2C works with an actual website. [Woodgrove Groceries](https://aka.ms/ciamdemo) is a 21st century online grocery store. They sell their groceries to individual consumers and to business customers, who may be buying groceries on behalf of their company, or business that they manage.
+
+Woodgrove offers a few different login options depending on the type of relationship that a user has with the grocery store. **Individual customers** can sign-up or sign-in with individual accounts, and **business customers** can sign-in with an enterprise credential. **Partners** and suppliers are individuals who supply the grocery store with products to sell.
 
 ![](media/active-directory-b2c-overview/woodgrove_overview.png)
 

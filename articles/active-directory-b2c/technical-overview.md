@@ -56,6 +56,12 @@ On the sign-up or sign-in page, Azure AD B2C presents a list of external identit
 
 ![Sign-in with social account](media/technical-overview/external-idp.png)
 
+## Built-in or fully custom user journeys
+
+Flexibility is a key part of Azure Active Directory B2C. You can choose from two configuration options to suit your needs. Use user flow to create a login experience in minutes. For more complex scenarios, you can use Identity Experience Framework custom policies to create your own user journeys. Both "user flow" and "custom policy" are served by Azure AD B2C Identity Experience Framework.
+
+The custom policy is a fully configurable, policy-driven that orchestrates trust between entities in standard protocol formats such as OpenID Connect, OAuth, SAML, WS-Fed, and a few non-standard ones, for example REST API-based system-to-system claims exchanges
+
 ## User Flow
 
 The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**.
@@ -66,9 +72,9 @@ Set of claims in a token that application receives after user complete the user 
 
 ## Custom policy
 
-Flexibility is a key part of Azure Active Directory B2C. You can choose from two configuration options to suit your needs. Use user flow to create a login experience in minutes. For more complex scenarios, you can use Identity Experience Framework custom policies to create your own user journeys. Both "user flow" and "custom policy" are served by Azure AD B2C Identity Experience Framework.
+The power of Azure AD B2C lies in the Identity Experience Framework (IEF). This framework is an extremely powerful orchestration engine which can be used to build almost any authentication, user registration, or profile editing experience that you can imagine. The Identity Experience Framework gives you the ability to construct user journeys out of any combination of steps such as: federation with other identity providers, first party and 3rd party MFA challenges, collecting user input, and integration with external systems using REST API communication.
 
-The custom policy is a fully configurable, policy-driven that orchestrates trust between entities in standard protocol formats such as OpenID Connect, OAuth, SAML, WS-Fed, and a few non-standard ones, for example REST API-based system-to-system claims exchanges.
+Each of these user journeys is defined by a policy, and you can build as many or as few policies as you need to enable the best user experience for your business.
 
 ![Custom policy](media/technical-overview/custom-policy.png)
 
