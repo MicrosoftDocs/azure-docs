@@ -265,7 +265,7 @@ This error occurs when you are trying to create a Volume and there are both the 
 * Cause:   
 Both the CIFS (SMB) and NFS protocol types are used in the volume properties.
 * Solution:   
-Remove one of the protocol type.
+Remove one of the protocol types.
 * Workaround:   
 Leave the protocol type property empty or null.
 
@@ -287,7 +287,7 @@ This error occurs when you try to create an Active Directory configuration, and 
 * Cause:   
 You are trying to create (not update) an active directory, but one already exists.
 * Solution:   
-If the Active Directory configuration is not in use, then you can first delete the existing configuration and then retry the create.
+If the Active Directory configuration is not in use, then you can first delete the existing configuration and then retry the create operation.
 * Workaround:   
 None. Only one Active Directory is allowed.
 
@@ -587,7 +587,7 @@ Choose a different file path (creation token).
 This error occurs when you try to delete the Active Directory configuration from an account where at least one SMB volume still exists.  The SMB volume was created by using the Active Directory configuration that you are trying to delete.
 
 * Cause:   
-You are trying to delete the Active Directory configuration from an account where.  But at least one SMB volume still exists that was initially created by using the Active Directory configuration. 
+You are trying to delete the Active Directory configuration from an account, but at least one SMB volume still exists that was initially created by using the Active Directory configuration. 
 * Solution:   
 First, delete all SMB volumes that were created by using the Active Directory configuration.  Then retry the configuration deletion.
 
