@@ -23,21 +23,21 @@ Azure AD B2C supports many business-to-business (B2B) and business-to-consumer (
 
 ## Custom-branded identity solution
 
-Azure Active Directory (Azure AD) B2C is a white-label authentication solution: the entire user experience can be branded and customized to blend seamlessly with your web and mobile applications.
+Azure Active Directory (Azure AD) B2C is a white-label authentication solution. The entire user experience can be branded and customized to blend seamlessly with your web and mobile applications.
 
 ![Customized sign up sign in page and background image](media/active-directory-b2c-overview/sign-in_small.png)
 
-Azure AD B2C can centralize the collection of user profile and preference information, and capture detailed analytics information about login behavior and sign-up conversion.
+You can customize every page that is displayed by when your users sign up, sign in, and modify their profile information. Customize the HTML, CSS, and JavaScript in your user journeys so that the Azure AD B2C experience looks and feels like it's a native part of your application.
 
 ## Single sign-on access with a user-provided identity
 
-By serving as a central authentication authority for all your applications. Azure AD B2C provides you with the way to build a single sign-on solution for any API, web, or mobile application. Azure AD B2C acts as the secure front door to any of your publicly accessible applications. Azure AD B2C will worry about the safety and scalability of the authentication platform handling things like denial of service, password spray, or brute force attacks. This allows appliation developers to focus on building unique value in their apps and delegating identity and authentication to Azure AD B2C.
+By serving as the central authentication authority for all your applications, Azure AD B2C enables you to build a single sign-on (SSO) solution your API, web, and mobile application. Centralize the collection of user profile and preference information, and capture detailed analytics information about login behavior and sign-up conversion.
 
-![A logical diagram of third-party identities federating in Azure AD B2C as authentication for API, web, and mobile apps](media/active-directory-b2c-overview/scenario_singlesignon.png)
+Azure AD B2C takes care of the safety and scalability of the authentication platform, monitoring and automatically handling threats like denial-of-service, password spray, or brute force attacks.
 
-Azure AD B2C uses standards based authentication protocols, such as OpenID Connect, OAuth2, and SAML, so that it can integrate with almost any modern application or commercial off-the-shelf software.
+Azure AD B2C uses standards-based authentication protocols, including OpenID Connect, OAuth2, and SAML. It can integrate with most modern applications and commercial off-the-shelf software.
 
-In addition to providing an enterprise-grade security platform, Azure AD B2C is also an extremely customizable solution which fits perfectly with any consumer facing application.  With Azure AD B2C, you can enrich social and 3rd-party identity provider information with custom registration fields and user attributes, and add multi-factor authentication to any user flow. You can also customize every page that is displayed by Azure AD B2C, using HTML, CSS, and JavaScript, so that the Azure AD B2C experience looks and feels exactly like it's a part of the web or mobile application.
+![Diagram of third-party identities federating to Azure AD B2C](media/active-directory-b2c-overview/scenario_singlesignon.png)
 
 ## Scenarios enabled using the Identity Experience Framework
 
