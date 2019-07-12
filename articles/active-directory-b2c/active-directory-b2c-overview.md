@@ -19,9 +19,15 @@ Azure Active Directory B2C provides business-to-customer identity as a service. 
 
 ![Infographic of Azure AD B2C identity providers and downstream applications](media/active-directory-b2c-overview/azureadb2c_overview.png)
 
-Azure Active Directory (Azure AD) B2C is a white-label authentication solution: the entire user experience can be branded and customized to blend seamlessly with your web and mobile applications. Azure AD B2C can centralize the collection of user profile and preference information, and capture detailed analytics information about login behavior and sign-up conversion.
-
 Azure AD B2C supports many business-to-business (B2B) and business-to-consumer (B2C) commerce use cases. Continue on to the sections below for an overview of several such scenarios.
+
+## Custom-branded identity solution
+
+Azure Active Directory (Azure AD) B2C is a white-label authentication solution: the entire user experience can be branded and customized to blend seamlessly with your web and mobile applications.
+
+![Customized sign up sign in page and background image](media/active-directory-b2c-overview/sign-in_small.png)
+
+Azure AD B2C can centralize the collection of user profile and preference information, and capture detailed analytics information about login behavior and sign-up conversion.
 
 ## Single sign-on access with a user-provided identity
 
@@ -89,7 +95,7 @@ For examples for how to construct these scenarios in Azure AD B2C, visit the com
 
 ## Next steps
 
-Now that you have an idea of what Azure Active Directory B2C is about and the scenarios it can help with, dig a little deeper into its technical aspects:
+Now that you have an idea of what Azure Active Directory B2C is about and the scenarios it can help with, dig a little deeper into its technical aspects.
 
 > [!div class="nextstepaction"]
 > [Azure AD B2C technical overview >](technical-overview.md)

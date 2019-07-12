@@ -48,13 +48,13 @@ Azure AD B2C lets you manager your consumer accounts profile including common at
 
 You can configure Azure AD B2C to allow users to sign-in to your application with credentials from external social or enterprise identity providers, such as Facebook, Microsoft account, Google, Twitter, or any identity provider that supports OAuth1, OAuth2, OpenID Connect, SAML, and Ws-Fed protocols.
 
-![Exteranl identity providers](media/technical-overview/exteranl-idps.png)
+![Exteranl identity providers](media/technical-overview/external-idps.png)
 
 With external identity providers federation, you can offer your consumers the ability to sign-in with an existing social or enterprise accounts, without the need to create a new account only for your application.
 
 On the sign-up or sign-in page, Azure AD B2C presents a list of external identity providers user can choose to sign-in. Once the user clicks on one of the external identity providers, the user is taken (redirect) to the selected identity to complete the sign-in. After the user has successfully signed-in, the user is return back to Azure AD B2C that authenticate the account into your application.
 
-![Sign-in with social account](media/technical-overview/exteranl-idp.png)
+![Sign-in with social account](media/technical-overview/external-idp.png)
 
 ## User Flow
 
