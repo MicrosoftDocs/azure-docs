@@ -14,7 +14,7 @@ ms.author: normesta
 
 Blob APIs now work with accounts that have a hierarchical namespace. This unlocks the entire ecosystem of tools, applications, and services, as well as all Blob storage features to accounts that have a hierarchical namespace. 
 
-Until recently, you might have had to maintain separate storage solutions for object storage and analytics storage. That's because ADLS Gen2 had limited ecosystem support and limited access to Blob service features such as diagnostic logging. A fragmented storage solution is hard to maintain because you have to move data between accounts to accomplish various scenarios. You no longer have to do that.
+Until recently, you might have had to maintain separate storage solutions for object storage and analytics storage. That's because ADLS Gen2 had limited ecosystem support, and limited access to Blob service features such as diagnostic logging. A fragmented storage solution is hard to maintain because you have to move data between accounts to accomplish various scenarios. You no longer have to do that.
 
 > [!NOTE]
 > Blob interoperability with ADLS Gen2 is in public preview, and is available only in the **West US 2** and **West Central US** regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](http://aka.ms/blobinteropsignup).
