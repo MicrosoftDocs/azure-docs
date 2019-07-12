@@ -24,7 +24,7 @@ Customers can purchase MSP-managed services offers in the Azure Marketplace, or 
 
 Use the links in this section for more information about managed cloud networking services offered by Azure Networking MSP partners. If your cloud network services partner is not listed in the section below, have the provider contact us. They can contact us by sending an email to ManagedVirtualWAN@microsoft.com. 
 
-[Aryka](https://www.aryaka.com/)
+[Aryaka Networks](https://www.aryaka.com/)
 
 [BT](https://www.bt.com/)
 
