@@ -184,6 +184,7 @@ Discovery can be scoped by limiting access of the vCenter account used for disco
 > 1. Assign read-only permissions on all the VMs in the VM folders to which you want to scope the discovery. 
 > 2. Grant read-only access to all the parent objects where the VMs are hosted. All parent objects - host, folder of hosts, cluster, folder of clusters - in the hierarchy up to the data center are to be included. You do not need to propagate the permissions to all child objects.
 > 3. Use the credentials for discovery selecting datacenter as *Collection Scope*. The RBAC set up ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
+>
 > Note that folder of hosts and clusters are supported.
 
 ### Verify VMs in the portal
