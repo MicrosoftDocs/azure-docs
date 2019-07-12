@@ -14,10 +14,10 @@ ms.author: normesta
 
 Blob APIs now work with accounts that have a hierarchical namespace. This unlocks the entire ecosystem of tools, applications, and services, as well as all Blob storage features to accounts that have a hierarchical namespace. 
 
-> [!NOTE]
-> Blob interoperability with ADLS Gen2 is in public preview, and is available only in the **West US 2** and **West Central US** regions. <br>To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. <br>To enroll in the preview, see [this page](http://aka.ms/blobinteropsignup).
-
 Until recently, you might have had to maintain separate storage solutions for object storage and analytics storage. That's because ADLS Gen2 had limited ecosystem support and limited access to Blob service features such as diagnostic logging. A fragmented storage solution is hard to maintain because you have to move data between accounts to accomplish various scenarios. You no longer have to do that.
+
+> [!NOTE]
+> Blob interoperability with ADLS Gen2 is in public preview, and is available only in the **West US 2** and **West Central US** regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](http://aka.ms/blobinteropsignup).
 
 ## Use the entire ecosystem of applications, tools, and services
 
@@ -37,7 +37,7 @@ Blob storage features such as [diagnostic logging](../common/storage-analytics-l
 
 ## How interoperability works
 
-Blob APIs and ADLS Gen2 APIs can operate on the same data in storage accounts that have a hierarchical namespace. To accomplish this, ADLS Gen2 routes Blob APIs through the hierarchical namespace so you get the benefits of first class directory operations and POSIX compliant access control lists (ACLs). 
+Blob APIs and ADLS Gen2 APIs can operate on the same data in storage accounts that have a hierarchical namespace. ADLS Gen2 routes Blob APIs through the hierarchical namespace so that you can get the benefits of first class directory operations and POSIX compliant access control lists (ACLs). 
 
 ![Interop conceptual](./media/data-lake-storage-interop/interop-concept.png) 
 
