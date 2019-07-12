@@ -73,7 +73,7 @@ Before you can provide SSO for on-premises applications, you need to enable Appl
 
 2. In the **Set up Single Sign-On with SAML** page, go to the **Basic SAML Configuration** heading and select its **Edit** icon (a pencil). The **External URL** you configured in Application Proxy automatically populates the **Identifier**, **Reply URL**, and **Logout URL** fields. Don't edit these URLs because they are required for Application Proxy to work correctly.
 
-3. Edit the **Reply URL** configured earlier so that its domain is reachable by Application Proxy. For example, if your **External URL** is https://contosotravel-f128.msappproxy.net and the original **Reply URL** was https://contosotravel.com/acs, you'll need to update the original **Reply URL** to https://contosotravel-f128.msappproxy.net/acs. 
+3. Edit the **Reply URL** configured earlier so that its domain is reachable by Application Proxy. For example, if your **External URL** is `https://contosotravel-f128.msappproxy.net` and the original **Reply URL** was `https://contosotravel.com/acs`, you'll need to update the original **Reply URL** to `https://contosotravel-f128.msappproxy.net/acs`. 
 
     ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
