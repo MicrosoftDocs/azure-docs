@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2019
+ms.date: 07/12/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -91,7 +91,27 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure Abstract SSO
 
-To configure single sign-on on **Abstract** side, you need to send the **App Federation Metadata Url** from Azure portal to [Abstract support team](mailto:support@abstract.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Make sure to retrieve your `App Federation Metadata Url` and the `Azure AD Identifier` from the Azure Portal, as you will need those to configure SSO on Abstract.
+
+You will find those information on the **Set up Single Sign-On with SAML** page:
+
+* The `App Federation Metadata Url` is located in the **SAML Signing Certificate** section.
+* The `Azure AD Identifier` is located in the **Set up Abstract** section.
+
+
+You are now ready to configure SSO on Abstract:
+
+>[!Note]
+>You will need to authenticate with an organization Admin account to access the SSO settings on Abstract.
+
+1. Open the [Abstract web app](https://app.abstract.com/).
+2. Go to the **Permissions** page in the left side bar.
+3. In the **Configure SSO** section, enter your **Metadata URL** and **Entity ID**.
+4. Enter any manual exceptions you might have. Emails listed in the manual exceptions section will bypass SSO and be able to log in with email and password. 
+5. Click **Save Changes**.
+
+>[!Note] 
+>You’ll need to use primary email addresses in the manual exceptions list. SSO activation will fail if the email you list is a user’s secondary email. If that happens, you’ll see an error message with the primary email for the failing account. Add that primary email to the manual exceptions list after you’ve verified you know the user.
 
 ### Create an Azure AD test user
 
@@ -125,7 +145,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Abstract test user
 
-In this section, you create a user called Britta Simon in Abstract. Work with [Abstract support team](mailto:support@abstract.com) to add the users in the Abstract platform. Users must be created and activated before you use single sign-on.
+To test SSO on Abstract:
+
+1. Open the [Abstract web app](https://app.abstract.com/).
+2. Go to the **Permissions** page in the left side bar.
+3. Click **Test with my Account**. If the test fails, please [contact our support team](https://www.abstract.com/help/contact/).
+
+>[!Note]
+>You will need to authenticate with an organization Admin account to access the SSO settings on Abstract.
+This organization Admin account will need to be assigned to Abstract on the Azure portal.
 
 ### Test SSO 
 
