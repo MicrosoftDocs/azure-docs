@@ -25,8 +25,6 @@ This article demonstrates how to enable MLflow's tracking URI and logging API, c
 
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram-track.png)
 
-
-
 ## Compare MLflow and Azure Machine Learning clients
 
  The below table summarizes the different clients that can use Azure Machine Learning service, and their respective function capabilities.
@@ -135,7 +133,7 @@ run = exp.submit(src)
 ### MLflow with Azure Databricks runs
 
 To run your Mlflow experiments with Azure Databricks you need to first create an [Azure Databricks workspace and cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). 
-In your cluster, be sure to install the azureml-mlflow library from PyPi, to ensure that your cluster has access to the necessary functions and classes.
+In your cluster, be sure to install the *azureml-mlflow* library from PyPi, to ensure that your cluster has access to the necessary functions and classes.
 
 #### Install libraries
 
