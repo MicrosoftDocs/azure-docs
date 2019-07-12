@@ -15,7 +15,7 @@ ms.author: normesta
 Blob APIs now work with accounts that have a hierarchical namespace. This unlocks the entire ecosystem of tools, applications, and services, as well as all Blob storage features to accounts that have a hierarchical namespace. 
 
 > [!NOTE]
-> Blob interoperability with ADLS Gen2 is in public preview, and is available only in the **West US 2** and **West Central US** regions. To see a list of limitations, see [Known issues](data-lake-storage-known-issues.md). To enroll in the preview, see [this page](http://aka.ms/blobinteropsignup).
+> Blob interoperability with ADLS Gen2 is in public preview, and is available only in the **West US 2** and **West Central US** regions. <br>To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. <br>To enroll in the preview, see [this page](http://aka.ms/blobinteropsignup).
 
 Until recently, you might have had to maintain separate storage solutions for object storage and analytics storage. That's because ADLS Gen2 had limited ecosystem support and limited access to Blob service features such as diagnostic logging. A fragmented storage solution is hard to maintain because you have to move data between accounts to accomplish various scenarios. You no longer have to do that.
 
@@ -23,17 +23,17 @@ Until recently, you might have had to maintain separate storage solutions for ob
 
 If you enroll in the preview of Blob interoperability with ADLS Gen2, you can work with all of your data by using the entire ecosystem of tools, applications, and services. This includes Azure services such as [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [IOT Hub](https://docs.microsoft.com/azure/iot-hub/), [Power BI](data-lake-storage-use-power-bi.md), and many others. 
 
-This also includes third party tools and applications. If you directly build and maintain applications that call Blob APIs, you can point them to accounts that have a hierarchical namespace without having to modify them. They work as is because Blob APIs can now operate on data in those accounts.
+This also includes third party tools and applications. You can point them to accounts that have a hierarchical namespace without having to modify them. These applications work *as is* even if they call Blob APIs, because Blob APIs can now operate on data in accounts that have a hierarchical namespace.
 
 > [!NOTE]
-> To see a list of limitations, see [Known issues](data-lake-storage-known-issues.md)
+> To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article.
 
 ## Use all Blob storage features
 
 Blob storage features such as [diagnostic logging](../common/storage-analytics-logging.md), [access tiers](storage-blob-storage-tiers.md), and [Blob storage lifecycle management policies](storage-lifecycle-management-concepts.md) now work with accounts that have a hierarchical namespace. Therefore, you can enable hierarchical namespaces on your blob storage accounts without loosing access to these important features. 
 
 > [!NOTE]
-> To see a list of limitations, see [Known issues](data-lake-storage-known-issues.md)
+> To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article.
 
 ## How interoperability works
 
