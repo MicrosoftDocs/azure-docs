@@ -1,7 +1,7 @@
 ---
 title: Use MLflow with Azure Machine Learning service
 titleSuffix: Azure Machine Learning service
-description: Learn how to log metrics and artifacts using MLflow library to Azure Machine Learning service
+description:  Log metrics and artifacts and deploy models to production using MLflow with Azure Machine Learning service. 
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -9,16 +9,22 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/15/2019
 ms.custom: seodec18
 ---
 
-# Use MLflow with Azure Machine Learning service (Preview)
+# Track metrics and deploy models with MLflow and Azure Machine Learning service (Preview)
 
-This article demonstrates how to use MLflow's tracking URI and logging API, collectively also known as MLflow Tracking, with Azure Machine Learning service to track and log your experiment metrics and artifacts in your [Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store your training metrics and models.
+This article demonstrates how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), with Azure Machine Learning service. Doing so enables you to:
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. [MLFlow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) is a component of MLflow that logs and tracks your training run metrics and model artifacts, whether your experiments are run locally, on a virtual machine, or on a remote compute cluster.
++ Track and log your experiment metrics and artifacts in your [Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). If you already use MLflow Tracking for your experiments, the workspace provides a centralized, secure, and scalable location to store your training metrics and models.
+
++ Deploy your MLflow experiments as an Azure Machine Learning web service. By deploying as a web service, you can apply the Azure Machine Learning monitoring and data drift detection functionalities to your production models. 
+
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally, on a virtual machine, remote compute cluster, even on Azure Databricks.
+
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram.png)
+
 
 ## Compare MLflow and Azure Machine Learning clients
 
@@ -26,22 +32,28 @@ This article demonstrates how to use MLflow's tracking URI and logging API, coll
 
  MLflow Tracking offers metric logging and artifact storage functionalities that are only otherwise available via the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-| | MLflow Tracking | Azure Machine Learning <br> Python SDK |  Azure Machine Learning <br> CLI | Azure portal|
-|-|-|-|-|-|
-| Manage workspace |   | ✓ |  ✓ | ✓  |
-| Use data stores  |   | ✓ |  ✓ |    |
-| Log metrics      | ✓ | ✓ |    |    |
-| Upload artifacts | ✓ | ✓ |    |    |
-| View metrics     | ✓ | ✓ | ✓  | ✓ |
-| Manage compute   |   | ✓ | ✓  | ✓ |
-| Deploy models    |   | ✓ |   ✓ | ✓ |
+| | MLflow Tracking & Deployment | Azure Machine Learning <br> Python SDK |  Azure Machine Learning <br> CLI | Azure portal|
+|-|-|-|-|-|-|
+| Manage workspace |   | ✓ | ✓ | ✓ |
+| Use data stores  |   | ✓ | ✓ | |
+| Log metrics      | ✓ | ✓ |   | |
+| Upload artifacts | ✓ | ✓ |   | |
+| View metrics     | ✓ | ✓ | ✓ | ✓ |
+| Manage compute   |   | ✓ | ✓ | ✓ |
+| Deploy models    | ✓ | ✓ | ✓ | ✓ |
+|Monitor model performance||✓|  |   |
+| Detect data drift |   | ✓ |   | ✓ |
 
 ## Prerequisites
 
 * [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
 * [Install the Azure Machine Learning Python SDK on your local computer and create an Azure Machine Learning Workspace](setup-create-workspace.md#sdk). The SDK provides the connectivity for MLflow to access your workspace.
 
-## Track local runs
+## Track local and remote runs
+
+MLflow Tracking with Azure Machine Learning service lets you store the logged metrics and artifacts from your local and remote runs into your Azure Machine Learning workspace.
+
+### Local runs
 
 Install the `azureml-contrib-run` package to use MLflow Tracking with Azure Machine Learning on your experiments locally run in a Jupyter Notebook or code editor.
 
@@ -78,14 +90,13 @@ with mlflow.start_run():
     mlflow.log_metric('alpha', 0.03)
 ```
 
-## Track remote runs
+### Remote runs
 
 Remote runs let you train your models on more powerful computes, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Set up compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
 
 Configure your compute and training run environment with the [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) class. Include `mlflow` and `azure-contrib-run` pip packages in environment's [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) section. Then construct  [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) with your remote compute as the compute target.
 
 ```Python
-
 from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core import ScriptRunConfig
@@ -122,57 +133,83 @@ run = exp.submit(src)
 
 ## View metrics and artifacts in your workspace
 
-The metrics and artifacts from MLflow logging are kept in your workspace on the [Azure portal](https://portal.azure.com). To view them any time, navigate to your workspace and find the experiment by name.
-
-
-## Deploy models with MLflow
-
-To deploy a web service, first create a Docker image, and then deploy that Docker image on an inferencing compute.
-
-The `mlflow.azureml.build_image()` function builds a Docker image from saved PyTorch model in a framework-aware manner. It automatically creates the PyTorch-specific inferencing wrapper code and specififies package dependencies for you.
-
-### Create a docker image
-```
-run.get_file_names()
-```
-Then build a docker image using *runs:/<run.id>/model* as the model_uri path.
-
-Note that the image building can take several minutes.
+The metrics and artifacts from MLflow logging are kept in your workspace. To view them any time, navigate to your workspace and find the experiment by name on the [Azure portal](https://portal.azure.com) or by running the below code. 
 
 ```python
-model_path = "model"
-
-azure_image, azure_model = mlflow.azureml.build_image(model_uri='runs:/{}/{}'.format(run.id, model_path),
-                                                      workspace=ws,
-                                                      model_name='pytorch_mnist',
-                                                      image_name='pytorch-mnist-img',
-                                                      synchronous=True)
-
+run.get_metrics()
+ws.get_details()
 ```
 
-Then, deploy the Docker image to Azure Container Instance: a serverless compute capable of running a single container. You can tag and add descriptions to help keep track of your web service.
+## Deploy MLflow models as a web service
 
-You can also use Azure Kubernetes Service which provides scalable endpoint suitable for production use.
+When you finish training and have a desired model for deployment, use `mlflow.azureml.build_image()` to build an Azure Machine Learning Container Image for deployment. 
 
-Note that the service deployment can take several minutes.
+In the following example, we retrieve the desired model from a previous experiment, `experiment-with-mlflow`, 
+create a Docker image, and then deploy that Docker image on an inferencing compute.
+
+### Retrieve model from previous run
+
+To retrieve the desired run we need the run id and the path in run history of where the model was saved. 
+
+```python
+# gets the list of runs for your experiment as an array
+experiment_name = "experiment-with-mlflow"
+exp = ws.experiments[experiment_name]
+runs = list(exp.get_runs())
+
+# get the run id and the path in run history
+runid = runs[0].id
+model_save_path = "model"
+```
+
+### Create Docker image
+
+The `mlflow.azureml.build_image()` function builds a Docker image from the saved model in a framework-aware manner. It automatically creates the framework-specific inferencing wrapper code and specifies package dependencies for you. Specify the model path, your workspace, run ID and other parameters.
+
+In the following code, we build a docker image using *runs:/<run.id>/model* as the model_uri path.
+
+```python
+import mlflow.azureml
+
+azure_image, azure_model = mlflow.azureml.build_image(model_uri="runs:/{}/{}".format(runid, model_save_path),
+                                                      workspace=ws,
+                                                      model_name='sklearn-model',
+                                                      image_name='sklearn-image',
+                                                      synchronous=True)
+```
+The creation of the Docker image can take several minutes. 
+
+### Deploy the Docker image 
+
+After the image is created, use the Azure Machine Learning SDK to deploy the image as a web service.
+
+First, specify the deployment configuration. Azure Container Instance is a suitable choice for a quick dev-test deployment, while Azure Kubernetes Service is suitable for scalable production deployments.
+
+For this example, we deploy the image to Azure Container Instances (ACI) for real-time serving. Set up your deployment configuration with the [deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) method. You can also add tags and descriptions to help keep track of your web service.
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
 
-# Configures deployment and adds tags ans descriptions for tracking
-aci_config = AciWebservice.deploy_configuration(cpu_cores=2, 
-                                                memory_gb=5, 
-                                                tags={"data": "MNIST",  "method" : "pytorch"}, 
-                                                description="Predict using webservice")
-
-
-# Deploy the image to Azure Container Instances (ACI) for real-time serving
-webservice = Webservice.deploy_from_image(
-    image=azure_image, workspace=ws, name="pytorch-mnist-1", deployment_config=aci_config)
-
-
-webservice.wait_for_deployment()
+# Configure 
+aci_config = AciWebservice.deploy_configuration(cpu_cores=1, 
+                                                memory_gb=1, 
+                                                tags={"method" : "sklearn"}, 
+                                                description='Diabetes model',
+                                                location='eastus2')
 ```
+
+Then, deploy the image using Azure Machine Learning SDK's [deploy_from_image()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) method. 
+
+```python
+webservice = Webservice.deploy_from_image( image=azure_image, 
+                                           workspace=ws, 
+                                           name="diabetes-model-1", 
+                                           deployment_config=aci_config)
+
+webservice.wait_for_deployment(show_output=True)
+```
+
+The service deployment can take several minutes.
 
 ## Clean up resources
 
@@ -191,7 +228,8 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrate concepts in this article.
+The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrate and expand upon concepts presented in this article.
 
 ## Next steps
 
+* Monitor your production models for [data drift](how-to-monitor-data-drift.md).
