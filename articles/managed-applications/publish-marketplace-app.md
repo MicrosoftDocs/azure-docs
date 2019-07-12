@@ -9,7 +9,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/04/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
 ---
 
@@ -101,6 +101,10 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
    * **Package file (.zip)**: This package contains two required files compressed into a .zip package. One file is a Resource Manager template that defines the resources to deploy for the managed application. The other file defines the [user interface](create-uidefinition-overview.md) for consumers deploying the managed application through the portal. In the user interface, you specify elements that enable consumers to provide parameter values.
    * **Tenant ID**: The tenant ID for the account to get access.
    * **Enable JIT Access**: Select **Yes** to enable [just-in-time access control](request-just-in-time-access.md) for the account. When enabled, you request access to the consumer's account for a specified time period. To require that consumers of your managed application grant your account permanent access, select **No**.
+   * **Customize allowed customer actions?**: Select **Yes** to specify which actions consumers can perform on the managed resources.
+   * **Allowed customer actions**: If you select **Yes** for the previous setting, you can specify which actions are permitted to consumers. The `*/read` action is automatically allowed so you don't need to include this setting. For available actions, see [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
+
+     The permitted actions are managed through [deny assignments for Azure resources](../role-based-access-control/deny-assignments.md). Any actions you include in this field are added to the **NotActions** property for the deny assignment. Those actions are excluded from the deny assignment.
    * **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted access to the resources in the customer's subscription. The Role Definition describes the permissions.
    * **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
    * **Policy Settings**: Apply an [Azure Policy](../governance/policy/overview.md) to your managed application to specify compliance requirements for the deployed solutions. From the available options, select the policies to apply. For **Policy Parameters**, provide a JSON string with the parameter values. For policy definitions and the format of the parameter values, see [Azure Policy Samples](../governance/policy/samples/index.md).
