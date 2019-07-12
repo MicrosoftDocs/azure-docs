@@ -43,7 +43,7 @@ You enable the integration between Operations Manager and the Map feature by imp
 After you install the Service Map management pack, a new node, **Service Map**, is displayed under **Operations Management Suite** in the **Administration** pane of your Operations Manager Operations console.
 
 >[!NOTE]
->[Operations Management Suite was a collection of services](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) that included Log Analytics, which is now part of [Azure Monitor](../overview.md).
+>[Operations Management Suite was a collection of services](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) that included Log Analytics, is now part of [Azure Monitor](../overview.md).
 
 To configure Azure Monitor for VMs Map integration, do the following:
 
@@ -63,7 +63,7 @@ To configure Azure Monitor for VMs Map integration, do the following:
 
     ![The Operations Manager Configuration Machine Groups](media/service-map-scom/scom-config-machine-groups.png)
 
-5. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.   
+5. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.
 
     For the integration to build a distributed application diagram for a server, the server must be:
 
@@ -92,7 +92,8 @@ The Service Map folder has four nodes:
 
 * **Active Alerts**: Lists all the active alerts about the communication between Operations Manager and Azure Monitor.  
 
->[!NOTE]These alerts are not Log Analytics alerts synced with Operations Manager, they are generated in the management group based on workflows defined in the Service Map management pack.
+>[!NOTE]
+>These alerts are not Log Analytics alerts synced with Operations Manager, they are generated in the management group based on workflows defined in the Service Map management pack.
 
 * **Servers**: Lists the monitored servers that are configured to sync from Azure Monitor for VMs Map feature.
 
