@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 07/18/2019
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
@@ -48,7 +48,7 @@ compares differences between an ISE and the global Logic Apps service.
 
 > [!NOTE]
 > Logic apps, built-in triggers, built-in actions, and connectors that run in 
-> your ISE use a pricing plan different from the consumption-based pricing plan. 
+> your ISE use a pricing plan that differs from the consumption-based pricing plan. 
 > For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md). 
 > Your ISE also has increased limits on run duration, storage retention, throughput, 
 > HTTP request and response timeouts, message sizes, and custom connector requests. 
@@ -109,7 +109,7 @@ When you create your ISE, you can select either Developer or Premium. Here are t
 
 * **Premium**
 
-  Provides an ISE that offers production-level capabilities, performance, SLA support, options to add scale units, and redundancy during recycling plus 1 Standard integration account and 1 Enterprise connector.
+  Provides an ISE that you can use for production and includes SLA support, better performance, options to add scale units, redundancy during recycling, 1 Standard integration account, and 1 Enterprise connector.
 
 For pricing information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
