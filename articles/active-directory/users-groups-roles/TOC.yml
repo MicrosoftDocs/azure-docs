@@ -131,11 +131,17 @@
     - name: Custom roles
       items:
       - name: Custom roles preview
+        href: roles-view-assignments.md
+      - name: Create custom role
         href: roles-custom-overview.md
       - name: View role assignments
-        href: roles-view-assignments.md
-      - name: Create role assignments
         href: roles-create-assignments.md
+      - name: Assign roles in Azure AD admin center
+        href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      - name: Assign roles with PowerShell
+      - href: roles-assign-powershell.md
+      - name: Assign roles in Graph API
+        href: roles-assign-graph.md
     - name: Assign roles with PowerShell
       href: roles-assign-powershell.md
     - name: Delegate app admin roles

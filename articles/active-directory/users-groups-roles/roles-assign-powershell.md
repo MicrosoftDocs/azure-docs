@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 05/22/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -84,7 +84,7 @@ Remove-AzureADScopedRoleMembership
       [<CommonParameters>]
 ```
 
-## Example: Assign a scoped role
+## Assign a role with resource scope
 
 This examples fetches a user and their display name and the name of the role you're assigning. When you have the display name of the account and the name of the role, use the following cmdlets to assign the role to the user. This example assigns the User Account Administrator role.
 
@@ -126,34 +126,34 @@ Add-AzureADScopedRoleMembership -RoleObjectId $uaAdmin.ObjectId -ObjectId $ourAd
 Get-AzureADScopedRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## Assign a role to a service principal (are we including this for AU scope?)
+## Assign a role to a service principal
 
 Example of assigning a service principal to a role.
 
 ```powershell
 # Fetch a service principal to assign to role
 $roleMember = Get-AzureADServicePrincipal -ObjectId "00221b6f-4387-4f3f-aa85-34316ad7f956"
- 
+
 #Fetch list of all directory roles with object ID
 Get-AzureADDirectoryRole
- 
+
 # Fetch a directory role by ID
 $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
- 
+
 # Add user to role
 Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember.ObjectId
- 
+
 # Fetch the assignment for the role to confirm
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADServicePrincipal
 ```
 
-## Example: Remove an AU scoped role
+## Remove a role assignment
 
 This example removes a role assignment for the specified user.
 
-```powershell
+``` PowerShell
 
-# Get roles 
+# Get roles
 $admins = Get-AzureADDirectoryRole
 foreach($i in $admins) {
     if($i.DisplayName -eq "User Account Administrator") {
@@ -164,7 +164,7 @@ foreach($i in $admins) {
         }
     }
 
-# Delete scoped role memberships used 
+# Delete scoped role memberships
 $adminunits = Get-AzureADAdministrativeUnit
 foreach($adminunit in $adminunits) {
     $adminScopes = Get-AzureADScopedRoleMembership -ObjectId $adminunit.ObjectId

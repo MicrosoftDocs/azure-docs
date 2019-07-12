@@ -16,13 +16,13 @@ ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# Assign Azure Active Directory admin roles using Graph API
+# Assign admin roles using Graph API in Azure Active Directory 
 
 You can automate how you assign roles to user accounts Microsoft Graph API.
 
 ## Required permissions
 
-Connect to your Azure AD tenant using a global administrator account to assign or remove roles.
+Connect to your Azure AD tenant using a Global administrator account or Privileged Identity administrator to assign or remove roles.
 
 ## POST Operations on RoleAssignment
 
@@ -37,14 +37,14 @@ https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version
 Body
 
 ``` HTTP
-{ 
+{
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
     "resourceScopes":["/"]
 }
 ```
 
-Response 
+Response
 
 ``` HTTP
 HTTP/1.1 201 Created
@@ -52,7 +52,7 @@ HTTP/1.1 201 Created
 
 HTTP request to create a role assignment where the principal or role definition does not exist
 
-POST 
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
@@ -84,10 +84,10 @@ POST
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-Body 
+Body
 
 ``` HTTP
-{ 
+{
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"194ae4cb-b126-40b2-bd5b-6091b380977d",
     "resourceScopes":["/ab2e1023-bddc-4038-9ac1-ad4843e7e539"]
