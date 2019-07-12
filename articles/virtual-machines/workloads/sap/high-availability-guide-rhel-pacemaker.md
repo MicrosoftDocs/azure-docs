@@ -107,8 +107,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > RHEL 7.4: fence-agents-4.0.11-66.el7_4.12  
    > For more information see [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)
 
-   Check the version of the Azure fence agent. If necessary update it to a version as stated above.
-   <pre><code># Check the version of the Azure Python SDK
+   Check the version of the Azure fence agent. If necessary update it to a version equal to or later than the stated above.
+   <pre><code># Check the version of the Azure Fence Agent
     sudo yum info fence-agents-azure-arm
    </code></pre>
 
