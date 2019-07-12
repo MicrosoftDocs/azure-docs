@@ -51,7 +51,7 @@ The **-ActivityId** parameter returns a specific diagnostic activity if it exist
 Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityIdGuid>
 ```
 
-### View error message for a specific activity ID
+### View error messages for a specific activity ID
 
 To view the error messages for a failed activity, you must run the cmdlet with the **-Detailed** parameter. Since the errors are returned as a list in the returned object, you can easily view them by using the **Select-Object** cmdlet.
 
