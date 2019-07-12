@@ -1,5 +1,5 @@
 ---
-title: Delete an invitation
+title: Delete an invitation in Azure Data Share Preview
 description: Delete an invitation
 author: madams0013
 

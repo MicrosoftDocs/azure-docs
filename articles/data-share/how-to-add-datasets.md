@@ -1,5 +1,5 @@
 ---
-title: Add datasets to an existing data share
+title: Add datasets to an existing data share in Azure Data Share Preview
 description: Add datasets to an existing data share
 author: madams0013
 

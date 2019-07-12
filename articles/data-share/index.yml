@@ -41,22 +41,6 @@ sections:
         src: /azure/data-share/media/index/portal.svg
       text: Troubleshoot Azure Data Share
       href: /azure/data-share/data-share-troubleshoot
-    - image: 
-        src: /azure/data-share/media/index/portal.svg
-      text: Add datasets
-      href: /azure/data-share/how-to-add-datasets
-    - image: 
-        src: /azure/data-share/media/index/portal.svg
-      text: Add recipients
-      href: /azure/data-share/how-to-add-recipients
-    - image: 
-        src: /azure/data-share/media/index/portal.svg
-      text: Delete an invitation
-      href: /azure/data-share/how-to-delete-invitation
-    - image: 
-        src: /azure/data-share/media/index/portal.svg
-      text: Revoke a share subscription
-      href: /azure/data-share/how-to-revoke-share-subscription
 - title: Step-by-Step tutorials
   items:
   - type: paragraph

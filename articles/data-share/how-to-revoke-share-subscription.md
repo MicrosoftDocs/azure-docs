@@ -1,5 +1,5 @@
 ---
-title: Revoke a share subscription
+title: Revoke a share subscription in Azure Data Share Preview
 description: Revoke a share subscription
 author: madams0013
 
