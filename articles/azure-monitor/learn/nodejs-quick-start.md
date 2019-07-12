@@ -49,7 +49,6 @@ Application Insights can gather telemetry data from any internet-connected appli
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
    | **Application Type** | Node.js Application | Type of app you are monitoring |
-host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
 2. Click **Create**.
