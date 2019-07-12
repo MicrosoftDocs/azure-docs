@@ -44,7 +44,7 @@ In this tutorial, you create a Windows Server VM to join to your Azure AD DS man
 
 ## Create a Windows Server virtual machine
 
-To see how to join a computer to an Azure AD DS managed domain, let's create a Windows Server VM. This VM is connected to an Azure virtual network that provides connectivity to the Azure AD DS managed domain. The process to join an Azure AD DS managed domain is the same as joining a regular on-premsies Active Directory Domain Services domain.
+To see how to join a computer to an Azure AD DS managed domain, let's create a Windows Server VM. This VM is connected to an Azure virtual network that provides connectivity to the Azure AD DS managed domain. The process to join an Azure AD DS managed domain is the same as joining a regular on-premises Active Directory Domain Services domain.
 
 1. In the top left-hand corner of the Azure portal, select **+ Create a resource**.
 2. From **Get started**, choose **Windows Server 2016 Datacenter**.
@@ -111,7 +111,7 @@ Now let's connect to the newly created Windows Server VM using RDP and join the 
 
 ## Join the VM to the Azure AD DS managed domain
 
-With the VM created and an RDP connection establish, now let's join the Windows Server virtual machine to the Azure AD DS managed domain. Thi process is the same as a computer connecting to a regular on-premises Active Directory Domain Services domain.
+With the VM created and an RDP connection establish, now let's join the Windows Server virtual machine to the Azure AD DS managed domain. This process is the same as a computer connecting to a regular on-premises Active Directory Domain Services domain.
 
 1. **Server Manager** should open by default when you sign in to the VM. If not, on the **Start** menu, select **Server Manager**.
 1. In the left pane of the **Server Manager** window, select **Local Server**. Under **Properties** on the right pane, choose **Workgroup**.
