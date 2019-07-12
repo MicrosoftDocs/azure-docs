@@ -47,7 +47,7 @@ $ppg = New-AzProximityPlacementGroup `
 
 ## List proximity placement groups
 
-You can list all of the proimity placement groups using the [Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup) cmdlet.
+You can list all of the proximity placement groups using the [Get-AzProximityPlacementGroup](/powershell/module/az.compute/get-azproximityplacementgroup) cmdlet.
 
 ```azurepowershell-interactive
 Get-AzProximityPlacementGroup
