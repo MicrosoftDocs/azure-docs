@@ -30,6 +30,9 @@ Integration with Service Health notifications and the Resource Health Check Moni
 
 A 24-hour advance notification precedes all  maintenance events, with the current exception of DW400c and lower tiers. To minimize instance downtime, make sure that your data warehouse has no long-running transactions before your chosen maintenance period. When maintenance starts, all active sessions will be canceled. Non-committed transactions will be rolled back, and your data warehouse will experience a short loss of connectivity. You'll be notified immediately after maintenance is finished on your data warehouse.
 
+> [!NOTE]
+> In the event we are required to deploy a time critical update, advanced notification times may be significantly reduced.
+
 If you received an advance notification that maintenance will take place, but SQL Data Warehouse can't perform maintenance during that time, you'll receive a cancellation notification. Maintenance will then resume during the next scheduled maintenance period.
 
 All active maintenance events appear in the **Service Health - Planned Maintenance** section. The Service Health history includes a full record of past events. You can monitor maintenance via the Azure Service Health check portal dashboard during an active event.

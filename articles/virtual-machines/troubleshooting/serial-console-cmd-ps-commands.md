@@ -4,7 +4,7 @@ description: How to use CMD and PowerShell commands within SAC in Azure Windows 
 services: virtual-machines-windows
 documentationcenter: ''
 author: alsin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

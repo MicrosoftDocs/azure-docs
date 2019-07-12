@@ -92,7 +92,11 @@ public class SuccessfulDependencyFilter : ITelemetryProcessor
 	}
 }
 ```
-3. Insert this in ApplicationInsights.config:
+
+3. Add your processor
+
+**ASP.NET apps**
+Insert this in ApplicationInsights.config:
 
 ```xml
 <TelemetryProcessors>
@@ -125,6 +129,26 @@ builder.Build();
 ```
 
 TelemetryClients created after this point will use your processors.
+
+**ASP.NET Core apps**
+
+> [!NOTE]
+> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
+
+
+For [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddApplicationInsightsTelemetry();
+        services.AddApplicationInsightsTelemetryProcessor<SuccessfulDependencyFilter>();
+
+        // If you have more processors:
+        services.AddApplicationInsightsTelemetryProcessor<AnotherProcessor>();
+    }
+```
 
 ### Example filters
 #### Synthetic requests
@@ -233,7 +257,7 @@ namespace MvcWebRole.Telemetry
 }
 ```
 
-**Load your initializer**
+**ASP.NET apps: Load your initializer**
 
 In ApplicationInsights.config:
 
@@ -252,16 +276,28 @@ In ApplicationInsights.config:
 ```csharp
 protected void Application_Start()
 {
-	// ...
-	TelemetryConfiguration.Active.TelemetryInitializers
-	.Add(new MyTelemetryInitializer());
+    // ...
+    TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
 }
 ```
 
-
 [See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-<a name="js-initializer"></a>
+**ASP.NET Core apps: Load your initializer**
+
+> [!NOTE]
+> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
+
+For [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applications, adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
+```
 
 ### Java telemetry initializers
 
