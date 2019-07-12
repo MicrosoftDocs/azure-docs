@@ -4,7 +4,7 @@ description: Run OSS or Pivotal Cloud Foundry on Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags:
 keywords: ''

@@ -40,7 +40,7 @@ See [HTTP/2 support](https://docs.microsoft.com/azure/application-gateway/config
 
 ### What resources are supported as part of a backend pool?
 
-See [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool).
+See [supported backend resources](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
 
 ### In what regions is Application Gateway available?
 

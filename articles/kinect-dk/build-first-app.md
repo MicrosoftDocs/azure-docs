@@ -174,6 +174,6 @@ int main()
 
 ## Next steps
 
-You may also review the following articles:
+Learn how to find and open a Azure Kinect DK device using Sensor SDK
 > [!div class="nextstepaction"]
->[Using Azure Kinect Sensor SDK](about-sensor-sdk.md)
+>[Find and open a device](find-then-open-device.md)

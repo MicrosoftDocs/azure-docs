@@ -4,7 +4,7 @@ description: Learn about the key design and implementation guidelines for deploy
 documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

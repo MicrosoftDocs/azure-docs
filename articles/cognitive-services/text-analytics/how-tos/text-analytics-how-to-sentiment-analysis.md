@@ -131,10 +131,10 @@ The following example shows the response for the document collection in this art
 The [next version of Sentiment Analysis](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) is now available for public preview. It provides significant improvements in the accuracy and detail of the API's text categorization and scoring. 
 
 > [!NOTE]
-> * The Sentiment Analysis V3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
+> * The Sentiment Analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
 > * At this time, Sentiment Analysis V3: 
 >    * Currently supports only the English language.  
->    * Is available in the following regions: `Central US`, `Central Canada`, and ` East Asia`.
+>    * Is available in the following regions: `Central US`, `Central Canada`, and `East Asia`.
 
 |Feature |Description  |
 |---------|---------|
