@@ -1,5 +1,5 @@
 ---
-title: Create an AKS cluster resource
+title: Create an Azure Kubernetes Service cluster resource
 titleSuffix: Azure Cognitive Services
 description: Learn how to create an Azure Kubernetes Service (AKS) resource.
 services: cognitive-services
