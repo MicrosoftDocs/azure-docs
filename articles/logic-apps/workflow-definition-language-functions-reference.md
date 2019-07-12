@@ -332,7 +332,7 @@ For the full reference about each function, see the
 
 <a name="alphabetical-list"></a>
 
-## All functions - alphabaetical list
+## All functions - alphabetical list
 
 This lists all the available functions in alphabetical order.
 
