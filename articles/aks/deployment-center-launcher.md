@@ -1,6 +1,6 @@
 ---
-title: Azure Deployment Center Launcher
-description: Deployment center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application
+title: Use Deployment Center in Azure App Service
+description: Deployment Center in Azure DevOps simplifies setting up a robust Azure DevOps pipeline for your application
 ms.author: puagarw
 ms.manager: douge
 ms.prod: devops
