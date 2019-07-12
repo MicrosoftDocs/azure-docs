@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2019
+ms.date: 07/12/2019
 ms.author: kumud
 
 ---
@@ -51,13 +51,13 @@ For more information, see [What is Azure Virtual Network?](../virtual-network/vi
 ### <a name="expressroute"></a>ExpressRoute
 ExpressRoute enables you to extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. This connection is private. Traffic does not go over the internet. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.  For more information, see [What is ExpressRoute?](../expressroute/expressroute-introduction.md).
 
-![Azure ExpressRoute](../expressroute/media/expressroute-introduction/expressroute-connection-overview.png)
+![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
 ### <a name="vpngateway"></a>VPN Gateway
 VPN Gateway helps you create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. There are different configurations available for VPN Gateway connections, such as, site-to-site, point-to-site, or vnet to vnet.
 The following diagram illustrates multiple site-to-site VPN connections to the same virtual network.
 
-![Site-to-Site Azure VPN Gateway connections](../vpn-gateway/media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
+![Site-to-Site Azure VPN Gateway connections](./media/networking-overview/vpngateway-multisite-connection-diagram.png)
 
 For more information about different types of VPN connections, see [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
@@ -65,7 +65,7 @@ For more information about different types of VPN connections, see [VPN Gateway]
 Azure Virtual WAN is a networking service that provides optimized and automated branch connectivity to, and through, Azure. Azure regions serve as hubs that you can choose to connect your branches to. You can leverage the Azure backbone to also connect branches and enjoy branch-to-VNet connectivity. 
 Azure Virtual WAN brings together many Azure cloud connectivity services such as site-to-site VPN, ExpressRoute, point-to-site user VPN into a single operational interface. Connectivity to Azure VNets is established by using virtual network connections. For more information, see [What is Azure virtual WAN?](../virtual-wan/virtual-wan-about.md).
 
-![Virtual WAN diagram](../virtual-wan/media/virtual-wan-about/virtualwan1.png)
+![Virtual WAN diagram](./media/networking-overview/virtualwan1.png)
 
 ### <a name="dns"></a>Azure DNS
 Azure DNS is a hosting service for DNS domains that provides name resolution by using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services. For more information, see [What is Azure DNS?](../dns/dns-overview.md).
@@ -73,7 +73,7 @@ Azure DNS is a hosting service for DNS domains that provides name resolution by 
 ### <a name="bastion"></a>Azure Bastion (Preview)
 The Azure Bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL. When you connect via Azure Bastion, your virtual machines do not need a public IP address. For more information, see [What is Azure Bastion?](/bastion/bastion-overview.md).
 
-![Azure Bastion architecture](../bastion/media/bastion-overview/architecture.png)
+![Azure Bastion architecture](./media/networking-overview/architecture.png)
 
 
 ## <a name="protect"></a>Application protection services
@@ -91,7 +91,7 @@ This section describes networking services in Azure that help protect your netwo
 ### <a name="ddosprotection"></a>DDoS Protection 
 Azure DDoS protection, combined with application design best practices, provide defense against DDoS attacks. The service is available in two service tiers - Basic and Standard. For more information about DDoS protection, see [DDoS Protection Overview](../virtual-network/ddos-protection-overview.md).
 
-![DDoS Protection](../virtual-network/media/ddos-protection-overview/ddospic.png)
+![DDoS Protection](./media/networking-overview/mitigation.png)
 
 ### <a name="waf"></a>Web Application Firewall
 
@@ -107,14 +107,14 @@ Web application firewall (WAF) provides centralized protection of your web appli
 
 For more information about Web Application Firewall, see [WAF overview](../frontdoor/waf-overview.md)
 
-![WAF overview](../frontdoor/media/waf-overview/web-application-firewall-overview2.png)
+![WAF overview](./media/networking-overview/web-application-firewall-overview2.png)
 
 ### <a name="firewall"></a>Azure Firewall
 Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. Using Azure Firewall, you can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources allowing outside firewalls to identify traffic originating from your virtual network. 
 
 For more information about Azure Firewall, see the [Azure Firewall documentation](../firewall/overview.md).
 
-![Firewall overview](../firewall/media/overview/firewall-overview.png)
+![Firewall overview](./media/networking-overview/firewall-threat.png)
 
 ### <a name="nsg"></a>Network security groups
 You can filter network traffic to and from Azure resources in an Azure virtual network with a network security group. For more information, see [Security Overview](../virtual-network/security-overview.md).
@@ -122,7 +122,7 @@ You can filter network traffic to and from Azure resources in an Azure virtual n
 ### <a name="serviceendpoints"></a>Service endpoints
 Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network. For more information, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-![Virtual network service endpoints](../virtual-network/media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
+![Virtual network service endpoints](./media/networking-overview/VNet_Service_Endpoints_Overview.png)
 
 ## <a name="deliver"></a>Application delivery services
 
@@ -140,7 +140,7 @@ This section describes networking services in Azure that help deliver applicatio
 ### <a name="cdn"></a>Content Delivery Network
 Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. For more information about Azure CDN, see [Azure Content Delivery Network](../cdn/cdn-overview.md)
 
-![Azure CDN](../cdn/media/cdn-overview/cdn-overview.png)
+![Azure CDN](./media/networking-overview/cdn-overview.png)
 
 ### <a name="frontdoor"></a>Azure Front Door service
 Azure Front Door Service enables you to define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. With Front Door, you can transform your global (multi-region) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. For more information, see [Azure Front Door](../frontdoor/front-door-overview.md).
@@ -152,7 +152,7 @@ Azure Traffic Manager is a DNS-based traffic load balancer that enables you to d
 
 The following diagram shows endpoint priority-based routing with Traffic Manager:
 
-![Azure Traffic Manager 'Priority' traffic-routing method](../traffic-manager/media/traffic-manager-routing-methods/priority.png)
+![Azure Traffic Manager 'Priority' traffic-routing method](./media/networking-overview/priority.png)
 
 For more information about Traffic Manager, see [What is Azure Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
@@ -161,7 +161,7 @@ The Azure Load Balancer provides high-performance, low-latency Layer 4 load-bala
 
 The following picture shows an Internet-facing multi-tier application that utilizes both external and internal load balancers:
 
-![Azure Load Balancer example](../load-balancer/media/load-balancer-overview/IC744147.png)
+![Azure Load Balancer example](./media/networking-overview/IC744147.png)
 
 
 ### <a name="applicationgateway"></a>Application Gateway
@@ -193,7 +193,7 @@ Azure virtual network TAP (Terminal Access Point) allows you to continuously str
 
 The following picture shows how virtual network TAP works. 
 
-![How virtual network TAP works](../virtual-network/media/virtual-network-tap/architecture.png)
+![How virtual network TAP works](./media/networking-overview/virtual-network-tap-architecture.png)
 
 For more information, see [What is Virtual Network TAP](../virtual-network/virtual-network-tap-overview.md).
 
