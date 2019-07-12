@@ -4,7 +4,7 @@ description: Learn to install MySQL on an OpenSUSE Linux Virtual machine in Azur
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

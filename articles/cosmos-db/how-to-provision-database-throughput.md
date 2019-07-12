@@ -4,7 +4,7 @@ description: Learn how to provision throughput at the database level in Azure Co
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: rimman
 ---
 
@@ -29,6 +29,25 @@ This article explains how to provision throughput on a database in Azure Cosmos 
 
 ![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
+## Provision throughput using PowerShell
+
+```azurepowershell-interactive
+# Create a database and provision throughput of 400 RU/s
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$databaseResourceName = $accountName + "/sql/" + $databaseName
+
+$databaseProperties = @{
+    "resource"=@{ "id"=$databaseName };
+    "options"=@{ "Throughput"= 400 }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $databaseResourceName -PropertyObject $databaseProperties
+```
+
 ## Provision throughput using .NET SDK
 
 > [!Note]
@@ -40,7 +59,7 @@ This article explains how to provision throughput on a database in Azure Cosmos 
 //set the throughput for the database
 RequestOptions options = new RequestOptions
 {
-    OfferThroughput = 10000
+    OfferThroughput = 500
 };
 
 //create the database
@@ -52,8 +71,8 @@ await client.CreateDatabaseIfNotExistsAsync(
 ### <a id="dotnet-cassandra"></a>Cassandra API
 
 ```csharp
-// Create a Cassandra keyspace and provision throughput of 10000 RU/s
-session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=10000);
+// Create a Cassandra keyspace and provision throughput of 400 RU/s
+session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400);
 ```
 
 ## Next steps

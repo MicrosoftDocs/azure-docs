@@ -108,7 +108,7 @@ This sample code is for ASP.NET Core. For ASP.NET, just replace `HttpContext.Use
 
 ## Verifying app roles in APIs called by daemon apps
 
-If your web API is called by a [daemon app](scenario-daemon-overview.md), that app should require an application permission to your web API. We've seen in [Exposing application permissions (app roles)](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) that your API exposes such permissions (for example, the `access_as_application` app role).
+If your web API is called by a [daemon app](scenario-daemon-overview.md), that app should require an application permission to your web API. We've seen in [Exposing application permissions (app roles)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) that your API exposes such permissions (for example, the `access_as_application` app role).
 You now need to have your APIs verify that the token it received contains the `roles` claim and
 that this claim has the value it expects. The code doing this verification is similar to the code that verifies delegated permissions, except that, instead of testing for `scopes`, your controller action will test for `roles`:
 

@@ -2,12 +2,12 @@
 title: SSH into Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to create an SSH connection with Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
+ms.author: mlearned
 
 #Customer intent: As a cluster operator, I want to learn how to use SSH to connect to VMs in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---

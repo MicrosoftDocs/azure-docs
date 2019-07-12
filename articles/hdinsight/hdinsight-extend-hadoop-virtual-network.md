@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 07/10/2019
 ---
 
 # Extend Azure HDInsight using an Azure Virtual Network
@@ -20,7 +20,9 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 * Directly accessing [Apache Hadoop](https://hadoop.apache.org/) services that are not available publicly over the internet. For example, [Apache Kafka](https://kafka.apache.org/) APIs or the [Apache HBase](https://hbase.apache.org/) Java API.
 
 > [!IMPORTANT]  
-> After Feb 28, 2019, the networking resources (such as NICs, LBs, etc) for NEW clusters created in a VNET will be provisioned in the same HDInsight cluster resource group. Previously, these resources were provisioned in the VNET resource group. There is no change to the current running clusters and those clusters created without a VNET.
+> Creating an HDInsight cluster in a VNET will create several networking resources, such as NICs and load balancers. Do **not** delete these networking resources, as they are needed for your cluster to function correctly with the VNET.
+>
+> After Feb 28, 2019, these networking resources (such as NICs, LBs, etc) for NEW clusters created in a VNET will be provisioned in the same HDInsight cluster resource group. Previously, these resources were provisioned in the VNET resource group. There is no change to the current running clusters and those clusters created without a VNET.
 
 ## Prerequisites for code samples and examples
 
@@ -62,9 +64,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
     Once joined, HDInsight installed in the Resource Manager network can interact with resources in the classic network.
 
-2. Do you use forced tunneling? Forced tunneling is a subnet setting that forces outbound Internet traffic to a device for inspection and logging. HDInsight does not support forced tunneling. Either remove forced tunneling before deploying HDInsight into an existing subnet, or create a new subnet with no forced tunneling for HDInsight.
-
-3. Do you use network security groups, user-defined routes, or Virtual Network Appliances to restrict traffic into or out of the virtual network?
+2. Do you use network security groups, user-defined routes, or Virtual Network Appliances to restrict traffic into or out of the virtual network?
 
     As a managed service, HDInsight requires unrestricted access to several IP addresses in the Azure data center. To allow communication with these IP addresses, update any existing network security groups or user-defined routes.
     
@@ -103,7 +103,7 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
 
         For more information, see the [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md) document.
 
-4. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
+3. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
 
     * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -267,8 +267,7 @@ If you use network security groups or user defined routes to control traffic, yo
     | ---- | ---- | ---- | ---- | ----- |
     | Asia | East Asia | 23.102.235.122</br>52.175.38.134 | \*:443 | Inbound |
     | &nbsp; | Southeast Asia | 13.76.245.160</br>13.76.136.249 | \*:443 | Inbound |
-    | Australia | Australia Central | 20.36.36.33</br>20.36.36.196 | \*:443 | Inbound |
-    | &nbsp; | Australia East | 104.210.84.115</br>13.75.152.195 | \*:443 | Inbound |
+    | Australia | Australia East | 104.210.84.115</br>13.75.152.195 | \*:443 | Inbound |
     | &nbsp; | Australia Southeast | 13.77.2.56</br>13.77.2.94 | \*:443 | Inbound |
     | Brazil | Brazil South | 191.235.84.104</br>191.235.87.113 | \*:443 | Inbound |
     | Canada | Canada East | 52.229.127.96</br>52.229.123.172 | \*:443 | Inbound |

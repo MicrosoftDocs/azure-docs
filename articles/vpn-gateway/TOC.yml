@@ -140,6 +140,8 @@
         href: vpn-gateway-howto-openvpn-clients.md
     - name: Transition to a public CA gateway certificate for P2S
       href: vpn-gateway-point-to-site-gateway-public-ca.md
+    - name: Configure an Always On VPN device tunnel
+      href: vpn-gateway-howto-always-on-device-tunnel.md
   - name: Create a zone-redundant VNet gateway in Azure Availability Zones
     href: create-zone-redundant-vnet-gateway.md
   - name: Configure IPsec/IKE policies on connections

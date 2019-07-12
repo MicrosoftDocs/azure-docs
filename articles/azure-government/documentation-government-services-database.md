@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 03/06/2019
-ms.author: zsk0646
+ms.author: zakramer
 
 ---
 # Azure Government Databases
