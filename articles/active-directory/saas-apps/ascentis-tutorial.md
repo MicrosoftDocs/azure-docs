@@ -43,7 +43,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Ascentis supports **SP and IDP** initiated SSO
 
-## Adding Ascentis from the gallery
+## Add Ascentis from the gallery
 
 To configure the integration of Ascentis into Azure AD, you need to add Ascentis from the gallery to your list of managed SaaS apps.
 
@@ -146,7 +146,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Ascentis tile in the Access Panel, you should be automatically signed in to the Ascentis for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
