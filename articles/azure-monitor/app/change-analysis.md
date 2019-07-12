@@ -132,5 +132,5 @@ If your subscription includes numerous web apps, enabling the service at the lev
 ## Next steps
 
 - Enable Application Insights for [Azure App Services apps](azure-web-apps.md).
-- Enable Application Insights for [Azure VM and Azure VMSS IIS-hosted apps](azure-vm-vmss-apps.md).
+- Enable Application Insights for [Azure VM and Azure virtual machine scale set IIS-hosted apps](azure-vm-vmss-apps.md).
 - Learn more about [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), which helps power Change Analysis.

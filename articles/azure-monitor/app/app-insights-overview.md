@@ -98,7 +98,7 @@ There are several ways to get started. Begin with whichever works best for you. 
 
 * **At run time: instrument your web app on the server.** Ideal for applications already deployed. Avoids any update to the code.
   * [**ASP.NET or ASP.NET Core applications hosted on Azure Web Apps**](../../azure-monitor/app/azure-web-apps.md)
-  * [**ASP.NET applications hosted in IIS on Azure VM or Azure VMSS**](../../azure-monitor/app/azure-vm-vmss-apps.md)
+  * [**ASP.NET applications hosted in IIS on Azure VM or Azure virtual machine scale set**](../../azure-monitor/app/azure-vm-vmss-apps.md)
   * [**ASP.NET applications hosted in IIS on-premises VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * **At development time: add Application Insights to your code.** Allows you to customize telemetry collection and send additional telemetry.
   * [ASP.NET Applications](../../azure-monitor/app/asp-net.md)
@@ -114,7 +114,7 @@ There are several ways to get started. Begin with whichever works best for you. 
 ## Next steps
 Get started at runtime with:
 
-* [Azure VM and Azure VMSS IIS-hosted apps](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Azure VM and Azure virtual machine scale set IIS-hosted apps](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [IIS server](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
 

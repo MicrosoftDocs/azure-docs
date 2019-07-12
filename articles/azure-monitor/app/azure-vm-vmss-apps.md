@@ -15,7 +15,7 @@ ms.author: mbullwin
 
 Enabling monitoring on your .NET based web applications running on [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) and [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
 
-This article will walk you through enabling Application Insights monitoring using the ApplicationMonitoringWindows extension as well as provide preliminary guidance for automating the process for large-scale deployments.
+This article will walk you through enabling Application Insights monitoring using the ApplicationMonitoringWindows extension and provide preliminary guidance for automating the process for large-scale deployments.
 
 > [!IMPORTANT]
 > Azure ApplicationMonitoringWindows extension is currently in public preview.
@@ -27,7 +27,7 @@ This article will walk you through enabling Application Insights monitoring usin
 There are two ways to enable application monitoring for Azure VM and Azure virtual machine scale set hosted applications:
 
 * **Agent-based application monitoring** (ApplicationMonitoringWindows extension).
-    * This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
+    * This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring. For Azure VMs and Azure virtual machine scale sets we recommend at a minimum enabling this level of monitoring. After that, based on your specific scenario, you can evaluate whether manual instrumentation is needed.
     * Currently only .Net IIS-hosted applications are supported.
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
@@ -146,7 +146,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 
 ## Troubleshooting
 
-Below is our step-by-step troubleshooting guide for extension-based monitoring for .NET based applications running on Azure VM and Azure virtual machine scale sets.
+Below is our step-by-step troubleshooting guide for extension-based monitoring for .NET applications running on Azure VM and Azure virtual machine scale sets.
 
 > [!NOTE]
 > .NET Core, Java, and Node.js applications are only supported on Azure VM and Azure virtual machine scale sets via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.

@@ -62,7 +62,7 @@ ms.author: mbullwin
                                                     <div class="cardText">
 	                                                    <h3>What's new?</h3>
                                                         <p>
-                                                            <a href="./app/azure-vm-vmss-apps.md">Codeless monitoring for VM and VMSS applications</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Codeless monitoring for Azure VM and Azure virtual machine scale set applications</a><br>
                                                             <a href="./app/kubernetes.md">Monitor Kubernetes applications</a><br>
                                                             <a href="./app/status-monitor-v2-overview.md">Status Monitor v2 for IIS apps</a><br>
 														</p>
@@ -143,7 +143,7 @@ ms.author: mbullwin
                                                             <a href="./app/asp-net.md">In-depth monitoring configuration</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">Status Monitor</a><br>
                                                             <a href="./app/azure-web-apps.md">App Service monitoring</a><br>
-                                                            <a href="./app/azure-vm-vmss-apps.md">VM and VMSS app monitoring</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">VM and virtual machine scale set application monitoring</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Custom events and metrics</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Open Source .NET SDK GitHub repo</a>
 														</p>

@@ -27,7 +27,7 @@ There are a number of community supported Application Insights SDKs, many of whi
 
 ## Platforms and frameworks
 ### Instrumentation for already deployed applications (codeless, agent-based)
-* [Azure VM and Azure VMSS](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Azure VM and Azure virtual machine scale sets](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET - for apps that are already live](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)&#151;including both web and worker roles
