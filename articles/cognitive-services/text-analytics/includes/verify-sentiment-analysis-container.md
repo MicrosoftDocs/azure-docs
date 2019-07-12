@@ -62,7 +62,7 @@ ms.author: dapine
 
 1. Select **Execute** to determine the sentiment of the text.
 
-    The model packaged in the container generates a score ranging from 0 to 1, where 0 is negative and 1 is positive.
+    The model that's packaged in the container generates a score ranging from 0 to 1, where 0 is negative and 1 is positive.
 
     The JSON response that's returned includes sentiment for the updated text input:
 
