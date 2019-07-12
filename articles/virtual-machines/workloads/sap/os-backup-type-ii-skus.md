@@ -28,7 +28,7 @@ This document describes the steps to perform an operating system file level back
 >[!NOTE]
 >The OS backup scripts uses the ReaR software, which is pre-installed in the server.  
 
-After the provisioning is complete by the Microsoft Service Management team, by default, the server is configured with two backup schedules to back up the file system level back of the operating system. You can check the schedules of the backup jobs by using the following command:
+After the provisioning is complete by the Microsoft `Service Management` team, by default, the server is configured with two backup schedules to back up the file system level back of the operating system. You can check the schedules of the backup jobs by using the following command:
 ```
 #crontab –l
 ```

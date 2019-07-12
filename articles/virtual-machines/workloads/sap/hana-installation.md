@@ -141,7 +141,7 @@ For more information about Ethernet details for your architecture, see the [HLI 
 
 ## Storage
 
-The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure service management through SAP recommended guidelines. These guidelines are documented in the [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper. 
+The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on Azure `service management` through SAP recommended guidelines. These guidelines are documented in the [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper. 
 
 The rough sizes of the different volumes with the different HANA Large Instances SKUs is documented in [SAP HANA (Large Instances) overview and architecture on Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -169,7 +169,7 @@ The HANA/log/backup volume is not supposed to be the volume for database backups
 
 In addition to the storage that's provided, you can purchase additional storage capacity in 1-TB increments. This additional storage can be added as new volumes to a HANA Large Instance.
 
-During onboarding with SAP HANA on Azure service management, the customer specifies a user ID (UID) and group ID (GID) for the sidadm user and sapsys group (for example: 1000,500). During installation of the SAP HANA system, you must use these same values. Because you want to deploy multiple HANA instances on a unit, you get multiple sets of volumes (one set for each instance). As a result, at deployment time you need to define:
+During onboarding with SAP HANA on Azure `service management`, the customer specifies a user ID (UID) and group ID (GID) for the sidadm user and sapsys group (for example: 1000,500). During installation of the SAP HANA system, you must use these same values. Because you want to deploy multiple HANA instances on a unit, you get multiple sets of volumes (one set for each instance). As a result, at deployment time you need to define:
 
 - The SID of the different HANA instances (sidadm is derived from it).
 - The memory sizes of the different HANA instances. The memory size per instance defines the size of the volumes in each individual volume set.
