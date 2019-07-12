@@ -1,16 +1,16 @@
 ---
-title: 'Failure spark job debugging with Azure Toolkit for IntelliJ(Preview) '
+title: 'Failure spark job debugging with Azure Toolkit for IntelliJ (preview) '
 description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolkit for IntelliJ to debug applications remotely on HDInsight clusters through SSH
 keywords: debug remotely intellij, remote debugging intellij, ssh, intellij, hdinsight, debug intellij, debugging
 ms.service: hdinsight
 author: hrasheed
 ms.author: hrasheed-msft
-ms.reviewer: jasonh
+ms.reviewer: jasonh     
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/25/2017
+ms.date: 01/07/2019
 ---
-# Failure spark job debugging with Azure Toolkit for IntelliJ(Preview)
+# Failure spark job debugging with Azure Toolkit for IntelliJ (preview)
 
 This article provides step-by-step guidance on how to use HDInsight Tools in [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) to run **Spark Failure Debug** applications. 
 
@@ -19,15 +19,15 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
   
 * IntelliJ IDEA. This article uses [IntelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
-* Azure Toolkit for IntelliJ. See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/en-us/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ. See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
 * Connect to your HDInsight cluster. See [Connect to your HDInsight cluster](apache-spark-intellij-tool-plugin.md).
 
-* Microsoft Azure Storage Explorer. See [Download Microsoft Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* Microsoft Azure Storage Explorer. See [Download Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ## Create a project with debugging template 
 
-Create a spark2.3.2 project to proceed failure debug, take failure task​ debugging sample file in this document.
+Create a spark2.3.2 project to continue failure debug, take failure task​ debugging sample file in this document.
 
 1. Open IntelliJ IDEA. Open the **New Project** window.
 
@@ -39,7 +39,7 @@ Create a spark2.3.2 project to proceed failure debug, take failure task​ debug
 
    c. Select **Next**.     
  
-2. In the **New Project** window, do the following:
+2. In the **New Project** window, do the following steps:
 
    ![Select the Spark SDK](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
 
@@ -55,7 +55,7 @@ Create a spark2.3.2 project to proceed failure debug, take failure task​ debug
 
 ## Run a Spark ​Scala/Java application on an HDInsight cluster
 
-Create a spark Scala​/Java application, then run the application on a Spark cluster by doing the following:
+Create a spark Scala​/Java application, then run the application on a Spark cluster by doing the following steps:
 
 1. Click **Add Configuration** to open **Run/Debug Configurations** window.
 
@@ -83,7 +83,7 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 
 ​If the job submission fails, you could download the failed job profile to the local machine for further debugging.
 
-1. Open **Microsoft Azure Storage Explorer**, locate the hdinsight account of the cluster for the failed job, download the failed job resources from the corresponding location: **\hdp\spark2-events\\.spark-failures\\\<application ID>** to a local folder.​ The **activities** window will show the download progress.
+1. Open **Microsoft Azure Storage Explorer**, locate the HDInsight account of the cluster for the failed job, download the failed job resources from the corresponding location: **\hdp\spark2-events\\.spark-failures\\\<application ID>** to a local folder.​ The **activities** window will show the download progress.
 
    ![download failure file](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
@@ -103,7 +103,7 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 
    ![Remote run button](./media/apache-spark-intellij-tool-failure-debug/local-run-failure-configuration.png)
 
-5. Set break point as the log indicates, then click local debug button to perform local debugging just as your normal Scala / Java projects in IntelliJ.
+5. Set break point as the log indicates, then click local debug button to do local debugging just as your normal Scala / Java projects in IntelliJ.
 
 5. After debugging, ​if the project completes successfully​​​, ​you could resubmit the failed job to your spark on HDInsight cluster.
 
@@ -115,7 +115,7 @@ Create a spark Scala​/Java application, then run the application on a Spark cl
 * Remote debug (video): [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely on an HDInsight cluster](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### Scenarios
-* [Apache Spark with BI: Perform interactive data analysis by using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
+* [Apache Spark with BI: Do interactive data analysis by using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to analyze building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
 * [Website log analysis using Apache Spark in HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
