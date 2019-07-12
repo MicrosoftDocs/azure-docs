@@ -58,12 +58,11 @@ Billing is prorated| Daily|Daily
 Dynamic encryption|Yes|Yes
 Dynamic packaging|Yes|Yes
 Scale|Auto scales up to the targeted throughput.|Additional SUs
-IP filtering/G20/Custom host  <sup>2</sup>|Yes|Yes
+IP filtering/G20/Custom host  <sup>1</sup>|Yes|Yes
 Progressive download|Yes|Yes
 Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.
 
-<sup>1</sup> The free trial only applies to newly created media services accounts and the default Streaming Endpoint.<br/>
-<sup>2</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.<br/>
+<sup>1</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.<br/>
 
 ## Properties 
 
