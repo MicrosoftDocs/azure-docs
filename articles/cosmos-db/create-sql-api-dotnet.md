@@ -38,7 +38,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 ## Setting up
 
-This section walks you through creating Azure Cosmos account and setting up a project that uses Azure Cosmos DB SQL API client library for .NET to manage resources. The example code described in this article creates a `FamilyDatabase` database and family members (each family member is an item) within that database. Each family member has properties such as `Id, FamilyName, FirstName, LastName, Parents, Children, Address,`. The `LastName` property is used as the partition key for the container. 
+This section walks you through creating an Azure Cosmos account and setting up a project that uses Azure Cosmos DB SQL API client library for .NET to manage resources. The example code described in this article creates a `FamilyDatabase` database and family members (each family member is an item) within that database. Each family member has properties such as `Id, FamilyName, FirstName, LastName, Parents, Children, Address,`. The `LastName` property is used as the partition key for the container. 
 
 ### <a id="create-account"></a>Create an Azure Cosmos account
 
@@ -138,14 +138,14 @@ To learn in more about the hierarchy of different entities, see the [working wit
 
 * [CosmosClient]() - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
 
-* [CreateDatabaseIfNotExistsAsync]() - This method creates(if doesn't exist) or gets(if already exists) a database resource as an asynchronous operation. 
+* [CreateDatabaseIfNotExistsAsync]() - This method creates (if doesn't exist) or gets (if already exists) a database resource as an asynchronous operation. 
 
-* [CreateContainerIfNotExistsAsync]() a container as an asynchronous operation. You can check the status code from the response to determine whether the container was newly created (201) or an existing container was returned (200). 
+* [CreateContainerIfNotExistsAsync]()- - This method creates (if it doesn't exist) or gets (if it already exists) a container as an asynchronous operation. You can check the status code from the response to determine whether the container was newly created (201) or an existing container was returned (200). 
 * [CreateItemAsync]() - This method creates an item within the container. 
 
 * [QueryItemsAsync]() - Runs a query to get the required items. A SQL query is passed within this method. 
 
-* [DeleteAsync]() - Deletes the specified database from your Azure Cosmos account ans disposes the Cosmos client instance. 
+* [DeleteAsync]() - Deletes the specified database from your Azure Cosmos account. `DeleteAsync` method only deletes the database. Disposing of the `Cosmosclient` instance should happen separately (which it does in the DeleteDatabaseAndCleanupAsync method. 
 
  ## <a id="code-examples"></a>Code examples
 
@@ -200,7 +200,7 @@ namespace todo
 }
 ```
 
-### add the using directives & define the client object
+### Add the using directives & define the client object
 
 From the project directory, open the `Program.cs` file in your editor and add the following using directives at the top of your application:
 
@@ -214,7 +214,7 @@ using System.Net;
 using Microsoft.Azure.Cosmos;
 ```
 
-To the program.cs file, add code to read the environment variables that you have set in the previous step. Define the `CosmosClient`, `Database`, and the `Container` objects. Next add code to the main method that calls the `GetStartedDemoAsync` method where you manage Azure Cosmos account resources. 
+To the `program.cs file`, add code to read the environment variables that you have set in the previous step. Define the `CosmosClient`, `Database`, and the `Container` objects. Next add code to the main method that calls the `GetStartedDemoAsync` method where you manage Azure Cosmos account resources. 
 
 ```csharp
 namespace todo
@@ -271,7 +271,7 @@ public class Program
 
 ### Create a database 
 
-Define the `CreateDatabaseAsync` method within the program.cs class. This method creates the `FamilyDatabase` if it doesn't already exist. 
+Define the `CreateDatabaseAsync` method within the `program.cs` class. This method creates the `FamilyDatabase` if it doesn't already exist. 
 
 ```csharp
 private async Task CreateDatabaseAsync()
@@ -284,7 +284,7 @@ private async Task CreateDatabaseAsync()
 
 ### Create a container
 
-Define the `CreateContainerAsync` method within the program.cs class. This method creates the `FamilyContainer` if it doesn't already exist. 
+Define the `CreateContainerAsync` method within the `program.cs` class. This method creates the `FamilyContainer` if it doesn't already exist. 
 
 ```csharp
 /// Create the container if it does not exist. 
@@ -351,7 +351,7 @@ else
 
 ### Query the items
 
-After inserting an item, you can run a query to get the details of "Anderson" family. The following code shows how to execute the query using the SQL query directly. The SQL query to get the "Anderson" family details is- `SELECT * FROM c WHERE c.LastName = 'Andersen'`. Define the `QueryItemsAsync` method within the program.cs class and add the following code to it:
+After inserting an item, you can run a query to get the details of "Andersen" family. The following code shows how to execute the query using the SQL query directly. The SQL query to get the "Anderson" family details is: `SELECT * FROM c WHERE c.LastName = 'Andersen'`. Define the `QueryItemsAsync` method within the `program.cs` class and add the following code to it:
 
 
 ```csharp
@@ -398,7 +398,7 @@ private async Task DeleteDatabaseAndCleanupAsync()
 
 ### Execute the CRUD operations
 
-After you have defined all the required methods, execute them with in the `GetStartedDemoAsync` method. The `DeleteDatabaseAndCleanupAsync` method comment out in this code because you will not see any resources if that method is executed. You can uncomment it after validating resources in the Azure portal. 
+After you have defined all the required methods, execute them with in the `GetStartedDemoAsync` method. The `DeleteDatabaseAndCleanupAsync` method commented out in this code because you will not see any resources if that method is executed. You can uncomment it after validating that your Azure Cosmos DB resources were created in the Azure portal. 
 
 ```csharp
 public async Task GetStartedDemoAsync()
@@ -429,7 +429,7 @@ dotnet build
 dotnet run
 ```
 
-The following output is generated when you run the application. You can also sign into Azure portal and validate that the resources are created:
+The following output is generated when you run the application. You can also sign into the Azure portal and validate that the resources are created:
 
 ```console
 Created Database: FamilyDatabase
@@ -445,7 +445,7 @@ Running query: SELECT * FROM c WHERE c.LastName = 'Andersen'
 End of demo, press any key to exit.
 ```
 
-You can validate that the data is created by signing into Azure portal and see the required items in your Azure Cosmos account. 
+You can validate that the data is created by signing into the Azure portal and see the required items in your Azure Cosmos account. 
 
 ## Clean up resources
 
