@@ -30,7 +30,7 @@ This article demonstrates how to create ConfigMap and configure data collection 
 A template ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.
 
 >[!IMPORTANT]
->The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is ciprod06142019 or later. The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later.
+>The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is ciprod06142019 or later. The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later. To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.  
 
 ### Overview of configurable data collection settings
 
@@ -86,7 +86,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
-To verify the configuration was successfully applied, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the osmagent pods, the output will show errors similar to the following:
+To verify the configuration was successfully applied, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
 
 ``` 
 ***************Start Config Processing******************** 
