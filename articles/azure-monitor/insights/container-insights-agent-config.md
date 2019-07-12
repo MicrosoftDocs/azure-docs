@@ -21,12 +21,16 @@ Azure Monitor for containers collects stdout, stderr, and environmental variable
 
 This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
 
+>[!NOTE]
+>Support for Prometheus is a feature in public preview at this time.
+>
+
 ## Configure your cluster with custom data collection settings
 
 A template ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.
 
 >[!IMPORTANT]
->The minimum agent version supported by this feature is microsoft/oms:ciprod06142019 or later.
+>The minimum agent version supported by this feature is ciprod07092019 or later.
 
 ### Overview of configurable data collection settings
 
@@ -126,11 +130,11 @@ The output will show similar to the following with the annotation schema-version
 To identify what each metrics size is in bytes to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
 ```
-InsightsMetrics
-| where TimeGenerated > startofday(ago(31d))
+InsightsMetrics 
 | where Namespace contains "prometheus"
-| summarize Bytes = sum(_BilledSize) by Name
-| order by Bytes desc
+| where TimeGenerated > ago(24h)
+| summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
+| order by EstimatedGBPer30dayMonth desc
 | render barchart
 ```
 

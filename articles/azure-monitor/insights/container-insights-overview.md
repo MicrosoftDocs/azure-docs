@@ -35,6 +35,10 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
 * Configure alerts to proactively notify you or record it when CPU and memory utilization on nodes or containers exceed your thresholds.
 * Integrate with [Prometheus](https://prometheus.io/docs/introduction/overview/) to view application and workload metrics it collects from nodes and Kubernetes using [queries](container-insights-log-search.md) to create custom alerts, dashboards, and detailed perform detailed analysis.
 
+>[!NOTE]
+>Support for Prometheus is a feature in public preview at this time.
+>
+
 ## How do I access this feature?
 You can access Azure Monitor for containers two ways, from Azure Monitor or directly from the selected AKS cluster. From Azure Monitor, you have a global perspective of all the containers deployed, which are monitored and which are not, allowing you to search and filter across your subscriptions and resource groups, and then drill into Azure Monitor for containers from the selected container.  Otherwise, you can access the feature directly from a selected AKS container from the AKS page.  
 
