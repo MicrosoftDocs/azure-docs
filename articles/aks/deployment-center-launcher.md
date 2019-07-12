@@ -31,9 +31,9 @@ In this tutorial, you will:
 
 ## Create AKS cluster
 
-1. Login to your [Azure Portal](https://portal.azure.com/)
+1. Login to your [Azure portal](https://portal.azure.com/)
 
-1. Select the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) button on the menu in the upper-right corner of the Azure Portal.
+1. Select the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) button on the menu in the upper-right corner of the Azure portal.
 
 1. To create the AKS cluster, run the following commands.
 
