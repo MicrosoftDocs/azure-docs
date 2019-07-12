@@ -138,7 +138,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, see [Regions and availability for virtual machines in Azure](regions-and-availability.MD).
+For more information about high availability, see [Availability for virtual machines in Azure](availability.MD).
 
 **Q: How do I get notified about planned maintenance?**
 
@@ -158,7 +158,7 @@ For more information about high availability, see [Regions and availability for 
 
 **Q: What is the experience in the case of Virtual Machine Scale Sets?**
 
-**A:** Planned maintenance is now available for Virtual Machine Scale Sets. For instructions on how to initiate self-service maintenance refer [planned maintenance for VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) document.
+**A:** Planned maintenance is now available for Virtual Machine Scale Sets. For instructions on how to initiate self-service maintenance refer [planned maintenance for virtual machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) document.
 
 **Q: What is the experience in the case of Cloud Services (Web/Worker Role) and Service Fabric?**
 
