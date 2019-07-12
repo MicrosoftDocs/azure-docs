@@ -243,7 +243,7 @@ To collect Event Tracing for Windows, do the following:
 
 **How do I collect portal network traffic logs?**
 
-1. Open the browser and navigate and log in [to the portal](https://portal.azure.com).
+1. Open the browser and navigate and sign in [to the portal](https://portal.azure.com).
 2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
    - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
