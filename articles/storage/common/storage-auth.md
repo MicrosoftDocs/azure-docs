@@ -27,8 +27,6 @@ Each time you access data in your storage account, your client makes a request o
 |Azure Blobs     |Yes         |Yes         |Yes         |Yes         |
 |Azure Queues     |Yes         |Yes         |Yes         |Yes         |
 |Azure Tables     |Yes         |         |Yes         |No         |
-|Row7     |         |         |         |         |
-|Row8     |         |         |         |         |
 
 
 - **Azure Active Directory (Azure AD) integration** for blobs, files, and queues. Azure AD provides role-based access control (RBAC) for fine-grained control over a client's access to resources in a storage account. 
