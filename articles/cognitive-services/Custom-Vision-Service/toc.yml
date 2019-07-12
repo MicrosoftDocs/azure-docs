@@ -6,6 +6,10 @@
     href: home.md
 - name: Quickstarts
   items:
+  - name: Using the web portal
+    items:
+    - name: Build a classifier
+      href: getting-started-build-a-classifier.md
   - name: Using the .NET SDK
     items:
     - name: Image classification
@@ -42,8 +46,6 @@
     href: logo-detector-mobile.md
 - name: How-to guides
   items:
-  - name: Build a classifier
-    href: getting-started-build-a-classifier.md
   - name: Test your model
     href: test-your-model.md
   - name: Improve your classifier

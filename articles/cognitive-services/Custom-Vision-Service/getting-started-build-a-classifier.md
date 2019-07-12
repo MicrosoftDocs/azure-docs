@@ -1,30 +1,31 @@
 ---
-title: Build a classifier - Custom Vision Service
+title: "Quickstart Build a classifier - Custom Vision Service"
 titlesuffix: Azure Cognitive Services
-description: Learn how to use the Custom Vision website to create an image classification model.
+description: In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 04/03/2019
+ms.topic: quickstart
+ms.date: 07/12/2019
 ms.author: anroth
 ---
 
-# How to build a classifier with Custom Vision
+# Quickstart: How to build a classifier with Custom Vision
 
-To use the Custom Vision Service for image classification, you must first build a classifier model. In this guide, you'll learn how to build a classifier through the Custom Vision website.
+In this quickstart, you'll learn how to build a classifier through the Custom Vision website. Once you build a classifier model, you can use the Custom Vision service for image classification.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-- A valid Azure subscription. [Create an account](https://azure.microsoft.com/free/) for free.
 - A set of images with which to train your classifier. See below for tips on choosing images.
 
-
 ## Create Custom Vision resources in the Azure portal
-To use Custom Vision Service, you will need to create Custom Vision Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). This will create both a Training and Prediction resource. 
+
+To use the Custom Vision Service, you'll need to create Custom Vision Training and Prediction resources in the Azure portal. Fill out the dialog window on the [Create Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) page to create both a Training and Prediction resource. 
 
 ## Create a new project
 
@@ -124,7 +125,8 @@ Each time you train your classifier, you create a new _iteration_ with its own u
 
 ## Next steps
 
-In this guide, you learned how to create and train an image classification model using the Custom Vision website. Next, get more information on the iterative process of improving your model.
+In this quickstart, you learned how to create and train an image classification model using the Custom Vision website. Next, get more information on the iterative process of improving your model.
 
-[Test and retrain a model](test-your-model.md)
+> [!div class="nextstepaction"]
+> [Test and retrain a model](test-your-model.md)
 
