@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 07/11/2019
 ms.author: juliako
 ---
 
@@ -52,7 +52,6 @@ For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/d
 
 Feature|Standard|Premium
 ---|---|---
-Free first 15 days <sup>1</sup>| Yes |No
 Throughput |Up to 600 Mbps and can provide a much higher effective throughput when a CDN is used.|200 Mbps per streaming unit (SU). Can provide a much higher effective throughput when a CDN is used.
 CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
 Billing is prorated| Daily|Daily
