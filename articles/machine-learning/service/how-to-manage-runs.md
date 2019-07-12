@@ -110,7 +110,7 @@ Get the status of a run with the [`get_status()`](https://docs.microsoft.com/pyt
 print(notebook_run.get_status())
 ```
 
-To get the run id, execution time, and additional details about the run, use the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--) method.
+To get the run ID, execution time, and additional details about the run, use the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--) method.
 
 ```python
 print(notebook_run.get_details())
