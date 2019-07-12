@@ -334,7 +334,7 @@ For the full reference about each function, see the
 
 ## All functions - alphabetical list
 
-This lists all the available functions in alphabetical order.
+This section lists all the available functions in alphabetical order.
 
 <a name="action"></a>
 
