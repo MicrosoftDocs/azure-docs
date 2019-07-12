@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/12/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -81,17 +81,6 @@ Select the desired source for the `NameIdentifier` (or NameID) claim. You can se
 
 For more info, see [Table 3: Valid ID values per source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
 
-### Special claims - Transformations
-
-You can also use the claims transformations functions.
-
-| Function | Description |
-|----------|-------------|
-| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
-| **Join()** | Joins an attribute with a verified domain. If the selected user identifier value has a domain, it will extract the username to append the selected verified domain. For example, if you select the email (joe_smith@contoso.com) as the user identifier value and select contoso.onmicrosoft.com as the verified domain, this will result in joe_smith@contoso.onmicrosoft.com. |
-| **ToLower()** | Converts the characters of the selected attribute into lowercase characters. |
-| **ToUpper()** | Converts the characters of the selected attribute into uppercase characters. |
-
 ## Adding application-specific claims
 
 To add application-specific claims:
@@ -100,14 +89,14 @@ To add application-specific claims:
 1. Enter the **name** of the claims. The value doesn't strictly need to follow a URI pattern, per the SAML spec. If you need a URI pattern, you can put that in the **Namespace** field.
 1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
-### Application-specific claims - Transformations
+## Claim Transformations
 
-You can also use the claims transformations functions.
+You can use the following claims transformations functions.
 
 | Function | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
-| **Join()** | Creates a new value by joining two attributes. Optionally, you can use a separator between the two attributes. |
+| **Join()** | Creates a new value by joining two attributes. Optionally, you can use a separator between the two attributes. For NameID claim transformation, the join is restricted to a verified domain. If the selected user identifier value has a domain, it will extract the username to append the selected verified domain. For example, if you select the email (joe_smith@contoso.com) as the user identifier value and select contoso.onmicrosoft.com as the verified domain, this will result in joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Converts the characters of the selected attribute into lowercase characters. |
 | **ToUpper()** | Converts the characters of the selected attribute into uppercase characters. |
 | **Contains()** | Outputs an attribute or constant if the input matches the specified value. Otherwise, you can specify another output if there’s no match.<br/>For example, if you want to emit a claim where the value is the user’s email address if it contains the domain “@contoso.com”, otherwise you want to output the user principal name. To do this, you would configure the following values:<br/>*Parameter 1(input)*: user.email<br/>*Value*: "@contoso.com"<br/>Parameter 2 (output): user.email<br/>Parameter 3 (output if there's no match): user.userprincipalname |
@@ -124,6 +113,35 @@ You can also use the claims transformations functions.
 | **IfNotEmpty()** | Outputs an attribute or constant if the input is not null or empty.<br/>For example, if you want to output an attribute stored in an extensionattribute if the employeeid for a given user is not empty. To do this, you would configure the following values:<br/>Parameter 1(input): user.employeeid<br/>Parameter 2 (output): user.extensionattribute1 |
 
 If you need additional transformations, submit your idea in the [feedback forum in Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) under the *SaaS application* category.
+
+## Emitting claims based on conditions
+
+You can specify the source of a claim based on the user type and the group the user belongs. 
+
+The user type can be:
+- **Any**: All users allowed to access the application.
+- **Members**: Native member of the tenant
+- **All guests**: User is brought over from an external organization with or without Azure AD.
+- **AAD guests**: Guest user belongs to another organization with Azure AD.
+- **External guests**: Guest user belongs to an external organization that doesn't have Azure AD.
+
+
+One scenario where this is helpful is when the source of a claim is different for a guest and an employee accessing an application. You may want to specify that if the user is an employee the NameID is sourced from user.email, but if the user is a guest then the NameID is sourced from user.extensionattribute1.
+
+To add a claim condition:
+
+1. In **Manage claim**, expand the Claim conditions.
+2. Select the user type.
+3. Select the group(s) for which the user should belong. You can select up to 10 unique groups across all claims for a given application. 
+4. Select the Source where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
+
+The order in which you add the conditions are important. Azure AD evaluates the conditions from top to buttom to decide which value to emit in the claim. 
+
+For example, Brita Simon is a guest user in the Contoso tenant. She belongs to another organization that also use Azure AD. Given the below configuration for the Fabrikam application, when Brita tries to sign-in to Fabrikam, Azure AD will evaluate the conditions as follow.
+
+First, Azure AD verifies if Brita's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Brita's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.email` for Brita.
+
+![Claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
 ## Next steps
 
