@@ -128,7 +128,7 @@ if compute_name in ws.compute_targets:
 else:
     print('Creating a new compute target...')
     provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # STANDARD_NC6 is GPU-enabled
-                                                                min_nodes = 1, 
+                                                                min_nodes = 0, 
                                                                 max_nodes = 4)
      # create the compute target
     compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
