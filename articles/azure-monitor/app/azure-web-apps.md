@@ -34,7 +34,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 > [!NOTE]
 > If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) below.
 
-## Enable agent-based monitoring for .NET application
+## Enable agent-based monitoring for .NET applications
 
 > [!NOTE]
 > The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
