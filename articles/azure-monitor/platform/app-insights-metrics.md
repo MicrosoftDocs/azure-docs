@@ -38,7 +38,7 @@ When you plot the same metric in [metrics explorer](metrics-getting-started.md),
 
 ## Availability metrics
 
-The metrics in Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to start using any metrics from this category.
+Metrics in the Availability category enable you to see the health of your web application as observed from points around the world. [Configure the availability tests](../../azure-monitor/app/monitor-web-app-availability.md) to start using any metrics from this category.
 
 ### Availability (availabilityResults/availabilityPercentage)
 The *Availability* metric shows the percentage of the web test runs that didn't detect any issues. The lowest possible value is 0, which indicates that all of the web test runs have failed. The value of 100 means that all of the web test runs passed the validation criteria.
