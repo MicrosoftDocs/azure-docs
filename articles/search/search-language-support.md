@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 Language analyzers are used as-is, with no modifications, and are assigned to individual fields using the Analyzer property. You can also specify a language analyzer in the portal. 
 
-You can only set a language analyzer when a field is created. Adding an analyzer to an existing field requires overwriting (and reloading) the index, or creating a new field identical to the original, but with an analyzer assginment. You could then delete the unused field at your convenience.
+You can only set a language analyzer when a field is created. Adding an analyzer to an existing field requires overwriting (and reloading) the index, or creating a new field identical to the original, but with an analyzer assignment. You could then delete the unused field at your convenience.
 
 ## Add analyzers to fields
 1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
@@ -35,7 +35,7 @@ If the language of the agent issuing a query is known, a search request can be s
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2019-05-06`
 
-You can query your index from the portal, using [**Search explorer**](search-explorer.md) to paste in a query similar to the one shown above. Search explorer is available from the command bar in the service blade. 
+You can query your index from the portal, using [**Search explorer**](search-explorer.md) to paste in a query similar to the one shown above.
 
 Sometimes the language of the agent issuing a query is not known, in which case the query can be issued against all fields simultaneously. If needed, preference for results in a certain language can be defined using [scoring profiles](index-add-scoring-profiles.md). In the example below, matches found in the description in English will be scored higher relative to matches in Polish and French:
 
