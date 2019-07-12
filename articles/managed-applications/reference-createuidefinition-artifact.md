@@ -78,6 +78,6 @@ The following JSON shows an example of *createUiDefinition.json* file for Azure 
 
 ## Next steps
 
-- [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider)
+- [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
 - [Reference: Deployment template artifact](reference-maintemplate-artifact.md)
 - [Reference: View definition artifact](reference-viewdefinition-artifact.md)

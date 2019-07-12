@@ -84,6 +84,6 @@ The following JSON shows an example of *viewDefinition.json* file for Azure Mana
 
 ## Next steps
 
-- [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider)
+- [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
 - [Reference: User interface elements artifact](reference-createuidefinition-artifact.md)
 - [Reference: Deployment template artifact](reference-maintemplate-artifact.md)

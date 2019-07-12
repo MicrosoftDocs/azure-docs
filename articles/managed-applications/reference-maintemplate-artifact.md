@@ -186,6 +186,6 @@ The following JSON shows an example of *mainTemplate.json* file for Azure Manage
 
 ## Next steps
 
-- [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider)
+- [Tutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
 - [Reference: User interface elements artifact](reference-createuidefinition-artifact.md)
 - [Reference: View definition artifact](reference-viewdefinition-artifact.md)
