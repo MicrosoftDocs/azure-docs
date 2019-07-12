@@ -1659,7 +1659,7 @@ featureFlags:
                                                 <p>Azure Dedicated HSM</p>
                                             </a>
                                         </li>
-					                        <a href="/azure/virtual-network/ddos-protection-overview">
+                                            <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS protection</p>
                                             </a>
@@ -5851,11 +5851,6 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#media">Media</a>
-                        <ul id="media" class="cardsA">
                             <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">

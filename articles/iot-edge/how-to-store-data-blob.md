@@ -60,8 +60,8 @@ An Azure IoT Edge device:
   | Operating system | AMD64 | ARM32v7 | ARM64 |
   | ---------------- | ----- | ----- | ---- |
   | Raspbian-stretch | No | Yes | No |  
-  | Ubuntu Server 16.04 | Yes | No | Yes |
-  | Ubuntu Server 18.04 | Yes | No | Yes |
+  | Ubuntu Server 16.04 | Yes | No | Yes (available to [install](how-to-install-iot-edge-linux-arm.md#install-a-specific-version) with [Azure IoT Edge 1.0.8-rc1 and later](https://github.com/Azure/azure-iotedge/releases)) |
+  | Ubuntu Server 18.04 | Yes | No | Yes (available to [install](how-to-install-iot-edge-linux-arm.md#install-a-specific-version) with [Azure IoT Edge 1.0.8-rc1 and later](https://github.com/Azure/azure-iotedge/releases)) |
   | Windows 10 IoT Enterprise, build 17763 | Yes | No | No |
   | Windows Server 2019, build 17763 | Yes | No | No |
   
