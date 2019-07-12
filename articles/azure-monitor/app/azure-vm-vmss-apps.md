@@ -15,7 +15,7 @@ ms.author: mbullwin
 
 Enabling monitoring on your .NET based web applications running on [Azure Virtual Machines](https://azure.microsoft.com/en-us/services/virtual-machines/) and [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
 
-This article will walk you through enabling Application Insights monitoring using ApplicationMonitoringWindows extension as well as provide preliminary guidance for automating the process for large-scale deployments.
+This article will walk you through enabling Application Insights monitoring using the ApplicationMonitoringWindows extension as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 > [!IMPORTANT]
 > Azure ApplicationMonitoringWindows extension is currently in public preview.
@@ -37,9 +37,9 @@ There are two ways to enable application monitoring for Azure VM and Azure virtu
     * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) to learn more.
 
 > [!NOTE]
-> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from sent. To learn more about this check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-apps#troubleshooting) below.
+> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-apps#troubleshooting) below.
 
-## Manage agent-based monitoring for .NET applications on VM using powershell
+## Manage agent-based monitoring for .NET applications on VM using PowerShell
 
 Install or update the application monitoring extension for VM
 ```powershell
@@ -149,7 +149,7 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 Below is our step-by-step troubleshooting guide for extension-based monitoring for .NET based applications running on Azure VM and Azure virtual machine scale sets.
 
 > [!NOTE]
-> .Net core, Java and Node.js applications are only supported on Azure VM and Azure virtual machine scale sets via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
+> .NET Core, Java, and Node.js applications are only supported on Azure VM and Azure virtual machine scale sets via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
 
 Extension execution output is logged to files found in the following directories:
 ```Windows
