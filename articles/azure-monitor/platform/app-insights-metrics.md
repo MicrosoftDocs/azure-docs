@@ -21,7 +21,7 @@ Since *standard metrics* are pre-aggregated during collection, they have better 
 
 ## Interpreting and using queries from this article
 
-This article lists metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements. For convenience, each query defaults to time granularity, chart type, and, sometimes, splitting dimension that simplifies using the query in Log Analytics with no modifications.
+This article lists metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements. For convenience, each query uses defaults for time granularity, chart type, and sometimes splitting dimension which simplifies using the query in Log Analytics without any need for modification.
 
 When you plot the same metric in [metrics explorer](metrics-getting-started.md), there are no defaults - the query is dynamically adjusted based on your chart settings:
 
