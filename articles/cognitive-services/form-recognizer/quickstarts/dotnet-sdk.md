@@ -129,19 +129,15 @@ These code snippets show you how to do the following with the Form Recognizer cl
 * Get a list of form models
 * Display analysis results
 
-<!--
-    change the environment key variable to something descriptive for your service.
-    For example: TEXT_ANALYTICS_KEY
--->
-
 ### Authenticate the client
 
 <!-- 
     The authentication section (and its H3) is required and must be the first code example in the section if your library requires authentication for use.
 -->
 
+
 > [!NOTE]
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Form Recognizer key, named `TBD_KEY`.
+> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Form Recognizer key, named `FORM_RECOGNIZER_KEY`.
 
 
 In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
