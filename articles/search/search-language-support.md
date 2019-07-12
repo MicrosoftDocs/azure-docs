@@ -26,7 +26,7 @@ A language analyzer is specified when a field is created. Adding an analyzer to 
 1. Start a field definition by providing a name, choosing the data type, and setting attributes. Only **Searchable** fields can take a language analyzer.
 1. Choose an available analyzer.
 
-![Assign language analyzers during field definition](media/search-language-support/AnalyzerTab.png "Assign language analyzers during field definition")
+![Assign language analyzers during field definition](media/search-language-support/select-analyzer.png "Assign language analyzers during field definition")
 
 By default, all searchable fields use the [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which is language-agnostic. To view the full list of supported analyzers, see [Add language analyzers to an Azure Search index](index-add-language-analyzers.md).
 
