@@ -26,6 +26,15 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [CAF Governance](./caf-governance/index.md) | Provides a set of controls to help you manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index.md). |
 | [CAF Migrate landing zone](./caf-migrate-landing-zone/index.md) | Provides a set of controls to help you setup for migrating your first workload and manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index.md). |
 
+
+![Blueprint samples strategy](../../media/blueprint-samples-strategy.png)
+
+The CAF Governance and the CAF Migrate landing zone blueprints assume that the customer is preparing an existing clean single subscription for migrating on premises assets / workloads in to Azure. (Region A and B in Figure above).  
+
+There is an opportunity to iterate on the sample blueprints and look for patterns of customizations that a customer is applying.  There is also an opportunity to proactively address blueprints that are industry specific like financial services and e-commerce (top end of Region B).  Similarly, we envision building blueprints for complex architectural considerations like, multiple subscriptions, high availability, cross region resources and customers who are implementing controls over existing subscriptions and resources (Region C and D). 
+
+There are sample blueprints that address customer scenario where the compliance requirements are high and the architectural complexities are high (Region E in Figure above). The region F above is one that will be addressed by customers and partners leveraging the sample blueprints and customizing it for their unique needs. 
+
 ## Next steps
 
 - Learn about the [blueprint life-cycle](../concepts/lifecycle.md).
