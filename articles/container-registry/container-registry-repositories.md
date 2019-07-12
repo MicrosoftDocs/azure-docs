@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
-ms.author: cristyg
+ms.author: jeconnoc
 ---
 
 # View container registry repositories in the Azure portal
