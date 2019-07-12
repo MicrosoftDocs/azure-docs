@@ -43,7 +43,7 @@ Before you enable Azure AD over SMB for Azure Files, make sure you have complete
 
 2.  **Enable Azure AD Domain Services on the Azure AD tenant.**
 
-    To support authentication with Azure AD credentials, you must enable Azure AD Domain Services for your Azure AD tenant. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/create-instance.md).
+    To support authentication with Azure AD credentials, you must enable Azure AD Domain Services for your Azure AD tenant. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md).
 
     It typically takes about 15 minutes for an Azure AD Domain Services deployment to complete. Verify that the health status of your Azure AD Domain Services shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
 
@@ -103,8 +103,8 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 To enable this feature on existing storage accounts, use the following command:
 
 ```powershell
-# Get a storage account
-Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
+# Update a storage account
+Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -EnableAzureActiveDirectoryDomainServicesForFile $true
 ```

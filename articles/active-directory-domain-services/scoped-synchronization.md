@@ -43,7 +43,7 @@ The following table helps you determine how to use scoped synchronization:
 
 ## Create a new managed domain and enable group-based scoped synchronization using Azure portal
 
-1. Follow the [Getting Started guide](create-instance.md) to create a managed domain.
+1. Follow the [Getting Started guide](tutorial-create-instance.md) to create a managed domain.
 2. Choose **scoped** during the synchronization style selection in the Azure AD Domain Services creation wizard.
 
 ## Create a new managed domain and enable group-based scoped synchronization using PowerShell

@@ -40,7 +40,7 @@ Are there any SQL server jobs?
     > [!NOTE]
     > When selecting words to tag as entities:
     > * For a single word, just select it. 
-    > * For a set of two or more words, select at the beginning and then at the end of the set.
+    > * For a set of two or more words, select the first word and then the final word.
 
 1. In the **What type of entity do you want to create?** pop-up box, verify the entity name and select the **Simple** entity type, and then select **Done**.
 

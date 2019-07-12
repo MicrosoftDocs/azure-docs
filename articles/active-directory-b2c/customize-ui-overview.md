@@ -33,7 +33,7 @@ When using your own HTML and CSS files to customize the UI, review the following
 
 - Azure AD B2C merges HTML content into your pages. Don't copy and try to change the default content that Azure AD B2C provides. It's best to build your HTML content from scratch and use the default content as reference.
 - JavaScript can now be included in your custom content.
-- Supported browser versions are: 
+- Supported browser versions are:
     - Internet Explorer 11, 10 and Microsoft Edge
     - Limited support for Internet Explorer 9 and 8
     - Google Chrome 42.0 and above
@@ -46,11 +46,11 @@ For v2 user flows, you can choose a pre-designed template that gives your defaul
 
 In the left menu, under **Customize**, select **Page layouts**. Then select **Template (Preview)**.
 
-![Choose a page layout template](media/customize-ui-overview/template.png)
+![Template selection drop-down in user flow page of Azure portal](media/customize-ui-overview/template.png)
 
 Select a template from the list. For example, the **Ocean Blue** template applies the following layout to your user flow pages:
 
-![Ocean Blue template](media/customize-ui-overview/ocean-blue.png)
+![Example of the Ocean Blue template rendered on sign up sign in page](media/customize-ui-overview/ocean-blue.png)
 
 When you choose a template, the selected layout is applied to all pages in your user flow, and the URI for each page is visible in the **Custom page URI** field.
 
@@ -81,13 +81,13 @@ You do the following to customize the UI:
 - Host your content on an HTTPS endpoint (with CORS allowed). Both GET and OPTIONS request methods must be enabled when configuring CORS.
 - Use CSS to style the UI elements that Azure AD B2C inserts into your page. The following example shows a simple CSS file that also includes settings for the sign-up injected HTML elements:
 
-    ```css 
+    ```css
     h1 {
       color: blue;
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 400px ;
@@ -95,7 +95,7 @@ You do the following to customize the UI:
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 400px ;

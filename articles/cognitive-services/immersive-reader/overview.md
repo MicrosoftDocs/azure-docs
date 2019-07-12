@@ -1,9 +1,10 @@
 ---
-title: About Immersive Reader
-titlesuffix: Azure Cognitive Services
-description: Learn about the Immersive Reader
+title: What is the Immersive Reader API?
+titleSuffix: Azure Cognitive Services
+description: Learn about the Immersive Reader API.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader

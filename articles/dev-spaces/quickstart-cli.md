@@ -9,7 +9,7 @@ ms.date: 07/08/2019
 ms.topic: quickstart
 description: "Deploy a microservice on AKS with Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
-manager: jeconnoc
+manager: gwallace
 ---
 # Quickstart: Develop an application on Kubernetes using Azure Dev Spaces
 In this guide, you will learn how to:

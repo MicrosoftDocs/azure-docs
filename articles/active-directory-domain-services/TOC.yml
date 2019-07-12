@@ -1,7 +1,6 @@
 - name: Azure AD Domain Services Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items: 
     - name: What is Azure AD Domain Services?
       href: overview.md
@@ -14,6 +13,8 @@
 - name: Tutorials
   expanded: true
   items:
+    - name: Create a managed domain
+      href: tutorial-create-instance.md
     - name: Domain-join a Windows Server VM
       href: join-windows-vm.md
 - name: Samples
@@ -26,18 +27,6 @@
       href: synchronization.md
 - name: How to
   items: 
-    - name: Create an Azure AD DS instance
-      items: 
-        - name: "Task 1 configure basic settings"
-          href: create-instance.md
-        - name: "Task 2 configure network settings"
-          href: active-directory-ds-getting-started-network.md
-        - name: "Task 3 configure administrator group and enable Azure AD Domain Services"
-          href: active-directory-ds-getting-started-admingroup.md
-        - name: "Task 4 update DNS settings for virtual network"
-          href: active-directory-ds-getting-started-dns.md
-        - name: "Task 5 enable password hash synchronization"
-          href: active-directory-ds-getting-started-password-sync.md
     - name: Plan for Azure AD DS
       items: 
         - name: Scenarios

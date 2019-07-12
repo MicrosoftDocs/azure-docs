@@ -28,7 +28,7 @@ sections:
       image:
         src: https://docs.microsoft.com/media/common/i_investigate.svg
       title: What is Azure AD Domain Services?
-    - href: create-instance.md
+    - href: tutorial-create-instance.md
       html: <p>Create your own managed domain with this simple walkthrough.</p>
       image:
         src: https://docs.microsoft.com/media/common/i_deploy.svg
