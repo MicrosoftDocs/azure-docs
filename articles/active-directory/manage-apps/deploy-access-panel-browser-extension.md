@@ -38,9 +38,11 @@ First, you must place the installer package on a network location that can be ac
 1. In the **Server Manager** window, go to **Files and Storage Services**.
 
     ![Open Files and Storage Services](./media/deploy-access-panel-browser-extension/files-services.png)
+
 1. Go to the **Shares** tab. Then click **Tasks** > **New Share...**
 
-    ![Open Files and Storage Services](./media/deploy-access-panel-browser-extension/shares.png)
+    ![Screenshot shows where to find New Share from the Tasks screen](./media/deploy-access-panel-browser-extension/shares.png)
+
 1. Complete the **New Share Wizard** and set permissions to ensure that it can be accessed from your users' machines. [Learn more about shares.](https://technet.microsoft.com/library/cc753175.aspx)
 1. Download the following Microsoft Windows Installer package (.msi file): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 1. Copy the installer package to a desired location on the share.
@@ -75,13 +77,14 @@ First, you must place the installer package on a network location that can be ac
 
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
+
 1. Right-click **Software installation**, then select **New** > **Package...**
 1. Go to the shared folder that contains the installer package from [Step 1: Create the Distribution Point](#step-1-create-the-distribution-point), select the .msi file, and click **Open**.
 
    > [!IMPORTANT]
    > If the share is located on this same server, verify that you are accessing the .msi through the network file path, rather than the local file path.
 
-    ![Select the installation package from the shared folder.](./media/deploy-access-panel-browser-extension/select-package.png)
+    ![Select the installation package from the shared folder](./media/deploy-access-panel-browser-extension/select-package.png)
 
 1. In the **Deploy Software** prompt, select **Assigned** for your deployment method. Then click **OK**.
 
@@ -95,6 +98,7 @@ In addition to running the installer, every extension for Internet Explorer must
 
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
+
 1. Right-click **Add-on List**, and select **Edit**.
 
     ![Right click "Add-on List" and select "Edit"](./media/deploy-access-panel-browser-extension/edit-add-on-list.png)
@@ -106,8 +110,8 @@ In addition to running the installer, every extension for Internet Explorer must
 1. In the **Show Contents** window, perform the following steps:
 
    1. For the first column (the **Value Name** field), copy and paste the following Class ID: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. For the second column (the **Value** field), type in the following value: `1`
-   3. Click **OK** to close the **Show Contents** window.
+   1. For the second column (the **Value** field), type in the following value: `1`
+   1. Click **OK** to close the **Show Contents** window.
 
       ![Fill out the values as specified in the previous step](./media/deploy-access-panel-browser-extension/show-contents.png)
 
@@ -155,7 +159,7 @@ Follow the steps below to verify if the extension deployment was successful:
 1. After restarting, open **Internet Explorer**. On the upper-right corner of the window, click **Tools** (the gear icon), and then select **Manage add-ons**.
 1. In the **Manage Add-ons** window, verify that the **Access Panel Extension** has been installed and that its **Status** has been set to **Enabled**.
 
-   ![Verify that the Access Panel Extension is installed and enabled.](./media/deploy-access-panel-browser-extension/verify-install.png)
+   ![Verify that the Access Panel Extension is installed and enabled](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## Learn more
 

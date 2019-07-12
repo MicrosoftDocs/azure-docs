@@ -10,7 +10,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova 
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
 ---
 
@@ -288,13 +288,13 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
   - SQL Server Analysis Services aren't supported.
 - Notifications are partially supported.
 - Email notification is supported, although it requires that you configure a Database Mail profile. SQL Server Agent can use only one Database Mail profile, and it must be called `AzureManagedInstance_dbmail_profile`. 
-  - Pager isn't supported. 
+  - Pager isn't supported.
   - NetSend isn't supported.
   - Alerts aren't yet supported.
-  - Proxies aren't supported. 
+  - Proxies aren't supported.
 - EventLog isn't supported.
 
-The following features currently aren't supported but will be enabled in the future:
+The following SQL Agent features currently aren't supported:
 
 - Proxies
 - Scheduling jobs on an idle CPU
@@ -393,7 +393,13 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 
 ### Replication
 
-Replication is available for public preview for Managed Instance. For information about replication, see [SQL Server replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+[Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on Managed Instance with some constraints:
+- Al types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on Managed Instance, but Publisher and Distributor cannot be placed on different instances.
+- Transactional, Snapshot, and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication and updateable subscriptions are not supported.
+- Managed Instance can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
+
+For information about configuring replication, see [replication tutorial](replication-with-sql-database-managed-instance.md).
 
 ### RESTORE statement 
 
@@ -482,7 +488,7 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb`. `tempdb` is always re-created as an empty database when the instance start or fail-over and any change made in `tempdb` will not be preserved. 
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. `tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120GB of log. `tempdb` is always re-created as an empty database when the instance starts or fail-over and any change made in `tempdb` will not be preserved. 
 
 ### Can't restore contained database
 
@@ -581,6 +587,11 @@ CLR modules placed in a managed instance and linked servers or distributed queri
 You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with an internal TDE key. The key can't be exported, so you can't restore the backup.
 
 **Workaround:** Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) instead. You also can disable encryption on the database.
+
+### Point-in-time restore follows time by the time zone set on the source instance
+
+Point-in-time restore currently interprets time to restore to by following time zone of the source instance instead by following UTC.
+Check [Managed Instance time zone known issues](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) for more details.
 
 ## Next steps
 

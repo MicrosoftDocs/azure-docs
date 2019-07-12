@@ -285,7 +285,7 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
-    - name: Resource limits
+    - name: Service quotas
       href: concepts-limits.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
@@ -632,6 +632,8 @@
         href: key-value-store-cost.md
     - name: Troubleshoot
       items:
+      - name: Troubleshoot query performance
+        href: troubleshoot-query-performance.md
       - name: Troubleshoot Java Async SDK
         href: troubleshoot-java-async-sdk.md
       - name: Troubleshoot .NET SDK
@@ -797,6 +799,8 @@
       href: https://azure.microsoft.com/try/cosmosdb/
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cosmos-db/
+    - name: Multi-master benefits
+      href: multi-master-benefits.md
     - name: Use cases
       items:
       - name: Common use cases

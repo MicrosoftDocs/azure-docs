@@ -4,7 +4,7 @@ description: Create a Windows virtual machine in an availability zone with Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 
@@ -174,4 +174,4 @@ Tags               : {}
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.

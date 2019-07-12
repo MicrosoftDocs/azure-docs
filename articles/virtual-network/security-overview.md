@@ -100,9 +100,19 @@ This tag denotes the address prefixes of the management traffic for Azure Batch 
 * **AzureBackup*** (Resource Manager only):
 This tag denotes the address prefixes of the AzureBackup service. If you specify *AzureBackup* for the value, traffic is allowed or denied to AzureBackup. This tag has dependency on the **Storage** and **AzureActiveDirectory** tag.This tag is recommended for outbound security rule. 
 * **AzureActiveDirectoryDomainServices*** (Resource Manager only):
-	This tag denotes the address prefixes of  the management traffic for Azure Active Directory Domain Services dedicated deployments. If you specify *AzureActiveDirectoryDomainServices* for the value, traffic is allowed or denied to AzureActiveDirectoryDomainServices. This tag is recommended for inbound/outbound security rule.  
+This tag denotes the address prefixes of  the management traffic for Azure Active Directory Domain Services dedicated deployments. If you specify *AzureActiveDirectoryDomainServices* for the value, traffic is allowed or denied to AzureActiveDirectoryDomainServices. This tag is recommended for inbound/outbound security rule.  
 * **SqlManagement*** (Resource Manager only):
 This tag denotes the address prefixes of the management traffic for SQL dedicated deployments. If you specify *SqlManagement* for the value, traffic is allowed or denied to SqlManagement. This tag is recommended for inbound/outbound security rule. 
+* **CognitiveServicesManagement** (Resource Manager only):
+This tag denotes the address prefixes of traffic for Cognitive Services. If you specify *CognitiveServicesManagement* for the value, traffic is allowed or denied to CognitiveServicesManagement. This tag is recommended for outbound security rule.  
+* **Dynamics365ForMarketingEmail** (Resource Manager only):
+This tag denotes the address prefixes of the marketing email service of Dynamics 365. If you specify *Dynamics365ForMarketingEmail* for the value, traffic is allowed or denied to Dynamics365ForMarketingEmail. If you only want to allow access to Dynamics365ForMarketingEmail in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format Dynamics365ForMarketingEmail.[region name].
+* **AzurePlatformDNS** (Resource Manager only):
+This tag denotes DNS which is a basic infrastructure service. If you specify *AzurePlatformDNS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for DNS. Please take caution in using this tag. Testing is recommended before using this tag. 
+* **AzurePlatformIMDS** (Resource Manager only):
+This tag denotes IMDS which is a basic infrastructure service. If you specify *AzurePlatformIMDS* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for IMDS. Please take caution in using this tag. Testing is recommended before using this tag. 
+* **AzurePlatformLKM** (Resource Manager only):
+This tag denotes Windows licensing or key management service. If you specify *AzurePlatformLKM* for the value, you can disable the default [Azure platform consideration](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) for licensing. Please take caution in using this tag. Testing is recommended before using this tag. 
 
 > [!NOTE]
 > Service tags of Azure services denotes the address prefixes from the specific cloud being used. 

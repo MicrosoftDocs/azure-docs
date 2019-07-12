@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 07/12/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
@@ -53,13 +53,12 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 >      - Select **Register** to create the application.
 > 1. In the list of pages for the app, select **Authentication**.
-> 1. Expand the **Desktop + devices** section.  (If **Desktop + devices** is not visible, first click the top banner to view the preview Authentication experience)
-> 1. Under the **Redirect URI** section, select **Add URI**.  Type **urn:ietf:wg:oauth:2.0:oob**.
+> 1. In the **Redirect URI** section, under **Suggested Redirect URIs for public clients (mobile, desktop)** check the box next to **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > 1. Select **Save**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a redirect URI as **urn:ietf:wg:oauth:2.0:oob**.
+> For the code sample for this quickstart to work, you need to add a redirect URI as **https://login.microsoftonline.com/common/oauth2/nativeclient**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -79,7 +78,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
     ```
-> [!div renderon="portal"]
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
 > > This quickstart supports Enter_the_Supported_Account_Info_Here.    
 

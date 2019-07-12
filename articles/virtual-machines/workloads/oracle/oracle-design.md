@@ -4,7 +4,7 @@ description: Design and implement an Oracle database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
