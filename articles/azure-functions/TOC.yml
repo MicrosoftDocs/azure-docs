@@ -61,7 +61,7 @@
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Create a serverless web app
     href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr  
-  - name: Use TensorFlow with Azure Functions
+  - name: Make predictions with TensorFlow
     href: functions-tensorflow-prediction.md 
   - name: Create a custom Linux image
     href: functions-create-function-linux-custom-image.md
