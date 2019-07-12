@@ -20106,7 +20106,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/linux/regions-and-availability",
+      "redirect_url": "/azure/virtual-machines/linux/regions",
       "redirect_document_id": false
     },
     {
@@ -21506,7 +21506,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-regions-and-availability.md",
-      "redirect_url": "/azure/virtual-machines/windows/regions-and-availability",
+      "redirect_url": "/azure/virtual-machines/windows/regions",
       "redirect_document_id": false
     },
     {
@@ -40142,6 +40142,21 @@
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-report.md",
+      "redirect_url": "https://docs.microsoft.com/sql/reporting-services/report-server/reporting-services-report-server-native-mode?view=sql-server-2017",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-reportviewer.md",
+      "redirect_url": "https://docs.microsoft.com/sql/reporting-services/application-integration/integrating-reporting-services-using-reportviewer-controls-get-started?view=sql-server-2017",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md",
+      "redirect_url": "https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017",
+      "redirect_document_id": false
+    }    
   ]
 }
