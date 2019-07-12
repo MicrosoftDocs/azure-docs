@@ -90,7 +90,7 @@ Bad request, missing or invalid data provided or expired
 ```
 
 Code: 409<br>
-Conflict, when we receive the usage call for the usage resource Id, and effective usage, which already exists. The response will contain `additionalInfo` field that contains info about the accepted message.
+Conflict, when we receive the usage call for the usage resource ID, and effective usage, which already exists. The response will contain `additionalInfo` field that contains info about the accepted message.
 
 ```json
 {
@@ -230,4 +230,4 @@ User is unauthorized to make this call
 
 ## Next steps
 
-See [SaaS metered billing](./saas-metered-billing.md) topic for more information.
+For more information, see [SaaS metered billing](./saas-metered-billing.md).
