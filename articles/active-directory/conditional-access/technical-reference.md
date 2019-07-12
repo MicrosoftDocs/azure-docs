@@ -194,6 +194,8 @@ For more information, see [Client apps](conditions.md#client-apps).
 
 In your Conditional Access policy, you can require that an access attempt to the selected cloud apps needs to be made from an approved client app. 
 
+Here the term Approved Client App is also called as Native App. Please note, a native application is a software program that is developed for use on a specific platform or device. For example: - Kaizala App that comes under the category of Native App, that is designed for IOS and Android Devices.  The configuration of Native App is totally different as compare to the Cloud Apps like Microsoft Teams, Yammer, Skype for Business online. That also means that any Native App (such as Kaizala) does not qualifies for a mechanism to restrict through Conditional Access, unlike the policies applied for a Cloud App. 
+
 ![Control access for approved client apps](./media/technical-reference/21.png)
 
 This setting applies to the following client apps:
