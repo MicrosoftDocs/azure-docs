@@ -44,11 +44,11 @@ sections:
     - image: 
         src: /azure/data-share/media/index/portal.svg
       text: Add datasets
-      href: /azure/data-share/how-to-add-datasets-to-share
+      href: /azure/data-share/how-to-add-datasets
     - image: 
         src: /azure/data-share/media/index/portal.svg
       text: Add recipients
-      href: /azure/data-share/how-to-add-recipients-to-share
+      href: /azure/data-share/how-to-add-recipients
     - image: 
         src: /azure/data-share/media/index/portal.svg
       text: Delete an invitation

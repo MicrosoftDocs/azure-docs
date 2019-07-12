@@ -26,9 +26,9 @@
   - name: Troubleshoot 
     href: data-share-troubleshoot.md
   - name: Add datasets
-    href: how-to-add-datasets-to-share.md
+    href: how-to-add-datasets.md
   - name: Add recipients
-    href: how-to-add-recipients-to-share.md
+    href: how-to-add-recipients.md
   - name: Delete an invitation
     href: how-to-delete-invitation.md
   - name: Revoke a share subscription
