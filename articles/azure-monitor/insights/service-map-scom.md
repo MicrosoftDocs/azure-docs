@@ -43,7 +43,7 @@ You enable the integration between Operations Manager and the Map feature by imp
 After you install the Service Map management pack, a new node, **Service Map**, is displayed under **Operations Management Suite** in the **Administration** pane of your Operations Manager Operations console.
 
 >[!NOTE]
->[Operations Management Suite was a collection of services](../azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) that included Log Analytics, which is now part of [Azure Monitor](../overview.md).
+>[Operations Management Suite was a collection of services](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) that included Log Analytics, which is now part of [Azure Monitor](../overview.md).
 
 To configure Azure Monitor for VMs Map integration, do the following:
 
