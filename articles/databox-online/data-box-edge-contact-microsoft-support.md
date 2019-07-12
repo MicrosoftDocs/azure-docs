@@ -61,8 +61,6 @@ Perform the following steps to create a support request:
 
 ## Get hardware support
 
-The support model for Data Box Edge and Data Box Gateway is similar to other Azure services. It is first party Microsoft hardware and customers work with Microsoft support directly.
-
 The process to report hardware issues is as follows:
 
 1. Open a Support ticket from the Azure portal for a hardware issue. Under **Problem type**, select **Data Box Edge Hardware**. Choose the **Problem subtype** as **Hardware failure**. 
@@ -71,7 +69,7 @@ The process to report hardware issues is as follows:
 
     After you have created the Support ticket, a Support engineer will contact you as soon as possible to proceed with your request. 
 
-2. If Microsoft Support determines that this is a hardware issue, then one of the following two course of action occurs: 
+2. If Microsoft Support determines that this is a hardware issue, then one of the following action occurs: 
 
     - A Field Replacement Unit (FRU) for the failed hardware part is sent. Currently, power supply unit is the only supported FRU. 
     - For any other part failure, Microsoft does a full system replacement (FSR) or a device swap.
