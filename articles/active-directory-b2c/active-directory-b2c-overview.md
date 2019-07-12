@@ -19,7 +19,7 @@ Azure Active Directory B2C provides business-to-customer identity as a service. 
 
 ![Infographic of Azure AD B2C identity providers and downstream applications](media/active-directory-b2c-overview/azureadb2c_overview.png)
 
-Azure AD B2C supports many business-to-business (B2B) and business-to-consumer (B2C) commerce use cases. Continue on to the sections below for an overview of several such scenarios.
+Azure AD B2C takes care of the safety and scalability of the authentication platform, monitoring and automatically handling threats like denial-of-service, password spray, or brute force attacks.
 
 ## Custom-branded identity solution
 
@@ -27,25 +27,27 @@ Azure Active Directory (Azure AD) B2C is a white-label authentication solution. 
 
 ![Customized sign up sign in page and background image](media/active-directory-b2c-overview/sign-in_small.png)
 
-You can customize every page that is displayed by when your users sign up, sign in, and modify their profile information. Customize the HTML, CSS, and JavaScript in your user journeys so that the Azure AD B2C experience looks and feels like it's a native part of your application.
+You can customize every page displayed by Azure AD B2C when your users sign up, sign in, and modify their profile information. Customize the HTML, CSS, and JavaScript in your user journeys so that the Azure AD B2C experience looks and feels like it's a native part of your application.
 
 ## Single sign-on access with a user-provided identity
 
-By serving as the central authentication authority for all your applications, Azure AD B2C enables you to build a single sign-on (SSO) solution your API, web, and mobile application. Centralize the collection of user profile and preference information, and capture detailed analytics information about login behavior and sign-up conversion.
-
-Azure AD B2C takes care of the safety and scalability of the authentication platform, monitoring and automatically handling threats like denial-of-service, password spray, or brute force attacks.
-
 Azure AD B2C uses standards-based authentication protocols, including OpenID Connect, OAuth2, and SAML. It can integrate with most modern applications and commercial off-the-shelf software.
+
+By serving as the central authentication authority for your web applications, mobile apps, and APIs, Azure AD B2C enables you to build a single sign-on (SSO) solution for them all. Centralize the collection of user profile and preference information, and capture detailed analytics information about login behavior and sign-up conversion.
 
 ![Diagram of third-party identities federating to Azure AD B2C](media/active-directory-b2c-overview/scenario_singlesignon.png)
 
 ## Integrate with external user stores
 
-One common B2C see scenario involves integration with an external system, which stores user profile or PII data (personally identifying information). Potential reasons for using this pattern include the need for specific data residency requirements, such as regional or on premises data storage.
+Use Azure AD B2C to integrate with an external system that stores user profile or personally identifying information (PII) data. Satisfy data residency requirements like regional or on-premises data storage.
 
 ![A logical diagram of Azure AD B2C communicating with an external user store](media/active-directory-b2c-overview/scenario_remoteprofile.png)
 
-Another reason to follow this patter is when Azure AD B2C handles authentication, but delegates to an external CRM membership or customer loyalty database, which serves as the source of truth for customer data. Azure AD B2C can facilitate collecting the information from the user during registration, or profile editing, then handing it off to the other system. Then during authentication, Azure AD B2C can retrieve the data from the external system, and if needed included as a part of the authentication token response, which is sent the application.
+Another external user store scenario is to have Azure AD B2C handle the authentication for your application, but delegate to an external CRM membership or customer loyalty database as the source of truth for customer data.
+
+Azure AD B2C can facilitate collecting the information from the user during registration or profile editing, then hand that data off to the external system.
+
+Then, during future authentications, Azure AD B2C can retrieve the data from the external system, and if needed, and include it as a part of the authentication token response and send to your application.
 
 ## Progressive profiling
 
