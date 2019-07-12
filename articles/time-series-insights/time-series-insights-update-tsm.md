@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/12/2019
 ms.custom: seodec18
 ---
 
@@ -89,11 +89,11 @@ Instances are defined by **typeId**, **timeSeriesId**, **name**, **description**
 
 | Property | Description |
 | --- | ---|
-| typeId | The UUID of the Time Series Model type the instance is associated with|
-| timeSeriesId | The UUID of the time series the instance is associated with |
+| typeId | The UUID of the Time Series Model type the instance is associated with. |
+| timeSeriesId | The UUID of the time series the instance is associated with. |
 | name | The *name* property is optional and case-sensitive. If *name* is not available, it will default to the *timeSeriesId*. If a *name* is provided, the *timeSeriesId* will still be available in the [Well](time-series-insights-update-explorer.md#preview-well). |
-| description | A text description of the instance |
-| hierarchyIds | Defines which hierarchies the instance belongs to|
+| description | A text description of the instance. |
+| hierarchyIds | Defines which hierarchies the instance belongs to. |
 | instanceFields | *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations. |
 
 > [!NOTE]
@@ -137,11 +137,11 @@ Hierarchies are defined by hierarchy **id**, **name**, and **source**.
 
 | Property | Description |
 | ---| ---|
-| id | The unique identifier for the hierarchy - used, for example, when defining an instance |
-| name | A string used to provide a name for the hierarchy |
+| id | The unique identifier for the hierarchy - used, for example, when defining an instance. |
+| name | A string used to provide a name for the hierarchy. |
 | source | Specifies the organizational hierarchy or path, which is a top-down parent-child order of the hierarchy that users want to create. The parent-child properties map *instance fields*. |
 
-JSON response objects will conform to the following example:
+Hierarchies are represented in JSON as:
 
 ```json
 {
@@ -229,12 +229,12 @@ Time Series Model types are defined by an **id**, **name**, **description**, and
 
 | Property | Description |
 | ---| ---|
-| id | The UUID for the type |
-| name | A string used to provide a name for the type |
-| description | A string description for the type |
-| variables | Specify variables associated with the type |
+| id | The UUID for the type. |
+| name | A string used to provide a name for the type. |
+| description | A string description for the type. |
+| variables | Specify variables associated with the type. |
 
-A JSON type response object will take the following form:
+Types will conform to the following JSON example:
 
 ```json
 {
@@ -260,7 +260,7 @@ A JSON type response object will take the following form:
 
 ### Variables
 
-Time Series Insights types may have many variables which specify formula and computation rules for events.
+Time Series Insights types may have many variables that specify formula and computation rules for events.
 
 Each variable can be one of three *kinds*: *numeric*, *categorical*, and *aggregate*.
 
@@ -268,7 +268,7 @@ Each variable can be one of three *kinds*: *numeric*, *categorical*, and *aggreg
 * *Categorical* kinds are continuous and include the `Double`, `String`, `Bool`, and `DateTime` data types.
 * *Aggregate* values combine multiple variables of single kind (either all *numeric* or all *categorical*).
 
-Variable definitions also include *filter*, *value*, *interpolation*, *aggregation*, and *data type* definitions which are described using the table below:
+Variable definitions also include *filter*, *value*, *interpolation*, *aggregation*, and *data type* definitions that are described using the table below:
 
 | Definition | Description |
 | --- | ---|
@@ -276,7 +276,7 @@ Variable definitions also include *filter*, *value*, *interpolation*, *aggregati
 | Variable filter | Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions. |
 | Variable value | Variable values are and should be used in computation. The relevant field to refer to for the data point in question. |
 | Variable interpolation | Specifies how to reconstruct signals using existing data. |
-| Variable aggregation | Support computation through *Avg*, *Min*, *Max*, *Sum*, *Count* and time-weighted (*Avg*, *Min*, *Max*, *Sum*) operators. |
+| Variable aggregation | Support computation through *Avg*, *Min*, *Max*, *Sum*, *Count*, and time-weighted (*Avg*, *Min*, *Max*, *Sum*) operators. |
 
 The table below displays which operators are available to which variable kinds.
 
@@ -284,7 +284,7 @@ The table below displays which operators are available to which variable kinds.
 
 Variables are stored in the type definition of a Time Series Model and can be provided inline via [Query APIs](time-series-insights-update-tsq.md) to override the stored definition.
 
-A JSON type response object will take the following form:
+Variables conform to the following JSON example:
 
 ```JSON
 "Interpolated Speed": {​
