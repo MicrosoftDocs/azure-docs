@@ -127,6 +127,21 @@ The output will show similar to the following with the annotation schema-version
 ```
 
 ## Review Prometheus data usage
+
+To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
+| order by VolumeInGB desc
+| render barchart
+```
+The output will show results similar to the following:
+
+![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-usage-03.png)
+
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
 ```
