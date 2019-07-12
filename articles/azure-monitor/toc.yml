@@ -647,6 +647,8 @@
             href: insights/vminsights-enable-at-scale-powershell.md
           - name: Enable for Hybrid environment
             href: insights/vminsights-enable-hybrid-cloud.md
+          - name: Integration with Operations Manager
+            href: insights/service-map-scom.md
         - name: Monitor health
           href: insights/vminsights-health.md
         - name: Map dependencies
@@ -667,14 +669,6 @@
         href: insights/vmware.md
       - name: Wire Data
         href: insights/wire-data.md
-      - name: Service Map
-        items:
-        - name: Use
-          href: insights/service-map.md
-        - name: Configure
-          href: insights/service-map-configure.md
-        - name: Integration with Operations Manager
-          href: insights/service-map-scom.md
     - name: Monitor Azure resources
       items:
       - name: Key Vault Analytics
