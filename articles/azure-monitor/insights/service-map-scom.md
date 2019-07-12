@@ -81,7 +81,6 @@ To configure Azure Monitor for VMs Map integration, do the following:
 
     ![The Operations Manager Configuration Resource Pool](media/service-map-scom/scom-config-success.png)
 
-
 ## Monitor integration
 
 After the Log Analytics workspace is connected, a new folder, Service Map, is displayed in the **Monitoring** pane of the Operations Manager Operations console.
