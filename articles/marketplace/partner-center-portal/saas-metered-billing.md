@@ -1,5 +1,5 @@
 ---
-title: Metered billing using the marketplace metering service | Commercial marketplace program
+title: Metered billing using the marketplace metering service | Azure Marketplace
 description: This documentation is a guide for ISVs publishing SaaS offers with flexible billing models. 
 author: qianw211 
 manager: evansma
@@ -82,10 +82,8 @@ Dimensions also have two special concepts, “enabled” and “infinite”:
 * **Enabled** indicates that this plan participates in this dimension.  You might want to leave this un-checked if you are creating a new plan that does not send usage events based on this dimension.  Also, any new dimensions added after a plan was first published will show up as “not enabled” on the already published plan.  A disabled dimension will now show up in any lists of dimensions for a plan seen by customers.
 * **Infinite**, represented by the infinity symbol “∞”, indicates that this plan participates in this dimension, but does not meter usage against this dimension.  If you want to indicate to your customers that the functionality represented by this dimension is included in the plan, but with no limit on usage.  A dimension with infinite usage will show up in lists of dimensions for a plan seen by customers, with an indication that it will never incur a charge for this plan.
 
-Note that the following scenarios are explicitly supported:
-
-* You can add a new dimension to a new plan.  The new dimension will not be enabled for any already published plans.
-* You can publish a **flat-rate** plan without any dimensions, then add a new plan and configure a new dimension for that plan. The new dimension will not be enabled for already published plans.
+>[!Note] 
+>The following scenarios are explicitly supported: <br> - You can add a new dimension to a new plan.  The new dimension will not be enabled for any already published plans. <br> - You can publish a **flat-rate** plan without any dimensions, then add a new plan and configure a new dimension for that plan. The new dimension will not be enabled for already published plans.
 
 ## Constraints
 

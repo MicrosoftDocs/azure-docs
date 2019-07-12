@@ -1,5 +1,5 @@
 ---
-title: Marketplace metering service APIs | Commercial marketplace program
+title: Marketplace metering service APIs | Azure Marketplace
 description: Usage event for SaaS offers in the Azure Marketplace. 
 author: qianw211 
 manager: evansma
@@ -11,9 +11,9 @@ ms.date: 07/11/2019
 
 # Marketplace metering service APIs
 
-## Usage event
-
 The usage event API allows you to emit usage events for a specific purchased entity. The usage event request references the metering services dimension defined by the publisher when publishing the offer.
+
+## Usage event
 
 **POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
@@ -90,7 +90,7 @@ Bad request, missing or invalid data provided or expired
 ```
 
 Code: 409<br>
-Conflict, when we receive the usage call for the usage resource Id, and effective usage which already exists. The response will contain `additionalInfo` field that contains info about the accepted message.
+Conflict, when we receive the usage call for the usage resource Id, and effective usage, which already exists. The response will contain `additionalInfo` field that contains info about the accepted message.
 
 ```json
 {
@@ -230,4 +230,4 @@ User is unauthorized to make this call
 
 ## Next steps
 
-- See [SaaS metered billing](./saas-metered-billing.md) topic for more information.
+See [SaaS metered billing](./saas-metered-billing.md) topic for more information.

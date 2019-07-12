@@ -1,5 +1,5 @@
 ---
-title: SaaS fulfillment APIs - FAQ | Commercial marketplace program
+title: SaaS fulfillment APIs - FAQ | Azure Marketplace
 description: Discovery and purchase experiences by the customers of a SaaS offer in the Azure Marketplace. 
 author: qianw211 
 manager: evansma
@@ -10,6 +10,8 @@ ms.date: 07/11/2019
 ---
 
 # SaaS fulfillment APIs - FAQ
+
+The integration requirements with Azure Marketplace to enable Azure customers to subscribe to the SaaS offer are listed.
 
 ## Discovery experience
 

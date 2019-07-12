@@ -1,5 +1,5 @@
 ---
-title: Marketplace metering service APIs - FAQ | Commercial marketplace program
+title: Marketplace metering service APIs - FAQ | Azure Marketplace
 description: Emit usage of a SaaS offer in the Azure Marketplace. 
 author: qianw211 
 manager: evansma
@@ -11,9 +11,9 @@ ms.date: 07/11/2019
 
 # Marketplace metering service APIs - FAQ
 
-## Emit usage events
-
 Once an Azure user subscribes to a SaaS service that includes metered billing, you will track consumption for each billing dimension being used by the customer. If the consumption exceeds the included quantities set for the term selected by the customer, your service will emit usage events to Microsoft.
+
+## Emit usage events
 
 >[!Note]
 >This section is applicable only for SaaS offers, where at least one of the plans has metering service dimensions defined at the time of publishing the offer.
