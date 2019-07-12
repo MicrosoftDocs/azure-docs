@@ -15,33 +15,33 @@ ms.custom: mvc
 
 # Make Predictions with TensorFlow and Azure Functions
 
-In this tutorial, you'll learn how Azure Functions allows you to import a TensorFlow model and use it to make predictions. You'll create a serverless HTTP API endpoint in Python that takes an input image and predicts if the image contains a dog or a cat. You'll also learn how to consume the serverless API from a web application.
+In this tutorial, you'll learn how Azure Functions allows you to import a TensorFlow model and apply it to make predictions. You'll create a serverless HTTP API endpoint in Python that takes an input image and predicts if the image contains a dog or a cat. You'll also learn how to consume the serverless API from a web application.
 
 ## Prerequisites 
 
 To create Azure Functions in Python, you need to install a few tools.
 
-- Python 3.6
-- Azure Functions Core Tools
+- [Python 3.6](https://www.python.org/downloads/)
+- [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - A code editor
 
-You may use any editor of your choice. Visual Studio Code with the Python and Azure Functions extensions is recommended.
+You may use any editor of your choice. [Visual Studio Code](https://code.visualstudio.com/) with the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensions is recommended.
 
 ## Clone the tutorial repository
 
-Open a terminal and clone the repository using Git. If you do not have Git, you can navigate to the GitHub repository and download it as a zip file.
+Open a terminal and clone the repository using Git. If you do not have Git, you can browse to the [GitHub repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial) and download it as a zip file.
 
 ```bash
-git clone <repo-url>
-cd <repo-dir>
+git clone https://github.com/anthonychu/functions-python-tensorflow-tutorial.git
+cd functions-python-tensorflow-tutorial
 ```
 
 The repository contains a few folders.
 
 - **start** - you'll be creating your function app here
-- **end** - the finished function app
+- **end** - for your reference, the finished function app
 - **resources** - TensorFlow model and helper libraries
-- **web** - a frontend website that calls the function app
+- **frontend** - a frontend website that calls the function app
 
 ## Create an Azure Functions project
 
@@ -94,7 +94,7 @@ Type `Ctrl-C` to stop the function app.
 
 ## Import a TensorFlow model
 
-For this tutorial, you'll use a TensorFlow model that was built with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the instructions in the repository.
+For this tutorial, you'll use a TensorFlow model that was built with and exported from Azure Custom Vision Service. If you want to build your own using Custom Vision Service's free tier, you can follow the [instructions in the repository](https://github.com/anthonychu/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
 Copy the models from **resources/models** into the **classify** folder.
 
@@ -113,6 +113,14 @@ cp ../resources/models/* classify
 ## Import the helper functions
 
 Some helper functions for preparing the input image and making a prediction using TensorFlow are in a file named **predict.py** in the **resources** folder. Copy this file info the **classify** function's folder.
+
+*Windows*
+
+```powershell
+copy ..\resources\predict.py classify
+```
+
+*Linux and macOS*
 
 ```bash
 cp ../resources/predict.py classify
@@ -179,6 +187,7 @@ Keep the function app running.
 There is a simple frontend web app in the **frontend** folder that consumes the HTTP API in the function app. Open a *separate* terminal and change to the **frontend** folder. Start an HTTP server with Python.
 
 ```bash
+cd <location of the frontend folder>
 python3 -m http.server
 ```
 
