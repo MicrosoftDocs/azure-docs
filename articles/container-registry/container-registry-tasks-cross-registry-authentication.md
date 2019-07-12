@@ -22,7 +22,7 @@ To create the Azure resources, this article requires that you run the Azure CLI 
 
 The example task pulls a base image from another Azure container registry to build and push an application image. To pull the base image, you configure the task with a managed identity and assign appropriate permissions to it. 
 
-This article shows the same task example using either a user-assigned or system-assigned managed identity. Your choice of identity depends on your organization's needs.
+This example shows steps using either a user-assigned or system-assigned managed identity. Your choice of identity depends on your organization's needs.
 
 In a real-world scenario, an organization might maintain a set of base images used by all development teams to build their applications. These base images are stored in a corporate registry, with each development team having only pull rights. 
 
@@ -66,7 +66,7 @@ The build step uses the `Dockerfile-app` file in the [Azure-Samples/acr-build-he
 
 ## Option 1: Create task with user-assigned identity
 
-The steps in this section create a task with a user-assigned identity. If you want to enable a system-assigned identity instead, see [[Task with system-assigned identity](#task-with-system-assigned-identity)](#option-2-task-with-system-assigned-identity). 
+The steps in this section create a task and enable a user-assigned identity. If you want to enable a system-assigned identity instead, see [Option 2: Create task with system-assigned identity](#option-2-create-task-with-system-assigned-identity). 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
@@ -85,9 +85,9 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## Option 2: Task with system-assigned identity
+## Option 2: Create task with system-assigned identity
 
-The steps in this section create a task with a system-assigned identity. If you want to enable a user-assigned identity instead, see [Option 1: Create task with user-assigned identity](#option-1-create-task-with-user-assigned-identity). 
+The steps in this section create a task and enable a system-assigned identity. If you want to enable a user-assigned identity instead, see [Option 1: Create task with user-assigned identity](#option-1-create-task-with-user-assigned-identity). 
 
 ### Create task
 

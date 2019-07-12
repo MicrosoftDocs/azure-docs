@@ -22,7 +22,7 @@ To create the Azure resources, this article requires that you run the Azure CLI 
 
 The example task reads Docker Hub credentials stored in an Azure key vault. The credentials are for a Docker Hub account with write (push) permissions to a private repository in Docker Hub. To read the credentials, you configure the task with a managed identity and assign appropriate permissions to it. The task associated with the identity builds an image, and signs into Docker Hub to push the image to the private repo. 
 
-This article shows the same task example using either a user-assigned or system-assigned managed identity. Your choice of identity depends on your organization's needs.
+This example shows steps using either a user-assigned or system-assigned managed identity. Your choice of identity depends on your organization's needs.
 
 In a real-world scenario, a company might publish images to a private repo in Docker Hub as part of a build process. 
 
@@ -95,9 +95,9 @@ The task steps do the following:
 * Build an image using a sample Dockerfile in the [Azure-Samples/acr-tasks](https://github.com/Azure-Samples/acr-tasks.git) repo.
 * Push the image to the private Docker Hub repository.
 
-## Option 1: Task with user-assigned identity
+## Option 1: Create task with user-assigned identity
 
-The steps in this section create a task with a user-assigned identity. If you want to enable a system-assigned identity instead, see [[Task with system-assigned identity](#task-with-system-assigned-identity)](#option-2-task-with-system-assigned-identity). 
+The steps in this section create a task and enable a user-assigned identity. If you want to enable a system-assigned identity instead, see [Option 2: Create task with system-assigned identity](#option-2-create-task-with-system-assigned-identity). 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
@@ -116,9 +116,9 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## Option 2: Task with system-assigned identity
+## Option 2: Create task with system-assigned identity
 
-The steps in this section create a task with a system-assigned identity. If you want to enable a user-assigned identity instead, see [Option 1: Create task with user-assigned identity](#option-1-create-task-with-user-assigned-identity). 
+The steps in this section create a task and enable a system-assigned identity. If you want to enable a user-assigned identity instead, see [Option 1: Create task with user-assigned identity](#option-1-create-task-with-user-assigned-identity). 
 
 ### Create task
 

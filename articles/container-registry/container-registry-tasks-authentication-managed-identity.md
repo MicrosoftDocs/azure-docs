@@ -19,7 +19,7 @@ In this article, you learn how to use the Azure CLI to enable a user-assigned or
 For scenarios to access secured resources from an ACR task using a managed identity, see:
 
 * [Cross-registry authentication](container-registry-tasks-cross-registry-authentication.md)
-* [Access external resources with secrets stored in Azure Key Vault](ontainer-registry-tasks-authentication-key-vault.md)
+* [Access external resources with secrets stored in Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 ## Why use a managed identity?
 
@@ -122,7 +122,7 @@ You can get the client ID of the identity by running the [az identity show][az-i
 In this article, you learned how to enable and use a user-assigned or system-assigned managed identity on an ACR task. For scenarios to access secured resources from an ACR task using a managed identity, see:
 
 * [Cross-registry authentication](container-registry-tasks-cross-registry-authentication.md)
-* [Access external resources with secrets stored in Azure Key Vault](ontainer-registry-tasks-authentication-key-vault.md)
+* [Access external resources with secrets stored in Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 
 <!-- LINKS - Internal -->

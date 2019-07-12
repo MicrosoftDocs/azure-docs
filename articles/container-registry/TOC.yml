@@ -106,7 +106,7 @@
          - name: Enable a managed identity on a task
            href: container-registry-tasks-authentication-managed-identity.md
          - name: Cross-registry authentication from a task
-           href: container-registry-tasks-cross-registry-authenticatin.md
+           href: container-registry-tasks-cross-registry-authentication.md
          - name: External authentication using a key vault
            href: container-registry-tasks-authentication-key-vault.md
   - name: Registries and other Azure services
