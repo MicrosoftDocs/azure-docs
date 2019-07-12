@@ -103,37 +103,29 @@ Instances have the following JSON representation:
 
 ```json
 {
-  "instances": [
-        {
-            "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
-            "timeSeriesId": [
-                "Id1One",
-                "Id2One",
-                "Id3One"
-            ],
-            "name" : "timeSeries1",
-            "description": "floor 100",
-            "hierarchyIds": [
-                "1643004c-0a84-48a5-80e5-7688c5ae9295"
-            ],
-            "instanceFields": {
-                "state": "California",
-                "city": "Los Angeles"
-            }
-        }
-    ],
-    "continuationToken": "aXsic2tpcCI6MSwidGFrZSI6MX0="
+    "timeSeriesId": ["PU2"],
+    "typeId": "545314a5-7166-4b90-abb9-fd93966fa39b",
+    "hierarchyIds": ["95f0a8d1-a3ef-4549-b4b3-f138856b3a12"],
+    "description": "Pump #2",
+    "instanceFields": {
+        "Location": "Redmond",
+        "Fleet": "Fleet 5",
+        "Unit": "Pump Unit 3",
+        "Manufacturer": "Contoso",
+        "ScalePres": "0.54",
+        "scaleTemp": "0.54"
+    }
 }
 ```
 
 > [!TIP]
-> For Time Series Insights Instance API support, consult the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Instance API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> For Time Series Insights Instance API and CRUD support, consult the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Instance API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## Time Series Model hierarchies
 
 Time Series Model *hierarchies* organize instances by specifying property names and their relationships.
 
-You might have a single hierarchy or multiple hierarchies. They don't need to be a current part of your data, but each instance should map to a hierarchy. A Time Series Model instance can map to a single hierarchy or multiple hierarchies.
+You might have a single hierarchy or multiple hierarchies. They don't need to be a current part of your data, but each instance should map to a hierarchy. A Time Series Model instance can map to a single hierarchy or multiple hierarchies (many-to-many relationship).
 
 The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) client interface displays a standard instance and type hierarchy.
 
@@ -184,7 +176,7 @@ Above:
 * `ManufactureDate` defines a hierarchy with parent `year` and child `month`. Each `ManufactureDate` can have multiple `years` which in turn can have multiple `months`.
 
 > [!TIP]
-> For Time Series Insights Instance API support, consult the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Hierarchy API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> For Time Series Insights Instance API and CRUD support, consult the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Hierarchy API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### Hierarchy example
 
@@ -229,7 +221,7 @@ The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/sampl
 [![Time Series Model types](media/v2-update-tsm/types.png)](media/v2-update-tsm/types.png#lightbox)
 
 > [!TIP]
-> For Time Series Insights Instance API support, consult the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Type API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> For Time Series Insights Instance API and CRUD support, consult the [Data querying](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) article and the [Type API REST documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ### Type properties
 
@@ -268,18 +260,50 @@ A JSON type response object will take the following form:
 
 ### Variables
 
-Time Series Insights types have variables, which are named calculations over values from the events.
+Time Series Insights types may have many variables which specify formula and computation rules for events.
 
-Time Series Insights variable definitions contain formula and computation rules. Variable definitions include *kind*, *value*, *filter*, *reduction*, and *boundaries*.
+Each variable can be one of three *kinds*: *numeric*, *categorical*, and *aggregate*.
 
-Variables are stored in the type definition in Time Series Model and can be provided inline via [Query APIs](time-series-insights-update-tsq.md) to override the stored definition.
+* *Numeric* kinds are discrete values of the `Double` data type. 
+* *Categorical* kinds are continuous and include the `Double`, `String`, `Bool`, and `DateTime` data types.
+* *Aggregate* values combine multiple variables of single kind (either all *numeric* or all *categorical*).
+
+Variable definitions also include *filter*, *value*, *interpolation*, *aggregation*, and *data type* definitions which are described using the table below:
 
 | Definition | Description |
 | --- | ---|
-| Variable kind |  *Numeric* and *Aggregate* kinds are supported |
+| Variable kind |  *Numeric*, *Categorical*, or *Aggregate* |
 | Variable filter | Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions. |
 | Variable value | Variable values are and should be used in computation. The relevant field to refer to for the data point in question. |
-| Variable aggregation | The aggregate function of the variable enables part of computation. Time Series Insights supports regular aggregates (namely, *min*, *max*, *avg*, *sum*, and *count*). |
+| Variable interpolation | Specifies how to reconstruct signals using existing data. |
+| Variable aggregation | Support computation through *Avg*, *Min*, *Max*, *Sum*, *Count* and time-weighted (*Avg*, *Min*, *Max*, *Sum*) operators. |
+
+The table below displays which operators are available to which variable kinds.
+
+[![Time Series Model types](media/v2-update-tsm/variable_table.png)](media/v2-update-tsm/variable_table.png#lightbox)
+
+Variables are stored in the type definition of a Time Series Model and can be provided inline via [Query APIs](time-series-insights-update-tsq.md) to override the stored definition.
+
+A JSON type response object will take the following form:
+
+```JSON
+"Interpolated Speed": {​
+    "kind": "numeric",​
+    "value": {​
+        "tsx": "$event.[speed].Double"​
+    },​
+    "filter": null,​
+    "interpolation": {​
+        "kind": "step",​
+        "boundary": {​
+             “span": "P1D"​
+        }​
+    },​
+    "aggregation": {​
+        "tsx": "left($value)"​
+    }
+}
+```
 
 ## Next steps
 
