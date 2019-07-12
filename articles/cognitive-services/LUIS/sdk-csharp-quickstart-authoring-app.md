@@ -11,7 +11,6 @@ ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: diberry
 ---
-
 # Quickstart: Language Understanding (LUIS) client library for .NET
 
 Get started with the Language Understanding (LUIS) client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  Language Understanding (LUIS) enables you to apply custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. 
