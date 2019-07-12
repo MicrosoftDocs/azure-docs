@@ -67,8 +67,8 @@ To configure Azure Monitor for VMs Map integration, do the following:
 
     For the integration to build a distributed application diagram for a server, the server must be:
 
-   * Managed by Operations Manager
-   * Managed by Azure Monitor for VMs
+   * Monitored by Operations Manager
+   * Configured to report to the Log Analytics workspace configured with Azure Monitor for VMs
    * Listed in the Service Map Servers Group
 
      ![The Operations Manager Configuration Group](media/service-map-scom/scom-config-group.png)
