@@ -126,13 +126,13 @@ The following example shows the response for the document collection in this art
 }
 ```
 
-## Sentiment Analysis V3 public preview
+## Sentiment Analysis v3 public preview
 
 The [next version of Sentiment Analysis](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) is now available for public preview. It provides significant improvements in the accuracy and detail of the API's text categorization and scoring. 
 
 > [!NOTE]
 > * The Sentiment Analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
-> * At this time, Sentiment Analysis V3: 
+> * At this time, Sentiment Analysis v3: 
 >    * Currently supports only the English language.  
 >    * Is available in the following regions: `Central US`, `Central Canada`, and `East Asia`.
 
@@ -145,7 +145,7 @@ The [next version of Sentiment Analysis](https://westcentralus.dev.cognitive.mic
 
 ### Sentiment labeling
 
-Sentiment Analysis V3 can return scores and labels at a sentence and document level. The scores and labels are `positive`, `negative`, and `neutral`. At the document level, the `mixed` sentiment label (not the score) also can be returned. The sentiment of the document is determined by aggregating the scores of the sentences.
+Sentiment Analysis v3 can return scores and labels at a sentence and document level. The scores and labels are `positive`, `negative`, and `neutral`. At the document level, the `mixed` sentiment label (not the score) also can be returned. The sentiment of the document is determined by aggregating the scores of the sentences.
 
 | Sentence sentiment                                                        | Returned document label |
 |---------------------------------------------------------------------------|----------------|
@@ -154,7 +154,7 @@ Sentiment Analysis V3 can return scores and labels at a sentence and document le
 | At least one negative sentence and at least one positive sentence.         | `mixed`        |
 | All sentences are neutral.                                                 | `neutral`      |
 
-### Sentiment Analysis V3 example request
+### Sentiment Analysis v3 example request
 
 The following JSON is an example of a request made to the new version of Sentiment Analysis. The request formatting is the same as the previous version:
 
@@ -175,7 +175,7 @@ The following JSON is an example of a request made to the new version of Sentime
 }
 ```
 
-### Sentiment Analysis V3 example response
+### Sentiment Analysis v3 example response
 
 While the request format is the same as the previous version, the response format has changed. The following JSON is an example response from the new version of the API:
 
