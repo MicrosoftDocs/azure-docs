@@ -333,10 +333,10 @@ A confusion matrix is used to describe the performance of a classification model
 For classification problems, Azure Machine Learning automatically provides a confusion matrix for each model that is built. For each confusion matrix, automated ML will show the correctly classified labels as green, and incorrectly classified labels as red. The size of the circle represents the number of samples in that bin. In addition, the frequency count of each predicted label and each true label is provided in the adjacent bar charts. 
 
 Example 1: A classification model with poor accuracy
-![A classification model with poor accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.png)
+![A classification model with poor accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
 Example 2: A classification model with high accuracy (ideal)
-![A classification model with high accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.png)
+![A classification model with high accuracy](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
 
 #### Precision-recall chart
@@ -432,7 +432,7 @@ Example 2: A regression model with more even distribution of errors
 
 Feature importance gives a score that indicates how valuable each feature was in the construction of a model. You can review the feature importance score for the model overall as well as per class on a predictive model. You can see per feature how the importance compares against each class and overall.
 
-![Feature Explain ability](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature_explain1.png)
+![Feature Explain ability](./media/how-to-track-experiments/azure-machine-learning-auto-ml-feature-explain1.png)
 
 ## Example notebooks
 The following notebooks demonstrate concepts in this article:
