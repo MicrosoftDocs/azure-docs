@@ -63,7 +63,7 @@ To configure Azure Monitor for VMs Map integration, do the following:
 
     ![The Operations Manager Configuration Machine Groups](media/service-map-scom/scom-config-machine-groups.png)
 
-5. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.
+5. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and the Map feature. Click **Add/Remove Servers**.
 
     For the integration to build a distributed application diagram for a server, the server must be:
 
