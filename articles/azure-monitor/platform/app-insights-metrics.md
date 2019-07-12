@@ -34,7 +34,7 @@ When you plot the same metric in [metrics explorer](metrics-getting-started.md),
 1. The selected **Split chart** dimension is translated into an extra summarize property. For example, if you split your chart by *location*, and plot using a 5-minute time granularity, the *summarize* clause is summarized ... by bin(timestamp, 5 m), location*.
 
 > [!NOTE]
-> If you are new to Kusto query language, you start by copying and pasting Kusto statements into the Log Analytics query pane without making any modifications. Click **Run** to see basic chart. As you begin to understand the syntax of query language, you can start making small modifications and see the impact of your change. Exploring your own data is a great way to start realizing the full power of [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) and [Azure Monitor](../../azure-monitor/overview.md).
+> If you are new to the Kusto query language, you start by copying and pasting Kusto statements into the Log Analytics query pane without making any modifications. Click **Run** to see basic chart. As you begin to understand the syntax of query language, you can start making small modifications and see the impact of your change. Exploring your own data is a great way to start realizing the full power of [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) and [Azure Monitor](../../azure-monitor/overview.md).
 
 ## Availability metrics
 
