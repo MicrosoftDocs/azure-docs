@@ -193,7 +193,7 @@ This section only applies to the standard file shares. All premium file shares a
 ### Restrictions
 
 - Requires you to create a new general purpose storage account (cannot expand existing storage accounts).
-- LRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
+- LRS/ZRS to GRS account conversion will not be possible on any new storage account created after the subscription is accepted to the larger file shares preview.
 
 ### Regional availability
 
