@@ -78,7 +78,7 @@ The following data categorizes each service by which kind of data it allows or r
 |[Translator text](./translator/translator-info-overview.md)|x|||
 |[Translator text - custom translator]()||x||
 
-*Personalizer works without any training data. You can use training data collected by the service (as it operates in real-time) to evaluate your policy and data. 
+*Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
 
 ## Where can you use Cognitive Services?
  
