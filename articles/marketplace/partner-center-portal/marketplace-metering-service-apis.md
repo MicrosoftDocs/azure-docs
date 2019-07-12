@@ -15,7 +15,7 @@ ms.date: 07/11/2019
 
 The usage event API allows you to emit usage events for a specific purchased entity.
 
-**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?	api-version=<ApiVersion>`
+**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *Query parameters:*
 
