@@ -115,7 +115,7 @@ This is a known issue and a fix is available for the issue. Please download the 
 ### Appliance is not able to connect to the internet
 
 This can happen when the machine you are using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs one.
-If you are using any URL-based firewall proxy to control outbound connectivity, be sure to whitelist these required URLs:
+If you are using any URL-based firewall proxy to control outbound connectivity, be sure to add these required URLs to an allow list:
 
 **URL** | **Purpose**  
 --- | ---
