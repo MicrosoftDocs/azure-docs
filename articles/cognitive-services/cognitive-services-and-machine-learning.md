@@ -7,7 +7,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 07/15/2019
 ms.author: diberry
 ---
 # Cognitive Services and machine learning
@@ -60,15 +60,15 @@ The following data categorizes each service by which kind of data it allows or r
 |--|--|--|--|
 |[Anomaly detector](./Anomaly-Detector/overview.md)|x|x|x|
 |Bing search services|x|||
-|[Computer vision](./Computer-vision/Home.md)||||
-|[Content moderator](./Content-Moderator/overview.md)||||
-|[Custom vision](./Custom-Vision-Service/home.md)||||
-|[Face](./Face/Overview.md)||||
+|[Computer vision](./Computer-vision/Home.md)|x|||
+|[Content moderator](./Content-Moderator/overview.md)|x||x|
+|[Custom vision](./Custom-Vision-Service/home.md)||x||
+|[Face](./Face/Overview.md)|x|x||
 |[Form recognizer](./form-recognizer/overview.md)||x||
 |[Immersive reader](./immersive-reader/overview.md)|x|||
 |[Ink recognizer](./Ink-recognizer/overview.md)|x|x||
 |[Language understanding (LUIS)](./LUIS/what-is-luis.md)||x||
-|[Personalizer](./personalizer/what-is-personalizer.md)||x|x|
+|[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Speaker recognizer](./speaker-recognition/home.md)||x||
 |[Speech text-to-speech (TTS)](speech-service/text-to-speech.md)|x|x||
@@ -77,7 +77,8 @@ The following data categorizes each service by which kind of data it allows or r
 |[Text analytics](./text-analytics/overview.md)|x|||
 |[Translator text](./translator/translator-info-overview.md)|x|||
 |[Translator text - custom translator]()||x||
-|[Video indexer](./video-indexer/video-indexer-overview.md)||||
+
+*Personalizer works without any training data. You can use training data collected by the service (as it operates in real-time) to evaluate your policy and data. 
 
 ## Where can you use Cognitive Services?
  
