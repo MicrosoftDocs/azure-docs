@@ -77,7 +77,7 @@ Both the device and the service sides of a device stream must be capable of esta
 
 !["Device stream endpoints"](./media/iot-hub-device-streams-overview/device-stream-in-portal.png)
 
-Alternatively, the endpoints information can use be retrieved using Azure CLI under the hub's properties section, specifically, `property.hostname` and `property.deviceStreams` keys.
+Alternatively, the endpoints information can be retrieved using Azure CLI under the hub's properties section, specifically, `property.hostname` and `property.deviceStreams` keys.
 
 ```azurecli-interactive
 az iot hub devicestream show --name <YourIoTHubName>

@@ -5,7 +5,7 @@ services: networking
 documentationcenter: 
 author: KumudD
 manager: 
-ms.service: networking
+ms.service: virtual-network
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na

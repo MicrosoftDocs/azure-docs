@@ -59,5 +59,5 @@ You have two options to resolve the mismatched directory error. You may:
 
 
 ## Related content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
+* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Troubleshooting guide - Azure AD Domain Services](troubleshoot.md)

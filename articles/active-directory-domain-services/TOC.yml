@@ -13,6 +13,8 @@
 - name: Tutorials
   expanded: true
   items:
+    - name: Create a managed domain
+      href: tutorial-create-instance.md
     - name: Configure secure LDAP
       href: tutorial-configure-ldaps.md
 - name: Samples
@@ -25,26 +27,16 @@
       href: synchronization.md
 - name: How to
   items: 
-    - name: Create an Azure AD DS instance
-      items: 
-        - name: "Task 1 configure basic settings"
-          href: create-instance.md
-        - name: "Task 2 configure network settings"
-          href: active-directory-ds-getting-started-network.md
-        - name: "Task 3 configure administrator group and enable Azure AD Domain Services"
-          href: active-directory-ds-getting-started-admingroup.md
-        - name: "Task 4 update DNS settings for virtual network"
-          href: active-directory-ds-getting-started-dns.md
-        - name: "Task 5 enable password hash synchronization"
-          href: active-directory-ds-getting-started-password-sync.md
     - name: Plan for Azure AD DS
       items: 
         - name: Scenarios
           href: scenarios.md
-        - name: Select a virtual network
+        - name: Plan a virtual network
           href: network-considerations.md
     - name: Manage Azure AD DS
       items: 
+        - name: Enable security audit events (Preview)
+          href: security-audit-events.md
         - name: Check a managed domain's health
           href: check-health.md
         - name: Configure scoped synchronization from Azure AD to a managed domain

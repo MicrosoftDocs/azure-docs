@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to monitor boot diagnostics and per
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
