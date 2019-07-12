@@ -98,6 +98,10 @@
   items:
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
+  - name: Audit logs API reference
+    href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+  - name: Sign-in logs API reference
+    href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
   - name: Audit activities
     href: reference-audit-activities.md
   - name: Data retention policies
