@@ -127,7 +127,7 @@ The output will show similar to the following with the annotation schema-version
 ```
 
 ## Review Prometheus data usage
-To identify what each metrics size is in bytes to understand if the volume of data ingested received in the workspace is high, the following query is provided.
+To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
 ```
 InsightsMetrics 
