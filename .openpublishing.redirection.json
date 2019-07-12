@@ -1093,7 +1093,7 @@
     {
       "source_path": "articles/active-directory/authentication/howto-sspr-windows-7-8.md",
       "redirect_url": "/azure/active-directory/authentication/howto-sspr-windows",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/authentication/tutorial-sspr-windows.md",

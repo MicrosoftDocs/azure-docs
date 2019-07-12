@@ -56,7 +56,7 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
     - EnableLostMode is set on the device
     - Explorer.exe is replaced with a custom shell
 - The combination of the following specific three settings can cause this feature to not work.
-    - Interactive logon: To not require CTRL+ALT+DEL = Disabled
+    - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
     - DisableLockScreenAppNotifications = 1 or Enabled
     - IsContentDeliveryPolicyEnforced = 1 or True 
 
