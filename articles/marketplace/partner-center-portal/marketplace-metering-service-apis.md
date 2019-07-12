@@ -13,7 +13,7 @@ ms.date: 07/11/2019
 
 ## Usage event
 
-The usage event API allows you to emit usage events for a specific purchased entity.
+The usage event API allows you to emit usage events for a specific purchased entity. The usage event request references the metering services dimension defined by the publisher when publishing the offer.
 
 **POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
@@ -21,7 +21,7 @@ The usage event API allows you to emit usage events for a specific purchased ent
 
 |            |          |
 | ---------- | ---------------------- |
-| `ApiVersion` | The version of the operation to use for this request. |
+| `ApiVersion` | The version of the operation to use for this request. Latest API version is 2018-08-31. |
 
 *Request headers:*
 
@@ -29,7 +29,7 @@ The usage event API allows you to emit usage events for a specific purchased ent
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
-| `authorization`   | [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+| `authorization`   | [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Note: When making the HTTP request, prefix `Bearer` to the token obtained from the referenced link. |
 
 *Request:*
 
@@ -37,8 +37,8 @@ The usage event API allows you to emit usage events for a specific purchased ent
 {
   "resourceId": "Identifier of the resource against which usage is emitted",
   "quantity": 5.0,
-  "dimension": "dimension identifier",
-  "effectiveStartTime": "Time in UTC when the usage event occured",
+  "dimension": "Dimension identifier",
+  "effectiveStartTime": "Time in UTC when the usage event occurred",
   "planId": "Plan associated with the purchased offer"
 }
 ```
@@ -55,8 +55,8 @@ OK
   "messageTime": "Time this message was created in UTC",
   "resourceId": "Identifier of the resource against which usage is emitted",
   "quantity": 5.0,
-  "dimension": "dimension identifier",
-  "effectiveStartTime": "Time in UTC when the usage event occured",
+  "dimension": "Dimension identifier",
+  "effectiveStartTime": "Time in UTC when the usage event occurred",
   "planId": "Plan associated with the purchased offer"
 }
 ```
@@ -71,7 +71,7 @@ Bad request, missing or invalid data provided or expired
   "details": [
     {
       "message": "The resourceId is required.",
-      "target": "UsageResourceId",
+      "target": "ResourceId",
       "code": "BadArgument"
     }
   ],
@@ -101,8 +101,8 @@ Conflict, when we receive the usage call for the usage resource Id, and effectiv
     "messageTime": "Time this message was created in UTC",
     "resourceId": "Identifier of the resource against which usage is emitted",
     "quantity": 5.0,
-    "dimension": "dimension identifier",
-    "effectiveStartTime": "Time in UTC when the usage event occured",
+    "dimension": "Dimension identifier",
+    "effectiveStartTime": "Time in UTC when the usage event occurred",
     "planId": "Plan associated with the purchased offer"
   }
 }
@@ -110,7 +110,7 @@ Conflict, when we receive the usage call for the usage resource Id, and effectiv
 
 ## Batch usage event
 
-The batch usage event API allows you to emit usage events for more than one purchased entity at once. 
+The batch usage event API allows you to emit usage events for more than one purchased entity at once. The batch usage event request references the metering services dimension defined by the publisher when publishing the offer.
 
 >[!Note]
 >You can register multiple SaaS offers in the Microsoft’s commercial marketplace. Each registered SaaS offer has a unique Azure AD application that is registered for authentication and authorization purposes. The events emitted in batch should belong to offers with the same Azure AD application at the time of registering the offer.
@@ -121,7 +121,7 @@ The batch usage event API allows you to emit usage events for more than one purc
 
 |            |     |
 | ---------- | -------------------- |
-| `ApiVersion` | The version of the operation to use for this request. |
+| `ApiVersion` | The version of the operation to use for this request. Latest API version is 2018-08-31. |
 
 *Request headers:*
 
@@ -129,7 +129,7 @@ The batch usage event API allows you to emit usage events for more than one purc
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated, and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated, and provided in the response headers. |
-| `authorization`      | [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+| `authorization`      | [Get JSON web token (JWT) bearer token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Note: When making the HTTP request, prefix `Bearer` to the token obtained from the referenced link.  |
 
 *Request:*
 ```json
@@ -138,15 +138,15 @@ The batch usage event API allows you to emit usage events for more than one purc
     {
       "resourceId": "Identifier of the resource against which usage is emitted",
       "quantity": 5.0,
-      "dimension": "dimension identifier",
-      "effectiveStartTime": "Time in UTC when the usage event occured",
+      "dimension": "Dimension identifier",
+      "effectiveStartTime": "Time in UTC when the usage event occurred",
       "planId": "Plan associated with the purchased offer"
     },
     {
       "resourceId": "Identifier of the resource against which usage is emitted",
       "quantity": 5.0,
-      "dimension": "dimension identifier",
-      "effectiveStartTime": "Time in UTC when the usage event occured",
+      "dimension": "Dimension identifier",
+      "effectiveStartTime": "Time in UTC when the usage event occurred",
       "planId": "Plan associated with the purchased offer"
     }
   ]
@@ -167,8 +167,8 @@ OK
       "messageTime": "Time this message was created in UTC",
       "resourceId": "Identifier of the resource against which usage is emitted",
       "quantity": 5.0,
-      "dimension": "dimension identifier",
-      "effectiveStartTime": "Time in UTC when the usage event occured",
+      "dimension": "Dimension identifier",
+      "effectiveStartTime": "Time in UTC when the usage event occurred",
       "planId": "Plan associated with the purchased offer",
       "error": "Error object (optional)"
     },
@@ -178,14 +178,15 @@ OK
       "messageTime": "Time this message was created in UTC",
       "resourceId": "Identifier of the resource against which usage is emitted",
       "quantity": 5.0,
-      "dimension": "dimension identifier",
-      "effectiveStartTime": "Time in UTC when the usage event occured",
+      "dimension": "Dimension identifier",
+      "effectiveStartTime": "Time in UTC when the usage event occurred",
       "planId": "Plan associated with the purchased offer",
       "error": "Error object (optional)"
     }
   ]
 }
 ```
+
 Description of status code referenced in `BatchUsageEvent` API response:
 
 | Status code  | Description |
