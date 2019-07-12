@@ -19,16 +19,15 @@ In this article, you learn how to use a managed identity in a task that performs
 > [!div class="checklist"]
 > * Enable a user-assigned or system-assigned managed identity on an ACR task
 > * Grant the identity access to another Azure container registry 
-> * Use the managed identity to access the target container registry from a sample task 
+> * Use the managed identity in a task step to pull an image from the target container registry 
 
 To create the Azure resources, this article requires that you run the Azure CLI version 2.0.68 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
 ## Scenario overview
 
-The example tasks require pulling a base image from another registry to build and push an application image. To pull the base imagem tou configure the task with either a user-assigned or system-assigned managed identity, depending on your organization's needs. 
+The example task requires pulling a base image from another registry to build and push an application image. To pull the base image, you configure the task with a managed identity and assign appropriate permissions to it. This article shows the same task example using either a user-assigned or system-assigned managed identity. Your choice of identity depends on your organization's needs.
 
 In a real-world scenario, an organization might maintain a set of base images used by all development teams to build their applications. These base images are stored in a corporate registry, with each development team having only pull rights. 
-
 
 ## Prerequisites
 
@@ -45,7 +44,7 @@ If you don't already have the needed Azure container registries, see [Quickstart
 
 ### User-assigned identity
 
-Create an identity named *myACRTasksId* in your subscription using the [az identity create][az-identity-create] command. You can use the same resource group you used previously to create a container registry, or a different one.
+If you plan to enable a user-assigned identity, create an identity named *myACRTasksId* in your subscription using the [az identity create][az-identity-create] command. You can use the same resource group you used previously to create a container registry, or a different one.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRTasksId
@@ -95,7 +94,7 @@ The build step uses the `Dockerfile-app` file in the [Azure-Samples/acr-build-he
 
 ### Create task
 
-Create the task *helloworldtask* by executing the following [az acr task create][az-acr-task-create] command. The task context is the local system, and the command references the file `helloworldtask.yaml` in the working directory. The `--assign-identity` parameter enables the user-assigned identity on the task. 
+Create the task *helloworldtask* by executing the following [az acr task create][az-acr-task-create] command. The task context is the local system, and the command references the file `helloworldtask.yaml` in the working directory. The `--assign-identity` parameter passes the resource ID of the user-assigned identity . 
 
 ```azurecli
 az acr task create \
@@ -124,7 +123,7 @@ In the command output, the `identity` section shows the identity of type `UserAs
 
 ### Give identity pull permissions to the base registry
 
-In this section, give the user-assigned identity permissions to pull from the base registry, *mybaseregistry*.
+In this section, give the identity permissions to pull from the base registry, *mybaseregistry*.
 
 First use the [az acr show][az-acr-show] command to get the resource ID of the base registry and store it in a variable:
 
@@ -152,7 +151,140 @@ az acr task credential add \
 
 ### Manually run the task
 
-Use the [az acr task run][az-acr-task-run] command to manually trigger the task. 
+To verify that the task runs successfully, manually trigger the task with the [az acr task run][az-acr-task-run] command. 
+
+```azurecli
+az acr task run \
+  --name helloworldtask \
+  --registry myregistry
+```
+
+If the task runs successfully, output is similar to:
+
+```
+Queued a run with ID: cf10
+Waiting for an agent...
+2019/06/14 22:47:32 Using acb_vol_dbfbe232-fd76-4ca3-bd4a-687e84cb4ce2 as the home volume
+2019/06/14 22:47:39 Creating Docker network: acb_default_network, driver: 'bridge'
+2019/06/14 22:47:40 Successfully set up Docker network: acb_default_network
+2019/06/14 22:47:40 Setting up Docker configuration...
+2019/06/14 22:47:41 Successfully set up Docker configuration
+2019/06/14 22:47:41 Logging in to registry: myregistry.azurecr.io
+2019/06/14 22:47:42 Successfully logged into myregistry.azurecr.io
+2019/06/14 22:47:42 Logging in to registry: mybaseregistry.azurecr.io
+2019/06/14 22:47:43 Successfully logged into mybaseregistry.azurecr.io
+2019/06/14 22:47:43 Executing step ID: acb_step_0. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
+2019/06/14 22:47:43 Scanning for dependencies...
+2019/06/14 22:47:45 Successfully scanned dependencies
+2019/06/14 22:47:45 Launching container with name: acb_step_0
+Sending build context to Docker daemon   25.6kB
+Step 1/6 : ARG REGISTRY_NAME
+Step 2/6 : FROM ${REGISTRY_NAME}/baseimages/node:9-alpine
+9-alpine: Pulling from baseimages/node
+[...]
+Successfully built 41b49a112663
+Successfully tagged myregistry.azurecr.io/hello-world:cf10
+2019/06/14 22:47:56 Successfully executed container: acb_step_0
+2019/06/14 22:47:56 Executing step ID: acb_step_1. Timeout(sec): 600, Working directory: '', Network: 'acb_default_network'
+2019/06/14 22:47:56 Pushing image: myregistry.azurecr.io/hello-world:cf10, attempt 1
+The push refers to repository [myregistry.azurecr.io/hello-world]
+[...]
+2019/06/14 22:48:00 Step ID: acb_step_1 marked as successful (elapsed time in seconds: 2.517011)
+2019/06/14 22:48:00 The following dependencies were found:
+2019/06/14 22:48:00
+- image:
+    registry: myregistry.azurecr.io
+    repository: hello-world
+    tag: cf10
+    digest: sha256:611cf6e3ae3cb99b23fadcd89fa144e18aa1b1c9171ad4a0da4b62b31b4e38d1
+  runtime-dependency:
+    registry: mybaseregistry.azurecr.io
+    repository: baseimages/node
+    tag: 9-alpine
+    digest: sha256:e8e92cffd464fce3be9a3eefd1b65dc9cbe2484da31c11e813a4effc6105c00f
+  git:
+    git-head-revision: 0f988779c97fe0bfc7f2f74b88531617f4421643
+
+Run ID: cf10 was successful after 32s
+```
+
+Run the [az acr repository show-tags][az-acr-repository-show-tags] command to verify that the image built and was successfully pushed to *myregistry*:
+
+```azurecli
+az acr repository show-tags --name myregistry --repository hello-world --output tsv
+```
+
+Example output:
+
+```console
+cf10
+```
+
+## Create and run task with system-assigned identity
+
+### Create task
+
+Create the task *helloworldtask* by executing the following [az acr task create][az-acr-task-create] command. The task context is the local system, and the command references the file `helloworldtask.yaml` in the working directory. The `--assign-identity` parameter with no values enables the system-assigned identity on the task. 
+
+```azurecli
+az acr task create \
+  --registry myregistry \
+  --name helloworldtask \
+  --context /dev/null \
+  --file helloworldtask.yaml \
+  --assign-identity 
+```
+
+In the command output, the `identity` section shows an identity of type `SystemAssigned` is set in the task. The `principalId` is the service principal ID of the identity:
+
+```console
+[...]
+  "identity": {
+    "principalId": "xxxxxxxx-2703-42f9-97d0-xxxxxxxxxxxx",
+    "tenantId": "xxxxxxxx-86f1-41af-91ab-xxxxxxxxxxxx",
+    "type": "SystemAssigned",
+    "userAssignedIdentities": null
+  },
+  "location": "eastus",
+[...]
+``` 
+Use the [az acr task show][az-acr-task-show] command to store the principalId in a variable, to use in later commands:
+
+```azurecli
+principalID=$(az acr task show --name dockerhubtask --registry myregistry --query identity.principalId --output tsv)
+```
+
+### Give identity pull permissions to the base registry
+
+In this section, give the user-assigned identity permissions to pull from the base registry, *mybaseregistry*.
+
+First use the [az acr show][az-acr-show] command to get the resource ID of the base registry and store it in a variable:
+
+```azurecli
+basereg_id=$(az acr show --name mybaseregistry --query id --output tsv)
+```
+
+Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpull` role to the base registry. This role has permissions only to pull images from the registry.
+
+```azurecli
+az role assignment create --assignee $principalID --scope $basereg_id --role acrpull
+```
+
+### Add target registry credentials to task
+
+Now use the [az acr task credential add][az-acr-task-credential-add] command to add the identity's credentials to the task so that it can authenticate with the base registry. The `--use-identity` parameter with value `[system]` specifies the user-assigned identity.
+
+```azurecli
+az acr task credential add \
+  --name helloworldtask \
+  --registry myregistry \
+  --login-server mybaseregistry.azurecr.io \
+  --use-identity [system]
+```
+
+### Manually run the task
+
+To verify that the task runs successfully, manually trigger the task with the [az acr task run][az-acr-task-run] command. 
 
 ```azurecli
 az acr task run \
