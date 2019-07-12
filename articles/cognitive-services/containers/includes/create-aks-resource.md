@@ -28,7 +28,7 @@ ms.author: dapine
     |Node size|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
     |Node count|Leave the slider at the default value|
 
-1. On the **Scale** tab, leave **Virtual nodes** and **VM scale sets (preview)** set to the default values.
+1. On the **Scale** tab, leave **Virtual nodes** and **Virtual machine scale sets (preview)** set to the default values.
 1. On the **Authentication** tab, leave **Service principal** and **Enable RBAC** set to the default values.
 1. On the **Networking** tab, enter the following selections:
 
